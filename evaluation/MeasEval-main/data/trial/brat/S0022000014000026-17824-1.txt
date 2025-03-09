@@ -1,1 +1,0 @@
-The figure also demonstrates the capability of FATAL+ to generate pulses with significantly less skew (1 μs) on top of the FATAL pulses with worst-case skew.
