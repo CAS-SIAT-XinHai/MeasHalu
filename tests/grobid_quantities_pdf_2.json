@@ -1,0 +1,4459 @@
+{
+  "runtime": 32704,
+  "pages": [
+    {
+      "page_height": 793.7,
+      "page_width": 595.3
+    },
+    {
+      "page_height": 793.7,
+      "page_width": 595.3
+    },
+    {
+      "page_height": 793.7,
+      "page_width": 595.3
+    },
+    {
+      "page_height": 793.7,
+      "page_width": 595.3
+    },
+    {
+      "page_height": 793.7,
+      "page_width": 595.3
+    }
+  ],
+  "measurements": [
+    {
+      "type": "value",
+      "quantity": {
+        "type": "length",
+        "rawValue": "10",
+        "rawUnit": {
+          "name": "nm",
+          "type": "length",
+          "system": "SI base",
+          "offsetStart": 1297,
+          "offsetEnd": 1299
+        },
+        "parsedValue": {
+          "name": "10",
+          "numeric": 10,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "10"
+          },
+          "parsed": "10"
+        },
+        "parsedUnit": {
+          "name": "nm",
+          "type": "length",
+          "system": "SI base",
+          "offsetStart": 1297,
+          "offsetEnd": 1299
+        },
+        "normalizedQuantity": 1E-8,
+        "normalizedUnit": {
+          "name": "m",
+          "type": "length",
+          "system": "SI base"
+        },
+        "offsetStart": 1294,
+        "offsetEnd": 1296
+      },
+      "quantified": {
+        "rawName": "Superparamagnetic magnetite nanoparticles",
+        "normalizedName": "nanoparticles",
+        "offsetStart": 0,
+        "offsetEnd": 41
+      },
+      "boundingBoxes": [
+        {
+          "p": 1,
+          "x": 423.241,
+          "y": 318.382,
+          "w": 14.2171,
+          "h": 7.1731
+        },
+        {
+          "p": 1,
+          "x": 438.654,
+          "y": 318.497,
+          "w": 9.458933333333333,
+          "h": 6.7714
+        }
+      ],
+      "measurementRaw": "10 nm",
+      "measurementOffsets": {
+        "start": 1294,
+        "end": 1299
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "1:2",
+        "parsedValue": {
+          "name": "1:2",
+          "numeric": 1,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "1"
+          },
+          "parsed": "1"
+        },
+        "offsetStart": 1404,
+        "offsetEnd": 1407
+      },
+      "quantified": {
+        "rawName": "molar ratio",
+        "normalizedName": "ratio",
+        "offsetStart": 156,
+        "offsetEnd": 167
+      },
+      "boundingBoxes": [
+        {
+          "p": 1,
+          "x": 459.403,
+          "y": 328.061,
+          "w": 10.51215000000002,
+          "h": 6.771400000000028
+        }
+      ],
+      "measurementRaw": "1:2",
+      "measurementOffsets": {
+        "start": 1404,
+        "end": 1407
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "10,000",
+        "rawUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 1462,
+          "offsetEnd": 1465
+        },
+        "parsedValue": {
+          "name": "10,000",
+          "numeric": 10000,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "10,000"
+          },
+          "parsed": "10,000"
+        },
+        "parsedUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 1462,
+          "offsetEnd": 1465
+        },
+        "normalizedQuantity": 1047.197551196597666666666666666667,
+        "normalizedUnit": {
+          "name": "rad/s"
+        },
+        "offsetStart": 1455,
+        "offsetEnd": 1461
+      },
+      "boundingBoxes": [
+        {
+          "p": 1,
+          "x": 284.996,
+          "y": 337.625,
+          "w": 23.276700000000005,
+          "h": 6.771399999999971
+        },
+        {
+          "p": 1,
+          "x": 309.468,
+          "y": 337.625,
+          "w": 12.136875,
+          "h": 6.7714
+        }
+      ],
+      "measurementRaw": "10,000 rpm",
+      "measurementOffsets": {
+        "start": 1455,
+        "end": 1465
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "length",
+        "rawValue": "19",
+        "rawUnit": {
+          "name": "nm",
+          "type": "length",
+          "system": "SI base",
+          "offsetStart": 1631,
+          "offsetEnd": 1633
+        },
+        "parsedValue": {
+          "name": "19",
+          "numeric": 19,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "19"
+          },
+          "parsed": "19"
+        },
+        "parsedUnit": {
+          "name": "nm",
+          "type": "length",
+          "system": "SI base",
+          "offsetStart": 1631,
+          "offsetEnd": 1633
+        },
+        "normalizedQuantity": 1.9E-8,
+        "normalizedUnit": {
+          "name": "m",
+          "type": "length",
+          "system": "SI base"
+        },
+        "offsetStart": 1628,
+        "offsetEnd": 1630
+      },
+      "boundingBoxes": [
+        {
+          "p": 1,
+          "x": 480.25827499999997,
+          "y": 347.189,
+          "w": 12.744824999999999,
+          "h": 6.7714
+        },
+        {
+          "p": 1,
+          "x": 494.199,
+          "y": 347.189,
+          "w": 9.458933333333333,
+          "h": 6.7714
+        }
+      ],
+      "measurementRaw": "19 nm",
+      "measurementOffsets": {
+        "start": 1628,
+        "end": 1633
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "18,000",
+        "rawUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 1676,
+          "offsetEnd": 1679
+        },
+        "parsedValue": {
+          "name": "18,000",
+          "numeric": 18000,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "18,000"
+          },
+          "parsed": "18,000"
+        },
+        "parsedUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 1676,
+          "offsetEnd": 1679
+        },
+        "normalizedQuantity": 1884.9555921538758,
+        "normalizedUnit": {
+          "name": "rad/s"
+        },
+        "offsetStart": 1669,
+        "offsetEnd": 1675
+      },
+      "boundingBoxes": [
+        {
+          "p": 1,
+          "x": 262.602,
+          "y": 356.753,
+          "w": 23.29110000000003,
+          "h": 6.771400000000028
+        },
+        {
+          "p": 1,
+          "x": 287.089,
+          "y": 356.753,
+          "w": 12.131475,
+          "h": 6.7714
+        }
+      ],
+      "measurementRaw": "18,000 rpm",
+      "measurementOffsets": {
+        "start": 1669,
+        "end": 1679
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "25,000",
+        "rawUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 1829,
+          "offsetEnd": 1832
+        },
+        "parsedValue": {
+          "name": "25,000",
+          "numeric": 25000,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "25,000"
+          },
+          "parsed": "25,000"
+        },
+        "parsedUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 1829,
+          "offsetEnd": 1832
+        },
+        "normalizedQuantity": 2617.993877991494166666666666666667,
+        "normalizedUnit": {
+          "name": "rad/s"
+        },
+        "offsetStart": 1822,
+        "offsetEnd": 1828
+      },
+      "quantified": {
+        "rawName": "higher stirring velocities",
+        "normalizedName": "velocity",
+        "offsetStart": 558,
+        "offsetEnd": 584
+      },
+      "boundingBoxes": [
+        {
+          "p": 1,
+          "x": 412.1838142857143,
+          "y": 366.317,
+          "w": 22.330885714285728,
+          "h": 6.771399999999971
+        },
+        {
+          "p": 1,
+          "x": 435.71,
+          "y": 366.317,
+          "w": 11.35788,
+          "h": 6.7714
+        }
+      ],
+      "measurementRaw": "25,000 rpm",
+      "measurementOffsets": {
+        "start": 1822,
+        "end": 1832
+      }
+    },
+    {
+      "type": "interval",
+      "quantityLeast": {
+        "rawValue": "20",
+        "rawUnit": {
+          "name": "•",
+          "offsetStart": 1885,
+          "offsetEnd": 1886
+        },
+        "parsedValue": {
+          "name": "20",
+          "numeric": 20,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "20"
+          },
+          "parsed": "20"
+        },
+        "parsedUnit": {
+          "name": "•",
+          "offsetStart": 1885,
+          "offsetEnd": 1886
+        },
+        "offsetStart": 1882,
+        "offsetEnd": 1884
+      },
+      "quantityMost": {
+        "rawValue": "37",
+        "rawUnit": {
+          "name": "• C",
+          "offsetStart": 1893,
+          "offsetEnd": 1896
+        },
+        "parsedValue": {
+          "name": "37",
+          "numeric": 37,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "37"
+          },
+          "parsed": "37"
+        },
+        "parsedUnit": {
+          "name": "•C",
+          "offsetStart": 1893,
+          "offsetEnd": 1896
+        },
+        "offsetStart": 1890,
+        "offsetEnd": 1892
+      },
+      "boundingBoxes": [
+        {
+          "p": 1,
+          "x": 262.728,
+          "y": 375.881,
+          "w": 8.6221,
+          "h": 6.7714
+        },
+        {
+          "p": 1,
+          "x": 271.351,
+          "y": 374.807,
+          "w": 2.4907,
+          "h": 4.9813
+        },
+        {
+          "p": 1,
+          "x": 285.085,
+          "y": 375.882,
+          "w": 8.6364,
+          "h": 6.7714
+        },
+        {
+          "p": 1,
+          "x": 294.917,
+          "y": 374.807,
+          "w": 6.105700000000013,
+          "h": 7.846400000000017
+        }
+      ],
+      "measurementRaw": "20 • to 37 • C",
+      "measurementOffsets": {
+        "start": 1882,
+        "end": 1896
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "1:2",
+        "parsedValue": {
+          "name": "1:2",
+          "numeric": 1,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "1"
+          },
+          "parsed": "1"
+        },
+        "offsetStart": 3845,
+        "offsetEnd": 3848
+      },
+      "quantified": {
+        "rawName": "molar ratio",
+        "normalizedName": "ratio",
+        "offsetStart": 128,
+        "offsetEnd": 139
+      },
+      "boundingBoxes": [
+        {
+          "p": 1,
+          "x": 514.682,
+          "y": 498.442,
+          "w": 11.680200000000013,
+          "h": 7.523799999999994
+        }
+      ],
+      "measurementRaw": "1:2",
+      "measurementOffsets": {
+        "start": 3845,
+        "end": 3848
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "length",
+        "rawValue": "10",
+        "rawUnit": {
+          "name": "nm",
+          "type": "length",
+          "system": "SI base",
+          "offsetStart": 3994,
+          "offsetEnd": 3996
+        },
+        "parsedValue": {
+          "name": "10",
+          "numeric": 10,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "10"
+          },
+          "parsed": "10"
+        },
+        "parsedUnit": {
+          "name": "nm",
+          "type": "length",
+          "system": "SI base",
+          "offsetStart": 3994,
+          "offsetEnd": 3996
+        },
+        "normalizedQuantity": 1E-8,
+        "normalizedUnit": {
+          "name": "m",
+          "type": "length",
+          "system": "SI base"
+        },
+        "offsetStart": 3991,
+        "offsetEnd": 3993
+      },
+      "quantified": {
+        "rawName": "diameters of",
+        "normalizedName": "diameter",
+        "offsetStart": 93,
+        "offsetEnd": 105
+      },
+      "boundingBoxes": [
+        {
+          "p": 1,
+          "x": 540.165,
+          "y": 519.363,
+          "w": 9.5801,
+          "h": 7.5238
+        },
+        {
+          "p": 1,
+          "x": 551.073,
+          "y": 519.363,
+          "w": 12.7043,
+          "h": 7.5238
+        }
+      ],
+      "measurementRaw": "10 nm",
+      "measurementOffsets": {
+        "start": 3991,
+        "end": 3996
+      }
+    },
+    {
+      "type": "interval",
+      "quantityBase": {
+        "rawValue": "20.0 ± 0.5 20.0 ± 1.0 10 000 rpm 20.0 ± 0.5 21.0",
+        "parsedValue": {
+          "name": "20.0 ± 0.5 20.0 ± 1.0 10 000 rpm 20.0 ± 0.5 21.0",
+          "numeric": 20.02,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "20.020.020.021.0 x 10^000 "
+          },
+          "parsed": "20.020.020.021.0 x 10^000 "
+        },
+        "offsetStart": 5324,
+        "offsetEnd": 5372
+      },
+      "quantityRange": {
+        "rawValue": "1.7",
+        "parsedValue": {
+          "name": "1.7",
+          "numeric": 1.7,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "1.7"
+          },
+          "parsed": "1.7"
+        },
+        "offsetStart": 5375,
+        "offsetEnd": 5378
+      },
+      "quantityLeast": {
+        "rawValue": "18.32",
+        "parsedValue": {
+          "numeric": 18.32
+        },
+        "offsetStart": 5324,
+        "offsetEnd": 5372
+      },
+      "quantityMost": {
+        "rawValue": "21.72",
+        "parsedValue": {
+          "numeric": 21.72
+        },
+        "offsetStart": 5375,
+        "offsetEnd": 5378
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 151.754,
+          "y": 92.0196,
+          "w": 31.486799999999988,
+          "h": 6.376099999999994
+        },
+        {
+          "p": 2,
+          "x": 244.779,
+          "y": 92.0196,
+          "w": 31.48879999999997,
+          "h": 6.376099999999994
+        },
+        {
+          "p": 2,
+          "x": 37.8995,
+          "y": 100.689,
+          "w": 34.68979999999999,
+          "h": 6.0190000000000055
+        },
+        {
+          "p": 2,
+          "x": 151.752,
+          "y": 100.587,
+          "w": 31.48879999999997,
+          "h": 6.376099999999994
+        },
+        {
+          "p": 2,
+          "x": 244.767,
+          "y": 100.689,
+          "w": 13.058299999999974,
+          "h": 6.0190000000000055
+        },
+        {
+          "p": 2,
+          "x": 267.048,
+          "y": 100.689,
+          "w": 9.23259999999999,
+          "h": 6.0190000000000055
+        }
+      ],
+      "measurementRaw": "20.0 ± 0.5 20.0 ± 1.0 10 000 rpm 20.0 ± 0.5 21.0 ± 1.7",
+      "measurementOffsets": {
+        "start": 5324,
+        "end": 5378
+      }
+    },
+    {
+      "type": "interval",
+      "quantityBase": {
+        "rawValue": "18 000 rpm 20.0 ± 0.5 22.7",
+        "parsedValue": {
+          "name": "18 000 rpm 20.0 ± 0.5 22.7",
+          "numeric": 20.022,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "00020.022.7"
+          },
+          "parsed": "00020.022.7"
+        },
+        "offsetStart": 5379,
+        "offsetEnd": 5405
+      },
+      "quantityRange": {
+        "rawValue": "0.5",
+        "parsedValue": {
+          "name": "0.5",
+          "numeric": 0.5,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "0.5"
+          },
+          "parsed": "0.5"
+        },
+        "offsetStart": 5408,
+        "offsetEnd": 5411
+      },
+      "quantityLeast": {
+        "rawValue": "19.522",
+        "parsedValue": {
+          "numeric": 19.522
+        },
+        "offsetStart": 5379,
+        "offsetEnd": 5405
+      },
+      "quantityMost": {
+        "rawValue": "20.522",
+        "parsedValue": {
+          "numeric": 20.522
+        },
+        "offsetStart": 5408,
+        "offsetEnd": 5411
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 37.8995,
+          "y": 109.257,
+          "w": 34.702600000000004,
+          "h": 6.0190000000000055
+        },
+        {
+          "p": 2,
+          "x": 151.752,
+          "y": 109.155,
+          "w": 31.48879999999997,
+          "h": 6.376099999999994
+        },
+        {
+          "p": 2,
+          "x": 244.754,
+          "y": 109.257,
+          "w": 13.070999999999998,
+          "h": 6.0190000000000055
+        },
+        {
+          "p": 2,
+          "x": 267.048,
+          "y": 109.257,
+          "w": 9.219799999999964,
+          "h": 6.0190000000000055
+        }
+      ],
+      "measurementRaw": "18 000 rpm 20.0 ± 0.5 22.7 ± 0.5",
+      "measurementOffsets": {
+        "start": 5379,
+        "end": 5411
+      }
+    },
+    {
+      "type": "interval",
+      "quantityBase": {
+        "rawValue": "25 000 rpm 20.0 ± 0.5 37.3",
+        "parsedValue": {
+          "name": "25 000 rpm 20.0 ± 0.5 37.3",
+          "numeric": 20.037,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "00020.037.3"
+          },
+          "parsed": "00020.037.3"
+        },
+        "offsetStart": 5412,
+        "offsetEnd": 5438
+      },
+      "quantityRange": {
+        "rawValue": "1.5",
+        "parsedValue": {
+          "name": "1.5",
+          "numeric": 1.5,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "1.5"
+          },
+          "parsed": "1.5"
+        },
+        "offsetStart": 5441,
+        "offsetEnd": 5444
+      },
+      "quantityLeast": {
+        "rawValue": "18.537",
+        "parsedValue": {
+          "numeric": 18.537
+        },
+        "offsetStart": 5412,
+        "offsetEnd": 5438
+      },
+      "quantityMost": {
+        "rawValue": "21.537",
+        "parsedValue": {
+          "numeric": 21.537
+        },
+        "offsetStart": 5441,
+        "offsetEnd": 5444
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 37.8995,
+          "y": 117.825,
+          "w": 34.702600000000004,
+          "h": 6.0190000000000055
+        },
+        {
+          "p": 2,
+          "x": 151.752,
+          "y": 117.723,
+          "w": 31.48879999999997,
+          "h": 6.376099999999994
+        },
+        {
+          "p": 2,
+          "x": 244.754,
+          "y": 117.825,
+          "w": 13.070999999999998,
+          "h": 6.0190000000000055
+        },
+        {
+          "p": 2,
+          "x": 267.048,
+          "y": 117.825,
+          "w": 9.23259999999999,
+          "h": 6.0190000000000055
+        }
+      ],
+      "measurementRaw": "25 000 rpm 20.0 ± 0.5 37.3 ± 1.5",
+      "measurementOffsets": {
+        "start": 5412,
+        "end": 5444
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "25",
+        "parsedValue": {
+          "name": "25",
+          "numeric": 25,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "25"
+          },
+          "parsed": "25"
+        },
+        "offsetStart": 5612,
+        "offsetEnd": 5614
+      },
+      "quantified": {
+        "rawName": "ammonia",
+        "normalizedName": "ammonia",
+        "offsetStart": 111,
+        "offsetEnd": 118
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 169.597,
+          "y": 188.179,
+          "w": 7.6768,
+          "h": 6.019
+        }
+      ],
+      "measurementRaw": "25",
+      "measurementOffsets": {
+        "start": 5612,
+        "end": 5614
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "300",
+        "rawUnit": {
+          "name": "mL",
+          "offsetStart": 5829,
+          "offsetEnd": 5831
+        },
+        "parsedValue": {
+          "name": "300",
+          "numeric": 300,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "300"
+          },
+          "parsed": "300"
+        },
+        "parsedUnit": {
+          "name": "mL",
+          "offsetStart": 5829,
+          "offsetEnd": 5831
+        },
+        "normalizedQuantity": 0.0003,
+        "normalizedUnit": {
+          "name": "㎥"
+        },
+        "offsetStart": 5825,
+        "offsetEnd": 5828
+      },
+      "quantified": {
+        "rawName": "a 0.05 M FeSO4•7H2O",
+        "normalizedName": "a 0.05 M FeSO4•7H2O",
+        "offsetStart": 10,
+        "offsetEnd": 29
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 31.9217,
+          "y": 240.039,
+          "w": 11.4897,
+          "h": 6.019
+        },
+        {
+          "p": 2,
+          "x": 44.4737,
+          "y": 240.039,
+          "w": 9.4558,
+          "h": 6.019
+        }
+      ],
+      "measurementRaw": "300 mL",
+      "measurementOffsets": {
+        "start": 5825,
+        "end": 5831
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "concentration",
+        "rawValue": "0.05",
+        "rawUnit": {
+          "name": "M",
+          "type": "concentration",
+          "system": "non SI",
+          "offsetStart": 5842,
+          "offsetEnd": 5843
+        },
+        "parsedValue": {
+          "name": "0.05",
+          "numeric": 0.05,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "0.05"
+          },
+          "parsed": "0.05"
+        },
+        "parsedUnit": {
+          "name": "M",
+          "type": "concentration",
+          "system": "non SI",
+          "offsetStart": 5842,
+          "offsetEnd": 5843
+        },
+        "offsetStart": 5837,
+        "offsetEnd": 5841
+      },
+      "quantified": {
+        "rawName": "FeSO4•7H2O and",
+        "normalizedName": "FeSO4•7H2O",
+        "offsetStart": 95,
+        "offsetEnd": 109
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 71.4223,
+          "y": 240.039,
+          "w": 13.045500000000004,
+          "h": 6.0190000000000055
+        },
+        {
+          "p": 2,
+          "x": 85.5301,
+          "y": 240.039,
+          "w": 6.1912,
+          "h": 6.019
+        }
+      ],
+      "measurementRaw": "0.05 M",
+      "measurementOffsets": {
+        "start": 5837,
+        "end": 5843
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "concentration",
+        "rawValue": "0.1",
+        "rawUnit": {
+          "name": "M",
+          "type": "concentration",
+          "system": "non SI",
+          "offsetStart": 5863,
+          "offsetEnd": 5864
+        },
+        "parsedValue": {
+          "name": "0.1",
+          "numeric": 0.1,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "0.1"
+          },
+          "parsed": "0.1"
+        },
+        "parsedUnit": {
+          "name": "M",
+          "type": "concentration",
+          "system": "non SI",
+          "offsetStart": 5863,
+          "offsetEnd": 5864
+        },
+        "offsetStart": 5859,
+        "offsetEnd": 5862
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 147.983,
+          "y": 240.039,
+          "w": 9.219799999999992,
+          "h": 6.0190000000000055
+        },
+        {
+          "p": 2,
+          "x": 158.265,
+          "y": 240.039,
+          "w": 6.1912,
+          "h": 6.019
+        }
+      ],
+      "measurementRaw": "0.1 M",
+      "measurementOffsets": {
+        "start": 5859,
+        "end": 5864
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "time",
+        "rawValue": "30",
+        "rawUnit": {
+          "name": "min",
+          "type": "time",
+          "system": "non SI",
+          "offsetStart": 5929,
+          "offsetEnd": 5932
+        },
+        "parsedValue": {
+          "name": "30",
+          "numeric": 30,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "30"
+          },
+          "parsed": "30"
+        },
+        "parsedUnit": {
+          "name": "min",
+          "type": "time",
+          "system": "non SI",
+          "offsetStart": 5929,
+          "offsetEnd": 5932
+        },
+        "normalizedQuantity": 1800,
+        "normalizedUnit": {
+          "name": "s",
+          "type": "time",
+          "system": "SI base"
+        },
+        "offsetStart": 5926,
+        "offsetEnd": 5928
+      },
+      "quantified": {
+        "rawName": "N2",
+        "normalizedName": "N2",
+        "offsetStart": 113,
+        "offsetEnd": 115
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 113.206,
+          "y": 248.607,
+          "w": 7.6641,
+          "h": 6.019
+        },
+        {
+          "p": 2,
+          "x": 121.932,
+          "y": 248.607,
+          "w": 12.1528,
+          "h": 6.019
+        }
+      ],
+      "measurementRaw": "30 min",
+      "measurementOffsets": {
+        "start": 5926,
+        "end": 5932
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "20",
+        "rawUnit": {
+          "name": "• C",
+          "offsetStart": 5996,
+          "offsetEnd": 5999
+        },
+        "parsedValue": {
+          "name": "20",
+          "numeric": 20,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "20"
+          },
+          "parsed": "20"
+        },
+        "parsedUnit": {
+          "name": "•C",
+          "offsetStart": 5996,
+          "offsetEnd": 5999
+        },
+        "offsetStart": 5993,
+        "offsetEnd": 5995
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 76.6133,
+          "y": 257.175,
+          "w": 7.6641,
+          "h": 6.019
+        },
+        {
+          "p": 2,
+          "x": 85.3379,
+          "y": 256.192,
+          "w": 6.721199999999996,
+          "h": 7.000999999999976
+        }
+      ],
+      "measurementRaw": "20 • C",
+      "measurementOffsets": {
+        "start": 5993,
+        "end": 5999
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "35",
+        "rawUnit": {
+          "name": "mL/min",
+          "offsetStart": 6068,
+          "offsetEnd": 6074
+        },
+        "parsedValue": {
+          "name": "35",
+          "numeric": 35,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "35"
+          },
+          "parsed": "35"
+        },
+        "parsedUnit": {
+          "name": "mL/min",
+          "offsetStart": 6068,
+          "offsetEnd": 6074
+        },
+        "normalizedQuantity": 5.833333333333333333333333333333333E-7,
+        "normalizedUnit": {
+          "name": "m³/s"
+        },
+        "offsetStart": 6065,
+        "offsetEnd": 6067
+      },
+      "quantified": {
+        "rawName": "a constant rate of",
+        "normalizedName": "rate",
+        "offsetStart": 297,
+        "offsetEnd": 315
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 39.6925,
+          "y": 265.743,
+          "w": 7.6768,
+          "h": 6.019
+        },
+        {
+          "p": 2,
+          "x": 48.4316,
+          "y": 265.743,
+          "w": 23.94229999999999,
+          "h": 6.0190000000000055
+        }
+      ],
+      "measurementRaw": "35 mL/min",
+      "measurementOffsets": {
+        "start": 6065,
+        "end": 6074
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "acidity",
+        "rawValue": "10",
+        "rawUnit": {
+          "name": "pH",
+          "type": "acidity",
+          "system": "non SI",
+          "offsetStart": 6118,
+          "offsetEnd": 6120
+        },
+        "parsedValue": {
+          "name": "10",
+          "numeric": 10,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "10"
+          },
+          "parsed": "10"
+        },
+        "parsedUnit": {
+          "name": "pH",
+          "type": "acidity",
+          "system": "non SI",
+          "offsetStart": 6118,
+          "offsetEnd": 6120
+        },
+        "offsetStart": 6121,
+        "offsetEnd": 6123
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 202.996,
+          "y": 265.743,
+          "w": 8.9138,
+          "h": 6.019
+        }
+      ],
+      "measurementRaw": "pH 10",
+      "measurementOffsets": {
+        "start": 6118,
+        "end": 6123
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "time",
+        "rawValue": "2",
+        "rawUnit": {
+          "name": "min",
+          "type": "time",
+          "system": "non SI",
+          "offsetStart": 6129,
+          "offsetEnd": 6132
+        },
+        "parsedValue": {
+          "name": "2",
+          "numeric": 2,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "2"
+          },
+          "parsed": "2"
+        },
+        "parsedUnit": {
+          "name": "min",
+          "type": "time",
+          "system": "non SI",
+          "offsetStart": 6129,
+          "offsetEnd": 6132
+        },
+        "normalizedQuantity": 120,
+        "normalizedUnit": {
+          "name": "s",
+          "type": "time",
+          "system": "SI base"
+        },
+        "offsetStart": 6127,
+        "offsetEnd": 6128
+      },
+      "quantified": {
+        "rawName": "con- stant stirring",
+        "normalizedName": "con- stant stirring",
+        "offsetStart": 132,
+        "offsetEnd": 151
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 213.712,
+          "y": 265.743,
+          "w": 7.6641,
+          "h": 6.019
+        },
+        {
+          "p": 2,
+          "x": 230.988,
+          "y": 265.743,
+          "w": 3.8384,
+          "h": 6.019
+        },
+        {
+          "p": 2,
+          "x": 235.888,
+          "y": 265.743,
+          "w": 12.1522,
+          "h": 6.019
+        }
+      ],
+      "measurementRaw": "2 min",
+      "measurementOffsets": {
+        "start": 6127,
+        "end": 6132
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "10,000",
+        "rawUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 6348,
+          "offsetEnd": 6351
+        },
+        "parsedValue": {
+          "name": "10,000",
+          "numeric": 10000,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "10,000"
+          },
+          "parsed": "10,000"
+        },
+        "parsedUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 6348,
+          "offsetEnd": 6351
+        },
+        "normalizedQuantity": 1047.197551196597666666666666666667,
+        "normalizedUnit": {
+          "name": "rad/s"
+        },
+        "offsetStart": 6341,
+        "offsetEnd": 6347
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 121.908,
+          "y": 291.446,
+          "w": 20.690399999999997,
+          "h": 6.0190000000000055
+        },
+        {
+          "p": 2,
+          "x": 143.661,
+          "y": 291.446,
+          "w": 12.8287,
+          "h": 6.019
+        }
+      ],
+      "measurementRaw": "10,000 rpm",
+      "measurementOffsets": {
+        "start": 6341,
+        "end": 6351
+      }
+    },
+    {
+      "type": "interval",
+      "quantityMost": {
+        "rawValue": "10 000",
+        "parsedValue": {
+          "name": "10 000",
+          "numeric": 1,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "10^000"
+          },
+          "parsed": "10^000"
+        },
+        "offsetStart": 6357,
+        "offsetEnd": 6363
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 178.09178571428572,
+          "y": 291.446,
+          "w": 18.24909428571428,
+          "h": 6.0190000000000055
+        }
+      ],
+      "measurementRaw": "10 000",
+      "measurementOffsets": {
+        "start": 6357,
+        "end": 6363
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "18,000",
+        "rawUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 6373,
+          "offsetEnd": 6376
+        },
+        "parsedValue": {
+          "name": "18,000",
+          "numeric": 18000,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "18,000"
+          },
+          "parsed": "18,000"
+        },
+        "parsedUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 6373,
+          "offsetEnd": 6376
+        },
+        "normalizedQuantity": 1884.9555921538758,
+        "normalizedUnit": {
+          "name": "rad/s"
+        },
+        "offsetStart": 6366,
+        "offsetEnd": 6372
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 204.376,
+          "y": 291.446,
+          "w": 20.70319999999998,
+          "h": 6.0190000000000055
+        },
+        {
+          "p": 2,
+          "x": 226.142,
+          "y": 291.446,
+          "w": 12.8287,
+          "h": 6.019
+        }
+      ],
+      "measurementRaw": "18,000 rpm",
+      "measurementOffsets": {
+        "start": 6366,
+        "end": 6376
+      }
+    },
+    {
+      "type": "interval",
+      "quantityMost": {
+        "rawValue": "18 000",
+        "parsedValue": {
+          "name": "18 000",
+          "numeric": 0,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "000"
+          },
+          "parsed": "000"
+        },
+        "offsetStart": 6382,
+        "offsetEnd": 6388
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 260.5819285714286,
+          "y": 291.446,
+          "w": 19.412121428571425,
+          "h": 6.0190000000000055
+        }
+      ],
+      "measurementRaw": "18 000",
+      "measurementOffsets": {
+        "start": 6382,
+        "end": 6388
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "25,000",
+        "rawUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 6401,
+          "offsetEnd": 6404
+        },
+        "parsedValue": {
+          "name": "25,000",
+          "numeric": 25000,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "25,000"
+          },
+          "parsed": "25,000"
+        },
+        "parsedUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 6401,
+          "offsetEnd": 6404
+        },
+        "normalizedQuantity": 2617.993877991494166666666666666667,
+        "normalizedUnit": {
+          "name": "rad/s"
+        },
+        "offsetStart": 6394,
+        "offsetEnd": 6400
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 44.6084,
+          "y": 300.014,
+          "w": 20.703199999999995,
+          "h": 6.0190000000000055
+        },
+        {
+          "p": 2,
+          "x": 66.3739,
+          "y": 300.014,
+          "w": 12.8287,
+          "h": 6.019
+        }
+      ],
+      "measurementRaw": "25,000 rpm",
+      "measurementOffsets": {
+        "start": 6394,
+        "end": 6404
+      }
+    },
+    {
+      "type": "interval",
+      "quantityMost": {
+        "rawValue": "25 000",
+        "parsedValue": {
+          "name": "25 000",
+          "numeric": 0,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "000"
+          },
+          "parsed": "000"
+        },
+        "offsetStart": 6410,
+        "offsetEnd": 6416
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 100.25452857142858,
+          "y": 300.014,
+          "w": 18.257191428571417,
+          "h": 6.0190000000000055
+        }
+      ],
+      "measurementRaw": "25 000",
+      "measurementOffsets": {
+        "start": 6410,
+        "end": 6416
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "three",
+        "parsedValue": {
+          "name": "three",
+          "numeric": 3.0,
+          "structure": {
+            "type": "ALPHABETIC",
+            "formatted": "three"
+          },
+          "parsed": "three"
+        },
+        "offsetStart": 6428,
+        "offsetEnd": 6433
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 150.619,
+          "y": 300.014,
+          "w": 16.1825,
+          "h": 6.019
+        }
+      ],
+      "measurementRaw": "three",
+      "measurementOffsets": {
+        "start": 6428,
+        "end": 6433
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "80",
+        "rawUnit": {
+          "name": "• C",
+          "offsetStart": 6601,
+          "offsetEnd": 6604
+        },
+        "parsedValue": {
+          "name": "80",
+          "numeric": 80,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "80"
+          },
+          "parsed": "80"
+        },
+        "parsedUnit": {
+          "name": "•C",
+          "offsetStart": 6601,
+          "offsetEnd": 6604
+        },
+        "offsetStart": 6598,
+        "offsetEnd": 6600
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 185.809,
+          "y": 317.15,
+          "w": 7.6641,
+          "h": 6.019
+        },
+        {
+          "p": 2,
+          "x": 194.53,
+          "y": 316.168,
+          "w": 6.7213999999999885,
+          "h": 7.000999999999976
+        }
+      ],
+      "measurementRaw": "80 • C",
+      "measurementOffsets": {
+        "start": 6598,
+        "end": 6604
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "time",
+        "rawValue": "30",
+        "rawUnit": {
+          "name": "min",
+          "type": "time",
+          "system": "non SI",
+          "offsetStart": 6612,
+          "offsetEnd": 6615
+        },
+        "parsedValue": {
+          "name": "30",
+          "numeric": 30,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "30"
+          },
+          "parsed": "30"
+        },
+        "parsedUnit": {
+          "name": "min",
+          "type": "time",
+          "system": "non SI",
+          "offsetStart": 6612,
+          "offsetEnd": 6615
+        },
+        "normalizedQuantity": 1800,
+        "normalizedUnit": {
+          "name": "s",
+          "type": "time",
+          "system": "SI base"
+        },
+        "offsetStart": 6609,
+        "offsetEnd": 6611
+      },
+      "quantified": {
+        "rawName": "a gentle magnetic stirring",
+        "normalizedName": "a gentle magnetic stirring",
+        "offsetStart": 75,
+        "offsetEnd": 101
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 214.743,
+          "y": 317.15,
+          "w": 7.6641,
+          "h": 6.019
+        },
+        {
+          "p": 2,
+          "x": 223.47,
+          "y": 317.15,
+          "w": 12.1528,
+          "h": 6.019
+        }
+      ],
+      "measurementRaw": "30 min",
+      "measurementOffsets": {
+        "start": 6609,
+        "end": 6615
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "acidity",
+        "rawValue": "7",
+        "rawUnit": {
+          "name": "pH",
+          "type": "acidity",
+          "system": "non SI",
+          "offsetStart": 6890,
+          "offsetEnd": 6892
+        },
+        "parsedValue": {
+          "name": "7",
+          "numeric": 7,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "7"
+          },
+          "parsed": "7"
+        },
+        "parsedUnit": {
+          "name": "pH",
+          "type": "acidity",
+          "system": "non SI",
+          "offsetStart": 6890,
+          "offsetEnd": 6892
+        },
+        "offsetStart": 6893,
+        "offsetEnd": 6894
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 102.384,
+          "y": 351.423,
+          "w": 8.9138,
+          "h": 6.019
+        }
+      ],
+      "measurementRaw": "pH 7",
+      "measurementOffsets": {
+        "start": 6890,
+        "end": 6894
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "74",
+        "rawUnit": {
+          "name": "• C",
+          "offsetStart": 6932,
+          "offsetEnd": 6935
+        },
+        "parsedValue": {
+          "name": "74",
+          "numeric": 74,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "74"
+          },
+          "parsed": "74"
+        },
+        "parsedUnit": {
+          "name": "•C",
+          "offsetStart": 6932,
+          "offsetEnd": 6935
+        },
+        "offsetStart": 6929,
+        "offsetEnd": 6931
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 112.772,
+          "y": 351.423,
+          "w": 2.6971,
+          "h": 6.019
+        },
+        {
+          "p": 2,
+          "x": 217.257,
+          "y": 351.423,
+          "w": 7.6768,
+          "h": 6.019
+        },
+        {
+          "p": 2,
+          "x": 225.99,
+          "y": 350.439,
+          "w": 6.7213999999999885,
+          "h": 7.000999999999976
+        }
+      ],
+      "measurementRaw": "74 • C",
+      "measurementOffsets": {
+        "start": 6929,
+        "end": 6935
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "length",
+        "rawValue": "1.93",
+        "rawUnit": {
+          "name": "Å",
+          "type": "length",
+          "system": "non SI",
+          "offsetStart": 7147,
+          "offsetEnd": 7148
+        },
+        "parsedValue": {
+          "name": "1.93",
+          "numeric": 1.93,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "1.93"
+          },
+          "parsed": "1.93"
+        },
+        "parsedUnit": {
+          "name": "Å",
+          "type": "length",
+          "system": "non SI",
+          "offsetStart": 7147,
+          "offsetEnd": 7148
+        },
+        "offsetStart": 7142,
+        "offsetEnd": 7146
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 235.63,
+          "y": 403.282,
+          "w": 13.071000000000026,
+          "h": 6.0190000000000055
+        },
+        {
+          "p": 2,
+          "x": 249.763,
+          "y": 403.282,
+          "w": 2.792733333333333,
+          "h": 6.019
+        }
+      ],
+      "measurementRaw": "1.93 Å",
+      "measurementOffsets": {
+        "start": 7142,
+        "end": 7148
+      }
+    },
+    {
+      "type": "interval",
+      "quantityLeast": {
+        "type": "pressure",
+        "rawValue": "5 × 10",
+        "rawUnit": {
+          "name": "mbar",
+          "type": "pressure",
+          "system": "non SI",
+          "offsetStart": 7642,
+          "offsetEnd": 7646
+        },
+        "parsedValue": {
+          "name": "5 × 10",
+          "numeric": 5,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "5"
+          },
+          "parsed": "5"
+        },
+        "parsedUnit": {
+          "name": "mbar",
+          "type": "pressure",
+          "system": "non SI",
+          "offsetStart": 7642,
+          "offsetEnd": 7646
+        },
+        "normalizedQuantity": 500,
+        "normalizedUnit": {
+          "name": "Pa",
+          "type": "pressure",
+          "system": "SI derived"
+        },
+        "offsetStart": 7632,
+        "offsetEnd": 7638
+      },
+      "quantityMost": {
+        "type": "pressure",
+        "rawValue": "9",
+        "rawUnit": {
+          "name": "mbar",
+          "type": "pressure",
+          "system": "non SI",
+          "offsetStart": 7642,
+          "offsetEnd": 7646
+        },
+        "parsedValue": {
+          "name": "9",
+          "numeric": 9,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "9"
+          },
+          "parsed": "9"
+        },
+        "parsedUnit": {
+          "name": "mbar",
+          "type": "pressure",
+          "system": "non SI",
+          "offsetStart": 7642,
+          "offsetEnd": 7646
+        },
+        "normalizedQuantity": 900,
+        "normalizedUnit": {
+          "name": "Pa",
+          "type": "pressure",
+          "system": "SI derived"
+        },
+        "offsetStart": 7640,
+        "offsetEnd": 7641
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 31.9214,
+          "y": 463.156,
+          "w": 18.6265,
+          "h": 6.376100000000008
+        },
+        {
+          "p": 2,
+          "x": 53.63215,
+          "y": 462.274,
+          "w": 3.08415,
+          "h": 4.4633
+        },
+        {
+          "p": 2,
+          "x": 58.277,
+          "y": 463.256,
+          "w": 14.15496,
+          "h": 6.019
+        }
+      ],
+      "measurementRaw": "5 × 10 -9 mbar",
+      "measurementOffsets": {
+        "start": 7632,
+        "end": 7646
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "voltage",
+        "rawValue": "120",
+        "rawUnit": {
+          "name": "kV",
+          "type": "voltage",
+          "system": "SI derived",
+          "offsetStart": 8344,
+          "offsetEnd": 8346
+        },
+        "parsedValue": {
+          "name": "120",
+          "numeric": 120,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "120"
+          },
+          "parsed": "120"
+        },
+        "parsedUnit": {
+          "name": "kV",
+          "type": "voltage",
+          "system": "SI derived",
+          "offsetStart": 8344,
+          "offsetEnd": 8346
+        },
+        "normalizedQuantity": 120000,
+        "normalizedUnit": {
+          "name": "V",
+          "type": "voltage",
+          "system": "SI derived"
+        },
+        "offsetStart": 8340,
+        "offsetEnd": 8343
+      },
+      "quantified": {
+        "rawName": "an accelerating voltage of",
+        "normalizedName": "voltage",
+        "offsetStart": 1313,
+        "offsetEnd": 1339
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 203.077,
+          "y": 531.802,
+          "w": 11.5025,
+          "h": 6.019
+        },
+        {
+          "p": 2,
+          "x": 215.641,
+          "y": 531.802,
+          "w": 6.431333333333333,
+          "h": 6.019
+        }
+      ],
+      "measurementRaw": "120 kV",
+      "measurementOffsets": {
+        "start": 8340,
+        "end": 8346
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "1:1",
+        "parsedValue": {
+          "name": "1:1",
+          "numeric": 1,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "1:1"
+          },
+          "parsed": "1:1"
+        },
+        "offsetStart": 8396,
+        "offsetEnd": 8399
+      },
+      "quantified": {
+        "rawName": "matrix",
+        "normalizedName": "matrix",
+        "offsetStart": 1401,
+        "offsetEnd": 1407
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 134.07974000000002,
+          "y": 540.37,
+          "w": 8.948219999999992,
+          "h": 6.0190000000000055
+        }
+      ],
+      "measurementRaw": "1:1",
+      "measurementOffsets": {
+        "start": 8396,
+        "end": 8399
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "200",
+        "parsedValue": {
+          "name": "200",
+          "numeric": 200,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "200"
+          },
+          "parsed": "200"
+        },
+        "offsetStart": 8433,
+        "offsetEnd": 8436
+      },
+      "quantified": {
+        "rawName": "coated TEM copper grid",
+        "normalizedName": "grid",
+        "offsetStart": 1464,
+        "offsetEnd": 1486
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 252.655,
+          "y": 540.37,
+          "w": 11.558287499999999,
+          "h": 6.019
+        }
+      ],
+      "measurementRaw": "200",
+      "measurementOffsets": {
+        "start": 8433,
+        "end": 8436
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "100",
+        "parsedValue": {
+          "name": "100",
+          "numeric": 100,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "100"
+          },
+          "parsed": "100"
+        },
+        "offsetStart": 8550,
+        "offsetEnd": 8553
+      },
+      "quantified": {
+        "rawName": "particles",
+        "normalizedName": "particle",
+        "offsetStart": 1554,
+        "offsetEnd": 1563
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 122.137,
+          "y": 557.506,
+          "w": 11.4897,
+          "h": 6.019
+        }
+      ],
+      "measurementRaw": "100",
+      "measurementOffsets": {
+        "start": 8550,
+        "end": 8553
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "25",
+        "rawUnit": {
+          "name": "• C",
+          "offsetStart": 8731,
+          "offsetEnd": 8734
+        },
+        "parsedValue": {
+          "name": "25",
+          "numeric": 25,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "25"
+          },
+          "parsed": "25"
+        },
+        "parsedUnit": {
+          "name": "•C",
+          "offsetStart": 8731,
+          "offsetEnd": 8734
+        },
+        "offsetStart": 8728,
+        "offsetEnd": 8730
+      },
+      "quantified": {
+        "rawName": "XL model",
+        "normalizedName": "model",
+        "offsetStart": 1884,
+        "offsetEnd": 1892
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 177.576,
+          "y": 574.643,
+          "w": 7.6768,
+          "h": 6.019
+        },
+        {
+          "p": 2,
+          "x": 186.309,
+          "y": 573.657,
+          "w": 5.502600000000001,
+          "h": 7.000999999999976
+        }
+      ],
+      "measurementRaw": "25 • C",
+      "measurementOffsets": {
+        "start": 8728,
+        "end": 8734
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "temperature",
+        "rawValue": "300",
+        "rawUnit": {
+          "name": "K",
+          "type": "temperature",
+          "system": "SI base",
+          "offsetStart": 8900,
+          "offsetEnd": 8901
+        },
+        "parsedValue": {
+          "name": "300",
+          "numeric": 300,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "300"
+          },
+          "parsed": "300"
+        },
+        "parsedUnit": {
+          "name": "K",
+          "type": "temperature",
+          "system": "SI base",
+          "offsetStart": 8900,
+          "offsetEnd": 8901
+        },
+        "normalizedQuantity": 300,
+        "normalizedUnit": {
+          "name": "K",
+          "type": "temperature",
+          "system": "SI base"
+        },
+        "offsetStart": 8896,
+        "offsetEnd": 8899
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 211.495,
+          "y": 591.775,
+          "w": 11.4897,
+          "h": 6.019
+        },
+        {
+          "p": 2,
+          "x": 224.047,
+          "y": 591.775,
+          "w": 4.2975,
+          "h": 6.019
+        }
+      ],
+      "measurementRaw": "300 K",
+      "measurementOffsets": {
+        "start": 8896,
+        "end": 8901
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "magnetic field strength",
+        "rawValue": "20",
+        "rawUnit": {
+          "name": "kOe",
+          "type": "magnetic field strength",
+          "system": "centimetre–gram–second",
+          "offsetStart": 8926,
+          "offsetEnd": 8929
+        },
+        "parsedValue": {
+          "name": "20",
+          "numeric": 20,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "20"
+          },
+          "parsed": "20"
+        },
+        "parsedUnit": {
+          "name": "kOe",
+          "type": "magnetic field strength",
+          "system": "centimetre–gram–second",
+          "offsetStart": 8926,
+          "offsetEnd": 8929
+        },
+        "normalizedQuantity": 1591549.4309189533576888376337251435000000,
+        "normalizedUnit": {
+          "name": "A/m",
+          "type": "magnetic field strength",
+          "system": "SI derived"
+        },
+        "offsetStart": 8923,
+        "offsetEnd": 8925
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 31.9214,
+          "y": 600.241,
+          "w": 12.6374,
+          "h": 6.3761
+        },
+        {
+          "p": 2,
+          "x": 45.6211,
+          "y": 600.343,
+          "w": 10.109325,
+          "h": 6.019
+        }
+      ],
+      "measurementRaw": "20 kOe",
+      "measurementOffsets": {
+        "start": 8923,
+        "end": 8929
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "25,000",
+        "rawUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 9182,
+          "offsetEnd": 9185
+        },
+        "parsedValue": {
+          "name": "25,000",
+          "numeric": 25000,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "25,000"
+          },
+          "parsed": "25,000"
+        },
+        "parsedUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 9182,
+          "offsetEnd": 9185
+        },
+        "normalizedQuantity": 2617.993877991494166666666666666667,
+        "normalizedUnit": {
+          "name": "rad/s"
+        },
+        "offsetStart": 9175,
+        "offsetEnd": 9181
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 31.9227,
+          "y": 673.747,
+          "w": 25.8789,
+          "h": 7.523800000000051
+        },
+        {
+          "p": 2,
+          "x": 59.1294,
+          "y": 673.747,
+          "w": 13.47945,
+          "h": 7.5238
+        }
+      ],
+      "measurementRaw": "25,000 rpm",
+      "measurementOffsets": {
+        "start": 9175,
+        "end": 9185
+      }
+    },
+    {
+      "type": "interval",
+      "quantityMost": {
+        "rawValue": "10 000",
+        "parsedValue": {
+          "name": "10 000",
+          "numeric": 1,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "10^000"
+          },
+          "parsed": "10^000"
+        },
+        "offsetStart": 9465,
+        "offsetEnd": 9471
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 108.29966666666667,
+          "y": 726.05,
+          "w": 26.175533333333334,
+          "h": 7.523800000000051
+        }
+      ],
+      "measurementRaw": "10 000",
+      "measurementOffsets": {
+        "start": 9465,
+        "end": 9471
+      }
+    },
+    {
+      "type": "interval",
+      "quantityLeast": {
+        "rawValue": "25 000",
+        "parsedValue": {
+          "name": "25 000",
+          "numeric": 0,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "000"
+          },
+          "parsed": "000"
+        },
+        "offsetStart": 9670,
+        "offsetEnd": 9676
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 341.78866666666664,
+          "y": 264.966,
+          "w": 19.242858333333345,
+          "h": 6.0190000000000055
+        }
+      ],
+      "measurementRaw": "25 000",
+      "measurementOffsets": {
+        "start": 9670,
+        "end": 9676
+      }
+    },
+    {
+      "type": "interval",
+      "quantityMost": {
+        "rawValue": "18 000",
+        "parsedValue": {
+          "name": "18 000",
+          "numeric": 0,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "000"
+          },
+          "parsed": "000"
+        },
+        "offsetStart": 9847,
+        "offsetEnd": 9853
+      },
+      "quantified": {
+        "rawName": "sample",
+        "normalizedName": "sample",
+        "offsetStart": 173,
+        "offsetEnd": 179
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 455.8484666666667,
+          "y": 323.442,
+          "w": 26.18173333333334,
+          "h": 7.523799999999994
+        }
+      ],
+      "measurementRaw": "18 000",
+      "measurementOffsets": {
+        "start": 9847,
+        "end": 9853
+      }
+    },
+    {
+      "type": "interval",
+      "quantityMost": {
+        "rawValue": "25 000",
+        "parsedValue": {
+          "name": "25 000",
+          "numeric": 0,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "000"
+          },
+          "parsed": "000"
+        },
+        "offsetStart": 10082,
+        "offsetEnd": 10088
+      },
+      "quantified": {
+        "rawName": "sample",
+        "normalizedName": "sample",
+        "offsetStart": 216,
+        "offsetEnd": 222
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 348.7624666666667,
+          "y": 365.285,
+          "w": 26.18173333333334,
+          "h": 7.523799999999994
+        }
+      ],
+      "measurementRaw": "25 000",
+      "measurementOffsets": {
+        "start": 10082,
+        "end": 10088
+      }
+    },
+    {
+      "type": "interval",
+      "quantityMost": {
+        "rawValue": "0550, 81",
+        "parsedValue": {
+          "name": "0550, 81",
+          "numeric": 55081,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "0550, 81"
+          },
+          "parsed": "0550, 81"
+        },
+        "offsetStart": 10248,
+        "offsetEnd": 10256
+      },
+      "boundingBoxes": [
+        {
+          "p": 2,
+          "x": 475.63908749999996,
+          "y": 386.207,
+          "w": 35.43536964285721,
+          "h": 7.523799999999994
+        }
+      ],
+      "measurementRaw": "0550, 81",
+      "measurementOffsets": {
+        "start": 10248,
+        "end": 10256
+      }
+    },
+    {
+      "type": "interval",
+      "quantityMost": {
+        "rawValue": "10 000",
+        "parsedValue": {
+          "name": "10 000",
+          "numeric": 1,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "10^000"
+          },
+          "parsed": "10^000"
+        },
+        "offsetStart": 10841,
+        "offsetEnd": 10847
+      },
+      "boundingBoxes": [
+        {
+          "p": 3,
+          "x": 424.04113333333333,
+          "y": 665.398,
+          "w": 20.940866666666636,
+          "h": 6.0190000000000055
+        }
+      ],
+      "measurementRaw": "10 000",
+      "measurementOffsets": {
+        "start": 10841,
+        "end": 10847
+      }
+    },
+    {
+      "type": "interval",
+      "quantityMost": {
+        "rawValue": "10 000",
+        "parsedValue": {
+          "name": "10 000",
+          "numeric": 1,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "10^000"
+          },
+          "parsed": "10^000"
+        },
+        "offsetStart": 11002,
+        "offsetEnd": 11008
+      },
+      "quantified": {
+        "rawName": "samples",
+        "normalizedName": "sample",
+        "offsetStart": 54,
+        "offsetEnd": 61
+      },
+      "boundingBoxes": [
+        {
+          "p": 3,
+          "x": 42.7318,
+          "y": 724.757,
+          "w": 25.2541,
+          "h": 7.523800000000051
+        }
+      ],
+      "measurementRaw": "10 000",
+      "measurementOffsets": {
+        "start": 11002,
+        "end": 11008
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "energy",
+        "rawValue": "723.05",
+        "rawUnit": {
+          "name": "eV",
+          "type": "energy",
+          "system": "non SI",
+          "offsetStart": 11143,
+          "offsetEnd": 11145
+        },
+        "parsedValue": {
+          "name": "723.05",
+          "numeric": 723.05,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "723.05"
+          },
+          "parsed": "723.05"
+        },
+        "parsedUnit": {
+          "name": "eV",
+          "type": "energy",
+          "system": "non SI",
+          "offsetStart": 11143,
+          "offsetEnd": 11145
+        },
+        "normalizedQuantity": 1.15845370892535E-16,
+        "normalizedUnit": {
+          "name": "J",
+          "type": "energy",
+          "system": "SI derived"
+        },
+        "offsetStart": 11136,
+        "offsetEnd": 11142
+      },
+      "quantified": {
+        "rawName": "O 1s region",
+        "normalizedName": "region",
+        "offsetStart": 161,
+        "offsetEnd": 172
+      },
+      "boundingBoxes": [
+        {
+          "p": 3,
+          "x": 363.69,
+          "y": 693.375,
+          "w": 25.918799999999976,
+          "h": 7.523800000000051
+        },
+        {
+          "p": 3,
+          "x": 390.937,
+          "y": 693.375,
+          "w": 9.867,
+          "h": 7.5238
+        }
+      ],
+      "measurementRaw": "723.05 eV",
+      "measurementOffsets": {
+        "start": 11136,
+        "end": 11145
+      }
+    },
+    {
+      "type": "listc",
+      "quantities": [
+        {
+          "type": "energy",
+          "rawValue": "711.40",
+          "rawUnit": {
+            "name": "eV",
+            "type": "energy",
+            "system": "non SI",
+            "offsetStart": 11157,
+            "offsetEnd": 11159
+          },
+          "parsedValue": {
+            "name": "711.40",
+            "numeric": 711.4,
+            "structure": {
+              "type": "NUMBER",
+              "formatted": "711.40"
+            },
+            "parsed": "711.40"
+          },
+          "parsedUnit": {
+            "name": "eV",
+            "type": "energy",
+            "system": "non SI",
+            "offsetStart": 11157,
+            "offsetEnd": 11159
+          },
+          "normalizedQuantity": 1.1397883528518E-16,
+          "normalizedUnit": {
+            "name": "J",
+            "type": "energy",
+            "system": "SI derived"
+          },
+          "offsetStart": 11150,
+          "offsetEnd": 11156
+        }
+      ],
+      "quantified": {
+        "rawName": "O 1s region",
+        "normalizedName": "region",
+        "offsetStart": 161,
+        "offsetEnd": 172
+      },
+      "boundingBoxes": [
+        {
+          "p": 3,
+          "x": 425.629,
+          "y": 693.375,
+          "w": 25.918799999999976,
+          "h": 7.523800000000051
+        },
+        {
+          "p": 3,
+          "x": 452.876,
+          "y": 693.375,
+          "w": 7.869133333333332,
+          "h": 7.5238
+        }
+      ],
+      "measurementRaw": "711.40 eV",
+      "measurementOffsets": {
+        "start": 11150,
+        "end": 11159
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "energy",
+        "rawValue": "530.50",
+        "rawUnit": {
+          "name": "eV",
+          "type": "energy",
+          "system": "non SI",
+          "offsetStart": 11199,
+          "offsetEnd": 11201
+        },
+        "parsedValue": {
+          "name": "530.50",
+          "numeric": 530.5,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "530.50"
+          },
+          "parsed": "530.50"
+        },
+        "parsedUnit": {
+          "name": "eV",
+          "type": "energy",
+          "system": "non SI",
+          "offsetStart": 11199,
+          "offsetEnd": 11201
+        },
+        "normalizedQuantity": 8.499546263535E-17,
+        "normalizedUnit": {
+          "name": "J",
+          "type": "energy",
+          "system": "SI derived"
+        },
+        "offsetStart": 11192,
+        "offsetEnd": 11198
+      },
+      "quantified": {
+        "rawName": "O 1s region",
+        "normalizedName": "region",
+        "offsetStart": 161,
+        "offsetEnd": 172
+      },
+      "boundingBoxes": [
+        {
+          "p": 3,
+          "x": 344.4687571428571,
+          "y": 703.836,
+          "w": 24.83254285714287,
+          "h": 7.523800000000051
+        },
+        {
+          "p": 3,
+          "x": 370.629,
+          "y": 703.836,
+          "w": 8.618333333333332,
+          "h": 7.5238
+        }
+      ],
+      "measurementRaw": "530.50 eV",
+      "measurementOffsets": {
+        "start": 11192,
+        "end": 11201
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "energy",
+        "rawValue": "710",
+        "rawUnit": {
+          "name": "eV",
+          "type": "energy",
+          "system": "non SI",
+          "offsetStart": 11365,
+          "offsetEnd": 11367
+        },
+        "parsedValue": {
+          "name": "710",
+          "numeric": 710,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "710"
+          },
+          "parsed": "710"
+        },
+        "parsedUnit": {
+          "name": "eV",
+          "type": "energy",
+          "system": "non SI",
+          "offsetStart": 11365,
+          "offsetEnd": 11367
+        },
+        "normalizedQuantity": 1.13754530577E-16,
+        "normalizedUnit": {
+          "name": "J",
+          "type": "energy",
+          "system": "SI derived"
+        },
+        "offsetStart": 11361,
+        "offsetEnd": 11364
+      },
+      "quantified": {
+        "rawName": "Fe 2+",
+        "normalizedName": "2+",
+        "offsetStart": 336,
+        "offsetEnd": 341
+      },
+      "boundingBoxes": [
+        {
+          "p": 3,
+          "x": 498.499625,
+          "y": 724.757,
+          "w": 13.084875,
+          "h": 7.5238
+        },
+        {
+          "p": 3,
+          "x": 512.912,
+          "y": 724.757,
+          "w": 8.618333333333332,
+          "h": 7.5238
+        }
+      ],
+      "measurementRaw": "710 eV",
+      "measurementOffsets": {
+        "start": 11361,
+        "end": 11367
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "energy",
+        "rawValue": "711.5",
+        "rawUnit": {
+          "name": "eV",
+          "type": "energy",
+          "system": "non SI",
+          "offsetStart": 11386,
+          "offsetEnd": 11388
+        },
+        "parsedValue": {
+          "name": "711.5",
+          "numeric": 711.5,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "711.5"
+          },
+          "parsed": "711.5"
+        },
+        "parsedUnit": {
+          "name": "eV",
+          "type": "energy",
+          "system": "non SI",
+          "offsetStart": 11386,
+          "offsetEnd": 11388
+        },
+        "normalizedQuantity": 1.1399485705005E-16,
+        "normalizedUnit": {
+          "name": "J",
+          "type": "energy",
+          "system": "SI derived"
+        },
+        "offsetStart": 11380,
+        "offsetEnd": 11385
+      },
+      "quantified": {
+        "rawName": "Fe 3+",
+        "normalizedName": "3+",
+        "offsetStart": 355,
+        "offsetEnd": 360
+      },
+      "boundingBoxes": [
+        {
+          "p": 3,
+          "x": 316.2552,
+          "y": 735.218,
+          "w": 20.170999999999992,
+          "h": 7.523800000000051
+        },
+        {
+          "p": 3,
+          "x": 337.754,
+          "y": 735.218,
+          "w": 7.4361,
+          "h": 7.5238
+        }
+      ],
+      "measurementRaw": "711.5 eV",
+      "measurementOffsets": {
+        "start": 11380,
+        "end": 11388
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "0.58",
+        "parsedValue": {
+          "name": "0.58",
+          "numeric": 0.58,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "0.58"
+          },
+          "parsed": "0.58"
+        },
+        "offsetStart": 11420,
+        "offsetEnd": 11424
+      },
+      "boundingBoxes": [
+        {
+          "p": 3,
+          "x": 458.94,
+          "y": 735.218,
+          "w": 16.32280000000003,
+          "h": 7.523800000000051
+        }
+      ],
+      "measurementRaw": "0.58",
+      "measurementOffsets": {
+        "start": 11420,
+        "end": 11424
+      }
+    },
+    {
+      "type": "listc",
+      "quantities": [
+        {
+          "rawValue": "0.46",
+          "parsedValue": {
+            "name": "0.46",
+            "numeric": 0.46,
+            "structure": {
+              "type": "NUMBER",
+              "formatted": "0.46"
+            },
+            "parsed": "0.46"
+          },
+          "offsetStart": 11440,
+          "offsetEnd": 11444
+        }
+      ],
+      "quantified": {
+        "rawName": "MNP-MS and",
+        "normalizedName": "m",
+        "offsetStart": 411,
+        "offsetEnd": 421
+      },
+      "boundingBoxes": [
+        {
+          "p": 3,
+          "x": 547.45,
+          "y": 735.218,
+          "w": 16.322799999999916,
+          "h": 7.523800000000051
+        }
+      ],
+      "measurementRaw": "0.46",
+      "measurementOffsets": {
+        "start": 11440,
+        "end": 11444
+      }
+    },
+    {
+      "type": "interval",
+      "quantityLeast": {
+        "rawValue": "10",
+        "parsedValue": {
+          "name": "10",
+          "numeric": 10,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "10"
+          },
+          "parsed": "10"
+        },
+        "offsetStart": 11628,
+        "offsetEnd": 11630
+      },
+      "quantityMost": {
+        "rawValue": "000",
+        "parsedValue": {
+          "name": "000",
+          "numeric": 0,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "000"
+          },
+          "parsed": "000"
+        },
+        "offsetStart": 11631,
+        "offsetEnd": 11634
+      },
+      "quantified": {
+        "rawName": "ratio of",
+        "normalizedName": "ratio",
+        "offsetStart": 40,
+        "offsetEnd": 48
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 67.17476666666667,
+          "y": 276.236,
+          "w": 10.501933333333334,
+          "h": 7.5238
+        },
+        {
+          "p": 4,
+          "x": 79.0045,
+          "y": 276.236,
+          "w": 12.212175000000002,
+          "h": 7.5238
+        }
+      ],
+      "measurementRaw": "10 000",
+      "measurementOffsets": {
+        "start": 11628,
+        "end": 11634
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "0.5",
+        "parsedValue": {
+          "name": "0.5",
+          "numeric": 0.5,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "0.5"
+          },
+          "parsed": "0.5"
+        },
+        "offsetStart": 11656,
+        "offsetEnd": 11659
+      },
+      "quantified": {
+        "rawName": "ratio of",
+        "normalizedName": "ratio",
+        "offsetStart": 40,
+        "offsetEnd": 48
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 176.367,
+          "y": 276.236,
+          "w": 11.524799999999999,
+          "h": 7.523799999999994
+        }
+      ],
+      "measurementRaw": "0.5",
+      "measurementOffsets": {
+        "start": 11656,
+        "end": 11659
+      }
+    },
+    {
+      "type": "interval",
+      "quantityMost": {
+        "rawValue": "10 000",
+        "parsedValue": {
+          "name": "10 000",
+          "numeric": 1,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "10^000"
+          },
+          "parsed": "10^000"
+        },
+        "offsetStart": 11918,
+        "offsetEnd": 11924
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 155.60814,
+          "y": 328.54,
+          "w": 25.706060000000008,
+          "h": 7.523799999999994
+        }
+      ],
+      "measurementRaw": "10 000",
+      "measurementOffsets": {
+        "start": 11918,
+        "end": 11924
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "length",
+        "rawValue": "19",
+        "rawUnit": {
+          "name": "nm",
+          "type": "length",
+          "system": "SI base",
+          "offsetStart": 12090,
+          "offsetEnd": 12092
+        },
+        "parsedValue": {
+          "name": "19",
+          "numeric": 19,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "19"
+          },
+          "parsed": "19"
+        },
+        "parsedUnit": {
+          "name": "nm",
+          "type": "length",
+          "system": "SI base",
+          "offsetStart": 12090,
+          "offsetEnd": 12092
+        },
+        "normalizedQuantity": 1.9E-8,
+        "normalizedUnit": {
+          "name": "m",
+          "type": "length",
+          "system": "SI base"
+        },
+        "offsetStart": 12087,
+        "offsetEnd": 12089
+      },
+      "quantified": {
+        "rawName": "a mean size of",
+        "normalizedName": "size",
+        "offsetStart": 83,
+        "offsetEnd": 97
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 31.9219,
+          "y": 359.795,
+          "w": 15.8127,
+          "h": 7.9701
+        },
+        {
+          "p": 4,
+          "x": 49.0624,
+          "y": 359.923,
+          "w": 12.7043,
+          "h": 7.5238
+        }
+      ],
+      "measurementRaw": "19 nm",
+      "measurementOffsets": {
+        "start": 12087,
+        "end": 12092
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "10,000",
+        "rawUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 12223,
+          "offsetEnd": 12226
+        },
+        "parsedValue": {
+          "name": "10,000",
+          "numeric": 10000,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "10,000"
+          },
+          "parsed": "10,000"
+        },
+        "parsedUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 12223,
+          "offsetEnd": 12226
+        },
+        "normalizedQuantity": 1047.197551196597666666666666666667,
+        "normalizedUnit": {
+          "name": "rad/s"
+        },
+        "offsetStart": 12216,
+        "offsetEnd": 12222
+      },
+      "quantified": {
+        "rawName": "the homogenizer at",
+        "normalizedName": "homogenizer",
+        "offsetStart": 60,
+        "offsetEnd": 78
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 31.9219,
+          "y": 380.844,
+          "w": 25.863,
+          "h": 7.523799999999994
+        },
+        {
+          "p": 4,
+          "x": 59.1127,
+          "y": 380.844,
+          "w": 16.0358,
+          "h": 7.5238
+        }
+      ],
+      "measurementRaw": "10,000 rpm",
+      "measurementOffsets": {
+        "start": 12216,
+        "end": 12226
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "length",
+        "rawValue": "10",
+        "rawUnit": {
+          "name": "nm",
+          "type": "length",
+          "system": "SI base",
+          "offsetStart": 12268,
+          "offsetEnd": 12270
+        },
+        "parsedValue": {
+          "name": "10",
+          "numeric": 10,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "10"
+          },
+          "parsed": "10"
+        },
+        "parsedUnit": {
+          "name": "nm",
+          "type": "length",
+          "system": "SI base",
+          "offsetStart": 12268,
+          "offsetEnd": 12270
+        },
+        "normalizedQuantity": 1E-8,
+        "normalizedUnit": {
+          "name": "m",
+          "type": "length",
+          "system": "SI base"
+        },
+        "offsetStart": 12265,
+        "offsetEnd": 12267
+      },
+      "quantified": {
+        "rawName": "smaller mean size",
+        "normalizedName": "size",
+        "offsetStart": 109,
+        "offsetEnd": 126
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 236.71316666666667,
+          "y": 380.844,
+          "w": 8.432333333333332,
+          "h": 7.5238
+        },
+        {
+          "p": 4,
+          "x": 246.473,
+          "y": 380.844,
+          "w": 10.509933333333333,
+          "h": 7.5238
+        }
+      ],
+      "measurementRaw": "10 nm",
+      "measurementOffsets": {
+        "start": 12265,
+        "end": 12270
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "10,000",
+        "rawUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 12657,
+          "offsetEnd": 12660
+        },
+        "parsedValue": {
+          "name": "10,000",
+          "numeric": 10000,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "10,000"
+          },
+          "parsed": "10,000"
+        },
+        "parsedUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 12657,
+          "offsetEnd": 12660
+        },
+        "normalizedQuantity": 1047.197551196597666666666666666667,
+        "normalizedUnit": {
+          "name": "rad/s"
+        },
+        "offsetStart": 12650,
+        "offsetEnd": 12656
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 157.629,
+          "y": 443.609,
+          "w": 25.863,
+          "h": 7.523799999999994
+        },
+        {
+          "p": 4,
+          "x": 184.82,
+          "y": 443.609,
+          "w": 16.0358,
+          "h": 7.5238
+        }
+      ],
+      "measurementRaw": "10,000 rpm",
+      "measurementOffsets": {
+        "start": 12650,
+        "end": 12660
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "18,000",
+        "rawUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 13052,
+          "offsetEnd": 13055
+        },
+        "parsedValue": {
+          "name": "18,000",
+          "numeric": 18000,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "18,000"
+          },
+          "parsed": "18,000"
+        },
+        "parsedUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 13052,
+          "offsetEnd": 13055
+        },
+        "normalizedQuantity": 1884.9555921538758,
+        "normalizedUnit": {
+          "name": "rad/s"
+        },
+        "offsetStart": 13045,
+        "offsetEnd": 13051
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 130.844,
+          "y": 506.373,
+          "w": 25.878899999999987,
+          "h": 7.523799999999994
+        },
+        {
+          "p": 4,
+          "x": 158.051,
+          "y": 506.373,
+          "w": 16.0358,
+          "h": 7.5238
+        }
+      ],
+      "measurementRaw": "18,000 rpm",
+      "measurementOffsets": {
+        "start": 13045,
+        "end": 13055
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "18,000",
+        "rawUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 13549,
+          "offsetEnd": 13552
+        },
+        "parsedValue": {
+          "name": "18,000",
+          "numeric": 18000,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "18,000"
+          },
+          "parsed": "18,000"
+        },
+        "parsedUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 13549,
+          "offsetEnd": 13552
+        },
+        "normalizedQuantity": 1884.9555921538758,
+        "normalizedUnit": {
+          "name": "rad/s"
+        },
+        "offsetStart": 13542,
+        "offsetEnd": 13548
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 240.227,
+          "y": 579.598,
+          "w": 25.878900000000016,
+          "h": 7.523800000000051
+        },
+        {
+          "p": 4,
+          "x": 267.434,
+          "y": 579.598,
+          "w": 16.0358,
+          "h": 7.5238
+        }
+      ],
+      "measurementRaw": "18,000 rpm",
+      "measurementOffsets": {
+        "start": 13542,
+        "end": 13552
+      }
+    },
+    {
+      "type": "interval",
+      "quantityMost": {
+        "rawValue": "10 000",
+        "parsedValue": {
+          "name": "10 000",
+          "numeric": 1,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "10^000"
+          },
+          "parsed": "10^000"
+        },
+        "offsetStart": 13798,
+        "offsetEnd": 13804
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 46.970240000000004,
+          "y": 631.902,
+          "w": 25.706760000000003,
+          "h": 7.523800000000051
+        }
+      ],
+      "measurementRaw": "10 000",
+      "measurementOffsets": {
+        "start": 13798,
+        "end": 13804
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "length",
+        "rawValue": "43.8",
+        "rawUnit": {
+          "name": "nm",
+          "type": "length",
+          "system": "SI base",
+          "offsetStart": 13815,
+          "offsetEnd": 13817
+        },
+        "parsedValue": {
+          "name": "43.8",
+          "numeric": 43.8,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "43.8"
+          },
+          "parsed": "43.8"
+        },
+        "parsedUnit": {
+          "name": "nm",
+          "type": "length",
+          "system": "SI base",
+          "offsetStart": 13815,
+          "offsetEnd": 13817
+        },
+        "normalizedQuantity": 4.38E-8,
+        "normalizedUnit": {
+          "name": "m",
+          "type": "length",
+          "system": "SI base"
+        },
+        "offsetStart": 13810,
+        "offsetEnd": 13814
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 95.6787,
+          "y": 631.902,
+          "w": 16.338700000000003,
+          "h": 7.523800000000051
+        },
+        {
+          "p": 4,
+          "x": 113.345,
+          "y": 631.902,
+          "w": 12.7043,
+          "h": 7.5238
+        }
+      ],
+      "measurementRaw": "43.8 nm",
+      "measurementOffsets": {
+        "start": 13810,
+        "end": 13817
+      }
+    },
+    {
+      "type": "listc",
+      "quantities": [
+        {
+          "type": "length",
+          "rawValue": "29.7",
+          "rawUnit": {
+            "name": "nm",
+            "type": "length",
+            "system": "SI base",
+            "offsetStart": 13827,
+            "offsetEnd": 13829
+          },
+          "parsedValue": {
+            "name": "29.7",
+            "numeric": 29.7,
+            "structure": {
+              "type": "NUMBER",
+              "formatted": "29.7"
+            },
+            "parsed": "29.7"
+          },
+          "parsedUnit": {
+            "name": "nm",
+            "type": "length",
+            "system": "SI base",
+            "offsetStart": 13827,
+            "offsetEnd": 13829
+          },
+          "normalizedQuantity": 2.97E-8,
+          "normalizedUnit": {
+            "name": "m",
+            "type": "length",
+            "system": "SI base"
+          },
+          "offsetStart": 13822,
+          "offsetEnd": 13826
+        }
+      ],
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 144.07,
+          "y": 631.902,
+          "w": 16.338700000000017,
+          "h": 7.523800000000051
+        },
+        {
+          "p": 4,
+          "x": 161.736,
+          "y": 631.902,
+          "w": 9.760733333333333,
+          "h": 7.5238
+        }
+      ],
+      "measurementRaw": "29.7 nm",
+      "measurementOffsets": {
+        "start": 13822,
+        "end": 13829
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "length",
+        "rawValue": "20",
+        "rawUnit": {
+          "name": "nm",
+          "type": "length",
+          "system": "SI base",
+          "offsetStart": 13905,
+          "offsetEnd": 13907
+        },
+        "parsedValue": {
+          "name": "20",
+          "numeric": 20,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "20"
+          },
+          "parsed": "20"
+        },
+        "parsedUnit": {
+          "name": "nm",
+          "type": "length",
+          "system": "SI base",
+          "offsetStart": 13905,
+          "offsetEnd": 13907
+        },
+        "normalizedQuantity": 2E-8,
+        "normalizedUnit": {
+          "name": "m",
+          "type": "length",
+          "system": "SI base"
+        },
+        "offsetStart": 13902,
+        "offsetEnd": 13904
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 212.397,
+          "y": 642.363,
+          "w": 9.5801,
+          "h": 7.5238
+        },
+        {
+          "p": 4,
+          "x": 223.305,
+          "y": 642.363,
+          "w": 12.7043,
+          "h": 7.5238
+        }
+      ],
+      "measurementRaw": "20 nm",
+      "measurementOffsets": {
+        "start": 13902,
+        "end": 13907
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "18,000",
+        "rawUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 14206,
+          "offsetEnd": 14209
+        },
+        "parsedValue": {
+          "name": "18,000",
+          "numeric": 18000,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "18,000"
+          },
+          "parsed": "18,000"
+        },
+        "parsedUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 14206,
+          "offsetEnd": 14209
+        },
+        "normalizedQuantity": 1884.9555921538758,
+        "normalizedUnit": {
+          "name": "rad/s"
+        },
+        "offsetStart": 14199,
+        "offsetEnd": 14205
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 139.572,
+          "y": 694.667,
+          "w": 25.878899999999987,
+          "h": 7.523800000000051
+        },
+        {
+          "p": 4,
+          "x": 166.779,
+          "y": 694.667,
+          "w": 16.0358,
+          "h": 7.5238
+        }
+      ],
+      "measurementRaw": "18,000 rpm",
+      "measurementOffsets": {
+        "start": 14199,
+        "end": 14209
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "temperature",
+        "rawValue": "300",
+        "rawUnit": {
+          "name": "K",
+          "type": "temperature",
+          "system": "SI base",
+          "offsetStart": 14298,
+          "offsetEnd": 14299
+        },
+        "parsedValue": {
+          "name": "300",
+          "numeric": 300,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "300"
+          },
+          "parsed": "300"
+        },
+        "parsedUnit": {
+          "name": "K",
+          "type": "temperature",
+          "system": "SI base",
+          "offsetStart": 14298,
+          "offsetEnd": 14299
+        },
+        "normalizedQuantity": 300,
+        "normalizedUnit": {
+          "name": "K",
+          "type": "temperature",
+          "system": "SI base"
+        },
+        "offsetStart": 14294,
+        "offsetEnd": 14297
+      },
+      "quantified": {
+        "rawName": "the nanoparticles",
+        "normalizedName": "the nanoparticles",
+        "offsetStart": 51,
+        "offsetEnd": 68
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 228.57,
+          "y": 715.588,
+          "w": 14.3621,
+          "h": 7.5238
+        },
+        {
+          "p": 4,
+          "x": 244.26,
+          "y": 715.588,
+          "w": 5.3718,
+          "h": 7.5238
+        }
+      ],
+      "measurementRaw": "300 K",
+      "measurementOffsets": {
+        "start": 14294,
+        "end": 14299
+      }
+    },
+    {
+      "type": "interval",
+      "quantityMost": {
+        "rawValue": "10 000",
+        "parsedValue": {
+          "name": "10 000",
+          "numeric": 1,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "10^000"
+          },
+          "parsed": "10^000"
+        },
+        "offsetStart": 14429,
+        "offsetEnd": 14435
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 257.29886666666664,
+          "y": 736.51,
+          "w": 26.175333333333356,
+          "h": 7.523800000000051
+        }
+      ],
+      "measurementRaw": "10 000",
+      "measurementOffsets": {
+        "start": 14429,
+        "end": 14435
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "temperature",
+        "rawValue": "300",
+        "rawUnit": {
+          "name": "K",
+          "type": "temperature",
+          "system": "SI base",
+          "offsetStart": 14487,
+          "offsetEnd": 14488
+        },
+        "parsedValue": {
+          "name": "300",
+          "numeric": 300,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "300"
+          },
+          "parsed": "300"
+        },
+        "parsedUnit": {
+          "name": "K",
+          "type": "temperature",
+          "system": "SI base",
+          "offsetStart": 14487,
+          "offsetEnd": 14488
+        },
+        "normalizedQuantity": 300,
+        "normalizedUnit": {
+          "name": "K",
+          "type": "temperature",
+          "system": "SI base"
+        },
+        "offsetStart": 14483,
+        "offsetEnd": 14486
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 473.765,
+          "y": 56.5603,
+          "w": 14.3621,
+          "h": 7.5238
+        },
+        {
+          "p": 4,
+          "x": 489.455,
+          "y": 56.5603,
+          "w": 3.6583,
+          "h": 7.5238
+        }
+      ],
+      "measurementRaw": "300 K",
+      "measurementOffsets": {
+        "start": 14483,
+        "end": 14488
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "mass magnetization",
+        "rawValue": "73.2",
+        "rawUnit": {
+          "name": "emu/g",
+          "type": "mass magnetization",
+          "system": "centimetre–gram–second",
+          "offsetStart": 14639,
+          "offsetEnd": 14644
+        },
+        "parsedValue": {
+          "name": "73.2",
+          "numeric": 73.2,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "73.2"
+          },
+          "parsed": "73.2"
+        },
+        "parsedUnit": {
+          "name": "emu/g",
+          "type": "mass magnetization",
+          "system": "centimetre–gram–second",
+          "offsetStart": 14639,
+          "offsetEnd": 14644
+        },
+        "offsetStart": 14634,
+        "offsetEnd": 14638
+      },
+      "quantified": {
+        "rawName": "MNP-MS",
+        "normalizedName": "m",
+        "offsetStart": 251,
+        "offsetEnd": 257
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 305.29244,
+          "y": 87.943,
+          "w": 15.525759999999991,
+          "h": 7.523799999999994
+        },
+        {
+          "p": 4,
+          "x": 322.146,
+          "y": 87.943,
+          "w": 22.914000000000044,
+          "h": 7.523799999999994
+        }
+      ],
+      "measurementRaw": "73.2 emu/g",
+      "measurementOffsets": {
+        "start": 14634,
+        "end": 14644
+      }
+    },
+    {
+      "type": "interval",
+      "quantityMost": {
+        "rawValue": "10 000",
+        "parsedValue": {
+          "name": "10 000",
+          "numeric": 1,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "10^000"
+          },
+          "parsed": "10^000"
+        },
+        "offsetStart": 14658,
+        "offsetEnd": 14664
+      },
+      "quantified": {
+        "rawName": "the bulk magnetization value for",
+        "normalizedName": "value",
+        "offsetStart": 320,
+        "offsetEnd": 352
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 406.61486666666667,
+          "y": 87.943,
+          "w": 26.176333333333332,
+          "h": 7.523799999999994
+        }
+      ],
+      "measurementRaw": "10 000",
+      "measurementOffsets": {
+        "start": 14658,
+        "end": 14664
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "mass magnetization",
+        "rawValue": "72.0",
+        "rawUnit": {
+          "name": "emu/g",
+          "type": "mass magnetization",
+          "system": "centimetre–gram–second",
+          "offsetStart": 14671,
+          "offsetEnd": 14676
+        },
+        "parsedValue": {
+          "name": "72.0",
+          "numeric": 72,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "72.0"
+          },
+          "parsed": "72.0"
+        },
+        "parsedUnit": {
+          "name": "emu/g",
+          "type": "mass magnetization",
+          "system": "centimetre–gram–second",
+          "offsetStart": 14671,
+          "offsetEnd": 14676
+        },
+        "offsetStart": 14666,
+        "offsetEnd": 14670
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 440.29026,
+          "y": 87.943,
+          "w": 15.51303999999999,
+          "h": 7.523799999999994
+        },
+        {
+          "p": 4,
+          "x": 457.131,
+          "y": 87.943,
+          "w": 22.914000000000044,
+          "h": 7.523799999999994
+        }
+      ],
+      "measurementRaw": "72.0 emu/g",
+      "measurementOffsets": {
+        "start": 14666,
+        "end": 14676
+      }
+    },
+    {
+      "type": "interval",
+      "quantityLeast": {
+        "rawValue": "18 000",
+        "parsedValue": {
+          "name": "18 000",
+          "numeric": 0,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "000"
+          },
+          "parsed": "000"
+        },
+        "offsetStart": 14789,
+        "offsetEnd": 14795
+      },
+      "quantified": {
+        "rawName": "sample",
+        "normalizedName": "sample",
+        "offsetStart": 25,
+        "offsetEnd": 31
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 386.14846666666665,
+          "y": 108.864,
+          "w": 24.047708333333333,
+          "h": 7.523799999999994
+        }
+      ],
+      "measurementRaw": "18 000",
+      "measurementOffsets": {
+        "start": 14789,
+        "end": 14795
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "mass magnetization",
+        "rawValue": "28.5",
+        "rawUnit": {
+          "name": "emu/g",
+          "type": "mass magnetization",
+          "system": "centimetre–gram–second",
+          "offsetStart": 14821,
+          "offsetEnd": 14826
+        },
+        "parsedValue": {
+          "name": "28.5",
+          "numeric": 28.5,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "28.5"
+          },
+          "parsed": "28.5"
+        },
+        "parsedUnit": {
+          "name": "emu/g",
+          "type": "mass magnetization",
+          "system": "centimetre–gram–second",
+          "offsetStart": 14821,
+          "offsetEnd": 14826
+        },
+        "offsetStart": 14816,
+        "offsetEnd": 14820
+      },
+      "quantified": {
+        "rawName": "decreasing",
+        "normalizedName": "decreasing",
+        "offsetStart": 81,
+        "offsetEnd": 91
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 485.092,
+          "y": 108.864,
+          "w": 16.338700000000017,
+          "h": 7.523799999999994
+        },
+        {
+          "p": 4,
+          "x": 502.759,
+          "y": 108.864,
+          "w": 24.43629999999996,
+          "h": 7.523799999999994
+        }
+      ],
+      "measurementRaw": "28.5 emu/g",
+      "measurementOffsets": {
+        "start": 14816,
+        "end": 14826
+      }
+    },
+    {
+      "type": "interval",
+      "quantityMost": {
+        "rawValue": "25 000",
+        "parsedValue": {
+          "name": "25 000",
+          "numeric": 0,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "000"
+          },
+          "parsed": "000"
+        },
+        "offsetStart": 14876,
+        "offsetEnd": 14882
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 460.85446666666667,
+          "y": 119.325,
+          "w": 24.052708333333328,
+          "h": 7.523799999999994
+        }
+      ],
+      "measurementRaw": "25 000",
+      "measurementOffsets": {
+        "start": 14876,
+        "end": 14882
+      }
+    },
+    {
+      "type": "interval",
+      "quantityMost": {
+        "rawValue": "10 000",
+        "parsedValue": {
+          "name": "10 000",
+          "numeric": 1,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "10^000"
+          },
+          "parsed": "10^000"
+        },
+        "offsetStart": 15091,
+        "offsetEnd": 15097
+      },
+      "quantified": {
+        "rawName": "MNP-MS and",
+        "normalizedName": "m",
+        "offsetStart": 323,
+        "offsetEnd": 333
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 512.6048666666667,
+          "y": 150.707,
+          "w": 26.17633333333322,
+          "h": 7.523799999999994
+        }
+      ],
+      "measurementRaw": "10 000",
+      "measurementOffsets": {
+        "start": 15091,
+        "end": 15097
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "5",
+        "rawUnit": {
+          "name": "• C",
+          "offsetStart": 15186,
+          "offsetEnd": 15189
+        },
+        "parsedValue": {
+          "name": "5",
+          "numeric": 5,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "5"
+          },
+          "parsed": "5"
+        },
+        "parsedUnit": {
+          "name": "•C",
+          "offsetStart": 15186,
+          "offsetEnd": 15189
+        },
+        "offsetStart": 15184,
+        "offsetEnd": 15185
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 377.37624999999997,
+          "y": 171.629,
+          "w": 3.93325,
+          "h": 7.5238
+        },
+        {
+          "p": 4,
+          "x": 382.634,
+          "y": 170.102,
+          "w": 7.511899999999969,
+          "h": 9.050799999999981
+        }
+      ],
+      "measurementRaw": "5 • C",
+      "measurementOffsets": {
+        "start": 15184,
+        "end": 15189
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "type": "length",
+        "rawValue": "10",
+        "rawUnit": {
+          "name": "nm",
+          "type": "length",
+          "system": "SI base",
+          "offsetStart": 15432,
+          "offsetEnd": 15434
+        },
+        "parsedValue": {
+          "name": "10",
+          "numeric": 10,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "10"
+          },
+          "parsed": "10"
+        },
+        "parsedUnit": {
+          "name": "nm",
+          "type": "length",
+          "system": "SI base",
+          "offsetStart": 15432,
+          "offsetEnd": 15434
+        },
+        "normalizedQuantity": 1E-8,
+        "normalizedUnit": {
+          "name": "m",
+          "type": "length",
+          "system": "SI base"
+        },
+        "offsetStart": 15429,
+        "offsetEnd": 15431
+      },
+      "quantified": {
+        "rawName": "a mean diameter of",
+        "normalizedName": "diameter",
+        "offsetStart": 62,
+        "offsetEnd": 80
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 397.469,
+          "y": 245.717,
+          "w": 9.5801,
+          "h": 7.5238
+        },
+        {
+          "p": 4,
+          "x": 408.377,
+          "y": 245.717,
+          "w": 12.7043,
+          "h": 7.5238
+        }
+      ],
+      "measurementRaw": "10 nm",
+      "measurementOffsets": {
+        "start": 15429,
+        "end": 15434
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "10,000",
+        "rawUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 15565,
+          "offsetEnd": 15568
+        },
+        "parsedValue": {
+          "name": "10,000",
+          "numeric": 10000,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "10,000"
+          },
+          "parsed": "10,000"
+        },
+        "parsedUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 15565,
+          "offsetEnd": 15568
+        },
+        "normalizedQuantity": 1047.197551196597666666666666666667,
+        "normalizedUnit": {
+          "name": "rad/s"
+        },
+        "offsetStart": 15558,
+        "offsetEnd": 15564
+      },
+      "quantified": {
+        "rawName": "a stirring velocity of",
+        "normalizedName": "velocity",
+        "offsetStart": 187,
+        "offsetEnd": 209
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 379.207,
+          "y": 266.639,
+          "w": 25.862999999999943,
+          "h": 7.523799999999994
+        },
+        {
+          "p": 4,
+          "x": 406.398,
+          "y": 266.639,
+          "w": 13.485375,
+          "h": 7.5238
+        }
+      ],
+      "measurementRaw": "10,000 rpm",
+      "measurementOffsets": {
+        "start": 15558,
+        "end": 15568
+      }
+    },
+    {
+      "type": "value",
+      "quantity": {
+        "rawValue": "18,000",
+        "rawUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 15814,
+          "offsetEnd": 15817
+        },
+        "parsedValue": {
+          "name": "18,000",
+          "numeric": 18000,
+          "structure": {
+            "type": "NUMBER",
+            "formatted": "18,000"
+          },
+          "parsed": "18,000"
+        },
+        "parsedUnit": {
+          "name": "rpm",
+          "type": "rotation",
+          "system": "non SI",
+          "offsetStart": 15814,
+          "offsetEnd": 15817
+        },
+        "normalizedQuantity": 1884.9555921538758,
+        "normalizedUnit": {
+          "name": "rad/s"
+        },
+        "offsetStart": 15807,
+        "offsetEnd": 15813
+      },
+      "quantified": {
+        "rawName": "a stirring velocity of",
+        "normalizedName": "velocity",
+        "offsetStart": 436,
+        "offsetEnd": 458
+      },
+      "boundingBoxes": [
+        {
+          "p": 4,
+          "x": 301.411,
+          "y": 308.482,
+          "w": 25.878900000000044,
+          "h": 7.523799999999994
+        },
+        {
+          "p": 4,
+          "x": 328.617,
+          "y": 308.482,
+          "w": 13.47945,
+          "h": 7.5238
+        }
+      ],
+      "measurementRaw": "18,000 rpm",
+      "measurementOffsets": {
+        "start": 15807,
+        "end": 15817
+      }
+    }
+  ]
+}
