@@ -1,8 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0378383912000130-3662	1	Quantity	45	51	T1	8.5 mm	"{""unit"": ""mm""}"
-S0378383912000130-3662	1	MeasuredEntity	52	57	T2	beach	"{""HasQuantity"": ""T1""}"
-S0378383912000130-3662	2	Quantity	136	142	T3	1.5 mm	"{""unit"": ""mm""}"
-S0378383912000130-3662	2	MeasuredEntity	52	57	T4	beach	"{""HasQuantity"": ""T3""}"
-S0378383912000130-3662	3	Quantity	450	475	T6	initial groundwater level	"{""unit"": ""mm""}"
-S0378383912000130-3662	3	MeasuredProperty	419	436	T5	groundwater level	"{""HasQuantity"": ""T7""}"
-S0378383912000130-3662	3	MeasuredEntity	419	430	T7	groundwater	"{""HasQuantity"": ""T6""}"

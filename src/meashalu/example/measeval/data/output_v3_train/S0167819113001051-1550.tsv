@@ -1,4 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0167819113001051-1550	1	Quantity	79	89	T1	roughly 2%	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
-S0167819113001051-1550	1	MeasuredEntity	50	67	T2	conventional unit	"{""HasQuantity"": ""T1""}"
-S0167819113001051-1550	1	MeasuredProperty	97	124	T3	times that a glitch appears	"{""HasQuantity"": ""T1""}"

@@ -1,5 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S016412121300188X-5066	1	Quantity	466	469	T1	78%	"{""unit"": ""%"", ""mods"": [""IsCount""]}"
-S016412121300188X-5066	1	Quantity	473	476	T2	95%	"{""unit"": ""%"", ""mods"": [""IsCount""]}"
-S016412121300188X-5066	1	Quantity	624	626	T3	30	"{""mods"": [""IsCount""]}"
-S016412121300188X-5066	1	MeasuredEntity	627	646	T6	production programs	"{""HasQuantity"": ""T3""}"

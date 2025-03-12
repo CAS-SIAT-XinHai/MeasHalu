@@ -1,5 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0032063312003054-2101	1	Quantity	162	178	T1	a rough estimate	"{""mods"": [""IsApproximate""]}"
-S0032063312003054-2101	1	MeasuredEntity	186	201	T2	current density	"{""HasQuantity"": ""T1""}"
-S0032063312003054-2101	1	MeasuredProperty	82	92	T3	difference	"{""HasQuantity"": ""T1""}"
-S0032063312003054-2101	1	Qualifier	93	147	T4	between the net flux from electrons and the heavy-ions	"{""Qualifies"": ""T3""}"

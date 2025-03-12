@@ -1,5 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S1389128612002496-5994	1	Quantity	302	305	T1	25%	"{""unit"": ""%""}"
-S1389128612002496-5994	1	MeasuredEntity	211	214	T2	RED	"{""HasQuantity"": ""T1""}"
-S1389128612002496-5994	2	Quantity	334	338	T5	7.6%	"{""unit"": ""%""}"
-S1389128612002496-5994	2	MeasuredEntity	344	352	T6	DropTail	"{""HasQuantity"": ""T5""}"

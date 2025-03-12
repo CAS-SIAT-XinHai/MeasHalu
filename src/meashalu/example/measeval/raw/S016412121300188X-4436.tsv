@@ -1,6 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S016412121300188X-4436	1	Quantity	T1	10%	"{""unit"": ""%""}"
-S016412121300188X-4436	1	MeasuredEntity	T2	threshold	"{""HasQuantity"": ""T1""}"
-S016412121300188X-4436	2	Quantity	T3	10%	"{""unit"": ""%""}"
-S016412121300188X-4436	2	MeasuredEntity	T4	program's SDG vertices	"{""HasQuantity"": ""T3""}"
-S016412121300188X-4436	5	coherent	cluster	"3	Qualifier	T6	large"	"{""Qualifies"": ""T5""}"

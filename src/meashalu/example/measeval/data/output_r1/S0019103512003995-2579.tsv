@@ -1,7 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0019103512003995-2579	1	Quantity	673	679	T1	6300 K	"{""unit"": ""K"", ""mods"": [""IsMean""]}"
-S0019103512003995-2579	1	MeasuredEntity	586	625	T2	neutral density profile of the C2 model	"{""HasQuantity"": ""T1""}"
-S0019103512003995-2579	1	MeasuredProperty	653	669	T3	mean temperature	"{""HasQuantity"": ""T1""}"
-S0019103512003995-2579	2	Quantity	568	571	T4	3Rp	"{""unit"": ""Rp""}"
-S0019103512003995-2579	2	MeasuredEntity	501	516	T5	density profile	"{""HasQuantity"": ""T4""}"
-S0019103512003995-2579	2	Qualifier	562	571	T6	below 3Rp	"{""Qualifies"": ""T5""}"

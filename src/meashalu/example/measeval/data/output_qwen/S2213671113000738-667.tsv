@@ -1,9 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S2213671113000738-667	1	Quantity	370	378	T1	25 ng/ml	"{""unit"": ""ng/ml""}"
-S2213671113000738-667	1	MeasuredEntity	345	361	T2	interferon gamma	"{""HasQuantity"": ""T1""}"
-S2213671113000738-667	1	Qualifier	379	388	T4	for 48 hr	"{""Qualifies"": ""T1""}"
-S2213671113000738-667	2	Quantity	454	459	T5	1:100	"{""mods"": []}"
-S2213671113000738-667	2	MeasuredEntity	406	435	T6	expression level of the mRNAs	"{""HasQuantity"": ""T5""}"
-S2213671113000738-667	2	Qualifier	460	545	T8	compared with peripheral blood cells in both fibroblast- and blood-cell-derived iPSCs	"{""Qualifies"": ""T5""}"
-S2213671113000738-667	3	Quantity	246	255	T9	35 and 71	"{""mods"": [""IsCount""]}"
-S2213671113000738-667	3	MeasuredEntity	241	245	T10	days	"{""HasQuantity"": ""T9""}"

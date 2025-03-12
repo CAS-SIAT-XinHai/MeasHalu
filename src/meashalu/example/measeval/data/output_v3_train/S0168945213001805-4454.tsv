@@ -1,7 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0168945213001805-4454	1	Quantity	450	456	T1	42–48%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
-S0168945213001805-4454	1	MeasuredEntity	428	446	T2	net photosynthesis	"{""HasQuantity"": ""T1""}"
-S0168945213001805-4454	1	Qualifier	457	477	T3	relative to controls	"{""Qualifies"": ""T1""}"
-S0168945213001805-4454	2	Quantity	578	584	T4	15–27%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
-S0168945213001805-4454	2	MeasuredEntity	561	574	T5	biomass yield	"{""HasQuantity"": ""T4""}"
-S0168945213001805-4454	2	Qualifier	585	658	T6	in three poplar genotypes (P. alba, P. nigra, and Populus × euramericana)	"{""Qualifies"": ""T4""}"

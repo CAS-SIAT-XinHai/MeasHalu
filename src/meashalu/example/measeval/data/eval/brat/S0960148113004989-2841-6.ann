@@ -1,4 +1,0 @@
-T1	Quantity 286 296	9.81 m s−2
-T2	Unit 291 296	m s−2
-T3	MeasuredEntity 282 283	g
-R1	HasQuantity Arg1:T3 Arg2:T1	

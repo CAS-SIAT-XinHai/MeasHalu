@@ -1,6 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0950705113001895-23137	1	Quantity	T1	3	"{""mods"": [""IsCount""]}"
-S0950705113001895-23137	1	MeasuredEntity	T2	x11	"{""HasQuantity"": ""T1""}"
-S0950705113001895-23137	1	MeasuredProperty	T3	f(x11, d)	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
-S0950705113001895-23137	1	Qualifier	T4	∀x ∈ U, f(x, d) ≠ f(x11, d)	"{""Qualifies"": ""T1""}"
-S0950705113001895-23137	1	Qualifier	T5	f(D2, d) < f(x11, d) < f(D3, d)	"{""Qualifies"": ""T1""}"

@@ -1,4 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0167610513001001-1566	1	Quantity	796	822	T1	≈2% of the mean wind speed	"{""unit"": ""%"", ""mods"": [""IsApproximate"", ""IsMean""]}"
-S0167610513001001-1566	1	MeasuredEntity	839	855	T2	sonic anemometer	"{""HasQuantity"": ""T1""}"
-S0167610513001001-1566	1	MeasuredProperty	812	822	T3	wind speed	"{""HasQuantity"": ""T1""}"

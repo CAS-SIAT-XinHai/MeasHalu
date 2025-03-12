@@ -1,9 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0032063312002437-586	1	Quantity	145	151	T1	higher	"{""mods"": [""IsApproximate""]}"
-S0032063312002437-586	1	MeasuredEntity	131	140	T2	ionopause	"{""HasQuantity"": ""T1""}"
-S0032063312002437-586	2	Quantity	369	375	T4	400 km	"{""unit"": ""km""}"
-S0032063312002437-586	2	MeasuredEntity	298	308	T5	ionosphere	"{""HasQuantity"": ""T4""}"
-S0032063312002437-586	2	MeasuredProperty	357	365	T6	altitude	"{""HasQuantity"": ""T4""}"
-S0032063312002437-586	3	Quantity	1115	1122	T7	∼140 km	"{""unit"": ""km"", ""mods"": [""IsApproximate""]}"
-S0032063312002437-586	3	MeasuredEntity	1103	1113	T8	ionosphere	"{""HasQuantity"": ""T7""}"
-S0032063312002437-586	3	MeasuredProperty	1067	1075	T9	altitude	"{""HasQuantity"": ""T7""}"

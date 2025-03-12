@@ -1,5 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0021979713004438-2004	1	Quantity	T1	38 MPa	"{""unit"": ""MPa""}"
-S0021979713004438-2004	1	Quantity	T2	185 MPa	"{""unit"": ""MPa""}"
-S0021979713004438-2004	1	MeasuredEntity	T3	adsorbed Mefp-1 film	"{""HasQuantity"": ""T1"", ""HasQuantity"": ""T2""}"
-S0021979713004438-2004	1	MeasuredProperty	T4	modulus	"{""HasQuantity"": ""T1"", ""HasQuantity"": ""T2"", ""HasProperty"": ""T3""}"

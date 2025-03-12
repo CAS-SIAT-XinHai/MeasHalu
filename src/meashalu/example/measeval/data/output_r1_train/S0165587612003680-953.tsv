@@ -1,6 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0165587612003680-953	1	Quantity	295	308	T1	more than 90%	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
-S0165587612003680-953	1	MeasuredEntity	312	317	T2	cases	"{""HasQuantity"": ""T1""}"
-S0165587612003680-953	1	Qualifier	253	291	T3	children with OME and/or recurrent AOM	"{""Qualifies"": ""T2""}"
-S0165587612003680-953	2	Quantity	330	333	T4	any	"{""mods"": [""IsCount""]}"
-S0165587612003680-953	2	MeasuredEntity	334	357	T5	control samples studied	"{""HasQuantity"": ""T4""}"

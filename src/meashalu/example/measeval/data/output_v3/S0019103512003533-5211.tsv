@@ -1,9 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0019103512003533-5211	1	Quantity	332	341	T1	10−5 mbar	"{""unit"": ""mbar""}"
-S0019103512003533-5211	1	MeasuredEntity	305	330	T2	ionospheric density level	"{""HasQuantity"": ""T1""}"
-S0019103512003533-5211	2	Quantity	356	359	T4	78°	"{""unit"": ""\u00b0""}"
-S0019103512003533-5211	2	MeasuredEntity	347	355	T5	latitude	"{""HasQuantity"": ""T4""}"
-S0019103512003533-5211	3	Quantity	630	635	T6	±50 K	"{""unit"": ""K"", ""mods"": [""HasTolerance""]}"
-S0019103512003533-5211	3	MeasuredEntity	636	667	T7	exospheric and H3+ temperatures	"{""HasQuantity"": ""T6""}"
-S0019103512003533-5211	4	Quantity	805	810	T8	⩽10 K	"{""unit"": ""K"", ""mods"": [""IsRange""]}"
-S0019103512003533-5211	4	MeasuredEntity	782	801	T9	temperature changes	"{""HasQuantity"": ""T8""}"

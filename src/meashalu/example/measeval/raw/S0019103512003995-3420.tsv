@@ -1,7 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0019103512003995-3420	1	MeasuredProperty	T1	density	"{""HasProperty"": ""T2""}"
-S0019103512003995-3420	1	MeasuredEntity	T2	material	"{""HasQuantity"": """", ""HasProperty"": ""T1""}"
-S0019103512003995-3420	1	Qualifier	T3	in the particles	"{""Qualifies"": ""T2""}"
-S0019103512003995-3420	2	MeasuredProperty	T4	density	"{""HasProperty"": ""T5""}"
-S0019103512003995-3420	2	MeasuredEntity	T5	particles	"{""HasQuantity"": """", ""HasProperty"": ""T4""}"
-S0019103512003995-3420	2	Qualifier	T6	in the atmosphere	"{""Qualifies"": ""T5""}"

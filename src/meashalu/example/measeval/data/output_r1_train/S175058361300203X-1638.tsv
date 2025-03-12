@@ -1,5 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S175058361300203X-1638	1	Quantity	228	233	T1	34 °C	"{""unit"": ""\u00b0C""}"
-S175058361300203X-1638	1	MeasuredEntity	201	210	T2	injection	"{""HasQuantity"": ""T1""}"
-S175058361300203X-1638	2	Quantity	251	256	T4	38 °C	"{""unit"": ""\u00b0C""}"
-S175058361300203X-1638	2	MeasuredEntity	201	210	T5	injection	"{""HasQuantity"": ""T4""}"

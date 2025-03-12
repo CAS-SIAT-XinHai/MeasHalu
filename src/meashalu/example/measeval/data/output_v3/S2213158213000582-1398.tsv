@@ -1,7 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S2213158213000582-1398	1	Quantity	15	20	T1	50 ms	"{""unit"": ""ms""}"
-S2213158213000582-1398	1	MeasuredEntity	21	31	T2	group maps	"{""HasQuantity"": ""T1""}"
-S2213158213000582-1398	2	Quantity	56	62	T4	100 ms	"{""unit"": ""ms""}"
-S2213158213000582-1398	2	MeasuredEntity	33	52	T5	group contrast maps	"{""HasQuantity"": ""T4""}"
-S2213158213000582-1398	3	Quantity	125	137	T7	FDR q < 0.05	"{""mods"": []}"
-S2213158213000582-1398	3	MeasuredEntity	79	96	T8	group differences	"{""HasQuantity"": ""T7""}"

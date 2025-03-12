@@ -1,4 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0006322312001096-1248	1	Quantity	584	588	T1	2.30	"{""unit"": null, ""mods"": [""IsMean""]}"
-S0006322312001096-1248	1	Quantity	590	606	T2	95% CI 1.03–5.13	"{""unit"": null, ""mods"": [""IsRange""]}"
-S0006322312001096-1248	1	MeasuredProperty	573	583	T4	odds ratio	"{""HasQuantity"": ""T1""}"

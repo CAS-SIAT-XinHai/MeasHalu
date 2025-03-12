@@ -1,3 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0167880913001229-1033	1	Quantity	48	55	T1	0–10 cm	"{""unit"": ""cm"", ""mods"": [""IsRange""]}"
-S0167880913001229-1033	1	MeasuredEntity	56	59	T2	SOC	"{""HasQuantity"": ""T1""}"

@@ -1,7 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0378383911001669-1088	1	Quantity	78	85	T1	0.072 m	"{""unit"": ""m""}"
-S0378383911001669-1088	1	MeasuredEntity	0	70	T2	Depth time-series and depth-averaged bed-parallel velocity time-series	"{""HasQuantity"": ""T1""}"
-S0378383911001669-1088	2	Quantity	94	100	T4	1.3 mm	"{""unit"": ""mm""}"
-S0378383911001669-1088	2	MeasuredEntity	101	117	T5	sand-rough beach	"{""HasQuantity"": ""T4""}"
-S0378383911001669-1088	3	Quantity	132	152	T7	50 individual events	"{""unit"": ""events"", ""mods"": [""IsCount""]}"
-S0378383911001669-1088	3	MeasuredEntity	135	152	T8	individual events	"{""HasQuantity"": ""T7""}"

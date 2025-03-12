@@ -1,5 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0927024813002961-1322	1	Quantity	521	524	T1	±3%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
-S0927024813002961-1322	1	Quantity	547	559	T2	+10% to −20%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
-S0927024813002961-1322	1	MeasuredEntity	529	542	T3	CIGS and c-Si	"{""HasQuantity"": ""T1""}"
-S0927024813002961-1322	1	MeasuredEntity	564	576	T4	a-Si devices	"{""HasQuantity"": ""T2""}"

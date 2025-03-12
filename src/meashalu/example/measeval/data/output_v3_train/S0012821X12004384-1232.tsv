@@ -1,9 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0012821X12004384-1232	1	Quantity	28	35	T1	>0.5 km	"{""unit"": ""km"", ""mods"": [""IsRange""]}"
-S0012821X12004384-1232	1	MeasuredEntity	57	62	T2	basin	"{""HasQuantity"": ""T1""}"
-S0012821X12004384-1232	1	MeasuredProperty	22	26	T3	deep	"{""HasQuantity"": ""T1""}"
-S0012821X12004384-1232	2	Quantity	338	344	T4	<10 cm	"{""unit"": ""cm"", ""mods"": [""IsRange""]}"
-S0012821X12004384-1232	2	MeasuredEntity	306	326	T5	turbidite sandstones	"{""HasQuantity"": ""T4""}"
-S0012821X12004384-1232	3	Quantity	531	536	T7	100 m	"{""unit"": ""m""}"
-S0012821X12004384-1232	3	MeasuredEntity	471	476	T8	basin	"{""HasQuantity"": ""T7""}"
-S0012821X12004384-1232	3	MeasuredProperty	507	511	T9	fall	"{""HasQuantity"": ""T7""}"

@@ -1,7 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0960148113004989-3277	1	Quantity	130	134	T1	12 h	"{""unit"": ""h""}"
-S0960148113004989-3277	1	MeasuredEntity	135	152	T2	sinusoidal period	"{""HasQuantity"": ""T1""}"
-S0960148113004989-3277	1	MeasuredProperty	126	127	T3	P	"{""HasQuantity"": ""T1""}"
-S0960148113004989-3277	2	Quantity	178	183	T4	864 s	"{""unit"": ""s""}"
-S0960148113004989-3277	2	MeasuredEntity	160	169	T5	time step	"{""HasQuantity"": ""T4""}"
-S0960148113004989-3277	2	MeasuredProperty	173	175	T6	Δt	"{""HasQuantity"": ""T4""}"

@@ -1,6 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0022000014000026-12523	1	Quantity	91	95	T1	T∈R+	"{""unit"": ""R+""}"
-S0022000014000026-12523	1	MeasuredEntity	50	73	T2	watchdog timers (T,s,C)	"{""HasQuantity"": ""T1""}"
-S0022000014000026-12523	1	MeasuredProperty	103	111	T3	duration	"{""HasQuantity"": ""T1""}"
-S0022000014000026-12523	2	Quantity	497	498	T4	ϑ	"{""mods"": [""HasTolerance""]}"
-S0022000014000026-12523	2	MeasuredProperty	453	473	T6	correct at all times	"{""HasQuantity"": ""T4""}"

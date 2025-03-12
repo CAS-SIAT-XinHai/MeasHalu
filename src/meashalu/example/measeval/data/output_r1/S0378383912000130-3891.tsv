@@ -1,5 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0378383912000130-3891	1	Quantity	94	97	T1	two	"{""mods"": [""IsCount""]}"
-S0378383912000130-3891	1	MeasuredEntity	123	130	T2	beaches	"{""HasQuantity"": ""T1""}"
-S0378383912000130-3891	2	Quantity	132	149	T3	1.5 mm and 8.5 mm	"{""unit"": ""mm"", ""mods"": [""IsList""]}"
-S0378383912000130-3891	2	MeasuredEntity	150	158	T4	sediment	"{""HasQuantity"": ""T3""}"

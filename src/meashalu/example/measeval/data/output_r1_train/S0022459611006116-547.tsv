@@ -1,6 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0022459611006116-547	1	Quantity	64	69	T1	298 K	"{""unit"": ""K""}"
-S0022459611006116-547	1	MeasuredEntity	40	43	T2	(1)	"{""HasProperty"": ""T3""}"
-S0022459611006116-547	1	MeasuredProperty	8	35	T3	crystallographic parameters	"{""HasQuantity"": ""T1""}"
-S0022459611006116-547	1	Qualifier	44	60	T4	from PXD and PND	"{""Qualifies"": ""T3""}"
-S0022459611006116-547	1	Qualifier	61	69	T5	at 298 K	"{""Qualifies"": ""T3""}"

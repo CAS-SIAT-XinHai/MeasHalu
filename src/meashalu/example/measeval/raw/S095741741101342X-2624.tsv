@@ -1,7 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S095741741101342X-2624	1	Quantity	T1	85%	"{""unit"": ""%""}"
-S095741741101342X-2624	1	MeasuredEntity	T2	class split	"{""HasQuantity"": ""T1""}"
-S095741741101342X-2624	1	Qualifier	T3	good	"{""Qualifies"": ""T1""}"
-S095741741101342X-2624	2	Quantity	T4	15%	"{""unit"": ""%""}"
-S095741741101342X-2624	2	MeasuredEntity	T5	class split	"{""HasQuantity"": ""T4""}"
-S095741741101342X-2624	2	Qualifier	T6	bad	"{""Qualifies"": ""T4""}"

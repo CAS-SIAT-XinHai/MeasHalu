@@ -1,4 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S2213671113000738-787	1	Quantity	60	65	T1	40 μm	"{""unit"": ""\u03bcm""}"
-S2213671113000738-787	1	MeasuredEntity	25	44	T2	fixed frozen brains	"{""HasProperty"": ""T3""}"
-S2213671113000738-787	1	MeasuredProperty	66	75	T3	thickness	"{""HasQuantity"": ""T1""}"

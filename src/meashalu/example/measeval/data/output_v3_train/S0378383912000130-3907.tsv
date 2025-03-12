@@ -1,4 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0378383912000130-3907	1	Quantity	117	123	T1	1.5 mm	"{""unit"": ""mm""}"
-S0378383912000130-3907	1	MeasuredEntity	124	129	T2	beach	"{""HasQuantity"": ""T1""}"
-S0378383912000130-3907	1	MeasuredProperty	85	109	T3	level of the bed surface	"{""HasQuantity"": ""T1""}"

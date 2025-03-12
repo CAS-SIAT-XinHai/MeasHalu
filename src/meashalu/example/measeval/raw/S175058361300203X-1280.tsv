@@ -1,5 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S175058361300203X-1280	1	Quantity	T1	40 Hz	"{""unit"": ""Hz""}"
-S175058361300203X-1280	1	MeasuredEntity	T2	input wavelet	"{""HasQuantity"": ""T1""}"
-S175058361300203X-1280	1	MeasuredProperty	T3	dominant frequency	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
-S175058361300203X-1280	1	Qualifier	T4	from the 3D seismic baseline data (Juhlin et al., 2007) (Fig. 4)	"{""Qualifies"": ""T2""}"

@@ -1,5 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0168945213001805-4775	1	Quantity	628	642	T1	down to −18 °C	"{""unit"": ""\u00b0C""}"
-S0168945213001805-4775	1	MeasuredEntity	608	627	T2	winter temperatures	"{""HasQuantity"": ""T1""}"
-S0168945213001805-4775	2	Quantity	905	910	T3	−8 °C	"{""unit"": ""\u00b0C""}"
-S0168945213001805-4775	2	MeasuredProperty	892	901	T5	tolerance	"{""HasQuantity"": ""T3""}"

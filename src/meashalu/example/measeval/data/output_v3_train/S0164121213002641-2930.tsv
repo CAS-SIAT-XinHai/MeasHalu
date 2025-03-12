@@ -1,4 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0164121213002641-2930	1	Quantity	256	257	T1	5	"{""mods"": [""IsCount""]}"
-S0164121213002641-2930	1	MeasuredEntity	178	190	T2	Java trace t	"{""HasQuantity"": ""T1""}"
-S0164121213002641-2930	1	MeasuredProperty	224	234	T3	projection	"{""HasQuantity"": ""T1""}"

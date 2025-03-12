@@ -1,6 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S2213158213000582-1469	1	Quantity	318	324	T1	100 ms	"{""unit"": ""ms""}"
-S2213158213000582-1469	1	MeasuredEntity	325	338	T2	abnormalities	"{""HasQuantity"": ""T1""}"
-S2213158213000582-1469	1	Qualifier	339	355	T3	in schizophrenia	"{""Qualifies"": ""T2""}"
-S2213158213000582-1469	1	Qualifier	368	382	T4	at first onset	"{""Qualifies"": ""T2""}"
-S2213158213000582-1469	2	Quantity	318	324	T6	100 ms	"{""unit"": ""ms""}"

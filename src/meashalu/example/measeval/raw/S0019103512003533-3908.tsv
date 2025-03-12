@@ -1,9 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0019103512003533-3908	1	Quantity	T1	0.125	"{""mods"": [""IsCount""]}"
-S0019103512003533-3908	1	MeasuredEntity	T2	original reaction rate of Moses and Bass (2000)	"{""HasQuantity"": ""T1""}"
-S0019103512003533-3908	2	Quantity	T3	2 × 10−9 cm3 s−1	"{""unit"": ""cm3 s−1""}"
-S0019103512003533-3908	2	MeasuredEntity	T4	k1	"{""HasQuantity"": ""T3""}"
-S0019103512003533-3908	3	Quantity	T5	1 × 10−9 cm3 s−1	"{""unit"": ""cm3 s−1""}"
-S0019103512003533-3908	3	MeasuredEntity	T6	k1	"{""HasQuantity"": ""T5""}"
-S0019103512003533-3908	4	Quantity	T7	4	"{""mods"": [""IsCount""]}"
-S0019103512003533-3908	4	MeasuredEntity	T8	volume mixing ratio of H2(ν⩾4)	"{""HasQuantity"": ""T7""}"

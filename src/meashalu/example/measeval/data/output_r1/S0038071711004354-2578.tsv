@@ -1,4 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0038071711004354-2578	1	Quantity	85	90	T1	30 cm	"{""unit"": ""cm""}"
-S0038071711004354-2578	1	MeasuredEntity	98	110	T2	soil profile	"{""HasQuantity"": ""T1""}"
-S0038071711004354-2578	1	Qualifier	81	84	T4	top	"{""Qualifies"": ""T3""}"

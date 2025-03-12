@@ -1,8 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0032386113005454-2022	1	Quantity	865	879	T1	about 0.1–5 μm	"{""unit"": ""\u03bcm"", ""mods"": [""IsRange"", ""IsApproximate""]}"
-S0032386113005454-2022	1	MeasuredEntity	817	850	T2	rubber or thermoplastic particles	"{""HasProperty"": ""T3""}"
-S0032386113005454-2022	1	MeasuredProperty	883	891	T3	diameter	"{""HasQuantity"": ""T1""}"
-S0032386113005454-2022	1	Qualifier	855	864	T4	typically	"{""Qualifies"": ""T1""}"
-S0032386113005454-2022	2	Quantity	918	929	T5	about 5–20%	"{""unit"": ""%"", ""mods"": [""IsRange"", ""IsApproximate""]}"
-S0032386113005454-2022	2	MeasuredProperty	899	914	T7	volume fraction	"{""HasQuantity"": ""T5""}"
-S0032386113005454-2022	2	Qualifier	855	864	T8	typically	"{""Qualifies"": ""T5""}"

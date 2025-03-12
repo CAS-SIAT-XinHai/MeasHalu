@@ -1,6 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0012821X12004384-1610	1	Quantity	90	98	T1	2617.4 m	"{""unit"": ""m""}"
-S0012821X12004384-1610	1	MeasuredEntity	4	86	T2	brief peak in Apectodinium, AOM and low salinity dinoflagellate cysts (Deflandrea)	"{""HasQuantity"": ""T1""}"
-S0012821X12004384-1610	2	Quantity	669	688	T4	2619.6 and 2614.7 m	"{""unit"": ""m"", ""mods"": [""IsList""]}"
-S0012821X12004384-1610	2	MeasuredEntity	644	665	T5	peaks in Apectodinium	"{""HasQuantity"": ""T4""}"
-S0012821X12004384-1610	2	Qualifier	690	714	T6	although see Section 4.1	"{""Qualifies"": ""T4""}"

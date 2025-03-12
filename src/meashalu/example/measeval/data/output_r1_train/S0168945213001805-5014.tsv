@@ -1,7 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0168945213001805-5014	1	Quantity	388	395	T1	several	"{""mods"": [""IsCount""]}"
-S0168945213001805-5014	1	MeasuredEntity	396	405	T2	Bt toxins	"{""HasQuantity"": ""T1""}"
-S0168945213001805-5014	1	MeasuredProperty	369	384	T3	over-expression	"{""HasQuantity"": ""T1""}"
-S0168945213001805-5014	1	Qualifier	356	368	T4	simultaneous	"{""Qualifies"": ""T3""}"
-S0168945213001805-5014	2	Quantity	455	459	T5	many	"{""mods"": [""IsCount""]}"
-S0168945213001805-5014	2	MeasuredEntity	460	477	T6	insect herbivores	"{""HasQuantity"": ""T5""}"

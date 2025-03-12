@@ -1,7 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S1389128612002496-6119	1	Quantity	210	215	T1	10 ms	"{""unit"": ""ms"", ""mods"": []}"
-S1389128612002496-6119	1	Quantity	219	225	T2	0.1 ms	"{""unit"": ""ms"", ""mods"": []}"
-S1389128612002496-6119	1	Quantity	327	333	T3	0.5 ms	"{""unit"": ""ms"", ""mods"": [""IsApproximate""]}"
-S1389128612002496-6119	1	MeasuredEntity	314	316	T4	Tb	"{""HasQuantity"": ""T1""}"
-S1389128612002496-6119	1	MeasuredEntity	314	316	T5	Tb	"{""HasQuantity"": ""T2""}"
-S1389128612002496-6119	1	MeasuredEntity	314	316	T6	Tb	"{""HasQuantity"": ""T3""}"

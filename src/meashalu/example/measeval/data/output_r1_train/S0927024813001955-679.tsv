@@ -1,9 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0927024813001955-679	1	Quantity	12	19	T1	<200 nm	"{""unit"": ""nm"", ""mods"": [""IsRange""]}"
-S0927024813001955-679	1	MeasuredEntity	21	25	T2	film	"{""HasQuantity"": ""T1""}"
-S0927024813001955-679	3	Quantity	343	353	T6	up to 100%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
-S0927024813001955-679	3	MeasuredEntity	261	276	T4	AALD ZnO layers	"{""HasQuantity"": ""T6""}"
-S0927024813001955-679	3	MeasuredProperty	354	367	T7	transmittance	"{""HasQuantity"": ""T6""}"
-S0927024813001955-679	4	Quantity	643	651	T8	200 days	"{""unit"": ""days""}"
-S0927024813001955-679	4	MeasuredEntity	655	662	T9	storage	"{""HasQuantity"": ""T8""}"
-S0927024813001955-679	4	Qualifier	663	681	T10	in air in the dark	"{""Qualifies"": ""T9""}"

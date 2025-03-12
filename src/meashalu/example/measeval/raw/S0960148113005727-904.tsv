@@ -1,5 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0960148113005727-904	1	Quantity	T1	5–13% per year	"{""unit"": ""% per year"", ""mods"": [""IsRange""]}"
-S0960148113005727-904	1	MeasuredEntity	T2	wind farms in the UK	"{""HasQuantity"": ""T1""}"
-S0960148113005727-904	1	MeasuredProperty	T3	load factors	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
-S0960148113005727-904	1	Qualifier	T4	normalising for month-by-month variations in wind speeds	"{""Qualifies"": ""T1""}"

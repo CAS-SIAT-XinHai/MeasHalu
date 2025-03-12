@@ -1,5 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S2211124713006475-841	1	Quantity	51	58	T1	6 weeks	"{""unit"": ""weeks"", ""mods"": [""IsCount""]}"
-S2211124713006475-841	1	MeasuredEntity	4	20	T2	GH plasma levels	"{""HasQuantity"": ""T1""}"
-S2211124713006475-841	1	Qualifier	21	49	T3	using a human specific ELISA	"{""Qualifies"": ""T2""}"
-S2211124713006475-841	1	Qualifier	59	80	T4	after transplantation	"{""Qualifies"": ""T1""}"

@@ -1,8 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0032063312003054-2467	1	Quantity	T1	10%	"{""unit"": ""%""}"
-S0032063312003054-2467	1	MeasuredEntity	T2	MEX orbits	"{""HasQuantity"": ""T1""}"
-S0032063312003054-2467	2	Quantity	T3	almost half	"{""mods"": [""IsApproximate""]}"
-S0032063312003054-2467	2	MeasuredEntity	T4	combination of up-going electrons and down-going heavy-ions	"{""HasQuantity"": ""T3""}"
-S0032063312003054-2467	3	Qualifier	T6	electron energy distributions with a significant asymmetry	"{""Qualifies"": ""T5""}"
-S0032063312003054-2467	4	Qualifier	T7	isotropic electron energy distribution	"{""Qualifies"": ""T5""}"
-S0032063312003054-2467	5	Qualifier	T9	most common	"{""Qualifies"": ""T8""}"

@@ -1,9 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0925443913001385-849	1	Quantity	T1	18S	"{""mods"": [""IsCount""]}"
-S0925443913001385-849	1	MeasuredEntity	T2	cytosolic rRNA	"{""HasQuantity"": ""T1""}"
-S0925443913001385-849	2	Quantity	T3	2, 5 and 10 μg	"{""unit"": ""μg"", ""mods"": [""IsList""]}"
-S0925443913001385-849	2	MeasuredEntity	T4	total RNAs	"{""HasQuantity"": ""T3""}"
-S0925443913001385-849	2	MeasuredProperty	T5	amount	"{""HasQuantity"": ""T3"", ""HasProperty"": ""T4""}"
-S0925443913001385-849	3	Quantity	T6	835 μg	"{""unit"": ""μg""}"
-S0925443913001385-849	3	MeasuredEntity	T7	mitochondrial lysates	"{""HasQuantity"": ""T6""}"
-S0925443913001385-849	3	MeasuredProperty	T8	amount	"{""HasQuantity"": ""T6"", ""HasProperty"": ""T7""}"

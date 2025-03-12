@@ -1,4 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S016412121300188X-4436	1	Quantity	249	252	T1	10%	"{""unit"": ""%""}"
-S016412121300188X-4436	1	MeasuredEntity	280	287	T2	program	"{""HasQuantity"": ""T1""}"
-S016412121300188X-4436	1	MeasuredProperty	236	245	T3	threshold	"{""HasQuantity"": ""T1""}"

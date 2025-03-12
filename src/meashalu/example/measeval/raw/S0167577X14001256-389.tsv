@@ -1,8 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0167577X14001256-389	1	Quantity	T1	12×	"{""unit"": ""×""}"
-S0167577X14001256-389	1	MeasuredEntity	T2	composition profiles	"{""HasProperty"": ""T3""}"
-S0167577X14001256-389	1	MeasuredProperty	T3	magnification	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
-S0167577X14001256-389	1	Qualifier	T4	higher	"{""Qualifies"": ""T3""}"
-S0167577X14001256-389	2	Quantity	T5	4 nm	"{""unit"": ""nm""}"
-S0167577X14001256-389	2	MeasuredEntity	T6	arrow	"{""HasProperty"": ""T7""}"
-S0167577X14001256-389	2	MeasuredProperty	T7	width	"{""HasQuantity"": ""T5"", ""HasProperty"": ""T6""}"

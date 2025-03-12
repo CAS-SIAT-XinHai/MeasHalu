@@ -1,5 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0960148113002048-3775	1	Quantity	713	725	T1	0.01–0.03 Hz	"{""unit"": ""Hz"", ""mods"": [""IsRange""]}"
-S0960148113002048-3775	1	MeasuredEntity	693	709	T2	wind frequencies	"{""HasQuantity"": ""T1""}"
-S0960148113002048-3775	2	Quantity	991	999	T4	0.003 Hz	"{""unit"": ""Hz""}"
-S0960148113002048-3775	2	MeasuredEntity	968	984	T5	wind frequencies	"{""HasQuantity"": ""T4""}"

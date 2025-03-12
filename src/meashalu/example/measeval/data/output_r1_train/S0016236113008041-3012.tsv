@@ -1,7 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0016236113008041-3012	1	Quantity	49	54	T1	90 kW	"{""unit"": ""kW""}"
-S0016236113008041-3012	1	MeasuredEntity	55	81	T2	oxy-combustion pilot plant	"{""HasQuantity"": ""T1""}"
-S0016236113008041-3012	2	Quantity	133	136	T4	82%	"{""unit"": ""%""}"
-S0016236113008041-3012	2	MeasuredEntity	140	152	T5	elemental Hg	"{""HasQuantity"": ""T4""}"
-S0016236113008041-3012	3	Quantity	192	195	T7	81%	"{""unit"": ""%""}"
-S0016236113008041-3012	3	MeasuredEntity	199	201	T8	Cl	"{""HasQuantity"": ""T7""}"

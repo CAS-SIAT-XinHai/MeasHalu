@@ -1,8 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S1750583613004192-1689	1	Quantity	631	637	T1	10 MPa	"{""unit"": ""MPa""}"
-S1750583613004192-1689	1	MeasuredEntity	592	616	T2	transient ice sheet load	"{""HasProperty"": ""T3""}"
-S1750583613004192-1689	1	MeasuredProperty	641	653	T3	overpressure	"{""HasQuantity"": ""T1""}"
-S1750583613004192-1689	2	Quantity	827	857	T4	less than a few thousand years	"{""unit"": ""years"", ""mods"": [""IsApproximate"", ""IsCount""]}"
-S1750583613004192-1689	2	MeasuredEntity	806	814	T5	ablation	"{""HasProperty"": ""T6""}"
-S1750583613004192-1689	2	MeasuredProperty	815	823	T6	timespan	"{""HasQuantity"": ""T4""}"
-S1750583613004192-1689	3	Quantity	631	637	T7	10 MPa	"{""unit"": ""MPa""}"

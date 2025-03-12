@@ -1,7 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0038071711004354-2573	1	Quantity	166	174	T1	20–30 cm	"{""unit"": ""cm"", ""mods"": [""IsRange""]}"
-S0038071711004354-2573	1	MeasuredEntity	182	194	T2	soil profile	"{""HasQuantity"": ""T1""}"
-S0038071711004354-2573	2	Quantity	559	564	T4	20 cm	"{""unit"": ""cm""}"
-S0038071711004354-2573	2	MeasuredEntity	568	580	T5	soil profile	"{""HasQuantity"": ""T4""}"
-S0038071711004354-2573	3	Quantity	667	676	T7	2013–2017	"{""mods"": [""IsRange""]}"
-S0038071711004354-2573	3	MeasuredEntity	619	665	T8	second commitment period of the Kyoto protocol	"{""HasQuantity"": ""T7""}"

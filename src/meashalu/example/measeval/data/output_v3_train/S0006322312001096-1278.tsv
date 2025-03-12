@@ -1,6 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0006322312001096-1278	1	Quantity	635	643	T1	65 years	"{""unit"": ""years"", ""mods"": [""IsCount""]}"
-S0006322312001096-1278	1	Quantity	635	643	T2	65 years	"{""unit"": ""years"", ""mods"": [""IsCount""]}"
-S0006322312001096-1278	1	MeasuredEntity	628	631	T3	age	"{""HasQuantity"": ""T1""}"
-S0006322312001096-1278	1	MeasuredEntity	628	631	T4	age	"{""HasQuantity"": ""T2""}"
-S0006322312001096-1278	1	MeasuredProperty	618	623	T6	after	"{""HasQuantity"": ""T2""}"

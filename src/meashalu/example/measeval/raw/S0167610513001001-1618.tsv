@@ -1,7 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0167610513001001-1618	1	Quantity	T1	180 m	"{""unit"": ""m""}"
-S0167610513001001-1618	1	MeasuredEntity	T2	height of the BT Tower	"{""HasQuantity"": ""T1""}"
-S0167610513001001-1618	1	MeasuredProperty	T3	height	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
-S0167610513001001-1618	2	Quantity	T4	7.83 m s−1	"{""unit"": ""m s−1"", ""mods"": [""IsMedian""]}"
-S0167610513001001-1618	2	MeasuredEntity	T5	wind speed	"{""HasQuantity"": ""T4""}"
-S0167610513001001-1618	2	MeasuredProperty	T6	speed	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"

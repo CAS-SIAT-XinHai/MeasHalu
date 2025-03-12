@@ -1,7 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S2211124712002884-705	1	Quantity	T1	24 hr	"{""unit"": ""hr""}"
-S2211124712002884-705	1	MeasuredEntity	T2	PGRN secreted into the medium	"{""HasQuantity"": ""T1""}"
-S2211124712002884-705	2	Quantity	T3	100%	"{""unit"": ""%"", ""mods"": [""IsMean""]}"
-S2211124712002884-705	2	MeasuredEntity	T4	values for control lines	"{""HasProperty"": ""T5""}"
-S2211124712002884-705	2	MeasuredProperty	T5	average	"{""HasQuantity"": ""T3"", ""HasProperty"": ""T4""}"
-S2211124712002884-705	2	Qualifier	T6	mean ± SEM	"{""Qualifies"": ""T3""}"

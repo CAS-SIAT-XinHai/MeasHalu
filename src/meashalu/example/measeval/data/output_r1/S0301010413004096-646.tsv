@@ -1,4 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0301010413004096-646	1	Quantity	430	433	T1	5 K	"{""unit"": ""K""}"
-S0301010413004096-646	1	MeasuredEntity	415	426	T2	adsorbed H2	"{""HasQuantity"": ""T1""}"
-S0301010413004096-646	1	Qualifier	427	433	T3	at 5 K	"{""Qualifies"": ""T2""}"

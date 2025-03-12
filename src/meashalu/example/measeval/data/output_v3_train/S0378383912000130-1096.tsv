@@ -1,6 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0378383912000130-1096	1	Quantity	119	125	T1	8.5 mm	"{""unit"": ""mm"", ""mods"": []}"
-S0378383912000130-1096	1	MeasuredEntity	126	131	T2	beach	"{""HasQuantity"": ""T1""}"
-S0378383912000130-1096	2	MeasuredEntity	50	51	T4	x	"{""HasQuantity"": ""T3""}"
-S0378383912000130-1096	3	Quantity	148	155	T5	1980 mm	"{""unit"": ""mm"", ""mods"": []}"
-S0378383912000130-1096	3	MeasuredEntity	50	51	T6	x	"{""HasQuantity"": ""T5""}"

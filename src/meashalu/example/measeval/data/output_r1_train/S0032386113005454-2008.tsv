@@ -1,3 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0032386113005454-2008	1	Quantity	69	82	T1	about −100 °C	"{""unit"": ""\u00b0C"", ""mods"": [""IsApproximate""]}"
-S0032386113005454-2008	1	Qualifier	61	82	T2	even at about −100 °C	"{""Qualifies"": ""T1""}"

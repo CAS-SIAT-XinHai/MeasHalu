@@ -1,7 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S2213671113001306-1385	1	Quantity	29	37	T1	days 3–5	"{""unit"": ""days"", ""mods"": [""IsRange""]}"
-S2213671113001306-1385	1	MeasuredEntity	3	27	T2	first postoperative exam	"{""HasQuantity"": ""T1""}"
-S2213671113001306-1385	1	Qualifier	0	27	T3	On first postoperative exam	"{""Qualifies"": ""T2""}"
-S2213671113001306-1385	2	Quantity	317	323	T4	1 week	"{""unit"": ""week""}"
-S2213671113001306-1385	2	MeasuredEntity	283	308	T5	remaining follow-up exams	"{""HasQuantity"": ""T4""}"
-S2213671113001306-1385	2	Qualifier	310	337	T6	beyond 1 week postoperation	"{""Qualifies"": ""T5""}"

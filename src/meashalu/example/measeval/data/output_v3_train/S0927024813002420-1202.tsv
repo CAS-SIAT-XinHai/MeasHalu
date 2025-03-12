@@ -1,7 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0927024813002420-1202	1	Quantity	273	297	T1	60% higher photocurrents	"{""unit"": ""%"", ""mods"": [""IsCount""]}"
-S0927024813002420-1202	1	MeasuredEntity	326	368	T2	PTh/C60 planar heterojunction counterparts	"{""HasQuantity"": ""T1""}"
-S0927024813002420-1202	1	MeasuredProperty	284	297	T3	photocurrents	"{""HasQuantity"": ""T1""}"
-S0927024813002420-1202	2	Quantity	483	486	T4	80%	"{""unit"": ""%"", ""mods"": [""IsCount""]}"
-S0927024813002420-1202	2	MeasuredEntity	405	412	T5	devices	"{""HasQuantity"": ""T4""}"
-S0927024813002420-1202	2	MeasuredProperty	441	468	T6	power conversion efficiency	"{""HasQuantity"": ""T4""}"

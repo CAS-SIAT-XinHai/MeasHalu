@@ -1,3 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S2213671113000908-979	1	Quantity	398	403	T1	12 hr	"{""unit"": ""hr""}"
-S2213671113000908-979	1	MeasuredEntity	423	428	T2	wells	"{""HasQuantity"": ""T1""}"

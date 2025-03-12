@@ -1,8 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0032386113005454-1270	1	Quantity	T1	20 °C	"{""unit"": ""°C""}"
-S0032386113005454-1270	1	MeasuredEntity	T2	unmodified and S-CSR-modified epoxy polymers	"{""HasQuantity"": ""T1""}"
-S0032386113005454-1270	1	MeasuredProperty	T3	glass transition temperature	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
-S0032386113005454-1270	1	MeasuredProperty	T4	tensile Young's modulus	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
-S0032386113005454-1270	1	MeasuredProperty	T5	fracture stress	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
-S0032386113005454-1270	1	MeasuredProperty	T6	fracture energy	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
-S0032386113005454-1270	1	MeasuredProperty	T7	fracture toughness	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"

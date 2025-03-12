@@ -1,7 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0927024813003036-1981	1	Quantity	442	448	T1	798 °C	"{""unit"": ""\u00b0C""}"
-S0927024813003036-1981	1	MeasuredEntity	412	419	T2	furnace	"{""HasQuantity"": ""T1""}"
-S0927024813003036-1981	1	MeasuredProperty	423	435	T3	temperatures	"{""HasQuantity"": ""T1""}"
-S0927024813003036-1981	2	Quantity	862	867	T2	<10 s	"{""unit"": ""s"", ""mods"": [""IsApproximate""]}"
-S0927024813003036-1981	2	MeasuredEntity	822	829	T3	samples	"{""HasQuantity"": ""T2""}"
-S0927024813003036-1981	2	MeasuredProperty	835	858	T4	cooled to below ∼100 °C	"{""HasQuantity"": ""T2""}"

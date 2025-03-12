@@ -1,6 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0012821X12004384-952	1	Quantity	249	253	T1	<30%	"{""unit"": ""%"", ""mods"": [""IsCount""]}"
-S0012821X12004384-952	1	MeasuredEntity	254	271	T2	wood/plant tissue	"{""HasQuantity"": ""T1""}"
-S0012821X12004384-952	2	Quantity	380	384	T4	>30%	"{""unit"": ""%"", ""mods"": [""IsCount""]}"
-S0012821X12004384-952	2	MeasuredEntity	385	402	T5	wood/plant tissue	"{""HasQuantity"": ""T4""}"
-S0012821X12004384-952	4	Quantity	669	677	T9	2619.6 m	"{""unit"": ""m""}"

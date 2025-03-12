@@ -1,7 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0925443913001385-1526	1	Quantity	T1	5 μg	"{""unit"": ""μg"", ""mods"": [""IsCount""]}"
-S0925443913001385-1526	1	MeasuredEntity	T2	RNA	"{""HasQuantity"": ""T1""}"
-S0925443913001385-1526	1	MeasuredProperty	T3	amount	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
-S0925443913001385-1526	2	Quantity	T4	1.2% (w/v)	"{""unit"": ""%"", ""mods"": [""IsPercent""]}"
-S0925443913001385-1526	2	MeasuredEntity	T5	agarose	"{""HasQuantity"": ""T4""}"
-S0925443913001385-1526	2	MeasuredProperty	T6	concentration	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"

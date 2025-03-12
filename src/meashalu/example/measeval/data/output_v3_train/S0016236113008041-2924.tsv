@@ -1,5 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0016236113008041-2924	1	Quantity	57	58	T1	9	"{""mods"": [""IsCount""]}"
-S0016236113008041-2924	1	Quantity	63	65	T2	21	"{""mods"": [""IsCount""]}"
-S0016236113008041-2924	1	MeasuredEntity	66	80	T3	trace elements	"{""HasQuantity"": ""T1""}"
-S0016236113008041-2924	1	MeasuredEntity	66	80	T4	trace elements	"{""HasQuantity"": ""T2""}"

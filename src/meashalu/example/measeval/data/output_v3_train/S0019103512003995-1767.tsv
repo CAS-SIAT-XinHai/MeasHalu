@@ -1,6 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0019103512003995-1767	1	Quantity	240	247	T1	1083 nm	"{""unit"": ""nm""}"
-S0019103512003995-1767	1	MeasuredEntity	237	239	T2	He	"{""HasQuantity"": ""T1""}"
-S0019103512003995-1767	1	MeasuredProperty	216	229	T3	transit depth	"{""HasQuantity"": ""T1""}"
-S0019103512003995-1767	2	Quantity	623	641	T2	a few observations	"{""mods"": [""IsCount""]}"
-S0019103512003995-1767	2	MeasuredProperty	592	605	T4	non-detection	"{""HasQuantity"": ""T2""}"

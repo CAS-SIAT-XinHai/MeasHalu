@@ -1,5 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0925443913001385-1526	1	Quantity	170	174	T1	5 μg	"{""unit"": ""\u03bcg"", ""mods"": [""IsCount""]}"
-S0925443913001385-1526	1	MeasuredEntity	165	168	T2	RNA	"{""HasQuantity"": ""T1""}"
-S0925443913001385-1526	2	Quantity	205	215	T4	1.2% (w/v)	"{""unit"": ""%"", ""mods"": []}"
-S0925443913001385-1526	2	MeasuredEntity	216	223	T5	agarose	"{""HasQuantity"": ""T4""}"

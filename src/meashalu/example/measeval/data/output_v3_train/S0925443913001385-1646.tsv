@@ -1,9 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0925443913001385-1646	1	Quantity	277	283	T1	10–30%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
-S0925443913001385-1646	1	MeasuredEntity	247	275	T2	isokinetic sucrose gradients	"{""HasQuantity"": ""T1""}"
-S0925443913001385-1646	2	Quantity	666	683	T3	fractions 1 and 2	"{""mods"": [""IsList""]}"
-S0925443913001385-1646	2	MeasuredEntity	655	664	T4	free pool	"{""HasQuantity"": ""T3""}"
-S0925443913001385-1646	3	Quantity	1082	1099	T5	fractions 4 and 5	"{""mods"": [""IsList""]}"
-S0925443913001385-1646	3	MeasuredEntity	1043	1050	T6	MRPS18B	"{""HasQuantity"": ""T5""}"
-S0925443913001385-1646	4	Quantity	1438	1441	T7	63%	"{""unit"": ""%""}"
-S0925443913001385-1646	4	MeasuredEntity	1383	1419	T8	Overall levels in the subject sample	"{""HasQuantity"": ""T7""}"

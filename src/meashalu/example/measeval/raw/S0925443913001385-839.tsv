@@ -1,5 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0925443913001385-839	1	Quantity	T1	50 μg	"{""unit"": ""μg""}"
-S0925443913001385-839	1	MeasuredEntity	T2	cell lysate	"{""HasQuantity"": ""T1""}"
-S0925443913001385-839	1	MeasuredProperty	T3	loading	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
-S0925443913001385-839	1	Qualifier	T4	equal	"{""Qualifies"": ""T3""}"

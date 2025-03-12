@@ -1,6 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S2213671113000921-994	1	Quantity	369	378	T1	36 clones	"{""mods"": [""IsCount""]}"
-S2213671113000921-994	1	MeasuredEntity	372	378	T2	clones	"{""HasQuantity"": ""T1""}"
-S2213671113000921-994	2	Quantity	484	486	T1	26	"{""mods"": [""IsCount""]}"
-S2213671113000921-994	2	MeasuredEntity	476	482	T2	clones	"{""HasQuantity"": ""T1""}"
-S2213671113000921-994	3	Quantity	488	491	T1	72%	"{""unit"": ""%""}"

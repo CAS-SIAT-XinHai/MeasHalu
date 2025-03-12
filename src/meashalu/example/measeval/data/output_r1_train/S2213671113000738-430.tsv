@@ -1,4 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S2213671113000738-430	1	Quantity	28	36	T1	3 months	"{""unit"": ""months"", ""mods"": []}"
-S2213671113000738-430	1	MeasuredEntity	6	24	T2	Teratoma formation	"{""HasQuantity"": ""T1""}"
-S2213671113000738-430	1	MeasuredProperty	15	24	T3	formation	"{""HasQuantity"": ""T1""}"

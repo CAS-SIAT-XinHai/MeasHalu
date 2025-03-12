@@ -1,4 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0167610513001001-858	1	Quantity	109	115	T1	60 min	"{""unit"": ""min""}"
-S0167610513001001-858	1	MeasuredEntity	88	105	T2	averaging periods	"{""HasQuantity"": ""T1""}"
-S0167610513001001-858	1	MeasuredProperty	98	105	T3	periods	"{""HasQuantity"": ""T1""}"

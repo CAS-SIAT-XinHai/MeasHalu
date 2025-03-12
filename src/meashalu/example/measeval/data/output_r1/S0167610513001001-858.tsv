@@ -1,6 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0167610513001001-858	1	Quantity	109	115	T1	60 min	"{""unit"": ""min""}"
-S0167610513001001-858	1	Qualifier	62	82	T6	due to sampling rate	"{""Qualifies"": ""T2""}"
-S0167610513001001-858	1	Qualifier	84	115	T7	for averaging periods of 60 min	"{""Qualifies"": ""T3""}"
-S0167610513001001-858	1	Qualifier	84	115	T8	for averaging periods of 60 min	"{""Qualifies"": ""T4""}"
-S0167610513001001-858	1	Qualifier	84	115	T9	for averaging periods of 60 min	"{""Qualifies"": ""T5""}"

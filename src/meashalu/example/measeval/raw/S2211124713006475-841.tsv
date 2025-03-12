@@ -1,4 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S2211124713006475-841	1	Quantity	T1	6 weeks	"{""unit"": ""weeks""}"
-S2211124713006475-841	1	Qualifier	T3	6 weeks after transplantation	"{""Qualifies"": ""T2""}"
-S2211124713006475-841	1	Qualifier	T4	using a human specific ELISA	"{""Qualifies"": ""T2""}"

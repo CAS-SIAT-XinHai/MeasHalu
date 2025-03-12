@@ -1,7 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0019103512003995-2579	1	Quantity	T1	3Rp	"{""unit"": ""Rp"", ""mods"": []}"
-S0019103512003995-2579	1	MeasuredEntity	T2	density profile	"{""HasQuantity"": ""T1""}"
-S0019103512003995-2579	1	MeasuredProperty	T3	hydrostatic equilibrium	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
-S0019103512003995-2579	2	Quantity	T4	6300 K	"{""unit"": ""K"", ""mods"": [""IsMean""]}"
-S0019103512003995-2579	2	MeasuredEntity	T5	neutral density profile	"{""HasQuantity"": ""T4""}"
-S0019103512003995-2579	2	MeasuredProperty	T6	mean temperature	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"

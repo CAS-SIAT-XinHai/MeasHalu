@@ -1,8 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0257897213007573-899	1	Quantity	T1	~ 1354 cm− 1	"{""unit"": ""cm−1"", ""mods"": [""IsApproximate""]}"
-S0257897213007573-899	1	MeasuredEntity	T2	D-band	"{""HasQuantity"": ""T1""}"
-S0257897213007573-899	1	MeasuredProperty	T3	position	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
-S0257897213007573-899	2	Quantity	T4	1.32	"{""unit"": """", ""mods"": [""IsCount""]}"
-S0257897213007573-899	2	MeasuredEntity	T5	integrated intensity ratio (ID/IG)	"{""HasQuantity"": ""T4""}"
-S0257897213007573-899	3	Quantity	T6	3.75 nm	"{""unit"": ""nm"", ""mods"": []}"
-S0257897213007573-899	3	MeasuredEntity	T7	La	"{""HasQuantity"": ""T6""}"

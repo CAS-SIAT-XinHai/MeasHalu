@@ -1,7 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0960896612001022-1223	1	Quantity	T1	20 years	"{""unit"": ""years""}"
-S0960896612001022-1223	1	MeasuredEntity	T2	onset	"{""HasQuantity"": ""T1""}"
-S0960896612001022-1223	1	MeasuredProperty	T3	age	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
-S0960896612001022-1223	2	Quantity	T4	greater than 0.1 g/L	"{""unit"": ""g/L""}"
-S0960896612001022-1223	2	MeasuredEntity	T5	cerebrospinal fluid (CSF)	"{""HasQuantity"": ""T4""}"
-S0960896612001022-1223	2	MeasuredProperty	T6	protein concentration	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"

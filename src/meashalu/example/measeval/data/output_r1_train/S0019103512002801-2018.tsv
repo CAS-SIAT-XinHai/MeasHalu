@@ -1,4 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0019103512002801-2018	1	Quantity	1392	1404	T1	at least 10%	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
-S0019103512002801-2018	1	MeasuredEntity	1351	1377	T2	enhanced ULF wave activity	"{""HasQuantity"": ""T1""}"
-S0019103512002801-2018	1	Qualifier	1378	1390	T3	in the lunar	"{""Qualifies"": ""T2""}"

@@ -1,4 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0016236113008041-961	1	Quantity	110	113	T1	+1%	"{""unit"": ""%"", ""mods"": [""HasTolerance""]}"
-S0016236113008041-961	1	MeasuredEntity	20	27	T2	sorbent	"{""HasQuantity"": ""T1""}"
-S0016236113008041-961	1	MeasuredProperty	68	86	T3	SO2 concentrations	"{""HasQuantity"": ""T1""}"

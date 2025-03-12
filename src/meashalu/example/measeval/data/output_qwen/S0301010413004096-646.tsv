@@ -1,9 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0301010413004096-646	1	Quantity	430	433	T1	5 K	"{""unit"": ""K"", ""mods"": [""IsApproximate""]}"
-S0301010413004096-646	1	MeasuredEntity	367	369	T2	H2	"{""HasQuantity"": ""T1""}"
-S0301010413004096-646	2	Quantity	363	385	T4	low H2 uptake capacity	"{""mods"": [""IsApproximate""]}"
-S0301010413004096-646	2	MeasuredEntity	324	354	T5	ultra-microporous MOF material	"{""HasQuantity"": ""T4""}"
-S0301010413004096-646	2	MeasuredProperty	367	385	T6	H2 uptake capacity	"{""HasQuantity"": ""T4""}"
-S0301010413004096-646	3	Quantity	706	753	T7	close to that of the single crystal pore volume	"{""mods"": [""IsApproximate""]}"
-S0301010413004096-646	3	MeasuredEntity	646	660	T8	desolvated MOF	"{""HasQuantity"": ""T7""}"
-S0301010413004096-646	3	MeasuredProperty	694	705	T9	pore volume	"{""HasQuantity"": ""T7""}"

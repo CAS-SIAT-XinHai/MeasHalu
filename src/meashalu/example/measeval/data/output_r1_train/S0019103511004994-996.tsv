@@ -1,7 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0019103511004994-996	1	Quantity	289	292	T1	0.1	"{""unit"": """"}"
-S0019103511004994-996	1	MeasuredEntity	308	324	T2	surface velocity	"{""HasQuantity"": ""T1""}"
-S0019103511004994-996	1	Qualifier	300	307	T3	assumed	"{""Qualifies"": ""T2""}"
-S0019103511004994-996	2	Quantity	328	331	T4	10%	"{""unit"": ""%""}"
-S0019103511004994-996	2	MeasuredEntity	308	324	T5	surface velocity	"{""HasQuantity"": ""T4""}"
-S0019103511004994-996	2	Qualifier	332	365	T6	relative to the upstream velocity	"{""Qualifies"": ""T4""}"

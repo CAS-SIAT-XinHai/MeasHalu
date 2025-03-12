@@ -1,5 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S2213671113000738-445	1	Quantity	T1	48 hr	"{""unit"": ""hr""}"
-S2213671113000738-445	1	MeasuredEntity	T2	cells	"{""HasProperty"": ""T3""}"
-S2213671113000738-445	1	MeasuredProperty	T3	MHC-I expression	"{""HasProperty"": ""T2""}"
-S2213671113000738-445	1	Qualifier	T4	Incubation of the cells with IFN-γ for 48 hr	"{""Qualifies"": ""T3""}"

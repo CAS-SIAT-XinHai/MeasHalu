@@ -1,8 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S1750583613004192-1689	1	Quantity	T1	10 MPa	"{""unit"": ""MPa""}"
-S1750583613004192-1689	1	MeasuredEntity	T2	ice sheet load	"{""HasQuantity"": ""T1""}"
-S1750583613004192-1689	1	MeasuredProperty	T3	overpressure	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
-S1750583613004192-1689	2	Quantity	T4	a few thousand years	"{""unit"": ""years"", ""mods"": [""IsApproximate""]}"
-S1750583613004192-1689	2	MeasuredEntity	T5	ablation timespan	"{""HasQuantity"": ""T4""}"
-S1750583613004192-1689	3	Quantity	T6	hundreds of meters	"{""unit"": ""meters"", ""mods"": [""IsApproximate""]}"
-S1750583613004192-1689	3	MeasuredEntity	T7	ice	"{""HasQuantity"": ""T6""}"

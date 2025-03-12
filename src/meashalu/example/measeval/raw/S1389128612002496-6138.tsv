@@ -1,4 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S1389128612002496-6138	1	Quantity	T1	0.25 Mbps to 0.01 Mbps	"{""unit"": ""Mbps"", ""mods"": [""IsRange""]}"
-S1389128612002496-6138	1	MeasuredEntity	T2	Rb	"{""HasQuantity"": ""T1""}"
-S1389128612002496-6138	1	Qualifier	T3	as Rb decreases	"{""Qualifies"": ""T1""}"

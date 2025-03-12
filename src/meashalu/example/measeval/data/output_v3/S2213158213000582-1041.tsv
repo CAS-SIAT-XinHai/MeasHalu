@@ -1,6 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S2213158213000582-1041	1	MeasuredEntity	24	36	T2	STG activity	"{""HasQuantity"": ""T1""}"
-S2213158213000582-1041	1	MeasuredProperty	28	36	T3	activity	"{""HasQuantity"": ""T1""}"
-S2213158213000582-1041	2	Quantity	17	23	T4	100 ms	"{""unit"": ""ms""}"
-S2213158213000582-1041	2	MeasuredEntity	24	36	T5	STG activity	"{""HasQuantity"": ""T4""}"
-S2213158213000582-1041	2	MeasuredProperty	28	36	T6	activity	"{""HasQuantity"": ""T4""}"

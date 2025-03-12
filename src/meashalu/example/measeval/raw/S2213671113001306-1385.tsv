@@ -1,5 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S2213671113001306-1385	1	Quantity	T1	3–5	"{""unit"": ""days"", ""mods"": [""IsRange""]}"
-S2213671113001306-1385	1	MeasuredEntity	T2	first postoperative exam	"{""HasQuantity"": ""T1""}"
-S2213671113001306-1385	2	Quantity	T3	1 week	"{""unit"": ""week"", ""mods"": [""IsCount""]}"
-S2213671113001306-1385	2	MeasuredEntity	T4	postoperation	"{""HasQuantity"": ""T3""}"

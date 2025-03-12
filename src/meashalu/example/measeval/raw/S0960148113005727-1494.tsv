@@ -1,8 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0960148113005727-1494	1	Quantity	T1	−0.43 ± 0.05 percentage points per year	"{""unit"": ""percentage points per year"", ""mods"": [""IsMeanHasSD""]}"
-S0960148113005727-1494	1	MeasuredProperty	T2	combined average	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T3""}"
-S0960148113005727-1494	1	MeasuredEntity	T3	these measures	"{""HasQuantity"": ""T1""}"
-S0960148113005727-1494	2	Quantity	T4	−1.6 ± 0.2%	"{""unit"": ""%"", ""mods"": [""IsMeanHasSD""]}"
-S0960148113005727-1494	2	MeasuredProperty	T5	annual degradation	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T6""}"
-S0960148113005727-1494	2	MeasuredEntity	T6	load factor	"{""HasQuantity"": ""T4""}"
-S0960148113005727-1494	2	Qualifier	T7	with age	"{""Qualifies"": ""T5""}"

@@ -1,9 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S1161030113001950-923	1	Quantity	1868	1877	T1	4–8 years	"{""unit"": ""years"", ""mods"": [""IsRange""]}"
-S1161030113001950-923	1	MeasuredEntity	1836	1858	T2	planned period of time	"{""HasQuantity"": ""T1""}"
-S1161030113001950-923	1	MeasuredProperty	1854	1858	T3	time	"{""HasQuantity"": ""T1""}"
-S1161030113001950-923	2	Quantity	1725	1731	T4	90–95%	"{""mods"": [""IsRange""]}"
-S1161030113001950-923	2	MeasuredEntity	1732	1745	T5	maximum yield	"{""HasQuantity"": ""T4""}"
-S1161030113001950-923	2	MeasuredProperty	1740	1745	T6	yield	"{""HasQuantity"": ""T4""}"
-S1161030113001950-923	3	Quantity	1138	1168	T7	low, medium, high to very high	"{""mods"": [""IsList""]}"
-S1161030113001950-923	3	MeasuredEntity	1129	1136	T8	classes	"{""HasQuantity"": ""T7""}"

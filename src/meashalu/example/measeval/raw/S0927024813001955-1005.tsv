@@ -1,7 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0927024813001955-1005	1	Quantity	T1	150 °C	"{""unit"": ""°C""}"
-S0927024813001955-1005	1	MeasuredEntity	T2	ZnO films	"{""HasQuantity"": ""T1""}"
-S0927024813001955-1005	1	MeasuredProperty	T3	temperature	"{""HasProperty"": ""T2"", ""HasQuantity"": ""T1""}"
-S0927024813001955-1005	2	Quantity	T4	up to 100%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
-S0927024813001955-1005	2	MeasuredEntity	T5	films	"{""HasQuantity"": ""T4""}"
-S0927024813001955-1005	2	MeasuredProperty	T6	visible light transmittance	"{""HasProperty"": ""T5"", ""HasQuantity"": ""T4""}"

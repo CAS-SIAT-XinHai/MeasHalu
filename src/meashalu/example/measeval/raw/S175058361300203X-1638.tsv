@@ -1,7 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S175058361300203X-1638	1	Quantity	T1	34 °C	"{""unit"": ""°C""}"
-S175058361300203X-1638	1	MeasuredEntity	T2	injection	"{""HasQuantity"": ""T1""}"
-S175058361300203X-1638	1	MeasuredProperty	T3	temperature	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
-S175058361300203X-1638	2	Quantity	T4	38 °C	"{""unit"": ""°C""}"
-S175058361300203X-1638	2	MeasuredEntity	T5	injection	"{""HasQuantity"": ""T4""}"
-S175058361300203X-1638	2	MeasuredProperty	T6	temperature	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"

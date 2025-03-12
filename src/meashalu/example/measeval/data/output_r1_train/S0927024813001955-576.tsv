@@ -1,8 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0927024813001955-576	1	Quantity	81	87	T1	125 nm	"{""unit"": ""nm""}"
-S0927024813001955-576	1	MeasuredEntity	94	107	T2	AALD ZnO film	"{""HasQuantity"": ""T1""}"
-S0927024813001955-576	1	MeasuredProperty	88	93	T3	thick	"{""HasQuantity"": ""T1""}"
-S0927024813001955-576	2	Quantity	152	155	T4	1 h	"{""unit"": ""h""}"
-S0927024813001955-576	2	MeasuredEntity	94	107	T5	AALD ZnO film	"{""HasQuantity"": ""T4""}"
-S0927024813001955-576	3	Quantity	303	311	T7	one week	"{""unit"": ""week""}"
-S0927024813001955-576	3	MeasuredEntity	315	322	T8	storage	"{""HasQuantity"": ""T7""}"

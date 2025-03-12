@@ -1,7 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0960148113005727-1203	1	Quantity	390	394	T1	2–5%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
-S0960148113005727-1203	1	MeasuredEntity	380	386	T2	output	"{""HasQuantity"": ""T1""}"
-S0960148113005727-1203	2	Quantity	401	403	T4	1%	"{""unit"": ""%""}"
-S0960148113005727-1203	2	MeasuredEntity	380	386	T5	output	"{""HasQuantity"": ""T4""}"
-S0960148113005727-1203	3	Quantity	408	410	T7	3%	"{""unit"": ""%""}"
-S0960148113005727-1203	3	MeasuredProperty	411	419	T9	increase	"{""HasQuantity"": ""T7""}"

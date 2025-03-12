@@ -1,7 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0006322312001096-1271	1	Quantity	222	230	T1	26,29,49	"{""mods"": [""IsList""]}"
-S0006322312001096-1271	1	Quantity	732	742	T2	4,35–38,44	"{""mods"": [""IsList""]}"
-S0006322312001096-1271	1	Quantity	783	786	T3	274	"{""mods"": [""IsCount""]}"
-S0006322312001096-1271	1	Quantity	985	988	T4	90%	"{""unit"": ""%""}"
-S0006322312001096-1271	1	Quantity	1023	1040	T5	approximately 80%	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
-S0006322312001096-1271	1	MeasuredEntity	999	1018	T6	depressive symptoms	"{""HasQuantity"": ""T5""}"

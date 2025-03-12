@@ -1,7 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0032063312003054-2101	1	Quantity	T1	a rough estimate	"{""mods"": [""IsApproximate""]}"
-S0032063312003054-2101	1	MeasuredEntity	T2	current density	"{""HasQuantity"": ""T1""}"
-S0032063312003054-2101	1	MeasuredProperty	T3	estimate	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
-S0032063312003054-2101	2	Quantity	T4	a fraction	"{""mods"": [""IsApproximate""]}"
-S0032063312003054-2101	2	MeasuredEntity	T5	distribution function	"{""HasQuantity"": ""T4""}"
-S0032063312003054-2101	2	MeasuredProperty	T6	fraction	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"

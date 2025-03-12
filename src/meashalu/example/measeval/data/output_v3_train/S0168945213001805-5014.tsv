@@ -1,4 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0168945213001805-5014	1	Quantity	388	395	T1	several	"{""mods"": [""IsApproximate"", ""IsCount""]}"
-S0168945213001805-5014	1	MeasuredEntity	396	405	T2	Bt toxins	"{""HasQuantity"": ""T1""}"
-S0168945213001805-5014	1	MeasuredProperty	369	384	T3	over-expression	"{""HasQuantity"": ""T1""}"

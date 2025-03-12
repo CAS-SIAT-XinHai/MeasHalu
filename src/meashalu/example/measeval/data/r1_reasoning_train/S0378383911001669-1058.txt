@@ -1,9 +1,0 @@
-Okay, let's tackle this input. The text provided is "The Aberdeen Swash Rig." 
-
-First, I need to identify any quantities, measured entities, properties, or qualifiers. The phrase "Aberdeen Swash Rig" seems to be a proper noun, likely referring to a specific piece of equipment or a structure. There are no numbers, units, or measurements mentioned here.
-
-Looking at the definitions, a MeasuredEntity is an object associated with a Quantity, but there's no Quantity present here. Since there's no Quantity, there's no need for MeasuredProperty or Qualifier either. The task requires that each annotation set groups related annotations. However, since there are no quantities or related elements, there might not be any annotations to make here. 
-
-But wait, the user might expect at least the MeasuredEntity if possible. However, "Aberdeen Swash Rig" is a proper noun and unless there's a quantity linked to it, like "The Aberdeen Swash Rig has a capacity of 500 tons," there's nothing to annotate. Since the input is just the name, there are no quantities to extract. 
-
-So, the conclusion is that there are no annotations to be made for the given input. Therefore, the output should be an empty TSV.

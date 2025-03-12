@@ -1,9 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S1367912013002277-1213	1	Quantity	16	19	T1	100	"{""mods"": [""IsCount""]}"
-S1367912013002277-1213	1	MeasuredEntity	19	24	T2	Ti/Al	"{""HasQuantity"": ""T1""}"
-S1367912013002277-1213	1	MeasuredProperty	0	12	T3	Molar ratios	"{""HasQuantity"": ""T1""}"
-S1367912013002277-1213	1	Qualifier	43	73	T4	suspended particles in the air	"{""Qualifies"": ""T2""}"
-S1367912013002277-1213	2	Quantity	223	232	T5	2.5–10 μm	"{""unit"": ""\u03bcm"", ""mods"": [""IsRange""]}"
-S1367912013002277-1213	2	MeasuredEntity	234	238	T6	PM10	"{""HasQuantity"": ""T5""}"
-S1367912013002277-1213	3	Quantity	244	260	T7	less than 2.5 μm	"{""unit"": ""\u03bcm"", ""mods"": [""IsMedian""]}"
-S1367912013002277-1213	3	MeasuredEntity	262	267	T8	PM2.5	"{""HasQuantity"": ""T7""}"

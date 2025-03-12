@@ -1,5 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S027737911400050X-2401	1	Quantity	641	656	T1	several hundred	"{""unit"": ""years"", ""mods"": [""IsApproximate""]}"
-S027737911400050X-2401	1	Quantity	665	691	T2	more than a thousand years	"{""unit"": ""years"", ""mods"": [""IsApproximate""]}"
-S027737911400050X-2401	1	Quantity	1392	1411	T3	3.00–3.05 ka cal BP	"{""unit"": ""years"", ""mods"": [""IsRange""]}"
-S027737911400050X-2401	1	MeasuredEntity	1412	1442	T6	Alpehué Pumice (So-A) eruption	"{""HasQuantity"": ""T3""}"

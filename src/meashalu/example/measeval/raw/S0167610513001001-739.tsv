@@ -1,7 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0167610513001001-739	1	Quantity	T1	180 m	"{""unit"": ""m""}"
-S0167610513001001-739	1	MeasuredEntity	T2	gate	"{""HasProperty"": ""T3""}"
-S0167610513001001-739	1	MeasuredProperty	T3	midpoint	"{""HasQuantity"": ""T1""}"
-S0167610513001001-739	2	Quantity	T4	7.83 m s−1	"{""unit"": ""m s−1"", ""mods"": [""IsMedian""]}"
-S0167610513001001-739	2	MeasuredEntity	T5	wind	"{""HasProperty"": ""T6""}"
-S0167610513001001-739	2	MeasuredProperty	T6	speed	"{""HasQuantity"": ""T4""}"

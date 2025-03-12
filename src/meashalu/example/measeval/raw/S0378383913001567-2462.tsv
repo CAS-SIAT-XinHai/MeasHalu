@@ -1,8 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0378383913001567-2462	1	Quantity	T1	0.5 Hz	"{""unit"": ""Hz""}"
-S0378383913001567-2462	1	MeasuredEntity	T2	JONSWAP spectrum	"{""HasProperty"": ""T3"", ""HasProperty"": ""T5""}"
-S0378383913001567-2462	1	MeasuredProperty	T3	fp	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
-S0378383913001567-2462	1	Quantity	T4	1.8 cm	"{""unit"": ""cm""}"
-S0378383913001567-2462	1	MeasuredProperty	T5	Hp	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T2""}"
-S0378383913001567-2462	2	Qualifier	T6	numerical results (solid line)	"{""Qualifies"": ""T2""}"
-S0378383913001567-2462	3	Qualifier	T7	experimental data (dashed line)	"{""Qualifies"": ""T2""}"

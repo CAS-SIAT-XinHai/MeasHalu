@@ -1,3 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0167278913001450-12425	1	Quantity	48	74	T1	100, 500, 1000, and 1500 m	"{""unit"": ""m"", ""mods"": [""IsList""]}"
-S0167278913001450-12425	1	MeasuredEntity	41	47	T2	depths	"{""HasQuantity"": ""T1""}"

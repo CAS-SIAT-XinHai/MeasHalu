@@ -1,6 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S2213671113000738-485	1	Quantity	T1	3 months	"{""unit"": ""months""}"
-S2213671113000738-485	1	MeasuredEntity	T2	Magnetic resonance images	"{""HasQuantity"": ""T1""}"
-S2213671113000738-485	1	Qualifier	T3	after the transplant	"{""Qualifies"": ""T1""}"
-S2213671113000738-485	2	Quantity	T4	No. 6	"{""mods"": [""IsCount""]}"
-S2213671113000738-485	2	MeasuredEntity	T5	representative animal (No. 6, autograft)	"{""HasQuantity"": ""T4""}"

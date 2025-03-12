@@ -1,6 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0022459611006116-987	1	Quantity	119	130	T1	1323–1423 K	"{""unit"": ""K"", ""mods"": [""IsRange""]}"
-S0022459611006116-987	1	MeasuredEntity	101	115	T2	Mg3N2 and MgF2	"{""HasQuantity"": ""T1""}"
-S0022459611006116-987	2	Quantity	617	628	T4	5 and 300 K	"{""unit"": ""K"", ""mods"": [""IsRange""]}"
-S0022459611006116-987	2	MeasuredEntity	539	556	T5	nitride fluorides	"{""HasQuantity"": ""T4""}"
-S0022459611006116-987	2	MeasuredProperty	562	573	T6	temperature	"{""HasQuantity"": ""T4""}"

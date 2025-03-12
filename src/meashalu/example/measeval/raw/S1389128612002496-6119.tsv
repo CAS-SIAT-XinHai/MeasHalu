@@ -1,6 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S1389128612002496-6119	1	Quantity	T1	12	"{""mods"": [""IsCount""]}"
-S1389128612002496-6119	2	Quantity	T2	10 ms to 0.1 ms	"{""unit"": ""ms"", ""mods"": [""IsRange""]}"
-S1389128612002496-6119	2	MeasuredEntity	T3	Tb	"{""HasQuantity"": ""T2""}"
-S1389128612002496-6119	3	Quantity	T4	around 0.5 ms	"{""unit"": ""ms"", ""mods"": [""IsApproximate""]}"
-S1389128612002496-6119	3	MeasuredEntity	T5	Tb	"{""HasQuantity"": ""T4""}"

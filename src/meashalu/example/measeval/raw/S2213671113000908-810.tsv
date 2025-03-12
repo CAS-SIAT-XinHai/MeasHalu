@@ -1,5 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S2213671113000908-810	1	Quantity	T1	80%	"{""unit"": ""%""}"
-S2213671113000908-810	1	MeasuredEntity	T2	the resulting DE population	"{""HasProperty"": ""T3""}"
-S2213671113000908-810	1	MeasuredProperty	T3	coexpresses CXCR4 and SOX17	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
-S2213671113000908-810	1	Qualifier	T4	Flow cytometry analyses	"{""Qualifies"": ""T1""}"

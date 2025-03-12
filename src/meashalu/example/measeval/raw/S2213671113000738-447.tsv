@@ -1,3 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S2213671113000738-447	1	Quantity	T1	>10%	"{""unit"": ""%"", ""mods"": [""IsCount""]}"
-S2213671113000738-447	1	MeasuredEntity	T2	cDNA sequence reads	"{""HasQuantity"": ""T1""}"

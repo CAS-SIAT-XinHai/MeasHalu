@@ -1,9 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S016412121300188X-4069	1	Quantity	54	64	T1	9438 lines	"{""mods"": [""IsCount""], ""unit"": ""lines""}"
-S016412121300188X-4069	1	MeasuredEntity	68	72	T2	code	"{""HasQuantity"": ""T1""}"
-S016412121300188X-4069	1	MeasuredProperty	59	64	T3	lines	"{""HasQuantity"": ""T1""}"
-S016412121300188X-4069	2	Quantity	88	105	T4	7538 SDG vertices	"{""mods"": [""IsCount""], ""unit"": ""SDG vertices""}"
-S016412121300188X-4069	2	MeasuredEntity	93	105	T5	SDG vertices	"{""HasQuantity"": ""T4""}"
-S016412121300188X-4069	3	Quantity	179	189	T6	almost 70%	"{""mods"": [""IsApproximate""], ""unit"": ""%""}"
-S016412121300188X-4069	3	MeasuredEntity	113	116	T7	MSG	"{""HasQuantity"": ""T6""}"
-S016412121300188X-4069	3	MeasuredProperty	173	177	T8	span	"{""HasQuantity"": ""T6""}"

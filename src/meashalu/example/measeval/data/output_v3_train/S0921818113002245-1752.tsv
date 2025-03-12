@@ -1,6 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0921818113002245-1752	1	Quantity	249	267	T1	approximately 1 mm	"{""unit"": ""mm"", ""mods"": [""IsApproximate""]}"
-S0921818113002245-1752	1	MeasuredEntity	231	247	T2	clastic sediment	"{""HasQuantity"": ""T1""}"
-S0921818113002245-1752	2	Quantity	321	327	T4	5.16 m	"{""unit"": ""m""}"
-S0921818113002245-1752	2	MeasuredEntity	312	317	T5	depth	"{""HasQuantity"": ""T4""}"
-S0921818113002245-1752	2	MeasuredProperty	312	317	T6	depth	"{""HasQuantity"": ""T4""}"

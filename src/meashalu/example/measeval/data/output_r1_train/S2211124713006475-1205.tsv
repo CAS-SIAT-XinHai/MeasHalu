@@ -1,4 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S2211124713006475-1205	1	Quantity	663	670	T1	4 weeks	"{""unit"": ""weeks""}"
-S2211124713006475-1205	1	Qualifier	671	692	T2	after transplantation	"{""Qualifies"": ""T1""}"
-S2211124713006475-1205	2	Quantity	906	907	T3	6	"{""mods"": [""IsCount""]}"

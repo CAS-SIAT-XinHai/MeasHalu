@@ -1,6 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0925443913001385-1621	1	Quantity	16	21	T1	27.5%	"{""unit"": ""%""}"
-S0925443913001385-1621	1	MeasuredEntity	0	12	T2	Human MRPL12	"{""HasProperty"": ""T3""}"
-S0925443913001385-1621	2	Quantity	150	160	T4	107 to end	"{""unit"": ""residues"", ""mods"": [""IsRange""]}"
-S0925443913001385-1621	2	MeasuredEntity	125	181	T5	C-terminal domain (CTD) (107 to end in Escherichia coli)	"{""HasProperty"": ""T6""}"
-S0925443913001385-1621	2	MeasuredProperty	185	212	T6	conserved in evolution [50]	"{""HasQuantity"": ""T4""}"

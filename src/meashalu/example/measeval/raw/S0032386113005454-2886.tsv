@@ -1,7 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0032386113005454-2886	1	Quantity	T1	−55 °C	"{""unit"": ""°C""}"
-S0032386113005454-2886	1	Quantity	T2	−109 °C	"{""unit"": ""°C""}"
-S0032386113005454-2886	1	MeasuredEntity	T3	test temperature	"{""HasQuantity"": ""T1""}"
-S0032386113005454-2886	1	MeasuredEntity	T4	test temperature	"{""HasQuantity"": ""T2""}"
-S0032386113005454-2886	1	MeasuredProperty	T5	fracture energy	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T3""}"
-S0032386113005454-2886	1	MeasuredProperty	T6	fracture energy	"{""HasQuantity"": ""T2"", ""HasProperty"": ""T4""}"

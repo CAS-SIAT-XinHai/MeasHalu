@@ -1,7 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0019103512002801-2075	1	Quantity	139	147	T1	15–35 km	"{""unit"": ""km"", ""mods"": [""IsRange""]}"
-S0019103512002801-2075	1	MeasuredEntity	122	126	T2	Rhea	"{""HasQuantity"": ""T1""}"
-S0019103512002801-2075	1	MeasuredProperty	129	137	T3	diameter	"{""HasQuantity"": ""T1""}"
-S0019103512002801-2075	1	Qualifier	148	184	T4	for electrons between 20 and 100 keV	"{""Qualifies"": ""T1""}"
-S0019103512002801-2075	2	Quantity	170	184	T5	20 and 100 keV	"{""unit"": ""keV"", ""mods"": [""IsRange""]}"
-S0019103512002801-2075	2	MeasuredEntity	91	100	T6	electrons	"{""HasQuantity"": ""T5""}"

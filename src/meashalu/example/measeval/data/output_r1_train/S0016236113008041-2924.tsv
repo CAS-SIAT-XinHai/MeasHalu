@@ -1,4 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0016236113008041-2924	1	Quantity	57	65	T1	9 and 21	"{""mods"": [""IsList"", ""IsCount""]}"
-S0016236113008041-2924	1	MeasuredEntity	66	80	T2	trace elements	"{""HasQuantity"": ""T1""}"
-S0016236113008041-2924	1	Qualifier	0	51	T3	Sensitivity analysis carried out on MTDATA software	"{""Qualifies"": ""T2""}"

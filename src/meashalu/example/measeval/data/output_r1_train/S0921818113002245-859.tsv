@@ -1,3 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0921818113002245-859	1	Quantity	173	191	T1	approximately 19 m	"{""unit"": ""m"", ""mods"": [""IsApproximate""]}"
-S0921818113002245-859	1	MeasuredEntity	150	169	T2	lakes deepest point	"{""HasQuantity"": ""T1""}"

@@ -1,4 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S016412121300188X-5038	1	Quantity	224	229	T1	three	"{""mods"": [""IsCount""]}"
-S016412121300188X-5038	1	MeasuredEntity	230	242	T2	case studies	"{""HasQuantity"": ""T1""}"
-S016412121300188X-5038	1	Qualifier	220	223	T3	all	"{""Qualifies"": ""T1""}"

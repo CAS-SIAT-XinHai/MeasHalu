@@ -1,5 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0960148113002735-2182	1	Quantity	947	953	T2	1170 s	"{""unit"": ""s"", ""mods"": []}"
-S0960148113002735-2182	1	MeasuredEntity	1000	1016	T3	turbines 1 and 3	"{""HasQuantity"": ""T1""}"
-S0960148113002735-2182	1	MeasuredProperty	861	880	T5	rotational velocity	"{""HasQuantity"": ""T1""}"
-S0960148113002735-2182	1	MeasuredProperty	861	880	T6	rotational velocity	"{""HasQuantity"": ""T2""}"

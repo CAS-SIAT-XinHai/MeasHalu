@@ -1,7 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0167819113001051-1550	1	Quantity	79	89	T1	roughly 2%	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
-S0167819113001051-1550	1	MeasuredEntity	50	67	T2	conventional unit	"{""HasQuantity"": ""T1""}"
-S0167819113001051-1550	1	MeasuredProperty	68	78	T3	deadlocked	"{""HasQuantity"": ""T1""}"
-S0167819113001051-1550	1	Qualifier	103	124	T4	that a glitch appears	"{""Qualifies"": ""T1""}"
-S0167819113001051-1550	2	Quantity	156	162	T5	single	"{""mods"": [""IsCount""]}"
-S0167819113001051-1550	2	MeasuredEntity	68	76	T6	deadlock	"{""HasQuantity"": ""T5""}"

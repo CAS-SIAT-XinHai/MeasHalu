@@ -1,4 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S1359645413009816-1712	1	Quantity	T1	1.25 to 50 K min-1	"{""unit"": ""K min-1"", ""mods"": [""IsRange""]}"
-S1359645413009816-1712	1	MeasuredEntity	T2	heating rates	"{""HasQuantity"": ""T1""}"
-S1359645413009816-1712	1	MeasuredProperty	T3	rate	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"

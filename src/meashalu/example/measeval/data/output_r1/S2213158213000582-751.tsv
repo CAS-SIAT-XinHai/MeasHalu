@@ -1,8 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S2213158213000582-751	1	Quantity	27	32	T1	50 ms	"{""unit"": ""ms""}"
-S2213158213000582-751	1	MeasuredEntity	33	41	T2	activity	"{""HasQuantity"": ""T1""}"
-S2213158213000582-751	2	Quantity	101	105	T3	0.05	"{""unit"": null}"
-S2213158213000582-751	2	MeasuredEntity	43	76	T4	Activation clusters in yellow/red	"{""HasQuantity"": ""T3""}"
-S2213158213000582-751	2	Qualifier	78	105	T5	thresholded at FDR q < 0.05	"{""Qualifies"": ""T4""}"
-S2213158213000582-751	3	Quantity	101	105	T6	0.05	"{""unit"": null}"
-S2213158213000582-751	3	Qualifier	78	105	T8	thresholded at FDR q < 0.05	"{""Qualifies"": ""T7""}"

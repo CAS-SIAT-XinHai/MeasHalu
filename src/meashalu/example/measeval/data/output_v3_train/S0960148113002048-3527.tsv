@@ -1,7 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0960148113002048-3527	1	Quantity	530	533	T1	2R3	"{""mods"": [""IsCount""]}"
-S0960148113002048-3527	1	MeasuredEntity	496	519	T2	armature resistive loss	"{""HasQuantity"": ""T1""}"
-S0960148113002048-3527	1	MeasuredProperty	505	519	T3	resistive loss	"{""HasQuantity"": ""T1""}"
-S0960148113002048-3527	2	Quantity	523	525	T4	30	"{""mods"": [""IsCount""]}"
-S0960148113002048-3527	2	MeasuredProperty	515	519	T6	loss	"{""HasQuantity"": ""T4""}"
-S0960148113002048-3527	3	Quantity	534	538	T7	PgωΛ	"{""mods"": [""IsCount""]}"

@@ -1,9 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0378383911001669-2205	1	Quantity	T1	0.772 m	"{""unit"": ""m""}"
-S0378383911001669-2205	1	MeasuredEntity	T2	x	"{""HasQuantity"": ""T1""}"
-S0378383911001669-2205	2	Quantity	T3	1.3 mm	"{""unit"": ""mm""}"
-S0378383911001669-2205	2	MeasuredEntity	T4	sand-rough beach	"{""HasQuantity"": ""T3""}"
-S0378383911001669-2205	3	Quantity	T5	5.4 mm	"{""unit"": ""mm""}"
-S0378383911001669-2205	3	MeasuredEntity	T6	gravel-rough beach	"{""HasQuantity"": ""T5""}"
-S0378383911001669-2205	4	Quantity	T7	1 s	"{""unit"": ""s""}"
-S0378383911001669-2205	4	Qualifier	T8	up to	"{""Qualifies"": ""T7""}"

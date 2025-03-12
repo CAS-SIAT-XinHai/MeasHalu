@@ -1,9 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S1873506113001116-1456	1	Quantity	164	170	T1	100-ml	"{""unit"": ""ml""}"
-S1873506113001116-1456	1	MeasuredEntity	171	182	T2	bioreactors	"{""HasQuantity"": ""T1""}"
-S1873506113001116-1456	2	Quantity	309	322	T3	~ 20 passages	"{""unit"": ""passages"", ""mods"": [""IsApproximate"", ""IsCount""]}"
-S1873506113001116-1456	2	MeasuredEntity	379	384	T4	cells	"{""HasQuantity"": ""T3""}"
-S1873506113001116-1456	3	Quantity	841	843	T5	5%	"{""unit"": ""%"", ""mods"": [""IsCount""]}"
-S1873506113001116-1456	3	MeasuredEntity	854	861	T6	batches	"{""HasQuantity"": ""T5""}"
-S1873506113001116-1456	3	MeasuredProperty	823	832	T7	frequency	"{""HasQuantity"": ""T5""}"
-S1873506113001116-1456	3	Qualifier	844	881	T8	of tested batches of hiPSCs and hESCs	"{""Qualifies"": ""T5""}"

@@ -1,4 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0032386113009889-2123	2	Quantity	1073	1086	T4	about 210 MPa	"{""unit"": ""MPa"", ""mods"": [""IsApproximate""]}"
-S0032386113009889-2123	2	MeasuredEntity	1034	1069	T5	hydrostatic stress at the crack tip	"{""HasQuantity"": ""T4""}"
-S0032386113009889-2123	2	MeasuredProperty	991	997	T6	stress	"{""HasQuantity"": ""T4""}"

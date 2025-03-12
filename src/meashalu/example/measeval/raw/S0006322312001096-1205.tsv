@@ -1,9 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0006322312001096-1205	1	Quantity	T1	3,5,7, and 9	"{""mods"": [""IsList"", ""IsCount""]}"
-S0006322312001096-1205	1	MeasuredEntity	T2	phases	"{""HasQuantity"": ""T1""}"
-S0006322312001096-1205	2	Quantity	T3	14 days	"{""unit"": ""days"", ""mods"": [""IsCount""]}"
-S0006322312001096-1205	2	MeasuredEntity	T4	medication	"{""HasQuantity"": ""T3""}"
-S0006322312001096-1205	2	Qualifier	T5	in the past 14 days	"{""Qualifies"": ""T4""}"
-S0006322312001096-1205	3	Quantity	T6	040301–040304	"{""mods"": [""IsRange"", ""IsCount""]}"
-S0006322312001096-1205	3	MeasuredEntity	T7	antidepressant medication use	"{""HasProperty"": ""T8""}"
-S0006322312001096-1205	3	MeasuredProperty	T8	British National Formulary codes	"{""HasQuantity"": ""T6""}"

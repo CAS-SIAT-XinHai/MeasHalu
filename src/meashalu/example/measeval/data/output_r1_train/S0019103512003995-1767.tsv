@@ -1,3 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0019103512003995-1767	1	Quantity	240	247	T1	1083 nm	"{""unit"": ""nm""}"
-S0019103512003995-1767	1	MeasuredEntity	237	252	T2	He 1083 nm line	"{""HasQuantity"": ""T1""}"

@@ -1,7 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0032063312003054-2101	1	Quantity	162	178	T1	a rough estimate	"{""mods"": [""IsApproximate""]}"
-S0032063312003054-2101	1	MeasuredEntity	186	201	T2	current density	"{""HasQuantity"": ""T1""}"
-S0032063312003054-2101	1	MeasuredProperty	170	178	T3	estimate	"{""HasQuantity"": ""T1""}"
-S0032063312003054-2101	2	Quantity	585	595	T4	a fraction	"{""mods"": [""IsApproximate""]}"
-S0032063312003054-2101	2	MeasuredEntity	610	631	T5	distribution function	"{""HasQuantity"": ""T4""}"
-S0032063312003054-2101	2	MeasuredProperty	587	595	T6	fraction	"{""HasQuantity"": ""T4""}"

@@ -1,5 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0378383912000130-3827	1	Quantity	T1	1.5 mm	"{""unit"": ""mm""}"
-S0378383912000130-3827	1	MeasuredEntity	T2	beach	"{""HasQuantity"": ""T1""}"
-S0378383912000130-3827	2	Quantity	T3	8.5 mm	"{""unit"": ""mm""}"
-S0378383912000130-3827	2	MeasuredEntity	T4	beach	"{""HasQuantity"": ""T3""}"

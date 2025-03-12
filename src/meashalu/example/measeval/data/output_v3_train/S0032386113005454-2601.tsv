@@ -1,9 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0032386113005454-2601	1	Quantity	534	541	T1	111 MPa	"{""unit"": ""MPa"", ""mods"": []}"
-S0032386113005454-2601	1	MeasuredEntity	563	587	T2	unmodified epoxy polymer	"{""HasQuantity"": ""T1""}"
-S0032386113005454-2601	2	Quantity	827	833	T4	63 MPa	"{""unit"": ""MPa"", ""mods"": []}"
-S0032386113005454-2601	2	MeasuredEntity	842	877	T5	20 wt% S-CSR-modified epoxy polymer	"{""HasQuantity"": ""T4""}"
-S0032386113005454-2601	2	MeasuredProperty	778	807	T6	compressive true yield stress	"{""HasQuantity"": ""T4""}"
-S0032386113005454-2601	3	Quantity	516	521	T7	20 °C	"{""unit"": ""\u00b0C"", ""mods"": []}"
-S0032386113005454-2601	3	MeasuredEntity	563	587	T8	unmodified epoxy polymer	"{""HasQuantity"": ""T1""}"
-S0032386113005454-2601	3	Qualifier	513	521	T9	At 20 °C	"{""Qualifies"": ""T1""}"

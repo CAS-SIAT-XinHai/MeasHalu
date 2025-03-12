@@ -1,6 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0006322312001096-1205	1	Quantity	102	114	T1	past 14 days	"{""unit"": ""days"", ""mods"": [""IsCount""]}"
-S0006322312001096-1205	1	MeasuredEntity	33	45	T2	participants	"{""HasQuantity"": ""T1""}"
-S0006322312001096-1205	2	Quantity	276	289	T4	040301–040304	"{""unit"": ""codes"", ""mods"": [""IsRange""]}"
-S0006322312001096-1205	2	MeasuredEntity	238	263	T5	antidepressant medication	"{""HasQuantity"": ""T4""}"
-S0006322312001096-1205	2	MeasuredProperty	264	267	T6	use	"{""HasQuantity"": ""T4""}"

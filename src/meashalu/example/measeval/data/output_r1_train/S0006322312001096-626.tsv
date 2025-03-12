@@ -1,6 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0006322312001096-626	1	Quantity	48	60	T1	10% Increase	"{""unit"": ""%"", ""mods"": [""IsCount""]}"
-S0006322312001096-626	1	MeasuredEntity	20	42	T2	Framingham Risk Scores	"{""HasQuantity"": ""T1""}"
-S0006322312001096-626	1	Qualifier	44	60	T3	per 10% Increase	"{""Qualifies"": ""T2""}"
-S0006322312001096-626	3	Quantity	123	129	T5	Age 65	"{""unit"": ""years"", ""mods"": [""IsCount""]}"
-S0006322312001096-626	3	Qualifier	106	129	T6	Before and After Age 65	"{""Qualifies"": ""T4""}"

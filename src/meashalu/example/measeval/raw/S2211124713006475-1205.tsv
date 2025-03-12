@@ -1,5 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S2211124713006475-1205	1	Quantity	T1	4 weeks	"{""unit"": ""weeks""}"
-S2211124713006475-1205	1	Qualifier	T2	after transplantation	"{""Qualifies"": ""T1""}"
-S2211124713006475-1205	2	Quantity	T3	6	"{""mods"": [""IsCount""]}"
-S2211124713006475-1205	2	MeasuredEntity	T4	adult NOD/SCID mice	"{""HasQuantity"": ""T3""}"

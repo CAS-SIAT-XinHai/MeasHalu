@@ -1,7 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0168945213001805-3964	1	Quantity	290	295	T1	51-bp	"{""unit"": ""bp"", ""mods"": [""IsCount""]}"
-S0168945213001805-3964	1	MeasuredEntity	296	313	T2	in-frame deletion	"{""HasQuantity"": ""T1""}"
-S0168945213001805-3964	2	Quantity	969	978	T3	about 40%	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
-S0168945213001805-3964	2	Qualifier	1005	1039	T6	after nine weeks in the greenhouse	"{""Qualifies"": ""T3""}"
-S0168945213001805-3964	3	Quantity	1011	1021	T7	nine weeks	"{""unit"": ""weeks"", ""mods"": [""IsCount""]}"
-S0168945213001805-3964	4	Quantity	606	613	T8	Table 1	"{""unit"": ""Table"", ""mods"": [""IsCount""]}"

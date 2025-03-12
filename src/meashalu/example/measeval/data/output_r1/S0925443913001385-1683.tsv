@@ -1,4 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0925443913001385-1683	1	Quantity	431	454	T1	two L7/L12 heterodimers	"{""mods"": [""IsCount""], ""unit"": ""heterodimers""}"
-S0925443913001385-1683	1	MeasuredEntity	478	481	T2	LSU	"{""HasQuantity"": ""T1""}"
-S0925443913001385-1683	2	MeasuredEntity	0	6	T4	MRPL12	"{""HasQuantity"": ""T3""}"

@@ -1,5 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0022459611006116-987	1	Quantity	119	130	T1	1323–1423 K	"{""unit"": ""K"", ""mods"": [""IsRange""]}"
-S0022459611006116-987	1	MeasuredEntity	77	115	T2	solid state reaction of Mg3N2 and MgF2	"{""HasQuantity"": ""T1""}"
-S0022459611006116-987	3	Quantity	623	628	T6	300 K	"{""unit"": ""K""}"
-S0022459611006116-987	3	MeasuredProperty	562	573	T7	temperature	"{""HasQuantity"": ""T6""}"

@@ -1,9 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0019103513005058-3917	1	Quantity	409	420	T1	0.02 cm s−1	"{""unit"": ""cm s\u22121""}"
-S0019103513005058-3917	1	MeasuredEntity	386	405	T2	deposition velocity	"{""HasQuantity"": ""T1""}"
-S0019103513005058-3917	1	MeasuredProperty	386	405	T3	deposition velocity	"{""HasQuantity"": ""T1""}"
-S0019103513005058-3917	2	Quantity	521	525	T4	zero	"{""mods"": [""IsCount""]}"
-S0019103513005058-3917	2	MeasuredEntity	469	509	T5	deposition velocities for O2, H2, and CO	"{""HasQuantity"": ""T4""}"
-S0019103513005058-3917	2	MeasuredProperty	591	610	T6	deposition velocity	"{""HasQuantity"": ""T4""}"
-S0019103513005058-3917	3	Quantity	521	525	T7	zero	"{""mods"": [""IsCount""]}"
-S0019103513005058-3917	3	MeasuredProperty	591	610	T9	deposition velocity	"{""HasQuantity"": ""T7""}"

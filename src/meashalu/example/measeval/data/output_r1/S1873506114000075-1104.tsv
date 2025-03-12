@@ -1,3 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S1873506114000075-1104	1	Quantity	101	104	T1	10%	"{""unit"": ""%""}"
-S1873506114000075-1104	1	MeasuredEntity	105	139	T2	neutral buffered formalin solution	"{""HasQuantity"": ""T1""}"

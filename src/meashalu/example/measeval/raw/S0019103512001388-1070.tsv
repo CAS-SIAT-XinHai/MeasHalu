@@ -1,7 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0019103512001388-1070	1	Quantity	T1	two days	"{""unit"": ""days"", ""mods"": [""IsCount""]}"
-S0019103512001388-1070	1	MeasuredEntity	T2	H-band slit-viewing VLT images	"{""HasQuantity"": ""T1""}"
-S0019103512001388-1070	1	Qualifier	T3	just two days before the close approach of BS1 and BS2	"{""Qualifies"": ""T2""}"
-S0019103512001388-1070	2	Quantity	T4	about 30 min	"{""unit"": ""min"", ""mods"": [""IsApproximate""]}"
-S0019103512001388-1070	2	MeasuredEntity	T5	BS2 feature	"{""HasQuantity"": ""T4""}"
-S0019103512001388-1070	2	Qualifier	T6	after BS1	"{""Qualifies"": ""T4""}"

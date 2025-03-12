@@ -1,5 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0019103513005058-4499	1	Quantity	696	701	T1	280 K	"{""unit"": ""K""}"
-S0019103513005058-4499	1	MeasuredEntity	663	670	T2	surface	"{""HasProperty"": ""T3""}"
-S0019103513005058-4499	1	MeasuredProperty	671	682	T3	temperature	"{""HasQuantity"": ""T1""}"
-S0019103513005058-4499	1	Qualifier	703	746	T4	as it does in the current equatorial summer	"{""Qualifies"": ""T1""}"

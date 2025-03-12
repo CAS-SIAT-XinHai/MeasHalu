@@ -1,5 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0019103512002801-1716	1	Quantity	126	132	T1	3–4 nT	"{""unit"": ""nT"", ""mods"": [""IsRange"", ""IsMean""]}"
-S0019103512002801-1716	1	MeasuredEntity	28	31	T2	∣B∣	"{""HasQuantity"": ""T1""}"
-S0019103512002801-1716	1	Qualifier	115	125	T3	on average	"{""Qualifies"": ""T1""}"
-S0019103512002801-1716	1	Qualifier	142	170	T5	compared to all other flybys	"{""Qualifies"": ""T1""}"

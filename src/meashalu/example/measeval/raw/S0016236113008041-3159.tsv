@@ -1,3 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0016236113008041-3159	1	Quantity	T1	6 and 13 kg	"{""unit"": ""kg"", ""mods"": [""IsList""]}"
-S0016236113008041-3159	1	MeasuredEntity	T2	bed inventories	"{""HasQuantity"": ""T1""}"

@@ -1,8 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0032386113009889-2123	1	Quantity	1001	1013	T1	about 70 MPa	"{""unit"": ""MPa"", ""mods"": [""IsApproximate""]}"
-S0032386113009889-2123	1	MeasuredProperty	974	997	T3	applied uniaxial stress	"{""HasQuantity"": ""T1""}"
-S0032386113009889-2123	2	Quantity	1073	1086	T5	about 210 MPa	"{""unit"": ""MPa"", ""mods"": [""IsApproximate""]}"
-S0032386113009889-2123	2	MeasuredEntity	1060	1069	T6	crack tip	"{""HasProperty"": ""T7""}"
-S0032386113009889-2123	2	MeasuredProperty	1034	1052	T7	hydrostatic stress	"{""HasQuantity"": ""T5""}"
-S0032386113009889-2123	3	Quantity	1079	1086	T8	210 MPa	"{""unit"": ""MPa""}"
-S0032386113009889-2123	3	MeasuredEntity	1098	1133	T9	finite-element analysis simulations	"{""HasProperty"": ""T10""}"

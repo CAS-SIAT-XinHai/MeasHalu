@@ -1,4 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0167610513001001-1566	1	Quantity	796	822	T1	≈2% of the mean wind speed	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
-S0167610513001001-1566	1	MeasuredEntity	739	783	T2	corrections applied by Barlow et al. (2011b)	"{""HasQuantity"": ""T1""}"
-S0167610513001001-1566	1	MeasuredProperty	807	822	T3	mean wind speed	"{""HasQuantity"": ""T1""}"

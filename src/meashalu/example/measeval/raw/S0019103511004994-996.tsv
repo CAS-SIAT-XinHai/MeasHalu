@@ -1,7 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0019103511004994-996	1	Quantity	T1	0.1	"{""unit"": """"}"
-S0019103511004994-996	1	MeasuredEntity	T2	surface velocity	"{""HasQuantity"": ""T1""}"
-S0019103511004994-996	1	Qualifier	T3	assumed	"{""Qualifies"": ""T2""}"
-S0019103511004994-996	2	Quantity	T4	10%	"{""unit"": ""%""}"
-S0019103511004994-996	2	MeasuredEntity	T5	surface velocity	"{""HasQuantity"": ""T4""}"
-S0019103511004994-996	2	Qualifier	T6	relative to the upstream velocity	"{""Qualifies"": ""T4""}"

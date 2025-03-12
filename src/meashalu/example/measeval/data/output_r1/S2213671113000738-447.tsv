@@ -1,5 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S2213671113000738-447	1	Quantity	234	238	T1	>10%	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
-S2213671113000738-447	1	MeasuredEntity	209	221	T2	MHC-I allele	"{""HasQuantity"": ""T1""}"
-S2213671113000738-447	1	MeasuredProperty	185	201	T3	expression level	"{""HasQuantity"": ""T1""}"
-S2213671113000738-447	1	Qualifier	166	184	T4	comparatively high	"{""Qualifies"": ""T3""}"

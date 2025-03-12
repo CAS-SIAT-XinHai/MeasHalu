@@ -1,9 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0378383913001567-7073	1	Quantity	158	163	T1	0.2 m	"{""unit"": ""m""}"
-S0378383913001567-7073	1	MeasuredEntity	143	145	T2	∆t	"{""HasQuantity"": ""T1""}"
-S0378383913001567-7073	2	Quantity	172	180	T3	1,2,…,10	"{""mods"": [""IsList""]}"
-S0378383913001567-7073	2	MeasuredEntity	79	80	T4	i	"{""HasQuantity"": ""T3""}"
-S0378383913001567-7073	3	Quantity	158	163	T5	0.2 m	"{""unit"": ""m""}"
-S0378383913001567-7073	3	MeasuredEntity	220	222	T6	∆x	"{""HasQuantity"": ""T5""}"
-S0378383913001567-7073	4	Quantity	332	336	T7	2.33	"{""mods"": [""IsMean""]}"
-S0378383913001567-7073	4	MeasuredProperty	308	319	T8	average Rij	"{""HasQuantity"": ""T7""}"

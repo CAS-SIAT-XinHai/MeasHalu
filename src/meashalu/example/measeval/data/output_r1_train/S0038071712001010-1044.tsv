@@ -1,6 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0038071712001010-1044	2	Quantity	2609	2616	T4	84 days	"{""unit"": ""days""}"
-S0038071712001010-1044	2	MeasuredEntity	2587	2597	T5	experiment	"{""HasQuantity"": ""T4""}"
-S0038071712001010-1044	2	Qualifier	2659	2673	T7	wet–dry cycles	"{""Qualifies"": ""T4""}"
-S0038071712001010-1044	3	Quantity	1298	1301	T8	six	"{""mods"": [""IsCount""]}"
-S0038071712001010-1044	3	MeasuredEntity	1302	1316	T9	Glomus species	"{""HasQuantity"": ""T8""}"

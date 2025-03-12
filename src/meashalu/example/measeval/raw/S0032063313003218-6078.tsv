@@ -1,4 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0032063313003218-6078	1	Quantity	T1	3 h	"{""unit"": ""h""}"
-S0032063313003218-6078	1	MeasuredEntity	T2	transient magnetospheric compression scenario	"{""HasQuantity"": ""T1""}"
-S0032063313003218-6078	1	MeasuredProperty	T3	duration	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"

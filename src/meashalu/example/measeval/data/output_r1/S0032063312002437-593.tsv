@@ -1,9 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0032063312002437-593	1	Quantity	88	97	T1	near 86°N	"{""unit"": ""\u00b0N"", ""mods"": [""IsApproximate""]}"
-S0032063312002437-593	1	MeasuredEntity	78	87	T2	periapsis	"{""HasQuantity"": ""T1""}"
-S0032063312002437-593	2	Quantity	114	139	T3	between 185 km and 215 km	"{""unit"": ""km"", ""mods"": [""IsRange""]}"
-S0032063312002437-593	2	MeasuredEntity	67	72	T4	orbit	"{""HasProperty"": ""T5""}"
-S0032063312002437-593	2	MeasuredProperty	105	113	T5	altitude	"{""HasQuantity"": ""T3""}"
-S0032063312002437-593	3	Quantity	145	157	T6	about 10 min	"{""unit"": ""min"", ""mods"": [""IsApproximate""]}"
-S0032063312002437-593	3	MeasuredEntity	171	181	T7	ionosphere	"{""HasQuantity"": ""T6""}"
-S0032063312002437-593	3	Qualifier	182	199	T8	during each orbit	"{""Qualifies"": ""T6""}"

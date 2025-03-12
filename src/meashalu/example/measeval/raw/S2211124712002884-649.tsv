@@ -1,7 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S2211124712002884-649	1	Quantity	T1	100%	"{""unit"": ""%""}"
-S2211124712002884-649	1	MeasuredEntity	T2	control line 20	"{""HasQuantity"": ""T1""}"
-S2211124712002884-649	1	MeasuredProperty	T3	Values	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
-S2211124712002884-649	2	Quantity	T4	3–4	"{""mods"": [""IsRange"", ""IsCount""]}"
-S2211124712002884-649	2	MeasuredEntity	T5	independent cultures	"{""HasQuantity"": ""T4""}"
-S2211124712002884-649	3	Qualifier	T7	after medium collection	"{""Qualifies"": ""T6""}"

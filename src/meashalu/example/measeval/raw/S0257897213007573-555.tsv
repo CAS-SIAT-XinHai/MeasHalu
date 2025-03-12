@@ -1,4 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0257897213007573-555	1	Quantity	T1	1000 °C	"{""unit"": ""°C""}"
-S0257897213007573-555	1	MeasuredEntity	T2	silica tube furnace	"{""HasQuantity"": ""T1""}"
-S0257897213007573-555	1	MeasuredProperty	T3	temperature	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"

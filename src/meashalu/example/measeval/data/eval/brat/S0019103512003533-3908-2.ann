@@ -1,7 +1,0 @@
-T1	Quantity 315 358	from k1 = 2 × 10−9 to k1 = 1 × 10−9 cm3 s−1
-T2	Unit 351 358	cm3 s−1
-A1	QuantityQualifier T1 IsRange
-T3	MeasuredEntity 287 313	average base reaction rate
-R1	HasQuantity Arg1:T3 Arg2:T1	
-T4	Qualifier 279 286	revised
-R2	Qualifies Arg1:T4 Arg2:T3	

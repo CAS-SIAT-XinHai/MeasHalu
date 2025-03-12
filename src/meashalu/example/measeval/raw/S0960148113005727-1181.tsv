@@ -1,4 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0960148113005727-1181	1	Quantity	T1	2%	"{""unit"": ""%""}"
-S0960148113005727-1181	1	MeasuredEntity	T2	output	"{""HasQuantity"": ""T1""}"
-S0960148113005727-1181	1	Qualifier	T3	in well-performing field installations relative to the turbine's supplied power curve [30]	"{""Qualifies"": ""T1""}"

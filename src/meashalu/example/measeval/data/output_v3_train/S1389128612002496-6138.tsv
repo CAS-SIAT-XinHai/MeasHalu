@@ -1,4 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S1389128612002496-6138	1	Quantity	207	216	T1	0.25 Mbps	"{""unit"": ""Mbps"", ""mods"": []}"
-S1389128612002496-6138	1	Quantity	220	229	T2	0.01 Mbps	"{""unit"": ""Mbps"", ""mods"": []}"
-S1389128612002496-6138	1	MeasuredEntity	188	190	T3	Rb	"{""HasQuantity"": ""T2""}"

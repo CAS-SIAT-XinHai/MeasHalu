@@ -1,6 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S095741741101342X-2624	1	Quantity	86	89	T1	85%	"{""unit"": ""%"", ""mods"": [""IsMean""]}"
-S095741741101342X-2624	1	Quantity	96	99	T2	15%	"{""unit"": ""%"", ""mods"": [""IsMean""]}"
-S095741741101342X-2624	1	MeasuredEntity	104	115	T3	class split	"{""HasQuantity"": ""T2""}"
-S095741741101342X-2624	1	MeasuredProperty	90	94	T4	good	"{""HasQuantity"": ""T1""}"
-S095741741101342X-2624	1	MeasuredProperty	100	103	T5	bad	"{""HasQuantity"": ""T2""}"

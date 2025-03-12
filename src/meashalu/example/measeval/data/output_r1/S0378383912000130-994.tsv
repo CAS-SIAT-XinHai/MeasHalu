@@ -1,6 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0378383912000130-994	1	Quantity	3	4	T1	i	"{""mods"": [""IsCount""]}"
-S0378383912000130-994	1	MeasuredEntity	69	73	T2	cell	"{""HasQuantity"": ""T1""}"
-S0378383912000130-994	1	MeasuredProperty	14	29	T3	flow quantities	"{""HasQuantity"": ""T1""}"
-S0378383912000130-994	1	Qualifier	37	65	T4	confined region of the beach	"{""Qualifies"": ""T2""}"
-S0378383912000130-994	1	Qualifier	76	102	T5	during uprush (left panel)	"{""Qualifies"": ""T3""}"

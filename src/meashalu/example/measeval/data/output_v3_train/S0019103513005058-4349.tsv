@@ -1,6 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0019103513005058-4349	1	Quantity	194	197	T1	35%	"{""unit"": ""%"", ""mods"": []}"
-S0019103513005058-4349	1	Quantity	195	197	T2	5%	"{""unit"": ""%"", ""mods"": []}"
-S0019103513005058-4349	1	Quantity	375	398	T3	six orders of magnitude	"{""unit"": ""orders of magnitude"", ""mods"": [""IsApproximate""]}"
-S0019103513005058-4349	1	MeasuredEntity	320	354	T6	deposition rate of perchloric acid	"{""HasQuantity"": ""T3"", ""HasProperty"": ""T7""}"
-S0019103513005058-4349	1	MeasuredProperty	320	335	T7	deposition rate	"{""HasQuantity"": ""T3""}"

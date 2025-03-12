@@ -1,7 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0032386113005454-2876	1	Quantity	311	316	T1	20 °C	"{""unit"": ""\u00b0C""}"
-S0032386113005454-2876	1	MeasuredEntity	299	307	T2	fracture	"{""HasQuantity"": ""T1""}"
-S0032386113005454-2876	2	Quantity	826	835	T6	decreased	"{""mods"": [""IsMean""]}"
-S0032386113005454-2876	2	MeasuredEntity	803	825	T4	subsurface damage zone	"{""HasProperty"": ""T5""}"
-S0032386113005454-2876	2	MeasuredProperty	791	795	T5	size	"{""HasQuantity"": ""T6""}"
-S0032386113005454-2876	2	Qualifier	836	869	T7	as the test temperature decreased	"{""Qualifies"": ""T6""}"

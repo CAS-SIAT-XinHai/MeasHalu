@@ -1,7 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S2213158213000582-1469	1	Quantity	T1	100 ms	"{""unit"": ""ms"", ""mods"": [""IsCount""]}"
-S2213158213000582-1469	1	MeasuredEntity	T2	abnormalities in schizophrenia	"{""HasQuantity"": ""T1""}"
-S2213158213000582-1469	1	MeasuredProperty	T3	auditory abnormalities	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
-S2213158213000582-1469	2	Quantity	T4	100 ms	"{""unit"": ""ms"", ""mods"": [""IsCount""]}"
-S2213158213000582-1469	2	MeasuredEntity	T5	auditory studies	"{""HasQuantity"": ""T4""}"
-S2213158213000582-1469	2	MeasuredProperty	T6	N100 activity	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"

@@ -1,4 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0019103511004994-996	1	Quantity	328	331	T1	10%	"{""unit"": ""%""}"
-S0019103511004994-996	1	MeasuredEntity	308	324	T2	surface velocity	"{""HasQuantity"": ""T1""}"
-S0019103511004994-996	1	MeasuredProperty	300	324	T3	assumed surface velocity	"{""HasQuantity"": ""T1""}"

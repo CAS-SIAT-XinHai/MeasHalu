@@ -1,5 +1,0 @@
-docId	annotSet	annotType	annotId	text	other
-S0006322312001096-1275	1	Quantity	T1	66% to 88%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
-S0006322312001096-1275	1	MeasuredEntity	T2	response to the survey	"{""HasQuantity"": ""T1""}"
-S0006322312001096-1275	1	MeasuredProperty	T3	range	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
-S0006322312001096-1275	1	Qualifier	T4	high	"{""Qualifies"": ""T2""}"

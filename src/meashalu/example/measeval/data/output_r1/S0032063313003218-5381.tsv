@@ -1,7 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0032063313003218-5381	1	Quantity	418	439	T1	a few tens of minutes	"{""unit"": ""minutes"", ""mods"": [""IsApproximate"", ""IsCount""]}"
-S0032063313003218-5381	1	MeasuredEntity	370	382	T2	thermosphere	"{""HasProperty"": ""T3""}"
-S0032063313003218-5381	1	Qualifier	440	474	T4	as found by Millward et al. (2005)	"{""Qualifies"": ""T1""}"
-S0032063313003218-5381	2	Quantity	542	548	T5	2 days	"{""unit"": ""days"", ""mods"": [""IsApproximate""]}"
-S0032063313003218-5381	2	MeasuredEntity	504	516	T6	thermosphere	"{""HasProperty"": ""T7""}"
-S0032063313003218-5381	2	Qualifier	611	623	T8	(Gong, 2005)	"{""Qualifies"": ""T5""}"

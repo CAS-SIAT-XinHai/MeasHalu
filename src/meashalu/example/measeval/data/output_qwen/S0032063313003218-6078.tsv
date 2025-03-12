@@ -1,3 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S0032063313003218-6078	1	Quantity	117	120	T1	3 h	"{""unit"": ""h"", ""mods"": [""IsCount""]}"
-S0032063313003218-6078	1	MeasuredEntity	44	89	T2	transient magnetospheric compression scenario	"{""HasQuantity"": ""T1""}"

@@ -1,6 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S016412121300188X-4617	1	Quantity	227	230	T1	52%	"{""unit"": ""%"", ""mods"": []}"
-S016412121300188X-4617	1	MeasuredEntity	200	225	T2	dominant coherent cluster	"{""HasQuantity"": ""T1""}"
-S016412121300188X-4617	1	Qualifier	189	199	T3	very large	"{""Qualifies"": ""T2""}"
-S016412121300188X-4617	2	Quantity	299	302	T4	11%	"{""unit"": ""%"", ""mods"": []}"
-S016412121300188X-4617	2	MeasuredEntity	281	292	T5	the largest	"{""HasQuantity"": ""T4""}"

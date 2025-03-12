@@ -1,9 +1,0 @@
-docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
-S030881461301604X-1001	1	Quantity	120	128	T1	68 – 70%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
-S030881461301604X-1001	1	MeasuredEntity	107	118	T2	nitric acid	"{""HasQuantity"": ""T1""}"
-S030881461301604X-1001	2	Quantity	150	153	T4	30%	"{""unit"": ""%""}"
-S030881461301604X-1001	2	MeasuredEntity	131	148	T5	hydrochloric acid	"{""HasQuantity"": ""T4""}"
-S030881461301604X-1001	3	Quantity	150	153	T7	30%	"{""unit"": ""%""}"
-S030881461301604X-1001	3	MeasuredEntity	185	202	T8	hydrogen peroxide	"{""HasQuantity"": ""T7""}"
-S030881461301604X-1001	4	Quantity	226	229	T10	98%	"{""unit"": ""%""}"
-S030881461301604X-1001	4	MeasuredEntity	213	224	T11	formic acid	"{""HasQuantity"": ""T10""}"
