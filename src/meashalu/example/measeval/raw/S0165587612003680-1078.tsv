@@ -1,0 +1,7 @@
+docId	annotSet	annotType	annotId	text	other
+S0165587612003680-1078	1	Quantity	T1	three	"{""unit"": ""count"", ""mods"": [""IsCount""]}"
+S0165587612003680-1078	1	MeasuredEntity	T2	commonest pathogens isolated in this study	"{""HasQuantity"": ""T1""}"
+S0165587612003680-1078	2	Quantity	T3	three occasions	"{""unit"": ""occasions"", ""mods"": [""IsCount""]}"
+S0165587612003680-1078	2	MeasuredEntity	T4	S. lugdunensis	"{""HasQuantity"": ""T3""}"
+S0165587612003680-1078	3	Quantity	T5	60%	"{""unit"": ""%""}"
+S0165587612003680-1078	3	MeasuredEntity	T6	bacteria isolated from OME	"{""HasQuantity"": ""T5""}"

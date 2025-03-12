@@ -1,0 +1,11 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0167610513002729-1127	1	Quantity	22	25	T1	45°	"{""unit"": ""\u00b0"", ""mods"": []}"
+S0167610513002729-1127	1	MeasuredEntity	26	30	T2	case	"{""HasQuantity"": ""T1""}"
+S0167610513002729-1127	2	Quantity	146	154	T3	z=0.23 H	"{""unit"": ""H"", ""mods"": []}"
+S0167610513002729-1127	2	MeasuredEntity	165	170	T4	plume	"{""HasQuantity"": ""T3""}"
+S0167610513002729-1127	3	Quantity	526	534	T5	z=0.52 H	"{""unit"": ""H"", ""mods"": []}"
+S0167610513002729-1127	3	MeasuredEntity	560	568	T6	material	"{""HasQuantity"": ""T5""}"
+S0167610513002729-1127	4	Quantity	694	702	T7	z=0.80 H	"{""unit"": ""H"", ""mods"": []}"
+S0167610513002729-1127	4	MeasuredEntity	716	724	T8	material	"{""HasQuantity"": ""T7""}"
+S0167610513002729-1127	5	Quantity	845	866	T9	highest concentration	"{""mods"": [""IsMean""]}"
+S0167610513002729-1127	5	MeasuredEntity	895	898	T10	gap	"{""HasQuantity"": ""T9""}"

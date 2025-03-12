@@ -1,0 +1,6 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103512003995-2579	1	Quantity	568	571	T1	3Rp	"{""unit"": ""Rp"", ""mods"": [""IsMean""]}"
+S0019103512003995-2579	1	MeasuredEntity	490	495	T2	model	"{""HasQuantity"": ""T1""}"
+S0019103512003995-2579	2	Quantity	673	679	T4	6300 K	"{""unit"": ""K"", ""mods"": [""IsMean""]}"
+S0019103512003995-2579	2	MeasuredEntity	620	625	T5	model	"{""HasQuantity"": ""T4""}"
+S0019103512003995-2579	2	MeasuredProperty	658	669	T6	temperature	"{""HasQuantity"": ""T4""}"

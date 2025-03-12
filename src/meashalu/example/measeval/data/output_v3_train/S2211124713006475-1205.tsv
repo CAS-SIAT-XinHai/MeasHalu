@@ -1,0 +1,4 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2211124713006475-1205	1	Quantity	902	907	T1	n = 6	"{""mods"": [""IsCount""]}"
+S2211124713006475-1205	1	MeasuredEntity	840	851	T2	GFP+ fibers	"{""HasQuantity"": ""T1""}"
+S2211124713006475-1205	1	MeasuredProperty	869	880	T3	projections	"{""HasQuantity"": ""T1""}"

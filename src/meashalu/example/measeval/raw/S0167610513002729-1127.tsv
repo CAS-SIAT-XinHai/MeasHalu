@@ -1,0 +1,10 @@
+docId	annotSet	annotType	annotId	text	other
+S0167610513002729-1127	1	Quantity	T1	45°	"{""unit"": ""°"", ""mods"": []}"
+S0167610513002729-1127	1	MeasuredEntity	T2	case	"{""HasQuantity"": ""T1""}"
+S0167610513002729-1127	2	Quantity	T3	0.23 H	"{""unit"": ""H"", ""mods"": []}"
+S0167610513002729-1127	2	Qualifier	T4	at z=0.23 H	"{""Qualifies"": ""T5""}"
+S0167610513002729-1127	3	Quantity	T6	0.52 H	"{""unit"": ""H"", ""mods"": []}"
+S0167610513002729-1127	3	Qualifier	T7	at z=0.52 H	"{""Qualifies"": ""T8""}"
+S0167610513002729-1127	4	Quantity	T9	0.80 H	"{""unit"": ""H"", ""mods"": []}"
+S0167610513002729-1127	4	Qualifier	T10	at z=0.80 H	"{""Qualifies"": ""T11""}"
+S0167610513002729-1127	5	Qualifier	T13	somewhat away from the mean location	"{""Qualifies"": ""T12""}"

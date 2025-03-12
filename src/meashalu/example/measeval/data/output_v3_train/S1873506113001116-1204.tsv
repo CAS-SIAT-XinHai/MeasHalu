@@ -1,0 +1,6 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S1873506113001116-1204	1	Quantity	827	841	T1	3.7 ± 0.9 fold	"{""unit"": ""fold"", ""mods"": [""IsMeanHasSD""]}"
+S1873506113001116-1204	1	Quantity	893	898	T3	> 99%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
+S1873506113001116-1204	1	Quantity	1208	1220	T4	46.8% ± 1.6%	"{""unit"": ""%"", ""mods"": [""IsMeanHasSD""]}"
+S1873506113001116-1204	1	MeasuredEntity	1165	1170	T7	cells	"{""HasQuantity"": ""T3""}"
+S1873506113001116-1204	1	MeasuredEntity	1165	1170	T8	cells	"{""HasQuantity"": ""T4""}"

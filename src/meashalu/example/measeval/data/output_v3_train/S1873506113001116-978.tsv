@@ -1,0 +1,4 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S1873506113001116-978	1	Quantity	780	801	T1	more than 10 passages	"{""mods"": [""IsCount""]}"
+S1873506113001116-978	1	MeasuredEntity	742	748	T2	hiPSCs	"{""HasQuantity"": ""T1""}"
+S1873506113001116-978	1	MeasuredProperty	793	801	T3	passages	"{""HasQuantity"": ""T1""}"

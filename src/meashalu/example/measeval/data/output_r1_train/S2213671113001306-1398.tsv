@@ -1,0 +1,6 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2213671113001306-1398	1	Quantity	490	499	T1	1 to 2 mg	"{""unit"": ""mg"", ""mods"": [""IsRange""]}"
+S2213671113001306-1398	1	MeasuredEntity	500	542	T2	intravitreal triamcinolone (TCA) injection	"{""HasQuantity"": ""T1""}"
+S2213671113001306-1398	1	Qualifier	543	568	T3	at the end of the surgery	"{""Qualifies"": ""T2""}"
+S2213671113001306-1398	2	Quantity	767	774	T4	Table 2	"{""mods"": [""IsCount""]}"
+S2213671113001306-1398	2	MeasuredEntity	673	748	T5	Ophthalmic and systemic complications related to the implantation procedure	"{""HasQuantity"": ""T4""}"

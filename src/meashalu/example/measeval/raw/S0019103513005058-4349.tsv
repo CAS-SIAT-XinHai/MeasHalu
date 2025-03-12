@@ -1,0 +1,8 @@
+docId	annotSet	annotType	annotId	text	other
+S0019103513005058-4349	1	Quantity	T1	35%	"{""unit"": ""%""}"
+S0019103513005058-4349	1	MeasuredEntity	T2	temperature profile	"{""HasQuantity"": ""T1""}"
+S0019103513005058-4349	2	Quantity	T3	5%	"{""unit"": ""%""}"
+S0019103513005058-4349	2	MeasuredEntity	T4	temperature profile	"{""HasQuantity"": ""T3""}"
+S0019103513005058-4349	3	Quantity	T5	around six orders of magnitude	"{""unit"": ""orders of magnitude"", ""mods"": [""IsApproximate""]}"
+S0019103513005058-4349	3	MeasuredEntity	T6	deposition rate of perchloric acid	"{""HasQuantity"": ""T5""}"
+S0019103513005058-4349	3	Qualifier	T7	Over the range tested	"{""Qualifies"": ""T5""}"

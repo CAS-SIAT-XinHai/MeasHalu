@@ -1,0 +1,179 @@
+Okay, let's tackle this input step by step. The task is to extract quantities and related entities, then structure them into the TSV format as defined. 
+
+First, I'll read the input carefully. The input text is: "PGRN secreted into the medium over 24 hr of microglia derived from control, sporadic, and PGRN S116X iPSCs. The average of values for control lines was set to 100%. Values are mean ± SEM."
+
+Starting with Step 1: Extract Quantities.
+
+Looking for quantities, I see "24 hr", "100%", and "mean ± SEM". 
+
+"24 hr" is a duration, so it's a Quantity with unit "hr". "100%" is a percentage, unit "%". "mean ± SEM" might be a bit tricky. Here, "mean" indicates it's an average, and "± SEM" is the standard error of the mean. So this is a Quantity with modifiers IsMean and IsMeanHasSD. 
+
+Wait, the example given in the instructions for IsMeanHasSD is "1.23 ± 0.25", so "mean ± SEM" would be similar. But here, the actual numerical value isn't present, just the label. Hmm, the instruction says to annotate quantities with their numerical values. Wait, the input says "Values are mean ± SEM." Does this refer to the previous values (like the 100%)? Maybe the 100% is the mean, and SEM is the error. But the text says "Values are mean ± SEM." without a numerical value. So maybe "mean ± SEM" is a Qualifier explaining how the values are presented, not a Quantity itself. Wait, but the instruction says to extract quantities as values. So perhaps "mean ± SEM" is a modifier for the 100%, indicating that it's a mean with SEM. 
+
+Wait, the original example had "mean ± SEM" as part of the Quantity. Let me check the example in the instructions. In the example given, "9 ± 6" is an example of IsMeanHasSD. So in this input, the "mean ± SEM" is a modifier for the previously mentioned "100%". So the 100% has a modifier of IsMean and IsMeanHasSD. However, the SEM here is a statistical measure, so maybe "SEM" is the unit? Or is it part of the modifier. 
+
+Alternatively, the "Values are mean ± SEM." might be a general statement, so perhaps the 100% is the mean, and ± SEM is the error. But since the 100% is set as the average, maybe the "mean" refers to that. So 100% has the modifiers IsMean and IsMeanHasSD. The "± SEM" is part of the Quantity's modifiers. However, the actual numerical value for the SEM isn't provided here. So perhaps the "mean ± SEM" is a Qualifier for the 100% Quantity. But according to the instruction's example, when there's a mean with SD, it's part of the Quantity's modifiers. 
+
+But in the input, the 100% is the average, and the "mean ± SEM" describes how the values are presented. So the 100% is the mean value, and the SEM is the error, but since the SEM isn't a numerical value here, maybe it's just a Qualifier. Alternatively, maybe the "mean ± SEM" is a MeasuredProperty. 
+
+This is a bit confusing. Let's proceed step by step.
+
+First, identify the quantities:
+
+1. "24 hr" – Quantity with unit "hr".
+2. "100%" – Quantity with unit "%", and modifiers IsMean (since it's the average), but the text also mentions "mean ± SEM". So "100%" is the mean value, and the "± SEM" is part of the modifier. But since there's no numerical SEM value, maybe it's just a Qualifier. Wait, but the instruction says that modifiers like IsMean, IsMeanHasSD are for the Quantity. In this case, the "mean ± SEM" is a statement about the values (which includes the 100%), so perhaps the 100% has IsMean and IsMeanHasSD modifiers. However, since the SEM is not a numerical value here, maybe just IsMean.
+
+Wait, the input says "The average of values for control lines was set to 100%. Values are mean ± SEM." So the 100% is the average (mean), and the "mean ± SEM" explains that all the values are presented as mean with SEM. So perhaps the 100% is a Quantity with IsMean modifier, and "mean ± SEM" is a Qualifier that qualifies the 100% Quantity. Alternatively, if the "mean ± SEM" is a general statement, maybe it's a Qualifier for the entire set of values. 
+
+Alternatively, since the "Values are mean ± SEM" is a separate sentence, it could be a Qualifier for the entire context, but the instruction says to link Qualifiers to specific annotations. 
+
+This might require some decisions. Let's proceed:
+
+Quantities:
+
+- "24 hr": Quantity, unit hr, no modifiers.
+- "100%": Quantity, unit %, modifiers IsMean (since it's the average). But the "mean ± SEM" might indicate that it's a mean with SEM, but since there's no numerical SD/SEM value, maybe just IsMean.
+- "mean ± SEM": Hmm, this is a phrase indicating the statistical measure used. But it's not a numerical quantity. So perhaps this is a MeasuredProperty or a Qualifier. Since it describes how the values (like 100%) are presented, it's a Qualifier. So "mean ± SEM" is a Qualifier that qualifies the Quantity "100%".
+
+Proceeding to MeasuredEntities and MeasuredProperties:
+
+For "24 hr": The MeasuredEntity would be "PGRN secreted into the medium over 24 hr". Wait, the text is "PGRN secreted into the medium over 24 hr of microglia...". So the 24 hr is the duration over which PGRN is secreted. The MeasuredEntity here is "PGRN", and the MeasuredProperty is "secreted into the medium over 24 hr"? Or maybe the MeasuredProperty is "secretion time" and the Quantity is 24 hr. Alternatively, the MeasuredEntity could be "microglia" (since it's microglia derived from...), but the secretion is by the microglia. This is a bit tricky. Let's parse the sentence structure.
+
+The sentence: "PGRN secreted into the medium over 24 hr of microglia derived from control, sporadic, and PGRN S116X iPSCs." 
+
+Breaking it down: "PGRN" is the subject, "secreted into the medium" is the action. The time is "over 24 hr", and "of microglia derived from..." describes the source of the microglia. So the 24 hr is the duration of secretion. Therefore, the MeasuredEntity here is "PGRN secretion" or perhaps "PGRN", and the MeasuredProperty is "secretion time" or "duration". However, the text doesn't explicitly mention "secretion time", so perhaps the MeasuredProperty is implicitly "duration" or "time". But according to the annotation guidelines, if there's no explicit property, the Quantity can be linked directly to the MeasuredEntity.
+
+Alternatively, since the sentence is "PGRN secreted into the medium over 24 hr...", the 24 hr is the duration over which secretion occurred. So the MeasuredEntity is "PGRN secretion into the medium", and the Quantity is 24 hr. But the problem is extracting exact text spans. The exact text for MeasuredEntity should be "PGRN secreted into the medium" perhaps. But since the text is "PGRN secreted into the medium over 24 hr of microglia...", the "over 24 hr" is part of the time phrase. So maybe the MeasuredEntity is "PGRN", and the MeasuredProperty is "secreted into the medium", with the Quantity 24 hr. But according to the guidelines, MeasuredProperty should be a descriptive property like "volume", "temperature", etc. Here, "secreted into the medium" is more of an action than a property. Alternatively, perhaps the MeasuredProperty is "secretion duration", but that's not in the text. This is ambiguous. Since the example in the guidelines used "temperature" as a MeasuredProperty, which is a noun, perhaps in this case, the MeasuredEntity is "PGRN" and the MeasuredProperty is "secretion" (if present in the text as a noun). However, the text uses "secreted", a verb. Maybe there's no explicit MeasuredProperty here, so the Quantity 24 hr is linked directly to the MeasuredEntity "PGRN secretion into the medium" via HasQuantity. But the exact text span for MeasuredEntity needs to be a noun phrase. "PGRN" is a noun, so perhaps the MeasuredEntity is "PGRN", and the Quantity 24 hr is linked to it, with the context that it's the secretion duration. But without an explicit MeasuredProperty, perhaps the MeasuredProperty is omitted, and the link is directly from MeasuredEntity to Quantity.
+
+Alternatively, maybe the "secreted into the medium over 24 hr" is part of the Qualifier for the Quantity. But the guidelines say Qualifiers are conditions or attributes affecting the Quantity. The "over 24 hr" is the duration, which is the Quantity itself, so that's already captured. The rest "secreted into the medium" would be part of the MeasuredEntity's description.
+
+This is getting complex. Let's try to outline possible annotations:
+
+For "24 hr":
+
+- Quantity: "24 hr", unit "hr", no modifiers.
+- MeasuredEntity: "PGRN secreted into the medium" (the exact span would be "PGRN secreted into the medium" from the text).
+- Relationship: HasQuantity from MeasuredEntity to Quantity.
+
+But "PGRN secreted into the medium" is part of the first sentence. Then, the next part is "over 24 hr of microglia..." So the 24 hr is the duration over which PGRN was secreted. So the MeasuredEntity might be "PGRN secretion", but since "secretion" is a verb, perhaps the MeasuredEntity is "PGRN", and the MeasuredProperty is "secretion duration", but "secretion duration" is not explicitly mentioned. So maybe the MeasuredProperty is omitted, and the Quantity is directly linked to the MeasuredEntity "PGRN".
+
+Alternatively, since the text doesn't explicitly state a property like "duration", we might not have a MeasuredProperty here. So:
+
+AnnotSet 1:
+
+- Quantity: T1, 24 hr, unit hr.
+- MeasuredEntity: T2, PGRN secreted into the medium.
+- Relationship: T2 HasQuantity T1.
+
+But "PGRN secreted into the medium" is the entity here. Then, there's "over 24 hr of microglia..." which complicates things. The "microglia derived from..." is part of the source, not the MeasuredEntity. So maybe the MeasuredEntity is "PGRN secreted into the medium", and the Quantity 24 hr is linked to it via HasQuantity.
+
+Next, the second part: "The average of values for control lines was set to 100%." Here, "100%" is a Quantity, unit "%". The MeasuredEntity here could be "values for control lines", but the average is set to 100%, so the MeasuredEntity is "values for control lines", and the MeasuredProperty is "average". The Quantity is 100%, which is the average. So:
+
+AnnotSet 2:
+
+- Quantity: T3, 100%, unit %, modifiers IsMean.
+- MeasuredEntity: T4, values for control lines.
+- MeasuredProperty: T5, average.
+- Relationships: T4 HasProperty T5, T5 HasQuantity T3.
+
+But the text says "the average of values for control lines was set to 100%", so the MeasuredProperty is "average", which is linked to the MeasuredEntity "values for control lines", and the Quantity 100% is linked to the MeasuredProperty.
+
+Then, the last sentence: "Values are mean ± SEM." Here, "mean ± SEM" could be a Qualifier that qualifies the previous Quantity (100%) or the general values. Since the 100% is the average (mean), and the SEM is the standard error, but there's no numerical value given for SEM. So "mean ± SEM" is a Qualifier that qualifies the Quantity 100%, indicating that it's presented as mean ± SEM. So:
+
+Qualifier: "mean ± SEM" with relationship Qualifies to T3 (the 100% Quantity).
+
+Putting it all together:
+
+AnnotSet 1:
+- Quantity: T1, 24 hr, {"unit": "hr"}
+- MeasuredEntity: T2, "PGRN secreted into the medium", {"HasQuantity": "T1"}
+
+AnnotSet 2:
+- Quantity: T3, 100%, {"unit": "%", "mods": ["IsMean"]}
+- MeasuredEntity: T4, "values for control lines"
+- MeasuredProperty: T5, "average", {"HasQuantity": "T3", "HasProperty": "T4"}
+- Qualifier: T6, "mean ± SEM", {"Qualifies": "T3"}
+
+Wait, but "average" in the sentence is part of the MeasuredProperty. The text says "the average of values for control lines was set to 100%", so "average" is the MeasuredProperty, linked to the MeasuredEntity "values for control lines" via HasProperty, and the Quantity 100% via HasQuantity.
+
+Additionally, the "mean ± SEM" is a Qualifier linked to the Quantity 100%, explaining the statistical method.
+
+But I need to ensure that all text spans are correctly extracted. Let's check the exact text:
+
+- "PGRN secreted into the medium over 24 hr of microglia..." → the MeasuredEntity is "PGRN secreted into the medium" (text up to "over 24 hr")?
+Wait, the phrase is "PGRN secreted into the medium over 24 hr of microglia...". The "over 24 hr" is a prepositional phrase indicating time. So the MeasuredEntity is "PGRN secreted into the medium", and the Quantity is "24 hr", which is the duration. So T2 is "PGRN secreted into the medium", T1 is 24 hr.
+
+Then, the next part: "The average of values for control lines was set to 100%." Here, the MeasuredEntity is "values for control lines", the MeasuredProperty is "average", and the Quantity is "100%".
+
+Finally, "Values are mean ± SEM." The Qualifier is "mean ± SEM", qualifying the Quantity 100% (T3).
+
+So the TSV would look like:
+
+annotSet    annotType           annotId    text                               other
+1           Quantity            T1         24 hr                             {"unit": "hr"}
+1           MeasuredEntity      T2         PGRN secreted into the medium      {"HasQuantity": "T1"}
+2           Quantity            T3         100%                               {"unit": "%", "mods": ["IsMean"]}
+2           MeasuredEntity      T4         values for control lines           {"HasProperty": "T5"}
+2           MeasuredProperty    T5         average                            {"HasQuantity": "T3", "HasProperty": "T4"}
+3           Qualifier           T6         mean ± SEM                         {"Qualifies": "T3"}
+
+Wait, but in annotSet 2, the MeasuredEntity T4 is "values for control lines", which HasProperty to T5 ("average"), and T5 HasQuantity to T3 (100%). Then, the Qualifier T6 in annotSet 3 qualifies T3.
+
+But according to the output format, each annotSet groups related annotations. So annotSet 1 is for the 24 hr quantity and its related entities. AnnotSet 2 is for the 100% quantity and its related entities. AnnotSet 3 is the Qualifier "mean ± SEM" linked to the 100% Quantity. However, since the Qualifier is part of the same context as annotSet 2, maybe it should be in annotSet 2. But the example in the guidelines had each Quantity in its own annotSet. Let's check the example:
+
+In the example given, each Quantity (25°C, 500 milliliters, 10 grams) each had their own annotSet (1, 2, 3). Qualifiers were part of the same annotSet. For instance, in the example, the "approximately" qualifier was part of annotSet 1. So if "mean ± SEM" qualifies T3 (100%), then it should be in annotSet 2.
+
+Wait, in the example:
+
+annotSet 1 included Quantity T1, MeasuredEntity T2, MeasuredProperty T3, all related to the first Quantity. The Qualifier "approximately" was part of annotSet 1 as well. Wait, no—the example's Qualifier "approximately" was part of the same annotSet. But in their example, the Qualifier was part of the same set. Wait, looking back at the example:
+
+In the example, the first Quantity "approximately 25°C" is in annotSet 1. The "approximately" is part of the Quantity's text, so it's included in the Quantity's modifiers. The example didn't have a separate Qualifier annotation. Wait, in the example given, the Qualifier "after I drank half the can" was in a different example. The main example had "approximately" as part of the Quantity's modifiers (IsApproximate). So in that case, the Qualifier was included in the Quantity's modifiers. 
+
+But in our current input, the "mean ± SEM" isn't part of the Quantity text. The Quantity is "100%", and the "mean ± SEM" is in a separate sentence. So in this case, "mean ± SEM" is a separate Qualifier that qualifies the Quantity T3. Hence, it should be in a separate annotSet? Or grouped under the same annotSet as T3?
+
+According to the guidelines, each logical grouping should have its own annotSet. Since "mean ± SEM" is part of the explanation of the 100% value, it's part of the same logical group. Therefore, it should be in annotSet 2. So:
+
+annotSet 2 would include:
+
+- Quantity T3: 100%
+- MeasuredEntity T4: values for control lines
+- MeasuredProperty T5: average
+- Qualifier T6: mean ± SEM
+
+But in the TSV example from the guidelines, each Quantity with its related entities and qualifiers is in a single annotSet. So in the example, "approximately 25°C" is in annotSet 1, along with the MeasuredEntity and MeasuredProperty. The Qualifier (if any) would be in the same annotSet. 
+
+Therefore, in our case, "mean ± SEM" should be part of annotSet 2. So:
+
+annotSet    annotType           annotId    text                               other
+1           Quantity            T1         24 hr                             {"unit": "hr"}
+1           MeasuredEntity      T2         PGRN secreted into the medium      {"HasQuantity": "T1"}
+2           Quantity            T3         100%                               {"unit": "%", "mods": ["IsMean", "IsMeanHasSD"]}
+2           MeasuredEntity      T4         values for control lines           {"HasProperty": "T5"}
+2           MeasuredProperty    T5         average                            {"HasQuantity": "T3", "HasProperty": "T4"}
+2           Qualifier           T6         mean ± SEM                         {"Qualifies": "T3"}
+
+Wait, but the modifiers for T3: is "IsMean" and "IsMeanHasSD" applicable? The original text says "Values are mean ± SEM." The 100% is the average (mean) of the control lines. However, the "mean ± SEM" phrase is a statement about how the values are presented. The 100% itself is a mean, and the "± SEM" indicates that the error is SEM. However, since there's no numerical SEM value here, just the mention of SEM, perhaps the modifier IsMean is sufficient, and the "mean ± SEM" is a Qualifier. Alternatively, maybe the "mean ± SEM" is a MeasuredProperty. 
+
+Alternatively, the "mean ± SEM" is a Qualifier that provides additional context about the statistical method used, hence qualifying the Quantity 100%. So in this case, the Quantity 100% has modifier IsMean, and the Qualifier "mean ± SEM" links to it. But the example in the guidelines had "9 ± 6" as a Quantity with IsMean and IsMeanHasSD. Here, "mean ± SEM" is not a numerical value but a descriptor, so it's a Qualifier. 
+
+Therefore, the Quantity T3 (100%) would have mods ["IsMean"], and the Qualifier T6 is "mean ± SEM" linked to T3. 
+
+So the final TSV should include:
+
+For annotSet 1:
+
+- T1: Quantity 24 hr, unit hr
+- T2: MeasuredEntity "PGRN secreted into the medium" linked to T1.
+
+For annotSet 2:
+
+- T3: Quantity 100%, unit %, mods ["IsMean"]
+- T4: MeasuredEntity "values for control lines" linked to T5.
+- T5: MeasuredProperty "average" linked to T3 and T4.
+- T6: Qualifier "mean ± SEM" linked to T3.
+
+But wait, in the input text, "The average of values for control lines was set to 100%." The MeasuredProperty here is "average", which is the property of the MeasuredEntity "values for control lines". The Quantity is 100%, which is linked via HasQuantity from the MeasuredProperty "average". 
+
+Also, the Qualifier "mean ± SEM" qualifies the Quantity T3, so T6's other field is {"Qualifies": "T3"}.
+
+Yes, that seems right.

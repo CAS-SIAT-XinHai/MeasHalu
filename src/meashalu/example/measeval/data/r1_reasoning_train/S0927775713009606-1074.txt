@@ -1,0 +1,341 @@
+Okay, let's tackle this step by step. The input is a scientific paragraph about preparing CdS nanoparticles using a mesoporous starch gel. My task is to extract quantities, measured entities, properties, qualifiers, and their relationships.
+
+First, I need to identify all quantities. Let me go through the text sentence by sentence.
+
+Looking at "pore diameters > 10 nm": Here, "> 10 nm" is a quantity. The ">" indicates a modifier, so IsRange maybe? Wait, IsRange is for ranges like "5–40 nm". But ">" is a lower bound. The modifiers include IsApproximate, but here it's a threshold. Hmm, the instructions mention modifiers like IsApproximate, IsRange, IsList. Since ">" is a modifier indicating a lower limit, maybe it's part of the Quantity text. So "> 10 nm" would be the quantity with unit "nm" and modifier like IsRange? Or maybe it's a qualifier? Wait, the example for IsRange was "1.5-2.6m". So "pore diameters > 10 nm" – the quantity is "> 10 nm", unit is "nm", and mods could be IsApproximate if there's a word like "around", but here it's a strict ">", so maybe just note the unit and the ">" in the text. However, the modifiers defined don't include a tolerance here. The example for HasTolerance was "93.90±0.15 Ma". So maybe ">" isn't covered under the modifiers listed. Maybe just include the ">" as part of the text, and the mods would be IsRange? Wait, no, IsRange is for ranges like between two numbers. Alternatively, perhaps it's a standalone quantity with ">" as part of the value.
+
+Then "Vmeso > 0.5 cm3 g−1": Here, "> 0.5 cm3 g−1" is a quantity. The unit is cm³ g⁻¹. The ">" is part of the quantity span. Similarly, "SBET > 170 m2 g−1" – quantity is "> 170 m2 g−1", unit m² g⁻¹. "5–40 nm range" – here, "5–40 nm" is a range, so IsRange applies. "CdS/starch ratio = 1 (w/w)" – "1 (w/w)" is a quantity. Since it's a ratio, the unit here is "w/w" (weight per weight). "5–40 nm" has unit "nm" and IsRange. Then "CdS/starch ratio = 1 (w/w)" – quantity is "1 (w/w)", unit is "w/w", mods maybe IsCount if it's a ratio count. But ratios can be considered as unitless counts. Alternatively, the unit is "w/w" here.
+
+Next, check for measured entities and properties. For "pore diameters > 10 nm", the measured entity is "pore diameters", and the measured property might be "diameters". Wait, no, the measured entity would be "pore", and the measured property is "diameter". Similarly, "Vmeso" (mesoporous volume) is the measured property, and the entity is "mesopore domains" or "powders"? Wait, the text says "resulting powders presented large mesopore domains with high volumes (pore diameters > 10 nm; Vmeso > 0.5 cm3 g−1)", so Vmeso here is the volume, so measured property is "Vmeso" (volume), measured entity is "mesopore domains" or "powders"? Hmm, the text says "the resulting powders presented large mesopore domains...", so the entity could be "mesopore domains", and the measured property is "Vmeso" (volume). But Vmeso is an abbreviation for mesoporous volume, so it's a property. Then the quantity is "> 0.5 cm3 g−1", linked to Vmeso.
+
+Similarly, "SBET > 170 m2 g−1": SBET is the BET surface area, so measured property is SBET (surface area), entity is the powders. The quantity is "> 170 m2 g−1".
+
+Then "5–40 nm range" – the measured entity is "CdS nanoparticles", measured property is "size" (since it's about nanoparticle growth and size). The quantity is "5–40 nm" with unit nm and mods IsRange.
+
+"CdS/starch ratio = 1 (w/w)" – the measured entity is "CdS/starch", property is "ratio", quantity is "1 (w/w)", unit is "w/w".
+
+Qualifiers: I need to check if there are any phrases that qualify these quantities. For example, "increasing CdS loadings on the starch gel" – "increasing" might be a qualifier for the CdS loading quantities. But in the text, the quantities related to loading are "high CdS loading" and "increasing CdS loadings". However, "high" is part of the entity description. The qualifiers might be phrases like "confined nanoparticle growth" affecting the quantities, but perhaps not. Let's see if there are explicit qualifiers. The example given had "after I drank half the can" as a qualifier. In the current text, maybe "without the need for expensive..." is a qualifier for the synthesis method, but not directly qualifying a quantity. There's "interestingly effectively increasing with CdS loading" – "interestingly" is a qualifier for the whole statement, but maybe "increasing with CdS loading" is a qualifier for the surface areas and volumes. However, according to the instructions, Qualifiers are spans that describe conditions affecting the quantity. So if a phrase like "increasing CdS loadings" is part of the reason why the quantities are as they are, it might be a qualifier. However, in the given example, "after I drank half the can" was a qualifier for the quantity. Let's look for such phrases.
+
+"In the 5–40 nm range of a cubic crystalline structure" – maybe "cubic crystalline structure" is a qualifier for the nanoparticles' size. But perhaps not. Let's see. The main quantities are:
+
+1. pore diameters > 10 nm
+2. Vmeso > 0.5 cm³ g⁻¹
+3. SBET > 170 m² g⁻¹
+4. 5–40 nm (CdS nanoparticles size)
+5. CdS/starch ratio = 1 (w/w)
+
+Now, each of these would be part of their own annotSet.
+
+Starting with "pore diameters > 10 nm":
+
+- Quantity: "> 10 nm" with unit nm and modifier IsRange? Wait, ">" is not a range but a lower bound. The example had "1.5-2.6m" as IsRange. Since this is a single value with a modifier, maybe the modifier is not in the predefined list. The instructions mention modifiers like IsApproximate, IsCount, IsRange, etc. Since ">" is part of the quantity text, maybe it's included in the text span, and the mods would be something else or none. Alternatively, perhaps "IsRange" isn't applicable here, and the ">" is part of the quantity's text. So the Quantity here is "> 10 nm", unit nm, and maybe no mods unless there's a specific modifier. Since there's no "approximately" or similar, perhaps no mods. Then the MeasuredEntity is "pore diameters" or "pore"? Wait, "pore diameters" is the measured property, and the entity is "mesopore domains". Let me check the text: "pore diameters > 10 nm; Vmeso > 0.5 cm3 g−1". The full context is "resulting powders presented large mesopore domains with high volumes (pore diameters > 10 nm; Vmeso > 0.5 cm3 g−1)". So "pore diameters" is the MeasuredProperty, and the MeasuredEntity is "mesopore domains". So the relationships would be: MeasuredEntity (mesopore domains) HasProperty (pore diameters), and the Quantity "> 10 nm" is linked via HasQuantity to the MeasuredProperty.
+
+Wait, the example in the instructions had "soda can" as MeasuredEntity, "volume" as MeasuredProperty, and "355 ml" as Quantity. So MeasuredEntity (soda can) HasProperty (volume), and volume HasQuantity (355 ml). So in this case, "mesopore domains" would be the MeasuredEntity, "pore diameters" the MeasuredProperty, and "> 10 nm" the Quantity. Then relationships: mesopore domains (T2) HasProperty (T3: pore diameters), which HasQuantity (T1: >10 nm).
+
+Similarly, Vmeso > 0.5 cm³ g⁻¹: Vmeso is the MeasuredProperty (volume), MeasuredEntity is "mesopore domains" again? Or "powders"? The text says "resulting powders presented large mesopore domains with high volumes...". So the powders have mesopore domains, which have volumes. So perhaps the MeasuredEntity is "mesopore domains", MeasuredProperty is "Vmeso" (volume), and Quantity is "> 0.5 cm3 g−1".
+
+SBET > 170 m² g⁻¹: SBET is the surface area (MeasuredProperty), MeasuredEntity is "powders", Quantity is "> 170 m² g−1".
+
+5–40 nm: CdS nanoparticles size, MeasuredEntity is "CdS nanoparticles", MeasuredProperty is "size", Quantity is "5–40 nm" with IsRange.
+
+CdS/starch ratio = 1 (w/w): MeasuredEntity is "CdS/starch", MeasuredProperty is "ratio", Quantity is "1 (w/w)".
+
+Now, for each of these, create annotSets. Each logical grouping (each quantity and its related entities/properties) gets its own annotSet.
+
+Let's start with the first quantity: ">10 nm".
+
+annotSet 1:
+
+- Quantity: ">10 nm" (T1), unit nm, since it's a range with >, maybe mods IsRange? Wait, IsRange is for a range between two numbers. But here, it's a lower bound. The example for IsRange was "1.5-2.6m", so maybe "5–40 nm" would be IsRange. For ">10 nm", there's no IsApproximate modifier, so perhaps no mods. So "other" would be {"unit": "nm"}.
+
+MeasuredEntity: "mesopore domains" (T2) – the text says "large mesopore domains".
+
+MeasuredProperty: "pore diameters" (T3) – links to T1 via HasQuantity, and to T2 via HasProperty.
+
+So relationships:
+
+T2 (mesopore domains) hasProperty T3 (pore diameters).
+
+T3 (pore diameters) hasQuantity T1 (>10 nm).
+
+Next is "Vmeso > 0.5 cm3 g−1" (annotSet 2):
+
+Quantity: "> 0.5 cm3 g−1" (T4), unit cm³ g⁻¹.
+
+MeasuredProperty: "Vmeso" (volume, T5).
+
+MeasuredEntity: "mesopore domains" (T6? But in the previous set, mesopore domains were T2. Wait, but each annotSet is separate. Wait, no. The instructions say "annotSet: starting from 1 for each logical grouping of related annotations". So each quantity and its related entities/properties form an annotSet. So the first annotSet includes pore diameter, its quantity, etc. The next quantity is Vmeso >0.5 cm³/g, which is part of the same powders' properties but in a different annotSet. Wait, the text says "resulting powders presented large mesopore domains with high volumes (pore diameters >10 nm; Vmeso >0.5 cm3 g−1) and surface areas (SBET >170 m2 g−1)". So each of these (pore diameter, Vmeso, SBET) are separate properties under the same powders. But according to the example, each quantity is in its own annotSet. For instance, in the example, each quantity (25°C, 500ml, 10g) were separate annotSets. So here, each quantity (like >10nm, >0.5cm³/g, >170m²/g) would each have their own annotSet.
+
+Wait, in the example given, the three quantities each had their own annotSet (1,2,3). So in this case, each quantity here would be a separate annotSet.
+
+So annotSet 1: pore diameters >10 nm.
+
+annotSet 2: Vmeso >0.5 cm³/g.
+
+annotSet 3: SBET >170 m²/g.
+
+Then annotSet 4: 5–40 nm.
+
+annotSet 5: 1 (w/w).
+
+But let's proceed.
+
+annotSet 2:
+
+- Quantity: "> 0.5 cm3 g−1" (T4), unit cm³ g⁻¹, no mods.
+
+MeasuredProperty: "Vmeso" (T5), which is the volume.
+
+MeasuredEntity: "mesopore domains" (T6). But wait, in the text, the powders have mesopore domains with these properties. So maybe the MeasuredEntity is "powders" for Vmeso and SBET? Or is it "mesopore domains"?
+
+The text says: "The resulting powders presented large mesopore domains with high volumes (pore diameters > 10 nm; Vmeso > 0.5 cm3 g−1) and surface areas (SBET > 170 m2 g−1)". So the powders have mesopore domains which have these properties. So "mesopore domains" is part of the powders. So for Vmeso, the MeasuredEntity would be "mesopore domains", and the MeasuredProperty is "Vmeso" (volume), Quantity ">0.5 cm³/g".
+
+Thus, for annotSet 2:
+
+- Quantity T4: "> 0.5 cm3 g−1", unit cm³ g⁻¹.
+
+- MeasuredProperty T5: "Vmeso" (volume).
+
+- MeasuredEntity T6: "mesopore domains".
+
+Relationships: T6 HasProperty T5, T5 HasQuantity T4.
+
+Similarly for SBET >170 m²/g (annotSet 3):
+
+- Quantity: ">170 m2 g−1" (T7), unit m² g⁻¹.
+
+- MeasuredProperty: "SBET" (surface area, T8).
+
+- MeasuredEntity: "powders" (T9? Because the powders have these surface areas. Wait, the text says "surface areas (SBET >170...)", so SBET is the surface area, and the entity is the powders. So MeasuredEntity is "powders", MeasuredProperty is "SBET", Quantity is T7.
+
+Then annotSet 3:
+
+- Quantity T7: ">170 m2 g−1", unit m² g⁻¹.
+
+- MeasuredProperty T8: "SBET".
+
+- MeasuredEntity T9: "powders".
+
+Relationships: T9 HasProperty T8, T8 HasQuantity T7.
+
+Next, annotSet 4: "5–40 nm range".
+
+Quantity: "5–40 nm" (T10), unit nm, mods IsRange.
+
+MeasuredEntity: "CdS nanoparticles" (T11).
+
+MeasuredProperty: "size" (T12).
+
+Relationships: T11 HasProperty T12 (size), T12 HasQuantity T10.
+
+Then annotSet 5: "CdS/starch ratio = 1 (w/w)".
+
+Quantity: "1 (w/w)" (T13), unit "w/w".
+
+MeasuredEntity: "CdS/starch" (T14).
+
+MeasuredProperty: "ratio" (T15).
+
+Relationships: T14 HasProperty T15, T15 HasQuantity T13.
+
+Also, in the text: "The synthesised CdS nanoparticles were characterised in the 5–40 nm range of a cubic crystalline structure, increasing in size with loading." The "cubic crystalline structure" may be a Qualifier for the size. But according to the definitions, Qualifiers are spans that describe conditions affecting the Quantity. So "cubic crystalline structure" could be a Qualifier for the size Quantity (T10). Similarly, "increasing in size with loading" might be a Qualifier affecting the size, but it's part of a different sentence. However, the Qualifier needs to be a specific span of text. Let's check.
+
+The phrase is: "The synthesised CdS nanoparticles were characterised in the 5–40 nm range of a cubic crystalline structure, increasing in size with loading." The part "increasing in size with loading" could be a Qualifier for the size Quantity. But the exact span would be "increasing in size with loading". So in that case, for annotSet 4 (CdS size 5–40 nm), there's a Qualifier "increasing in size with loading", which Qualifies the Quantity T10. So adding a Qualifier T16: "increasing in size with loading", with relation Qualifies T10.
+
+Similarly, "The presented route is simple, green and in principle extendable to a wide range of QDs and polysaccharide gels..." – "green" might be a qualifier for the route, but not directly related to a quantity.
+
+Another point: "Materials were prepared at increasing CdS loadings on the starch gel, which confined nanoparticle growth and directed size/surface coverage, dispersion and UV–vis absorption profile." Here, "increasing CdS loadings" might be a Qualifier for quantities related to nanoparticle growth, but I need to see if there's a quantity associated. The quantities related to loading are "high CdS loading" mentioned earlier and "CdS/starch ratio =1 (w/w)". The phrase "at increasing CdS loadings" could be a Qualifier for the synthesis process, but unless it's directly linked to a Quantity, it's not annotated. Since the instruction says Qualifiers are linked to a Quantity, MeasuredEntity, or MeasuredProperty. If "increasing CdS loadings" is a condition affecting the "size" or "ratio" quantities, then it could be a Qualifier. However, this phrase is part of the reason for the quantities, but the exact link might not be explicit. The example given used "after I drank half the can" as a Qualifier for the volume. So maybe "increasing CdS loadings" is a Qualifier for the size Quantity (annotSet4). But the exact span would be "at increasing CdS loadings on the starch gel". Alternatively, the phrase "which confined nanoparticle growth and directed size/surface coverage..." could be a Qualifier for the size Quantity. But this is getting complicated. Let me check if there are any other Qualifiers.
+
+The text says "interestingly effectively increasing with CdS loading" – this could be a Qualifier for the surface areas and volumes. The full sentence: "...surface areas (SBET > 170 m2 g−1), interestingly effectively increasing with CdS loading." Here, "interestingly effectively increasing with CdS loading" is a Qualifier that affects the surface areas (SBET) and possibly the volumes (Vmeso). But how to handle this. If SBET and Vmeso are in separate annotSets, then each would need their own Qualifier. Alternatively, this entire phrase could be a single Qualifier applicable to both. But according to the output format, each Qualifier is part of an annotSet. But perhaps each affected Quantity needs its own Qualifier. Alternatively, annotate the Qualifier once and link it to both SBET and Vmeso's quantities.
+
+However, the example TSV grouped each quantity with its own Qualifier. In the example, "after I drank half the can" was part of the same annotSet as the quantity. So perhaps each Qualifier is part of the same annotSet as the Quantity it qualifies. But in this case, the Qualifier "interestingly effectively increasing with CdS loading" qualifies both Vmeso and SBET quantities. But according to the instructions, each annotSet is a logical grouping, so if a Qualifier applies to multiple quantities, it would need to be linked in each respective annotSet. Alternatively, the Qualifier is part of a separate annotSet and linked to multiple quantities. However, the example in the instructions had each Qualifier within its own annotSet. Let me check the example again.
+
+In the example given, the Qualifier "after I drank half the can" was part of the same annotSet (annotSet4) as the quantity "175 ml". So Qualifiers are part of the same annotSet as the Quantity they qualify. Therefore, if "interestingly effectively increasing with CdS loading" qualifies both Vmeso and SBET quantities, it would need to be in each of their annotSets. But since the text is part of the same sentence, maybe it's one Qualifier for both. But according to the output format, each Qualifier is part of an annotSet. This is a bit ambiguous. However, given the input, perhaps it's better to annotate this phrase as a Qualifier for both quantities. Alternatively, since the example had each Qualifier in its own annotSet, perhaps here the phrase "interestingly effectively increasing with CdS loading" would be a Qualifier in a separate annotSet linked to both quantities. However, the TSV format requires each annotSet to group related annotations, so maybe each Qualifier is part of the same annotSet as the Quantity it qualifies. In this case, since the Qualifier applies to both Vmeso and SBET, it would need to be duplicated in both annotSets. But this may not be ideal.
+
+Alternatively, perhaps the Qualifier is part of a separate annotSet and linked to both quantities. However, the example only had one Qualifier per annotSet. Given the instructions, I'll proceed by duplicating the Qualifier in each relevant annotSet. So in annotSet2 (Vmeso), the Qualifier is "interestingly effectively increasing with CdS loading", and in annotSet3 (SBET), the same Qualifier is used. But this would create two separate Qualifiers with the same text. Alternatively, maybe it's part of a single annotSet, but this might not fit the structure. This is a bit confusing. Let's proceed step by step.
+
+For annotSet2 (Vmeso):
+
+The text says "interestingly effectively increasing with CdS loading" modifies the fact that Vmeso and SBET increase with loading. So perhaps the Qualifier is part of the same annotSet as Vmeso and SBET. But since they are separate annotSets, each would need their own Qualifier.
+
+But the text is part of the same sentence: "The resulting powders presented large mesopore domains with high volumes (pore diameters > 10 nm; Vmeso > 0.5 cm3 g−1) and surface areas (SBET > 170 m2 g−1), interestingly effectively increasing with CdS loading."
+
+So, the Qualifier "interestingly effectively increasing with CdS loading" applies to both Vmeso and SBET. Thus, this phrase would be a single Qualifier linked to both quantities. However, according to the example, each Qualifier is part of the same annotSet as the Quantity. To resolve this, perhaps each Quantity (Vmeso and SBET) has its own Qualifier annotation, both pointing to the same text span. But in the TSV, each row is a separate annotation, so they can have the same text but different annotSet and annotId.
+
+Alternatively, create a separate annotSet for the Qualifier, but that's against the example's structure. Alternatively, maybe the entire phrase is a single Qualifier in its own annotSet, Qualifying both Vmeso and SBET. But according to the instructions, relationships are within the same annotSet. So perhaps annotSet2 (Vmeso) includes the Qualifier "increasing with CdS loading", and annotSet3 (SBET) also includes the same Qualifier. But the text is the same, so in the TSV, there would be two entries with the same text but different annotSet and annotId.
+
+Alternatively, since the instruction says "annotSet: starting from 1 for each logical grouping of related annotations", the Qualifier "increasing with CdS loading" and the two quantities (Vmeso and SBET) would form a single logical group. But that's not the case since each quantity is in its own annotSet.
+
+This is a bit challenging. Given the example, I think each Qualifier is part of the same annotSet as the Quantity it qualifies. Therefore, in annotSet2 (Vmeso), there's a Qualifier "interestingly effectively increasing with CdS loading" linked to T4 (Vmeso's Quantity), and in annotSet3 (SBET), the same Qualifier text is linked to T7 (SBET's Quantity). Even though it's the same text, they are separate annotations in different annotSets.
+
+Proceeding with that approach.
+
+So annotSet2:
+
+- Quantity T4: ">0.5 cm³ g−1"
+
+- MeasuredEntity T6: "mesopore domains"
+
+- MeasuredProperty T5: "Vmeso"
+
+- Qualifier T7: "interestingly effectively increasing with CdS loading" linked to T4.
+
+Similarly, annotSet3:
+
+- Quantity T7: ">170 m² g−1"
+
+- MeasuredEntity T9: "powders"
+
+- MeasuredProperty T8: "SBET"
+
+- Qualifier T10: "interestingly effectively increasing with CdS loading" linked to T7.
+
+But wait, the exact text is "interestingly effectively increasing with CdS loading". Let me check the exact wording. The input says: "The resulting powders presented large mesopore domains with high volumes (pore diameters > 10 nm; Vmeso > 0.5 cm3 g−1) and surface areas (SBET > 170 m2 g−1), interestingly effectively increasing with CdS loading."
+
+So the Qualifier is "interestingly effectively increasing with CdS loading", and it's placed after both the volumes and surface areas. So it's qualifying both. Therefore, in annotSet2 and annotSet3, this Qualifier would be added, each linked to their respective Quantity.
+
+Thus, for annotSet2:
+
+annotSet2:
+
+- Quantity T4: "> 0.5 cm3 g−1"
+
+- MeasuredEntity T5: "mesopore domains"
+
+- MeasuredProperty T6: "Vmeso"
+
+- Qualifier T7: "interestingly effectively increasing with CdS loading" with relation Qualifies T4.
+
+Similarly, annotSet3:
+
+- Quantity T7: ">170 m2 g−1"
+
+- MeasuredEntity T8: "powders"
+
+- MeasuredProperty T9: "SBET"
+
+- Qualifier T10: "interestingly effectively increasing with CdS loading" with relation Qualifies T7.
+
+Now, moving on to the other quantities.
+
+Next, "5–40 nm" (annotSet4):
+
+- Quantity T10: "5–40 nm" with unit nm and mods ["IsRange"].
+
+- MeasuredEntity T11: "CdS nanoparticles".
+
+- MeasuredProperty T12: "size".
+
+- There's also a Qualifier in the same sentence: "of a cubic crystalline structure" and "increasing in size with loading". The phrase "cubic crystalline structure" could be a Qualifier for the size, indicating the structure affecting the size. The phrase "increasing in size with loading" also qualifies the size. So both might be Qualifiers.
+
+But according to the text: "The synthesised CdS nanoparticles were characterised in the 5–40 nm range of a cubic crystalline structure, increasing in size with loading." The Qualifiers here are "of a cubic crystalline structure" and "increasing in size with loading".
+
+So for annotSet4:
+
+- Qualifier T13: "of a cubic crystalline structure" Qualifies T10 (Quantity: 5–40 nm).
+
+- Qualifier T14: "increasing in size with loading" Qualifies T10.
+
+But the instructions say to include Qualifiers as spans. So each Qualifier is a separate annotation.
+
+Thus, annotSet4 would have:
+
+- Quantity T10: "5–40 nm", unit nm, mods IsRange.
+
+- MeasuredEntity T11: "CdS nanoparticles".
+
+- MeasuredProperty T12: "size".
+
+- Qualifier T13: "of a cubic crystalline structure" -> Qualifies T10.
+
+- Qualifier T14: "increasing in size with loading" -> Qualifies T10.
+
+But wait, "increasing in size with loading" is part of the same sentence. But the exact text is "increasing in size with loading", so that's the Qualifier span. Is that correct? Yes.
+
+Finally, annotSet5: "CdS/starch ratio = 1 (w/w)".
+
+- Quantity T15: "1 (w/w)", unit "w/w".
+
+- MeasuredEntity T16: "CdS/starch".
+
+- MeasuredProperty T17: "ratio".
+
+No Qualifiers mentioned for this ratio.
+
+Now, compiling all this into TSV format, ensuring each annotSet has the correct annotations and relationships.
+
+Let me check for other quantities. The text mentions "high surface areas", but "high" is an adjective, not a quantity. Similarly, "predominantly mesoporous characteristics" – no quantities there. "scope for high CdS loading" – again, "high" but no specific quantity. The ratio "CdS/starch ratio =1 (w/w)" is covered. The text mentions "high volumes (pore diameters > 10 nm; Vmeso > 0.5 cm3 g−1)" – the volumes are high, but the actual quantities are the specific numbers. So those are already covered.
+
+Another point: "dried to produce CdS/starch materials with high surface areas" – "high surface areas" is a description, but the actual quantity is SBET >170 m²/g.
+
+Another possible quantity is "Vmeso > 0.5 cm3 g−1" and "SBET > 170 m2 g−1".
+
+Other quantities: "The synthesis is conducted in aqueous alcoholic solutions without the need for expensive preparation techniques..." – no quantities here.
+
+"A complete surface coverage of the starch gel structure occurs at a CdS/starch ratio = 1 (w/w)" – this is covered.
+
+Now, let me summarize the annotSets:
+
+annotSet1:
+
+- T1: Quantity ">10 nm", unit nm.
+
+- T2: MeasuredEntity "mesopore domains".
+
+- T3: MeasuredProperty "pore diameters".
+
+- Relationships: T2 HasProperty T3, T3 HasQuantity T1.
+
+annotSet2:
+
+- T4: Quantity "> 0.5 cm3 g−1", unit cm³ g⁻¹.
+
+- T5: MeasuredProperty "Vmeso".
+
+- T6: MeasuredEntity "mesopore domains".
+
+- T7: Qualifier "interestingly effectively increasing with CdS loading" -> Qualifies T4.
+
+- Relationships: T6 HasProperty T5, T5 HasQuantity T4; T7 Qualifies T4.
+
+annotSet3:
+
+- T8: Quantity ">170 m2 g−1", unit m² g⁻¹.
+
+- T9: MeasuredProperty "SBET".
+
+- T10: MeasuredEntity "powders".
+
+- T11: Qualifier "interestingly effectively increasing with CdS loading" -> Qualifies T8.
+
+- Relationships: T10 HasProperty T9, T9 HasQuantity T8; T11 Qualifies T8.
+
+annotSet4:
+
+- T12: Quantity "5–40 nm", unit nm, mods IsRange.
+
+- T13: MeasuredEntity "CdS nanoparticles".
+
+- T14: MeasuredProperty "size".
+
+- T15: Qualifier "of a cubic crystalline structure" -> Qualifies T12.
+
+- T16: Qualifier "increasing in size with loading" -> Qualifies T12.
+
+- Relationships: T13 HasProperty T14, T14 HasQuantity T12; T15 Qualifies T12; T16 Qualifies T12.
+
+annotSet5:
+
+- T17: Quantity "1 (w/w)", unit w/w.
+
+- T18: MeasuredEntity "CdS/starch".
+
+- T19: MeasuredProperty "ratio".
+
+- Relationships: T18 HasProperty T19, T19 HasQuantity T17.
+
+Wait, but in the example, the ratio "1 (w/w)" was a Quantity with unit "w/w". That's correct.
+
+Now, checking for other possible quantities. Are there any counts? The text mentions "four samples" in the example, but here, there's "a wide range of QDs and polysaccharide gels" – no specific count. The phrase "a unique mesoporous CdS/polysaccharide hybrid" – "unique" is not a quantity. So no other quantities.
+
+Finally, the TSV entries would be structured accordingly. Each annotSet has its own set of annotations. Qualifiers are included where applicable, with their relationships.

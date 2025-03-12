@@ -1,0 +1,12 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103512002801-1781	1	Quantity	96	102	T1	90 keV	"{""unit"": ""keV"", ""mods"": [""IsApproximate""]}"
+S0019103512002801-1781	1	MeasuredEntity	67	76	T2	electrons	"{""HasQuantity"": ""T1""}"
+S0019103512002801-1781	1	MeasuredProperty	85	91	T3	energy	"{""HasQuantity"": ""T1""}"
+S0019103512002801-1781	2	Quantity	125	129	T4	170°	"{""unit"": ""\u00b0"", ""mods"": [""IsApproximate""]}"
+S0019103512002801-1781	2	MeasuredEntity	67	76	T5	electrons	"{""HasQuantity"": ""T4""}"
+S0019103512002801-1781	2	MeasuredProperty	109	120	T6	pitch angle	"{""HasQuantity"": ""T4""}"
+S0019103512002801-1781	3	Quantity	437	441	T7	15 s	"{""unit"": ""s""}"
+S0019103512002801-1781	3	MeasuredEntity	387	393	T8	bounce	"{""HasQuantity"": ""T7""}"
+S0019103512002801-1781	4	Quantity	125	129	T10	170°	"{""unit"": ""\u00b0"", ""mods"": [""IsApproximate""]}"
+S0019103512002801-1781	4	MeasuredEntity	109	120	T11	pitch angle	"{""HasQuantity"": ""T10""}"
+S0019103512002801-1781	4	MeasuredProperty	115	120	T12	angle	"{""HasQuantity"": ""T10""}"

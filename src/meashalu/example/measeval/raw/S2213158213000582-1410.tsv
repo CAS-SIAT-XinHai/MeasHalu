@@ -1,0 +1,7 @@
+docId	annotSet	annotType	annotId	text	other
+S2213158213000582-1410	1	Quantity	T1	left 50 ms	"{""unit"": ""ms"", ""mods"": [""IsCount""]}"
+S2213158213000582-1410	1	Quantity	T2	bilateral 100 ms	"{""unit"": ""ms"", ""mods"": [""IsCount""]}"
+S2213158213000582-1410	1	Quantity	T3	50 ms	"{""unit"": ""ms"", ""mods"": [""IsCount""]}"
+S2213158213000582-1410	1	Quantity	T4	100 ms	"{""unit"": ""ms"", ""mods"": [""IsCount""]}"
+S2213158213000582-1410	1	MeasuredEntity	T5	STG activity	"{""HasQuantity"": ""T1"", ""HasQuantity"": ""T2"", ""HasQuantity"": ""T3"", ""HasQuantity"": ""T4""}"
+S2213158213000582-1410	1	MeasuredProperty	T6	group differences	"{""HasQuantity"": ""T1"", ""HasQuantity"": ""T2"", ""HasQuantity"": ""T3"", ""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"

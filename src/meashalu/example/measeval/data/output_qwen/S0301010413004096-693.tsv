@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0301010413004096-693	1	Quantity	575	579	T1	77 K	"{""unit"": ""K""}"
+S0301010413004096-693	1	MeasuredEntity	538	560	T2	cryogenic temperatures	"{""HasQuantity"": ""T1""}"
+S0301010413004096-693	2	Quantity	602	609	T3	∼16 wt%	"{""unit"": ""wt%"", ""mods"": [""IsApproximate""]}"
+S0301010413004096-693	2	MeasuredEntity	644	650	T4	NU-100	"{""HasQuantity"": ""T3""}"
+S0301010413004096-693	2	MeasuredProperty	610	631	T5	total uptake capacity	"{""HasQuantity"": ""T3""}"
+S0301010413004096-693	4	Quantity	1174	1184	T8	below 10 K	"{""unit"": ""K"", ""mods"": [""IsApproximate""]}"
+S0301010413004096-693	5	Quantity	1466	1509	T12	comparable to that to D2 in the solid state	"{""mods"": [""IsApproximate""]}"
+S0301010413004096-693	5	MeasuredEntity	1426	1428	T10	D2	"{""HasProperty"": ""T11""}"
+S0301010413004096-693	5	MeasuredProperty	1444	1465	T11	molecular separations	"{""HasQuantity"": ""T12""}"

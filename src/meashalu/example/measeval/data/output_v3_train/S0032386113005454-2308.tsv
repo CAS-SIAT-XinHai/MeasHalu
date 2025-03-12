@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0032386113005454-2308	1	Quantity	21	36	T1	3.19 ± 0.10 GPa	"{""unit"": ""GPa"", ""mods"": [""IsMeanHasSD""]}"
+S0032386113005454-2308	1	MeasuredEntity	58	82	T2	unmodified epoxy polymer	"{""HasQuantity"": ""T1""}"
+S0032386113005454-2308	1	MeasuredProperty	2	17	T3	tensile modulus	"{""HasQuantity"": ""T1""}"
+S0032386113005454-2308	2	Quantity	160	175	T4	1.96 ± 0.08 GPa	"{""unit"": ""GPa"", ""mods"": [""IsMeanHasSD""]}"
+S0032386113005454-2308	2	MeasuredEntity	191	206	T5	S-CSR particles	"{""HasQuantity"": ""T4""}"
+S0032386113005454-2308	2	MeasuredProperty	88	95	T6	modulus	"{""HasQuantity"": ""T4""}"
+S0032386113005454-2308	3	Quantity	181	187	T7	20 wt%	"{""unit"": ""wt%"", ""mods"": [""IsCount""]}"
+S0032386113005454-2308	3	MeasuredEntity	191	206	T8	S-CSR particles	"{""HasQuantity"": ""T7""}"
+S0032386113005454-2308	3	MeasuredProperty	149	156	T9	content	"{""HasQuantity"": ""T7""}"

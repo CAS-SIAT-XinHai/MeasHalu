@@ -1,0 +1,282 @@
+Okay, let's tackle this input step by step. First, I need to identify all the quantities mentioned in the text. Let me start by reading through the input carefully.
+
+The input mentions several parts. In part (a), there's "δ13C (approximately −14‰)". Here, "−14‰" is a quantity with the unit "‰". The word "approximately" suggests an IsApproximate modifier. The MeasuredEntity here would be "δ13C of ambient CO2", and the MeasuredProperty is "δ13C".
+
+Next, in part (b), there's "CO2 concentration measured in the bottom (Cb), in the top (Ct), and reference chamber (Cr)". However, this part doesn't have specific numerical quantities listed, just mentions of where concentrations were measured, so no quantities to extract here.
+
+Moving to part (c), "Soil surface flux measured by the dual-chamber (RS), and CO2 diffusion coefficient across the dual-chamber (Dc)". Again, these are labels (RS, Dc) rather than numerical values, so no quantities here yet.
+
+Then, in the final sentence: "δ13C value of the CO2 stabilised after approximately 2.5 h at −28.5 ± 0.33‰ (mean ± SD, n = 60)". Here, "approximately 2.5 h" is a quantity with unit "h" and IsApproximate. Then "−28.5 ± 0.33‰" has a unit "‰" and since it mentions "mean ± SD", the modifier IsMeanHasSD applies. The "n = 60" is a count, so IsCount with unit "n".
+
+Now, let's break down each quantity:
+
+1. "approximately −14‰" in part (a): Quantity with unit "‰", IsApproximate. MeasuredEntity is "δ13C of ambient CO2", MeasuredProperty is "δ13C".
+
+2. "approximately 2.5 h": Unit "h", IsApproximate. MeasuredEntity would relate to the time when stabilization occurred. The text says "after approximately 2.5 h", so the MeasuredProperty here is "time" and the MeasuredEntity is the process of stabilization.
+
+3. "−28.5 ± 0.33‰": Unit "‰", IsMeanHasSD. The text explicitly mentions "mean ± SD", confirming the modifier. The MeasuredEntity is "δ13C value of the CO2", and the MeasuredProperty is "δ13C".
+
+4. "n = 60": This is a count, so IsCount. The unit here is "n", which stands for number of samples. The MeasuredEntity would be "samples" or "data points", but the text says "n = 60", which refers to the number of measurements. The MeasuredProperty here might be "number of samples".
+
+Qualifiers: The phrase "after approximately 2.5 h" could be a Qualifier for the stabilization event. However, in the context, "after approximately 2.5 h" is a temporal qualifier indicating when the δ13C value stabilized. So this "approximately 2.5 h" is part of a Qualifier that qualifies the stabilization event.
+
+Wait, but the instruction says Qualifier is an optional span describing conditions affecting a Quantity, etc. Here, "after approximately 2.5 h" is a temporal qualifier for when the stabilization happened. So maybe the Qualifier is "after approximately 2.5 h", which qualifies the δ13C value stabilization. But in the final data, "−28.5 ± 0.33‰" is the quantity at that time. So the Qualifier "after approximately 2.5 h" would qualify the Quantity "−28.5 ± 0.33‰".
+
+But looking at the example given in the instructions, the Qualifier example was "after I drank half the can" qualifying the Quantity "175 ml". So similarly, "after approximately 2.5 h" would Qualify the Quantity "−28.5 ± 0.33‰".
+
+So for the Qualifier, the text would be "after approximately 2.5 h", and it would Qualify the Quantity "−28.5 ± 0.33‰". However, in the input text, the structure is "... stabilised after approximately 2.5 h at −28.5 ± 0.33‰ ...". So the "after approximately 2.5 h" is a temporal qualifier for when the stabilization occurred, which is linked to the Quantity "−28.5 ± 0.33‰".
+
+Additionally, "(mean ± SD, n = 60)" provides context: "mean ± SD" indicates the IsMeanHasSD modifier for "−28.5 ± 0.33‰", and "n = 60" is another Quantity.
+
+So structuring the annotations:
+
+For annotSet 1:
+- Quantity: approximately −14‰ (T1)
+  - unit: ‰, mods: IsApproximate
+- MeasuredEntity: δ13C of ambient CO2 (T2)
+  - HasQuantity: T1
+- MeasuredProperty: δ13C (T3)
+  - HasQuantity: T1, HasProperty: T2
+
+annotSet 2:
+- Quantity: approximately 2.5 h (T4)
+  - unit: h, mods: IsApproximate
+- MeasuredEntity: time (T5) (since it's the duration until stabilization)
+  - HasQuantity: T4
+- MeasuredProperty: time (T6)
+  - HasProperty: T5, HasQuantity: T4
+But wait, maybe the MeasuredEntity here is the process of stabilization, but the text refers to the time taken. Alternatively, since the time is a property, perhaps the MeasuredEntity is the stabilization event, and the MeasuredProperty is "time".
+
+Alternatively, perhaps "after approximately 2.5 h" is a Qualifier, and the Quantity is "2.5 h" as part of the Qualifier. But according to the steps, Qualifiers are separate annotations that qualify other elements.
+
+Wait, the Qualifier would be the entire phrase "after approximately 2.5 h", which would have its own annotType as Qualifier, and it relates via "Qualifies" to the Quantity "−28.5 ± 0.33‰". But the Quantity "approximately 2.5 h" would be part of the Qualifier span, but according to the instructions, Quantities are extracted first. So perhaps "approximately 2.5 h" is a separate Quantity (annotSet 2) and the Qualifier is "after approximately 2.5 h" which includes that Quantity and the word "after".
+
+But the instructions say that Qualifier is a span that provides context, so perhaps the entire "after approximately 2.5 h" is a Qualifier that qualifies the stabilization event. However, the example given had the Qualifier as a separate span. For example, in the example, "after I drank half the can" was the Qualifier, and the Quantity was "175 ml".
+
+In this case, "after approximately 2.5 h" is a Qualifier that qualifies the stabilization of the δ13C value. Thus, the Qualifier text would be "after approximately 2.5 h", and it would relate to the Quantity "−28.5 ± 0.33‰" via Qualifies. However, inside the Qualifier span, "approximately 2.5 h" is a Quantity (annotSet 2), and the Qualifier (annotSet 3?) would link to it. But according to the output example in the instructions, the Qualifier was a separate annotation with relation to the Quantity. But perhaps in this case, the Qualifier is "after approximately 2.5 h", which includes the Quantity "approximately 2.5 h". However, according to the steps, we first extract all Quantities, then process relations. So the steps would first extract all quantities:
+
+Quantities:
+1. approximately −14‰
+2. approximately 2.5 h
+3. −28.5 ± 0.33‰
+4. 60 (n = 60)
+
+Then, MeasuredEntities and MeasuredProperties, and Qualifiers.
+
+Now, the Qualifier "after approximately 2.5 h" would be a separate Qualifier annotation (annotType Qualifier) with text "after approximately 2.5 h", which includes the Quantity "approximately 2.5 h". But according to the instructions, the Qualifier's 'other' field should have relationships like {"Qualifies": "T4-5"}, where T4-5 is the target annotation (the Quantity or entity it qualifies). So in this case, the Qualifier "after approximately 2.5 h" would qualify the Quantity "−28.5 ± 0.33‰" (T3 in another set), but also include the Quantity "approximately 2.5 h" (T2 in another set) as part of its text.
+
+But this seems complex. Let me refer back to the example:
+
+In the example, "after I drank half the can" was the Qualifier text, and the Quantity was "175 ml". The Qualifier was linked to the Quantity via "Qualifies": "T4-5".
+
+So, in this input, "after approximately 2.5 h" is a Qualifier that qualifies the Quantity "−28.5 ± 0.33‰". The Qualifier's text is "after approximately 2.5 h", which contains the Quantity "approximately 2.5 h". So, the Qualifier annotation would have its own annotSet, linking to the Quantity it qualifies. However, the Quantity "approximately 2.5 h" would be in its own annotSet, and the Qualifier would be another annotation in a different annotSet? Or perhaps they are grouped under the same annotSet.
+
+But according to the output example, each logical grouping has its own annotSet. For instance, each Quantity with its related MeasuredEntity and MeasuredProperty is a separate annotSet. The Qualifier from the example was part of the same annotSet as the Quantity it qualified, but in that example, the Qualifier was a separate annotation with its own annotId.
+
+Wait, in the example given in the instructions:
+
+The Qualifier was "after I drank half the can" and was part of annotSet 3 (same as the salt quantity?), but looking at the example output, each set is a separate group. For example:
+
+In the example, the soda can example was split into three annotSets, each with their own Quantity, MeasuredEntity, MeasuredProperty. The Qualifier example might have been in a different part not shown.
+
+Wait, the example given was:
+
+Example Paragraph:
+"The can contained 175 ml of soda after I drank half the can."
+
+Example Output (simplified):
+annotSet 3 would have:
+- Qualifier: "after I drank half the can" with relation {"Qualifies": "T7"} (assuming T7 is the 175 ml quantity).
+
+But in the provided example output, the Qualifier wasn't shown. Maybe the example was incomplete, but according to the instructions, the Qualifier is an annotation type with the relation.
+
+In this current input, let's process each part.
+
+Starting with the first Quantity: "approximately −14‰" in part (a). The surrounding text is "The initial δ13C (approximately −14‰) represents the δ13C of ambient CO2 inside the glasshouse."
+
+So MeasuredEntity is "δ13C of ambient CO2" (text: "ambient CO2 inside the glasshouse" but the exact phrase is "δ13C of ambient CO2"). Wait, the exact text says "the δ13C of ambient CO2 inside the glasshouse". So perhaps the MeasuredEntity is "ambient CO2", and the MeasuredProperty is "δ13C". The Quantity is "approximately −14‰". So:
+
+annotSet 1:
+- Quantity: T1: approximately −14‰ → unit ‰, mods IsApproximate.
+- MeasuredEntity: T2: ambient CO2 (text: "ambient CO2")
+- MeasuredProperty: T3: δ13C (text: "δ13C")
+Relations:
+- T2 HasProperty T3
+- T3 HasQuantity T1
+
+Wait, but the text mentions "the initial δ13C (approximately −14‰) represents the δ13C of ambient CO2...". So the initial δ13C is the MeasuredProperty, and the Quantity is −14‰. The MeasuredEntity is "ambient CO2". So:
+
+MeasuredEntity: ambient CO2 (T2)
+MeasuredProperty: δ13C (T3)
+Quantity: approximately −14‰ (T1)
+So T3 (MeasuredProperty) HasProperty to T2 (MeasuredEntity), and T3 HasQuantity T1 (Quantity).
+
+Next, in the final part: "stabilised after approximately 2.5 h at −28.5 ± 0.33‰ (mean ± SD, n = 60)".
+
+Here, "approximately 2.5 h" is a Quantity (T4) with unit h, mods IsApproximate. Then "−28.5 ± 0.33‰" is another Quantity (T5) with unit ‰, mods IsMeanHasSD. The "n = 60" is a Quantity (T6) with unit n, mods IsCount.
+
+The MeasuredEntity for T5 is "δ13C value of the CO2" (text: "δ13C value of the CO2"), MeasuredProperty is "δ13C". The Qualifier would be "after approximately 2.5 h", which is a Qualifier (T7) that Qualifies T5.
+
+Then, for T6 (n=60), the MeasuredEntity is "data" or "measurements", but the text says "n = 60", which is the number of samples. The MeasuredProperty could be "number of samples" (n), and the MeasuredEntity is the data or study.
+
+Putting this together:
+
+annotSet 2:
+- Quantity: approximately 2.5 h (T4), unit h, mods IsApproximate.
+- MeasuredEntity: time (but the text refers to the duration until stabilization, so maybe the MeasuredEntity is "time when δ13C stabilised" or similar. However, the text is "after approximately 2.5 h", so the MeasuredEntity might be "time" and the MeasuredProperty "duration". Alternatively, considering the broader context, the stabilization event's duration. This part is a bit ambiguous. Maybe the MeasuredEntity is the stabilization process, and the MeasuredProperty is "time taken".
+
+Alternatively, since the time is a property of the stabilization event, which is part of the data collection. But perhaps it's better to assign the MeasuredEntity as the "stabilization of δ13C value" and the MeasuredProperty as "time". However, the exact text is "after approximately 2.5 h", so the Quantity is the time duration. The MeasuredEntity here could be "stabilisation" (from "the time when the δ13C value stabilised"), and the MeasuredProperty is "time to stabilisation".
+
+This is getting a bit complicated. To simplify, perhaps the MeasuredEntity for T4 is "stabilization (of δ13C value)", and the MeasuredProperty is "time". Then, the Quantity T4 (2.5 h) is linked via HasQuantity from the MeasuredProperty.
+
+But maybe it's more straightforward to have the MeasuredEntity as the overall process (data collection) and the MeasuredProperty as "time". Alternatively, perhaps the time is a standalone Quantity without a MeasuredEntity, but the instructions say that Quantities should ideally relate to a MeasuredEntity or MeasuredProperty. In this case, the time is part of the stabilization event, so the MeasuredEntity could be "δ13C stabilisation".
+
+But given the complexity, perhaps for the purpose of this task, we'll focus on the explicit mentions.
+
+Now, for "−28.5 ± 0.33‰" (T5), the text says it's the δ13C value after stabilization. The MeasuredEntity is "CO2" (from "δ13C value of the CO2"), and the MeasuredProperty is "δ13C value". The Quantity T5 is linked to this.
+
+The Qualifier "after approximately 2.5 h" qualifies T5. So the Qualifier's text is "after approximately 2.5 h", which includes the Quantity T4. However, according to the instructions, the Qualifier is a separate annotation that Qualifies another element. So the Qualifier annotation would be:
+
+annotSet 3:
+- Qualifier: T7: after approximately 2.5 h → {"Qualifies": "T5"}
+
+But T4 (Quantity: 2.5 h) is part of this Qualifier's text. However, in the TSV, each annotation is a separate row. So the Qualifier "after approximately 2.5 h" is a separate annotation (annotType Qualifier), with its own annotId, and in the 'other' field, it has {"Qualifies": "T5"} (the Quantity −28.5 ± 0.33‰). The Quantity "approximately 2.5 h" is in annotSet 2.
+
+Then, the "n = 60" (T6) is a Quantity with unit "n", mods IsCount. The MeasuredEntity here is "data" or "samples", and the MeasuredProperty is "number of samples".
+
+Putting all this into the TSV format, ensuring correct annotSet groupings and relationships.
+
+Let me try to outline all annotations:
+
+annotSet 1:
+- T1: Quantity: approximately −14‰ → {"unit": "‰", "mods": ["IsApproximate"]}
+- T2: MeasuredEntity: ambient CO2 → {"HasQuantity": "T1"}
+- T3: MeasuredProperty: δ13C → {"HasQuantity": "T1", "HasProperty": "T2"}
+
+annotSet 2:
+- T4: Quantity: approximately 2.5 h → {"unit": "h", "mods": ["IsApproximate"]}
+- T5: MeasuredEntity: time → {"HasQuantity": "T4"} (perhaps MeasuredEntity is "time to stabilisation", but the text says "after approximately 2.5 h", so the entity is the time duration)
+- T6: MeasuredProperty: time → {"HasQuantity": "T4", "HasProperty": "T5"}
+
+But perhaps the MeasuredEntity for T4 is the stabilization process, and the MeasuredProperty is time. Alternatively, maybe this is standalone. This part is ambiguous, but according to the example, the MeasuredEntity and Property are explicit. Since the text doesn't explicitly mention a MeasuredEntity for the time, maybe it's left out, but the instructions say to create them if possible.
+
+Alternatively, maybe we can consider that the time is a MeasuredProperty of the stabilization event. So:
+
+annotSet 2:
+- T4: Quantity: approximately 2.5 h
+- T5: MeasuredEntity: stabilisation of δ13C value
+- T6: MeasuredProperty: time → {"HasQuantity": "T4", "HasProperty": "T5"}
+
+But the text says "after approximately 2.5 h", so the time is a duration. The MeasuredEntity could be the "stabilisation" event, and the MeasuredProperty is "duration" or "time taken".
+
+But this is speculative. Since the text explicitly mentions "after approximately 2.5 h", maybe the MeasuredEntity is the process leading to stabilisation, and the MeasuredProperty is time. However, without explicit mention, it's safer to annotate what's present.
+
+Given the ambiguity, perhaps the safest approach is to annotate the time Quantity (T4) with its unit and modifiers, and if no clear MeasuredEntity or Property is present, leave them out. However, the instructions state that ideally, Quantities should relate to a MeasuredEntity or Property. If none exists, they can be standalone. But in this case, the time is part of the stabilisation event, which is mentioned in the text: "the time when the δ13C value stabilised after approximately 2.5 h". So the MeasuredEntity for T4 could be "time when δ13C stabilised", and the MeasuredProperty is "duration".
+
+But extracting the exact text for MeasuredEntity: the phrase is "the time when the δ13C value stabilised", so the MeasuredEntity text would be "time when δ13C value stabilised". However, that's a long phrase. Alternatively, "time" is the MeasuredEntity, and the Qualifier "when δ13C value stabilised" could be another Qualifier. But this complicates things.
+
+Given time constraints, perhaps proceed to annotate:
+
+annotSet 2:
+- T4: Quantity: approximately 2.5 h → unit h, mods IsApproximate
+- Qualifier: T5: after approximately 2.5 h → {"Qualifies": "T8"} (assuming T8 is the stabilised δ13C value's Quantity)
+
+Wait, maybe the Qualifier is "after approximately 2.5 h" which qualifies the stabilised δ13C value. So the Qualifier is in annotSet 3, linked to the Quantity in annotSet 3.
+
+Let me structure the annotations step by step.
+
+First, the Quantities:
+
+1. approximately −14‰ (annotSet 1)
+2. approximately 2.5 h (annotSet 2)
+3. −28.5 ± 0.33‰ (annotSet 3)
+4. 60 (n = 60) (annotSet 4)
+
+For each:
+
+annotSet 1:
+- T1: Quantity: approximately −14‰ → unit ‰, mods IsApproximate
+- T2: MeasuredEntity: ambient CO2 (from "δ13C of ambient CO2")
+- T3: MeasuredProperty: δ13C
+Relations:
+- T2 HasProperty T3
+- T3 HasQuantity T1
+
+annotSet 2:
+- T4: Quantity: approximately 2.5 h → unit h, mods IsApproximate
+- T5: MeasuredEntity: time (since it's a duration)
+- T6: MeasuredProperty: duration
+Relations:
+- T5 HasProperty T6
+- T6 HasQuantity T4
+
+But the text doesn't explicitly mention "duration" as a property. Alternatively, the MeasuredEntity is the stabilisation event, but the text says "after approximately 2.5 h", so the time is a Qualifier for the stabilisation. Maybe the MeasuredEntity here is the stabilization event, and the MeasuredProperty is time. But without explicit mention, perhaps this is overreaching. Alternatively, since the time is a standalone quantity without a clear entity, it's left with only the Quantity annotation. But according to the instructions, we should try to link to MeasuredEntity or Property if possible.
+
+Moving to annotSet 3:
+- T7: Quantity: −28.5 ± 0.33‰ → unit ‰, mods IsMeanHasSD (since the text says "mean ± SD")
+- T8: MeasuredEntity: CO2 (from "δ13C value of the CO2")
+- T9: MeasuredProperty: δ13C value
+Relations:
+- T8 HasProperty T9
+- T9 HasQuantity T7
+
+annotSet 4:
+- T10: Quantity: 60 → unit n, mods IsCount (from "n = 60")
+- T11: MeasuredEntity: data (or "measurements", as "n = 60" refers to sample size)
+- T12: MeasuredProperty: number of samples
+Relations:
+- T11 HasProperty T12
+- T12 HasQuantity T10
+
+Qualifiers:
+
+- "after approximately 2.5 h" qualifies the Quantity T7 (stabilized value). So Qualifier annotation in annotSet 5:
+- T13: Qualifier: after approximately 2.5 h → {"Qualifies": "T7"}
+
+But "after approximately 2.5 h" includes the Quantity T4 (annotSet 2's T4). However, the Qualifier is a separate annotation. The 'text' field should be the exact span, which is "after approximately 2.5 h", and the 'other' field relates it to T7.
+
+Additionally, the text mentions "(mean ± SD, n = 60)". The "mean ± SD" is part of the description for T7's Quantity, so already captured with IsMeanHasSD. The "n = 60" is T10.
+
+Putting all together in TSV format:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	approximately −14‰	{"unit": "‰", "mods": ["IsApproximate"]}
+1	MeasuredEntity	T2	ambient CO2	{"HasQuantity": "T1"}
+1	MeasuredProperty	T3	δ13C	{"HasQuantity": "T1", "HasProperty": "T2"}
+2	Quantity	T4	approximately 2.5 h	{"unit": "h", "mods": ["IsApproximate"]}
+2	MeasuredEntity	T5	time	{"HasQuantity": "T4"}
+2	MeasuredProperty	T6	duration	{"HasQuantity": "T4", "HasProperty": "T5"}
+3	Quantity	T7	−28.5 ± 0.33‰	{"unit": "‰", "mods": ["IsMeanHasSD"]}
+3	MeasuredEntity	T8	CO2	{"HasQuantity": "T7"}
+3	MeasuredProperty	T9	δ13C value	{"HasQuantity": "T7", "HasProperty": "T8"}
+3	Qualifier	T10	after approximately 2.5 h	{"Qualifies": "T7"}
+4	Quantity	T11	60	{"unit": "n", "mods": ["IsCount"]}
+4	MeasuredEntity	T12	samples	{"HasQuantity": "T11"}
+4	MeasuredProperty	T13	number	{"HasQuantity": "T11", "HasProperty": "T12"}
+
+Wait, but in annotSet 3, the Qualifier T10 is part of the same set as the Quantity T7. However, each annotSet should group related annotations. The Qualifier "after approximately 2.5 h" is related to the Quantity T7, so it should be in the same annotSet. But the Quantity T4 is in annotSet 2. However, the Qualifier includes T4's text. This is conflicting.
+
+According to the instructions, each annotSet is a logical grouping of related annotations. So the stabilised δ13C value (T7) and its Qualifier (after approximately 2.5 h) would be in the same annotSet. However, the Qualifier's text includes the Quantity T4 from annotSet 2, which is a different group. This suggests that perhaps the Qualifier is part of annotSet 3, even though it references a Quantity from annotSet 2. But according to the example in the instructions, each logical group (e.g., each Quantity with its associated entities and properties) is a separate annotSet. So the Qualifier that qualifies T7 would be in annotSet 3, even if its text includes a Quantity from another set.
+
+But this might not align with the example given. Alternatively, maybe the Qualifier is part of the same annotSet as the Quantity it qualifies. In this case, the stabilised δ13C value (T7) is in annotSet 3, so the Qualifier "after approximately 2.5 h" would also be in annotSet 3, even though it contains a Quantity from annotSet 2. However, the TSV requires each row to have the annotSet number. So annotSet 3 would include:
+
+- T7: Quantity
+- T8: MeasuredEntity (CO2)
+- T9: MeasuredProperty (δ13C value)
+- T10: Qualifier (after approximately 2.5 h)
+
+But the text of the Qualifier includes the Quantity from annotSet 2 (T4). However, in the TSV, each annotation is independent, and relationships are via the 'other' field. So the Qualifier T10 in annotSet 3 has {"Qualifies": "T7"}, which is within the same annotSet. But the Quantity T4 is in annotSet 2. This is allowed, as relationships can cross annotSets.
+
+However, in the instructions' example, each annotSet is a self-contained group. For example, in the example output, each Quantity, MeasuredEntity, and MeasuredProperty are in the same annotSet. The Qualifier example wasn't shown, but perhaps it's part of the same annotSet as the Quantity it qualifies.
+
+But this may not be feasible if the Qualifier's text includes a Quantity from another annotSet. So the approach would be to have the Qualifier in the same annotSet as the Quantity it qualifies, even if its text includes another Quantity.
+
+Alternatively, maybe the Qualifier is part of the same annotSet as the Quantity it qualifies. But in this case, the Qualifier text includes another Quantity (from annotSet 2). However, according to the output format, each annotation's 'text' is the exact string from the input. So the Qualifier's text is "after approximately 2.5 h", which includes the Quantity "approximately 2.5 h" (T4). But in the TSV, T4 is in annotSet 2. The Qualifier in annotSet 3 would have its own annotId and relations.
+
+This is acceptable. The instructions don't prohibit relationships across annotSets. Therefore, the final TSV would have:
+
+annotSet 3 includes the Quantity T7 (stabilized value), its MeasuredEntity, MeasuredProperty, and the Qualifier T10 which qualifies T7. The Qualifier's text includes the Quantity from annotSet 2, but that's okay.
+
+Finally, for "n = 60" (annotSet 4), the MeasuredEntity is "samples" or "data points", and the MeasuredProperty is "number".
+
+Putting it all together, the TSV would look like this:

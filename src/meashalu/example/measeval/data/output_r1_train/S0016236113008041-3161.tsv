@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0016236113008041-3161	1	Quantity	50	56	T1	4.5 kg	"{""unit"": ""kg""}"
+S0016236113008041-3161	1	MeasuredEntity	33	46	T2	bed inventory	"{""HasQuantity"": ""T1""}"
+S0016236113008041-3161	2	Quantity	450	455	T3	13 kg	"{""unit"": ""kg""}"
+S0016236113008041-3161	3	Quantity	484	488	T5	6 kg	"{""unit"": ""kg""}"
+S0016236113008041-3161	4	Quantity	536	545	T7	<0.01 ppm	"{""unit"": ""ppm""}"
+S0016236113008041-3161	4	MeasuredProperty	623	636	T9	concentration	"{""HasQuantity"": ""T7""}"
+S0016236113008041-3161	5	Quantity	667	673	T10	<2 ppm	"{""unit"": ""ppm""}"
+S0016236113008041-3161	5	MeasuredEntity	645	653	T11	flue gas	"{""HasQuantity"": ""T10""}"
+S0016236113008041-3161	5	MeasuredProperty	623	636	T12	concentration	"{""HasQuantity"": ""T10""}"

@@ -1,0 +1,12 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0378383912000130-3891	1	Quantity	132	138	T1	1.5 mm	"{""unit"": ""mm"", ""mods"": [""IsRange""]}"
+S0378383912000130-3891	1	MeasuredEntity	150	158	T2	sediment	"{""HasQuantity"": ""T1""}"
+S0378383912000130-3891	2	Quantity	143	149	T2	8.5 mm	"{""unit"": ""mm"", ""mods"": [""IsRange""]}"
+S0378383912000130-3891	2	MeasuredEntity	150	158	T3	sediment	"{""HasQuantity"": ""T2""}"
+S0378383912000130-3891	3	Quantity	392	410	T5	infiltrated volume	"{""unit"": """", ""mods"": []}"
+S0378383912000130-3891	3	MeasuredProperty	369	387	T4	hydraulic gradient	"{""HasQuantity"": ""T5""}"
+S0378383912000130-3891	3	MeasuredEntity	434	444	T6	swash zone	"{""HasQuantity"": ""T5""}"
+S0378383912000130-3891	4	Quantity	760	773	T8	pressure head	"{""unit"": """", ""mods"": []}"
+S0378383912000130-3891	4	MeasuredEntity	723	733	T9	swash zone	"{""HasQuantity"": ""T8""}"
+S0378383912000130-3891	5	Quantity	966	976	T11	exit point	"{""unit"": """", ""mods"": []}"
+S0378383912000130-3891	5	MeasuredEntity	988	996	T12	backwash	"{""HasQuantity"": ""T11""}"

@@ -1,0 +1,148 @@
+Okay, let's tackle this input step by step. First, I need to identify all the quantities mentioned. The text has "approximate location of Gyltigesjön (circle) in the south" – here, "approximate" might be a qualifier. Then there's "deepest point of approximately 19 m" – "approximately 19 m" is definitely a Quantity with a modifier. The units here are "m" for meters.
+
+Next, the MeasuredEntities. The "Gyltigesjön" is a lake, so the deepest point refers to the lake. So "lakes deepest point" is the MeasuredEntity linked to the 19m Quantity. The MeasuredProperty here would be "deepest point" which relates to depth. 
+
+Wait, but how to structure the annotSet. Each logical grouping. The first set might be about the location, but the circle is a qualifier. The main Quantity is "approximately 19 m" linked to the lake's depth. 
+
+For the "approximate location" part, "approximate" could be a Qualifier for the location of Gyltigesjön. But the location itself isn't a quantity here. The "circle" in parentheses is a Qualifier indicating the mark on the map. So maybe "circle" is a Qualifier for Gyltigesjön's location. However, the main Quantity is the 19 meters depth. 
+
+So the first annotSet would be for the 19m depth. The Quantity is "approximately 19 m", with unit "m" and modifier IsApproximate. The MeasuredEntity is "lakes deepest point", and the MeasuredProperty is "deepest point". Then, the relationships: MeasuredEntity (deepest point) HasProperty (depth?) Wait, no, the MeasuredProperty in this case is "deepest point", which is a property of the lake. Wait, maybe "deepest point" is the MeasuredProperty, and the MeasuredEntity is "lake". But the text says "the lakes deepest point", so the entity here is "lakes deepest point", which is a part of the lake. Hmm. Alternatively, the MeasuredEntity is the lake, and the MeasuredProperty is "deepest point". Then the Quantity 19m is linked via HasQuantity to the MeasuredProperty. 
+
+So:
+
+AnnotSet 1:
+- Quantity: approximately 19 m (unit m, mods IsApproximate)
+- MeasuredEntity: lakes deepest point (though maybe "lake" is the entity, but the text says "lakes deepest point")
+Wait, the text says "the coring location at the lakes deepest point of approximately 19 m". So "lakes deepest point" is the MeasuredEntity here. The MeasuredProperty would be "depth"? But the text doesn't explicitly mention "depth", so maybe the MeasuredProperty is omitted or inferred. Alternatively, "deepest point" itself is the property. But according to the guidelines, MeasuredProperty should be a descriptive property linked to the entity. So perhaps "deepest point" is the MeasuredProperty of the lake. Wait, but the lake's deepest point is a location, not a property. Hmm. Maybe in this case, the MeasuredEntity is "lake", and the MeasuredProperty is "deepest point", and the Quantity 19m is the measurement of that property. So:
+
+MeasuredEntity: lake (from "lakes deepest point")
+MeasuredProperty: deepest point
+Quantity: approximately 19 m
+
+So relationships: MeasuredEntity (lake) HasProperty (deepest point), and MeasuredProperty (deepest point) HasQuantity (19m). But the text says "lakes deepest point", which is possessive. So perhaps the MeasuredEntity is "lakes deepest point" and the MeasuredProperty is "depth", but "depth" isn't in the text. Alternatively, the MeasuredProperty is "deepest point" as a property. Wait, the example had "volume" as the MeasuredProperty when the text said "volume was 355 ml". Here, the text says "deepest point of approximately 19 m", so "deepest point" is the MeasuredProperty, and the Quantity is 19m. So:
+
+AnnotSet 1:
+- Quantity: approximately 19 m (T1, mods IsApproximate, unit m)
+- MeasuredEntity: lakes deepest point (T2)
+- MeasuredProperty: deepest point (T3) – but wait, the MeasuredProperty would be the property of the MeasuredEntity. If the MeasuredEntity is the lake, then the MeasuredProperty is deepest point. But the text refers to "the lakes deepest point", which is a specific location (the entity), and its depth is 19m. So maybe the MeasuredEntity is "lakes deepest point", the MeasuredProperty is "depth", but "depth" isn't mentioned. Alternatively, perhaps the property is "depth" inferred. Since it's not explicit, maybe the MeasuredProperty is omitted, and the Quantity is directly linked to the MeasuredEntity. But according to the guidelines, if there's a MeasuredProperty, it should be annotated. Hmm.
+
+Alternatively, since the text says "deepest point of approximately 19 m", the "of" here links the deepest point (property) to the quantity. So "deepest point" is the MeasuredProperty, and the MeasuredEntity is the lake. But the text says "lakes deepest point", which is a possessive, so the lake is the entity, and the deepest point is its property.
+
+So:
+
+AnnotSet 1:
+- MeasuredEntity: lake (T2)
+- MeasuredProperty: deepest point (T3)
+- Quantity: approximately 19 m (T1)
+
+Relationships:
+- MeasuredEntity (lake) HasProperty (deepest point) via T3's HasProperty to T2.
+- MeasuredProperty (deepest point) HasQuantity (T1)
+
+But the text says "the lakes deepest point", which is a noun phrase. Maybe "lakes deepest point" is the MeasuredEntity. Then the MeasuredProperty would be the depth, but since "depth" isn't mentioned, perhaps we can't annotate it. In that case, the MeasuredEntity is "lakes deepest point" and it HasQuantity T1. Then, the MeasuredProperty might not be present. But according to the example, even if the property is like "volume", which is explicit. Here, the "deepest point" is a location, not a property. So maybe the MeasuredEntity is "lakes deepest point" and there's no MeasuredProperty, so just HasQuantity from the entity to the quantity.
+
+Therefore:
+
+AnnotSet 1:
+- Quantity: approximately 19 m (T1) with unit m and IsApproximate.
+- MeasuredEntity: lakes deepest point (T2) with HasQuantity: T1.
+
+But then where is the MeasuredProperty? If the deepest point is a location, maybe there's no MeasuredProperty. The example had "volume" as a property. Here, maybe the property is omitted.
+
+Alternatively, perhaps the MeasuredProperty is "depth", even though it's not explicitly stated. But the guidelines say to annotate based on the text. Since the text mentions "deepest point", not "depth", we can't assume "depth". Therefore, maybe the MeasuredEntity is "lakes deepest point" and the Quantity is 19m linked via HasQuantity without a MeasuredProperty.
+
+Another thing to consider: the Qualifiers. The "approximate location" in the first sentence: "approximate location of Gyltigesjön (circle)". Here, "approximate" is a Qualifier for the location, which is a MeasuredEntity? Wait, but the location isn't a quantity here. The "circle" in parentheses is a Qualifier indicating the symbol used on the map. So maybe "circle" is a Qualifier linked to Gyltigesjön's location. However, the location is a MeasuredEntity? Not sure. The example had "after I drank half the can" as a Qualifier. Here, "circle" is a symbol showing the location on the map. So perhaps the Qualifier is "(circle)" qualifying the location of Gyltigesjön.
+
+So, AnnotSet 2 for the location:
+
+- MeasuredEntity: Gyltigesjön (T4)
+- Qualifier: circle (T5) with Qualifies: T4
+- Also, "approximate location" – "approximate" is a Qualifier (T6) qualifying the location (which is a MeasuredEntity or MeasuredProperty? The location here is part of the map's inset, so maybe the MeasuredEntity is "location" (as in the inset shows the location), with a Qualifier "approximate". But the text says "the approximate location of Gyltigesjön (circle)". So "approximate" modifies "location", which is a MeasuredEntity. Then:
+
+AnnotSet 2:
+- MeasuredEntity: location (T4)
+- Qualifier: approximate (T5) which Qualifies T4
+- Qualifier: circle (T6) which Qualifies T4 (since the circle indicates the location on the map)
+
+But the text is "the approximate location of Gyltigesjön (circle)". So the location is of Gyltigesjön, which is a MeasuredEntity. Then:
+
+Wait, perhaps the MeasuredEntity is Gyltigesjön, and the MeasuredProperty is its location. The location has a Qualifier "approximate" and another Qualifier "circle". But the example shows that Qualifiers can be linked to MeasuredEntities or MeasuredProperties. So:
+
+AnnotSet 2:
+- MeasuredEntity: Gyltigesjön (T4)
+- MeasuredProperty: location (T5)
+- Qualifiers: "approximate" (T6) Qualifies T5 (location), and "circle" (T7) Qualifies T5 (location) as well.
+
+But the text says "approximate location of Gyltigesjön (circle)", so the location is the MeasuredProperty of Gyltigesjön, with Qualifiers "approximate" and "circle".
+
+So relationships:
+
+- MeasuredEntity Gyltigesjön (T4) HasProperty location (T5)
+- Qualifier T6 Qualifies T5
+- Qualifier T7 Qualifies T5
+
+But there's no Quantity here, since the location is described as approximate and shown with a circle, but no numerical value. Therefore, maybe this set doesn't have a Quantity. According to the guidelines, Qualifiers can exist without Quantities. So perhaps:
+
+AnnotSet 2:
+- MeasuredEntity: Gyltigesjön (T4)
+- MeasuredProperty: location (T5)
+- Qualifier: approximate (T6)
+- Qualifier: circle (T7)
+
+Relationships:
+- T4 HasProperty T5
+- T6 Qualifies T5
+- T7 Qualifies T5
+
+But since there's no Quantity, this set doesn't have one. Is that allowed? The guidelines say that MeasuredEntities must relate to a Quantity via HasQuantity. Wait, no: "It must relate to the Quantity via 'HasQuantity'. If no such entity exists, the Quantity can remain standalone." Wait, no: The MeasuredEntity must relate to a Quantity. If there's no Quantity, then perhaps this isn't a valid MeasuredEntity? Hmm. The example had MeasuredEntities linked to Quantities. So in this case, if there's no Quantity, maybe we shouldn't annotate Gyltigesjön's location as a MeasuredEntity and MeasuredProperty. Because according to the definitions, MeasuredEntity must relate to a Quantity. Since there's no Quantity here (just a qualifier about location being approximate and marked with a circle), maybe we can't annotate this part. The guidelines say that if there's no Quantity, the Quantity can remain standalone. But MeasuredEntities must relate to a Quantity. So if there's no Quantity, we can't have a MeasuredEntity here. Therefore, perhaps the "approximate location of Gyltigesjön (circle)" part is not annotated with MeasuredEntity or MeasuredProperty because there's no Quantity involved. Instead, maybe the Qualifiers "approximate" and "circle" are Qualifiers linked to Gyltigesjön's location, but without a Quantity, we can't form a valid annotSet. So perhaps we should ignore that part and focus only on the parts with Quantities.
+
+The only Quantity is "approximately 19 m". So the main annotSet is the one for the lake's deepest point. 
+
+So, annotSet 1:
+
+- Quantity: approximately 19 m (T1), unit m, mods IsApproximate.
+- MeasuredEntity: lakes deepest point (T2), linked via HasQuantity to T1.
+- Since the text says "deepest point of approximately 19 m", "deepest point" is the MeasuredEntity, and the Quantity is 19m. However, "deepest point" could be considered a MeasuredProperty of the lake. But the example's MeasuredProperty was "volume" linked to the soda can. Here, if "deepest point" is a property of the lake, then:
+
+Alternatively:
+
+MeasuredEntity: lake (T2)
+MeasuredProperty: deepest point (T3)
+Quantity: T1
+
+But the text refers to "the lakes deepest point", which is a possessive form. So "lake's deepest point" is the MeasuredEntity here. So:
+
+- MeasuredEntity: lakes deepest point (T2)
+- Quantity: T1 linked via HasQuantity.
+
+But then where is the MeasuredProperty? If "deepest point" is the MeasuredEntity, then perhaps there's no MeasuredProperty, and the Quantity is directly linked. However, in the example, the MeasuredProperty was "volume" which was a property of the soda can. Here, "deepest point" is more of a location rather than a property. So maybe in this case, there is no MeasuredProperty, and the structure is:
+
+annotSet 1:
+- Quantity: T1 (approximately 19 m)
+- MeasuredEntity: lakes deepest point (T2) with HasQuantity: T1
+
+No MeasuredProperty. But according to the guidelines, MeasuredProperty is optional. So that's acceptable.
+
+Another part: the bathymetry is based on Guhrén et al. (2003). Does "bathymetry" count as a MeasuredProperty? Bathymetry refers to underwater depth measurement, so maybe, but there's no Quantity mentioned here. So perhaps not annotated.
+
+Now, looking at other parts: "Large (small) arrows show major (minor) inflows and outflows." The words "Large" and "small" could be Qualifiers for the arrows, but since there's no Quantity, maybe not relevant here.
+
+So the main Quantity is "approximately 19 m" with its MeasuredEntity. Additionally, the "approximate location" part might not form a valid set due to lack of Quantity. Therefore, the TSV should have one annotSet:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	approximately 19 m	{"unit": "m", "mods": ["IsApproximate"]}
+1	MeasuredEntity	T2	lakes deepest point	{"HasQuantity": "T1"}
+
+But wait, in the example, each set corresponds to a Quantity and its related entities. Here, "lakes deepest point" is the MeasuredEntity linked to T1. Is there a Qualifier for the Quantity? The "approximately" is part of the Quantity span, so it's included in the mods. What about the "coring location at the lakes deepest point"? The "coring location" is another entity, but it's linked to the deepest point. But perhaps not necessary unless there's a Quantity related to it. Since there isn't, we can ignore it.
+
+So the final TSV would have:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	approximately 19 m	{"unit": "m", "mods": ["IsApproximate"]}
+1	MeasuredEntity	T2	lakes deepest point	{"HasQuantity": "T1"}
+
+But wait, the text says "the coring location at the lakes deepest point of approximately 19 m is marked...". So the "coring location" is at the deepest point, which has a depth of ~19m. The deepest point is part of the lake, so maybe the MeasuredEntity should be the lake. But the text refers to "lakes deepest point", so the entity is the deepest point of the lake. Thus, the current annotation is correct.
+
+Another possible point: "The bathymetry is based on Guhrén et al. (2003)." Bathymetry refers to depth measurements, but there's no specific quantity here, so no annotation needed.
+
+Therefore, the correct TSV output is as above.

@@ -1,0 +1,12 @@
+docId	annotSet	annotType	annotId	text	other
+S027737911400050X-2401	1	Quantity	T1	several hundred or even more than a thousand years	"{""unit"": ""years"", ""mods"": [""IsRange""]}"
+S027737911400050X-2401	1	MeasuredEntity	T2	offset from the real age	"{""HasQuantity"": ""T1""}"
+S027737911400050X-2401	1	MeasuredProperty	T3	order	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S027737911400050X-2401	1	Qualifier	T4	if bulk sediment or carbonates are dated	"{""Qualifies"": ""T1""}"
+S027737911400050X-2401	2	Quantity	T5	3.00–3.05 ka cal BP	"{""unit"": ""ka cal BP"", ""mods"": [""IsRange""]}"
+S027737911400050X-2401	2	MeasuredEntity	T6	Alpehué Pumice (So-A) eruption	"{""HasQuantity"": ""T5""}"
+S027737911400050X-2401	2	MeasuredProperty	T7	age	"{""HasQuantity"": ""T5"", ""HasProperty"": ""T6""}"
+S027737911400050X-2401	2	Qualifier	T8	provided the age of the tephra is well known from one or more independent sources	"{""Qualifies"": ""T5""}"
+S027737911400050X-2401	3	Quantity	T9	1	"{""mods"": [""IsCount""]}"
+S027737911400050X-2401	3	MeasuredEntity	T10	Supplementary Table	"{""HasQuantity"": ""T9""}"
+S027737911400050X-2401	4	Qualifier	T11	if it is not taken into account	"{""Qualifies"": ""T2""}"

@@ -1,0 +1,9 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0012821X12004384-1640	1	Quantity	39	41	T1	5‰	"{""unit"": ""\u2030""}"
+S0012821X12004384-1640	1	MeasuredEntity	11	35	T2	carbon isotope excursion	"{""HasQuantity"": ""T1""}"
+S0012821X12004384-1640	1	MeasuredProperty	2	35	T3	negative carbon isotope excursion	"{""HasQuantity"": ""T1""}"
+S0012821X12004384-1640	2	Quantity	483	486	T4	4 m	"{""unit"": ""m""}"
+S0012821X12004384-1640	2	MeasuredEntity	460	477	T5	terrigenous input	"{""HasQuantity"": ""T4""}"
+S0012821X12004384-1640	3	Quantity	1226	1231	T7	54 oN	"{""unit"": ""oN""}"
+S0012821X12004384-1640	3	MeasuredEntity	1202	1210	T8	location	"{""HasQuantity"": ""T7""}"
+S0012821X12004384-1640	3	MeasuredProperty	1212	1225	T9	paleolatitude	"{""HasQuantity"": ""T7""}"

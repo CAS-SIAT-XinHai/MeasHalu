@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S1550413113004920-1509	1	Quantity	13	25	T1	147 patients	"{""mods"": [""IsCount""]}"
+S1550413113004920-1509	1	MeasuredEntity	17	25	T2	patients	"{""HasQuantity"": ""T1""}"
+S1550413113004920-1509	2	Quantity	175	183	T3	6 months	"{""unit"": ""months""}"
+S1550413113004920-1509	2	MeasuredEntity	187	190	T4	age	"{""HasQuantity"": ""T3""}"
+S1550413113004920-1509	3	Quantity	240	248	T5	9 months	"{""unit"": ""months""}"
+S1550413113004920-1509	3	MeasuredEntity	187	190	T6	age	"{""HasQuantity"": ""T5""}"

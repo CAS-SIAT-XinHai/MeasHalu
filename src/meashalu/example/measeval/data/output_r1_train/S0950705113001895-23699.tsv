@@ -1,0 +1,8 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0950705113001895-23699	1	Quantity	567	578	T1	10% to 100%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
+S0950705113001895-23699	1	MeasuredProperty	546	551	T3	ratio	"{""HasQuantity"": ""T1""}"
+S0950705113001895-23699	1	Qualifier	579	605	T4	according to Fig. 4(a)–(e)	"{""Qualifies"": ""T1""}"
+S0950705113001895-23699	2	Quantity	724	737	T5	less than 85%	"{""unit"": ""%""}"
+S0950705113001895-23699	2	MeasuredProperty	715	720	T7	ratio	"{""HasQuantity"": ""T5""}"
+S0950705113001895-23699	3	Quantity	804	817	T9	more than 85%	"{""unit"": ""%""}"
+S0950705113001895-23699	3	MeasuredProperty	715	720	T11	ratio	"{""HasQuantity"": ""T9""}"

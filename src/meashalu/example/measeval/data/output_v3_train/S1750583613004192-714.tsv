@@ -1,0 +1,8 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S1750583613004192-714	1	Quantity	128	132	T1	5 Mt	"{""unit"": ""Mt"", ""mods"": [""IsCount""]}"
+S1750583613004192-714	1	MeasuredEntity	109	121	T2	injected CO2	"{""HasQuantity"": ""T1""}"
+S1750583613004192-714	1	MeasuredProperty	93	105	T3	distribution	"{""HasQuantity"": ""T1""}"
+S1750583613004192-714	2	Quantity	436	441	T4	220 m	"{""unit"": ""m"", ""mods"": [""IsApproximate""]}"
+S1750583613004192-714	2	MeasuredEntity	405	408	T5	CO2	"{""HasQuantity"": ""T4""}"
+S1750583613004192-714	3	Quantity	486	495	T7	1012 mbsl	"{""unit"": ""mbsl"", ""mods"": []}"
+S1750583613004192-714	3	MeasuredEntity	462	482	T8	injection point (IP)	"{""HasQuantity"": ""T7""}"

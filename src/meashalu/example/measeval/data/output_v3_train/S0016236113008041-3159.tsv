@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0016236113008041-3159	1	Quantity	22	43	T1	higher concentrations	"{""mods"": [""IsApproximate""]}"
+S0016236113008041-3159	1	MeasuredEntity	51	59	T2	flue gas	"{""HasQuantity"": ""T1""}"
+S0016236113008041-3159	2	Quantity	133	148	T3	reduced amounts	"{""mods"": [""IsApproximate""]}"
+S0016236113008041-3159	2	MeasuredEntity	156	161	T4	solid	"{""HasQuantity"": ""T3""}"
+S0016236113008041-3159	3	Quantity	249	260	T5	6 and 13 kg	"{""unit"": ""kg"", ""mods"": [""IsRange""]}"
+S0016236113008041-3159	3	MeasuredEntity	233	248	T6	bed inventories	"{""HasQuantity"": ""T5""}"

@@ -1,0 +1,13 @@
+docId	annotSet	annotType	annotId	text	other
+S0022000014000026-12523	1	Quantity	T1	T∈R+	"{""mods"": [""IsCount""], ""unit"": ""R+""}"
+S0022000014000026-12523	1	MeasuredEntity	T2	watchdog timer	"{""HasQuantity"": ""T1""}"
+S0022000014000026-12523	1	MeasuredProperty	T3	duration	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0022000014000026-12523	2	Quantity	T4	ts+dTime	"{""mods"": [""IsRange""], ""unit"": ""Time""}"
+S0022000014000026-12523	2	MeasuredEntity	T5	time	"{""HasQuantity"": ""T4""}"
+S0022000014000026-12523	2	MeasuredProperty	T6	time	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"
+S0022000014000026-12523	3	Quantity	T7	C(t′)−C(t)	"{""mods"": [""IsRange""], ""unit"": ""t""}"
+S0022000014000026-12523	3	MeasuredEntity	T8	clock	"{""HasQuantity"": ""T7""}"
+S0022000014000026-12523	3	MeasuredProperty	T9	correctness	"{""HasQuantity"": ""T7"", ""HasProperty"": ""T8""}"
+S0022000014000026-12523	4	Quantity	T10	T	"{""mods"": [""IsCount""], ""unit"": ""T""}"
+S0022000014000026-12523	4	MeasuredEntity	T11	watchdog timer	"{""HasQuantity"": ""T10""}"
+S0022000014000026-12523	4	MeasuredProperty	T12	timeout	"{""HasQuantity"": ""T10"", ""HasProperty"": ""T11""}"

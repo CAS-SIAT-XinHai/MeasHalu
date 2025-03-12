@@ -1,0 +1,8 @@
+docId	annotSet	annotType	annotId	text	other
+S1873506113001116-978	1	Quantity	T1	two	"{""mods"": [""IsCount""], ""unit"": ""hiPSC lines""}"
+S1873506113001116-978	1	MeasuredEntity	T2	different hiPSC lines	"{""HasQuantity"": ""T1""}"
+S1873506113001116-978	2	Quantity	T3	more than 10 passages	"{""mods"": [""IsCount"", ""IsApproximate""], ""unit"": ""passages""}"
+S1873506113001116-978	2	MeasuredEntity	T4	hiPSCs	"{""HasQuantity"": ""T3""}"
+S1873506113001116-978	2	MeasuredProperty	T5	passages	"{""HasQuantity"": ""T3"", ""HasProperty"": ""T4""}"
+S1873506113001116-978	3	Qualifier	T6	completely xeno-free condition	"{""Qualifies"": ""T4""}"
+S1873506113001116-978	4	Qualifier	T7	for clinical applications	"{""Qualifies"": ""T3""}"

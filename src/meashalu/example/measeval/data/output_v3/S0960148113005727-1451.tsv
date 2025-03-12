@@ -1,0 +1,12 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0960148113005727-1451	1	Quantity	360	363	T1	12%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
+S0960148113005727-1451	1	Quantity	361	363	T2	2%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
+S0960148113005727-1451	1	MeasuredEntity	334	345	T3	load factor	"{""HasQuantity"": ""T1""}"
+S0960148113005727-1451	1	MeasuredProperty	334	345	T4	load factor	"{""HasQuantity"": ""T1""}"
+S0960148113005727-1451	2	Quantity	360	362	T5	12	"{""mods"": [""IsRange""]}"
+S0960148113005727-1451	2	Quantity	402	404	T6	17	"{""mods"": [""IsRange""]}"
+S0960148113005727-1451	2	MeasuredEntity	387	390	T7	age	"{""HasQuantity"": ""T5""}"
+S0960148113005727-1451	2	MeasuredProperty	387	390	T8	age	"{""HasQuantity"": ""T5""}"
+S0960148113005727-1451	3	Quantity	434	437	T9	one	"{""mods"": [""IsCount""]}"
+S0960148113005727-1451	3	Quantity	445	449	T10	nine	"{""mods"": [""IsCount""]}"
+S0960148113005727-1451	3	MeasuredEntity	450	458	T11	turbines	"{""HasQuantity"": ""T9""}"

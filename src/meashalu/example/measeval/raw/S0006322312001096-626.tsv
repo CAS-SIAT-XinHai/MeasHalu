@@ -1,0 +1,6 @@
+docId	annotSet	annotType	annotId	text	other
+S0006322312001096-626	1	Quantity	T1	10% Increase	"{""unit"": ""%"", ""mods"": [""IsCount""]}"
+S0006322312001096-626	1	MeasuredEntity	T2	Framingham Risk Scores	"{""HasQuantity"": ""T1""}"
+S0006322312001096-626	1	Qualifier	T3	per 10% Increase	"{""Qualifies"": ""T2""}"
+S0006322312001096-626	3	Quantity	T5	Age 65	"{""unit"": ""years"", ""mods"": [""IsCount""]}"
+S0006322312001096-626	3	Qualifier	T6	Before and After Age 65	"{""Qualifies"": ""T4""}"

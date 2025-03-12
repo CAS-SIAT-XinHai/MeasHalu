@@ -1,0 +1,13 @@
+docId	annotSet	annotType	annotId	text	other
+S2213671113000738-667	1	Quantity	T1	days 35 and 71	"{""unit"": ""days"", ""mods"": [""IsList""]}"
+S2213671113000738-667	1	MeasuredEntity	T2	mature neurons	"{""HasQuantity"": ""T1""}"
+S2213671113000738-667	1	MeasuredProperty	T3	time points	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S2213671113000738-667	2	Quantity	T4	25 ng/ml	"{""unit"": ""ng/ml""}"
+S2213671113000738-667	2	MeasuredEntity	T5	IFN-γ	"{""HasQuantity"": ""T4""}"
+S2213671113000738-667	2	MeasuredProperty	T6	concentration	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"
+S2213671113000738-667	3	Quantity	T7	48 hr	"{""unit"": ""hr""}"
+S2213671113000738-667	3	MeasuredEntity	T8	IFN-γ	"{""HasQuantity"": ""T7""}"
+S2213671113000738-667	3	MeasuredProperty	T9	duration	"{""HasQuantity"": ""T7"", ""HasProperty"": ""T8""}"
+S2213671113000738-667	4	Quantity	T10	approximately 1:100	"{""mods"": [""IsApproximate""]}"
+S2213671113000738-667	4	MeasuredEntity	T11	mRNAs	"{""HasQuantity"": ""T10""}"
+S2213671113000738-667	4	MeasuredProperty	T12	expression level	"{""HasQuantity"": ""T10"", ""HasProperty"": ""T11""}"

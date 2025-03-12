@@ -1,0 +1,10 @@
+docId	annotSet	annotType	annotId	text	other
+S1359645413009816-2227	1	Quantity	T1	14 samples	"{""mods"": [""IsCount""]}"
+S1359645413009816-2227	1	MeasuredEntity	T2	samples	"{""HasQuantity"": ""T1""}"
+S1359645413009816-2227	1	Qualifier	T3	taken from three different positions of the HPT disk	"{""Qualifies"": ""T1""}"
+S1359645413009816-2227	2	Quantity	T4	r=9mm	"{""unit"": ""mm""}"
+S1359645413009816-2227	2	MeasuredEntity	T5	disk	"{""HasQuantity"": ""T4""}"
+S1359645413009816-2227	3	Quantity	T6	r = 9.3	"{""unit"": ""mm""}"
+S1359645413009816-2227	3	MeasuredEntity	T7	samples	"{""HasQuantity"": ""T6""}"
+S1359645413009816-2227	4	Quantity	T8	r = 7.3 mm	"{""unit"": ""mm""}"
+S1359645413009816-2227	4	MeasuredEntity	T9	samples	"{""HasQuantity"": ""T8""}"

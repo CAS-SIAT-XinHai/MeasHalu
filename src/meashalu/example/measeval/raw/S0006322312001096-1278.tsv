@@ -1,0 +1,10 @@
+docId	annotSet	annotType	annotId	text	other
+S0006322312001096-1278	1	Quantity	T1	65	"{""mods"": [""IsCount""]}"
+S0006322312001096-1278	1	MeasuredProperty	T2	age	"{""HasQuantity"": ""T1""}"
+S0006322312001096-1278	1	Qualifier	T3	before the age of 65	"{""Qualifies"": ""T1""}"
+S0006322312001096-1278	2	Quantity	T4	65 years	"{""unit"": ""years""}"
+S0006322312001096-1278	2	MeasuredProperty	T5	age	"{""HasQuantity"": ""T4""}"
+S0006322312001096-1278	2	Qualifier	T6	after the age of 65 years	"{""Qualifies"": ""T4""}"
+S0006322312001096-1278	3	Quantity	T7	65 years	"{""unit"": ""years""}"
+S0006322312001096-1278	3	MeasuredProperty	T8	age	"{""HasQuantity"": ""T7""}"
+S0006322312001096-1278	3	Qualifier	T9	after the age of 65 years	"{""Qualifies"": ""T7""}"

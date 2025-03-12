@@ -1,0 +1,86 @@
+Okay, let me try to work through this. The input is a scientific paragraph discussing friction factors on two beaches with different roughness. I need to extract quantities, measured entities, properties, qualifiers, and their relationships.
+
+First, I'll scan for quantities. The example mentions "equivalent roughness of 1.3 mm and 8.4 mm" – here, "1.3 mm" and "8.4 mm" are quantities with units in millimeters. Then "approximately 50%" is a percentage, which is a unit here. The positions "x = 0.072 m" and "x = 2.377 m" have meters as units. 
+
+Next, check for modifiers. "Approximately 50%" has the IsApproximate modifier. The roughness values (1.3 mm and 8.4 mm) might be part of a list since they are mentioned together. The "x = ... m" entries are probably individual quantities, not a range or list. 
+
+Measured entities would be the beaches (rougher beach, coarser 8.4 mm beach, 1.3 mm beach) and locations (x positions). The measured properties are friction factors, equivalent roughness, Reynolds number, relative roughness, boundary layer development, and cf (friction coefficient) behavior. 
+
+Qualifiers include phrases like "assuming steady and uniform flow", "during the uprush", "during the early stage of the backwash", which qualify the conditions under which the quantities are measured. 
+
+Relationships: Each measured entity (like "beaches") would relate to their properties (friction factors) and then to the quantities (1.3 mm, etc.). For example, "equivalent roughness" is a measured property of the beaches, linked to the 1.3 mm and 8.4 mm quantities. The qualifiers like "assuming steady..." would qualify the friction factors or the calculation method.
+
+Wait, in "equivalent roughness of 1.3 mm and 8.4 mm", the MeasuredEntity might be "equivalent roughness", but actually, "equivalent roughness" is the MeasuredProperty, and the MeasuredEntity is the beaches. So "equivalent roughness" (property) links to the beaches (entity) via HasProperty, and to the quantities (1.3 mm, 8.4 mm) via HasQuantity. However, since there are two quantities here, maybe each is part of separate annotSets. But since they are listed together, perhaps they form a list. Then the Quantity would be "1.3 mm and 8.4 mm" with mods: IsList.
+
+Wait, the original text is "equivalent roughness of 1.3 mm and 8.4 mm". So "1.3 mm and 8.4 mm" is a list of two quantities. So the text would be "1.3 mm and 8.4 mm", annotType Quantity, with mods: IsList, unit mm. Similarly, "x = 0.072 m" and "x = 2.377 m" – the quantities here are "0.072 m" and "2.377 m", each as separate quantities. 
+
+For the qualifier "assuming steady and uniform flow", this qualifies how the friction factors were calculated, so it would Qualify the MeasuredProperty "friction factors calculated...". 
+
+Now, putting this into the TSV format. Each annotSet groups related annotations. Let's start with the first quantity mentioned: "equivalent roughness of 1.3 mm and 8.4 mm". 
+
+AnnotSet 1: The MeasuredEntity could be "beaches", MeasuredProperty "equivalent roughness", and the Quantity "1.3 mm and 8.4 mm" with IsList. The relationships would be Entity HasProperty -> Property, and Property HasQuantity -> Quantity. But the text mentions two beaches, but in this sentence, the equivalent roughness is for each beach. Hmm, maybe each beach is a separate entity. Wait, the text says "equivalent roughness of 1.3 mm and 8.4 mm, are consistently higher for the rougher beach by approximately 50%." So the two roughness values correspond to the two beaches. So each beach has its own equivalent roughness. Therefore, maybe "rougher beach" and "1.3 mm beach" and "8.4 mm beach" are entities. But this might complicate. Alternatively, treat "equivalent roughness" as the MeasuredProperty for the beaches, with the two quantities as a list. 
+
+Alternatively, maybe "equivalent roughness" is the MeasuredProperty, and the two quantities (1.3 mm and 8.4 mm) are separate, but part of the same set. So annotSet 1 would be for the 1.3 mm quantity, linked to the MeasuredEntity "beach" (but which one?), and annotSet 2 for 8.4 mm. But this might not be clear. Alternatively, since they are presented as a list, group them into one annotSet with the Quantity being the list. So:
+
+AnnotSet 1:
+- Quantity: "1.3 mm and 8.4 mm" → {"unit": "mm", "mods": ["IsList"]}
+- MeasuredProperty: "equivalent roughness"
+- MeasuredEntity: "beaches" (the two beaches)
+But how to link them? The MeasuredEntity "beaches" would have a HasProperty link to "equivalent roughness", which in turn HasQuantity to the Quantity list. But the text says "equivalent roughness of 1.3 mm and 8.4 mm", so the MeasuredProperty is "equivalent roughness", and the Quantity is the list. So relationships would be:
+
+MeasuredEntity (beaches) --HasProperty--> MeasuredProperty (equivalent roughness) --HasQuantity--> Quantity (1.3 mm and 8.4 mm).
+
+But "beaches" here refers to two beaches, so maybe each beach is a separate MeasuredEntity. Hmm. The text says "for the two beaches", so maybe "two beaches" is the MeasuredEntity. 
+
+Alternatively, the MeasuredEntity could be "rougher beach" mentioned later, but that's getting complicated. Maybe proceed with "beaches" as the MeasuredEntity. 
+
+Next, "approximately 50%": Quantity with mods IsApproximate, unit "%". The MeasuredProperty might be "increase" (since it's a 50% higher), but the text says "higher for the rougher beach by approximately 50%". So the MeasuredProperty could be "friction factors", and this 50% is a Quantity linked to it via HasQuantity. But the sentence is comparing the friction factors between the beaches. The Qualifier here is "by approximately 50%", but maybe "approximately 50%" is the Quantity, and the MeasuredProperty is the increase in friction factors.
+
+Wait, the sentence is: "friction factors ... are consistently higher for the rougher beach by approximately 50%." So the "approximately 50%" is the amount by which they are higher. So MeasuredProperty could be "increase in friction factors", and the Quantity is "approximately 50%". Alternatively, the MeasuredProperty is "friction factors", and the Quantity is the 50% increase. But how to model this? Maybe the MeasuredEntity is "rougher beach", MeasuredProperty is "friction factors", and the Quantity is "approximately 50% higher". Wait, but "higher" is a comparative, not a quantity. Hmm, perhaps the increase is a Quantity of 50%. So, perhaps:
+
+MeasuredEntity: rougher beach
+MeasuredProperty: friction factors increase
+Quantity: approximately 50% (unit %, mods IsApproximate)
+But this is getting into more interpretation. Alternatively, consider "50%" as a Quantity that qualifies the difference in friction factors. Then, the MeasuredProperty would be "friction factors" and the Qualifier is "by approximately 50%", but the relationships might need to link the Qualifier to the Quantity. Maybe the "50%" is a Quantity with Qualifier "by" but that's not captured. 
+
+Alternatively, perhaps the MeasuredProperty is "friction factors", and the Quantity is the 50% increase. But this is getting too abstract. Maybe stick to the direct quantities. 
+
+Moving on, positions "x = 0.072 m" and "x = 2.377 m" have quantities "0.072 m" and "2.377 m". Each is a Quantity with unit meters. The MeasuredEntity here would be "locations" (like x positions on the beach), and the MeasuredProperty is "position" or "distance". But the text uses "x = ... m", so x is the MeasuredProperty (distance along the slope), and the Quantity is the value. So for "x = 0.072 m", MeasuredEntity is "location", MeasuredProperty is "x", Quantity is "0.072 m". Similarly for the other x value.
+
+Now, qualifiers like "assuming steady and uniform flow" would qualify the friction factors calculation. So the Qualifier is "assuming steady and uniform flow", and it Qualifies the MeasuredProperty "friction factors calculated...".
+
+Other qualifiers are "during the uprush", "during the early stage of the backwash", "throughout the whole swash cycle", which qualify when the observations hold.
+
+Putting this all together requires creating multiple annotSets. Each Quantity and its related entities/properties form an annotSet. For example:
+
+AnnotSet 1: "1.3 mm and 8.4 mm" (IsList)
+- Quantity: T1, text "1.3 mm and 8.4 mm", unit mm, mods IsList
+- MeasuredProperty: T2, "equivalent roughness", HasQuantity T1
+- MeasuredEntity: T3, "beaches", HasProperty T2
+
+AnnotSet 2: "approximately 50%"
+- Quantity: T4, text "approximately 50%", unit %, mods IsApproximate
+- MeasuredProperty: T5, "friction factors increase", HasQuantity T4
+- MeasuredEntity: T6, "rougher beach", HasProperty T5
+
+AnnotSet 3: "0.072 m"
+- Quantity: T7, "0.072 m", unit m
+- MeasuredProperty: T8, "x", HasQuantity T7
+- MeasuredEntity: T9, "location", HasProperty T8
+
+AnnotSet 4: "2.377 m"
+- Quantity: T10, "2.377 m", unit m
+- MeasuredProperty: T11, "x", HasQuantity T10
+- MeasuredEntity: T12, "location", HasProperty T11
+
+Qualifiers like "assuming steady and uniform flow" would be Qualifier annotType, Qualifies the MeasuredProperty "friction factors calculated...". But the text mentions "friction factors calculated assuming steady and uniform flow". Here, "friction factors" is the MeasuredProperty, and the Qualifier is "assuming steady and uniform flow".
+
+So another annotSet:
+
+AnnotSet 5:
+- MeasuredProperty: T13, "friction factors calculated"
+- Qualifier: T14, "assuming steady and uniform flow", Qualifies T13
+
+But need to check how to structure this. The Qualifier "assuming..." would link to the MeasuredProperty.
+
+This is getting quite involved. The key is to systematically go through each quantity, link them to their entities and properties, and note qualifiers. Each relation is within an annotSet. The final TSV should capture all these elements with correct relationships.

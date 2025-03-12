@@ -1,0 +1,298 @@
+Okay, let's tackle this input step by step. First, I need to extract all quantities. The paragraph mentions several simulations with different plate weights: 1.0 kg, 6.35 kg, and 12 kg. Then there's a wind speed of 35 m/s, which is also given as 126 km/h. 
+
+Starting with the quantities. Each plate weight is a Quantity. "1.0 kg" has the unit "kg", so that's straightforward. "6.35 kg" similarly, and "12 kg". Then the wind speed has two units: "35 m/s" and "126 km/h". These are separate quantities even though they represent the same speed.
+
+Next, check for modifiers. The phrase "typical of a clay roofing tile" might be a qualifier for the 6.35 kg plate. Also, "rather heavy for a typical roof tile" could qualify the 12 kg plate. The wind speed mentions "within the range...", but that's part of a qualifier about the model's applicability.
+
+For each Quantity, assign modifiers. The 6.35 kg plate is described as "typical of a clay roofing tile", so that's a Qualifier. The 12 kg plate has "rather heavy for a typical roof tile" as a Qualifier. The wind speed has "uniform inflow condition" as a condition, maybe a Qualifier.
+
+Now, MeasuredEntities: the plates (1.0 kg, 6.35 kg, 12 kg) are the entities. The wind speed's entity is "wind". The MeasuredProperty for the plates would be "mass" since kg is a mass unit. For wind speed, the property is "speed".
+
+Relationships: Each plate (MeasuredEntity) has a HasQuantity relationship to their respective Quantity. The MeasuredProperty "mass" links to each plate's Quantity via HasQuantity. Similarly, wind speed's MeasuredProperty "speed" links to 35 m/s and 126 km/h. The Qualifiers for the 6.35 kg and 12 kg plates need to link using Qualifies.
+
+Also, need to check if any quantities have modifiers like IsApproximate, but the text doesn't use words like "approximately", so those modifiers might not apply here. The "typical" and "rather heavy" are qualifiers, not quantity modifiers. 
+
+Now, structuring the TSV. Each plate and wind speed will have their own annotSet. The three plates are part of three different simulations, so each is a separate set. The wind speed is another set. Wait, but the wind speed is mentioned under the inflow condition used in the simulations. Let me see: the inflow condition with wind speed 35 m/s is used across all simulations? The text says "a uniform inflow condition is used, with the wind speed...". So the wind speed applies to the inflow condition, which is part of the experimental setup. So maybe the wind speed is a separate annotSet.
+
+So, annotSet 1: 1.0 kg plate. Entity is "plate", property is "mass", quantity is "1.0 kg". Then Qualifier for the 6.35 kg plate's typicality, but that's part of a different set. Wait, the input mentions three simulations: one with 1.0 kg, second with 6.35 kg (typical...), third with 12 kg (heavy...). Each simulation is a separate case. So each plate would be in its own annotSet. The wind speed is part of the inflow condition, which is common to all, so it's another annotSet.
+
+Wait, but the wind speed is 35 m/s and 126 km/h. So those are two quantities for the same MeasuredProperty (speed) of the same MeasuredEntity (wind). So they should be in the same annotSet.
+
+So let's outline:
+
+AnnotSet 1: 1.0 kg plate
+- Quantity: 1.0 kg
+- MeasuredEntity: plate
+- MeasuredProperty: mass
+- Relationships: plate HasQuantity 1.0 kg, plate HasProperty mass, mass HasQuantity 1.0 kg.
+
+AnnotSet 2: 6.35 kg plate
+- Quantity: 6.35 kg
+- MeasuredEntity: plate (clay roofing tile)
+- MeasuredProperty: mass
+- Qualifier: "typical of a clay roofing tile" which qualifies the plate (T2 entity) in this set.
+
+AnnotSet 3: 12 kg plate
+- Quantity: 12 kg
+- MeasuredEntity: plate
+- MeasuredProperty: mass
+- Qualifier: "rather heavy for a typical roof tile" qualifying the plate.
+
+AnnotSet 4: wind speed
+- Quantities: 35 m/s and 126 km/h
+- MeasuredEntity: wind
+- MeasuredProperty: speed
+- Relationships: wind HasProperty speed, speed HasQuantity both quantities.
+
+Also, the Qualifier for the inflow condition: "uniform inflow condition is used" qualifies the wind speed? Or the wind itself? Maybe "uniform inflow condition" is a Qualifier for the wind speed quantities.
+
+Then, the phrase "within the range of full-scale failure wind speeds..." is another Qualifier linked to the wind speed.
+
+Wait, the full sentence is: "A uniform inflow condition is used, with the wind speed of 35 m/s (126 km/h) is used, which is within the range of full-scale failure wind speeds typically discussed by Visscher and Kopp (2007)."
+
+So "A uniform inflow condition" is a condition under which the wind speed is set. The "which is within..." refers to the wind speed being in the range discussed. So "uniform inflow condition" and "within the range..." are both Qualifiers for the wind speed quantities.
+
+Therefore, in annotSet 4:
+
+- Quantities: 35 m/s, 126 km/h
+- MeasuredEntity: wind
+- MeasuredProperty: speed
+- Qualifiers: "uniform inflow condition", "within the range...".
+
+But how to structure the relationships? Each Qualifier (T5 and T6) would Qualify the MeasuredEntity (wind) or the MeasuredProperty (speed), or the Quantities?
+
+The Qualifiers describe the condition under which the wind speed was used, so they qualify the Quantities. Alternatively, they could qualify the MeasuredProperty or Entity.
+
+Alternatively, "uniform inflow condition" might be a Qualifier for the entire setup, but likely it's linked to the wind speed. Similarly, "within the range..." qualifies the wind speed's validity.
+
+So, each Qualifier would have a "Qualifies" relationship pointing to the relevant Quantity or MeasuredProperty.
+
+But this is getting a bit complicated. Let me proceed step by step.
+
+For AnnotSet 1 (1.0 kg plate):
+
+Quantity: T1-1 (1.0 kg)
+MeasuredEntity: T1-2 (plate)
+MeasuredProperty: T1-3 (mass)
+Relations: T1-2 HasProperty T1-3, T1-3 HasQuantity T1-1, T1-2 HasQuantity T1-1.
+
+But in the example given earlier, the MeasuredProperty (e.g., temperature) HasQuantity, and the MeasuredEntity HasProperty. So here, plate HasProperty mass, and mass HasQuantity 1.0 kg.
+
+AnnotSet 2 (6.35 kg plate):
+
+Quantity: T2-1 (6.35 kg)
+MeasuredEntity: T2-2 (plate) with Qualifier "typical of a clay roofing tile" (T2-4)
+MeasuredProperty: T2-3 (mass)
+So Qualifier T2-4 Qualifies T2-2 (the plate entity).
+
+AnnotSet 3 (12 kg plate):
+
+Quantity: T3-1 (12 kg)
+MeasuredEntity: T3-2 (plate) with Qualifier "rather heavy for a typical roof tile" (T3-4)
+MeasuredProperty: T3-3 (mass)
+Qualifier T3-4 Qualifies T3-2.
+
+AnnotSet 4 (wind speed):
+
+Quantities: T4-1 (35 m/s) and T4-2 (126 km/h). These are two separate quantities but related to the same MeasuredProperty (speed) of the MeasuredEntity (wind).
+
+So, MeasuredEntity: T4-3 (wind)
+MeasuredProperty: T4-4 (speed)
+Relations: T4-3 HasProperty T4-4, T4-4 HasQuantity T4-1 and T4-4 HasQuantity T4-2.
+
+Qualifiers: "uniform inflow condition" (T4-5) and "within the range..." (T4-6). These Qualifiers would Qualify the Quantities T4-1 and T4-2, or the MeasuredProperty/Entity. Since the wind speed is used under uniform inflow condition, the Qualifier "uniform inflow condition" likely qualifies the entire setup, possibly the MeasuredEntity or MeasuredProperty. Alternatively, it could qualify the quantities. The example earlier had "after I drank half the can" qualifying the quantity. Here, "uniform inflow condition is used" is a condition affecting the wind speed measurement, so perhaps it qualifies the quantity.
+
+But the instruction says Qualifiers can qualify Quantity, MeasuredEntity, or MeasuredProperty. In this case, "uniform inflow condition" describes the condition under which the wind speed was set, so it may qualify the MeasuredProperty (speed) or the Quantity.
+
+Alternatively, the Qualifier could qualify the MeasuredEntity (wind), indicating the wind's condition. But I think it's more precise to link the Qualifier to the Quantity, as the wind speed's value is under that condition.
+
+But the example shows that "after I drank half the can" qualifies the Quantity. Similarly, "uniform inflow condition" here is a condition under which the wind speed is applied, so it qualifies the Quantity.
+
+But there are two quantities here (35 m/s and 126 km/h). Do both share the same Qualifiers? The Qualifiers apply to the entire setup, so they would qualify both quantities. However, in the TSV format, each Qualifier is linked to a specific annotation. So perhaps the Qualifiers qualify the MeasuredProperty (speed) or the MeasuredEntity (wind), which in turn is related to both quantities.
+
+Alternatively, each Quantity could have its own Qualifier relationships, but since both quantities are part of the same setup, the Qualifiers apply to both. But since relationships are in the 'other' field as key-value pairs, each Qualifier entry would need to specify which annotation it qualifies. However, each Qualifier can only Qualify one annotation. Therefore, if the same Qualifier applies to multiple annotations, each would need a separate Qualifier entry. But in the text, "A uniform inflow condition is used, with the wind speed of 35 m/s (126 km/h) is used, which is within the range...". The "uniform inflow condition" is part of the setup, and the wind speed (both values) are under this condition. The "which is within..." refers to the wind speed (both values) being in the range discussed. So each Qualifier would Qualify the MeasuredProperty (speed), as both quantities are instances of that property under those conditions.
+
+So:
+
+Qualifier "uniform inflow condition" (T4-5) Qualifies MeasuredProperty T4-4 (speed).
+Qualifier "within the range..." (T4-6) Qualifies MeasuredProperty T4-4.
+
+Alternatively, since the wind speed is part of the inflow condition, maybe the Qualifier "uniform inflow condition" qualifies the MeasuredEntity (wind). But I'm not sure.
+
+Alternatively, perhaps both Qualifiers relate to the MeasuredEntity or the MeasuredProperty. Let's proceed with the MeasuredProperty.
+
+So in annotSet 4:
+
+- T4-5 (Qualifier) has {"Qualifies": "T4-4"} (speed)
+- T4-6 (Qualifier) has {"Qualifies": "T4-4"}
+
+This way, both Qualifiers provide context for the speed property.
+
+Putting it all together in TSV:
+
+annotSet 1:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	1.0 kg	{"unit":"kg"}
+1	MeasuredEntity	T2	plate	{"HasQuantity":"T1"}
+1	MeasuredProperty	T3	mass	{"HasQuantity":"T1", "HasProperty":"T2"}
+
+annotSet 2:
+
+2	Quantity	T1	6.35 kg	{"unit":"kg"}
+2	MeasuredEntity	T2	plate	{"HasQuantity":"T1"}
+2	MeasuredProperty	T3	mass	{"HasQuantity":"T1", "HasProperty":"T2"}
+2	Qualifier	T4	typical of a clay roofing tile	{"Qualifies":"T2"}
+
+annotSet 3:
+
+3	Quantity	T1	12 kg	{"unit":"kg"}
+3	MeasuredEntity	T2	plate	{"HasQuantity":"T1"}
+3	MeasuredProperty	T3	mass	{"HasQuantity":"T1", "HasProperty":"T2"}
+3	Qualifier	T4	rather heavy for a typical roof tile	{"Qualifies":"T2"}
+
+annotSet 4:
+
+4	Quantity	T1	35 m/s	{"unit":"m/s"}
+4	Quantity	T2	126 km/h	{"unit":"km/h"}
+4	MeasuredEntity	T3	wind	{"HasProperty":"T4"}
+4	MeasuredProperty	T4	speed	{"HasQuantity":"T1", "HasQuantity":"T2"}
+4	Qualifier	T5	uniform inflow condition	{"Qualifies":"T4"}
+4	Qualifier	T6	within the range of full-scale failure wind speeds typically discussed by Visscher and Kopp (2007)	{"Qualifies":"T4"}
+
+Wait, but the MeasuredProperty (speed) should have HasQuantity relationships to both T1 and T2. However, in the 'other' field, how do we represent multiple HasQuantity relationships? The example shows that MeasuredProperty has multiple HasQuantity entries by repeating the annotSet. But in the example given earlier, each Quantity was in a separate annotSet. Wait, looking back at the example:
+
+In the example, each quantity (25°C, 500ml, 10g) are each in separate annotSets (1,2,3). So each Quantity with its own MeasuredEntity and MeasuredProperty is in a separate set.
+
+But in the current case, annotSet 4 has two Quantities (35 m/s and 126 km/h) that relate to the same MeasuredProperty (speed) and MeasuredEntity (wind). So this is a case where one annotSet can have multiple Quantities. The example didn't cover this, but according to the instructions, annotSet is for each logical grouping. So if two Quantities are part of the same logical group (same MeasuredEntity and MeasuredProperty), they can be in the same annotSet.
+
+Therefore, in annotSet 4:
+
+- T1 (35 m/s) and T2 (126 km/h) are both Quantities.
+- T3 is MeasuredEntity (wind) which HasProperty T4 (speed).
+- T4 (speed) HasQuantity T1 and T2. But in the 'other' field, relations are represented as key-value pairs. How to represent multiple HasQuantity entries? The example shows MeasuredProperty having {"HasQuantity": "T4"} and {"HasQuantity": "T7"} but in separate annotSets. Wait, no: in the example, each MeasuredProperty is in the same annotSet as its Quantity. For example, annotSet 1 includes the Quantity, MeasuredEntity, and MeasuredProperty all in the same set. So if a MeasuredProperty has multiple Quantities, perhaps they should be in the same annotSet. However, the example did not have this scenario.
+
+Given that, maybe the two Quantities (35 m/s and 126 km/h) should be in separate annotSets. But they are two representations of the same MeasuredProperty (speed) for the same MeasuredEntity (wind). So logically, they belong to the same group. Therefore, in annotSet 4, we can have:
+
+- T1: Quantity 35 m/s
+- T2: Quantity 126 km/h
+- T3: MeasuredEntity wind
+- T4: MeasuredProperty speed
+- Then, T3 HasProperty T4, and T4 HasQuantity T1 and T4 HasQuantity T2. However, the 'other' field for T4 would need to represent multiple HasQuantity relationships. But according to the output format, the 'other' field for MeasuredProperty should be in the format {"HasQuantity": "T3-2"} (example in the given sample: MeasuredProperty T3 has {"HasQuantity": "T1", "HasProperty": "T2"}). Wait, in the example, the MeasuredProperty (temperature) has {"HasQuantity": "T1", "HasProperty": "T2"}. So multiple relationships are separated by commas within the JSON object. So for T4 (speed), the 'other' field would be {"HasQuantity": "T1", "HasQuantity": "T2", "HasProperty": "T3"}? But JSON doesn't allow duplicate keys. Therefore, this is incorrect. Thus, the correct approach is that each MeasuredProperty can only have one HasQuantity. Which suggests that each Quantity must be in a separate annotSet even if they are related to the same MeasuredProperty. 
+
+Hmm, this is a problem. The example shows that each Quantity is in its own annotSet. For example, in the sample input, each Quantity (25°C, 500ml, 10g) is in separate annotSets (1,2,3). Each has its own MeasuredEntity and MeasuredProperty. But in our case, two Quantities (35 m/s and 126 km/h) are both linked to the same MeasuredEntity and MeasuredProperty. Therefore, according to the example structure, we need to create two separate annotSets for each Quantity. But this would split the MeasuredEntity and MeasuredProperty into separate sets, which is not correct. 
+
+Alternatively, maybe the instructions allow multiple Quantities in one annotSet if they belong to the same logical group. The annotSet is supposed to group related annotations. For the wind speed, 35 m/s and 126 km/h are equivalent expressions, so they belong together. But how to model that in the TSV?
+
+Alternatively, we can treat them as two separate annotSets. But then the MeasuredEntity and MeasuredProperty would be duplicated. For example:
+
+AnnotSet4: Quantity 35 m/s, MeasuredEntity wind, MeasuredProperty speed, Qualifiers...
+AnnotSet5: Quantity 126 km/h, MeasuredEntity wind, MeasuredProperty speed, same Qualifiers...
+
+But this duplicates the wind and speed entries, which isn't ideal, but according to the example, each Quantity is in its own annotSet even if they share the same Entity and Property. For instance, if another example had "The car's speed was 60 mph and 100 km/h", each speed would be a separate annotSet with their own Entity and Property entries. However, this seems incorrect, but based on the example provided in the problem statement, that's the approach.
+
+Alternatively, the example may have each Quantity in its own annotSet because they relate to different Entities or Properties. For instance, temperature, volume, and amount are different properties, hence separate sets. So when multiple Quantities relate to the same Entity and Property, maybe they can be grouped in the same annotSet. But how to represent multiple HasQuantity relationships?
+
+Given the ambiguity, perhaps the safest way is to follow the example's structure where each Quantity is in its own annotSet. So for 35 m/s and 126 km/h, create separate annotSets even though they relate to the same Entity and Property.
+
+So annotSet4: 35 m/s, wind, speed, qualifiers.
+annotSet5: 126 km/h, wind, speed, qualifiers.
+
+But this may result in duplicate entries for wind and speed, which is not ideal but aligns with the example. Alternatively, perhaps the MeasuredEntity and MeasuredProperty can be shared across annotSets. But according to the output format, each annotSet is a separate group. Hence, each Quantity must be in its own annotSet with their own MeasuredEntity and MeasuredProperty entries. 
+
+But this would be incorrect for the current case. The user's example didn't cover this scenario, so it's ambiguous. However, given the instructions, the 'annotSet' groups related annotations. If two Quantities are related to the same Entity and Property, they should be in the same annotSet. However, the technical limitation is that the 'other' field can't have multiple HasQuantity entries. 
+
+Given this, perhaps the correct approach is to have two separate annotSets for each wind speed quantity, each linked to the same MeasuredEntity and MeasuredProperty. But that's not feasible as each annotSet is a separate group. Alternatively, accept that the 'other' field for MeasuredProperty can list multiple HasQuantity relationships as a list, but according to JSON syntax, this would require a key with an array. However, the example uses {"HasQuantity": "T1", "HasProperty": "T2"} which implies that multiple key-value pairs are allowed. But in reality, JSON objects cannot have duplicate keys. Therefore, the correct way is to have multiple relationships in one key, but the example doesn't show this. 
+
+This is a problem. Given the example, I'll proceed by creating two separate annotSets for each wind speed quantity, even though they are part of the same logical group.
+
+So:
+
+AnnotSet4: 35 m/s
+- Quantity T1: 35 m/s
+- MeasuredEntity T2: wind
+- MeasuredProperty T3: speed
+- Relationships: T2 HasProperty T3, T3 HasQuantity T1
+- Qualifiers T4: uniform inflow condition, Qualifies T1 or T3?
+- Qualifier T5: within the range..., Qualifies T1 or T3.
+
+Similarly, AnnotSet5: 126 km/h
+- Quantity T1: 126 km/h
+- MeasuredEntity T2: wind
+- MeasuredProperty T3: speed
+- Relationships: same as above.
+- Qualifiers T4 and T5 again.
+
+But this duplicates the MeasuredEntity and MeasuredProperty, which is not ideal, but aligns with the example where each Quantity is in its own set.
+
+Alternatively, perhaps the two Quantities can be in the same annotSet, with the 'other' field for the MeasuredProperty having both HasQuantity entries. Even though JSON syntax doesn't allow duplicate keys, maybe the system expects them to be combined somehow, like {"HasQuantity": ["T1", "T2"]}, but the example doesn't show this. The example has {"HasQuantity": "T1", "HasProperty": "T2"}.
+
+Given that the example uses multiple key-value pairs, perhaps it's acceptable to write {"HasQuantity": "T1", "HasQuantity": "T2"} even though it's invalid JSON. However, this is technically incorrect. Therefore, the proper way would be to have each Quantity in its own annotSet.
+
+But this seems wrong. Perhaps the problem expects that if two Quantities are part of the same logical group (same Entity and Property), they are in the same annotSet, and the MeasuredProperty's 'other' field lists both HasQuantity entries as a list. Even if it's not strictly valid JSON, maybe that's the expected format.
+
+Assuming that's allowed, then annotSet4 would look like:
+
+4	Quantity	T1	35 m/s	{"unit":"m/s"}
+4	Quantity	T2	126 km/h	{"unit":"km/h"}
+4	MeasuredEntity	T3	wind	{"HasProperty":"T4"}
+4	MeasuredProperty	T4	speed	{"HasQuantity":"T1", "HasQuantity":"T2"}
+4	Qualifier	T5	uniform inflow condition	{"Qualifies":"T4"}
+4	Qualifier	T6	within the range of full-scale failure wind speeds typically discussed by Visscher and Kopp (2007)	{"Qualifies":"T4"}
+
+But again, the JSON syntax for "HasQuantity" having two values is invalid. Therefore, this is a problem. 
+
+Perhaps the solution is to have the MeasuredProperty link to each Quantity in separate entries. But how? Maybe each HasQuantity is a separate entry in the 'other' field. But how to represent that.
+
+Alternatively, the instructions might not require strict JSON validity, but rather a structured format. So using "HasQuantity": "T1, T2" as a string. But the example uses {"HasQuantity": "T1"}.
+
+Given the ambiguity, perhaps it's best to proceed under the assumption that each Quantity is in a separate annotSet, even if they belong to the same logical group. Therefore:
+
+AnnotSet4:
+
+4	Quantity	T1	35 m/s	{"unit":"m/s"}
+4	MeasuredEntity	T2	wind	{"HasProperty":"T3"}
+4	MeasuredProperty	T3	speed	{"HasQuantity":"T1"}
+4	Qualifier	T4	uniform inflow condition	{"Qualifies":"T3"}
+4	Qualifier	T5	within the range of full-scale failure wind speeds typically discussed by Visscher and Kopp (2007)	{"Qualifies":"T3"}
+
+AnnotSet5:
+
+5	Quantity	T1	126 km/h	{"unit":"km/h"}
+5	MeasuredEntity	T2	wind	{"HasProperty":"T3"}
+5	MeasuredProperty	T3	speed	{"HasQuantity":"T1"}
+5	Qualifier	T4	uniform inflow condition	{"Qualifies":"T3"}
+5	Qualifier	T5	within the range of full-scale failure wind speeds typically discussed by Visscher and Kopp (2007)	{"Qualifies":"T3"}
+
+But this duplicates the Qualifiers and Entity/Property entries, which seems incorrect, but according to the example structure, it's the way to proceed.
+
+Overall, considering the example and instructions, each Quantity should be in its own annotSet with their own MeasuredEntity and MeasuredProperty, even if they are related to the same entity and property. 
+
+Now, putting it all together.
+
+Final TSV:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	1.0 kg	{"unit":"kg"}
+1	MeasuredEntity	T2	plate	{"HasQuantity":"T1"}
+1	MeasuredProperty	T3	mass	{"HasQuantity":"T1", "HasProperty":"T2"}
+2	Quantity	T1	6.35 kg	{"unit":"kg"}
+2	MeasuredEntity	T2	plate	{"HasQuantity":"T1"}
+2	MeasuredProperty	T3	mass	{"HasQuantity":"T1", "HasProperty":"T2"}
+2	Qualifier	T4	typical of a clay roofing tile	{"Qualifies":"T2"}
+3	Quantity	T1	12 kg	{"unit":"kg"}
+3	MeasuredEntity	T2	plate	{"HasQuantity":"T1"}
+3	MeasuredProperty	T3	mass	{"HasQuantity":"T1", "HasProperty":"T2"}
+3	Qualifier	T4	rather heavy for a typical roof tile	{"Qualifies":"T2"}
+4	Quantity	T1	35 m/s	{"unit":"m/s"}
+4	MeasuredEntity	T2	wind	{"HasProperty":"T3"}
+4	MeasuredProperty	T3	speed	{"HasQuantity":"T1"}
+4	Qualifier	T4	uniform inflow condition	{"Qualifies":"T3"}
+4	Qualifier	T5	within the range of full-scale failure wind speeds typically discussed by Visscher and Kopp (2007)	{"Qualifies":"T3"}
+5	Quantity	T1	126 km/h	{"unit":"km/h"}
+5	MeasuredEntity	T2	wind	{"HasProperty":"T3"}
+5	MeasuredProperty	T3	speed	{"HasQuantity":"T1"}
+5	Qualifier	T4	uniform inflow condition	{"Qualifies":"T3"}
+5	Qualifier	T5	within the range of full-scale failure wind speeds typically discussed by Visscher and Kopp (2007)	{"Qualifies":"T3"}
+
+This seems to follow the example structure, even if it duplicates some entries. Each Quantity is in its own annotSet with associated Entity, Property, and Qualifiers.

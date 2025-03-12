@@ -1,0 +1,6 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103512002801-2075	1	Quantity	139	147	T1	15–35 km	"{""unit"": ""km"", ""mods"": [""IsRange""]}"
+S0019103512002801-2075	1	MeasuredEntity	67	100	T2	gyroradius of energetic electrons	"{""HasQuantity"": ""T1""}"
+S0019103512002801-2075	1	MeasuredProperty	67	77	T3	gyroradius	"{""HasQuantity"": ""T1""}"
+S0019103512002801-2075	2	Quantity	170	184	T4	20 and 100 keV	"{""unit"": ""keV"", ""mods"": [""IsRange""]}"
+S0019103512002801-2075	2	MeasuredEntity	81	100	T5	energetic electrons	"{""HasQuantity"": ""T4""}"

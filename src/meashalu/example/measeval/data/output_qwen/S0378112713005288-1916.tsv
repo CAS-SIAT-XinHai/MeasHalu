@@ -1,0 +1,13 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0378112713005288-1916	1	Quantity	440	445	T1	100 m	"{""unit"": ""m"", ""mods"": [""IsRange""]}"
+S0378112713005288-1916	1	MeasuredEntity	393	418	T2	distance from seed source	"{""HasQuantity"": ""T1""}"
+S0378112713005288-1916	1	MeasuredProperty	393	401	T3	distance	"{""HasQuantity"": ""T1""}"
+S0378112713005288-1916	2	Quantity	624	628	T4	0.23	"{""unit"": """", ""mods"": [""IsMean""]}"
+S0378112713005288-1916	2	MeasuredEntity	535	540	T5	rowan	"{""HasQuantity"": ""T4""}"
+S0378112713005288-1916	2	Qualifier	638	650	T7	respectively	"{""Qualifies"": ""T4""}"
+S0378112713005288-1916	3	Quantity	633	637	T8	0.28	"{""unit"": """", ""mods"": [""IsMean""]}"
+S0378112713005288-1916	3	MeasuredEntity	587	590	T9	oak	"{""HasQuantity"": ""T8""}"
+S0378112713005288-1916	3	Qualifier	638	650	T11	respectively	"{""Qualifies"": ""T8""}"
+S0378112713005288-1916	4	Quantity	661	667	T12	0.0001	"{""unit"": """", ""mods"": []}"
+S0378112713005288-1916	4	MeasuredEntity	615	616	T13	p	"{""HasQuantity"": ""T12""}"
+S0378112713005288-1916	4	Qualifier	572	576	T15	both	"{""Qualifies"": ""T12""}"

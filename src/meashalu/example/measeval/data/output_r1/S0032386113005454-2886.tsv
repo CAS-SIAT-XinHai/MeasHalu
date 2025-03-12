@@ -1,0 +1,4 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0032386113005454-2886	1	Quantity	1126	1144	T1	−55 °C and −109 °C	"{""unit"": ""\u00b0C"", ""mods"": [""IsRange""]}"
+S0032386113005454-2886	1	MeasuredEntity	1101	1117	T2	test temperature	"{""HasQuantity"": ""T1""}"
+S0032386113005454-2886	1	MeasuredProperty	1106	1117	T3	temperature	"{""HasQuantity"": ""T1""}"

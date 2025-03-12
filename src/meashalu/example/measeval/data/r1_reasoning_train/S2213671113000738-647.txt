@@ -1,0 +1,302 @@
+Okay, let's tackle this annotation step by step. The input text is about establishing iPSCs from different animals using various methods. The goal is to extract quantities, measured entities, properties, and qualifiers with their relationships.
+
+First, I'll start with Step 1: Extract Quantities. Scanning through the text, I look for any numbers or phrases indicating measurements or counts. The first part mentions "the first two animals (Nos. 1 and 4)". Here, "two" is a count. Then "Nos. 1 and 4" refers to animal numbers 1 and 4, which are counts as well. Similarly, "the other two animals (Nos. 6 and 8)" gives "two" again and "Nos. 6 and 8".
+
+Next, looking at "within 12 weeks" – "12 weeks" is a measurement of time. So the quantities identified are:
+- "two" in "first two animals"
+- "1 and 4" in "Nos. 1 and 4"
+- "two" in "other two animals"
+- "6 and 8" in "Nos. 6 and 8"
+- "12 weeks" in "within 12 weeks"
+
+Now, moving to Step 2: Modifiers, Units, etc. For each quantity:
+1. "two" (animals 1 and 4): This is a count, so mods: IsCount. The unit might be 'animals' but since it's a count, the unit isn't specified here. The measured entity here would be "animals".
+2. "1 and 4": These are counts (animal numbers), so mods: IsList, IsCount. The unit is "Nos." (numbers). Measured entity is "animals".
+3. The next "two" (animals 6 and 8): Same as the first "two", mods: IsCount. Entity is "animals".
+4. "6 and 8": Again, counts with IsList and IsCount. Unit "Nos.". Entity "animals".
+5. "12 weeks": A measurement with unit "weeks". Measured entity could be "teratomas" and measured property is "time".
+
+Now, relationships. For each quantity, link them to the measured entities and properties. For example, the first two animals (MeasuredEntity T2) have a quantity "two" (T1) via HasQuantity. The MeasuredProperty might be "number" here, but the text doesn't specify a property like "number", so maybe it's omitted. Similarly, "Nos. 1 and 4" (T3) is a quantity linked to the same entity "animals" (T2). But wait, each "two" and the "Nos." refers to the same set of animals. Maybe each pair (Nos. 1/4 and 6/8) are separate entities? Let me check.
+
+The text mentions "the first two animals (Nos. 1 and 4)" and "the other two animals (Nos. 6 and 8)". So there are two groups: first two (1,4) and other two (6,8). Each group is a separate MeasuredEntity. So each "two" and their respective Nos. would be under separate annotSets.
+
+So annotSet 1: first two animals, quantities "two" (T1) and "1 and 4" (T3). The entity is "first two animals" (T2). The quantity "two" is a count (IsCount) and "1 and 4" is a list (IsList, IsCount) with unit "Nos.".
+
+AnnotSet 2: other two animals (Nos. 6 and 8). Similarly, "two" (T4) and "6 and 8" (T5), entity "other two animals" (T6).
+
+Then "12 weeks" (T7) in annotSet3, linked to "teratomas" (T8) and MeasuredProperty "time" (T9).
+
+Wait, but the text says "within 12 weeks" relates to generating teratomas. So the entity is teratomas, and the property is time. The quantity is 12 weeks.
+
+Qualifiers: "within" in "within 12 weeks" could be a qualifier. But according to the guidelines, qualifiers are spans that provide context. "within" here modifies the quantity, so it should be part of the quantity span? Or is "within" a qualifier? Let's check the example. In the example, "after I drank half the can" is a qualifier. Here, "within 12 weeks" – "within" is a preposition indicating a time condition. So maybe "within 12 weeks" is the quantity, but the unit is weeks, and the modifier is part of the quantity? Or should "within" be a qualifier?
+
+Wait, the example includes "approximately" as part of the quantity span. So perhaps "within" is part of the qualifier. But the quantity itself is "12 weeks". The qualifier would be "within". However, the qualifier text should be the exact span. The exact text here is "within 12 weeks", so perhaps the qualifier is "within 12 weeks" qualifying the teratomas generation. But according to the instruction, the qualifier is a separate annotation that qualifies a quantity, entity, or property. So "within 12 weeks" could be a Qualifier that qualifies the MeasuredProperty time. Alternatively, the quantity is "12 weeks" and the qualifier is "within". But according to the step 2 instructions, if the modifier is adjacent to the quantity, include it in the quantity span. Here, "within" is adjacent to "12 weeks", so perhaps the quantity is "within 12 weeks" with a modifier. But units are "weeks", and modifiers would include the "within" as a qualifier. Hmm, this is a bit tricky.
+
+Alternatively, since "within" is a preposition indicating a time frame, maybe it's part of the qualifier that qualifies the MeasuredEntity or MeasuredProperty. But according to the example, "after I drank half the can" is a qualifier. So "within 12 weeks" could be a qualifier span. However, the quantity is "12 weeks", and the qualifier is "within". But "within" isn't a separate span; the entire phrase "within 12 weeks" is the qualifier. Wait, the qualifier is supposed to be a span. So "within 12 weeks" is the qualifier text, which qualifies the MeasuredEntity "teratomas" or the MeasuredProperty "time". But the quantity "12 weeks" is part of the qualifier? That seems conflicting.
+
+Alternatively, the quantity is "12 weeks", and the qualifier is "within", but "within" isn't a standalone span. Maybe in this case, the qualifier is "within 12 weeks" which qualifies the generation of teratomas. However, the quantity "12 weeks" is part of that qualifier. But according to the instructions, quantities should be extracted first, and then qualifiers. So perhaps "12 weeks" is a quantity, and "within" is part of the qualifier. But the qualifier's text must be the exact span. Since "within 12 weeks" is the exact span, but "12 weeks" is also a quantity. This seems overlapping. How to handle this?
+
+Looking back at the example given in the problem: "The can contained 175 ml of soda after I drank half the can." The qualifier is "after I drank half the can", which is a separate span. In this case, "within 12 weeks" is a prepositional phrase that modifies the time. Maybe "within 12 weeks" is the qualifier, and the quantity "12 weeks" is part of that qualifier. But according to the instructions, the qualifier is a separate annotation. So perhaps "within 12 weeks" is a qualifier, and the quantity "12 weeks" is part of it, but that would mean overlapping annotations. However, the instructions specify that each annotation is a non-overlapping span. So maybe "12 weeks" is the quantity, and the qualifier is "within". But "within" alone isn't a meaningful qualifier; it's part of the phrase. Hmm. Maybe in this case, the qualifier is the entire phrase "within 12 weeks", but the quantity "12 weeks" is separate. This would require that the qualifier "within 12 weeks" qualifies the MeasuredEntity or MeasuredProperty, and the quantity "12 weeks" is linked via Qualifies. But how?
+
+Alternatively, since "within" is a preposition indicating the time frame, perhaps the quantity is "12 weeks" with unit "weeks", and the qualifier is "within". But "within" is part of the quantity's modifier. However, the example has "approximately" as part of the quantity span. So if "within" is part of the quantity, then the quantity would be "within 12 weeks", but this includes the preposition. But the unit is "weeks". However, in the example, "approximately 25°C" is considered a quantity with IsApproximate. So maybe "within 12 weeks" is a quantity with unit "weeks" and a modifier. But what modifier? "IsApproximate" isn't applicable here. Alternatively, "within" could be a qualifier that qualifies the quantity. But the exact text of the qualifier would be "within", which is part of the phrase.
+
+This is getting a bit confusing. Let's check the guidelines again. Qualifier is an optional span describing conditions or attributes that affect a Quantity, MeasuredEntity, or MeasuredProperty. So "within 12 weeks" is a condition that affects the generation of teratomas. Therefore, the qualifier is "within 12 weeks", and the quantity is "12 weeks". But how do they relate? The qualifier "within 12 weeks" would qualify the MeasuredEntity (teratomas) or MeasuredProperty (time). Then the quantity "12 weeks" is part of the qualifier. But according to the instructions, the qualifier is a separate annotation. So perhaps:
+
+- Qualifier: "within 12 weeks" (text), which Qualifies the MeasuredProperty "time".
+- Quantity: "12 weeks" (text), which is part of the qualifier but also a separate quantity. However, this would mean overlapping spans, which might not be allowed. Alternatively, maybe the qualifier is only "within" and the quantity is "12 weeks", but "within" isn't a span on its own. This is tricky.
+
+Alternatively, maybe the entire phrase "within 12 weeks" is the qualifier, and the quantity is "12 weeks". Then, the qualifier "within 12 weeks" would Qualify the MeasuredProperty "time", and the quantity "12 weeks" is linked via HasQuantity. But this still has overlapping spans. Maybe the way to handle it is that the qualifier is "within 12 weeks" and the quantity is "12 weeks". The qualifier would Qualify the MeasuredProperty or MeasuredEntity, and the quantity is part of that qualifier. But according to the instructions, each annotation is a separate span. So perhaps the qualifier is "within 12 weeks" and the quantity is a separate annotation. Then, the qualifier would have a relationship Qualifies to the MeasuredEntity or Property. The quantity "12 weeks" would be in its own annotation. However, this might not align with the guidelines. Let me check the example again.
+
+In the example, "after I drank half the can" is the qualifier, which is a separate span. The quantity "175 ml" is a separate annotation. So in this case, overlapping isn't an issue because they are separate spans. So applying that here, "within 12 weeks" would be a qualifier (text: "within 12 weeks") that qualifies the MeasuredEntity "teratomas" or the MeasuredProperty "time". The quantity "12 weeks" is a separate annotation. But how do they relate? The qualifier "within 12 weeks" would have a Qualifies relationship to the MeasuredProperty or Entity. The quantity "12 weeks" would be part of the qualifier's span but also a separate quantity. This might be acceptable as per the example.
+
+But in the example, the qualifier is a separate span that doesn't include the quantity. Wait, the example has "The can contained 175 ml of soda after I drank half the can." The qualifier is "after I drank half the can", which is separate from the quantity "175 ml". So in this case, the qualifier doesn't include the quantity. But in the current input, the qualifier "within 12 weeks" includes the quantity "12 weeks". Therefore, how to handle this? 
+
+According to the instructions, the qualifier is a separate span that may qualify a Quantity, MeasuredEntity, or MeasuredProperty. If the qualifier includes the quantity, it's allowed. But quantities are extracted first. So perhaps:
+
+- Quantity: "12 weeks" (text: "12 weeks"), unit: weeks, mods: none.
+- Qualifier: "within 12 weeks" (text: "within 12 weeks"), Qualifies the MeasuredProperty "time" or the MeasuredEntity "teratomas".
+- Then, the qualifier has a relationship "Qualifies" to the MeasuredEntity or Property, and the quantity is part of the qualifier's text. But according to the guidelines, the Qualifier is linked to the relevant span (Quantity, Entity, or Property) using Qualifies. So in this case, the qualifier "within 12 weeks" qualifies the MeasuredProperty "time", which is connected to the quantity "12 weeks". 
+
+But this is getting complicated. Let's see the example again. The qualifier is separate from the quantity. So perhaps in this case, "within 12 weeks" is a qualifier that qualifies the MeasuredEntity "teratomas", and the quantity "12 weeks" is separate. The MeasuredProperty would be "time" linked to the quantity. Then, the relationships would be:
+
+- MeasuredEntity: teratomas (annotId T8)
+- MeasuredProperty: time (annotId T9) linked to teratomas via HasProperty.
+- Quantity: 12 weeks (T7) linked to MeasuredProperty via HasQuantity.
+- Qualifier: "within 12 weeks" (T10) linked via Qualifies to the MeasuredProperty or Quantity.
+
+Wait, but the Qualifier can qualify a Quantity. So perhaps the qualifier "within 12 weeks" (T10) qualifies the Quantity "12 weeks" (T7). But "within 12 weeks" includes the quantity's text, making the spans overlap. But according to the guidelines, this is allowed as long as each annotation is a span. However, overlapping annotations may complicate things. Alternatively, since the qualifier is "within 12 weeks" and the quantity is "12 weeks", perhaps the qualifier's text is "within 12 weeks" and it Qualifies the quantity "12 weeks". But how would that look in the TSV?
+
+Alternatively, maybe "within" is part of the quantity's modifier. But "within" isn't a modifier like "approximately". It's a preposition indicating a condition. In the example, "approximately" is part of the quantity. Similarly, maybe "within" is part of the quantity's modifier. But the example includes "approximately" as part of the quantity span. However, in this case, "within 12 weeks" can't be split into a modifier and a quantity, so perhaps the entire phrase is the qualifier, and the quantity is "12 weeks". The qualifier "within 12 weeks" qualifies the MeasuredProperty "time".
+
+This is getting a bit too tangled. Let's proceed step by step.
+
+AnnotSet 1: first two animals (Nos. 1 and 4)
+- Quantity T1: "two" (text: "two"), mods: IsCount, unit: (none, since it's a count)
+- MeasuredEntity T2: "first two animals" (text: "first two animals"), HasQuantity: T1
+- Quantity T3: "1 and 4" (text: "1 and 4"), mods: IsList, IsCount, unit: "Nos."
+- MeasuredEntity T2 already exists, so how to link T3? The MeasuredEntity here is the same "first two animals", which are numbered 1 and 4. So maybe T3 is another quantity linked to T2. So T2 HasQuantity T1 and T3.
+
+But according to the example, each quantity is in a separate annotSet. Wait, in the example, each quantity (25°C, 500 milliliters, 10 grams) are in separate annotSets. So if the input has multiple quantities related to the same entity, they should be in separate annotSets. However, in this case, "two" and "1 and 4" are both quantities for the same entity. But according to the example, each main quantity (like temperature, volume, amount) are separate annotSets. So maybe each iPSC establishment is a separate annotSet. But the text describes two groups: first two animals and other two animals.
+
+So for the first group (Nos. 1 and 4), the quantities are "two" and "1 and 4". But according to the example, each Quantity is part of an annotSet with its MeasuredEntity and MeasuredProperty. However, in the example, each Quantity is in a separate annotSet. But in this case, "two" and "1 and 4" are two quantities for the same entity. How to handle that.
+
+Wait, in the example, each Quantity is part of a different annotSet. For example, "approximately 25°C" is annotSet 1, "500 milliliters" is annotSet 2, and "10 grams" is annotSet 3. Each with their own MeasuredEntity and MeasuredProperty. 
+
+So perhaps here, each pair (two animals and their numbers) form separate annotSets. But that might not be correct. Alternatively, each "animal group" is an annotSet. For example, the first two animals (Nos. 1 and 4) could be one annotSet with two quantities: "two" and "1 and 4". But how to structure that.
+
+Alternatively, since "Nos. 1 and 4" are specific identifiers for the animals, which are part of the first two animals, perhaps "two" is the count of animals, and "1 and 4" are their numbers. So two separate quantities. Each would be part of the same annotSet because they relate to the same MeasuredEntity. For example:
+
+annotSet 1:
+- Quantity T1: "two" (mods: IsCount)
+- MeasuredEntity T2: "animals" (text: "first two animals")
+- Quantity T3: "1 and 4" (mods: IsList, IsCount, unit: Nos.)
+- Relationships: T2 HasQuantity T1 and T3.
+
+But according to the output format, each annotSet is a logical grouping. So in the example, each Quantity is in a separate annotSet. Applying that here, each quantity should have its own annotSet. But that might not make sense if two quantities relate to the same entity.
+
+Alternatively, maybe each main entity-property pair is an annotSet. For instance, the first two animals have a count (two) and their numbers (1 and 4), each as separate quantities. So each quantity is its own annotSet. But that might be inconsistent with the example.
+
+This is a bit ambiguous. Let's proceed by creating separate annotSets for each quantity, even if they relate to the same entity. But in the example, the solution grouped all related entities for a single quantity into one annotSet. So for instance, "approximately 25°C" is annotSet 1 with its MeasuredEntity and MeasuredProperty. Similarly, each quantity here will be its own annotSet.
+
+So for the first quantity "two" in "the first two animals":
+annotSet 1:
+- Quantity T1: "two" (mods: IsCount)
+- MeasuredEntity T2: "first two animals" (text: "first two animals"), HasQuantity T1
+- MeasuredProperty: Not present, since the text doesn't mention a property like "number" explicitly. So maybe omit.
+
+Then, the next quantity "1 and 4" in "Nos. 1 and 4":
+annotSet 2:
+- Quantity T3: "1 and 4" (mods: IsList, IsCount, unit: Nos.)
+- MeasuredEntity T4: "first two animals", HasQuantity T3
+
+But this leads to duplicate MeasuredEntities. Alternatively, perhaps the MeasuredEntity for "Nos. 1 and 4" is "animals 1 and 4". But the text says "the first two animals (Nos. 1 and 4)", so the MeasuredEntity is "first two animals", and "1 and 4" are their numbers.
+
+This is getting complicated. Maybe it's better to treat each distinct entity as its own annotSet. So "first two animals" is one entity with two quantities: the count "two" and the numbers "1 and 4". But according to the example, each quantity is in a separate annotSet. So perhaps each quantity here should be in a separate annotSet.
+
+Alternatively, perhaps the main entity is "animals" and each quantity is part of different annotSets. But this is unclear.
+
+Let's look back at the example:
+
+In the example, each quantity (25°C, 500ml, 10g) are separate annotSets. Each with their own MeasuredEntity and MeasuredProperty. Even though all relate to the solution or solvent, they are separate.
+
+So applying that here, each quantity (two, 1 and 4, two, 6 and 8, 12 weeks) would each be their own annotSet.
+
+So:
+
+annotSet 1: "two" (first two animals)
+- Quantity T1: "two", mods: IsCount
+- MeasuredEntity T2: "first two animals", HasQuantity T1
+
+annotSet 2: "1 and 4" (Nos. 1 and 4)
+- Quantity T3: "1 and 4", mods: IsList, IsCount, unit: Nos.
+- MeasuredEntity T4: "animals 1 and 4", HasQuantity T3
+
+But the text says "the first two animals (Nos. 1 and 4)". So the MeasuredEntity here is the same as annotSet 1's, but perhaps the MeasuredEntity in annotSet 2 is "animals 1 and 4".
+
+But this may not be necessary. Alternatively, since the Nos. are identifiers, maybe the MeasuredEntity is "animals" and the numbers are quantities. But the example has direct properties like temperature linked to the entity. Here, it's more about counts and identifiers.
+
+This is getting too time-consuming. I'll proceed as follows:
+
+- Each explicit quantity is an annotSet.
+- For "two" in "first two animals": annotSet 1
+  - Quantity T1: "two", mods: IsCount
+  - MeasuredEntity T2: "first two animals", HasQuantity T1
+
+- For "1 and 4" in "Nos. 1 and 4": annotSet 2
+  - Quantity T3: "1 and 4", mods: IsList, IsCount, unit: Nos.
+  - MeasuredEntity T4: "animals", since the text says "animals (Nos. 1 and 4)", so the MeasuredEntity is "animals", and the quantity is their numbers.
+
+Wait, but the text says "the first two animals (Nos. 1 and 4)". So the MeasuredEntity is "first two animals" (annotSet 1), and "Nos. 1 and 4" is a quantity specifying their numbers. But perhaps the MeasuredEntity in annotSet 2 is the same as in annotSet 1. However, according to the example, each annotSet is separate, so maybe each quantity is a separate annotSet even if related to the same entity.
+
+Alternatively, maybe the MeasuredEntity here is "animals" in general, and the quantities are counts and numbers.
+
+This is quite challenging. To avoid making mistakes, I'll proceed with creating separate annotSets for each quantity, even if they refer to the same entity.
+
+So:
+
+annotSet 1:
+- Quantity T1: "two" (text: "two"), mods: IsCount
+- MeasuredEntity T2: "first two animals", HasQuantity T1
+
+annotSet 2:
+- Quantity T3: "1 and 4" (text: "1 and 4"), mods: IsList, IsCount, unit: Nos.
+- MeasuredEntity T4: "animals", HasQuantity T3 (since the numbers apply to the animals)
+
+But the text specifically mentions "the first two animals (Nos. 1 and 4)", so the numbers 1 and 4 are specific to those two animals. Hence, the MeasuredEntity should be "first two animals" for annotSet 2 as well. But how to link that. Maybe:
+
+annotSet 2:
+- Quantity T3: "1 and 4", mods: IsList, IsCount, unit: Nos.
+- MeasuredEntity T4: "first two animals", HasQuantity T3
+
+But how is T4 different from T2? In this case, T2 is "first two animals" and T4 would be the same. To avoid duplication, maybe the MeasuredEntity in annotSet 2 is the same as in annotSet 1, but the example doesn't reuse entities across annotSets. Each annotSet is self-contained.
+
+Alternatively, perhaps the MeasuredEntity in annotSet 2 is "Nos. 1 and 4". But that's their numbers, not the entity itself.
+
+This is confusing. Perhaps the correct approach is to have:
+
+annotSet 1:
+- Quantity T1: "two" (text: "two"), mods: IsCount
+- MeasuredEntity T2: "animals", HasQuantity T1
+- Qualifier T3: "first two", Qualifies T2
+
+But according to the guidelines, qualifiers are separate annotations. "first two" could be a qualifier describing the animals.
+
+Alternatively, "first two" is part of the MeasuredEntity's text. So the MeasuredEntity is "first two animals", which includes the qualifier "first two".
+
+But according to the instructions, we should mark modifying adjectives or nouns that describe the MeasuredEntity. So "first two" is part of the MeasuredEntity's text.
+
+Therefore, annotSet 1:
+
+- Quantity T1: "two", mods: IsCount
+- MeasuredEntity T2: "first two animals", HasQuantity T1
+
+annotSet 2:
+- Quantity T3: "1 and 4", mods: IsList, IsCount, unit: Nos.
+- MeasuredEntity T4: "animals", HasQuantity T3
+
+But in the text, "Nos. 1 and 4" refers to the first two animals. So T4 should be "first two animals" again. But since each annotSet is independent, this leads to duplication. 
+
+Alternatively, perhaps combining both quantities into one annotSet. For example:
+
+annotSet 1:
+- Quantity T1: "two", mods: IsCount
+- Quantity T2: "1 and 4", mods: IsList, IsCount, unit: Nos.
+- MeasuredEntity T3: "first two animals", HasQuantity T1 and HasQuantity T2
+
+But the example has each Quantity in its own annotSet. So perhaps the correct approach is to have separate annotSets for each quantity, even if they relate to the same entity. Therefore:
+
+annotSet 1:
+- Quantity T1: "two", mods: IsCount
+- MeasuredEntity T2: "first two animals", HasQuantity T1
+
+annotSet 2:
+- Quantity T3: "1 and 4", mods: IsList, IsCount, unit: Nos.
+- MeasuredEntity T4: "first two animals (Nos. 1 and 4)", HasQuantity T3
+
+But the text says "first two animals (Nos. 1 and 4)", so the MeasuredEntity for annotSet 2 is the same as annotSet 1 but specified with their numbers. However, since annotSets are separate, this might be necessary.
+
+Similarly for the other two animals (Nos. 6 and 8):
+
+annotSet 3:
+- Quantity T5: "two", mods: IsCount
+- MeasuredEntity T6: "other two animals", HasQuantity T5
+
+annotSet 4:
+- Quantity T7: "6 and 8", mods: IsList, IsCount, unit: Nos.
+- MeasuredEntity T8: "other two animals (Nos. 6 and 8)", HasQuantity T7
+
+Then, "12 weeks" in the last part:
+
+annotSet5:
+- Quantity T9: "12 weeks", unit: weeks
+- MeasuredEntity T10: "teratomas", HasQuantity T9
+- MeasuredProperty T11: "time", HasQuantity T9, HasProperty T10
+
+Qualifier: "within 12 weeks" (text) qualifies the Quantity T9 or the MeasuredProperty T11. But according to the guidelines, the qualifier is a separate annotation. So:
+
+annotSet5:
+- Quantity T9: "12 weeks", unit: weeks
+- MeasuredEntity T10: "teratomas", HasQuantity T9
+- MeasuredProperty T11: "time", HasQuantity T9, HasProperty T10
+- Qualifier T12: "within 12 weeks", Qualifies T11 (or T9)
+
+But according to the example, qualifiers can qualify a MeasuredEntity, MeasuredProperty, or Quantity. In this case, "within 12 weeks" specifies the time frame for generating teratomas. So it qualifies the MeasuredProperty "time". Therefore, Qualifier T12: Qualifies T11.
+
+Putting this all together, let's draft the TSV.
+
+For the first two animals (annotSet1 and 2):
+
+annotSet1:
+- Quantity T1: "two", mods: IsCount
+- MeasuredEntity T2: "first two animals", HasQuantity T1
+
+annotSet2:
+- Quantity T3: "1 and 4", mods: IsList, IsCount, unit: Nos.
+- MeasuredEntity T4: "first two animals", HasQuantity T3
+
+Similarly, the other two animals (annotSet3 and 4):
+
+annotSet3:
+- Quantity T5: "two", mods: IsCount
+- MeasuredEntity T6: "other two animals", HasQuantity T5
+
+annotSet4:
+- Quantity T7: "6 and 8", mods: IsList, IsCount, unit: Nos.
+- MeasuredEntity T8: "other two animals", HasQuantity T7
+
+annotSet5 (12 weeks):
+
+- Quantity T9: "12 weeks", unit: weeks
+- MeasuredEntity T10: "teratomas", HasQuantity T9
+- MeasuredProperty T11: "time", HasQuantity T9, HasProperty T10
+- Qualifier T12: "within 12 weeks", Qualifies T11
+
+But wait, the text says "within 12 weeks" is the qualifier text. However, the Qualifier's text should be the exact span from the input. In the input, the phrase is "within 12 weeks". So that's the Qualifier text. However, the Quantity is "12 weeks", which is part of that span. So the Qualifier "within 12 weeks" (text) qualifies the MeasuredProperty "time" (T11). The Quantity "12 weeks" (T9) is part of the qualifier's text but is a separate annotation.
+
+This leads to overlapping spans, but according to the example, this is allowed as long as each annotation is a span. However, in the TSV, each annotation is on a separate line, so overlaps are permitted.
+
+Now, putting all this into TSV format:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	two	{"mods": ["IsCount"]}
+1	MeasuredEntity	T2	first two animals	{"HasQuantity": "T1"}
+2	Quantity	T3	1 and 4	{"mods": ["IsList", "IsCount"], "unit": "Nos."}
+2	MeasuredEntity	T4	first two animals	{"HasQuantity": "T3"}
+3	Quantity	T5	two	{"mods": ["IsCount"]}
+3	MeasuredEntity	T6	other two animals	{"HasQuantity": "T5"}
+4	Quantity	T7	6 and 8	{"mods": ["IsList", "IsCount"], "unit": "Nos."}
+4	MeasuredEntity	T8	other two animals	{"HasQuantity": "T7"}
+5	Quantity	T9	12 weeks	{"unit": "weeks"}
+5	MeasuredEntity	T10	teratomas	{"HasQuantity": "T9"}
+5	MeasuredProperty	T11	time	{"HasQuantity": "T9", "HasProperty": "T10"}
+5	Qualifier	T12	within 12 weeks	{"Qualifies": "T11"}
+
+But wait, for annotSet2 and 4, the MeasuredEntity text is "first two animals" and "other two animals" respectively. The quantities in annotSet2 and 4 are their numbers. This makes sense because each group of animals has a count (two) and their respective numbers (1 and 4; 6 and 8).
+
+However, in the original text, "the first two animals (Nos. 1 and 4)"—so the numbers are parenthetical to the main entity. It's possible that the MeasuredEntity in annotSet2 is "animals" and the qualifier is "first two (Nos. 1 and 4)". But this complicates things.
+
+Alternatively, perhaps the MeasuredEntity in annotSet2 is "animals" and the quantity "1 and 4" is their numbers. But the text specifies "the first two animals", so maybe the MeasuredEntity should be "first two animals" as in annotSet1, and annotSet2's quantity "1 and 4" is linked to the same entity. But since each annotSet is a separate grouping, this isn't possible. Therefore, the TSV as drafted above is the best approach under the guidelines.
+
+But let's check if the example has any similar cases. In the example, "volume" is the MeasuredProperty linked to the solvent. So each annotSet is a self-contained group. Therefore, the approach here should also have each quantity in its own annotSet with associated entities and properties.
+
+Final TSV would have multiple annotSets for each quantity, even if they relate to the same real-world entity. Hence, the TSV as previously drafted.

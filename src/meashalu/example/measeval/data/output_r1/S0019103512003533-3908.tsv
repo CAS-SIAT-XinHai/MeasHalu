@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103512003533-3908	1	Quantity	259	264	T1	0.125	"{""mods"": [""IsCount""]}"
+S0019103512003533-3908	1	MeasuredEntity	196	243	T2	original reaction rate of Moses and Bass (2000)	"{""HasQuantity"": ""T1""}"
+S0019103512003533-3908	2	MeasuredProperty	94	98	T3	rate	"{""HasQuantity"": ""T1""}"
+S0019103512003533-3908	3	Quantity	342	358	T1	1 × 10−9 cm3 s−1	"{""unit"": ""cm\u00b3 s\u207b\u00b9""}"
+S0019103512003533-3908	3	MeasuredEntity	279	313	T2	revised average base reaction rate	"{""HasProperty"": ""T3""}"
+S0019103512003533-3908	3	MeasuredProperty	309	313	T3	rate	"{""HasQuantity"": ""T1""}"
+S0019103512003533-3908	3	Qualifier	315	358	T4	from k1 = 2 × 10−9 to k1 = 1 × 10−9 cm3 s−1	"{""Qualifies"": ""T2""}"
+S0019103512003533-3908	4	Quantity	459	460	T1	4	"{""mods"": [""IsCount""]}"
+S0019103512003533-3908	4	Qualifier	423	430	T3	assumed	"{""Qualifies"": ""T2""}"

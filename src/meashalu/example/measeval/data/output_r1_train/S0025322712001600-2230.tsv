@@ -1,0 +1,9 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0025322712001600-2230	1	Quantity	68	71	T1	two	"{""mods"": [""IsCount""], ""unit"": """"}"
+S0025322712001600-2230	1	MeasuredEntity	72	84	T2	marine cores	"{""HasQuantity"": ""T1""}"
+S0025322712001600-2230	1	MeasuredProperty	43	62	T3	physical properties	"{""HasQuantity"": ""T1""}"
+S0025322712001600-2230	1	Qualifier	15	30	T4	high resolution	"{""Qualifies"": ""T3""}"
+S0025322712001600-2230	2	Quantity	291	300	T5	200 years	"{""unit"": ""years""}"
+S0025322712001600-2230	2	MeasuredEntity	265	278	T6	sedimentation	"{""HasQuantity"": ""T5""}"
+S0025322712001600-2230	2	MeasuredProperty	238	261	T7	anthropogenic influence	"{""HasQuantity"": ""T5""}"
+S0025322712001600-2230	2	Qualifier	229	237	T8	Possible	"{""Qualifies"": ""T7""}"

@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0378383912000130-3827	1	Quantity	19	25	T1	1.5 mm	"{""unit"": ""mm""}"
+S0378383912000130-3827	1	MeasuredEntity	26	31	T2	beach	"{""HasQuantity"": ""T1""}"
+S0378383912000130-3827	2	Quantity	44	50	T4	8.5 mm	"{""unit"": ""mm""}"
+S0378383912000130-3827	2	MeasuredEntity	26	31	T5	beach	"{""HasQuantity"": ""T4""}"
+S0378383912000130-3827	3	Quantity	144	152	T7	majority	"{""mods"": [""IsCount""]}"
+S0378383912000130-3827	3	MeasuredEntity	160	170	T8	swash zone	"{""HasQuantity"": ""T7""}"

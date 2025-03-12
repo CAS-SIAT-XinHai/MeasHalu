@@ -1,0 +1,9 @@
+docId	annotSet	annotType	annotId	text	other
+S0038071711004354-2370	1	Quantity	T1	15%	"{""unit"": ""%"", ""mods"": [""HasTolerance""]}"
+S0038071711004354-2370	1	MeasuredEntity	T2	fL	"{""HasQuantity"": ""T1""}"
+S0038071711004354-2370	1	MeasuredProperty	T3	SE	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0038071711004354-2370	1	Qualifier	T4	±t0.05,dƒ = 14–75%	"{""Qualifies"": ""T1""}"
+S0038071711004354-2370	2	Quantity	T5	5%	"{""unit"": ""%"", ""mods"": [""HasTolerance""]}"
+S0038071711004354-2370	2	MeasuredEntity	T6	fSOM	"{""HasQuantity"": ""T5""}"
+S0038071711004354-2370	2	MeasuredProperty	T7	SE	"{""HasQuantity"": ""T5"", ""HasProperty"": ""T6""}"
+S0038071711004354-2370	2	Qualifier	T8	±t0.05,dƒ = 27–48%	"{""Qualifies"": ""T5""}"

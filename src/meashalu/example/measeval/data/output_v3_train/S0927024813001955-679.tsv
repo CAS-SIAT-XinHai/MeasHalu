@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0927024813001955-679	1	Quantity	12	19	T1	<200 nm	"{""unit"": ""nm"", ""mods"": [""IsRange""]}"
+S0927024813001955-679	2	Quantity	323	337	T4	3.4+0.1 cm2/Vs	"{""unit"": ""cm2/Vs"", ""mods"": [""HasTolerance""]}"
+S0927024813001955-679	2	MeasuredEntity	261	276	T5	AALD ZnO layers	"{""HasQuantity"": ""T4""}"
+S0927024813001955-679	2	MeasuredProperty	302	319	T6	electron mobility	"{""HasQuantity"": ""T4""}"
+S0927024813001955-679	3	Quantity	343	353	T7	up to 100%	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
+S0927024813001955-679	3	MeasuredEntity	261	276	T8	AALD ZnO layers	"{""HasQuantity"": ""T7""}"
+S0927024813001955-679	3	MeasuredProperty	354	367	T9	transmittance	"{""HasQuantity"": ""T7""}"
+S0927024813001955-679	4	Quantity	643	651	T10	200 days	"{""unit"": ""days""}"
+S0927024813001955-679	4	Qualifier	637	642	T13	after	"{""Qualifies"": ""T10""}"

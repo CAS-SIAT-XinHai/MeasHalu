@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0378383912000130-994	1	Quantity	83	89	T1	uprush	"{""unit"": """", ""mods"": []}"
+S0378383912000130-994	1	MeasuredEntity	37	75	T2	confined region of the beach of cell i	"{""HasQuantity"": ""T1""}"
+S0378383912000130-994	1	MeasuredProperty	14	18	T3	flow	"{""HasQuantity"": ""T1""}"
+S0378383912000130-994	2	Quantity	114	122	T4	backwash	"{""unit"": """", ""mods"": []}"
+S0378383912000130-994	2	MeasuredEntity	37	75	T5	confined region of the beach of cell i	"{""HasQuantity"": ""T4""}"
+S0378383912000130-994	2	MeasuredProperty	14	18	T6	flow	"{""HasQuantity"": ""T4""}"

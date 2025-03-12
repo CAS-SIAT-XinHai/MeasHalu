@@ -1,0 +1,3 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0960148113005727-739	1	Quantity	208	220	T1	eleven years	"{""mods"": [""IsCount""], ""unit"": ""years""}"
+S0960148113005727-739	1	Qualifier	194	220	T4	over the last eleven years	"{""Qualifies"": ""T3""}"

@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0257897213007573-899	1	MeasuredProperty	87	95	T3	position	"{""HasQuantity"": ""T1""}"
+S0257897213007573-899	2	Quantity	712	716	T4	1.32	"{""mods"": []}"
+S0257897213007573-899	2	MeasuredEntity	694	699	T5	ID/IG	"{""HasQuantity"": ""T4""}"
+S0257897213007573-899	2	MeasuredProperty	687	692	T6	ratio	"{""HasQuantity"": ""T4""}"
+S0257897213007573-899	3	Quantity	754	761	T7	3.75 nm	"{""unit"": ""nm""}"
+S0257897213007573-899	3	MeasuredEntity	748	750	T8	La	"{""HasQuantity"": ""T7""}"

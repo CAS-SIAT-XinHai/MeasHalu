@@ -1,0 +1,252 @@
+Okay, let's tackle this input step by step. First, I need to extract all quantities based on the instructions. The input mentions "50 ms", "100 ms", "FDR q < 0.05", and "0.05". Let me check each of these.
+
+Starting with "50 ms": "ms" is the unit, so that's a Quantity. Then "100 ms" similarly. The "FDR q < 0.05" includes "0.05" which is a numeric value, but "q < 0.05" might be a modifier indicating a threshold. However, according to the guidelines, quantities can have modifiers like inequalities if adjacent. So "q < 0.05" would be a Quantity with "0.05" as the value, unit is not present here, so it's a count? Wait, "q" here is part of the statistical term (FDR q-value), but the actual quantity is "0.05". The "<" is a modifier indicating a threshold. So the Quantity would be "q < 0.05", but maybe only "0.05" is the value? Hmm, need to check the example. In the example, "FDR q < 0.05" was annotated as a Quantity with "0.05" and modifier IsApproximate? Wait, no. The example given in the user's instruction was "FDR q < 0.05" as part of the text, but how is that handled? Wait, the example process in step 1 says to include numbers or phrases that represent quantities, including modifiers if adjacent. So "q < 0.05" as a whole might be a Quantity with modifiers. But the value here is 0.05, and "q <" is part of the modifier. However, the unit here is a statistical significance level, which is unitless. So maybe "0.05" is the quantity, and "q <" is part of the context. Wait, but according to the guidelines, if a quantity involves a modifier like "approximately" or symbols like ">", include it if adjacent. So "q < 0.05" would have the Quantity as "0.05" with a modifier of IsRange? Or maybe "IsApproximate"? Wait, no. The modifier here is a threshold, so perhaps "IsRange" doesn't fit. Alternatively, maybe "q < 0.05" is a Qualifier, but the Quantity is "0.05" with the "<" as a modifier. Let me check the example. In the sample given, "FDR q < 0.05" was not part of the example, but another example had "93.90±0.15 Ma" as a Quantity with HasTolerance. Here, "q < 0.05" would be a Quantity with a modifier of IsRange? Or perhaps a different modifier. Alternatively, the "< 0.05" is a modifier for the quantity "0.05". Since the Quantity includes modifiers adjacent, maybe the entire "q < 0.05" is part of the Quantity? But "q" here is a measured property. Wait, perhaps "q < 0.05" is a MeasuredProperty with a Quantity. Let me think again.
+
+The input text says "group contrast maps at 100 ms (Fig. 4) showed group differences in STG and non-STG regions (FDR q < 0.05)." So "FDR q < 0.05" indicates that the statistical significance threshold is q less than 0.05. Here, "0.05" is the value, "q" is the MeasuredProperty (false discovery rate q-value), and "<" is a modifier. So the Quantity here is "0.05" with a modifier "q <". But according to the instructions, modifiers like "approximately" or symbols like ">" should be included if adjacent. So in this case, "< 0.05" is part of the Quantity span. Wait, but the actual value is 0.05, and the "<" is a qualifier. Alternatively, perhaps the Quantity is "q < 0.05" as a phrase. However, the Quantity definition says it's a value with a unit or count. Since 0.05 is a unitless value (a probability), the Quantity would be "0.05" and the "q <" is part of the MeasuredProperty or a Qualifier. Hmm, this is a bit tricky.
+
+Alternatively, the MeasuredProperty here is "FDR q", the Quantity is "0.05", and the "<" is a Qualifier. But according to the relationships, Qualifiers can be linked via Qualifies. So maybe "FDR q < 0.05" is broken down into:
+
+- MeasuredProperty: "FDR q"
+- Quantity: "0.05"
+- Qualifier: "<" (though the text has "q < 0.05", so the exact span would be "< 0.05"? Or maybe the "<" is part of the Quantity's modifier).
+
+But the example in the user's instructions had "approximately 25°C" as the Quantity with IsApproximate. Similarly, here, the "<" is a modifier indicating a threshold. So perhaps the Quantity is "0.05" with a modifier "IsRange" or "IsThreshold", but the guidelines don't list "IsThreshold" as a modifier. The available modifiers are IsApproximate, IsCount, IsRange, IsList, IsMedian, IsMean, IsMeanHasSD. So maybe "< 0.05" is part of the Quantity's modifiers. However, since "IsRange" refers to a range like 1.5-2.6m, which is a span between two values, but here it's a single value with a comparison operator. In that case, perhaps the Quantity is "0.05" with a modifier "IsApproximate"? But that doesn't fit. Alternatively, maybe the modifier isn't covered, but the user's instructions don't specify handling comparison operators. In the absence of explicit guidance, perhaps the best approach is to treat "q < 0.05" as the Quantity, but that's not a number with a unit. Alternatively, focus on the numeric value and include the "<" in the modifier if possible.
+
+Another approach: "q < 0.05" is a MeasuredProperty (FDR q) with a Quantity "0.05" that has a modifier indicating the threshold. But according to the guidelines, Quantity modifiers are things like IsApproximate, etc. Since there's no exact modifier for thresholds, maybe the "<" is part of the text of the Quantity. Wait, but the user example didn't include such a case. Let me check the example again. In the example, "approximately 25°C" was included as a Quantity with IsApproximate. So "approximately" is a modifier. Similarly, in "q < 0.05", the "<" is a modifier indicating a condition. Since the guidelines mention that if a quantity involves a modifier such as "approximately" or symbols like ">", include it if adjacent. So the entire "q < 0.05" would be the Quantity, but that includes non-numeric parts. Alternatively, the Quantity is "0.05", and "q <" is part of the MeasuredProperty or Qualifier. Hmm, this is confusing. Let's see:
+
+In the example given by the user, "FDR q < 0.05" wasn't present. Let's consider that the "0.05" is the Quantity, with the "q <" as part of the MeasuredProperty. So MeasuredProperty could be "FDR q", Quantity is "0.05", and the "<" is part of the relationship. Alternatively, maybe the MeasuredProperty is "FDR q <", but that doesn't make sense. Alternatively, the MeasuredProperty is "FDR q", and the "< 0.05" is a Qualifier. But then the Qualifier would be " < 0.05" qualifying the MeasuredProperty. However, the Qualifier's definition says it's a span describing conditions. So maybe "FDR q < 0.05" is a MeasuredProperty linked to the Quantity "0.05" with a Qualifier "<". But this is getting complicated.
+
+Alternatively, perhaps the Quantity is "0.05" with a modifier "IsThreshold" (but that's not a predefined modifier). Since the modifiers are limited, maybe we can't capture this. Therefore, perhaps it's better to treat "0.05" as a Quantity with no modifier, and "FDR q <" as part of the MeasuredProperty. Then, the MeasuredProperty would be "FDR q <", but that's not very clean. Alternatively, the MeasuredEntity is "group differences" and the MeasuredProperty is "FDR q", linked to the Quantity "0.05". The "<" could be a Qualifier. But the Qualifier would need to be a span in the text. The exact text is "(FDR q < 0.05)", so the "<" is part of that. But how to break that down.
+
+Maybe the correct approach here is to annotate "0.05" as a Quantity, unitless (since it's a probability), and the "FDR q < 0.05" as a MeasuredProperty with a HasQuantity relationship to "0.05". However, the MeasuredProperty is supposed to be a descriptive property linked to both a MeasuredEntity and a Quantity. The MeasuredEntity here might be "group differences", but the text says "group differences in STG and non-STG regions (FDR q < 0.05)". So the MeasuredEntity could be "group differences", MeasuredProperty "FDR q", Quantity "0.05". Then, the "<" is part of the MeasuredProperty, which is "FDR q <". But this is getting too into the weeds. Maybe the safest way given the guidelines is to extract "0.05" as a Quantity, and relate it to a MeasuredProperty "FDR q", and then the "<" is part of the Qualifier. However, the Qualifier needs to be a span of text. The entire "(FDR q < 0.05)" is a parenthetical qualifier for the group differences. So maybe the Qualifier is "FDR q < 0.05", qualifying the MeasuredEntity "group differences". But according to the relationships, Qualifier can be linked to Quantity, MeasuredEntity, or MeasuredProperty. So perhaps:
+
+- MeasuredEntity: "group differences in STG and non-STG regions"
+- Qualifier: "FDR q < 0.05" linked via Qualifies to the MeasuredEntity
+But then "FDR q < 0.05" includes a Quantity "0.05". So this seems complicated. Maybe the best way is to treat "0.05" as a Quantity, unitless, and the "FDR q <" as part of the MeasuredProperty. The MeasuredProperty would then be "FDR q", and the "<" is part of the relationship. But I'm not sure. This part might require some assumption based on the guidelines.
+
+Moving on to the other quantities. "50 ms" and "100 ms" are straightforward: they are Quantities with unit "ms". "100 ms" occurs twice in the input: once in "group contrast maps at 100 ms" and again in "than SZ at 100 ms" and "than HC at 100 ms". So there are two mentions of "100 ms", but they refer to the same measurement. Should each be a separate Quantity? According to the example, each occurrence is treated as a separate annotSet. But maybe in this case, they are the same, but since they're separate mentions, they should be separate entries. However, the example given by the user treated each Quantity in a separate annotSet even if they were part of the same sentence. For instance, the example had three separate annotSets for each Quantity. So perhaps each occurrence here is a separate annotSet. So "50 ms", "100 ms" (three times), and "0.05" (once). Wait, no. Let's count:
+
+The input text has:
+
+- "50 ms group maps"
+- "group contrast maps at 100 ms (Fig. 4)"
+- "than SZ at 100 ms"
+- "than HC at 100 ms"
+
+So "50 ms" once, "100 ms" three times. Each occurrence is a separate Quantity? Or are they the same? The example treated each Quantity mention as separate. For example, "approximately 25°C", "500 milliliters", "10 grams" each in their own annotSet. So here, each "100 ms" would be separate, leading to four Quantities: 50 ms, 100 ms (first), 100 ms (second), 100 ms (third), and 0.05. But that's a lot. However, the example grouped "soda can's volume was 355 ml" into one set. So maybe if the same quantity is mentioned multiple times but referring to the same value, they can be grouped, but according to the example, each mention is a separate set. Alternatively, maybe each logical grouping is a separate set. For instance, the first "50 ms" is one set, each "100 ms" may be part of different sets. But this is unclear. Let's proceed by treating each occurrence as a separate annotSet unless they are part of the same logical group.
+
+The first part: "Similar to the 50 ms group maps, group contrast maps at 100 ms (Fig. 4) showed group differences..." Here, "50 ms" and "100 ms" are separate, so each would be their own annotSet. Then, the next mentions of "100 ms" are in the HC and SZ comparisons. Each of those "100 ms" would be separate annotSets. So total of five Quantity annotations: 50 ms, 100 ms (Fig 4), 100 ms (HC), 100 ms (SZ), and 0.05. But that seems excessive. Alternatively, maybe the three "100 ms" are the same and can be grouped into one annotSet. However, the example had each Quantity in its own set. Perhaps each instance is a separate set. So:
+
+annotSet 1: 50 ms
+annotSet 2: 100 ms (Fig 4)
+annotSet 3: 100 ms (HC)
+annotSet 4: 100 ms (SZ)
+annotSet 5: 0.05
+
+But the input text's "at 100 ms" in HC and SZ parts are referring to the same time point, so maybe they are the same and can be grouped. But according to the example, each mention is separate. For example, in the sample input, "355 ml", "500 milliliters", and "10 grams" are separate, even though they are part of the same paragraph. So here, each mention of "100 ms" is separate.
+
+Alternatively, perhaps the time points are the same, so they can be grouped. But the example didn't do that. So perhaps each occurrence is a separate annotSet. Let's proceed with that.
+
+Now, moving to the MeasuredEntities and MeasuredProperties. For "50 ms group maps", the MeasuredEntity is "group maps" and the MeasuredProperty is "50 ms"? Wait, no. Wait, the "50 ms" is a Quantity, and the MeasuredEntity is "group maps", with the MeasuredProperty being the time (50 ms). Wait, but time here is a property of the maps. So MeasuredEntity: "group maps", MeasuredProperty: "time", Quantity: "50 ms". But the text says "50 ms group maps", which might mean that the group maps are for the 50 ms time point. So the MeasuredEntity is "group maps", and the MeasuredProperty is "time" (though "time" isn't explicitly mentioned). Alternatively, maybe the MeasuredEntity is "group maps" and the Quantity is "50 ms" with no explicit MeasuredProperty. But the user's example had "temperature" as a MeasuredProperty when "The temperature of the solution was approximately 25°C". In that case, "temperature" is the MeasuredProperty. Here, maybe "time" is the MeasuredProperty. But "time" isn't mentioned; it's just "50 ms". So perhaps the MeasuredProperty is implied as "time" or "duration". However, since it's not explicitly mentioned, according to the guidelines, if there's no explicit MeasuredProperty, we can omit it. So for "50 ms group maps", the MeasuredEntity is "group maps", and the Quantity "50 ms" linked via HasQuantity. But the example included MeasuredProperty even when implied, like "volume" in "500 milliliters". So maybe here, the MeasuredProperty is "time" even if not explicitly stated. But the text doesn't say "time", so this may not be correct.
+
+Alternatively, the MeasuredEntity is "group maps at 50 ms", but that's combining the entity and quantity. According to the guidelines, the MeasuredEntity should be the object or entity (e.g., "group maps"), and the Quantity is "50 ms" linked via HasQuantity. The MeasuredProperty might be omitted if not present. The example had "solution" as MeasuredEntity linked to "temperature" as MeasuredProperty. So if there's no explicit MeasuredProperty, maybe it's not annotated. In the current case, "50 ms group maps" may have the MeasuredEntity as "group maps" and Quantity "50 ms" without a MeasuredProperty. But in the example, even if the MeasuredProperty is not explicitly mentioned, like "amount" for "salt", they included it. Wait, in the example, "We also added 10 grams of salt to the solution." The MeasuredProperty was "amount" even though it's not explicitly stated. So in that case, maybe we need to infer the MeasuredProperty. For "50 ms group maps", the MeasuredProperty could be "time" or "duration". But since it's not explicitly stated, perhaps it's better to omit it. However, the example did include "amount" which was inferred. So perhaps we need to infer here as well. This is a bit ambiguous.
+
+Alternatively, maybe the MeasuredEntity is "group maps", and the Quantity "50 ms" is linked via HasQuantity without a MeasuredProperty. The same would apply for the other time quantities. Similarly, the "FDR q < 0.05" would have the MeasuredEntity as "group differences" and MeasuredProperty as "FDR q", Quantity "0.05".
+
+Moving on to the other parts:
+
+"HC had stronger activity in L-STG, R-STG, R-ITG, R-IFG, and the posterior part of right SFG (R-SFG_p)/SMA than SZ at 100 ms."
+
+Here, "stronger activity" is a comparison between HC and SZ. The time point is "100 ms". The MeasuredEntity here would be "activity" in the specified brain regions, and the Quantity is "100 ms". The MeasuredProperty might be "time" again. But "activity" is the MeasuredEntity, and the time is when it was measured. So the relationships would be:
+
+MeasuredEntity: "activity in L-STG, R-STG, R-ITG, R-IFG, and R-SFG_p/SMA"
+Quantity: "100 ms"
+MeasuredProperty: "time"
+
+But the text doesn't explicitly mention "time" as a property, so perhaps omit the MeasuredProperty and link the Quantity directly to the MeasuredEntity.
+
+Similarly for "SZ had stronger activity in R-SFG, L-SFG_p/SMA, and L-SMG than HC at 100 ms."
+
+Here, the MeasuredEntity is "activity" in those regions, Quantity "100 ms".
+
+The challenge is extracting the exact text spans for MeasuredEntities. For example, in the first case, the MeasuredEntity is "HC had stronger activity in L-STG, R-STG, R-ITG, R-IFG, and the posterior part of right SFG (R-SFG_p)/SMA". But that's a long span. According to the guidelines, we should extract the exact text of the annotation. However, the example used shorter spans like "solution", "solvent", "salt". So perhaps we need to identify the head noun. For "HC had stronger activity in L-STG...", the MeasuredEntity is "activity" and the regions are qualifiers. Or is the entire phrase "activity in L-STG..." the MeasuredEntity? This is a bit unclear. The example had "soda can's volume" with MeasuredEntity "soda can" and MeasuredProperty "volume". Here, "activity in L-STG..." might be the MeasuredEntity, but that's a complex span. Alternatively, "activity" is the MeasuredEntity, and the regions are Qualifiers. But the Qualifier definition says they describe conditions or attributes affecting the Quantity, MeasuredEntity, or MeasuredProperty. So the brain regions might be Qualifiers for the activity.
+
+Alternatively, the MeasuredEntity is "L-STG", "R-STG", etc., each with their own activity. But that would be too granular. The example grouped entities like "solution" for temperature. So in this case, perhaps the MeasuredEntity is "activity" and the regions are Qualifiers. But the text says "HC had stronger activity in L-STG...", so the "in L-STG..." part is a prepositional phrase describing where the activity is. According to the guidelines, the MeasuredEntity should be the object or entity associated with the Quantity. Here, the activity is in those regions, and the time is 100 ms. So the MeasuredEntity would be "activity in L-STG, R-STG, R-ITG, R-IFG, and the posterior part of right SFG (R-SFG_p)/SMA", but that's a very long span. Alternatively, "activity" is the MeasuredEntity, and the regions are Qualifiers. Similarly, the time is the Quantity.
+
+This is quite complex. Let's try to break it down step by step.
+
+For each occurrence of a Quantity:
+
+1. "50 ms" in "50 ms group maps":
+   - Quantity: "50 ms" (annotSet 1)
+   - MeasuredEntity: "group maps"
+   - MeasuredProperty: perhaps "time" (if inferred)
+   - Relationships: HasQuantity from MeasuredEntity to Quantity, HasProperty from MeasuredEntity to MeasuredProperty.
+
+2. "100 ms" in "group contrast maps at 100 ms (Fig. 4)":
+   - Quantity: "100 ms" (annotSet 2)
+   - MeasuredEntity: "group contrast maps"
+   - MeasuredProperty: "time"
+   - Relationships: similar to above.
+
+3. "100 ms" in "HC had stronger activity... than SZ at 100 ms":
+   - Quantity: "100 ms" (annotSet 3)
+   - MeasuredEntity: "activity" (in HC)
+   - MeasuredProperty: "time"
+   - Relationships: HasQuantity from "activity" to "100 ms"
+
+4. "100 ms" in "SZ had stronger activity... than HC at 100 ms":
+   - Quantity: "100 ms" (annotSet 4)
+   - MeasuredEntity: "activity" (in SZ)
+   - MeasuredProperty: "time"
+   - Relationships: similar.
+
+5. "0.05" in "FDR q < 0.05":
+   - Quantity: "0.05" (annotSet 5)
+   - MeasuredEntity: "group differences"
+   - MeasuredProperty: "FDR q"
+   - Relationships: HasProperty from "group differences" to "FDR q", HasQuantity from "FDR q" to "0.05"
+   - Qualifier: The "<" might be a Qualifier linked to "FDR q" or "0.05", but according to the text span, "FDR q < 0.05" is in parentheses. So perhaps the Qualifier is "FDR q < 0.05" qualifying the "group differences".
+
+Wait, but the Qualifier's text needs to be exact. The text is "(FDR q < 0.05)", so maybe the Qualifier is "FDR q < 0.05" and it Qualifies the "group differences". Then, within that Qualifier, there's a MeasuredProperty "FDR q" and a Quantity "0.05". But this is getting complicated. Let's try to model it:
+
+annotSet 5:
+- Quantity: "0.05" (text span "0.05")
+  - unit: none (it's a unitless probability)
+  - mods: none, unless "<" is considered a modifier. Since the available modifiers don't include threshold indicators, maybe it's left out.
+- MeasuredEntity: "group differences in STG and non-STG regions"
+- MeasuredProperty: "FDR q"
+- Qualifier: "FDR q < 0.05" (text span "FDR q < 0.05") linked via Qualifies to the MeasuredEntity.
+
+But according to the guidelines, Qualifier is a span that provides context. So "FDR q < 0.05" is the Qualifier for the group differences. The relationships would be:
+
+- MeasuredEntity: "group differences..." HasProperty: "FDR q"
+- MeasuredProperty: "FDR q" HasQuantity: "0.05"
+- Qualifier: "FDR q < 0.05" Qualifies: "group differences..."
+
+But the problem is that the Qualifier text "FDR q < 0.05" includes the MeasuredProperty and Quantity. So perhaps breaking it down into a MeasuredProperty and Quantity within the same annotSet is better. However, the Qualifier cannot have relationships; it's supposed to be a separate annotation. This is getting quite complex, and I might need to simplify based on the example.
+
+In the example, the Qualifier "after I drank half the can" was linked to the Quantity. Here, "FDR q < 0.05" is a statistical threshold qualifying the group differences, so perhaps the Qualifier is "FDR q < 0.05" linked to the MeasuredEntity "group differences". Then within that Qualifier, there's a MeasuredProperty "FDR q" and Quantity "0.05" with a "<" modifier. But according to the guidelines, the Qualifier is a separate annotType. So perhaps:
+
+annotSet 5:
+- Qualifier: "FDR q < 0.05" (annotId T1)
+- MeasuredEntity: "group differences..." (T2)
+- MeasuredProperty: "FDR q" (T3)
+- Quantity: "0.05" (T4)
+
+Relationships:
+- Qualifier T1 Qualifies T2
+- T2 HasProperty T3
+- T3 HasQuantity T4
+- Quantity T4 has modifier "<", but since modifiers are predefined and there's no such option, it might be ignored.
+
+But the problem is that "FDR q < 0.05" is the Qualifier's text, which includes the MeasuredProperty and Quantity. This might not fit neatly into the structure. Perhaps the best way is to extract "0.05" as a Quantity with no unit and a modifier if applicable. The "<" is part of the Qualifier "FDR q < 0.05", which qualifies the MeasuredEntity "group differences". The MeasuredProperty would be "FDR q", linked to the Quantity "0.05".
+
+So:
+
+annotSet 5:
+- Quantity: T1, text "0.05", other: {"mods": [], "unit": null}
+- MeasuredProperty: T2, text "FDR q", other: {"HasQuantity": "T1"}
+- MeasuredEntity: T3, text "group differences in STG and non-STG regions", other: {"HasProperty": "T2"}
+- Qualifier: T4, text "FDR q < 0.05", other: {"Qualifies": "T3"}
+
+But according to the guidelines, the Qualifier's text should be the exact span. In the input, the text is "(FDR q < 0.05)", so the Qualifier's text is "FDR q < 0.05".
+
+Now, putting this all together, considering each Quantity occurrence and their respective MeasuredEntities, Properties, and Qualifiers.
+
+Another challenge is the brain regions mentioned, like L-STG, R-STG, etc. These might be part of the MeasuredEntity's text. For example, "HC had stronger activity in L-STG..." — the MeasuredEntity here is "activity in L-STG, R-STG, R-ITG, R-IFG, and the posterior part of right SFG (R-SFG_p)/SMA". But this is a long span. The example used "soda can" as the MeasuredEntity, so perhaps here, the MeasuredEntity is "activity", and the regions are Qualifiers. However, the example's Qualifier was "after I drank half the can", which is a condition. In this case, the regions are locations where the activity is measured, so they could be Qualifiers. So:
+
+For "HC had stronger activity in L-STG... at 100 ms":
+- Quantity: "100 ms" (annotSet 3)
+- MeasuredEntity: "activity"
+- MeasuredProperty: "time"
+- Qualifier: "in L-STG, R-STG, R-ITG, R-IFG, and the posterior part of right SFG (R-SFG_p)/SMA" (text span) — but this is a prepositional phrase indicating location.
+
+But according to the guidelines, Qualifiers are conditions or attributes affecting the Quantity, MeasuredEntity, or MeasuredProperty. Location might be a Qualifier. So the Qualifier here is the "in..." phrase, qualifying the MeasuredEntity "activity".
+
+Similarly for the SZ part.
+
+This is getting very involved, but let's proceed to draft the TSV based on these considerations.
+
+For each annotSet:
+
+1. annotSet 1: "50 ms"
+   - Quantity: T1, text "50 ms", other: {"unit": "ms"}
+   - MeasuredEntity: T2, text "group maps", other: {"HasQuantity": "T1"}
+   - No explicit MeasuredProperty, so omit.
+
+2. annotSet 2: "100 ms" (Fig 4)
+   - Quantity: T1, text "100 ms", other: {"unit": "ms"}
+   - MeasuredEntity: T2, text "group contrast maps", other: {"HasQuantity": "T1"}
+   
+3. annotSet 3: "100 ms" (HC)
+   - Quantity: T1, text "100 ms", other: {"unit": "ms"}
+   - MeasuredEntity: T2, text "activity", other: {"HasQuantity": "T1"}
+   - Qualifier: T3, text "in L-STG, R-STG, R-ITG, R-IFG, and the posterior part of right SFG (R-SFG_p)/SMA", other: {"Qualifies": "T2"}
+
+4. annotSet 4: "100 ms" (SZ)
+   - Quantity: T1, text "100 ms", other: {"unit": "ms"}
+   - MeasuredEntity: T2, text "activity", other: {"HasQuantity": "T1"}
+   - Qualifier: T3, text "in R-SFG, posterior part of left SFG (L-SFG_p)/SMA, and L-SMG", other: {"Qualifies": "T2"}
+
+5. annotSet 5: "0.05"
+   - Quantity: T1, text "0.05", other: {"unit": null}
+   - MeasuredEntity: T2, text "group differences in STG and non-STG regions", other: {"HasProperty": "T3"}
+   - MeasuredProperty: T3, text "FDR q", other: {"HasQuantity": "T1"}
+   - Qualifier: T4, text "FDR q < 0.05", other: {"Qualifies": "T2"}
+
+But wait, in annotSet 5, the MeasuredEntity is "group differences...", MeasuredProperty is "FDR q", and the Qualifier is "FDR q < 0.05". However, the "FDR q < 0.05" includes the MeasuredProperty and Quantity, which could create redundancy. Also, the relationships may need adjustment.
+
+Alternatively, maybe the Qualifier "FDR q < 0.05" qualifies the MeasuredEntity "group differences", and within that Qualifier, the "FDR q" is the MeasuredProperty linked to the Quantity "0.05". But the relationships would then be:
+
+- MeasuredEntity T2 HasProperty T3 (FDR q)
+- MeasuredProperty T3 HasQuantity T1 (0.05)
+- Qualifier T4 Qualifies T2 (group differences)
+
+But the Qualifier's text is "FDR q < 0.05", which includes the MeasuredProperty and Quantity. According to the guidelines, the Qualifier can be a separate annotation that qualifies any of the other types. So this structure works.
+
+Finally, checking for all quantities:
+
+- "50 ms"
+- "100 ms" (three times)
+- "0.05"
+
+Each in their own annotSet with related entities and properties.
+
+Now, structuring this into TSV:
+
+annotSet 1:
+- Quantity (T1): 50 ms, unit ms
+- MeasuredEntity (T2): group maps, HasQuantity T1
+
+annotSet 2:
+- Quantity (T1): 100 ms, unit ms
+- MeasuredEntity (T2): group contrast maps, HasQuantity T1
+
+annotSet 3:
+- Quantity (T1): 100 ms, unit ms
+- MeasuredEntity (T2): activity, HasQuantity T1
+- Qualifier (T3): "in L-STG, R-STG, R-ITG, R-IFG, and the posterior part of right SFG (R-SFG_p)/SMA", Qualifies T2
+
+annotSet 4:
+- Quantity (T1): 100 ms, unit ms
+- MeasuredEntity (T2): activity, HasQuantity T1
+- Qualifier (T3): "in R-SFG, posterior part of left SFG (L-SFG_p)/SMA, and L-SMG", Qualifies T2
+
+annotSet 5:
+- Quantity (T1): 0.05, unit null, mods none
+- MeasuredEntity (T2): group differences in STG and non-STG regions, HasProperty T3
+- MeasuredProperty (T3): FDR q, HasQuantity T1
+- Qualifier (T4): FDR q < 0.05, Qualifies T2
+
+This seems to cover all the quantities and their relations. However, the Qualifiers in annotSets 3 and 4 have long text spans which might need to be exact. Let's check the input text:
+
+For annotSet 3, the Qualifier text is "in L-STG, R-STG, R-ITG, R-IFG, and the posterior part of right SFG (R-SFG_p)/SMA" — that's from the input's "HC had stronger activity in L-STG, R-STG, R-ITG, R-IFG, and the posterior part of right SFG (R-SFG_p)/SMA than SZ at 100 ms." So the exact span is "in L-STG... SMA".
+
+Similarly for annotSet 4: "in R-SFG, posterior part of left SFG (L-SFG_p)/SMA, and L-SMG" from "SZ had stronger activity in R-SFG, posterior part of left SFG (L-SFG_p)/SMA, and L-SMG than HC at 100 ms."
+
+These Qualifiers are prepositional phrases indicating location, so they qualify the MeasuredEntity "activity".
+
+Finally, annotSet 5's Qualifier is "FDR q < 0.05" from the original text's "(FDR q < 0.05)".
+
+This should cover all necessary annotations. Now, putting this into TSV format with annotSet numbers incrementing and annotId sequential within each set.

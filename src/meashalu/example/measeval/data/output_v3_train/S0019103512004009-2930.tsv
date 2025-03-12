@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103512004009-2930	1	Quantity	1246	1262	T3	mean temperature	"{""unit"": ""temperature"", ""mods"": [""IsMean""]}"
+S0019103512004009-2930	1	MeasuredEntity	1210	1226	T1	density profiles	"{""HasProperty"": ""T2""}"
+S0019103512004009-2930	1	MeasuredProperty	1210	1217	T2	density	"{""HasQuantity"": ""T3""}"
+S0019103512004009-2930	3	Quantity	989	1009	T9	likely heating rates	"{""unit"": ""heating"", ""mods"": []}"
+S0019103512004009-2930	3	MeasuredEntity	996	1009	T7	heating rates	"{""HasProperty"": ""T8""}"
+S0019103512004009-2930	3	MeasuredProperty	894	901	T8	heating	"{""HasQuantity"": ""T9""}"

@@ -1,0 +1,13 @@
+docId	annotSet	annotType	annotId	text	other
+S0950705113001895-23682	1	Quantity	T1	5%	"{""mods"": [""IsCount""]}"
+S0950705113001895-23682	1	MeasuredEntity	T2	updating ratio	"{""HasQuantity"": ""T1""}"
+S0950705113001895-23682	1	MeasuredProperty	T3	ratio	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0950705113001895-23682	2	Quantity	T4	six	"{""mods"": [""IsCount""]}"
+S0950705113001895-23682	2	MeasuredEntity	T5	data sets	"{""HasQuantity"": ""T4""}"
+S0950705113001895-23682	2	MeasuredProperty	T6	number	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"
+S0950705113001895-23682	3	Quantity	T7	two	"{""mods"": [""IsCount""]}"
+S0950705113001895-23682	3	MeasuredEntity	T8	algorithms	"{""HasQuantity"": ""T7""}"
+S0950705113001895-23682	3	MeasuredProperty	T9	number	"{""HasQuantity"": ""T7"", ""HasProperty"": ""T8""}"
+S0950705113001895-23682	4	Quantity	T10	each	"{""mods"": [""IsCount""]}"
+S0950705113001895-23682	4	MeasuredEntity	T11	data sets	"{""HasQuantity"": ""T10""}"
+S0950705113001895-23682	4	MeasuredProperty	T12	number	"{""HasQuantity"": ""T10"", ""HasProperty"": ""T11""}"

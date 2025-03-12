@@ -1,0 +1,7 @@
+docId	annotSet	annotType	annotId	text	other
+S0927024813002961-1322	1	Quantity	T1	±3%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
+S0927024813002961-1322	1	Quantity	T2	+10% to −20%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
+S0927024813002961-1322	1	MeasuredEntity	T3	CIGS and c-Si	"{""HasQuantity"": ""T1""}"
+S0927024813002961-1322	1	MeasuredEntity	T4	a-Si devices	"{""HasQuantity"": ""T2""}"
+S0927024813002961-1322	1	MeasuredProperty	T5	relative changes in the generated short-circuit current	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T3""}"
+S0927024813002961-1322	1	MeasuredProperty	T6	relative changes in the generated short-circuit current	"{""HasQuantity"": ""T2"", ""HasProperty"": ""T4""}"

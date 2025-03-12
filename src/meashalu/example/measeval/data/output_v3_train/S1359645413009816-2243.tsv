@@ -1,0 +1,11 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S1359645413009816-2243	1	Quantity	152	158	T1	1.5 nm	"{""unit"": ""nm""}"
+S1359645413009816-2243	1	MeasuredEntity	130	148	T2	nominal resolution	"{""HasQuantity"": ""T1""}"
+S1359645413009816-2243	1	MeasuredProperty	138	148	T3	resolution	"{""HasQuantity"": ""T1""}"
+S1359645413009816-2243	2	Quantity	162	167	T4	20 kV	"{""unit"": ""kV""}"
+S1359645413009816-2243	2	MeasuredEntity	130	148	T5	nominal resolution	"{""HasQuantity"": ""T4""}"
+S1359645413009816-2243	3	Quantity	515	522	T7	5 K/min	"{""unit"": ""K/min""}"
+S1359645413009816-2243	3	MeasuredEntity	499	511	T8	heating rate	"{""HasQuantity"": ""T7""}"
+S1359645413009816-2243	3	MeasuredProperty	507	511	T9	rate	"{""HasQuantity"": ""T7""}"
+S1359645413009816-2243	4	Quantity	586	600	T10	about 30 K/min	"{""unit"": ""K/min"", ""mods"": [""IsApproximate""]}"
+S1359645413009816-2243	4	MeasuredProperty	507	511	T12	rate	"{""HasQuantity"": ""T10""}"

@@ -1,0 +1,315 @@
+Okay, let's tackle this input step by step. First, I need to identify all the quantities mentioned. The text starts by talking about varying four main parameters: active layer thickness, polymer-fullerene composition, and post-production thermal annealing temperature and time. So, "four main parameters" is a count, so that's a Quantity with IsCount.
+
+Next, when they discuss BHJ with 80 vol% of C60, "80 vol%" is a Quantity. The unit here is vol%, and there's no modifier mentioned, so no mods. Then "70 nm" for thickness—unit is nm, so another Quantity.
+
+The device characteristics are Jsc∼2–3 mA/cm² and Voc∼0.40–0.45 V. The "∼2–3 mA/cm²" and "∼0.40–0.45 V" are both ranges. So these are Quantities with IsRange mods. The units are mA/cm² and V. Also, the tilde (~) indicates approximation, so IsApproximate might apply here. Wait, the example includes ranges with tildes as both IsRange and IsApproximate? Let me check the modifiers. The user mentioned IsApproximate for things like "around", but here the tilde is part of the range. Hmm. The example given for IsRange is "1.5-2.6m" without a tilde, but here the tilde might indicate approximation. Maybe both IsRange and IsApproximate apply. But the instruction says modifiers like "around" would be IsApproximate. The tilde here is part of the Quantity span. So I should include both modifiers: ["IsRange", "IsApproximate"] for those quantities.
+
+Now, looking for MeasuredEntities and MeasuredProperties. "Active layer thickness" – thickness is the MeasuredProperty, active layer is the MeasuredEntity. Similarly, "polymer-fullerene composition" might be a MeasuredEntity with composition as MeasuredProperty. But in the text, they mention "80 vol% of C60", so the MeasuredEntity here is C60, and the MeasuredProperty is composition. Wait, but "composition" is part of the parameters varied. Let me think. The BHJ has 80 vol% C60, so the MeasuredEntity is BHJ, and the composition (polymer-fullerene) is the MeasuredProperty? Or is the composition itself the MeasuredEntity? Maybe the MeasuredEntity here is BHJ, and composition is a MeasuredProperty. Then "80 vol%" is the Quantity linked to composition. Similarly, thickness is a MeasuredProperty of the active layer (MeasuredEntity).
+
+For the annealing parameters, temperature and time are MeasuredProperties of the post-production thermal annealing process. So MeasuredEntity would be "post-production thermal annealing" and MeasuredProperties are temperature and time. But in the text, when they talk about optimization of annealing temperature and time, those are MeasuredProperties. 
+
+In the initial experiments, BHJ with 80 vol% C60 and thickness 70 nm. So "BHJ" is the MeasuredEntity here, and its properties are composition (80 vol%) and thickness (70 nm). Then device characteristics (Jsc and Voc) are MeasuredProperties, each with their own Quantities (the ranges). 
+
+The Jsc and Voc are MeasuredProperties of the device, with their values as Quantities. The MeasuredEntity here might be the device. 
+
+Also, "four main parameters" are listed: active layer thickness (property), polymer–fullerene composition (property), annealing temperature (property), annealing time (property). Each of these parameters would have their own Quantities when varied. But in the input, the specific values given are 80 vol%, 70 nm, and the Jsc and Voc values.
+
+Now, Qualifiers: Not sure if there are any here. The phrase "In order to see the effect of annealing..." might be a qualifier, but it's a purpose clause. However, the example in the guidelines used "after I drank half the can" as a Qualifier. Here, "In order to..." is more of a purpose, maybe not a Qualifier affecting the Quantity. So perhaps no Qualifiers here.
+
+Putting this together:
+
+AnnotSet 1: The four parameters. The Quantity is "four main parameters" (IsCount). MeasuredEntity would be the parameters themselves? Or the parameters are MeasuredProperties. Wait, the parameters are active layer thickness, composition, annealing temperature, and time. So each of these is a MeasuredProperty. But the phrase "four main parameters" is a count. So MeasuredEntity might be something like "parameters", MeasuredProperty is each parameter type, but maybe in this case, the Quantity "four" is just a count of parameters, so the MeasuredEntity is "parameters", and the Quantity is four (IsCount). But the parameters themselves are listed as properties. Hmm, this might need splitting into multiple sets.
+
+Wait, perhaps "four main parameters" is a Quantity (IsCount) with MeasuredEntity being "parameters". Then each parameter (thickness, composition, temperature, time) are MeasuredProperties. But the way the text is written, they are varying these parameters, so each parameter is a MeasuredProperty of their respective MeasuredEntities. For example, active layer thickness is a property of the active layer (MeasuredEntity), polymer-fullerene composition is a property of the BHJ, annealing temperature is a property of the annealing process. But the original input is a bit more complex.
+
+Alternatively, maybe the first annotSet is about the four parameters as MeasuredEntities, with the count of four. But I'm not sure. Let's proceed with the specific quantities given.
+
+Looking at "80 vol% of C60": Quantity is 80 vol%, MeasuredEntity is C60, MeasuredProperty is composition. Wait, the text says "BHJ with 80 vol% of C60", so BHJ is the MeasuredEntity, composition is the MeasuredProperty (polymer-fullerene composition), and the Quantity is 80 vol%. Then "thickness of 70 nm": thickness is MeasuredProperty, active layer is MeasuredEntity, Quantity is 70 nm.
+
+For Jsc and Voc: These are MeasuredProperties (short-circuit current density and open-circuit voltage), their Quantities are the ranges given. The MeasuredEntity here is the device. The Jsc is ∼2–3 mA/cm², so Quantity with IsRange and IsApproximate. Similarly for Voc.
+
+Then the annealing parameters: when optimizing annealing temperature and time, those are MeasuredProperties of the annealing process (MeasuredEntity), but in the text, it's mentioned that optimization had to be performed. The actual values for temperature and time aren't given here, except in the initial experiments where they found BHJ with 80 vol% C60 and 70 nm thickness. So maybe those are part of the same set.
+
+Putting this into annotSets:
+
+AnnotSet 1: "four main parameters" as Quantity (IsCount). The MeasuredEntity is "parameters", and perhaps the MeasuredProperty isn't directly mentioned here. But maybe this is a standalone Quantity.
+
+AnnotSet 2: "80 vol%" as Quantity (unit=vol%), linked to MeasuredEntity "BHJ" and MeasuredProperty "composition".
+
+AnnotSet 3: "70 nm" as Quantity (unit=nm), linked to MeasuredEntity "active layer" and MeasuredProperty "thickness".
+
+AnnotSet 4: Jsc ∼2–3 mA/cm² as Quantity (unit=mA/cm², mods=IsRange, IsApproximate), linked to MeasuredEntity "device" and MeasuredProperty "Jsc".
+
+AnnotSet 5: Voc ∼0.40–0.45 V as Quantity (unit=V, mods=IsRange, IsApproximate), linked to MeasuredEntity "device" and MeasuredProperty "Voc".
+
+Now, checking relationships. Each set should group related annotations. For example, in AnnotSet 2:
+
+- Quantity T2: 80 vol% (unit=vol%, no mods)
+- MeasuredEntity T1: BHJ (HasQuantity: T2)
+- MeasuredProperty T3: composition (HasProperty: T1, HasQuantity: T2)
+
+Wait, but the text says "BHJ with 80 vol% of C60". Does the composition refer to C60's percentage in BHJ? So MeasuredEntity is BHJ, MeasuredProperty is composition (of C60), Quantity is 80 vol%.
+
+But perhaps the MeasuredEntity is C60? No, because the BHJ has a composition of C60 at 80 vol%. So BHJ is the entity, composition is the property, and 80 vol% is the quantity.
+
+Similarly for thickness: active layer (entity) has thickness (property) of 70 nm (quantity).
+
+For Jsc and Voc, they are properties of the device (entity), with their respective quantities.
+
+So the annotSets should be structured accordingly.
+
+Now, let's start building the TSV.
+
+First annotSet (four main parameters):
+
+annotSet 1:
+- Quantity: "four main parameters" (mods: IsCount, since it's a count of parameters)
+- MeasuredEntity: "parameters" (if any). But the parameters are the MeasuredProperties, so maybe this is a standalone Quantity. The instruction says if no entity exists, Quantity can be standalone. So maybe annotSet 1 has only the Quantity with IsCount, and no other entities. But the example grouped each Quantity with its entity and property. However, in the example given in the instructions, "four samples" was a Quantity (IsCount) linked to a MeasuredEntity "samples". So here, "four main parameters" would have MeasuredEntity "parameters". But the text refers to "four main parameters—active layer thickness...", so parameters here are the list. So MeasuredEntity is "parameters", Quantity is "four", and the MeasuredProperties would be each parameter, but they are listed as the parameters themselves. But since the text is about varying these parameters, maybe the parameters are the MeasuredEntities. Hmm, this is getting complicated. Let me look at the example again.
+
+In the example, "five apples" is Quantity (IsCount) linked to MeasuredEntity "apples". So "four main parameters" would be Quantity (four) linked to MeasuredEntity "parameters". So annotSet 1:
+
+annotSet 1:
+- Quantity T1: "four" (text is "four", but in the input it's "four main parameters"). Wait, the exact text is "four main parameters". But the Quantity is the count, which is "four". However, the entire phrase "four main parameters" is a count of parameters, so the text should be "four main parameters" with IsCount. Wait, but according to the definition, Quantity is a value that can be a count, so "four" is the value, but the text includes "main parameters". Wait, this is ambiguous. The example had "five samples" as the Quantity text. So maybe "four main parameters" is the entire Quantity span, with "four" as the number and "main parameters" as the entity. But according to the instruction, Quantity may include the entity if it's part of the quantity phrase. For example, "five samples" is a Quantity (count) with IsCount. So here, "four main parameters" would be the Quantity text, with IsCount mod. Then the MeasuredEntity would be "parameters" (text "parameters"), but how to split that? The example had "five samples" as Quantity, then MeasuredEntity "samples". So similarly, "four main parameters" as Quantity (text "four main parameters"), then MeasuredEntity "parameters" (text "parameters"), but that would require splitting the span. But according to the guidelines, the text should be the exact span. So if the exact span is "four main parameters", then annotating that as a Quantity with IsCount, and the MeasuredEntity would be "parameters" (text "parameters"), but that's part of the same span. This is tricky. Maybe in this case, "four main parameters" is a Quantity (IsCount) with text "four main parameters", and the MeasuredEntity is "parameters". But then "main parameters" is part of the Quantity and also the MeasuredEntity? That might not be right. Alternatively, the Quantity is "four", and the MeasuredEntity is "main parameters". But the example included "five samples" as the Quantity text. So perhaps "four main parameters" is the Quantity text, with mod IsCount, and the MeasuredEntity is "main parameters". But the user's example had "five samples" as the Quantity, so maybe the entire phrase is the Quantity. Then, the MeasuredEntity would be redundant? Hmm. This is confusing. Let's proceed with the entire phrase as Quantity, as in the example. So annotSet 1:
+
+annotSet    annotType           annotId    text                other
+1           Quantity            T1         four main parameters  {"mods": ["IsCount"]}
+1           MeasuredEntity      T2         parameters           {"HasQuantity": "T1"}
+
+But the text for T2 is "parameters" which is part of the Quantity's text. Not sure if that's correct, but following the example where "five samples" is the Quantity and "samples" is the MeasuredEntity. So in that case, "five samples" is Quantity, and "samples" is MeasuredEntity. Similarly, "four main parameters" would be Quantity, and "parameters" is MeasuredEntity. So the text for T2 is "parameters", which is part of the original "main parameters" in the input. Wait, the actual text is "four main parameters". So "main parameters" is the noun phrase. Should the MeasuredEntity be "main parameters" or just "parameters"? The example used "samples" from "five samples". So perhaps here, the MeasuredEntity is "main parameters", but that's not exact. The exact text is "four main parameters", so the noun is "parameters" with "main" as an adjective. So the MeasuredEntity is "parameters", text "parameters". But how to extract "parameters" from "four main parameters"? This might require overlapping annotations, which is allowed. So the Quantity T1 is "four main parameters", and MeasuredEntity T2 is "parameters" (text "parameters") linked via HasQuantity. However, the user's example extracted "soda can" from "The soda can's volume...", which was part of a larger sentence. So perhaps here, the MeasuredEntity is "parameters" and the text is "parameters", even though in the input it's "main parameters". Wait, but the exact text is "four main parameters—active layer thickness...". So the MeasuredEntity "parameters" is mentioned as "main parameters". But how to get "parameters" as the text? Maybe the actual MeasuredEntity here is "active layer thickness", "polymer–fullerene composition", etc., as they are the parameters. This is getting too complicated. Let's see. Maybe "four main parameters" is a standalone Quantity with IsCount, and no MeasuredEntity or MeasuredProperty, since the parameters are listed after the dash. But according to the example, counts are linked to entities. Alternatively, perhaps this part is better left as a Quantity without a MeasuredEntity, but the guidelines say to link if possible. Given the complexity, maybe annotSet 1 is:
+
+1           Quantity            T1         four main parameters  {"mods": ["IsCount"]}
+
+No MeasuredEntity since it's not clear, but according to the guidelines, if possible link. But without a clear entity, maybe it's standalone. However, the example linked "five samples" to "samples". So perhaps here, "main parameters" is the MeasuredEntity. But the exact text would be "main parameters". Hmm.
+
+Alternatively, since the parameters are listed (active layer thickness, etc.), maybe each parameter is a MeasuredProperty in their own annotSets. But the initial "four main parameters" is a count of those properties. So perhaps the four main parameters are the MeasuredProperties themselves, and the count is their quantity. But this is getting too tangled. Maybe proceed with the specific quantities given later, and handle "four main parameters" as a standalone Quantity with IsCount, even if it's not linked. But the example suggests linking. Given the uncertainty, perhaps proceed with:
+
+AnnotSet 1:
+- Quantity: "four main parameters" with mods IsCount.
+- MeasuredEntity: "parameters" (text "parameters"), linked via HasQuantity.
+
+But the text for MeasuredEntity is "parameters", which is part of "four main parameters". This is allowed as annotations can overlap. So:
+
+annotSet    annotType           annotId    text                other
+1           Quantity            T1         four main parameters  {"mods": ["IsCount"]}
+1           MeasuredEntity      T2         parameters           {"HasQuantity": "T1"}
+
+Wait, but "parameters" in the text is plural. The example had "samples" linked to the Quantity "five samples". So this is similar.
+
+Now, moving to "80 vol% of C60". The text says "BHJ with 80 vol% of C60". So:
+
+AnnotSet 2:
+- Quantity: "80 vol%" (text), unit: vol%, no mods.
+- MeasuredEntity: "BHJ" (text)
+- MeasuredProperty: "composition" (since it's the polymer-fullerene composition). The text mentions "80 vol% of C60", so composition refers to C60's percentage in the BHJ. So MeasuredProperty is "composition", linked to BHJ via HasProperty, and linked to the Quantity via HasQuantity.
+
+So:
+
+annotSet    annotType           annotId    text                other
+2           Quantity            T1         80 vol%            {"unit": "vol%"}
+2           MeasuredEntity      T2         BHJ                {"HasQuantity": "T1"}
+2           MeasuredProperty    T3         composition        {"HasQuantity": "T1", "HasProperty": "T2"}
+
+Wait, but the full phrase is "80 vol% of C60". So maybe the MeasuredEntity is C60? But the BHJ has the composition. So perhaps BHJ is the MeasuredEntity, composition is the property, and the Quantity is 80 vol%. The "of C60" is part of the quantity's context but not the MeasuredEntity. So "BHJ" is the entity, composition is property, 80 vol% is quantity. That makes sense.
+
+Next, "thickness of 70 nm":
+
+AnnotSet 3:
+- Quantity: "70 nm" (unit: nm)
+- MeasuredEntity: "active layer"
+- MeasuredProperty: "thickness"
+
+So:
+
+annotSet    annotType           annotId    text                other
+3           Quantity            T1         70 nm              {"unit": "nm"}
+3           MeasuredEntity      T2         active layer       {"HasQuantity": "T1"}
+3           MeasuredProperty    T3         thickness          {"HasQuantity": "T1", "HasProperty": "T2"}
+
+Then the Jsc and Voc values:
+
+AnnotSet 4:
+- Quantity: "2–3 mA/cm²" (text is "Jsc∼2–3 mA/cm²", but the quantity is "2–3 mA/cm²", unit: mA/cm², mods: IsRange, IsApproximate due to ∼)
+- MeasuredEntity: "device"
+- MeasuredProperty: "Jsc"
+
+So:
+
+annotSet    annotType           annotId    text                other
+4           Quantity            T1         2–3 mA/cm²         {"unit": "mA/cm²", "mods": ["IsRange", "IsApproximate"]}
+4           MeasuredEntity      T2         device             {"HasQuantity": "T1"}
+4           MeasuredProperty    T3         Jsc                {"HasQuantity": "T1", "HasProperty": "T2"}
+
+Similarly for Voc:
+
+AnnotSet 5:
+- Quantity: "0.40–0.45 V" (text is "Voc∼0.40–0.45 V"), unit: V, mods: IsRange, IsApproximate
+- MeasuredEntity: "device"
+- MeasuredProperty: "Voc"
+
+annotSet    annotType           annotId    text                other
+5           Quantity            T1         0.40–0.45 V        {"unit": "V", "mods": ["IsRange", "IsApproximate"]}
+5           MeasuredEntity      T2         device             {"HasQuantity": "T1"}
+5           MeasuredProperty    T3         Voc                {"HasQuantity": "T1", "HasProperty": "T2"}
+
+Now, "previously reported planar heterojunction devices" is referenced, but no quantities there. The "37" in brackets is a citation and not a quantity.
+
+Additionally, the annealing parameters are mentioned, but their specific quantities (temperature and time) are not given in the text except as parameters to optimize. So no Quantity annotations for them unless values are provided.
+
+Putting it all together, the TSV should have five annotSets (1 to 5), each with Quantity, MeasuredEntity, and MeasuredProperty as needed.
+
+Check for any missed Quantities. The initial experiments also mention "a thickness of 70 nm"—we have that. The device characteristics are covered. The citation [37] is not a quantity. The "post-production thermal annealing temperature and time" are parameters but without specific values here. So no quantities for them.
+
+Thus, the final TSV should look like:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	four main parameters	{"mods": ["IsCount"]}
+1	MeasuredEntity	T2	parameters	{"HasQuantity": "T1"}
+2	Quantity	T1	80 vol%	{"unit": "vol%"}
+2	MeasuredEntity	T2	BHJ	{"HasQuantity": "T1"}
+2	MeasuredProperty	T3	composition	{"HasQuantity": "T1", "HasProperty": "T2"}
+3	Quantity	T1	70 nm	{"unit": "nm"}
+3	MeasuredEntity	T2	active layer	{"HasQuantity": "T1"}
+3	MeasuredProperty	T3	thickness	{"HasQuantity": "T1", "HasProperty": "T2"}
+4	Quantity	T1	2–3 mA/cm²	{"unit": "mA/cm²", "mods": ["IsRange", "IsApproximate"]}
+4	MeasuredEntity	T2	device	{"HasQuantity": "T1"}
+4	MeasuredProperty	T3	Jsc	{"HasQuantity": "T1", "HasProperty": "T2"}
+5	Quantity	T1	0.40–0.45 V	{"unit": "V", "mods": ["IsRange", "IsApproximate"]}
+5	MeasuredEntity	T2	device	{"HasQuantity": "T1"}
+5	MeasuredProperty	T3	Voc	{"HasQuantity": "T1", "HasProperty": "T2"}
+
+I need to ensure that each annotSet is numbered correctly, and within each set, annotIds are T1, T2, etc. Wait, in the example provided, each annotSet starts with T1, T2, etc., within the set. So within annotSet 1: T1, T2. AnnotSet 2: T1, T2, T3. But in the example given, the first set has Quantity T1, MeasuredEntity T2, MeasuredProperty T3. Wait no, in the example, each annotSet has its own T1, T2 etc. For example:
+
+In the example, for the first set (1), annotIds are T1, T2, T3. Set 2 has T4, T5, T6. So each annotSet has its own sequential annotIds. But perhaps in this problem, each annotSet's annotIds start at T1. Wait looking at the example:
+
+Example Output:
+
+annotSet    annotType           annotId    text                other
+1           Quantity            T1         approximately 25°C  {"unit": "°C", "mods": ["IsApproximate"]}
+1           MeasuredEntity      T2         solution            {"HasQuantity": "T1"}
+1           MeasuredProperty    T3         temperature         {"HasQuantity": "T1", "HasProperty": "T2"}
+2           Quantity            T4         500 milliliters     {"unit": "milliliters"}
+2           MeasuredEntity      T5         solvent             {"HasQuantity": "T4"}
+2           MeasuredProperty    T6         volume              {"HasQuantity": "T4", "HasProperty": "T5"}
+
+Ah, no. The annotIds are unique across the entire output, not per annotSet. The first annotSet has T1, T2, T3; the second has T4, T5, T6, etc. So in the current problem, annotIds must be unique and sequential across all sets. However, in the user's problem statement, the Output Format says "annotId: A unique identifier for the annotation (e.g., T1, T2), numbered sequentially within each annotSet." Wait, no—the example shows annotIds like T1, T2, T3 in annotSet 1, then T4, T5, T6 in annotSet 2. So the annotIds are sequential across all sets, not within each set. But the instruction says "annotId: A unique identifier for the annotation (e.g., T1, T2), numbered sequentially within each annotSet." Wait, looking back:
+
+In the Output Format description:
+
+- annotId: A unique identifier for the annotation (e.g., T1, T2), numbered sequentially within each annotSet.
+
+Wait, that's conflicting with the example. In the example, for annotSet 1, the annotIds are T1, T2, T3; for annotSet 2, T4, T5, T6. But according to the instruction, if they are numbered sequentially within each annotSet, then annotSet 1 would have T1-1, T1-2, etc., but the example uses global numbering. This is a confusion. Let me check the problem statement again.
+
+The user provided an example where for each annotSet, the annotIds start from T1. For instance:
+
+1           Quantity            T1         approximately 25°C  
+1           MeasuredEntity      T2         solution            
+1           MeasuredProperty    T3         temperature         
+
+But in the initial instruction, under "Output Format (TSV Fields)":
+
+- annotId: A unique identifier for the annotation (e.g., T1, T2), numbered sequentially within each annotSet.
+
+Ah, so within each annotSet, the annotId starts at T1, T2, etc. But in the example given, the annotIds increment globally. This is contradictory. The user's example uses global annotIds (T1, T2, T3 for set 1; T4, T5, T6 for set 2), but the instruction says "numbered sequentially within each annotSet".
+
+This is a problem. But following the example provided by the user, the annotIds are unique across all sets, incrementing globally. Thus, in our case, we should follow the example's pattern, even if the instruction says "within each annotSet". Therefore, annotIds must be unique across all sets, incrementing T1, T2, T3, T4, etc.
+
+But this is conflicting. Given the example, I'll proceed with global unique annotIds.
+
+Wait, the example shows:
+
+For annotSet 1: T1, T2, T3.
+
+annotSet 2: T4, T5, T6.
+
+annotSet 3: T7, T8, T9.
+
+So each new annotSet continues the annotId numbering from where the previous left off. Therefore, annotIds are unique and sequential across all annotSets.
+
+But the instruction says "numbered sequentially within each annotSet". This is a contradiction. The example is correct per the user's provided example, so we should follow that. Therefore, in our problem, the annotIds should be sequential globally, not per annotSet.
+
+Thus, in our case, first annotSet:
+
+1: T1 (Quantity), T2 (ME), T3 (MP)
+
+Second annotSet:
+
+2: T4 (Quantity), T5 (ME), T6 (MP)
+
+Third annotSet:
+
+3: T7 (Quantity), T8 (ME), T9 (MP)
+
+Fourth annotSet:
+
+4: T10 (Quantity), T11 (ME), T12 (MP)
+
+Fifth annotSet:
+
+5: T13 (Quantity), T14 (ME), T15 (MP)
+
+But Wait, in the input text, there are four main parameters, but the example for "four main parameters" would have only one annotSet (annotSet 1) with T1 and T2. Then the next annotSets (BHJ, active layer, Jsc, Voc) would have T3 onward.
+
+But this is time-consuming. To resolve this, perhaps the annotId should be unique across all annotSets, incrementing T1, T2, T3, etc. However, the example provided by the user shows annotSet 1 with T1, T2, T3; annotSet 2 with T4, T5, T6; which suggests that annotIds are unique and increment globally.
+
+Therefore, following the example, our TSV should have annotIds incrementing globally, not resetting per annotSet.
+
+Now, adjusting the previous annotSets with global annotIds:
+
+annotSet 1:
+
+- T1: Quantity (four main parameters)
+- T2: MeasuredEntity (parameters)
+
+annotSet 2:
+
+- T3: Quantity (80 vol%)
+- T4: MeasuredEntity (BHJ)
+- T5: MeasuredProperty (composition)
+
+annotSet 3:
+
+- T6: Quantity (70 nm)
+- T7: MeasuredEntity (active layer)
+- T8: MeasuredProperty (thickness)
+
+annotSet 4:
+
+- T9: Quantity (2–3 mA/cm²)
+- T10: MeasuredEntity (device)
+- T11: MeasuredProperty (Jsc)
+
+annotSet 5:
+
+- T12: Quantity (0.40–0.45 V)
+- T13: MeasuredEntity (device)
+- T14: MeasuredProperty (Voc)
+
+Then, the relationships would refer to the correct annotIds.
+
+But let's verify:
+
+In annotSet 1, T1 is Quantity, T2 is MeasuredEntity with HasQuantity: T1.
+
+In annotSet 2, T3 is Quantity, T4 is MeasuredEntity with HasQuantity: T3, T5 is MeasuredProperty with HasQuantity: T3 and HasProperty: T4.
+
+Yes.
+
+So the TSV should be structured as follows:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	four main parameters	{"mods": ["IsCount"]}
+1	MeasuredEntity	T2	parameters	{"HasQuantity": "T1"}
+2	Quantity	T3	80 vol%	{"unit": "vol%"}
+2	MeasuredEntity	T4	BHJ	{"HasQuantity": "T3"}
+2	MeasuredProperty	T5	composition	{"HasQuantity": "T3", "HasProperty": "T4"}
+3	Quantity	T6	70 nm	{"unit": "nm"}
+3	MeasuredEntity	T7	active layer	{"HasQuantity": "T6"}
+3	MeasuredProperty	T8	thickness	{"HasQuantity": "T6", "HasProperty": "T7"}
+4	Quantity	T9	2–3 mA/cm²	{"unit": "mA/cm²", "mods": ["IsRange", "IsApproximate"]}
+4	MeasuredEntity	T10	device	{"HasQuantity": "T9"}
+4	MeasuredProperty	T11	Jsc	{"HasQuantity": "T9", "HasProperty": "T10"}
+5	Quantity	T12	0.40–0.45 V	{"unit": "V", "mods": ["IsRange", "IsApproximate"]}
+5	MeasuredEntity	T13	device	{"HasQuantity": "T12"}
+5	MeasuredProperty	T14	Voc	{"HasQuantity": "T12", "HasProperty": "T13"}
+
+This should be the correct TSV output.

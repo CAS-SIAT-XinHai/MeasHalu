@@ -1,0 +1,6 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0032063313003218-5227	1	Quantity	50	55	T1	700 K	"{""unit"": ""K"", ""mods"": []}"
+S0032063313003218-5227	1	MeasuredEntity	4	28	T2	Jovian upper atmospheric	"{""HasQuantity"": ""T1""}"
+S0032063313003218-5227	1	MeasuredProperty	29	40	T3	temperature	"{""HasQuantity"": ""T1""}"
+S0032063313003218-5227	2	Quantity	249	257	T4	40 years	"{""unit"": ""years"", ""mods"": [""IsCount""]}"
+S0032063313003218-5227	2	MeasuredEntity	229	239	T5	scientists	"{""HasQuantity"": ""T4""}"

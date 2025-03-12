@@ -1,0 +1,12 @@
+docId	annotSet	annotType	annotId	text	other
+S0167577X13006393-787	1	Quantity	T1	1.37	"{""unit"": ""ratio"", ""mods"": []}"
+S0167577X13006393-787	1	MeasuredEntity	T2	HA nanoparticles	"{""HasQuantity"": ""T1""}"
+S0167577X13006393-787	1	MeasuredProperty	T3	Ca/P ratio	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0167577X13006393-787	1	Qualifier	T4	deficient in calcium	"{""Qualifies"": ""T2""}"
+S0167577X13006393-787	2	Quantity	T5	1.67	"{""unit"": ""ratio"", ""mods"": []}"
+S0167577X13006393-787	2	MeasuredEntity	T6	pure HA	"{""HasQuantity"": ""T5""}"
+S0167577X13006393-787	2	MeasuredProperty	T7	ratio	"{""HasQuantity"": ""T5"", ""HasProperty"": ""T6""}"
+S0167577X13006393-787	3	Quantity	T8	1200 °C	"{""unit"": ""°C"", ""mods"": []}"
+S0167577X13006393-787	3	MeasuredEntity	T9	HA decomposition	"{""HasQuantity"": ""T8""}"
+S0167577X13006393-787	3	MeasuredProperty	T10	temperature	"{""HasQuantity"": ""T8"", ""HasProperty"": ""T9""}"
+S0167577X13006393-787	3	Qualifier	T11	before	"{""Qualifies"": ""T8""}"

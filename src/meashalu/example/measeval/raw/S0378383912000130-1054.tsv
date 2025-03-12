@@ -1,0 +1,5 @@
+docId	annotSet	annotType	annotId	text	other
+S0378383912000130-1054	1	Quantity	T1	8.5 mm	"{""unit"": ""mm""}"
+S0378383912000130-1054	1	MeasuredEntity	T2	beach	"{""HasQuantity"": ""T1""}"
+S0378383912000130-1054	2	Qualifier	T4	shaded area	"{""Qualifies"": ""T3""}"
+S0378383912000130-1054	2	Qualifier	T5	dark lines	"{""Qualifies"": ""T3""}"

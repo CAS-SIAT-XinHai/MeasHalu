@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S1550413113004920-1550	1	Quantity	9	11	T1	S1	"{""mods"": [""IsCount""]}"
+S1550413113004920-1550	1	MeasuredEntity	0	8	T2	Document	"{""HasQuantity"": ""T1""}"
+S1550413113004920-1550	2	Quantity	9	11	T3	S1	"{""mods"": [""IsCount""]}"
+S1550413113004920-1550	2	MeasuredEntity	13	19	T4	Figure	"{""HasQuantity"": ""T3""}"
+S1550413113004920-1550	3	Quantity	34	39	T5	S1–S3	"{""mods"": [""IsRange"", ""IsCount""]}"
+S1550413113004920-1550	3	MeasuredEntity	27	33	T6	Tables	"{""HasQuantity"": ""T5""}"

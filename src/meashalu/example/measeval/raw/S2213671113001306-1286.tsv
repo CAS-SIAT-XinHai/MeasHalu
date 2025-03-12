@@ -1,0 +1,6 @@
+docId	annotSet	annotType	annotId	text	other
+S2213671113001306-1286	1	Quantity	T1	4 weeks	"{""unit"": ""weeks""}"
+S2213671113001306-1286	1	MeasuredEntity	T2	hRPE monolayers	"{""HasProperty"": ""T3""}"
+S2213671113001306-1286	1	MeasuredProperty	T3	survival	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S2213671113001306-1286	1	Qualifier	T4	on PET carriers	"{""Qualifies"": ""T2""}"
+S2213671113001306-1286	1	Qualifier	T5	under the rabbit retina	"{""Qualifies"": ""T2""}"

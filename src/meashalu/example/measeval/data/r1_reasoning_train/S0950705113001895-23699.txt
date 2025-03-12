@@ -1,0 +1,314 @@
+Okay, let's start breaking down this input text to extract the necessary annotations. The goal is to identify quantities, measured entities, measured properties, and qualifiers, along with their relationships.
+
+First, reading through the paragraph. The main focus here seems to be on ratios and computational time related to algorithms. Let me look for quantities first.
+
+In the first sentence: "the x-coordinate pertains to the ratio of the number of the inserted objects and original data". The ratio here is a quantity. The text mentions "ratio" which is a measured property. The actual ratio value might be in the figures, but the text doesn't give specific numbers here. Hmm, maybe there are specific ratios mentioned later.
+
+Looking further: "the y-coordinate concerns the computational time". So computational time is another measured property here. Again, the text refers to axes in figures but doesn't give specific numbers. The next part says "computational time of both static (Algorithm 1) and incremental (Algorithm 3) algorithms are increasing monotonically along with the increasing of insert ratios". So the insert ratios are the quantities here. The insert ratios are mentioned as increasing from 10% to 100%, and 85% in the last sentence.
+
+Wait, in the sentence "when the inserting ratio increases from 10% to 100% according to Fig. 4(a)–(e)", the 10% and 100% are quantities. Then in the last part, "inserting ratio is less than 85%", "more than 85%", so 85% is another quantity.
+
+So the quantities here are percentages: 10%, 100%, 85%, and also possibly "insert ratios" in general. But the specific numbers are 10%, 85%, and 100%. Let me note those.
+
+Next, the measured entities. The entities here would be the algorithms: static (Algorithm 1) and incremental (Algorithm 3). The measured properties are the computational time and the insert ratio. The x-coordinate is the ratio, y-coordinate is computational time. So the ratio is a measured property linked to the algorithms, and computational time is another measured property.
+
+The qualifiers might be parts like "in each sub-figures (a)–(f) of Fig. 4", "according to the experimental results as shown in Table 9 and Fig. 4", "when the inserting ratio increases from 10% to 100%", "when the inserting ratio is less than 85%", "when the inserting ratio is more than 85%". These provide context for the quantities and properties.
+
+Now, relationships. The measured entities (algorithms) have properties (computational time, insert ratio) which have quantities (percentages). The qualifiers like "according to Fig. 4(a)–(e)" would qualify the quantities or the measured entities.
+
+Let me start structuring the annotations:
+
+For each quantity, create an annotSet. The first quantity is 10%. The text is "10%". The measured entity would be "inserting ratio" (though "inserting ratio" is a property here). Wait, need to clarify. The ratio is the measured property, and the algorithms are the measured entities. Wait, maybe the measured entity is the "inserted objects and original data" ratio. Or perhaps the algorithms' performance is the entity. Hmm, this is a bit tricky.
+
+Wait, the x-coordinate is the ratio of inserted objects to original data. So the ratio here is a measured property of the data. The computational time (y-coordinate) is a measured property of the algorithms (static and incremental). So the measured entities would be the data (for the ratio) and the algorithms (for computational time). But the text refers to the insert ratio as increasing, affecting the computational time of the algorithms.
+
+So, for the quantity 10%, the measured property is "insert ratio" and the measured entity could be the data (ratio of inserted objects to original data). But the algorithms' computational time is measured as the insert ratio increases. So perhaps the insert ratio is a measured property of the data, which in turn affects the algorithms' computational time.
+
+But maybe the insert ratio here is a parameter being varied, so the measured entity might be the experiment or the algorithms under test. Hmm. Alternatively, considering that the insert ratio is a parameter in the experiment, and computational time is the result measured. So the insert ratio is a measured property (independent variable) and computational time is the measured property (dependent variable) of the algorithms.
+
+So for each quantity (10%, 85%, 100%):
+
+- Quantity: 10%, unit: percent, mods: IsRange (since it's part of a range from 10% to 100%)
+Wait, the text says "increasing from 10% to 100%", which is a range. So "10% to 100%" is a range quantity. But in the input text, the exact span would be "from 10% to 100%". So maybe that's a single quantity with IsRange. Similarly, "less than 85%" and "more than 85%".
+
+But in the input, "inserting ratio increases from 10% to 100%" – "10% to 100%" is a range. So that's one quantity span with IsRange. Then "less than 85%" and "more than 85%" are separate quantities with modifiers.
+
+But the initial analysis needs to extract all quantities. Let's check the text again.
+
+Quotes with quantities:
+
+- "from 10% to 100%": this is a range, so the quantity here is "10% to 100%", which is a range. So this would be a single Quantity with IsRange modifier.
+
+- "the inserting ratio is less than 85%": here, "less than 85%" – the quantity is 85%, with a qualifier "less than".
+
+- "the inserting ratio is more than 85%": "more than 85%", same quantity 85%, with "more than".
+
+But according to the annotation steps, the Quantity should include modifiers if adjacent. So "less than 85%" would be the entire Quantity span, and the modifier "IsApproximate" may not fit here. Alternatively, maybe "IsRange" is for spans like "10-100%". But "less than" or "more than" could be considered as ranges or as modifiers. The problem is that the modifier list includes IsApproximate, IsCount, IsRange, IsList, etc. "Less than" and "more than" might be considered as qualifiers, but according to step 1, if the modifier is adjacent to the quantity, include it in the quantity span. So "less than 85%" would be the quantity text, and in the modifiers, perhaps IsRange? Or maybe a new modifier like IsUpperBound or IsLowerBound. But according to the given modifiers, maybe the closest is IsApproximate, but "less than" is not approximate. Hmm.
+
+Alternatively, the quantity is "85%", and "less than" is a qualifier. But according to the instructions, if a modifier is adjacent, include it in the quantity span. So "less than 85%" as a quantity with a modifier indicating it's an upper bound. But the available modifiers don't have upper or lower bounds. The possible modifiers are IsApproximate, IsCount, IsRange, IsList, etc. So maybe in this case, "less than 85%" would be considered as a quantity with "less than" as part of the text, and no specific modifier unless it's a range. But "less than 85%" is a single value, not a range. So perhaps the quantity here is "85%" with a qualifier "less than".
+
+Wait, this is a bit ambiguous. Let's refer back to the example. In the example, "approximately 25°C" was included in the Quantity text with IsApproximate. Similarly, "less than 85%" would be a Quantity span of "less than 85%", and the modifier could be something. But the available modifiers don't include 'less than', but maybe the unit here is percent, and mods could be left blank. Alternatively, maybe we need to create a qualifier for "less than".
+
+But according to the instructions, qualifiers are spans that provide context, and if the modifier is adjacent to the quantity, include it in the quantity span, otherwise link via Qualifies.
+
+So in "less than 85%", "less than" is adjacent, so the entire span "less than 85%" is a Quantity. The modifier here would be... perhaps there's no specific modifier in the list. The modifiers provided are IsApproximate, IsCount, IsRange, IsList, IsMedian, IsMean, IsMeanHasSD. None of these fit "less than" or "more than". So in this case, perhaps the Quantity is "less than 85%", with unit "%", and no modifiers, but the text includes "less than" as part of the quantity. But according to the initial instruction, perhaps "less than" is part of the quantity's text, but not a modifier. So the 'other' field would just have unit: "%", mods: possibly empty. However, since "less than" indicates a range upper bound, perhaps IsRange? But IsRange is for when there's a range like 10-20%.
+
+Alternatively, since "less than 85%" is a single value with a condition, maybe there's no applicable modifier. So just unit and no mods. Then, the "less than" part is part of the quantity text but not a modifier. Then, perhaps a Qualifier is not needed here because the "less than" is part of the Quantity span. Hmm, but according to the example, "approximately" was included in the Quantity text and marked with IsApproximate. So maybe "less than" would be treated similarly, but since there's no modifier for upper/lower bound, maybe we just leave it as part of the text without a modifier.
+
+Alternatively, maybe "less than" and "more than" are considered as Qualifiers. But according to the instructions, Qualifiers are spans that are not adjacent. If the modifier is adjacent, include it in the Quantity. So "less than 85%" would be the Quantity, and the "less than" is part of the quantity's text, but there's no applicable modifier in the list. So perhaps no modifier is applied here. The same for "more than 85%".
+
+Now, moving on. The next step is to identify MeasuredEntities and MeasuredProperties.
+
+The x-coordinate pertains to the ratio (MeasuredProperty) of the number of inserted objects and original data (MeasuredEntity? Or is the ratio the MeasuredProperty, and the MeasuredEntity is the data?). The y-coordinate is computational time (MeasuredProperty) of the algorithms (MeasuredEntity: static and incremental algorithms).
+
+So the MeasuredEntities would be:
+
+- For ratio: "inserted objects and original data" (maybe the data is the entity, but the ratio is the property).
+
+Wait, the ratio is between inserted objects and original data. So the MeasuredEntity would be something like the dataset or the data objects. The MeasuredProperty is "ratio".
+
+But in the text, the x-coordinate is the ratio. The y-coordinate is computational time, which is a property of the algorithms (static and incremental). So the algorithms are the MeasuredEntities for the computational time.
+
+So for each quantity, we need to link to the MeasuredEntity and MeasuredProperty.
+
+For example, the quantity "10% to 100%" (range) relates to the insert ratio (MeasuredProperty), which is a property of the data (inserted objects and original data). The computational time (MeasuredProperty) is a property of the algorithms (MeasuredEntity).
+
+But in the sentences where the insert ratio increases from 10% to 100%, the computational time of the algorithms increases. So the insert ratio is a parameter, and the computational time is the result. So the MeasuredEntity for the insert ratio would be the experiment's parameters, and for computational time, it's the algorithms.
+
+This is getting a bit complicated. Let's structure each quantity along with their associated entities and properties.
+
+First, the quantities:
+
+1. "10% to 100%" in "increases from 10% to 100%" – this is a range, so Quantity with IsRange.
+2. "85%" in "less than 85%" and "more than 85%" – two separate quantities, "less than 85%" and "more than 85%", but since the actual value is 85%, perhaps the quantities are "85%" each, but with qualifiers. But according to the text spans, "less than 85%" and "more than 85%" are the exact phrases. So two quantities: "less than 85%" and "more than 85%".
+
+Wait, no. In the text, the exact phrases are:
+
+- "when the inserting ratio is less than 85%"
+- "when the inserting ratio is more than 85%"
+
+So the quantities here are "less than 85%" and "more than 85%", both including the "less than" and "more than" as part of the quantity text. So these are two separate quantities. Each would have "%" as the unit, and the modifiers... but according to the available modifiers, there's no "IsUpperBound" or similar, so perhaps they have no modifiers. Alternatively, maybe these are considered as ranges (IsRange), but since they are single values with inequalities, maybe not. So in this case, the Quantity would be the entire "less than 85%" with unit "%", and no modifiers. Similarly for "more than 85%".
+
+So now, the quantities identified are:
+
+- "10% to 100%" (IsRange, unit "%")
+- "less than 85%" (unit "%")
+- "more than 85%" (unit "%")
+
+Additionally, the phrase "inserting ratio is less than 85%" has "inserting ratio" as the MeasuredProperty, linked to the quantity "less than 85%".
+
+The MeasuredEntities for the insert ratio would be the data (inserted objects and original data), but the text says "the ratio of the number of the inserted objects and original data", so the MeasuredEntity is "the number of the inserted objects and original data" or maybe "inserted objects and original data".
+
+Wait, the x-coordinate pertains to the ratio of the number of inserted objects and original data. So the ratio is a MeasuredProperty of the data. So MeasuredEntity would be "the number of the inserted objects and original data", and MeasuredProperty is "ratio".
+
+But the way it's phrased, maybe the MeasuredEntity is the data (inserted objects and original data), and the MeasuredProperty is the ratio. Then, the quantity (e.g., 10% to 100%) is linked to the MeasuredProperty (ratio) via HasQuantity, and the MeasuredEntity (data) is linked to the MeasuredProperty via HasProperty.
+
+Similarly, the computational time (MeasuredProperty) is linked to the algorithms (MeasuredEntity: static and incremental algorithms).
+
+So for each quantity:
+
+1. "10% to 100%": part of the insert ratio (MeasuredProperty) of the data (MeasuredEntity).
+2. "less than 85%": part of the insert ratio (MeasuredProperty) of the data (MeasuredEntity).
+3. "more than 85%": part of the insert ratio (MeasuredProperty) of the data (MeasuredEntity).
+
+But also, the computational time quantities are mentioned in the figures but not as numerical values in the text. The text says computational time is increasing, but doesn't give specific numbers. So there are no quantities for computational time in the text, only references to the figures. Therefore, maybe only the insert ratio quantities are present.
+
+Wait, the text says "the computational time of both static ... and incremental ... algorithms are increasing monotonically along with the increasing of insert ratios." But there are no specific numerical values for computational time given here. So the quantities are all about the insert ratios (10% to 100%, 85%, etc.).
+
+So the MeasuredEntities and MeasuredProperties would be:
+
+- For insert ratio:
+  - MeasuredEntity: "the number of the inserted objects and original data" (from the x-coordinate description)
+  - MeasuredProperty: "ratio"
+
+- For computational time:
+  - MeasuredEntity: "static (Algorithm 1) and incremental (Algorithm 3) algorithms"
+  - MeasuredProperty: "computational time"
+
+But since there are no numerical quantities for computational time in the text, only references to the figures, perhaps we don't annotate them as quantities here. The quantities present are only the insert ratios.
+
+Now, Qualifiers. The qualifiers would be things like "in each sub-figures (a)–(f) of Fig. 4", "according to the experimental results as shown in Table 9 and Fig. 4", "when the inserting ratio increases from 10% to 100%", etc. These phrases provide context for the quantities.
+
+For example, "according to Fig. 4(a)–(e)" qualifies the statement about the algorithms' speed. So these would be Qualifiers linked to the quantities or MeasuredEntities/Properties.
+
+But according to the instructions, Qualifiers are spans that affect the interpretation. For instance, "after I drank half the can" qualifies the quantity in the example. Here, "when the inserting ratio increases from 10% to 100%" is a qualifier for the incremental algorithm being faster. Similarly, "in Fig. 4(f)" is a qualifier for the specific case where the ratio is 85%.
+
+So let's structure the annotations step by step.
+
+Starting with the first quantity: "10% to 100%".
+
+AnnotSet 1:
+- Quantity: "10% to 100%", unit "%", mods: ["IsRange"]
+- MeasuredProperty: "ratio" (from x-coordinate)
+- MeasuredEntity: "number of the inserted objects and original data" (from the x-coordinate description)
+- Relationships: MeasuredEntity has property MeasuredProperty, and MeasuredProperty has quantity Quantity.
+
+Then, the Qualifier "when the inserting ratio increases from 10% to 100%" would qualify this quantity, but how? The qualifier text is "when the inserting ratio increases from 10% to 100%". But the part "increases from 10% to 100%" is the quantity itself. So maybe the qualifier is the context in which the quantity is relevant, like "according to Fig. 4(a)–(e)".
+
+Wait, the sentence says "It is easy to get the incremental algorithm is always faster than the static algorithm when the inserting ratio increases from 10% to 100% according to Fig. 4(a)–(e)." So "according to Fig. 4(a)–(e)" is a qualifier for the statement about the algorithm's speed. But in terms of annotations, the Qualifier would be "according to Fig. 4(a)–(e)", which qualifies the quantity or the relationship between the algorithms' computational time and the insert ratio.
+
+This is getting a bit complicated. Let's try to map each part.
+
+First, quantity "10% to 100%":
+- annotSet 1
+- Quantity T1: "10% to 100%", unit "%", mods: IsRange
+- MeasuredEntity T2: "number of the inserted objects and original data"
+- MeasuredProperty T3: "ratio"
+- Relationships:
+  - T2 HasProperty T3
+  - T3 HasQuantity T1
+
+Then, there's a Qualifier "according to Fig. 4(a)–(e)" which qualifies this relationship or the quantity. The Qualifier would be "according to Fig. 4(a)–(e)", and it Qualifies the Quantity T1 or the MeasuredProperty T3.
+
+But in the example, the Qualifier "after I drank half the can" was linked to the quantity. So perhaps here, "according to Fig. 4(a)–(e)" is a Qualifier linked to T1.
+
+Then, another quantity "less than 85%":
+- annotSet 2
+- Quantity T4: "less than 85%", unit "%"
+- MeasuredProperty T5: "ratio"
+- MeasuredEntity T6: "number of the inserted objects and original data"
+- Relationships:
+  - T6 HasProperty T5
+  - T5 HasQuantity T4
+- Qualifier "in Fig. 4(f)" which qualifies this quantity.
+
+Similarly, "more than 85%":
+- annotSet 3
+- Quantity T7: "more than 85%", unit "%"
+- MeasuredProperty T8: "ratio"
+- MeasuredEntity T9: "number of the inserted objects and original data"
+- Relationships:
+  - T9 HasProperty T8
+  - T8 HasQuantity T7
+- Qualifier "in Fig. 4(f)" again.
+
+But wait, the MeasuredEntity and MeasuredProperty for all three quantities (10%-100%, less than 85%, more than 85%) are the same. So maybe all three quantities are under the same annotSet? Or each is in their own set.
+
+According to the example, each logical grouping has its own annotSet. For instance, each quantity and its related entities and properties form a set. But in this case, all three quantities relate to the same MeasuredEntity and MeasuredProperty. However, in the example, each quantity (25°C, 500 ml, 10g) had their own annotSet. So perhaps each quantity here gets its own annotSet.
+
+But wait, the example separated them because they were different measurements (temp, volume, amount). Here, all quantities relate to the same MeasuredProperty (ratio) and MeasuredEntity. But the example had different MeasuredProperties for each. So maybe here, each quantity is part of the same annotSet? Or different sets.
+
+But the instructions say "annotSet: The annotation set ID (starting from 1 for each logical grouping of related annotations)." So if they are related to the same entities and properties but different quantities, they could be in the same set. But in the example, each was a separate set. Hmm.
+
+Wait, in the example:
+
+- The first set was for temperature, solution, and the quantity.
+- The second set for volume, solvent, and quantity.
+- Third set for salt, amount, and quantity.
+
+So each was a separate logical group. Here, all the quantities are about the ratio of inserted objects to original data. So maybe they belong to the same annotSet. But the example separated them because each quantity was for a different property. Here, since the same MeasuredProperty and MeasuredEntity are involved, but different quantities, perhaps they should be in separate annotSets. But according to the example, it's per logical group. Maybe each quantity forms its own logical group with its related entities. But the entities are the same here.
+
+This is a bit ambiguous. Let me check the example again. In the example, each quantity was part of a different MeasuredEntity and MeasuredProperty, hence separate sets. Here, if the MeasuredEntity and MeasuredProperty are the same for all quantities, maybe they should be in the same set. But the example's structure suggests that each quantity with its own MeasuredEntity and MeasuredProperty forms a new set. So perhaps here, since the MeasuredEntity and MeasuredProperty are the same across quantities, the annotSet remains the same. But then, how to handle multiple quantities in one set.
+
+Alternatively, maybe each mention of a quantity with its related entities forms a new set. For example, when "10% to 100%" is mentioned, that's set 1. When "less than 85%" is mentioned, that's set 2, etc., even if they share the same MeasuredEntity and MeasuredProperty.
+
+But the example had separate sets for each quantity and their respective entities and properties. So following that, each quantity here would have its own annotSet.
+
+But for "10% to 100%", "less than 85%", and "more than 85%", each is a separate quantity with the same MeasuredEntity and MeasuredProperty. Thus, each would have their own annotSet, but the MeasuredEntity and MeasuredProperty would be repeated across sets.
+
+Alternatively, perhaps the MeasuredEntity and MeasuredProperty are defined once, and the quantities are different. But according to the example structure, each set includes the Quantity, MeasuredEntity, and MeasuredProperty linked together. So if the same MeasuredEntity and MeasuredProperty are used for different quantities, each quantity would form its own set with the same MeasuredEntity and MeasuredProperty. But this would lead to redundancy. However, based on the example, it seems each logical grouping has its own set, even if entities are repeated.
+
+Therefore, proceeding with separate annotSets:
+
+annotSet 1:
+- Quantity: 10% to 100%
+- MeasuredEntity: number of the inserted objects and original data
+- MeasuredProperty: ratio
+
+annotSet 2:
+- Quantity: less than 85%
+- MeasuredEntity: number of the inserted objects and original data
+- MeasuredProperty: ratio
+
+annotSet 3:
+- Quantity: more than 85%
+- MeasuredEntity: number of the inserted objects and original data
+- MeasuredProperty: ratio
+
+But this seems redundant. Alternatively, maybe the MeasuredEntity and MeasuredProperty are the same across all sets, so they can be part of the same set. But according to the example, each quantity is its own set. So perhaps the correct approach is to have separate annotSets for each quantity, even if they share the same entities and properties.
+
+Now, Qualifiers. For example, "according to Fig. 4(a)–(e)" qualifies the first quantity (10% to 100%). Similarly, "in Fig. 4(f)" qualifies the other two quantities. So each Qualifier is part of their respective annotSets.
+
+Additionally, the phrase "when the inserting ratio increases from 10% to 100%" includes a Qualifier "when the inserting ratio increases..." which may qualify the statement about the algorithms, but according to the annotation task, we need to link qualifiers to quantities, entities, or properties.
+
+This is getting quite complex. Let's try to structure each annotation step by step.
+
+First, extract all quantities:
+
+1. "10% to 100%" in "increases from 10% to 100%": Quantity with IsRange modifier.
+2. "less than 85%" in "ratio is less than 85%": Quantity, unit "%", no modifier.
+3. "more than 85%" in "ratio is more than 85%": Quantity, unit "%", no modifier.
+
+Next, MeasuredEntities and MeasuredProperties:
+
+- For all three quantities, the MeasuredProperty is "ratio" (from the x-coordinate).
+- The MeasuredEntity is "number of the inserted objects and original data".
+
+Qualifiers:
+
+- "according to Fig. 4(a)–(e)" qualifies the first quantity's context.
+- "in Fig. 4(f)" qualifies the latter two quantities.
+
+Now, building the TSV.
+
+annotSet 1:
+
+- Quantity T1: "10% to 100%", {"unit": "%", "mods": ["IsRange"]}
+- MeasuredEntity T2: "number of the inserted objects and original data", {"HasProperty": "T3"}
+- MeasuredProperty T3: "ratio", {"HasQuantity": "T1"}
+- Qualifier T4: "according to Fig. 4(a)–(e)", {"Qualifies": "T1"} (or maybe T3 or T2)
+
+Wait, the Qualifier "according to Fig. 4(a)–(e)" is in the sentence: "It is easy to get the incremental algorithm is always faster than the static algorithm when the inserting ratio increases from 10% to 100% according to Fig. 4(a)–(e)." So the qualifier here is "according to Fig. 4(a)–(e)", which qualifies the entire assertion about the algorithms' performance. But according to the annotation guidelines, Qualifiers should be linked to a specific Quantity, MeasuredEntity, or MeasuredProperty. Since the assertion is about the algorithms' speed in relation to the insert ratio, perhaps the Qualifier "according to Fig. 4(a)–(e)" qualifies the Quantity T1 or the MeasuredProperty T3.
+
+But the example had the Qualifier "after I drank half the can" linked to the Quantity. Similarly, here, "according to Fig. 4(a)–(e)" would qualify the Quantity T1.
+
+So:
+
+annotSet 1:
+annotType=Qualifier, annotId=T4, text="according to Fig. 4(a)–(e)", other={"Qualifies": "T1"}
+
+But wait, in the example, the Qualifier was linked to the Quantity. So in this case, "according to..." qualifies the Quantity T1.
+
+Similarly, "in Fig. 4(f)" is a qualifier for the other two quantities.
+
+So annotSet 2 and 3 would have Qualifiers linked to their respective quantities.
+
+But this requires each annotSet to have their own Qualifier. Let's proceed.
+
+annotSet 1:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	10% to 100%	{"unit": "%", "mods": ["IsRange"]}
+1	MeasuredEntity	T2	number of the inserted objects and original data	{"HasProperty": "T3"}
+1	MeasuredProperty	T3	ratio	{"HasQuantity": "T1"}
+1	Qualifier	T4	according to Fig. 4(a)–(e)	{"Qualifies": "T1"}
+
+annotSet 2:
+
+2	Quantity	T5	less than 85%	{"unit": "%"}
+2	MeasuredEntity	T6	number of the inserted objects and original data	{"HasProperty": "T7"}
+2	MeasuredProperty	T7	ratio	{"HasQuantity": "T5"}
+2	Qualifier	T8	in Fig. 4(f)	{"Qualifies": "T5"}
+
+annotSet 3:
+
+3	Quantity	T9	more than 85%	{"unit": "%"}
+3	MeasuredEntity	T10	number of the inserted objects and original data	{"HasProperty": "T11"}
+3	MeasuredProperty	T11	ratio	{"HasQuantity": "T9"}
+3	Qualifier	T12	in Fig. 4(f)	{"Qualifies": "T9"}
+
+But notice that the MeasuredEntity and MeasuredProperty are repeated in each set. This seems redundant but matches the example structure where each set is self-contained.
+
+Alternatively, perhaps the MeasuredEntity and MeasuredProperty are shared across sets, but according to the instructions, each logical grouping (annotSet) is separate. So this repetition is necessary.
+
+Additionally, there's another Qualifier in the input: "when the inserting ratio increases from 10% to 100%". The phrase "when the inserting ratio increases from 10% to 100%" would be a Qualifier linked to the quantity T1. But according to the annotation steps, if the modifier is part of the quantity span, include it. In this case, "increases from 10% to 100%" includes the quantity span "10% to 100%", which is already captured as T1. The "when the inserting ratio increases" part may be a Qualifier.
+
+But according to the current structure, "according to Fig. 4(a)–(e)" is the Qualifier. The "when the inserting ratio increases from 10% to 100%" is part of the sentence explaining the context. But how to annotate this.
+
+Alternatively, the entire clause "when the inserting ratio increases from 10% to 100%" could be a Qualifier for the algorithms' performance, which is outside the current annotations. But since the task is to annotate quantities, entities, properties, and qualifiers related to them, perhaps this clause is a Qualifier for the relationship between the algorithm's computational time and the ratio. However, since the computational time isn't a quantity here (no numerical value in the text), it's not annotated. Therefore, this clause may not be a Qualifier for the quantities we are annotating.
+
+Given the complexity, perhaps the main Qualifiers are "according to Fig. 4(a)–(e)" and "in Fig. 4(f)".
+
+Now, let's check if there are other quantities. The initial mention of sub-figures (a)–(f) of Fig. 4. The text refers to "sub-figures (a)–(f)" and "Fig. 4(a)–(e)", but these are likely Qualifiers rather than quantities.
+
+So the final TSV would have three annotSets as outlined above.

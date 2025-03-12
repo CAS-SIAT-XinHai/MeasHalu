@@ -1,0 +1,9 @@
+docId	annotSet	annotType	annotId	text	other
+S0168945213001805-5026	1	Quantity	T1	four-year-old	"{""unit"": ""years"", ""mods"": [""IsCount""]}"
+S0168945213001805-5026	1	MeasuredEntity	T2	wild-type cottonwood (P. trichocarpa)	"{""HasQuantity"": ""T1""}"
+S0168945213001805-5026	1	MeasuredProperty	T3	age	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0168945213001805-5026	2	Quantity	T4	13%	"{""unit"": ""%""}"
+S0168945213001805-5026	2	MeasuredEntity	T5	wild-type trees	"{""HasQuantity"": ""T4""}"
+S0168945213001805-5026	2	MeasuredProperty	T6	net growth	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"
+S0168945213001805-5026	3	Quantity	T7	three	"{""mods"": [""IsCount""]}"
+S0168945213001805-5026	3	MeasuredEntity	T8	beetle species	"{""HasQuantity"": ""T7""}"

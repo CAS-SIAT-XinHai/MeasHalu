@@ -1,0 +1,11 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S1161030113001950-923	1	Quantity	1127	1136	T1	4 classes	"{""mods"": [""IsCount""]}"
+S1161030113001950-923	1	MeasuredEntity	1129	1136	T2	classes	"{""HasQuantity"": ""T1""}"
+S1161030113001950-923	2	Quantity	1633	1642	T3	2 systems	"{""mods"": [""IsCount""]}"
+S1161030113001950-923	2	MeasuredEntity	1635	1642	T4	systems	"{""HasQuantity"": ""T3""}"
+S1161030113001950-923	3	Quantity	1725	1731	T5	90–95%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
+S1161030113001950-923	3	MeasuredEntity	1732	1745	T6	maximum yield	"{""HasQuantity"": ""T5""}"
+S1161030113001950-923	3	Qualifier	1746	1758	T8	for the year	"{""Qualifies"": ""T5""}"
+S1161030113001950-923	4	Quantity	1868	1877	T9	4–8 years	"{""unit"": ""years"", ""mods"": [""IsRange""]}"
+S1161030113001950-923	4	MeasuredEntity	1836	1858	T10	planned period of time	"{""HasQuantity"": ""T9""}"
+S1161030113001950-923	4	Qualifier	1860	1867	T11	usually	"{""Qualifies"": ""T9""}"

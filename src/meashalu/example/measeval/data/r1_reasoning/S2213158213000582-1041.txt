@@ -1,0 +1,227 @@
+Okay, let's tackle this. First, I need to extract the quantities from the input text. The input mentions "50 and 100 ms STG activity" twice. So, "50 ms" and "100 ms" are quantities here. Both instances have "ms" as the unit. Then, these quantities are part of the STG activity in both groups. 
+
+Next, the MeasuredEntities would be "STG activity" and "non-STG activity" since they are the entities being measured. The MeasuredProperties might be aspects like "bilateral" or "stronger", but wait, "bilateral" is more of a qualifier indicating location. The properties here are probably the activity itself, but the text refers to the time periods (50 ms and 100 ms) as the measured properties. Hmm, maybe MeasuredProperty here is "activity" with the STG as part of the entity.
+
+Wait, according to the definitions, MeasuredProperty is a descriptive property linked to the entity. In the example, "temperature" was the property. So in this case, the activity's timing (50 ms, 100 ms) are quantities, and the MeasuredProperty would be "activity" with the entity being STG or non-STG regions. 
+
+The text mentions "HC had stronger bilateral 50 and 100 ms STG activity than SZ". So "STG activity" is the MeasuredEntity, and "50 ms" and "100 ms" are Quantities. The MeasuredProperty here could be the strength, but "stronger" is a comparative term. Maybe "strength" is the MeasuredProperty? But the example from the user used "volume" as the MeasuredProperty when the entity was "solvent". 
+
+Wait, in the example, "volume" is the MeasuredProperty of the "solvent". So in this case, the activity's duration (ms) is the Quantity, the MeasuredEntity is "STG activity", and the MeasuredProperty might be "duration"? But the text doesn't explicitly mention "duration". Alternatively, since the quantities are time periods (ms), maybe the MeasuredProperty is "latency" or "time". But the text doesn't specify this. Hmm, maybe the MeasuredProperty here isn't explicitly stated and is implicit. That complicates things. Alternatively, perhaps the MeasuredEntity is "STG" and the MeasuredProperty is "activity", with the quantity being the time. 
+
+But the example shows that "temperature" was the MeasuredProperty linked to "solution". So in this case, "activity" might be the MeasuredProperty of "STG", and the Quantity being the time. Wait, the user's example had "volume" as the MeasuredProperty, "solvent" as the MeasuredEntity, and "500 milliliters" as the Quantity. So the structure is [Entity] has [Property] which has [Quantity]. 
+
+So applying that here, "STG activity" is the MeasuredEntity. Wait, no. Wait, "STG" is part of the entity, and "activity" is the property. So maybe "STG" is the entity, and "activity" is the MeasuredProperty. Then the Quantity (50 ms, 100 ms) would be associated with the MeasuredProperty. 
+
+Alternatively, maybe "activity" is the MeasuredEntity, and the time is the Quantity. But the example has "solution's volume was 355 ml", where "volume" is the MeasuredProperty. So "solution" is the entity, "volume" the property, and "355 ml" the quantity. 
+
+In this input, "STG activity" is mentioned. So perhaps "STG" is the entity, "activity" is the property, and the 50 ms is the quantity. But the text says "50 and 100 ms STG activity". So "50 ms" and "100 ms" modify "STG activity". So "STG activity" is the MeasuredEntity, and the quantities are the time measurements. But then how does the MeasuredProperty fit in? Maybe "latency" or "duration" is the property, but it's not mentioned. Alternatively, maybe "activity" is the MeasuredProperty, and "STG" is the MeasuredEntity. Then the Quantity is the time. 
+
+This part is tricky. Let me think again. The example structure: "The soda can's volume was 355 ml." So "soda can" is MeasuredEntity, "volume" is MeasuredProperty, and "355 ml" is Quantity. The relationships are Entity HasProperty -> Property, and Property HasQuantity -> Quantity.
+
+In the current input, "STG activity" is mentioned. So maybe "STG" is the entity, "activity" is the property. Then the quantity is the time (50 ms). So for the phrase "50 ms STG activity", the structure would be STG (entity) has activity (property) with quantity 50 ms. 
+
+So MeasuredEntity: STG, MeasuredProperty: activity, Quantity: 50 ms. Then relationships: STG HasProperty -> activity, activity HasQuantity -> 50 ms. 
+
+But the text says "bilateral 50 and 100 ms STG activity". "Bilateral" is a qualifier here. So Qualifier: bilateral, qualifying the STG activity. 
+
+Additionally, in the second sentence: "HC had stronger bilateral 50 and 100 ms STG activity than SZ". "Stronger" is a comparative term, which might be a qualifier indicating the strength, but according to the definitions, Qualifiers are spans that affect the interpretation. So "stronger" would be a Qualifier, qualifying the activity. 
+
+So each Quantity is 50 ms and 100 ms. Each instance of these in the text needs to be considered. 
+
+Looking at the first sentence: "Bilateral 50 and 100 ms STG activity was observed in both groups." So here, "50 and 100 ms" is a list of quantities. So IsList modifier. The unit is "ms". The text is "50 and 100 ms". So the Quantity spans are "50 ms" and "100 ms", but they are presented as a list. 
+
+Wait, but "50 and 100 ms" can be parsed as two separate quantities: 50 ms and 100 ms. But in the example, "4.5kg, 6kg, 13kg" would be marked with IsList. So "50 and 100 ms" would be a list of two quantities, so each would have IsList? Or the entire phrase "50 and 100 ms" as a single Quantity with IsList. Hmm. 
+
+In the user's example, "4.5kg, 6kg, and 13kg" is considered a Quantity with IsList. So in this case, "50 and 100 ms" would be a single Quantity span with IsList. But wait, the exact text here is "50 and 100 ms". So the entire span would be the Quantity, and the unit is "ms". But in the example, the individual quantities are separated by commas, but here it's "and". So should it be considered as a list? Yes. So the Quantity would be "50 and 100 ms", with mods: IsList, unit: ms. 
+
+But the problem is that "50" and "100" are two separate numerical values. So perhaps annotating each as separate quantities. But the text combines them with "and". The example given by the user uses commas. The instruction says for IsList: "indicating a list of quantities, e.g., '4.5kg, 6kg, 13kg'". So when quantities are listed, even with "and", they should be considered as a single Quantity span with IsList. Therefore, "50 and 100 ms" is a single Quantity with IsList, unit ms. 
+
+But then, in the output example, the user's sample had "approximately 25°C" as the Quantity. So modifiers like "approximately" are included in the Quantity span. Similarly, if there's a list, the entire span is part of the Quantity. 
+
+Therefore, in the first sentence, "50 and 100 ms" is one Quantity with IsList mod. Then, in the second sentence, "50 and 100 ms STG activity" again, same structure. 
+
+Wait, but looking at the input text:
+
+"Bilateral 50 and 100 ms STG activity was observed in both groups. HC had stronger bilateral 50 and 100 ms STG activity than SZ."
+
+So "50 and 100 ms" occurs twice. Each occurrence would be a separate Quantity with IsList. 
+
+So for the first occurrence: "50 and 100 ms" (annotSet 1), then "STG activity" as MeasuredEntity, and "activity" as MeasuredProperty? Wait, perhaps not. Let's try to model this.
+
+First, annotSet 1 would correspond to the first mention. 
+
+Quantity: "50 and 100 ms" in the first sentence. Text: "50 and 100 ms", mods: IsList, unit: ms. 
+
+MeasuredEntity: "STG activity" (text: "STG activity"). 
+
+MeasuredProperty: Since there's no explicit property mentioned like "duration" or "latency", maybe the property is implicit. Wait, but in the example, "volume" was the property. Here, the activity's time is the quantity. So perhaps the MeasuredProperty is "latency" or "time". But since it's not mentioned in the text, perhaps the MeasuredProperty is omitted, and the Quantity is directly linked to the MeasuredEntity. 
+
+Alternatively, maybe "activity" is the MeasuredProperty. For example, the STG (entity) has activity (property) measured at 50 and 100 ms. 
+
+But the text says "STG activity", which could be considered as the MeasuredEntity. For example, "STG activity" is the entity, and the quantity is 50 and 100 ms. 
+
+But according to the example, "soda can" is the entity, "volume" is the property, and "355 ml" the quantity. So perhaps here, "STG activity" is the entity, and "duration" or "latency" is the property, but since "duration" isn't mentioned, maybe the property is missing, and the quantity is directly associated with the entity. 
+
+But the user's guidelines state that MeasuredProperty is optional. So in this case, we might have the MeasuredEntity as "STG activity", and the Quantity linked via HasQuantity. 
+
+So, annotSet 1:
+
+- Quantity: "50 and 100 ms" (mods: IsList, unit: ms)
+- MeasuredEntity: "STG activity" (text: "STG activity")
+- Relationship: MeasuredEntity HasQuantity -> Quantity.
+
+But then, is there a MeasuredProperty? If not, then it's okay. The MeasuredProperty is optional. 
+
+Additionally, there's the qualifier "bilateral" in "Bilateral 50 and 100 ms STG activity". So "Bilateral" is a Qualifier that qualifies the STG activity. So Qualifier: "Bilateral", Qualifies -> MeasuredEntity (STG activity). 
+
+Similarly, in the second sentence: "HC had stronger bilateral 50 and 100 ms STG activity than SZ." Here, "stronger" is a Qualifier qualifying the activity. So Qualifier: "stronger", Qualifies -> MeasuredEntity (STG activity). 
+
+But "stronger" is a comparative term. According to the definitions, Qualifiers are conditions or attributes affecting the quantity, entity, or property. So "stronger" would be a Qualifier. 
+
+Then, "bilateral" is another Qualifier. So each occurrence of "bilateral" would be a separate Qualifier. 
+
+Also, "non-STG activity" is another MeasuredEntity, mentioned in the third sentence. 
+
+In the fourth sentence: "For example, whereas HC had stronger left and right inferior frontal gyrus activity than SZ, SZ had stronger right superior frontal gyrus and left supramarginal gyrus activity than HC."
+
+Here, "left and right inferior frontal gyrus activity" is a MeasuredEntity. The quantities here might be implied but not numerical. Wait, the input here doesn't mention numerical quantities for these parts. The text says "had stronger... activity than...". So "stronger" is a Qualifier, but no quantities are given. So perhaps these parts don't have quantities. 
+
+So focusing back on the parts with numerical quantities:
+
+First, two instances of "50 and 100 ms" as Quantities (each in their own sentences), each with IsList, unit ms. 
+
+Then, the MeasuredEntities are "STG activity" (twice, once in each sentence), and "non-STG activity". 
+
+Wait, "non-STG activity" is mentioned but without a quantity. So maybe that's a MeasuredEntity without a linked Quantity. But according to the guidelines, MeasuredEntities must relate to a Quantity via HasQuantity. So if there's no Quantity linked, it shouldn't be annotated. But in the third sentence, "non-STG activity was also observed in both groups." There's no quantity mentioned here. So perhaps that's not a MeasuredEntity. Unless there's an implicit quantity, but the user's instruction says to extract explicit quantities. So only the parts with numerical quantities are annotated. 
+
+So, to recap, the input has two mentions of "50 and 100 ms" as Quantities. Each is part of a separate annotSet. 
+
+Wait, but the first sentence mentions "Bilateral 50 and 100 ms STG activity was observed in both groups." The second sentence says "HC had stronger bilateral 50 and 100 ms STG activity than SZ." So these are two separate instances of the same quantities but in different contexts. Therefore, each should be a separate annotSet. 
+
+So annotSet 1: first mention (sentence 1)
+annotSet 2: second mention (sentence 2)
+annotSet 3: "non-STG activity" has no quantity, so maybe not annotated.
+annotSet 4 and 5: the examples in the fourth sentence with "inferior frontal gyrus activity" and others but no quantities, so no.
+
+Wait, but the problem is that the fourth sentence doesn't mention numerical quantities, so no quantities there. So only the first two sentences have quantities. 
+
+So, for annotSet 1:
+
+- Quantity: "50 and 100 ms" (text), mods: IsList, unit: ms
+- MeasuredEntity: "STG activity"
+- Qualifier: "Bilateral"
+- Relationships: MeasuredEntity HasQuantity -> Quantity; Qualifier Qualifies -> MeasuredEntity.
+
+Then, in annotSet 2:
+
+- Quantity: "50 and 100 ms" (text), mods: IsList, unit: ms
+- MeasuredEntity: "STG activity"
+- Qualifiers: "stronger" and "bilateral"
+- Relationships: MeasuredEntity HasQuantity -> Quantity; Qualifiers Qualifies -> MeasuredEntity.
+
+Wait, but "HC had stronger bilateral 50 and 100 ms STG activity than SZ." So "stronger" and "bilateral" both qualify the STG activity. 
+
+But each annotSet is a logical grouping. So in annotSet 2, the MeasuredEntity is "STG activity", the Quantity is "50 and 100 ms", and two Qualifiers: "stronger" and "bilateral". 
+
+But the text for the MeasuredEntity would be "STG activity", same as in annotSet 1. However, since they are different sentences and different contexts, they would be separate annotSets. 
+
+Now, the TSV format requires unique annotIds within each annotSet. For example, in annotSet 1, the elements would have T1, T2, T3. In annotSet 2, T1, T2, T3, T4. 
+
+But the user's example grouped each set of Quantity, Entity, Property into separate annotSets. Each set is a separate annotSet. 
+
+So applying that here, each occurrence of a Quantity and its related entities and properties is a separate annotSet. 
+
+So first occurrence (annotSet 1):
+
+- Quantity: "50 and 100 ms" with IsList, unit ms
+- MeasuredEntity: "STG activity"
+- Qualifier: "Bilateral"
+
+Relationships: 
+
+- MeasuredEntity (STG activity) HasQuantity -> Quantity (50 and 100 ms)
+- Qualifier (Bilateral) Qualifies -> MeasuredEntity (STG activity)
+
+Second occurrence (annotSet 2):
+
+- Quantity: "50 and 100 ms" with IsList, unit ms
+- MeasuredEntity: "STG activity"
+- Qualifiers: "stronger" and "bilateral"
+
+Relationships:
+
+- MeasuredEntity HasQuantity -> Quantity
+- "stronger" Qualifies -> MeasuredEntity
+- "bilateral" Qualifies -> MeasuredEntity
+
+But wait, in the second sentence, "bilateral" is part of the same phrase. But since "bilateral" was already used in the first annotSet, but as a Qualifier, each occurrence is treated separately. 
+
+So for each annotSet, even if the same text is used, they are separate. 
+
+Additionally, the third sentence mentions "non-STG activity was also observed in both groups." But there's no quantity here, so it's not annotated. 
+
+Now, let's structure each annotSet.
+
+AnnotSet 1:
+
+- Quantity: "50 and 100 ms" (T1)
+- MeasuredEntity: "STG activity" (T2)
+- Qualifier: "Bilateral" (T3)
+- Relationships:
+  - T2 HasQuantity T1
+  - T3 Qualifies T2
+
+AnnotSet 2:
+
+- Quantity: "50 and 100 ms" (T1)
+- MeasuredEntity: "STG activity" (T2)
+- Qualifiers: "stronger" (T3), "bilateral" (T4)
+- Relationships:
+  - T2 HasQuantity T1
+  - T3 Qualifies T2
+  - T4 Qualifies T2
+
+But wait, in the second sentence, "stronger bilateral 50 and 100 ms STG activity". So "stronger" and "bilateral" are both qualifiers. 
+
+Now, checking the text for exact spans:
+
+First sentence: "Bilateral 50 and 100 ms STG activity was observed in both groups."
+
+Here, "Bilateral" is the qualifier. The text span is "Bilateral".
+
+Second sentence: "HC had stronger bilateral 50 and 100 ms STG activity than SZ."
+
+Here, "stronger" and "bilateral" are both qualifiers. The text spans are "stronger" and "bilateral".
+
+MeasuredEntity in both cases is "STG activity", exact text. 
+
+Now, for the units: "ms" in both cases. 
+
+Quantities: "50 and 100 ms" each time. 
+
+So each of these is a separate annotSet. 
+
+Additionally, in the second occurrence, "50 and 100 ms" is part of "stronger bilateral 50 and 100 ms STG activity", so the same structure. 
+
+Thus, the final TSV would have annotSet 1 and 2 with the respective annotations. 
+
+Now, following the output format:
+
+annotSet	annotType	annotId	text	other
+
+For annotSet 1:
+
+1	Quantity	T1	50 and 100 ms	{"unit": "ms", "mods": ["IsList"]}
+1	MeasuredEntity	T2	STG activity	{"HasQuantity": "T1"}
+1	Qualifier	T3	Bilateral	{"Qualifies": "T2"}
+
+For annotSet 2:
+
+2	Quantity	T1	50 and 100 ms	{"unit": "ms", "mods": ["IsList"]}
+2	MeasuredEntity	T2	STG activity	{"HasQuantity": "T1"}
+2	Qualifier	T3	stronger	{"Qualifies": "T2"}
+2	Qualifier	T4	bilateral	{"Qualifies": "T2"}
+
+Now, are there any other quantities? The input mentions "non-STG activity" but no number, so no. The other parts about frontal gyrus activity don't have numerical quantities, so no quantities there. 
+
+Thus, the final TSV should have two annotSets, each with their respective annotations.

@@ -1,0 +1,5 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0022399913003358-956	1	Quantity	555	569	T1	40 to 69 years	"{""unit"": ""years"", ""mods"": [""IsRange""]}"
+S0022399913003358-956	1	MeasuredEntity	540	549	T2	UK adults	"{""HasQuantity"": ""T1""}"
+S0022399913003358-956	1	MeasuredProperty	550	553	T3	age	"{""HasQuantity"": ""T1""}"
+S0022399913003358-956	2	Quantity	143	149	T4	1980's	"{""unit"": ""years""}"

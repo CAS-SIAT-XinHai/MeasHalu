@@ -1,0 +1,4 @@
+docId	annotSet	annotType	annotId	text	other
+S1873506114000075-1104	1	Quantity	T1	10%	"{""unit"": ""%""}"
+S1873506114000075-1104	1	MeasuredEntity	T2	neutral buffered formalin solution	"{""HasQuantity"": ""T1""}"
+S1873506114000075-1104	1	MeasuredProperty	T3	concentration	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"

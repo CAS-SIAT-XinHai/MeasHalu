@@ -1,0 +1,273 @@
+Okay, let's tackle this input. The sentence is: "Mean, median and interquartile range of lidar error variances due to sampling rate, for averaging periods of 60 min."
+
+First, I need to follow the annotation steps. Starting with Step 1: Extract Quantities.
+
+Looking for quantities here. The obvious ones are "60 min" which is a measurement of time. But wait, the beginning mentions "Mean, median and interquartile range" – these might be MeasuredProperties rather than Quantities themselves. The actual numerical quantity here is "60 min".
+
+So the Quantity here is "60 min". The unit is minutes, and the value is 60. Now, check if there are any modifiers. The phrase "for averaging periods of 60 min" suggests that "averaging periods" is a Qualifier or part of the MeasuredEntity/MeasuredProperty.
+
+Next, Step 2: Extract modifiers, units, etc. for the Quantity. The unit here is "min", so that's straightforward. Are there any modifiers? The "60 min" is part of the "averaging periods", which might be a Qualifier. However, the Quantity itself is "60 min" with no approximate terms, ranges, etc. So mods might be none, but since it's part of an averaging period, maybe the qualifier applies to the MeasuredProperty.
+
+Now, identifying MeasuredEntities and MeasuredProperties. The main subject is "lidar error variances due to sampling rate". The MeasuredEntity would be "lidar error variances", and the MeasuredProperties are "Mean", "median", and "interquartile range". The "due to sampling rate" is probably a Qualifier, explaining the cause.
+
+The phrase "for averaging periods of 60 min" is a Qualifier that applies to the MeasuredProperties or the overall measurement. It specifies the time period over which the averaging is done.
+
+So breaking it down:
+
+- Quantity: "60 min" with unit "min", no modifiers.
+- MeasuredEntity: "lidar error variances" (qualified by "due to sampling rate")
+- MeasuredProperties: "Mean", "Median", "Interquartile range"
+- Qualifiers: "due to sampling rate" and "for averaging periods of 60 min"
+
+Now, relationships. Each MeasuredProperty (Mean, Median, Interquartile range) should link to the MeasuredEntity via HasProperty. However, there's no explicit Quantity linked to these properties in the text. The only Quantity is "60 min", which is part of the Qualifier for the averaging periods.
+
+Wait, the sentence structure is about statistical measures (mean, median, interquartile range) of lidar error variances, which are due to sampling rate, and these measures are calculated for averaging periods of 60 minutes. So the MeasuredProperties are the statistical measures, the MeasuredEntity is the lidar error variances, and the Qualifiers include "due to sampling rate" and "for averaging periods of 60 min".
+
+But where's the Quantity related to the MeasuredProperties? The original sentence doesn't list specific numerical values for the mean, median, etc. It just states that these measures are considered for averaging periods of 60 min. So the only explicit Quantity here is "60 min", which is part of the Qualifier.
+
+Hence, the main annotations would be:
+
+- MeasuredEntity: "lidar error variances" (with Qualifier "due to sampling rate")
+- MeasuredProperties: "Mean", "median", "interquartile range"
+- Quantity: "60 min"
+- Qualifier: "for averaging periods of 60 min"
+
+But how do these link together? The MeasuredProperties (Mean, etc.) are properties of the MeasuredEntity. The Qualifier "for averaging periods of 60 min" qualifies the MeasuredProperties or the entire analysis. Since the Quantity "60 min" is part of the Qualifier, the Qualifier "for averaging periods of 60 min" would qualify the MeasuredProperties. But according to the guidelines, Qualifiers can relate to Quantity, MeasuredEntity, or MeasuredProperty.
+
+In this case, "for averaging periods of 60 min" is a Qualifier that applies to the MeasuredProperties (Mean, median, etc.), indicating the time period over which they were calculated. But the structure here is a bit complex.
+
+Alternatively, "averaging periods of 60 min" could be a MeasuredEntity, but "periods" here are part of the Qualifier. The "60 min" is the Quantity that's part of the Qualifier phrase.
+
+So to structure this:
+
+Each MeasuredProperty (Mean, median, interquartile range) would have their own annotSet. But since they're all part of the same context, maybe grouped under one annotSet. However, each MeasuredProperty should have its own links. Wait, the example grouped each Quantity with its related entities in separate annotSets. So maybe each MeasuredProperty here would be part of the same set because they all relate to the same MeasuredEntity and Qualifier.
+
+But the problem is that the input sentence doesn't provide specific numerical values for Mean, median, etc. It's just describing that these statistical measures are considered, with a certain averaging period. So the actual Quantity here is "60 min", linked to the Qualifier.
+
+So the annotSet would be:
+
+annotSet 1:
+
+- Quantity: T1: 60 min, unit min
+- MeasuredEntity: T2: lidar error variances
+- MeasuredProperty: T3: Mean, T4: median, T5: interquartile range
+- Qualifier: T6: due to sampling rate
+- Qualifier: T7: for averaging periods of 60 min
+
+Relationships:
+
+- Each MeasuredProperty (T3, T4, T5) has a HasProperty relationship with MeasuredEntity T2.
+- The Qualifier T6 qualifies T2 (lidar error variances)
+- The Qualifier T7 qualifies the MeasuredProperties (T3, T4, T5) or the entire set. But according to the guidelines, Qualifier can relate to any of the three: Quantity, MeasuredEntity, or MeasuredProperty. Here, T7 (for averaging periods...) probably qualifies the MeasuredProperties, indicating the time period over which they were calculated. But since T7 includes the Quantity T1, perhaps the structure is:
+
+- Qualifier T7: "for averaging periods of 60 min" relates to the MeasuredProperties (T3, T4, T5)
+- The Quantity T1:60 min is part of the Qualifier T7's text. But in the TSV, each annotation is its own row.
+
+Wait, the Qualifier's text is "for averaging periods of 60 min". However, the Quantity "60 min" is part of that text. So according to the guidelines, the Qualifier would be annotated as a separate entity with "Qualifies" relationship. But the Quantity "60 min" is a separate annotation. Then, the Qualifier T7's text is "for averaging periods of 60 min", but the Quantity T1 is "60 min". So the Qualifier T7 includes the Quantity T1. But how to represent that?
+
+Alternatively, the Qualifier T7's text is "for averaging periods of 60 min", and the Quantity T1 is "60 min". Then, the Qualifier T7 has a "Qualifies" relationship to the MeasuredProperties, and the Quantity T1 is linked to the Qualifier T7? But according to the guidelines, Qualifiers are separate annotations that can relate to others. The Quantity is part of the Qualifier's text, but in the TSV, they are separate annotations. So in this case:
+
+- T1: Quantity "60 min", unit "min"
+- T7: Qualifier "for averaging periods of 60 min" which has a "Qualifies" relationship to the MeasuredProperties (T3, T4, T5). But the Quantity T1 is part of T7's text. However, the relationships are based on the annotation IDs, not the text. So the Qualifier T7 would have a "Qualifies" relationship to the MeasuredProperties. The Quantity T1 would be part of the Qualifier's description, but structurally, the Qualifier is separate from the Quantity.
+
+But perhaps the Qualifier T7 is "for averaging periods of 60 min" and it Qualifies the MeasuredProperties. The Quantity T1 is "60 min", which is a separate annotation. The Qualifier T7 would then have a relationship to T1? No, because the Qualifier is a separate entity. The relationships are that Qualifier T7 Qualifies the MeasuredProperties, and the Quantity T1 is part of the Qualifier's context. But according to the guidelines, the Qualifier's "other" field should have {"Qualifies": "T3", "T4", "T5"} etc., but since each Qualifier can only link to one target, maybe multiple Qualifier entries if needed. Alternatively, if the entire phrase "for averaging periods of 60 min" qualifies all three MeasuredProperties, then the Qualifier T7 would have {"Qualifies": ["T3", "T4", "T5"]}, but the TSV format requires the "other" field to be a JSON object. So perhaps each MeasuredProperty is in a separate annotSet, but that complicates things.
+
+Alternatively, all three MeasuredProperties (Mean, median, interquartile range) are part of the same annotSet because they all relate to the same MeasuredEntity and Qualifiers. Let's try structuring this.
+
+annotSet 1:
+
+- MeasuredEntity T1: lidar error variances
+- MeasuredProperty T2: Mean
+- MeasuredProperty T3: median
+- MeasuredProperty T4: interquartile range
+- Qualifier T5: due to sampling rate
+- Qualifier T6: for averaging periods of 60 min
+- Quantity T7: 60 min
+
+Relationships:
+
+- Each MeasuredProperty (T2, T3, T4) has a HasProperty to T1 (MeasuredEntity)
+- Qualifier T5 Qualifies T1 (lidar error variances)
+- Qualifier T6 Qualifies T2, T3, T4 (the MeasuredProperties)
+- Quantity T7 is part of Qualifier T6's text, but as a separate annotation. However, Qualifier T6's text is "for averaging periods of 60 min", which includes the Quantity T7. But according to the guidelines, the Qualifier's relationships are to the entities it qualifies. So T6 would have {"Qualifies": "T2", "T3", "T4"}? But the TSV format requires the "other" field to specify the relation. However, each Qualifier annotation can only have one relation. So if the Qualifier "for averaging periods..." applies to all three MeasuredProperties, then perhaps three separate Qualifier entries, each linked to one MeasuredProperty. But that might not be correct.
+
+Alternatively, group them all under one Qualifier that Qualifies all three. But the TSV format may not allow multiple targets in the "other" field. The example given in the guidelines shows that a Qualifier can link to a single target. For example, in the sample, "after I drank half the can" is a Qualifier that qualifies the Quantity. So in this case, maybe we need to create a single Qualifier that Qualifies all three MeasuredProperties. However, according to the TSV format, the "other" field should be like {"Qualifies": "T2"}, but we can't list multiple targets. Therefore, perhaps the Qualifier is split into three separate annotations, each linked to a MeasuredProperty. But that's not ideal, as it's the same qualifier phrase applied to all three.
+
+This is a bit tricky. The guidelines state that the "other" field for Qualifier should be {"Qualifies": "targetAnnotation"}. So if the same qualifier applies to multiple targets, perhaps we need to duplicate the Qualifier entry for each target. So for example, three Qualifier entries with the same text "for averaging periods of 60 min", each linked to T2, T3, T4 respectively.
+
+But that seems redundant. Alternatively, maybe the entire phrase "for averaging periods of 60 min" qualifies the entire set, and thus the Qualifier is linked to the annotSet, but the TSV doesn't support that. The annotSet is just a grouping, not an annotatable entity.
+
+Alternatively, the Qualifier applies to the MeasuredEntity, but that doesn't make sense because the averaging periods are about how the properties (mean, etc.) were calculated, not the entity itself.
+
+Hmm. Maybe the correct approach is:
+
+- The Qualifier "for averaging periods of 60 min" qualifies each of the MeasuredProperties (Mean, median, interquartile range). So three separate Qualifier entries, each with the same text but different relationships. But the original text only mentions the phrase once. However, the TSV requires each annotation to be a separate row. So perhaps three Qualifiers, each with the same text, each qualifying a different MeasuredProperty.
+
+But that might not be accurate since the original text uses the phrase once, applying to all three. However, the annotation process requires each relationship to be explicit. Since the example in the problem statement had a single Qualifier linked to a single Quantity, here we might need to create multiple Qualifier entries if the same qualifier applies to multiple targets.
+
+Alternatively, maybe the Qualifier applies to the entire context, but since the guidelines don't have a way to represent that, perhaps we can link it to all three MeasuredProperties individually. This might be the only way to comply with the TSV format.
+
+Alternatively, perhaps the Qualifier qualifies the entire set of MeasuredProperties, so we can link it to one of them, but that's not accurate.
+
+This is a challenge. Let's check the example given. In the example, the Qualifier "after I drank half the can" is linked to the Quantity "175 ml". So in this case, the Qualifier is a separate annotation that qualifies a single target. So if the same Qualifier in the input qualifies multiple targets, each target needs its own Qualifier annotation entry, even if the text is the same.
+
+Therefore, in the current input, "for averaging periods of 60 min" qualifies each of the three MeasuredProperties (Mean, median, interquartile range). So three Qualifier annotations, each with the same text, each linked to one of the MeasuredProperties. But this seems repetitive, but necessary given the TSV structure.
+
+Another approach: The Qualifier "for averaging periods of 60 min" could qualify the MeasuredEntity, but that doesn't fit because the averaging periods pertain to the calculation of the statistical measures (properties), not the entity itself. The entity is "lidar error variances due to sampling rate", and the properties are their mean, median, etc., calculated over 60 min periods. So the Qualifier applies to the MeasuredProperties.
+
+Therefore, each MeasuredProperty (Mean, median, interquartile range) would have a Qualifier linked to it. So three Qualifier entries, each with the same text "for averaging periods of 60 min", each linked to their respective MeasuredProperty.
+
+Additionally, the "due to sampling rate" is another Qualifier, which qualifies the MeasuredEntity "lidar error variances", explaining the cause.
+
+So structuring this:
+
+annotSet 1:
+
+- MeasuredEntity T1: lidar error variances
+- MeasuredProperty T2: Mean
+- MeasuredProperty T3: median
+- MeasuredProperty T4: interquartile range
+- Qualifier T5: due to sampling rate (qualifies T1)
+- Qualifier T6: for averaging periods of 60 min (qualifies T2)
+- Qualifier T7: for averaging periods of 60 min (qualifies T3)
+- Qualifier T8: for averaging periods of 60 min (qualifies T4)
+- Quantity T9: 60 min (unit: min)
+
+Then, relationships:
+
+- T1 (lidar error variances) has properties T2, T3, T4 via HasProperty.
+- T5 (due to sampling rate) qualifies T1.
+- Each of T6, T7, T8 qualify T2, T3, T4 respectively.
+- Quantity T9 is part of the Qualifiers T6, T7, T8's text but is a separate annotation. However, the Quantity T9's "other" field would be {"unit": "min"}.
+
+Wait, but the text for T6, T7, T8 is "for averaging periods of 60 min". The Quantity T9 is "60 min". So the Qualifier T6's text is "for averaging periods of 60 min", but the Quantity T9 is "60 min", which is inside that text. So in the TSV, T9 is a separate row with annotType Quantity, and the Qualifiers T6-T8 have their own rows. The relationships between the Qualifiers and the Quantity would be that the Qualifiers include the Quantity, but according to the guidelines, the relationships are via the "Qualifies" relationship from Qualifier to the target. The Quantity itself is linked via HasQuantity to the MeasuredEntity or MeasuredProperty. But in this case, the Quantity is part of the Qualifier's text, but it's not directly linked to the MeasuredProperties. The MeasuredProperties don't have a Quantity, since the original sentence doesn't provide numerical values for Mean, Median, etc. Only the averaging period has a Quantity.
+
+So in this case, the MeasuredProperties (Mean, etc.) don't have a Quantity directly. The only Quantity is "60 min", which is part of the Qualifier that qualifies the MeasuredProperties. Therefore, the Quantity "60 min" is part of the Qualifier's context, but not directly linked via HasQuantity to the MeasuredProperties. The HasQuantity relationship is between MeasuredEntity/MeasuredProperty and Quantity. Since the MeasuredProperties here don't have their own Quantity (the sentence doesn't state their values), the only Quantity is "60 min", which is part of the Qualifier.
+
+So the relationships would be:
+
+- MeasuredEntity T1 has Qualifier T5 (due to sampling rate)
+- Each MeasuredProperty (T2, T3, T4) has a Qualifier (T6, T7, T8 respectively) which is "for averaging periods of 60 min"
+- The Quantity T9 ("60 min") is part of each Qualifier T6-T8's text, but how is it linked? According to the guidelines, the Quantity would be linked via HasQuantity to a MeasuredEntity or MeasuredProperty. However, the MeasuredProperties here don't have a Quantity, as their values aren't given. The "60 min" is a parameter of the Qualifier, not a measurement of the MeasuredProperties.
+
+Thus, perhaps the Quantity T9 is standalone, with no HasQuantity relationship, because there's no MeasuredEntity or MeasuredProperty that directly has it. But according to the guidelines, if no entity exists, the Quantity can remain standalone. Alternatively, maybe the Qualifier T6-T8 have a HasQuantity relationship to T9, but that's not specified in the relationships. The relationships allowed are HasQuantity, HasProperty, and Qualifies. So the Qualifier can't have a HasQuantity relationship. Only MeasuredEntity or MeasuredProperty can HasQuantity.
+
+Therefore, the Quantity T9 remains standalone, with no HasQuantity relationship. But the Qualifiers T6-T8 qualify the MeasuredProperties and include the Quantity T9 in their text. However, structurally, T9 is just a Quantity without a direct link. But according to the example, in the Qualifier example, the Qualifier "after I drank half the can" qualifies the Quantity "175 ml". So in that case, the Qualifier is linked to the Quantity. But in our case, the Qualifier "for averaging periods of 60 min" qualifies the MeasuredProperty, and includes the Quantity "60 min" in the text. So how to link this?
+
+Perhaps the Qualifier T6-T8 qualify the MeasuredProperties, and the Quantity T9 is part of the Qualifier's text but not directly linked via a relationship. So in the TSV, T9 is a standalone Quantity.
+
+Alternatively, maybe the MeasuredEntity is "averaging periods", but that doesn't make sense. The MeasuredEntity is "lidar error variances".
+
+Another angle: The phrase "for averaging periods of 60 min" could be considered a MeasuredEntity, but "averaging periods" is not the entity being measured; the lidar error variances are. The periods are part of the experimental setup.
+
+I think the correct approach is:
+
+- Quantity T9: 60 min, unit min, no modifiers.
+- Qualifiers T6-T8: "for averaging periods of 60 min" each linked to their respective MeasuredProperty (T2, T3, T4).
+- The Quantity T9 is a standalone Quantity since there's no explicit MeasuredEntity or MeasuredProperty that it's directly measuring. The Qualifiers include it, but according to the guidelines, the Quantity can remain standalone if not linked.
+
+But according to the guidelines, the Quantity should ideally relate to a MeasuredEntity or MeasuredProperty. In this case, the "60 min" is part of the Qualifier that qualifies the MeasuredProperties. There's no direct MeasuredEntity/MeasuredProperty that "60 min" measures. Hence, it's standalone.
+
+So the TSV entries would be:
+
+annotSet	annotType	annotId	text	other
+1	MeasuredEntity	T1	lidar error variances	{"HasProperty": "T2", "HasProperty": "T3", "HasProperty": "T4"}
+Wait, no. The MeasuredEntity can have multiple HasProperty relationships. But in the TSV example, each MeasuredEntity has one HasProperty per row. For instance, in the example, each MeasuredEntity (T2, T5, T8) has a separate row with their own HasProperty. So perhaps each MeasuredProperty is part of a separate annotSet. But in the example, each Quantity and its related entities are grouped in separate annotSets. But in our case, the input sentence groups all three MeasuredProperties together with the same MeasuredEntity and Qualifiers. So maybe one annotSet for the entire group.
+
+But the example groups each Quantity with its related entities. In our case, there's one Quantity (60 min) and three MeasuredProperties. But since the MeasuredProperties don't have their own Quantities, perhaps it's better to have one annotSet that includes all annotations.
+
+Alternatively, separate annotSets for each MeasuredProperty. Let's consider this.
+
+For example:
+
+annotSet 1:
+- MeasuredEntity T1: lidar error variances
+- MeasuredProperty T2: Mean
+- Qualifier T3: due to sampling rate
+- Qualifier T4: for averaging periods of 60 min
+- Quantity T5: 60 min
+
+Relationships:
+- T1 has property T2
+- T3 qualifies T1
+- T4 qualifies T2
+- T5 is standalone
+
+Similarly, annotSet 2:
+- MeasuredEntity T6: lidar error variances (same as T1)
+- MeasuredProperty T7: median
+- Qualifier T8: for averaging periods of 60 min
+- Quantity T9: 60 min (same as T5)
+
+But this duplicates the MeasuredEntity and Quantity, which isn't ideal. The guidelines don't mention anything about reusing annotations across annotSets, but each annotSet starts from 1. However, in the example, each Quantity and its related entities are in separate annotSets. So perhaps each MeasuredProperty is in its own annotSet, along with the shared MeasuredEntity and Qualifiers. But this leads to redundancy.
+
+Given the complexity, perhaps the best way is to have one annotSet that includes all annotations, even if they relate to multiple MeasuredProperties.
+
+So:
+
+annotSet 1:
+
+- Quantity T1: 60 min {"unit": "min"}
+- MeasuredEntity T2: lidar error variances
+- MeasuredProperty T3: Mean
+- MeasuredProperty T4: median
+- MeasuredProperty T5: interquartile range
+- Qualifier T6: due to sampling rate {"Qualifies": "T2"}
+- Qualifier T7: for averaging periods of 60 min {"Qualifies": "T3"}
+- Qualifier T8: for averaging periods of 60 min {"Qualifies": "T4"}
+- Qualifier T9: for averaging periods of 60 min {"Qualifies": "T5"}
+
+But the text for T7, T8, T9 is the same. This might be necessary to comply with the relationship structure.
+
+However, the original sentence only mentions "for averaging periods of 60 min" once, applying to all three MeasuredProperties. But according to the TSV format, each Qualifier must be a separate annotation linked to one target. Hence, three Qualifier entries.
+
+But this seems a bit forced. Alternatively, the Qualifier could be annotated once and linked to all three MeasuredProperties, but the "other" field can't handle multiple targets. Hence, three separate Qualifiers.
+
+Finally, the Quantity T1 is standalone with unit "min". The Qualifiers T7-T9 include the Quantity's text but are separate annotations.
+
+Putting it all together in TSV:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	60 min	{"unit": "min"}
+1	MeasuredEntity	T2	lidar error variances	{"HasProperty": "T3", "HasProperty": "T4", "HasProperty": "T5"}
+1	MeasuredProperty	T3	Mean	{"HasQuantity": "T1"}
+Wait, but the MeasuredProperty (e.g., Mean) should have a HasQuantity relationship if there's a Quantity associated. However, in the input, the Mean doesn't have a numerical value. The Quantity "60 min" is part of the Qualifier for the averaging period, not the value of the Mean itself. So the MeasuredProperties (T3, T4, T5) do not have HasQuantity relationships to T1. Hence, their "other" field would be {"HasProperty": "T2"} (linking to MeasuredEntity T2), and possibly no HasQuantity since their values aren't provided.
+
+But according to the guidelines, MeasuredProperty must relate to a Quantity via HasQuantity. However, in this case, the MeasuredProperties don't have associated Quantities in the text. The only Quantity is "60 min", which is part of the Qualifier. Hence, perhaps the MeasuredProperties do not have HasQuantity relationships, which is allowed per the guidelines (MeasuredProperty is optional).
+
+So correcting that:
+
+- MeasuredProperty entries (T3, T4, T5) have {"HasProperty": "T2"} (linking to MeasuredEntity T2) but no HasQuantity because their Quantities aren't mentioned.
+
+The Qualifiers T6, T7, T8, T9:
+
+- T6: Qualifier "due to sampling rate" qualifies MeasuredEntity T2.
+- T7, T8, T9: Qualifier "for averaging periods of 60 min" each qualify MeasuredProperties T3, T4, T5 respectively.
+
+But the text for T7-T9 is the same. However, the TSV requires each Qualifier to be a separate row with unique annotId. So:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	60 min	{"unit": "min"}
+1	MeasuredEntity	T2	lidar error variances	
+1	MeasuredProperty	T3	Mean	{"HasProperty": "T2"}
+1	MeasuredProperty	T4	median	{"HasProperty": "T2"}
+1	MeasuredProperty	T5	interquartile range	{"HasProperty": "T2"}
+1	Qualifier	T6	due to sampling rate	{"Qualifies": "T2"}
+1	Qualifier	T7	for averaging periods of 60 min	{"Qualifies": "T3"}
+1	Qualifier	T8	for averaging periods of 60 min	{"Qualifies": "T4"}
+1	Qualifier	T9	for averaging periods of 60 min	{"Qualifies": "T5"}
+
+But wait, the MeasuredEntity (T2) should have the HasProperty relationships. In the example, the MeasuredEntity has {"HasProperty": "T3"} etc. So for T2 (MeasuredEntity), the "other" field should list the HasProperty relationships. But in the TSV example, each MeasuredEntity entry has a single HasProperty. For example, in the sample:
+
+1	MeasuredEntity	T2	solution	{"HasQuantity": "T1"}
+1	MeasuredProperty	T3	temperature	{"HasQuantity": "T1", "HasProperty": "T2"}
+
+So the MeasuredEntity T2 has {"HasQuantity": "T1"}, and the MeasuredProperty T3 has {"HasQuantity": "T1", "HasProperty": "T2"}.
+
+In our case, the MeasuredEntity T2 would have multiple HasProperty relationships. But the TSV format may not allow multiple entries in the "other" field. The example shows that each relationship is handled in the MeasuredProperty's "other" field, not the MeasuredEntity's. For example, the MeasuredProperty has {"HasProperty": "T2"}.
+
+Hence, in our case, the MeasuredEntity T2's "other" field is empty, and each MeasuredProperty T3-T5 has {"HasProperty": "T2"}.
+
+The Quantity T1 is standalone since there's no MeasuredEntity or MeasuredProperty that directly HasQuantity to it. The Qualifiers T7-T9 include the Quantity's text but don't link to it via any relationship except that the Quantity is part of their text.
+
+This seems to comply with the guidelines. Thus, the final TSV would look like the above.

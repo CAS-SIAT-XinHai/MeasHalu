@@ -1,0 +1,7 @@
+docId	annotSet	annotType	annotId	text	other
+S0168945213001805-5014	1	Quantity	T1	several	"{""mods"": [""IsCount""]}"
+S0168945213001805-5014	1	MeasuredEntity	T2	Bt toxins	"{""HasQuantity"": ""T1""}"
+S0168945213001805-5014	1	MeasuredProperty	T3	over-expression	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0168945213001805-5014	1	Qualifier	T4	simultaneous	"{""Qualifies"": ""T3""}"
+S0168945213001805-5014	2	Quantity	T5	many	"{""mods"": [""IsCount""]}"
+S0168945213001805-5014	2	MeasuredEntity	T6	insect herbivores	"{""HasQuantity"": ""T5""}"

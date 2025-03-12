@@ -1,0 +1,12 @@
+docId	annotSet	annotType	annotId	text	other
+S0167739X12001525-6016	1	Quantity	T1	10%	"{""unit"": ""%"", ""mods"": [""IsMean""]}"
+S0167739X12001525-6016	1	MeasuredEntity	T2	executed reallocation actions	"{""HasQuantity"": ""T1""}"
+S0167739X12001525-6016	1	MeasuredProperty	T3	amount	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0167739X12001525-6016	2	Quantity	T4	19.8%	"{""unit"": ""%"", ""mods"": [""IsMean""]}"
+S0167739X12001525-6016	2	MeasuredEntity	T5	executed reallocation actions	"{""HasQuantity"": ""T4""}"
+S0167739X12001525-6016	2	MeasuredProperty	T6	amount	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"
+S0167739X12001525-6016	3	Quantity	T7	5%	"{""unit"": ""%"", ""mods"": [""IsMean""]}"
+S0167739X12001525-6016	3	MeasuredEntity	T8	executed reallocation actions	"{""HasQuantity"": ""T7""}"
+S0167739X12001525-6016	3	MeasuredProperty	T9	amount	"{""HasQuantity"": ""T7"", ""HasProperty"": ""T8""}"
+S0167739X12001525-6016	4	Quantity	T10	five out of eight	"{""mods"": [""IsCount""]}"
+S0167739X12001525-6016	4	MeasuredEntity	T11	scenarios	"{""HasQuantity"": ""T10""}"

@@ -1,0 +1,171 @@
+Okay, let's tackle this. First, I need to extract all the quantities mentioned in the text. Let me start reading through the input paragraph carefully.
+
+The first mention I see is "two L7/L12 heterodimers" – here, "two" is a count, so that's a Quantity. The unit here is "heterodimers", but since it's a count, the modifier should be IsCount. The MeasuredEntity would be "L7/L12 heterodimers", and the MeasuredProperty is probably "number" or something related, but maybe the property isn't explicitly stated. The sentence says "two L7/L12 heterodimers normally associate per LSU", so the MeasuredEntity is the heterodimers, and they relate to the LSU somehow. But per the example, if there's a MeasuredProperty like "number", but here it's not stated, so maybe just the entity and quantity.
+
+Next, there's "the patient IP has ~ 49% MRPL12 compared to control". The "~ 49%" is a Quantity with an approximate modifier. The unit is "%", and the modifier IsApproximate. The MeasuredEntity here is "MRPL12 in patient IP". The MeasuredProperty might be "percentage" or "level". The relationship is HasQuantity from the MeasuredEntity to the Quantity.
+
+Then, "ICT1 ... is reduced in both the IP (~ 58% of control)". The "~ 58%" is another Quantity with approximate modifier and unit "%". The MeasuredEntity here is ICT1 in IP, and the MeasuredProperty is "percentage of control" or something similar.
+
+Looking for other quantities: "the total amount of MRPL12 being reduced as it lacks the “free” population." – "total amount" is a MeasuredProperty, but no specific quantity here. Wait, in "densitometric measurements indicate that the patient IP has ~ 49% MRPL12 compared to control", "~49%" is the Quantity. Then, in "ICT1 ... reduced in both the IP (~ 58% of control)", "~58%". Also, "reduced pool of free MRPL12" – maybe "reduced" is a qualifier, but no exact quantity here.
+
+Wait, are there any ranges or lists? The "two L7/L12 heterodimers" is a count. Any others? "the mutation is unlikely to have an impact on dimer/multimer formation" – no quantity here. "the patient IP has ~49% MRPL12 compared to control", "~58%", those are percentages. Are there any more? Let's check again.
+
+"The translation factor bound dimer has been suggested to have an increased affinity for the ribosome [54,61]." – No quantities here. "increase in the pool of free MRPL12" – again, no exact number. "the subject exhibits a reduced pool of free MRPL12" – again, a qualifier but no quantity. 
+
+I think those are the main quantities: two L7/L12 heterodimers, ~49%, ~58%. Let me confirm. In the example, the author used "two L7/L12 heterodimers" as a Quantity with IsCount. The "~49%" and "~58%" are approximate percentages. Are there any other numbers in the text? Let me check again.
+
+"In the patient the IP is restricted to MRPL12 in the large subunit or the fully assembled 55S..." – 55S is mentioned a few times, but that's a name (like 55S ribosomal particle), not a quantity. Similarly, "70S molecule" is a name. So those are not quantities. 
+
+So the Quantities are:
+
+1. two L7/L12 heterodimers (IsCount)
+2. ~49% (IsApproximate, unit %)
+3. ~58% (IsApproximate, unit %)
+
+Now, for each Quantity, I need to identify the MeasuredEntity, MeasuredProperty, and any Qualifiers. Let's take them one by one.
+
+First Quantity: "two L7/L12 heterodimers". The MeasuredEntity is "L7/L12 heterodimers", and the MeasuredProperty might not be stated, but the sentence mentions "normally associate per LSU [60]". The Quantity is a count (two), so mods: IsCount, unit: heterodimers (but since it's a count, maybe the unit isn't necessary? Wait, in the example, "five samples" would have IsCount and unit "samples". So here, "heterodimers" is the unit. So the Quantity is "two L7/L12 heterodimers" with mods IsCount, unit "heterodimers". Then the MeasuredEntity would be the LSU (large subunit) since the association is per LSU. Wait, the sentence is "two L7/L12 heterodimers normally associate per LSU [60]." So the MeasuredEntity could be "LSU" (large subunit), and the MeasuredProperty is "number of L7/L12 heterodimers associated". Hmm, but the example has the MeasuredEntity as the entity that has the quantity. So here, the LSU has two heterodimers associated. So perhaps the MeasuredEntity is "LSU", the MeasuredProperty is "number of L7/L12 heterodimers associated", and the Quantity is two. Wait, but in the example, "solution" is the MeasuredEntity linked to "temperature" (MeasuredProperty) which is linked to the Quantity. So here, the MeasuredEntity might be "LSU", the MeasuredProperty is "number of associated L7/L12 heterodimers", and the Quantity is two. But how is the text phrased? The actual text is "two L7/L12 heterodimers normally associate per LSU [60]." So the Quantity is "two L7/L12 heterodimers", and the MeasuredEntity is the LSU. So the relationship would be HasQuantity from LSU to the Quantity. Then, the MeasuredProperty would be "number of associated heterodimers" or similar. But the text doesn't explicitly state a property like "number" here. Alternatively, since the Quantity is a count, maybe the MeasuredProperty is omitted. So perhaps, the MeasuredEntity is "LSU", and the Quantity is "two L7/L12 heterodimers", linked via HasQuantity. So in that case, the MeasuredEntity is "LSU", and the Quantity is "two L7/L12 heterodimers". But the example had MeasuredProperty like "volume" even if not explicitly mentioned. Wait, in the example given by the user, "The soda can's volume was 355 ml." The MeasuredProperty is "volume" even though the text says "volume". So in our case, the text doesn't explicitly state a property like "number", but the quantity is a count. So perhaps the MeasuredEntity is "LSU", and the MeasuredProperty is something like "associated L7/L12 heterodimers", but the text just mentions "two L7/L12 heterodimers normally associate per LSU". So maybe the MeasuredEntity is "L7/L12 heterodimers", but the Quantity is "two" with unit "heterodimers". Wait, but the example had "five samples" as Quantity, MeasuredEntity "samples", and MeasuredProperty perhaps "number". But in that example, maybe the MeasuredEntity is "samples", with Quantity "five", MeasuredProperty "count". Hmm. I think in this case, the text is "two L7/L12 heterodimers normally associate per LSU". So the MeasuredEntity is "LSU", the MeasuredProperty is "number of associated L7/L12 heterodimers", and the Quantity is "two". So the Quantity's text is "two", unit "heterodimers", mods: IsCount. Wait, but the actual text is "two L7/L12 heterodimers". So the entire phrase "two L7/L12 heterodimers" is the Quantity. But according to the definition, Quantity is the value and unit. So here, "two" is the value, and "L7/L12 heterodimers" is the unit? Or is the entire "two L7/L12 heterodimers" the Quantity, with the unit being "heterodimers" and the value "two". Yes, that makes sense. So Quantity: "two L7/L12 heterodimers", mods: IsCount, unit: "heterodimers". Then, the MeasuredEntity would be the LSU (since they associate per LSU), and the relationship is HasQuantity. The MeasuredProperty might be omitted here, but if necessary, perhaps "number of associated heterodimers per LSU". But the text doesn't state that explicitly, so maybe it's just the MeasuredEntity as LSU linked to the Quantity. Alternatively, maybe the MeasuredEntity is the "L7/L12 heterodimers" and the Quantity is "two", but that might not align with the example. Hmm.
+
+Let's refer back to the example. In the example, "five samples" is a Quantity with IsCount. The MeasuredEntity is "samples", and the MeasuredProperty could be "number" but isn't explicitly stated. Wait, in the example given in the problem statement, the third example's MeasuredProperty is "amount". So perhaps when the text is "10 grams of salt", the MeasuredProperty is "amount". So in our case, "two L7/L12 heterodimers" would have the MeasuredEntity as "L7/L12 heterodimers", and the MeasuredProperty is "number", but since the text doesn't mention "number", maybe it's not included. Alternatively, if the MeasuredEntity is "LSU", then the Quantity is "two L7/L12 heterodimers per LSU". But the text just says "two L7/L12 heterodimers normally associate per LSU". So the "per LSU" is part of the context. So perhaps the MeasuredEntity is "LSU", the Quantity is "two L7/L12 heterodimers", and the relationship is HasQuantity. The MeasuredProperty might be "number of associated heterodimers", but since it's not explicitly mentioned, perhaps it's omitted. Alternatively, the MeasuredProperty could be "association" or similar. But according to the problem's instructions, if the MeasuredProperty isn't explicit, maybe it's not annotated. Wait, the instructions say: MeasuredProperty is optional. So maybe in this case, there's no MeasuredProperty. So the annotation would be:
+
+AnnotSet 1:
+
+- Quantity: "two L7/L12 heterodimers" with mods IsCount, unit "heterodimers".
+- MeasuredEntity: "LSU" (from the context "per LSU").
+- Relationship: MeasuredEntity (LSU) HasQuantity to the Quantity.
+
+But the text for MeasuredEntity would be "LSU", but in the text it's mentioned as "LSU" in "per LSU". So the actual MeasuredEntity's text is "LSU". So the relationships would be:
+
+annotSet 1
+Quantity T1: "two L7/L12 heterodimers" with {"mods": ["IsCount"], "unit": "heterodimers"}
+MeasuredEntity T2: "LSU" with {"HasQuantity": "T1"}
+No MeasuredProperty since it's not explicit.
+
+Second Quantity: "~49% MRPL12". The text says "the patient IP has ~49% MRPL12 compared to control". So the Quantity is "~49%", with unit "%", mods: IsApproximate. The MeasuredEntity is "MRPL12 in patient IP". The MeasuredProperty could be "level" or "percentage". The text says "the patient IP has ~49% MRPL12 compared to control", so the MeasuredEntity is "MRPL12 in patient IP", and the MeasuredProperty is "percentage compared to control". But again, if the property isn't explicitly stated, maybe we omit it. Alternatively, if the sentence structure implies a property like "level", perhaps we can infer it. For example, in the example, "volume" was the MeasuredProperty. Here, "percentage" isn't stated, but the quantity is a percentage. So perhaps the MeasuredProperty is "level" or "amount", but since it's not explicit, maybe not. Let's check the example again. In the example, even if the MeasuredProperty isn't explicitly stated, like "amount" in "10 grams of salt", it was annotated. So here, since the Quantity is a percentage of MRPL12, maybe the MeasuredProperty is "percentage" or "level". The sentence says "the total amount of MRPL12 being reduced", so "amount" is mentioned elsewhere. But in the specific sentence with ~49%, it's "the patient IP has ~49% MRPL12 compared to control". So the MeasuredEntity is "patient IP MRPL12", and the MeasuredProperty is "percentage compared to control". However, in the example, "amount" was used as MeasuredProperty even if the text says "the volume of the solvent was 500 milliliters". So here, maybe the MeasuredProperty is "percentage". Alternatively, "MRPL12 level". Hmm.
+
+Alternatively, since the sentence is structured as "patient IP has ~49% MRPL12", the "has" implies the MeasuredProperty is "amount" or "level". So perhaps the MeasuredProperty is "level". Then, the MeasuredEntity is "patient IP", the MeasuredProperty is "MRPL12 level", and the Quantity is ~49%. But the text says "MRPL12" is the entity. Wait, no, "MRPL12" is the protein, so the MeasuredEntity is "MRPL12", and the MeasuredProperty is "level in patient IP". But the exact text is "patient IP has ~49% MRPL12 compared to control". So the IP (immunoprecipitate) has a certain percentage of MRPL12. So the MeasuredEntity is "patient IP", the MeasuredProperty is "MRPL12 level", and the Quantity is ~49%. Therefore, the relationships would be:
+
+- Quantity T3: ~49% with mods IsApproximate, unit %
+- MeasuredEntity T4: patient IP
+- MeasuredProperty T5: MRPL12 level (but the text says "MRPL12", so maybe the MeasuredProperty is "level" and the MeasuredEntity is "MRPL12 in patient IP". This is getting a bit tangled. Let's look back at the example. In the example, "The soda can's volume was 355 ml." The MeasuredEntity is "soda can", MeasuredProperty is "volume", Quantity is "355 ml". Here, the text is "patient IP has ~49% MRPL12". So "has" indicates possession, so the IP has a certain amount of MRPL12. So perhaps the MeasuredEntity is "patient IP", and the MeasuredProperty is "MRPL12 amount", and the Quantity is ~49%. But the text doesn't mention "amount"; it's implied. Alternatively, the MeasuredEntity is "MRPL12 in patient IP", and the MeasuredProperty is "percentage compared to control". However, the user's example didn't require the MeasuredProperty to be explicit. Let's check the example again: in the example given by the user, "The soda can's volume was 355 ml." Here, "volume" is explicitly stated as the MeasuredProperty. If the MeasuredProperty is not explicit, perhaps we don't annotate it. So in the case of "patient IP has ~49% MRPL12", since there's no explicit property like "level" or "amount", maybe we don't annotate a MeasuredProperty. Therefore, the MeasuredEntity is "patient IP MRPL12" and the Quantity is ~49% with HasQuantity. But how to represent "patient IP MRPL12" as the MeasuredEntity? The text says "patient IP has ~49% MRPL12". So the text of the MeasuredEntity would be "MRPL12" and the context is "patient IP". But the exact text is "MRPL12". So perhaps the MeasuredEntity is "MRPL12", and the Qualifier is "patient IP" qualifying the MeasuredEntity. Alternatively, the MeasuredEntity is "patient IP's MRPL12". But the exact text is "MRPL12" in the sentence. Hmm. Maybe the MeasuredEntity is "MRPL12" and the Qualifier is "patient IP" which qualifies the MeasuredEntity. So in that case:
+
+- Quantity T3: ~49% (mods IsApproximate, unit %)
+- MeasuredEntity T4: MRPL12
+- Qualifier T5: patient IP (Qualifies T4)
+- So relationships: MeasuredEntity T4 HasQuantity T3, and Qualifier T5 Qualifies T4.
+
+Alternatively, the MeasuredEntity is "patient IP MRPL12" but the text is just "MRPL12". This is a bit ambiguous. Maybe the correct approach is to take "MRPL12" as the MeasuredEntity, and the Qualifier "patient IP" to indicate where it's measured. But according to the problem's instructions, MeasuredEntity is the object associated with the Quantity. So in this case, the Quantity (~49%) is associated with MRPL12 in the patient IP. Therefore, the MeasuredEntity is "MRPL12" and the Qualifier is "patient IP". So:
+
+annotSet 2:
+Quantity T3: ~49% {"unit": "%", "mods": ["IsApproximate"]}
+MeasuredEntity T4: MRPL12 {"HasQuantity": "T3"}
+Qualifier T5: patient IP {"Qualifies": "T4"}
+
+But in the example, Qualifiers are for conditions affecting the Quantity, like "after I drank half the can". Here, "patient IP" is the context where the MRPL12 level is measured. So maybe it's part of the MeasuredEntity. Alternatively, perhaps the MeasuredEntity is "MRPL12 in patient IP" but the text is "MRPL12", and "patient IP" is part of the context. This is tricky. Maybe the correct way is to have the MeasuredEntity as "MRPL12" and the Qualifier as "patient IP". But according to the problem's instructions, Qualifiers are spans in the text. The phrase "patient IP" is in the text as "patient IP has ~49% MRPL12". So the MeasuredEntity is "MRPL12", and the text "patient IP" is part of the subject of the sentence. So perhaps the MeasuredEntity is "patient IP's MRPL12", but since "patient IP" is the subject, and the MRPL12 is the object, maybe the MeasuredEntity is "MRPL12" with a Qualifier "patient IP". So the relationship would be that the Qualifier "patient IP" qualifies the MeasuredEntity "MRPL12".
+
+Alternatively, the MeasuredEntity is "patient IP", the MeasuredProperty is "MRPL12 level", and the Quantity is ~49%. But the problem is that the text doesn't mention "level". So it's a bit of a stretch. I think the safest approach here, given the example, is to annotate the MeasuredEntity as "MRPL12", the Quantity as ~49%, and then have a Qualifier "patient IP" qualifying the MeasuredEntity. So:
+
+annotSet 2:
+Quantity T3 ~49% {"unit": "%", "mods": ["IsApproximate"]}
+MeasuredEntity T4 MRPL12 {"HasQuantity": "T3"}
+Qualifier T5 patient IP {"Qualifies": "T4"}
+
+Similarly, for the ~58% Quantity: "ICT1 ... is reduced in both the IP (~58% of control)". Here, the Quantity is ~58%, unit %, mods: IsApproximate. The MeasuredEntity is ICT1, and the Qualifier is "IP" (immunoprecipitate) and "of control". But the phrase is "~58% of control", so "control" is the reference. The text says "reduced in both the IP (~58% of control)", so the MeasuredEntity is ICT1 in IP, compared to control. So the Quantity is ~58%, MeasuredEntity is ICT1, Qualifiers are "IP" and "of control". But how to handle "of control"? It's a comparison. Maybe the Qualifier is "of control", which qualifies the Quantity, indicating it's a percentage relative to control. So:
+
+annotSet 3:
+Quantity T6 ~58% {"unit": "%", "mods": ["IsApproximate"]}
+MeasuredEntity T7 ICT1 {"HasQuantity": "T6"}
+Qualifier T8 IP {"Qualifies": "T6"}
+Qualifier T9 of control {"Qualifies": "T6"}
+
+But per the problem's instructions, Qualifiers can be linked to Quantity, MeasuredEntity, or MeasuredProperty. In this case, "IP" is the context where ICT1 is measured, so Qualifier "IP" qualifies the MeasuredEntity ICT1. The "of control" is part of the Quantity's context, indicating it's a percentage compared to control. So perhaps "of control" is part of the Quantity's modifiers, but since it's a separate phrase, it's a Qualifier. So the Quantity is ~58%, with Qualifiers "IP" and "of control". But the "IP" is mentioned in the text as "in both the IP (~58% of control)". So the structure is "ICT1 ... is reduced in both the IP (~58% of control)", so the IP is the location (context) where the reduction is observed. So the Qualifier "IP" qualifies the MeasuredEntity ICT1's measurement location, and "of control" qualifies the Quantity as being relative to control. Therefore:
+
+annotSet 3:
+Quantity T6 ~58% {"unit": "%", "mods": ["IsApproximate"]}
+MeasuredEntity T7 ICT1 {"HasQuantity": "T6"}
+Qualifier T8 IP {"Qualifies": "T7"} (qualifying where ICT1 is measured)
+Qualifier T9 of control {"Qualifies": "T6"} (qualifying the Quantity as relative to control)
+
+This seems plausible.
+
+Now, let's structure all of this into the TSV format.
+
+First AnnotSet (two L7/L12 heterodimers):
+
+annotSet 1:
+- Quantity: "two L7/L12 heterodimers" with mods IsCount, unit heterodimers.
+- MeasuredEntity: "LSU" (from "per LSU")
+- Relationships: LSU HasQuantity to the Quantity.
+
+But the text for the Quantity is "two L7/L12 heterodimers", and the MeasuredEntity is "LSU". So:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	two L7/L12 heterodimers	{"mods": ["IsCount"], "unit": "heterodimers"}
+1	MeasuredEntity	T2	LSU	{"HasQuantity": "T1"}
+
+That's for annotSet 1.
+
+Second AnnotSet (~49% MRPL12):
+
+annotSet 2:
+- Quantity: ~49% (text "~49%")
+- MeasuredEntity: MRPL12 (text "MRPL12")
+- Qualifier: patient IP (text "patient IP") qualifying MeasuredEntity.
+
+So:
+
+2	Quantity	T3	~49%	{"unit": "%", "mods": ["IsApproximate"]}
+2	MeasuredEntity	T4	MRPL12	{"HasQuantity": "T3"}
+2	Qualifier	T5	patient IP	{"Qualifies": "T4"}
+
+Third AnnotSet (~58% of control):
+
+annotSet 3:
+- Quantity: ~58% (text "~58%")
+- MeasuredEntity: ICT1 (text "ICT1")
+- Qualifier: IP (text "IP") qualifying MeasuredEntity
+- Qualifier: of control (text "of control") qualifying Quantity
+
+So:
+
+3	Quantity	T6	~58%	{"unit": "%", "mods": ["IsApproximate"]}
+3	MeasuredEntity	T7	ICT1	{"HasQuantity": "T6"}
+3	Qualifier	T8	IP	{"Qualifies": "T7"}
+3	Qualifier	T9	of control	{"Qualifies": "T6"}
+
+Wait, but the text for the Quantity is "~58% of control", so the actual Quantity span is "~58% of control"? Or is the Quantity "~58%" and "of control" is a Qualifier? The example in the problem statement has "approximately 25°C" as the Quantity text. So in "~58% of control", the Quantity is "~58%", and "of control" is a Qualifier. So yes, the Quantity is "~58%", and "of control" is a separate Qualifier.
+
+Additionally, there's the IP mentioned in "in both the IP (~58% of control)", so "IP" is part of the context, hence a Qualifier for the MeasuredEntity ICT1, indicating where the measurement was taken.
+
+Thus, the annotations for annotSet 3 would be as above.
+
+Are there any other quantities? Let me check again.
+
+Wait, the text mentions "55S" and "70S", but those are names of ribosomal particles, not quantities. Similarly, "mt-LSU" refers to mitochondrial large subunit. No other numbers like percentages or counts are present.
+
+So the final TSV should have three annotSets: one for the two heterodimers, one for 49%, one for 58%.
+
+Wait, but in the example provided by the user, each Quantity was in its own annotSet. So each Quantity and its related MeasuredEntity, MeasuredProperty, and Qualifiers form an annotSet. So each of these three Quantities would be in separate annotSets.
+
+Now, let's verify the relationships.
+
+First annotSet (1):
+
+- T1 (Quantity) is "two L7/L12 heterodimers" with mods IsCount, unit heterodimers.
+- T2 (MeasuredEntity) is "LSU", linked via HasQuantity to T1.
+- No MeasuredProperty since it's not explicit.
+
+Second annotSet (2):
+
+- T3 (Quantity) is ~49%, mods IsApproximate, unit %.
+- T4 (MeasuredEntity) is MRPL12, linked via HasQuantity to T3.
+- T5 (Qualifier) is "patient IP", qualifies T4.
+
+Third annotSet (3):
+
+- T6 (Quantity) is ~58%, mods IsApproximate, unit %.
+- T7 (MeasuredEntity) is ICT1, linked via HasQuantity to T6.
+- T8 (Qualifier) is "IP", qualifies T7 (MeasuredEntity).
+- T9 (Qualifier) is "of control", qualifies T6 (Quantity).
+
+This seems correct. Now, let's format this into the TSV.

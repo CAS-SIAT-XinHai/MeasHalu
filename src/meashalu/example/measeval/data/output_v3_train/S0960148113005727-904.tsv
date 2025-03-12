@@ -1,0 +1,4 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0960148113005727-904	1	Quantity	268	273	T1	5–13%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
+S0960148113005727-904	1	MeasuredEntity	230	250	T2	wind farms in the UK	"{""HasQuantity"": ""T1""}"
+S0960148113005727-904	1	MeasuredProperty	214	226	T3	load factors	"{""HasQuantity"": ""T1""}"

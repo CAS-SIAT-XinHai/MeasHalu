@@ -1,0 +1,385 @@
+Alright, let's tackle this input step by step. First, I need to identify all the quantities mentioned.
+
+Starting with the first sentence: "SQUID magnetometry measurements revealed that both samples 1 and 2 exhibit weak temperature independent paramagnetic behaviour (typically χM∼5×10−4 emu mol−1) between 5 and 300 K." 
+
+Here, I see two quantities. The first is "5×10−4 emu mol−1". The unit here is "emu mol−1". There's a modifier "typically" and the "∼" symbol, which might indicate approximation. So this should be a Quantity with IsApproximate. The second quantity is "5 and 300 K". The unit is "K", and since it's a range, it should have IsRange.
+
+Next, the phrase "between 5 and 300 K" is a qualifier for the paramagnetic behaviour. So "between 5 and 300 K" is a Qualifier.
+
+Then in the next sentence: "below the detection limit of PXD and PND" – "below" is a qualifier, and "detection limit" might be a MeasuredProperty. The detection limit is associated with PXD and PND, which are MeasuredEntities. But wait, the actual quantity here is mentioned as part of the qualifier. Let me check again.
+
+Wait, the sentence says "intrinsically diamagnetic materials with very small levels of alkaline earth metal impurities (below the detection limit of PXD and PND)". The "below..." is a qualifier for the levels of impurities. The detection limit here is a MeasuredProperty, and PXD and PND are MeasuredEntities? Or is "detection limit" the MeasuredProperty, and PXD and PND are the methods? Maybe "detection limit" is the MeasuredProperty related to the methods PXD and PND. Hmm, but the input doesn't specify the actual quantity value for the detection limit, just that it's below. So perhaps "below the detection limit..." is a Qualifier affecting the MeasuredProperty "levels of alkaline earth metal impurities". But since there's no specific quantity given, maybe "detection limit" itself isn't a quantity here. The main quantities are the ones with numbers.
+
+Looking back, the main quantities are:
+
+1. χM∼5×10−4 emu mol−1 (with unit emu mol−1 and IsApproximate due to ∼)
+2. 5 and 300 K (unit K, IsRange)
+3. Also, in the references [15,16], but these are citations, not quantities.
+
+Now, MeasuredEntities: samples 1 and 2, alkaline earth nitride halides, paramagnetic materials, diamagnetic materials, alkaline earth metal impurities, PXD, PND.
+
+MeasuredProperties: paramagnetic behaviour (χM), temperature (between 5 and 300 K), levels (of impurities), detection limit.
+
+Qualifiers: "between 5 and 300 K", "below the detection limit of PXD and PND".
+
+Let's start with the first Quantity: χM∼5×10−4 emu mol−1. The MeasuredProperty here is χM (magnetic susceptibility), which is a property of the samples (MeasuredEntity). The relation would be MeasuredEntity (samples 1 and 2) HasProperty (χM) which HasQuantity (5×10−4 emu mol−1). The Qualifier "between 5 and 300 K" qualifies the temperature range for this behaviour.
+
+Second Quantity: 5 and 300 K. This is a range (IsRange) with unit K. The MeasuredEntity here might be the paramagnetic behaviour or the samples. Wait, the paramagnetic behaviour is temperature independent between 5 and 300 K. So the MeasuredProperty is temperature, linked to the samples via HasProperty, and the Quantity is 5-300 K. But the text says "between 5 and 300 K", which is part of the qualifier. Wait, the quantity is "5 and 300 K" as a range. So the MeasuredProperty is temperature, MeasuredEntity is samples, Quantity is the range. But the original sentence says "exhibit weak temperature independent paramagnetic behaviour... between 5 and 300 K". So the "between..." is a Qualifier for the behaviour. Hmm, maybe the Temperature here is a MeasuredProperty, and the Quantity is 5-300 K. The Qualifier "between 5 and 300 K" would qualify the MeasuredProperty or the Quantity. This is a bit tricky. Alternatively, the quantity 5 and 300 K is part of the Qualifier "between...", which qualifies the paramagnetic behaviour. But according to the steps, Qualifiers can be spans that affect the interpretation of Quantities. So maybe the Qualifier is "between 5 and 300 K" which qualifies the paramagnetic behaviour (MeasuredProperty), and the Quantity is 5-300 K with IsRange.
+
+So for annotSet 1:
+
+Quantity: χM∼5×10−4 emu mol−1 (unit emu mol−1, mods IsApproximate)
+MeasuredEntity: samples 1 and 2
+MeasuredProperty: paramagnetic behaviour (χM)
+Relations: MeasuredEntity HasProperty MeasuredProperty, MeasuredProperty HasQuantity Quantity. Also, the Qualifier "between 5 and 300 K" would link to the MeasuredProperty or Quantity.
+
+Wait, but the paramagnetic behaviour's χM is 5×10−4 emu mol−1, and this is observed between 5 and 300 K. So the temperature range (5-300 K) is a Qualifier for the MeasuredProperty (paramagnetic behaviour). So Qualifier "between 5 and 300 K" Qualifies the MeasuredProperty.
+
+Then, the second Quantity is 5 and 300 K, unit K, mods IsRange. This is part of the Qualifier. But the Qualifier text is "between 5 and 300 K". So the Quantity is 5 and 300 K (IsRange), and the Qualifier is "between 5 and 300 K", which Qualifies the paramagnetic behaviour (MeasuredProperty). So the Quantity 5-300 K is part of the Qualifier. Wait, but according to the steps, Qualifiers are spans that affect other annotations. So in this case, the Qualifier "between 5 and 300 K" would have a relationship Qualifies to the MeasuredProperty (paramagnetic behaviour). However, the actual Quantity here is 5-300 K, which is part of the Qualifier. So perhaps the Quantity 5 and 300 K is part of the Qualifier. Wait, but according to the instructions, Qualifier is a separate annotation type. So the Qualifier is the entire phrase "between 5 and 300 K", and the Quantity within it is "5 and 300 K". Then, the Qualifier "between 5 and 300 K" would Qualify the MeasuredProperty (paramagnetic behaviour), and the Quantity "5 and 300 K" is linked to the Qualifier? Or is the Quantity part of the Qualifier?
+
+This is a bit confusing. Let me check the example given:
+
+In the example, the Qualifier was "after I drank half the can" qualifying the Quantity "175 ml of soda".
+
+In that case, the Qualifier is separate from the Quantity. Here, the Qualifier "between 5 and 300 K" includes the Quantity "5 and 300 K". So perhaps the Qualifier is the entire phrase, and the Quantity is part of it, but they are separate annotations. The Qualifier would have a relationship Qualifies to the MeasuredProperty, and the Quantity would be linked to the Qualifier via HasQuantity? Or the Quantity is standalone, and the Qualifier Qualifies the Quantity. Wait, the relationships are:
+
+- Qualifier can Qualify a Quantity, MeasuredEntity, or MeasuredProperty.
+
+So in this case, the Qualifier "between 5 and 300 K" would Qualify the MeasuredProperty (paramagnetic behaviour), and the Quantity "5 and 300 K" is part of the Qualifier. But how to represent this.
+
+Alternatively, the Quantity "5 and 300 K" is part of the Qualifier, so the Qualifier text is "between 5 and 300 K", but the Quantity is "5 and 300 K" with IsRange. The Qualifier "between..." would Qualify the MeasuredProperty (paramagnetic behaviour), and the Quantity "5 and 300 K" would be a separate Quantity. But the relationship between the Qualifier and the Quantity is unclear. The instructions don't specify linking Qualifiers to Quantities unless the Qualifier is qualifying the Quantity. In the example, the Qualifier "after I drank..." qualified the Quantity. Here, "between..." qualifies the MeasuredProperty (paramagnetic behaviour) by specifying the temperature range. The Quantity "5 and 300 K" is part of the Qualifier but is also a Quantity related to the MeasuredProperty? Or is the temperature a MeasuredProperty here.
+
+Wait, the paramagnetic behaviour is temperature independent between 5 and 300 K. So the paramagnetic behaviour's independence is qualified by the temperature range. The temperature here is a MeasuredProperty of the samples. So the MeasuredProperty would be temperature, with Quantity 5-300 K. Then the Qualifier "between 5 and 300 K" would Qualify the MeasuredProperty (temperature), but that seems redundant. Alternatively, the MeasuredProperty is paramagnetic behaviour, and the Qualifier "between 5 and 300 K" affects it. The Quantity "5 and 300 K" is a separate Quantity with unit K and IsRange. The MeasuredProperty for that Quantity could be temperature. Then, the MeasuredEntity for temperature would be the samples. So:
+
+MeasuredEntity: samples 1 and 2
+MeasuredProperty: temperature
+Quantity: 5 and 300 K (IsRange)
+Relationship: MeasuredEntity HasProperty MeasuredProperty, MeasuredProperty HasQuantity Quantity.
+
+But the phrase "between 5 and 300 K" is a Qualifier that qualifies the paramagnetic behaviour (MeasuredProperty). Hmm. This is getting complicated. Let's try breaking it down:
+
+First Quantity: χM∼5×10−4 emu mol−1. It's in parentheses, referring to χM (which is the magnetic susceptibility). So MeasuredProperty is χM (paramagnetic behaviour), MeasuredEntity is samples 1 and 2. So set 1:
+
+annotSet 1:
+- Quantity: χM∼5×10−4 emu mol−1 (unit emu mol−1, mods IsApproximate)
+- MeasuredEntity: samples 1 and 2
+- MeasuredProperty: paramagnetic behaviour (χM)
+- Relationships: MeasuredEntity HasProperty MeasuredProperty; MeasuredProperty HasQuantity Quantity.
+
+Then, the Qualifier "between 5 and 300 K" qualifies the MeasuredProperty (paramagnetic behaviour). The Quantity 5 and 300 K (unit K, IsRange) is part of the Qualifier. So:
+
+annotSet 2:
+- Quantity: 5 and 300 K (unit K, mods IsRange)
+- Qualifier: between 5 and 300 K (Qualifies paramagnetic behaviour)
+- MeasuredEntity: samples 1 and 2 (again?)
+- MeasuredProperty: temperature
+But wait, the paramagnetic behaviour is temperature independent between 5 and 300 K. So the MeasuredProperty here could be temperature, with the Quantity 5-300 K. But how does this relate to the paramagnetic behaviour?
+
+Alternatively, the temperature range is a Qualifier for the paramagnetic behaviour. The temperature itself is a MeasuredProperty of the samples, with Quantity 5-300 K. So:
+
+annotSet 2:
+- MeasuredProperty: temperature
+- Quantity: 5 and 300 K (unit K, IsRange)
+- Relationships: MeasuredEntity (samples) HasProperty MeasuredProperty (temperature), MeasuredProperty HasQuantity Quantity.
+
+But the phrase "between 5 and 300 K" is a Qualifier that qualifies the paramagnetic behaviour (annotSet1's MeasuredProperty). So the Qualifier "between 5 and 300 K" would have a Qualifies relationship to T3 (MeasuredProperty paramagnetic behaviour).
+
+But the Quantity 5-300 K is part of the Qualifier. So perhaps:
+
+annotSet2:
+- Qualifier: between 5 and 300 K (Qualifies T3)
+- Quantity: 5 and 300 K (unit K, IsRange)
+- Relationships: Qualifier Qualifies T3; Quantity is standalone? Or does the Qualifier have a HasQuantity relationship to the Quantity?
+
+Hmm, the instructions say that Qualifier is an annotation type, and if the Qualifier contains a Quantity, they should be separate annotations. The Qualifier's "other" field would have {"Qualifies": "T3"}, and the Quantity would be in another annotSet. But the problem is that the Qualifier text includes the Quantity. So the Qualifier's text is "between 5 and 300 K", which includes the Quantity "5 and 300 K". Therefore, the Quantity is a part of the Qualifier span, but as per the instructions, we need to extract all quantities first. So the Quantity "5 and 300 K" would be an annotation, and the Qualifier "between 5 and 300 K" is another annotation. The Qualifier would have a Qualifies relationship to the MeasuredProperty (paramagnetic behaviour), and the Quantity "5 and 300 K" would be part of the Qualifier's text but also a standalone Quantity. However, the relationships between the Qualifier and the Quantity are not specified unless the Qualifier directly qualifies the Quantity. In this case, the Qualifier "between..." qualifies the paramagnetic behaviour, not the Quantity itself. So the Quantity "5 and 300 K" is separate and might be linked to a MeasuredProperty like temperature.
+
+This is getting quite complex. Let's try to outline the annotations step by step.
+
+First, extract all Quantities:
+
+1. "5×10−4 emu mol−1" (annotSet1, Quantity T1)
+2. "5 and 300 K" (annotSet2, Quantity T4)
+3. The detection limit part mentions "below the detection limit", but there's no quantity here, just a qualifier.
+4. The references [15,16] are not quantities.
+
+For Quantity T1 (5×10−4 emu mol−1):
+
+- Unit: emu mol−1
+- Mods: IsApproximate (due to ∼)
+- MeasuredProperty: paramagnetic behaviour (χM)
+- MeasuredEntity: samples 1 and 2
+- Relationships: MeasuredEntity (T2) HasProperty MeasuredProperty (T3), MeasuredProperty (T3) HasQuantity Quantity (T1).
+
+Qualifier "between 5 and 300 K" (text) is part of the first sentence. This Qualifier (T5) Qualifies the MeasuredProperty (paramagnetic behaviour, T3). The Quantity within this Qualifier is "5 and 300 K" (T4), which has unit K and IsRange. The MeasuredProperty for T4 is temperature, with MeasuredEntity samples 1 and 2. So:
+
+annotSet2:
+- Quantity T4: 5 and 300 K, unit K, mods IsRange
+- MeasuredEntity T5: samples 1 and 2 (same as T2?)
+- MeasuredProperty T6: temperature
+- Relationships: T5 HasProperty T6, T6 HasQuantity T4
+- Qualifier T7: between 5 and 300 K, Qualifies T3 (paramagnetic behaviour)
+
+Wait, but samples 1 and 2 are already T2 in annotSet1. So in annotSet2, the MeasuredEntity would be T5 pointing to samples again. That's okay, as each annotSet is a grouping. Wait, no, annotSet is for each logical grouping. So maybe "samples 1 and 2" are part of annotSet1, and "temperature" is part of annotSet2. But the MeasuredEntity for temperature would still be samples 1 and 2. So perhaps annotSet2 includes:
+
+- Quantity T4: 5 and 300 K (unit K, IsRange)
+- MeasuredEntity T5: samples 1 and 2 (same as T2 in annotSet1)
+- MeasuredProperty T6: temperature
+- Relationships: T5 HasProperty T6; T6 HasQuantity T4
+- Qualifier T7: between 5 and 300 K, Qualifies T3 (paramagnetic behaviour from annotSet1)
+
+But the user's example grouped each related set into separate annotSet numbers. So each logical group (like each quantity and its related entities) gets its own annotSet. So for the first Quantity (T1), annotSet1 includes the MeasuredEntity and MeasuredProperty related to it. For the second Quantity (T4), annotSet2 would have its own MeasuredEntity and MeasuredProperty.
+
+However, the MeasuredEntity for both quantities is the same (samples 1 and 2). But according to the example, each logical grouping is a separate annotSet. So perhaps annotSet1 is for the first Quantity (χM), and annotSet2 for the temperature range. Even if the MeasuredEntity is the same, each Quantity and its direct relations form a separate annotSet.
+
+Alternatively, annotSet groups related annotations, so if two Quantities are related to the same MeasuredEntity, they might be in different annotSets. But the example had separate annotSets for each main quantity. For example, in the example, three separate annotSets for each quantity (25°C, 500 ml, 10 grams). So here, similarly, each main quantity (emu mol−1 and K) would be in separate annotSets.
+
+So annotSet1:
+
+- Quantity T1: 5×10−4 emu mol−1 (unit emu mol−1, mods IsApproximate)
+- MeasuredEntity T2: samples 1 and 2
+- MeasuredProperty T3: paramagnetic behaviour (χM)
+- Relationships: T2 HasProperty T3; T3 HasQuantity T1
+- Qualifier T4: between 5 and 300 K, Qualifies T3
+
+Wait, but the Qualifier is part of the first sentence and qualifies the paramagnetic behaviour. So Qualifier T4 would be in annotSet1, qualifying T3. But the Quantity 5 and 300 K (T5) is in another annotSet.
+
+So annotSet1:
+
+annotSet1:
+- Quantity T1: 5×10−4 emu mol−1
+- MeasuredEntity T2: samples 1 and 2
+- MeasuredProperty T3: paramagnetic behaviour
+- Qualifier T4: between 5 and 300 K (Qualifies T3)
+- Relationships: T2 HasProperty T3; T3 HasQuantity T1; T4 Qualifies T3
+
+But the Quantity 5 and 300 K is part of the Qualifier T4's text but isn't extracted here. According to the steps, all quantities must be extracted, so we need to have another annotSet for that.
+
+annotSet2:
+- Quantity T5: 5 and 300 K (unit K, mods IsRange)
+- MeasuredEntity T6: samples 1 and 2 (again)
+- MeasuredProperty T7: temperature
+- Relationships: T6 HasProperty T7; T7 HasQuantity T5
+
+But then the Qualifier T4 in annotSet1 includes the text "between 5 and 300 K", which contains the Quantity T5. But according to relationships, Qualifier can qualify a Quantity, MeasuredEntity, or MeasuredProperty. In this case, the Qualifier T4 qualifies the MeasuredProperty T3 (paramagnetic behaviour), not the Quantity T5. The Quantity T5 is part of the Qualifier's text but is a separate Quantity. However, there's no direct relationship between the Qualifier T4 and the Quantity T5 unless the Qualifier qualifies the Quantity, which it doesn't here. The Qualifier qualifies the paramagnetic behaviour, not the temperature quantity.
+
+This seems a bit tangled. To simplify, perhaps the two main Quantities are 5×10−4 emu mol−1 and 5-300 K. Each gets their own annotSet.
+
+annotSet1:
+- Quantity T1: 5×10−4 emu mol−1 (unit emu mol−1, IsApproximate)
+- MeasuredEntity T2: samples 1 and 2
+- MeasuredProperty T3: paramagnetic behaviour (χM)
+- Relationships: T2 HasProperty T3; T3 HasQuantity T1
+- Qualifier T4: between 5 and 300 K (Qualifies T3)
+
+annotSet2:
+- Quantity T5: 5 and 300 K (unit K, IsRange)
+- MeasuredEntity T6: samples 1 and 2
+- MeasuredProperty T7: temperature
+- Relationships: T6 HasProperty T7; T7 HasQuantity T5
+
+But the Qualifier T4 in annotSet1 ("between 5 and 300 K") references the Quantity T5 from annotSet2. But according to the guidelines, relationships are within the same annotSet. Wait, no, the example had each annotSet as separate groupings. So relationships are within the same annotSet. Therefore, if the Qualifier T4 is in annotSet1, it can't reference T5 in annotSet2. Therefore, perhaps the temperature range is part of the same annotSet as the paramagnetic behaviour.
+
+Alternatively, the temperature range is a MeasuredProperty related to the same samples, but that would require annotSet1 to include both quantities. But the example had each quantity in its own annotSet. Hmm.
+
+Alternatively, the paramagnetic behaviour's MeasuredProperty is χM, which HasQuantity T1 (5×10−4 emu mol−1), and the Qualifier "between 5 and 300 K" Qualifies this MeasuredProperty. The temperature range is a separate Quantity and MeasuredProperty (temperature) related to the same MeasuredEntity (samples). But how to handle the Qualifier text that includes the temperature range.
+
+This is quite challenging. Let's try proceeding with the following structure:
+
+annotSet1:
+- Quantity T1: 5×10−4 emu mol−1 (unit emu mol−1, mods: IsApproximate)
+- MeasuredEntity T2: samples 1 and 2
+- MeasuredProperty T3: paramagnetic behaviour (χM)
+- Relationships: T2 HasProperty T3; T3 HasQuantity T1
+- Qualifier T4: between 5 and 300 K (Qualifies T3)
+- Quantity T5: 5 and 300 K (unit K, mods: IsRange)
+- MeasuredProperty T6: temperature
+- Relationships: T2 HasProperty T6; T6 HasQuantity T5
+
+But this would mix two Quantities in the same annotSet, which the example didn't do. The example had separate annotSets for each Quantity. So maybe this case is different, where the Qualifier includes another Quantity, which needs to be in the same annotSet? Or maybe not.
+
+Alternatively, the temperature range (5-300 K) is part of the Qualifier for the paramagnetic behaviour. So in annotSet1, we have:
+
+annotSet1:
+- Quantity T1: 5×10−4 emu mol−1 (emu mol−1, IsApproximate)
+- MeasuredEntity T2: samples 1 and 2
+- MeasuredProperty T3: paramagnetic behaviour (χM)
+- Qualifier T4: between 5 and 300 K (Qualifies T3)
+- Quantity T5: 5 and 300 K (K, IsRange)
+- MeasuredProperty T6: temperature
+- Relationships: T2 HasProperty T3, T3 HasQuantity T1; T4 Qualifies T3; T2 HasProperty T6, T6 HasQuantity T5
+
+But now annotSet1 contains two Quantities. This breaks the example's structure where each Quantity is in its own annotSet. However, the instructions say annotSet starts from 1 for each logical grouping of related annotations. If the paramagnetic behaviour and temperature are related to the same samples and part of the same context, they might be in the same annotSet. But the example had separate annotSets for each Quantity. Perhaps the correct approach is to have two annotSets:
+
+annotSet1 for the first Quantity (χM) and its relations.
+annotSet2 for the temperature range Quantity and its relations.
+Qualifier "between..." is part of annotSet1, qualifying the paramagnetic behaviour, but it contains the Quantity from annotSet2. But how to handle that.
+
+Alternatively, the Qualifier is in annotSet1, and the temperature range is in annotSet2. There's no direct relationship between them, but the Qualifier's text includes the Quantity from annotSet2. However, since relationships are within the same annotSet, this is acceptable.
+
+This seems like the best approach. So:
+
+annotSet1:
+- Quantity T1: 5×10−4 emu mol−1 (unit emu mol−1, mods IsApproximate)
+- MeasuredEntity T2: samples 1 and 2
+- MeasuredProperty T3: paramagnetic behaviour (χM)
+- Qualifier T4: between 5 and 300 K (Qualifies T3)
+- Relationships: T2 HasProperty T3; T3 HasQuantity T1; T4 Qualifies T3
+
+annotSet2:
+- Quantity T5: 5 and 300 K (unit K, mods IsRange)
+- MeasuredEntity T6: samples 1 and 2
+- MeasuredProperty T7: temperature
+- Relationships: T6 HasProperty T7; T7 HasQuantity T5
+
+But the Qualifier T4 in annotSet1 includes the text "between 5 and 300 K", which is the Quantity T5 from annotSet2. But there's no cross-annotSet relationships. The Qualifier T4 in annotSet1 is separate from annotSet2's Quantity T5. This might be acceptable, even though the text overlaps. The important thing is that each Quantity is properly annotated, and the Qualifier is linked to the relevant annotation.
+
+Next, the second paragraph mentions "below the detection limit of PXD and PND". The phrase "below the detection limit" is a Qualifier for the levels of impurities. The detection limit is a MeasuredProperty of PXD and PND (methods). The actual Quantity here isn't provided, just that it's below the detection limit. So:
+
+- Qualifier T8: below the detection limit of PXD and PND (Qualifies "levels of alkaline earth metal impurities")
+- MeasuredEntity T9: PXD and PND
+- MeasuredProperty T10: detection limit
+- Relationships: T9 HasProperty T10; the Qualifier T8 Qualifies the MeasuredProperty T10 (or the levels of impurities?)
+
+The text says "intrinsically diamagnetic materials with very small levels of alkaline earth metal impurities (below the detection limit of PXD and PND)". Here, "levels of alkaline earth metal impurities" is the MeasuredProperty, with a Qualifier "below..." indicating it's below the detection limit. The detection limit is a MeasuredProperty of PXD and PND (MeasuredEntities). However, there's no Quantity specified for the detection limit. So:
+
+annotSet3:
+- MeasuredEntity T9: PXD and PND
+- MeasuredProperty T10: detection limit
+- Qualifier T11: below the detection limit of PXD and PND (Qualifies T12)
+- MeasuredProperty T12: levels (of alkaline earth metal impurities)
+- Relationships: T9 HasProperty T10; Qualifier T11 Qualifies T12
+
+But the MeasuredProperty T12 (levels) doesn't have a Quantity here, as it's just stated to be below the detection limit. Since there's no Quantity mentioned for the levels, we can't annotate a Quantity here. Thus, the Qualifier T11 Qualifies T12 (levels), but T12 is a MeasuredProperty without a Quantity. However, the instructions say that MeasuredProperty should ideally relate to a Quantity. Since there's no Quantity for T12, should we still annotate it? The example included MeasuredProperties even if they didn't have Quantities. Wait, in the example, "volume" was a MeasuredProperty linked to a Quantity. Here, "levels" is a MeasuredProperty but there's no Quantity specified, just a Qualifier stating it's below the detection limit. So we can still annotate T12 as a MeasuredProperty linked to MeasuredEntity "alkaline earth metal impurities" (if that's the entity). Wait, the text says "levels of alkaline earth metal impurities". So the MeasuredEntity here is "alkaline earth metal impurities", and the MeasuredProperty is "levels". The Qualifier "below..." qualifies the levels.
+
+So:
+
+annotSet3:
+- MeasuredEntity T8: alkaline earth metal impurities
+- MeasuredProperty T9: levels
+- Qualifier T10: below the detection limit of PXD and PND (Qualifies T9)
+- MeasuredEntity T11: PXD and PND
+- MeasuredProperty T12: detection limit
+- Relationships: T11 HasProperty T12; T8 HasProperty T9; Qualifier T10 Qualifies T9
+
+But again, there's no Quantity here. The detection limit's Quantity isn't provided, so we can't annotate it. So this set would have no Quantity annotations.
+
+Now, putting it all together:
+
+annotSet1 includes the first Quantity (χM), its MeasuredEntity and MeasuredProperty, and the Qualifier "between...".
+
+annotSet2 includes the temperature range Quantity, its MeasuredEntity and MeasuredProperty.
+
+annotSet3 includes the Qualifier "below..." and the related MeasuredEntities and MeasuredProperties without Quantities.
+
+Additionally, the phrase "weak temperature independent paramagnetic behaviour" includes "temperature independent" as a Qualifier? Or part of the MeasuredProperty's description. Probably part of the MeasuredProperty's text, so no need for a separate Qualifier.
+
+Finally, the references [15,16] are citations, not quantities or entities.
+
+Another thing to consider: the text mentions "typically χM∼5×10−4 emu mol−1". The word "typically" is a modifier for the Quantity, indicating it's a typical value. Should this be marked as a modifier like IsTypical? But the available modifiers don't include that. The closest is IsApproximate, but "typically" might imply it's a common value rather than approximate. However, the "∼" symbol is used, which does indicate approximation. So the Quantity has both "typically" and "∼", so IsApproximate is appropriate.
+
+Putting this all into TSV format:
+
+annotSet1:
+- T1: Quantity: χM∼5×10−4 emu mol−1, unit emu mol−1, mods IsApproximate
+- T2: MeasuredEntity: samples 1 and 2
+- T3: MeasuredProperty: paramagnetic behaviour (χM)
+- T4: Qualifier: between 5 and 300 K (Qualifies T3)
+- Relationships: T2 HasProperty T3; T3 HasQuantity T1; T4 Qualifies T3
+
+annotSet2:
+- T5: Quantity: 5 and 300 K, unit K, mods IsRange
+- T6: MeasuredEntity: samples 1 and 2
+- T7: MeasuredProperty: temperature
+- Relationships: T6 HasProperty T7; T7 HasQuantity T5
+
+annotSet3:
+- T8: MeasuredEntity: alkaline earth metal impurities
+- T9: MeasuredProperty: levels
+- T10: Qualifier: below the detection limit of PXD and PND (Qualifies T9)
+- T11: MeasuredEntity: PXD and PND
+- T12: MeasuredProperty: detection limit
+- Relationships: T11 HasProperty T12; T8 HasProperty T9; T10 Qualifies T9
+
+But wait, in the Qualifier "below the detection limit of PXD and PND", the text includes the MeasuredProperty (detection limit) and MeasuredEntities (PXD and PND). So we need to extract these as well.
+
+So in annotSet3:
+
+- Qualifier T10: below the detection limit of PXD and PND (text)
+- This Qualifier Qualifies T9 (levels)
+- MeasuredEntity T11: PXD and PND
+- MeasuredProperty T12: detection limit (property of PXD and PND)
+- Relationships: T11 HasProperty T12; T10 Qualifies T9
+
+But since there's no Quantity for the detection limit, we can't annotate it. The Qualifier's text includes "detection limit of PXD and PND", which is a MeasuredProperty (detection limit) of MeasuredEntity (PXD and PND). So we need to annotate those.
+
+So for annotSet3:
+
+annotSet3:
+- MeasuredEntity T8: alkaline earth metal impurities
+- MeasuredProperty T9: levels
+- Qualifier T10: below the detection limit of PXD and PND (Qualifies T9)
+- MeasuredEntity T11: PXD and PND
+- MeasuredProperty T12: detection limit
+- Relationships:
+  - T11 HasProperty T12
+  - T8 HasProperty T9
+  - T10 Qualifies T9
+
+But again, no Quantity here.
+
+Another point: "χM" is part of the MeasuredProperty paramagnetic behaviour. The original text says "paramagnetic behaviour (typically χM∼5×10−4 emu mol−1)". So χM is the symbol for the magnetic susceptibility, which is the MeasuredProperty. Therefore, the MeasuredProperty is "paramagnetic behaviour (χM)", and the text is "paramagnetic behaviour".
+
+Now, constructing the TSV:
+
+annotSet1:
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	χM∼5×10−4 emu mol−1	{"unit": "emu mol−1", "mods": ["IsApproximate"]}
+1	MeasuredEntity	T2	samples 1 and 2	{"HasProperty": "T3"}
+1	MeasuredProperty	T3	paramagnetic behaviour	{"HasQuantity": "T1"}
+1	Qualifier	T4	between 5 and 300 K	{"Qualifies": "T3"}
+
+annotSet2:
+annotSet	annotType	annotId	text	other
+2	Quantity	T5	5 and 300 K	{"unit": "K", "mods": ["IsRange"]}
+2	MeasuredEntity	T6	samples 1 and 2	{"HasProperty": "T7"}
+2	MeasuredProperty	T7	temperature	{"HasQuantity": "T5"}
+
+annotSet3:
+annotSet	annotType	annotId	text	other
+3	MeasuredEntity	T8	alkaline earth metal impurities	{"HasProperty": "T9"}
+3	MeasuredProperty	T9	levels	{}
+3	Qualifier	T10	below the detection limit of PXD and PND	{"Qualifies": "T9"}
+3	MeasuredEntity	T11	PXD and PND	{"HasProperty": "T12"}
+3	MeasuredProperty	T12	detection limit	{}
+
+However, in the output example, the "other" field for MeasuredProperty includes relationships. For example, MeasuredProperty has {"HasQuantity": "T1", "HasProperty": "T2"}.
+
+In annotSet1, T3 (MeasuredProperty) should have {"HasQuantity": "T1", "HasProperty": "T2"}.
+
+Similarly, in annotSet2, T7 (MeasuredProperty) should have {"HasQuantity": "T5", "HasProperty": "T6"}.
+
+In annotSet3, T9 (MeasuredProperty) has {"HasProperty": "T8"} but no HasQuantity (since there's no Quantity), and T12 (MeasuredProperty) has {"HasProperty": "T11"}.
+
+Also, the Qualifier T10 in annotSet3 has {"Qualifies": "T9"}.
+
+So correcting the TSV:
+
+annotSet1:
+1	Quantity	T1	χM∼5×10−4 emu mol−1	{"unit": "emu mol−1", "mods": ["IsApproximate"]}
+1	MeasuredEntity	T2	samples 1 and 2	{}
+1	MeasuredProperty	T3	paramagnetic behaviour	{"HasQuantity": "T1", "HasProperty": "T2"}
+1	Qualifier	T4	between 5 and 300 K	{"Qualifies": "T3"}
+
+annotSet2:
+2	Quantity	T5	5 and 300 K	{"unit": "K", "mods": ["IsRange"]}
+2	MeasuredEntity	T6	samples 1 and 2	{}
+2	MeasuredProperty	T7	temperature	{"HasQuantity": "T5", "HasProperty": "T6"}
+
+annotSet3:
+3	MeasuredEntity	T8	alkaline earth metal impurities	{}
+3	MeasuredProperty	T9	levels	{"HasProperty": "T8"}
+3	Qualifier	T10	below the detection limit of PXD and PND	{"Qualifies": "T9"}
+3	MeasuredEntity	T11	PXD and PND	{}
+3	MeasuredProperty	T12	detection limit	{"HasProperty": "T11"}
+
+This way, each MeasuredProperty has its HasProperty and HasQuantity (if applicable) relationships.

@@ -1,0 +1,7 @@
+docId	annotSet	annotType	annotId	text	other
+S2213671113000908-979	1	Quantity	T1	single	"{""mods"": [""IsCount""]}"
+S2213671113000908-979	1	MeasuredEntity	T2	cells	"{""HasQuantity"": ""T1""}"
+S2213671113000908-979	2	Quantity	T3	12 hr	"{""unit"": ""hr""}"
+S2213671113000908-979	2	Qualifier	T4	after plating	"{""Qualifies"": ""T3""}"
+S2213671113000908-979	3	Quantity	T5	single	"{""mods"": [""IsCount""]}"
+S2213671113000908-979	3	MeasuredEntity	T6	GFP-positive hFSC	"{""HasQuantity"": ""T5""}"

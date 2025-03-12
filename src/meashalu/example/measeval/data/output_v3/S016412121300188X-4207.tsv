@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S016412121300188X-4207	1	Quantity	158	161	T1	14%	"{""unit"": ""%"", ""mods"": [""IsMean""]}"
+S016412121300188X-4207	1	MeasuredEntity	142	148	T2	slices	"{""HasQuantity"": ""T1""}"
+S016412121300188X-4207	2	Quantity	235	238	T4	37%	"{""unit"": ""%"", ""mods"": [""IsMean""]}"
+S016412121300188X-4207	2	MeasuredEntity	142	148	T5	slices	"{""HasQuantity"": ""T4""}"
+S016412121300188X-4207	3	Quantity	541	543	T7	30	"{""mods"": [""IsCount""]}"
+S016412121300188X-4207	3	MeasuredEntity	544	552	T8	programs	"{""HasQuantity"": ""T7""}"

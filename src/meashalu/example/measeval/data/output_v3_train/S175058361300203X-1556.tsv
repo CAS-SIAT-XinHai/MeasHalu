@@ -1,0 +1,9 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S175058361300203X-1556	1	Quantity	65	70	T1	34 °C	"{""unit"": ""\u00b0C""}"
+S175058361300203X-1556	1	Quantity	75	80	T2	38 °C	"{""unit"": ""\u00b0C""}"
+S175058361300203X-1556	1	MeasuredEntity	14	43	T3	synthetic seismic differences	"{""HasQuantity"": ""T2""}"
+S175058361300203X-1556	2	Quantity	668	680	T6	less than 1%	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
+S175058361300203X-1556	2	MeasuredEntity	586	615	T7	Seismic amplitude differences	"{""HasQuantity"": ""T6""}"
+S175058361300203X-1556	2	MeasuredProperty	594	603	T8	amplitude	"{""HasQuantity"": ""T6""}"
+S175058361300203X-1556	3	Quantity	818	834	T9	greater than 10%	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
+S175058361300203X-1556	3	MeasuredProperty	776	786	T11	difference	"{""HasQuantity"": ""T9""}"

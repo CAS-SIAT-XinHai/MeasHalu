@@ -1,0 +1,19 @@
+Okay, let's break down the user's input step by step. The task is to extract structured annotations from the given text. The input is a scientific abstract discussing marine cores and their analysis. 
+
+First, I need to identify all the quantities in the text. Looking at the input: "We examine a high resolution multi-proxy physical properties from two marine cores." Here, "two marine cores" mentions the number of cores, so "two" is a quantity. Since it's a count, it should be marked as IsCount.
+
+Next, the phrase "in the last 200 years" includes "200 years" as a quantity. The unit here is "years", and since it's a measurement of time, there's no modifier like approximate or range. 
+
+Now, moving to measured entities. The marine cores are mentioned as "two marine cores," so "marine cores" is the measured entity here. The "sedimentation" in the last part refers to the process being measured over 200 years, so that's another measured entity.
+
+For measured properties, "physical properties" from the first part is a property of the marine cores. The "correlation" mentioned in the second point refers to the relationship between physical proxies and climate, which is a measured property. Additionally, "reworking" and "anthropogenic influence" are properties related to the measured entities.
+
+Qualifiers like "high resolution" in "high resolution multi-proxy physical properties" describe the quality of the physical properties, so that's a qualifier. "Little" in "Little correlation" qualifies the correlation's extent. "Poor" in "poor correlation" is another qualifier. "Possible" in "Possible anthropogenic influence" indicates uncertainty, so that's a qualifier too.
+
+Now, setting up the relationships. Each annotation set should group related entities. For the first quantity "two" (T1), the measured entity is "marine cores" (T2), and the measured property is "physical properties" (T3). The qualifier "high resolution" (T4) qualifies the measured property T3.
+
+The second annotation set is for the quantity "200 years" (T5). The measured entity here is "sedimentation" (T6), and the measured property is "anthropogenic influence" (T7). The qualifier "Possible" (T8) qualifies T7.
+
+Other qualifiers like "Little" (T9) and "poor" (T10) relate to their respective measured properties in different annotation sets. 
+
+Need to check if all relationships are properly linked with HasQuantity, HasProperty, and Qualifies. Ensure each quantity has its corresponding entity and property connected, and qualifiers are linked correctly. Also, verify that units and modifiers are correctly annotated in the 'other' column.

@@ -1,0 +1,359 @@
+Okay, let's tackle this FTIR spectra annotation. First, I need to follow the steps outlined. Step 1 is extracting all quantities. Let's go through the input text sentence by sentence.
+
+Starting with the first sentence: "FTIR spectra of (a) PLGA fibres, (b) HA nanopowder, (c) PLGA–HA composite fibres, and (d) sintered PLGA–HA fibres." No quantities here, just listing components.
+
+Next sentence: "The pure PLGA spectrum shows the C3O characteristic bands in the region 1065–1280 cm−1." Here, "1065–1280 cm−1" is a range. The cm−1 is the unit. So this is a Quantity. The mods should be IsRange. The unit is cm⁻¹.
+
+Then: "The spectrum of HA nanopowder reveals the characteristic peak assigned to PO43−: ν1 vibration mode at about 964 cm−1, ν3 vibration mode at 1031 cm−1 and 1091 cm−1 (asymmetric) respectively." 
+
+- "about 964 cm−1": "about" makes it approximate. Quantity is "about 964 cm−1", mods IsApproximate, unit cm⁻¹.
+- "1031 cm−1": straightforward Quantity, unit cm⁻¹.
+- "1091 cm−1": same as above.
+
+Next part: "The spectrum of untreated PLGA–HA 50% displays both characteristics of PLGA and HA." Here, "50%" is a percentage. So that's a Quantity. Unit is %, and IsCount? Wait, percentages are measurements, not counts. Maybe no mod here. Or is it a ratio? The instruction says counts are things like "five samples". So 50% is a measurement. Unit is %, no modifier unless it's a percentage. The example didn't mention percentages, but maybe "IsCount" is for when it's a discrete count. So here, it's a measurement.
+
+Then: "However the spectrum of CaP fibres shows the loss of the characteristics of PLGA (C3O bands), suggesting the successful thermal degradation of the polymer, while the characteristics of HA (PO43−) remain present." No quantities here.
+
+Now, moving to Step 2: For each Quantity, extract modifiers, units, and relations.
+
+First Quantity: "1065–1280 cm−1". The MeasuredEntity would be "C3O characteristic bands", MeasuredProperty is "region". Wait, the text says "the region 1065–1280 cm−1". The region is the MeasuredProperty, and the MeasuredEntity is "C3O characteristic bands". So:
+
+- Quantity: "1065–1280 cm−1", mods IsRange, unit cm⁻¹.
+- MeasuredEntity: "C3O characteristic bands" (but the text says "C3O characteristic bands in the region...", so the region is the property. So MeasuredProperty would be "region", MeasuredEntity is "C3O characteristic bands".
+
+Relations: MeasuredEntity (C3O bands) HasProperty (region), which is MeasuredProperty. Then MeasuredProperty (region) HasQuantity (T1).
+
+Wait, but the original example in the guidelines had "The soda can's volume was 355 ml." So MeasuredEntity is soda can, MeasuredProperty is volume, Quantity is 355 ml. So structure is MeasuredEntity (soda can) HasProperty (volume), which HasQuantity (355 ml). So in this case, the MeasuredEntity is "C3O characteristic bands", MeasuredProperty is "region", and Quantity is "1065–1280 cm−1".
+
+Second Quantity: "about 964 cm−1". The MeasuredEntity here is "PO43−: ν1 vibration mode". The MeasuredProperty would be "characteristic peak". Wait, the sentence says "the characteristic peak assigned to PO43−: ν1 vibration mode at about 964 cm−1". So the peak is the MeasuredProperty (characteristic peak) of the MeasuredEntity which is PO43− ν1 vibration mode. Or maybe the MeasuredEntity is HA nanopowder, and the MeasuredProperty is the characteristic peak assigned to PO43− ν1 vibration mode. Hmm, this is a bit tricky. Let's parse it again.
+
+Original text: "The spectrum of HA nanopowder reveals the characteristic peak assigned to PO43−: ν1 vibration mode at about 964 cm−1..."
+
+So the MeasuredEntity might be HA nanopowder, and the MeasuredProperty is the characteristic peak (assigned to PO43− ν1 vibration mode). Then the Quantity is "about 964 cm−1". So relations would be HA nanopowder (MeasuredEntity) HasProperty (characteristic peak) which HasQuantity (about 964 cm−1). But in the text, the peak is assigned to PO43− ν1 vibration mode. Maybe the MeasuredEntity is PO43− ν1 vibration mode? Or is the peak the property of HA nanopowder? This is a bit ambiguous. Let's check the example given. In the example, "volume" was a MeasuredProperty of the soda can. So here, maybe the "characteristic peak" is the MeasuredProperty of HA nanopowder. But the mention of PO43−: ν1 vibration mode is part of the description of the peak. So perhaps the MeasuredProperty is the ν1 vibration mode's characteristic peak. Alternatively, the MeasuredEntity is HA nanopowder, MeasuredProperty is ν1 vibration mode's characteristic peak, and Quantity is 964 cm−1. But to simplify, maybe we take the "PO43−: ν1 vibration mode" as the MeasuredEntity. However, the structure in the example shows that the MeasuredEntity is the entity (e.g., soda can), and the MeasuredProperty is the property (volume). Here, the HA nanopowder's spectrum reveals the peak assigned to PO43− ν1 vibration mode. So the PO43− ν1 vibration mode is part of the MeasuredEntity? Or is the MeasuredEntity HA nanopowder, and the MeasuredProperty is the ν1 vibration mode's peak. Then, Quantity is the wavenumber. This is getting complex. Let's think differently. 
+
+In the example, the MeasuredProperty was "volume". Here, the equivalent would be the "characteristic peak" which is a property. But the peak is assigned to PO43− ν1 vibration mode. So maybe the MeasuredProperty is the ν1 vibration mode's characteristic peak. Then, the HA nanopowder is the MeasuredEntity. So:
+
+MeasuredEntity: HA nanopowder
+
+MeasuredProperty: ν1 vibration mode (or perhaps "characteristic peak assigned to PO43−: ν1 vibration mode")
+
+But the text says "the characteristic peak assigned to PO43−: ν1 vibration mode at about 964 cm−1". So perhaps the MeasuredProperty is "ν1 vibration mode", and the Quantity is the peak's position. Alternatively, "characteristic peak" could be the property, and the ν1 vibration mode is a qualifier. Hmm. Alternatively, maybe "ν1 vibration mode" is the MeasuredProperty, and the peak is part of the entity. Alternatively, the text is structured as (HA nanopowder) has a peak (property) which is assigned to PO43− (entity) ν1 vibration mode (property of PO43−?), and the wavenumber is the quantity. This is getting too tangled. Let's look for simpler relations. 
+
+Alternatively, perhaps the MeasuredEntity is the ν1 vibration mode of PO43−, and the MeasuredProperty is the characteristic peak, and the Quantity is 964 cm−1. Then, the relationships would be ν1 vibration mode (MeasuredEntity) HasProperty (characteristic peak) which HasQuantity (964 cm−1). But how does HA nanopowder fit in? The HA nanopowder's spectrum reveals this. Maybe HA nanopowder is the MeasuredEntity, and the MeasuredProperty is the characteristic peak (of PO43− ν1 vibration mode). So HA nanopowder HasProperty (characteristic peak), which HasQuantity (964 cm−1). Then, "PO43−: ν1 vibration mode" is a qualifier for the peak. But Qualifiers are spans that describe conditions. Wait, the Qualifier is an optional span that affects the Quantity, etc. So maybe "PO43−: ν1 vibration mode" is a Qualifier for the Quantity. But this might complicate things. Alternatively, perhaps the MeasuredEntity is PO43−, and the MeasuredProperty is ν1 vibration mode. Then, the Quantity is the wavenumber. But the original sentence is about HA nanopowder's spectrum. 
+
+This is getting complicated. Let's try to be pragmatic. In the example, the MeasuredEntity was "soda can", MeasuredProperty "volume", Quantity "355 ml". Here, for the first Quantity "about 964 cm−1", the context is the HA nanopowder's spectrum showing the peak for PO43−'s ν1 vibration mode. So perhaps:
+
+MeasuredEntity: HA nanopowder
+
+MeasuredProperty: ν1 vibration mode (of PO43−)
+
+Quantity: about 964 cm−1
+
+But how to represent this. Alternatively, the MeasuredProperty is the characteristic peak, and the entity is HA nanopowder. Then the peak has a Quantity of 964 cm−1. The PO43− and ν1 vibration mode are part of the description of the peak. Hmm. Alternatively, maybe the PO43− is the MeasuredEntity, and the ν1 vibration mode is the MeasuredProperty, with the Quantity being 964 cm−1. But PO43− is a chemical ion, so that's the entity. But the text is about HA nanopowder's spectrum. 
+
+Alternatively, perhaps we can structure it as follows:
+
+MeasuredEntity: HA nanopowder
+
+MeasuredProperty: characteristic peak (assigned to PO43− ν1 vibration mode)
+
+Quantity: about 964 cm−1
+
+But the "assigned to PO43− ν1 vibration mode" is part of the MeasuredProperty's description. But since the text mentions "the characteristic peak assigned to PO43−: ν1 vibration mode at about 964 cm−1", the exact text for MeasuredProperty would be "characteristic peak assigned to PO43−: ν1 vibration mode". However, the instruction says to extract the exact text. So perhaps the MeasuredProperty is "characteristic peak", and the "assigned to PO43−: ν1 vibration mode" is a Qualifier. But Qualifiers are spans of text that affect the interpretation. Alternatively, perhaps "PO43−: ν1 vibration mode" is part of the MeasuredProperty. This is getting too deep. Let's perhaps take a step back.
+
+For each Quantity, identify the associated MeasuredEntity and MeasuredProperty. For "about 964 cm−1", the context is "the characteristic peak assigned to PO43−: ν1 vibration mode at about 964 cm−1". So the Quantity is the peak's wavenumber. The MeasuredProperty would be the ν1 vibration mode's peak, and the MeasuredEntity could be PO43−. But PO43− is part of HA nanopowder. Alternatively, HA nanopowder is the MeasuredEntity, and the property is the ν1 vibration mode's peak. But how to structure this. 
+
+Alternatively, perhaps the MeasuredEntity is "PO43−" and the MeasuredProperty is "ν1 vibration mode", with the Quantity being 964 cm−1. That seems plausible. Then, the relationships would be:
+
+PO43− (MeasuredEntity) HasProperty ν1 vibration mode (MeasuredProperty), which HasQuantity 964 cm−1 (Quantity). 
+
+But the text says "the spectrum of HA nanopowder reveals the characteristic peak assigned to PO43−: ν1 vibration mode...". So HA nanopowder is the entity whose spectrum is being discussed, but the peak is assigned to PO43−. So the PO43− is part of HA. So the MeasuredEntity might be PO43− (as part of HA nanopowder), and the MeasuredProperty is the ν1 vibration mode. 
+
+Alternatively, the MeasuredEntity is HA nanopowder, and the MeasuredProperty is the ν1 vibration mode of PO43−. Then, the Quantity is the wavenumber. But this is getting complicated. Since the user's example had entities like "solution", "solvent", "salt", which are clear entities, here perhaps PO43− is a MeasuredEntity. However, in the text, PO43− is part of the HA nanopowder. 
+
+This is challenging. To avoid getting stuck, perhaps we can model this as:
+
+MeasuredEntity: HA nanopowder
+
+MeasuredProperty: characteristic peak assigned to PO43−: ν1 vibration mode
+
+Quantity: about 964 cm−1
+
+But the MeasuredProperty text would be too long. The instruction says to use the exact text. Let me check the exact text: "the characteristic peak assigned to PO43−: ν1 vibration mode at about 964 cm−1". So the MeasuredProperty is "characteristic peak", and the rest is part of the relation or qualifiers. Alternatively, perhaps the MeasuredEntity is HA nanopowder, MeasuredProperty is "characteristic peak", and the Quantity is "about 964 cm−1". Then, the "assigned to PO43−: ν1 vibration mode" is a Qualifier that qualifies the MeasuredProperty or the Quantity. But the instruction says Qualifiers are spans. Let's check the text again: the phrase is "the characteristic peak assigned to PO43−: ν1 vibration mode at about 964 cm−1". The "assigned to PO43−: ν1 vibration mode" is part of the description of the peak. So perhaps the MeasuredProperty is "ν1 vibration mode", and the MeasuredEntity is PO43−. Then, HA nanopowder's spectrum reveals this. But HA nanopowder is the larger entity. 
+
+Maybe this is an instance where the MeasuredEntity is HA nanopowder, the MeasuredProperty is "ν1 vibration mode of PO43−", and the Quantity is "about 964 cm−1". But the text doesn't explicitly mention "ν1 vibration mode of PO43−" as a property. It says the peak is assigned to PO43−: ν1 vibration mode. So perhaps the ν1 vibration mode is a property of PO43−, which in turn is a component of HA nanopowder. Therefore, the MeasuredEntity is PO43−, MeasuredProperty is ν1 vibration mode, Quantity is 964 cm−1. Then, the Qualifier might be HA nanopowder? But HA is the entity being discussed. Alternatively, HA nanopowder is the MeasuredEntity, and the MeasuredProperty is the ν1 vibration mode of PO43−, but that's getting into nested properties, which the example doesn't cover. 
+
+This is tricky. To proceed, perhaps the safest way is to assign MeasuredEntity as HA nanopowder, MeasuredProperty as "characteristic peak", and Quantity as "about 964 cm−1". Then, the "assigned to PO43−: ν1 vibration mode" is a Qualifier that qualifies the MeasuredProperty. But according to the instructions, Qualifiers are spans. So if the text says "assigned to PO43−: ν1 vibration mode", that would be part of the Qualifier. But in the given text, the exact wording is "the characteristic peak assigned to PO43−: ν1 vibration mode at about 964 cm−1". So the phrase "assigned to PO43−: ν1 vibration mode" is part of the description of the peak. Since we need to use exact spans, perhaps the Qualifier is "assigned to PO43−: ν1 vibration mode". But this is part of the MeasuredProperty's text. Alternatively, maybe the MeasuredProperty is "ν1 vibration mode", and the MeasuredEntity is PO43−. Then, HA nanopowder is the context.
+
+Alternatively, perhaps the phrase "PO43−" is part of the MeasuredEntity. Let's see. For example, in the original example, "salt" was the MeasuredEntity. Here, if the peak is assigned to PO43−, then PO43− is the MeasuredEntity, and the ν1 vibration mode is the MeasuredProperty. So:
+
+MeasuredEntity: PO43−
+
+MeasuredProperty: ν1 vibration mode
+
+Quantity: about 964 cm−1
+
+Relation: PO43− HasProperty ν1 vibration mode, which HasQuantity about 964 cm−1.
+
+Then, the HA nanopowder is the broader context, but not directly linked. However, the text says "the spectrum of HA nanopowder reveals...", so maybe HA nanopowder is the MeasuredEntity, and the MeasuredProperty is the characteristic peak of PO43−'s ν1 vibration mode. But again, this is getting too involved. 
+
+Perhaps another approach is to look for the entities and properties explicitly mentioned. Let's consider the second quantity "1031 cm−1" and "1091 cm−1". The text says "ν3 vibration mode at 1031 cm−1 and 1091 cm−1 (asymmetric) respectively." So for these quantities:
+
+MeasuredEntity: PO43− (as before)
+
+MeasuredProperty: ν3 vibration mode
+
+Quantity: 1031 cm−1 and 1091 cm−1
+
+But the text says "ν3 vibration mode at 1031 cm−1 and 1091 cm−1 (asymmetric)". The "(asymmetric)" is a qualifier. So perhaps "asymmetric" is a Qualifier for the 1091 cm−1 quantity.
+
+Then, for each of these, we have:
+
+- For 1031 cm−1: Quantity, unit cm⁻¹, no modifiers. MeasuredEntity: PO43−, MeasuredProperty: ν3 vibration mode.
+
+- For 1091 cm−1: Quantity, unit cm⁻¹, with Qualifier "asymmetric".
+
+But the text says "ν3 vibration mode at 1031 cm−1 and 1091 cm−1 (asymmetric) respectively." So the asymmetric applies to the 1091 cm−1 peak.
+
+Additionally, there's the "50%" in "PLGA–HA 50%". The MeasuredEntity here is PLGA–HA composite fibres, and the MeasuredProperty is the percentage composition, perhaps. So Quantity: 50%, unit %, mods none.
+
+Now, let's try to outline all this step by step.
+
+Quantities identified:
+
+1. 1065–1280 cm⁻¹ (IsRange)
+2. about 964 cm⁻¹ (IsApproximate)
+3. 1031 cm⁻¹
+4. 1091 cm⁻¹
+5. 50% 
+
+MeasuredEntities and Properties:
+
+For 1: C3O characteristic bands (MeasuredEntity), region (MeasuredProperty)
+
+For 2,3,4: PO43− (MeasuredEntity), ν1 vibration mode (MeasuredProperty for 2), ν3 vibration mode (MeasuredProperty for 3 and 4)
+
+For 5: PLGA–HA composite fibres (MeasuredEntity), percentage composition (MeasuredProperty?)
+
+But the text says "untreated PLGA–HA 50%". So "50%" is the quantity, and the MeasuredEntity is PLGA–HA composite fibres, with MeasuredProperty possibly being composition percentage.
+
+Qualifiers:
+
+- "asymmetric" for 1091 cm⁻¹
+- "about" for 964 cm⁻¹
+
+Now, building the TSV.
+
+Starting with annotSet 1 for the first Quantity "1065–1280 cm−1".
+
+annotSet 1:
+
+- Quantity T1: "1065–1280 cm−1", mods IsRange, unit cm⁻¹.
+- MeasuredEntity T2: "C3O characteristic bands" (from "The pure PLGA spectrum shows the C3O characteristic bands...")
+- MeasuredProperty T3: "region" (from "in the region 1065–1280 cm−1")
+
+Relations:
+
+T2 (C3O bands) HasProperty T3 (region), T3 HasQuantity T1.
+
+So:
+
+annotSet    annotType           annotId    text                       other
+1           Quantity            T1         1065–1280 cm−1             {"unit": "cm−1", "mods": ["IsRange"]}
+1           MeasuredEntity      T2         C3O characteristic bands   {"HasProperty": "T3"}
+1           MeasuredProperty    T3         region                     {"HasQuantity": "T1"}
+
+Next, annotSet 2 for "about 964 cm−1".
+
+annotSet 2:
+
+- Quantity T4: "about 964 cm−1", mods IsApproximate, unit cm⁻¹.
+- MeasuredEntity T5: "PO43−" (from "assigned to PO43−: ν1 vibration mode")
+- MeasuredProperty T6: "ν1 vibration mode" (from the same phrase)
+
+Relations:
+
+T5 HasProperty T6, T6 HasQuantity T4.
+
+But the text says this is in the spectrum of HA nanopowder. So maybe HA nanopowder is the MeasuredEntity, but according to the text structure, the HA nanopowder's spectrum has a peak assigned to PO43−'s ν1 mode. So the actual MeasuredEntity is PO43−, and the property is its ν1 vibration mode. The HA nanopowder is the source of the spectrum, but not the entity here. But how to model this. Alternatively, HA nanopowder is the MeasuredEntity, and the MeasuredProperty is the ν1 vibration mode of PO43−. But how to express this.
+
+Wait, the exact text for the MeasuredEntity would be "PO43−" as part of the phrase "assigned to PO43−: ν1 vibration mode". So perhaps:
+
+annotSet 2:
+
+Quantity T4: "about 964 cm−1" (text is "about 964 cm−1"), mods IsApproximate, unit cm⁻¹.
+
+MeasuredEntity T5: "PO43−" (text: "PO43−")
+
+MeasuredProperty T6: "ν1 vibration mode" (text: "ν1 vibration mode")
+
+Relations:
+
+T5 (PO43−) HasProperty T6 (ν1 vibration mode), T6 HasQuantity T4.
+
+Additionally, there might be a Qualifier from the HA nanopowder being the source, but the HA nanopowder is mentioned in the sentence as "The spectrum of HA nanopowder reveals...". However, according to the example, the Qualifiers are specific spans. Since "HA nanopowder" is part of the context but not directly linked via a Qualifier relationship, maybe it's not a Qualifier here. Alternatively, the HA nanopowder is the MeasuredEntity, and the PO43− is a component. But the example didn't handle components. So perhaps better to proceed as above.
+
+annotSet 2 TSV:
+
+annotSet    annotType           annotId    text                other
+2           Quantity            T4         about 964 cm−1      {"unit": "cm−1", "mods": ["IsApproximate"]}
+2           MeasuredEntity      T5         PO43−               {"HasProperty": "T6"}
+2           MeasuredProperty    T6         ν1 vibration mode   {"HasQuantity": "T4"}
+
+Next, Quantity 3: "1031 cm−1"
+
+annotSet 3:
+
+Quantity T7: "1031 cm−1", unit cm⁻¹.
+
+MeasuredEntity: PO43− (same as before)
+
+MeasuredProperty: ν3 vibration mode
+
+Relations:
+
+PO43− HasProperty ν3 vibration mode, HasQuantity T7.
+
+annotSet 3 TSV:
+
+3           Quantity            T7         1031 cm−1          {"unit": "cm−1"}
+3           MeasuredEntity      T8         PO43−              {"HasProperty": "T9"}
+3           MeasuredProperty    T9         ν3 vibration mode  {"HasQuantity": "T7"}
+
+Quantity 4: "1091 cm−1" with Qualifier "asymmetric"
+
+annotSet 4:
+
+Quantity T10: "1091 cm−1", unit cm⁻¹.
+
+Qualifier T11: "asymmetric" which Qualifies T10.
+
+MeasuredEntity: PO43− (T8 from set 3?), but need to check. Wait, each annotSet is a logical grouping. So for "1091 cm−1", it's part of the same sentence as the previous quantities. But let's see:
+
+The text says "ν3 vibration mode at 1031 cm−1 and 1091 cm−1 (asymmetric) respectively." So both 1031 and 1091 are ν3 vibration modes. But since each Quantity is in its own annotSet, or maybe grouped?
+
+Wait, the example grouped each Quantity in separate annotSets. For instance, the three quantities in the example each had their own annotSet (1,2,3). So perhaps each Quantity should be in its own annotSet. But in the example, the three quantities were each part of different sentences, each with their own entities and properties. Here, the quantities 1031 and 1091 are both part of the same sentence, referring to the same MeasuredProperty (ν3 vibration mode) but different quantities. However, according to the example, each Quantity is its own annotSet, so perhaps that's the way to go.
+
+Wait, in the example, "approximately 25°C", "500 milliliters", "10 grams" each have their own annotSet. So each Quantity is a separate annotSet. So here, 1031 cm−1 and 1091 cm−1 would each be their own annotSets. However, the text mentions they are both ν3 vibration modes. So perhaps they share the same MeasuredEntity and MeasuredProperty. Wait, but each Quantity is in its own annotSet, so each would have their own MeasuredEntity and MeasuredProperty, even if they are similar.
+
+Alternatively, perhaps they share the same MeasuredEntity and MeasuredProperty but have different Quantities. But according to the example, each Quantity is in a separate annotSet. For example, in the example, each Quantity (25°C, 500 ml, 10 grams) is in annotSets 1,2,3. Even if they were related to the same entity, they would be separate. Therefore, here, each Quantity (1031 and 1091) would be separate annotSets.
+
+So annotSet 4 for 1091 cm−1:
+
+Quantity T10: "1091 cm−1", unit cm⁻¹.
+
+Qualifier T11: "asymmetric" which Qualifies T10.
+
+MeasuredEntity T12: PO43−.
+
+MeasuredProperty T13: ν3 vibration mode.
+
+But the text says "ν3 vibration mode at 1031 cm−1 and 1091 cm−1 (asymmetric) respectively." So ν3 vibration mode has two quantities, one at 1031 and another at 1091 with a qualifier. But according to the instructions, each Quantity is in its own annotSet. So maybe:
+
+annotSet 4:
+
+Quantity T10: "1091 cm−1", unit cm⁻¹.
+
+MeasuredEntity T12: PO43−.
+
+MeasuredProperty T13: ν3 vibration mode.
+
+Qualifier T11: "asymmetric" → Qualifies T10.
+
+So:
+
+annotSet    annotType           annotId    text                other
+4           Quantity            T10        1091 cm−1          {"unit": "cm−1"}
+4           MeasuredEntity      T12        PO43−              {"HasProperty": "T13"}
+4           MeasuredProperty    T13        ν3 vibration mode  {"HasQuantity": "T10"}
+4           Qualifier           T11        asymmetric         {"Qualifies": "T10"}
+
+Then, annotSet 3 would be for 1031 cm−1:
+
+annotSet 3:
+
+Quantity T7: "1031 cm−1", unit cm⁻¹.
+
+MeasuredEntity T8: PO43−.
+
+MeasuredProperty T9: ν3 vibration mode.
+
+No qualifier here.
+
+annotSet    annotType           annotId    text                other
+3           Quantity            T7         1031 cm−1          {"unit": "cm−1"}
+3           MeasuredEntity      T8         PO43−              {"HasProperty": "T9"}
+3           MeasuredProperty    T9         ν3 vibration mode  {"HasQuantity": "T7"}
+
+Now, the last Quantity: "50%".
+
+The text says "untreated PLGA–HA 50%". The MeasuredEntity is "PLGA–HA composite fibres", and the Quantity is "50%", unit %. The MeasuredProperty would be "composition" or something, but the text just says "50%". The exact text for the entity is "untreated PLGA–HA 50%", but the entity is the PLGA–HA composite fibres. However, the "50%" is part of the entity's name. So perhaps the MeasuredEntity is "PLGA–HA composite fibres", and the Quantity is "50%", indicating the composition. The MeasuredProperty might be "composition percentage" or similar, but the text doesn't mention it explicitly. 
+
+In this case, since the text says "PLGA–HA 50%", the 50% is part of the entity's name. But according to the instructions, Quantity should be extracted even if part of an entity name. For example, in a phrase like "5 apples", "5" is the Quantity. Similarly, here "PLGA–HA 50%" has "50%" as a Quantity. So:
+
+Quantity: "50%", unit %, mods none.
+
+MeasuredEntity: "PLGA–HA composite fibres" (from the list item (c) PLGA–HA composite fibres).
+
+But in the specific sentence, it's "untreated PLGA–HA 50%". So the exact text for the entity here is "PLGA–HA 50%". But earlier in the list, (c) is "PLGA–HA composite fibres". So perhaps the MeasuredEntity is "PLGA–HA composite fibres", and the Quantity "50%" relates to its composition.
+
+MeasuredProperty might be "composition" or "HA content", but since it's not explicitly mentioned, perhaps it's omitted. However, according to the instructions, MeasuredProperty is optional. So we can have:
+
+annotSet 5:
+
+Quantity T14: "50%", unit %, mods none.
+
+MeasuredEntity T15: "PLGA–HA composite fibres".
+
+Relation: T15 HasQuantity T14.
+
+But the text says "untreated PLGA–HA 50% displays...". The exact entity here is "PLGA–HA 50%", but in the list, it's referred to as "PLGA–HA composite fibres". So perhaps the MeasuredEntity is "PLGA–HA composite fibres", and the 50% is the Quantity indicating the HA content. But since the MeasuredProperty isn't explicitly mentioned, maybe we can't annotate it. Or perhaps the MeasuredProperty is the "HA percentage" or similar, but that's not in the text. In this case, since the instruction says MeasuredProperty is optional, perhaps we omit it.
+
+So:
+
+annotSet    annotType           annotId    text                      other
+5           Quantity            T14        50%                      {"unit": "%"}
+5           MeasuredEntity      T15        PLGA–HA composite fibres {"HasQuantity": "T14"}
+
+But the exact text for the MeasuredEntity in this case is "PLGA–HA composite fibres" from item (c), but in the sentence it's "untreated PLGA–HA 50%". The "untreated" is a qualifier. Hmm. The sentence is "The spectrum of untreated PLGA–HA 50% displays both characteristics...". So the MeasuredEntity here is "PLGA–HA 50%", which is untreated. But "PLGA–HA 50%" is the name including the quantity. However, according to the instructions, the Quantity should be extracted even if part of an entity name. So "50%" is the Quantity, and the MeasuredEntity is "PLGA–HA". But the text says "PLGA–HA 50%", so maybe the MeasuredEntity is "PLGA–HA 50%", but that includes the Quantity. To avoid circular references, perhaps the MeasuredEntity is "PLGA–HA composite fibres" (from the list), and the 50% is a Quantity related to it. However, the connection isn't explicit in the text. This is ambiguous. 
+
+Alternatively, the MeasuredEntity is "PLGA–HA 50%", which is the untreated sample. Then, the Quantity is "50%", and the MeasuredProperty could be "composition" (implied). But since the MeasuredProperty isn't mentioned, perhaps it's omitted. So:
+
+annotSet 5:
+
+Quantity T14: 50%, unit %.
+
+MeasuredEntity T15: PLGA–HA 50%.
+
+Relation: T15 HasQuantity T14.
+
+But the "PLGA–HA 50%" includes the Quantity, which might not be ideal. However, per the instruction, the Quantity is extracted even if part of the entity. For example, in "five samples", "five" is the Quantity and "samples" is the MeasuredEntity. Similarly, "PLGA–HA 50%" would have "50%" as Quantity and "PLGA–HA" as MeasuredEntity. But the text says "PLGA–HA 50%", so splitting it into "PLGA–HA" and "50%" may not be accurate, as "PLGA–HA 50%" is a single term. Therefore, perhaps the entire "PLGA–HA 50%" is the MeasuredEntity, and the Quantity is "50%", with the relation being the MeasuredEntity HasQuantity. But this would mean the MeasuredEntity's text includes the Quantity, which is allowed as per the example where "soda can" was the MeasuredEntity and "355 ml" the Quantity. Here, "PLGA–HA 50%" is the MeasuredEntity, and "50%" is the Quantity. But the text doesn't explicitly state that the 50% is a property of PLGA–HA. It's part of the entity's name. This is a gray area. 
+
+Given the ambiguity, perhaps the correct approach is to annotate "50%" as a Quantity with MeasuredEntity "PLGA–HA composite fibres" (from the list item (c)), and assume that the 50% refers to the HA content in the composite. This would require some inference, but the instructions allow for it as long as it's based on the text. The sentence mentions "PLGA–HA 50%", so 50% likely refers to the HA content. Therefore:
+
+annotSet 5:
+
+Quantity T14: 50%, unit %.
+
+MeasuredEntity T15: PLGA–HA composite fibres.
+
+Relation: T15 HasQuantity T14.
+
+Additionally, the word "untreated" in "untreated PLGA–HA 50%" is a Qualifier for the MeasuredEntity. So Qualifier T16: "untreated" Qualifies T15.
+
+So annotSet 5 TSV:
+
+annotSet    annotType           annotId    text                      other
+5           Quantity            T14        50%                      {"unit": "%"}
+5           MeasuredEntity      T15        PLGA–HA composite fibres {"HasQuantity": "T14"}
+5           Qualifier           T16        untreated                {"Qualifies": "T15"}
+
+This covers all quantities. Now, check for any missed Qualifiers or relations.
+
+In the text for Quantity 1091 cm−1, there's "(asymmetric)", which is a Qualifier for that Quantity (T10). 
+
+Also, in the first sentence, items (a) to (d) are listed. These might be considered Qualifiers, but since they are part of the figure labels, maybe not. The instruction says to include Qualifiers that affect the Quantity, etc. Since (a) etc., are part of the figure reference, they might not be relevant here.
+
+Another point: the sintered PLGA–HA fibres in (d) are mentioned, but there's no quantity associated with them in the provided text. The last part about CaP fibres mentions the loss of C3O bands, but no quantities there.
+
+Therefore, the final TSV should include all the quantities and their related entities, properties, and qualifiers as outlined.

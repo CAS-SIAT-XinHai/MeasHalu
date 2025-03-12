@@ -1,0 +1,9 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103512001388-3081	1	Quantity	113	118	T1	0.64%	"{""unit"": ""%""}"
+S0019103512001388-3081	1	MeasuredEntity	74	77	T2	BS1	"{""HasQuantity"": ""T1""}"
+S0019103512001388-3081	1	MeasuredProperty	25	70	T3	fractional integrated differential brightness	"{""HasQuantity"": ""T1""}"
+S0019103512001388-3081	1	Qualifier	78	93	T4	in the H filter	"{""Qualifies"": ""T3""}"
+S0019103512001388-3081	1	Qualifier	119	141	T5	in the discovery image	"{""Qualifies"": ""T1""}"
+S0019103512001388-3081	1	Qualifier	142	160	T6	on 26 October 2011	"{""Qualifies"": ""T1""}"
+S0019103512001388-3081	2	Quantity	178	183	T7	0.02%	"{""unit"": ""%""}"
+S0019103512001388-3081	2	Qualifier	184	198	T10	by December 16	"{""Qualifies"": ""T7""}"

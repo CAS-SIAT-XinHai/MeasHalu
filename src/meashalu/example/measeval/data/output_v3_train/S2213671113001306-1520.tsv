@@ -1,0 +1,12 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2213671113001306-1520	1	Quantity	305	331	T1	30-degrees-of-visual-field	"{""unit"": ""degrees"", ""mods"": [""IsRange""]}"
+S2213671113001306-1520	1	MeasuredEntity	347	357	T2	Spectralis	"{""HasQuantity"": ""T1""}"
+S2213671113001306-1520	1	MeasuredProperty	319	339	T3	visual-field setting	"{""HasQuantity"": ""T1""}"
+S2213671113001306-1520	2	Quantity	391	396	T4	60 μm	"{""unit"": ""\u03bcm""}"
+S2213671113001306-1520	2	MeasuredEntity	359	371	T5	Volume scans	"{""HasQuantity"": ""T4""}"
+S2213671113001306-1520	3	Quantity	447	462	T6	20 × 20 degrees	"{""unit"": ""degrees"", ""mods"": [""IsList""]}"
+S2213671113001306-1520	3	MeasuredEntity	466	502	T7	visual field centered on the implant	"{""HasQuantity"": ""T6""}"
+S2213671113001306-1520	4	Quantity	626	632	T8	4.2 mm	"{""unit"": ""mm""}"
+S2213671113001306-1520	4	MeasuredEntity	564	602	T9	Spectralis’ corneal curvature settings	"{""HasQuantity"": ""T8""}"
+S2213671113001306-1520	5	Quantity	682	692	T10	30 degrees	"{""unit"": ""degrees"", ""mods"": [""IsRange""]}"
+S2213671113001306-1520	5	MeasuredEntity	696	738	T11	visual field in the HRA mode of the device	"{""HasQuantity"": ""T10""}"

@@ -1,0 +1,39 @@
+Alright, let's tackle this input step by step. The sentence given is: "This is the density of the material in the particles, not the density of the particles in the atmosphere."
+
+First, I need to check if there are any quantities mentioned here. The words "density" appears twice, but density is a MeasuredProperty, not a Quantity. The sentence seems to contrast two different contexts of density but doesn't provide any numerical values or counts. 
+
+Looking at the definitions, a Quantity must be a value, either a count or a measurement. Since there's no number or unit in this sentence, there are no Quantities to annotate here. 
+
+Next, MeasuredEntities. The potential candidates are "material", "particles", and "atmosphere". Each of these could be entities that have properties. The MeasuredProperties here are both instances of "density". 
+
+Now, relationships. The first part says "density of the material in the particles". So, the MeasuredEntity would be "material", and it's located "in the particles". The MeasuredProperty is "density", which relates to the material. Similarly, the second part is "density of the particles in the atmosphere", so the MeasuredEntity here is "particles", located "in the atmosphere", with the same MeasuredProperty "density".
+
+Qualifiers: The phrases "in the particles" and "in the atmosphere" are qualifiers that specify the context of where the density applies. These should be annotated as Qualifiers.
+
+So, breaking down the first part: "density of the material in the particles". The MeasuredEntity is "material", MeasuredProperty is "density", and the Qualifier is "in the particles". The relationship would be the MeasuredEntity "material" HasProperty "density", and the Qualifier "in the particles" Qualifies the MeasuredEntity "material".
+
+Similarly, the second part after "not" is "density of the particles in the atmosphere". Here, MeasuredEntity is "particles", MeasuredProperty is "density", and Qualifier is "in the atmosphere". Relationships: "particles" HasProperty "density", and Qualifier "in the atmosphere" Qualifies "particles".
+
+But wait, the structure is a bit different. The sentence is contrasting two different applications of density. The first density is of the material within the particles, and the second is of the particles within the atmosphere. So each density is a MeasuredProperty linked to their respective MeasuredEntities and qualified by their locations.
+
+Since there are two separate instances of density with different contexts, they should be in separate annotation sets. Let's check:
+
+First annotSet (1):
+- MeasuredProperty: "density" (T1)
+- MeasuredEntity: "material" (T2)
+- Qualifier: "in the particles" (T3)
+Relationships: T2 HasProperty T1, T3 Qualifies T2.
+
+Second annotSet (2):
+- MeasuredProperty: "density" (T4)
+- MeasuredEntity: "particles" (T5)
+- Qualifier: "in the atmosphere" (T6)
+Relationships: T5 HasProperty T4, T6 Qualifies T5.
+
+Wait, but the sentence says "the density of the material in the particles" versus "the density of the particles in the atmosphere". So in the first case, the MeasuredEntity is "material" with Qualifier "in the particles". In the second, the MeasuredEntity is "particles" with Qualifier "in the atmosphere".
+
+Yes, that makes sense. Each density is a MeasuredProperty linked to its respective MeasuredEntity, each with their own Qualifier.
+
+But the original input doesn't have any Quantities, so the TSV won't have any Quantity rows. Only MeasuredProperty, MeasuredEntity, Qualifier, and their relationships.
+
+So the final TSV should have two annotSets, each with a MeasuredProperty, MeasuredEntity, and Qualifier, along with their relationships.

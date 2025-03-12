@@ -1,0 +1,4 @@
+docId	annotSet	annotType	annotId	text	other
+S2213671113000908-643	1	Quantity	T1	25 days	"{""unit"": ""days"", ""mods"": [""IsCount""]}"
+S2213671113000908-643	1	MeasuredEntity	T2	differentiation	"{""HasQuantity"": ""T1""}"
+S2213671113000908-643	1	MeasuredProperty	T3	time	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"

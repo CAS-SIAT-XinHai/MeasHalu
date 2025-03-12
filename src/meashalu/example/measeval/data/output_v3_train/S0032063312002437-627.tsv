@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0032063312002437-627	1	Quantity	434	436	T1	15	"{""mods"": [""IsCount""]}"
+S0032063312002437-627	1	MeasuredEntity	385	404	T2	mass channel number	"{""HasQuantity"": ""T1""}"
+S0032063312002437-627	1	MeasuredProperty	412	429	T3	maximum ion count	"{""HasQuantity"": ""T1""}"
+S0032063312002437-627	2	Quantity	343	348	T4	192 s	"{""unit"": ""s"", ""mods"": [""IsCount""]}"
+S0032063312002437-627	2	MeasuredEntity	349	354	T5	cycle	"{""HasQuantity"": ""T4""}"
+S0032063312002437-627	3	Quantity	635	643	T6	05:28 UT	"{""unit"": ""UT""}"
+S0032063312002437-627	3	Quantity	648	656	T7	05:47 UT	"{""unit"": ""UT""}"
+S0032063312002437-627	3	MeasuredEntity	572	576	T8	data	"{""HasQuantity"": ""T7""}"
+S0032063312002437-627	3	Qualifier	662	702	T9	interpreted as being from inside the ICB	"{""Qualifies"": ""T8""}"

@@ -1,0 +1,12 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103512004009-5271	1	Quantity	166	171	T1	3.5Rp	"{""unit"": ""Rp""}"
+S0019103512004009-5271	1	MeasuredEntity	176	185	T2	altitudes	"{""HasQuantity"": ""T1""}"
+S0019103512004009-5271	2	Quantity	294	308	T2	6 × 106 kg s−1	"{""unit"": ""kg s\u22121""}"
+S0019103512004009-5271	2	MeasuredEntity	276	290	T4	mass loss rate	"{""HasQuantity"": ""T2""}"
+S0019103512004009-5271	2	MeasuredProperty	264	268	T5	rate	"{""HasQuantity"": ""T2""}"
+S0019103512004009-5271	3	Quantity	464	473	T3	>107kgs-1	"{""unit"": ""kgs-1"", ""mods"": [""IsRange""]}"
+S0019103512004009-5271	3	MeasuredEntity	430	444	T6	mass loss rate	"{""HasQuantity"": ""T3""}"
+S0019103512004009-5271	3	MeasuredProperty	440	444	T7	rate	"{""HasQuantity"": ""T3""}"
+S0019103512004009-5271	4	Quantity	645	649	T4	10−4	"{""unit"": """"}"
+S0019103512004009-5271	4	MeasuredEntity	628	642	T8	ratio [H+]/[H]	"{""HasQuantity"": ""T4""}"
+S0019103512004009-5271	4	MeasuredProperty	628	633	T9	ratio	"{""HasQuantity"": ""T4""}"

@@ -1,0 +1,352 @@
+Okay, let's tackle this input step by step. The goal is to extract quantities, measured entities, properties, and qualifiers, then relate them appropriately.
+
+First, I'll scan through the text for all numerical values and units. The first part mentions "k = π/640 m−1". Here, π/640 is the value, and the unit is m⁻¹. The "m−1" is the unit, so "π/640 m−1" is a Quantity. Since it's a range? Wait, no. Wait, k is assigned a value here. The Quantity here is "π/640 m−1". However, "π" is part of the value. The unit is m⁻¹. Also, "π/640" is a numerical value. So this is a Quantity. Next, η0 = 2 m. The value is 2, unit is meters. Then H = 50 m, same pattern. ν = 3 m² s⁻¹. The unit here is m² s⁻¹. Then ct = 0, which is a unitless quantity. Similarly, cb = 0.0025, unitless. g = 9.81 m s⁻². T = π/(gHk) ≈28.9s. Here, T has a formula, but the approximation gives a Quantity of ≈28.9s. The unit is seconds. The ≈ symbol makes it approximate. Then the domain Ω is 640 m × 320 m. So two quantities here: 640 m and 320 m. Each is a Quantity with unit meters. 
+
+Now, for each Quantity, I need to note mods. For example, T=28.9s has an approximation, so IsApproximate. The units: m−1, m, m² s⁻¹, etc. For the Quantity "π/640 m−1", since it's a fraction, but no modifier mentioned. Similarly, "0" and "0.0025" are counts or measurements with no units. Wait, ct and cb are given as 0 and 0.0025. Since they don't have units, but the text says "ν = 3 m² s−1, ct = 0, cb = 0.0025". So, are these unitless? Then they are counts? Maybe they are dimensionless, but in the context, they might be coefficients without units. So for ct=0, since no unit, IsCount? Or maybe it's a measurement without a unit. Hmm, maybe in this case, 0 and 0.0025 are just numerical values without units, so they are counts. So their mods would be IsCount. Alternatively, perhaps they are unitless measurements. The problem is that the example includes "four samples" as a count, but here, 0.0025 is a decimal. Maybe in this context, even if it's a decimal, without a unit, it's considered a count. Or maybe it's a measurement with a unit that's implied. But according to the definitions, if there's no unit, and it's a count, then use IsCount. For example, "five samples" is a count. Here, ct and cb are likely coefficients or constants without units, so they are counts. So their mods would be IsCount. But the example had "10 grams" as a Quantity with a unit and no IsCount. So perhaps in this case, since ct=0 has no unit, it's a count. So annotate IsCount. But maybe in the original problem statement, they're actually unitless measurements. Hmm. Let me check. The variables here: ν is kinematic viscosity with unit m²/s, ct and cb could be drag coefficients, which are dimensionless. So they are unitless. So their quantities are counts. So their mods would be IsCount. So, for example, "ct = 0" would be a Quantity with mods IsCount. Similarly for cb=0.0025. 
+
+Next, T=π/(gHk)≈28.9s: The exact formula is part of the text, but the approximated value is ≈28.9s. So the Quantity here is "≈28.9s" with unit s and mods IsApproximate. The "≈" is the modifier. 
+
+Next, the domain is 640 m × 320 m. Both 640 m and 320 m are Quantities with unit m. 
+
+Now, MeasuredEntities and MeasuredProperties. For each Quantity, need to link to MeasuredEntity and/or MeasuredProperty. 
+
+Looking at "k = π/640 m−1". Here, k is a variable, so the MeasuredEntity might be k, and the MeasuredProperty would be the wavenumber or something, but the text doesn't specify. Wait, the text lists variables: k, η0, H, ν, ct, cb, g, T. Each of these variables is a MeasuredEntity. Each is assigned a Quantity. The MeasuredProperty would be their respective properties. For example, k is the wavenumber (but the text just says "k = ..."), so perhaps the MeasuredEntity is k and the MeasuredProperty is not explicitly mentioned. Wait, the problem says that if there is a MeasuredProperty (like temperature, volume in the example), then we annotate it. But here, the variables are directly assigned quantities. For example, "k = ...": k is the MeasuredEntity, its MeasuredProperty would be the property it represents. However, the text doesn't explicitly mention the properties. For example, in the example, "temperature" was the MeasuredProperty. In this input, variables like "k", "η0", etc., are the MeasuredEntities, and their names (like wavenumber, amplitude, etc.) are not given in the text. So perhaps in this case, the variable names (k, η0, H, etc.) are the MeasuredEntities, and there's no explicit MeasuredProperty. So the Quantity is linked directly to the MeasuredEntity. For example, for "k = π/640 m−1", the MeasuredEntity is "k", which HasQuantity "π/640 m−1". Similarly, η0 is the MeasuredEntity linked to "2 m". 
+
+Wait, but in the example provided earlier, the MeasuredEntities were things like "soda can", "solvent", "salt". Here, the variables (k, η0, H) are the entities being measured. So perhaps each variable is a MeasuredEntity. So, for example, "k" is a MeasuredEntity with Quantity "π/640 m−1". Similarly, "H" is a MeasuredEntity with Quantity "50 m". 
+
+Then, looking at "ν = 3 m² s−1": the MeasuredEntity is ν, Quantity is "3 m² s−1". Similarly for others. 
+
+For the variables without units (ct=0, cb=0.0025), they are MeasuredEntities (ct, cb) with Quantity 0 and 0.0025, respectively, with IsCount mod. 
+
+Then, T is a MeasuredEntity with Quantity ≈28.9s. 
+
+The computational domain Ω is 640 m × 320 m. So the MeasuredEntity here is Ω (computational domain), and the two Quantities are "640 m" and "320 m". However, in the text, it's "a rectangle of size 640 m × 320 m". The MeasuredEntity would be "computational domain Ω", and the MeasuredProperty is "size". Then, the two Quantities ("640 m" and "320 m") are linked via the MeasuredProperty "size", which is linked to the MeasuredEntity "computational domain Ω". 
+
+So for "size 640 m × 320 m", the MeasuredProperty is "size", which HasQuantity both "640 m" and "320 m". But the problem is that each Quantity needs to be in its own annotSet. Wait, in the example, each Quantity was in a separate annotSet. But in the case where a MeasuredProperty has two Quantities (like size being 640x320), how to handle that? Maybe two separate annotSets. For example, for 640 m: annotSet 8 with Quantity T14, MeasuredEntity "computational domain Ω", MeasuredProperty "size". Then for 320 m: annotSet 9 with Quantity T15, same MeasuredEntity and MeasuredProperty? Or is size a single MeasuredProperty with two Quantities? According to the relationships, a MeasuredEntity can have a MeasuredProperty, which in turn HasQuantity. But in the example, each Quantity is linked to its own MeasuredProperty. For instance, in the example, the volume (MeasuredProperty) of the solvent (MeasuredEntity) HasQuantity 500 milliliters. So in this case, if the size is a MeasuredProperty, but it has two Quantities (640 m and 320 m), perhaps each dimension is a separate Quantity linked to the same MeasuredProperty. However, according to the relationships, each Quantity is linked via HasQuantity. So each Quantity would be in separate annotSets. 
+
+Alternatively, maybe "size" is the MeasuredProperty, and the two Quantities are part of the same annotSet. But according to the example, each Quantity is in a separate annotSet. For example, in the example, each of the three quantities (25°C, 500 ml, 10 grams) are each in their own annotSet (1,2,3). So for the domain size, each dimension (640 m and 320 m) would each be their own annotSet. The MeasuredEntity would be "computational domain Ω" for both, and the MeasuredProperty would be "size" for both. But how to handle that. Because in the example, each Quantity is in a separate annotSet with their own MeasuredEntity and MeasuredProperty. So here, the two dimensions would be two separate annotSets.
+
+So for "640 m × 320 m", we have two Quantities: "640 m" and "320 m". Each would be part of their own annotSet, each linked to the MeasuredEntity "computational domain Ω" and MeasuredProperty "size".
+
+But wait, the text says "a rectangle of size 640 m × 320 m". So "size" is the MeasuredProperty, and the two Quantities are the dimensions. So in that case, each dimension is a Quantity linked to the MeasuredProperty "size", which is linked to the MeasuredEntity "computational domain Ω". Therefore, two annotSets:
+
+AnnotSet 8:
+- Quantity: 640 m
+- MeasuredEntity: computational domain Ω
+- MeasuredProperty: size
+
+AnnotSet 9:
+- Quantity: 320 m
+- MeasuredEntity: computational domain Ω
+- MeasuredProperty: size
+
+But in the example, each Quantity is a separate annotSet. So that's correct.
+
+Now, for variables like "k", "η0", etc., each is a MeasuredEntity with their own Quantity. So each of these variables (k, η0, H, ν, ct, cb, g, T) would have their own annotSets. For example:
+
+k = π/640 m⁻¹ → annotSet 1:
+- Quantity: π/640 m⁻¹ (T1)
+- MeasuredEntity: k (T2)
+- Relationships: T2 HasQuantity T1
+
+η0 = 2 m → annotSet 2:
+- Quantity: 2 m (T3)
+- MeasuredEntity: η0 (T4)
+- Relationships: T4 HasQuantity T3
+
+Similarly for H = 50 m (annotSet 3), ν = 3 m² s⁻¹ (annotSet4), ct=0 (annotSet5), cb=0.0025 (annotSet6), g=9.81 m s⁻² (annotSet7), T≈28.9s (annotSet8), and then the domain dimensions (annotSets 9 and 10).
+
+Wait, but in the example, each Quantity and its associated entities are in the same annotSet. For example, annotSet1 includes Quantity (T1), MeasuredEntity (T2), and MeasuredProperty (T3). So in this input, for k=..., the MeasuredEntity is k, the Quantity is π/640 m⁻¹. But there's no explicit MeasuredProperty mentioned. The example had "temperature" as a MeasuredProperty. Here, variables like k, η0, H, etc., are the MeasuredEntities, and their properties (wavenumber, amplitude, depth, etc.) are not explicitly stated. Therefore, in this case, there may not be a MeasuredProperty. So the annotSet for k would be:
+
+annotSet1:
+- Quantity: π/640 m⁻¹ (T1)
+- MeasuredEntity: k (T2)
+- Relationship: T2 HasQuantity T1
+
+Similarly, for η0 = 2 m:
+
+annotSet2:
+- Quantity: 2 m (T3)
+- MeasuredEntity: η0 (T4)
+- Relationship: T4 HasQuantity T3
+
+And so on.
+
+But wait, in some cases, variables like "g = 9.81 m s−2" is the gravitational acceleration. The MeasuredEntity here is g, and the MeasuredProperty would be "gravitational acceleration", but that's not in the text. The text just says "g = 9.81 m s−2". So unless the property is mentioned, we can't annotate it. Therefore, in such cases, the MeasuredProperty is absent, and only the MeasuredEntity and Quantity are present. Thus, the relationships would be MeasuredEntity HasQuantity Quantity.
+
+So, for each variable assignment (k, η0, etc.), we can create an annotSet with MeasuredEntity (the variable name) and Quantity (the value and unit), with the relationship HasQuantity between them.
+
+Now, for the variables without units (ct and cb), their Quantities have IsCount modifier. For example, ct=0 is a Quantity with value 0, no unit, so mods IsCount. Similarly, cb=0.0025, mods IsCount.
+
+Next, the final time T is given as T=π/(gHk)≈28.9s. The Quantity here is "≈28.9s", which includes the approximation symbol, so mods IsApproximate. The unit is s. The MeasuredEntity is T, so annotSet8 would have:
+
+- Quantity: ≈28.9s (T9) with mods IsApproximate, unit s.
+- MeasuredEntity: T (T10)
+- Relationship: T10 HasQuantity T9.
+
+Then the computational domain Ω's dimensions: 640 m and 320 m. Each is a Quantity. Let's process them as two separate annotSets (annotSet9 and 10):
+
+annotSet9:
+- Quantity: 640 m (T11)
+- MeasuredEntity: computational domain Ω (T12)
+- MeasuredProperty: size (T13)
+- Relationships: T12 HasProperty T13, T13 HasQuantity T11.
+
+annotSet10:
+- Quantity: 320 m (T14)
+- MeasuredEntity: computational domain Ω (T15)
+- MeasuredProperty: size (T16)
+- Relationships: T15 HasProperty T16, T16 HasQuantity T14.
+
+But wait, in the text, the computational domain Ω is a rectangle of size 640 m × 320 m. The MeasuredEntity is Ω (computational domain), and the MeasuredProperty is "size". The size has two dimensions, but each dimension is a separate Quantity. However, according to the example, each Quantity is in its own annotSet. So the first dimension (640 m) would be annotSet9, with:
+
+annotSet9:
+- Quantity: 640 m (T11)
+- MeasuredEntity: computational domain Ω (T12)
+- MeasuredProperty: size (T13)
+- Relationships: T12 HasProperty T13, T13 HasQuantity T11.
+
+Then annotSet10 would be:
+
+annotSet10:
+- Quantity: 320 m (T14)
+- MeasuredEntity: computational domain Ω (T15)
+- MeasuredProperty: size (T16)
+- Relationships: T15 HasProperty T16, T16 HasQuantity T14.
+
+But in the text, "size 640 m × 320 m" implies that the size is a two-dimensional quantity. However, according to the problem's example, each Quantity is handled separately. So perhaps each dimension is a separate Quantity with the same MeasuredProperty "size". Therefore, two separate annotSets for each dimension.
+
+Now, the variables in the text:
+
+Variables listed: k, η0, H, ν, ct, cb, g, T, and domain dimensions. So that's 8 variables (k, η0, H, ν, ct, cb, g, T) plus two dimensions, totaling 10 annotSets.
+
+Now, let's list each Quantity and their details.
+
+1. k = π/640 m⁻¹ → Quantity: "π/640 m−1", unit: m⁻¹. No modifiers. MeasuredEntity: k.
+
+2. η0 = 2 m → Quantity: "2 m", unit: m. MeasuredEntity: η0.
+
+3. H = 50 m → Quantity: "50 m", unit: m. MeasuredEntity: H.
+
+4. ν = 3 m² s⁻¹ → Quantity: "3 m² s−1", unit: m² s⁻¹. MeasuredEntity: ν.
+
+5. ct = 0 → Quantity: "0", no unit. Mods: IsCount. MeasuredEntity: ct.
+
+6. cb = 0.0025 → Quantity: "0.0025", no unit. Mods: IsCount. MeasuredEntity: cb.
+
+7. g = 9.81 m s⁻² → Quantity: "9.81 m s−2", unit: m s⁻². MeasuredEntity: g.
+
+8. T ≈28.9s → Quantity: "≈28.9s", unit: s, mods: IsApproximate. MeasuredEntity: T.
+
+9. Domain dimension 640 m → Quantity: "640 m", unit: m. MeasuredEntity: computational domain Ω, MeasuredProperty: size.
+
+10. Domain dimension 320 m → Quantity: "320 m", unit: m. MeasuredEntity: computational domain Ω, MeasuredProperty: size.
+
+Each of these would be their own annotSet.
+
+Now, checking if there are any Qualifiers. The text mentions "following the method of manufactured solutions" and "non-zero remainders are added as source terms". These might be Qualifiers. For example, "following the method of manufactured solutions" could qualify the substitution of functions into the equations. However, in the given text, the main focus is on the parameters and their values. The Qualifiers would be phrases that affect the interpretation of the quantities. However, in this input, I don't see any such qualifiers directly modifying the quantities. The phrases like "with k = ..." introduce the parameters, but they are part of the assignment rather than qualifiers. The approximation in T is handled by IsApproximate. So perhaps there are no Qualifier annotations needed here.
+
+Now, let's format each annotSet in TSV.
+
+annotSet numbers start from 1 for each logical grouping. Each variable assignment is a separate annotSet.
+
+Let's proceed:
+
+AnnotSet 1:
+- Quantity: π/640 m−1 (T1)
+- MeasuredEntity: k (T2)
+- Relationship: T2 HasQuantity T1
+
+AnnotSet 2:
+- Quantity: 2 m (T3)
+- MeasuredEntity: η0 (T4)
+- Relationship: T4 HasQuantity T3
+
+AnnotSet3:
+- Quantity:50 m (T5)
+- MeasuredEntity:H (T6)
+- Relationship: T6 HasQuantity T5
+
+AnnotSet4:
+- Quantity:3 m² s−1 (T7)
+- MeasuredEntity:ν (T8)
+- Relationship: T8 HasQuantity T7
+
+AnnotSet5:
+- Quantity:0 (T9)
+- MeasuredEntity:ct (T10)
+- Mods: IsCount
+- Relationship: T10 HasQuantity T9
+
+AnnotSet6:
+- Quantity:0.0025 (T11)
+- MeasuredEntity:cb (T12)
+- Mods: IsCount
+- Relationship: T12 HasQuantity T11
+
+AnnotSet7:
+- Quantity:9.81 m s−2 (T13)
+- MeasuredEntity:g (T14)
+- Relationship: T14 HasQuantity T13
+
+AnnotSet8:
+- Quantity:≈28.9s (T15)
+- MeasuredEntity:T (T16)
+- Mods: IsApproximate, unit: s
+- Relationship: T16 HasQuantity T15
+
+AnnotSet9:
+- Quantity:640 m (T17)
+- MeasuredEntity:computational domain Ω (T18)
+- MeasuredProperty:size (T19)
+- Relationships: T18 HasProperty T19, T19 HasQuantity T17
+
+AnnotSet10:
+- Quantity:320 m (T20)
+- MeasuredEntity:computational domain Ω (T21)
+- MeasuredProperty:size (T22)
+- Relationships: T21 HasProperty T22, T22 HasQuantity T20
+
+Wait, but in the example, each Quantity's annotSet includes the MeasuredEntity and MeasuredProperty. For instance, "solution" (MeasuredEntity) has "temperature" (MeasuredProperty) and "25°C" (Quantity). Each in the same annotSet. So for AnnotSet9, the structure would be:
+
+annotSet9:
+- Quantity: T17 (640 m)
+- MeasuredEntity: T18 (computational domain Ω)
+- MeasuredProperty: T19 (size)
+- Relationships: T18 HasProperty T19, T19 HasQuantity T17
+
+Similarly for AnnotSet10.
+
+Now, let's format these into TSV. The columns are: annotSet, annotType, annotId, text, other.
+
+For AnnotSet1:
+
+annotSet 1:
+- annotType Quantity, annotId T1, text "π/640 m−1", other {"unit": "m⁻¹", "mods": []}
+- annotType MeasuredEntity, annotId T2, text "k", other {"HasQuantity": "T1"}
+
+But wait, according to the example, each annotSet includes the Quantity, MeasuredEntity, and MeasuredProperty if applicable. For example, in the example's first annotSet:
+
+1           Quantity            T1         approximately 25°C  {"unit": "°C", "mods": ["IsApproximate"]}
+1           MeasuredEntity      T2         solution            {"HasQuantity": "T1"}
+1           MeasuredProperty    T3         temperature         {"HasQuantity": "T1", "HasProperty": "T2"}
+
+So in annotSet1, there are three rows: Quantity, MeasuredEntity, and MeasuredProperty. 
+
+However, in our case, for variables like k, η0, etc., there is no explicit MeasuredProperty mentioned in the text. Only the variable names (k, η0) are given. Thus, the annotSet for k would have:
+
+annotSet1:
+- Quantity: T1
+- MeasuredEntity: T2
+- Relationship: T2 HasQuantity T1
+
+But no MeasuredProperty. So only two rows in the TSV for annotSet1.
+
+Similarly, for the domain size, the MeasuredProperty "size" is mentioned ("size 640 m × 320 m"), so that annotSet includes MeasuredProperty.
+
+So, for variables without an explicit MeasuredProperty, the annotSet will have only Quantity and MeasuredEntity.
+
+Now, structuring the TSV:
+
+Starting with AnnotSet1:
+
+annotSet 1:
+- Quantity: "π/640 m−1" → T1, unit m⁻¹, no mods.
+- MeasuredEntity: "k" → T2, HasQuantity T1.
+
+AnnotSet1 TSV:
+1	Quantity	T1	π/640 m−1	{"unit":"m⁻¹", "mods":[]}
+1	MeasuredEntity	T2	k	{"HasQuantity":"T1"}
+
+AnnotSet2 (η0 = 2 m):
+2	Quantity	T3	2 m	{"unit":"m", "mods":[]}
+2	MeasuredEntity	T4	η0	{"HasQuantity":"T3"}
+
+AnnotSet3 (H=50 m):
+3	Quantity	T5	50 m	{"unit":"m", "mods":[]}
+3	MeasuredEntity	T6	H	{"HasQuantity":"T5"}
+
+AnnotSet4 (ν=3 m² s−1):
+4	Quantity	T7	3 m² s−1	{"unit":"m² s⁻¹", "mods":[]}
+4	MeasuredEntity	T8	ν	{"HasQuantity":"T7"}
+
+AnnotSet5 (ct=0):
+5	Quantity	T9	0	{"mods":["IsCount"]}
+5	MeasuredEntity	T10	ct	{"HasQuantity":"T9"}
+
+AnnotSet6 (cb=0.0025):
+6	Quantity	T11	0.0025	{"mods":["IsCount"]}
+6	MeasuredEntity	T12	cb	{"HasQuantity":"T11"}
+
+AnnotSet7 (g=9.81 m s⁻²):
+7	Quantity	T13	9.81 m s−2	{"unit":"m s⁻²", "mods":[]}
+7	MeasuredEntity	T14	g	{"HasQuantity":"T13"}
+
+AnnotSet8 (T≈28.9s):
+8	Quantity	T15	≈28.9s	{"unit":"s", "mods":["IsApproximate"]}
+8	MeasuredEntity	T16	T	{"HasQuantity":"T15"}
+
+AnnotSet9 (640 m):
+9	Quantity	T17	640 m	{"unit":"m", "mods":[]}
+9	MeasuredEntity	T18	computational domain Ω	{"HasProperty":"T19"}
+9	MeasuredProperty	T19	size	{"HasQuantity":"T17", "HasProperty":"T18"}
+
+Wait, in the example, MeasuredProperty has both HasQuantity and HasProperty. So for the MeasuredProperty "size", the relationships would be:
+
+MeasuredEntity (computational domain Ω) HasProperty (size), and MeasuredProperty (size) HasQuantity (640 m).
+
+So:
+
+annotSet9:
+- Quantity: T17
+- MeasuredEntity: T18
+- MeasuredProperty: T19
+Relationships:
+- T18 HasProperty T19 (MeasuredEntity to MeasuredProperty)
+- T19 HasQuantity T17 (MeasuredProperty to Quantity)
+
+Thus, the TSV entries would be:
+
+9	Quantity	T17	640 m	{"unit":"m", "mods":[]}
+9	MeasuredEntity	T18	computational domain Ω	{"HasProperty":"T19"}
+9	MeasuredProperty	T19	size	{"HasQuantity":"T17", "HasProperty":"T18"}
+
+Similarly for AnnotSet10 (320 m):
+
+10	Quantity	T20	320 m	{"unit":"m", "mods":[]}
+10	MeasuredEntity	T21	computational domain Ω	{"HasProperty":"T22"}
+10	MeasuredProperty	T22	size	{"HasQuantity":"T20", "HasProperty":"T21"}
+
+Wait, but the MeasuredEntity for annotSet9 and 10 is the same (computational domain Ω). But each annotSet is a separate logical grouping. So in annotSet9, the MeasuredEntity is "computational domain Ω" (T18), and in annotSet10, it's also "computational domain Ω" (T21). But since they are different annotSets, they have different IDs. However, in reality, the computational domain is the same entity. But according to the problem's guidelines, each annotSet is a separate grouping. So perhaps in this case, each dimension is treated as separate, even though they belong to the same entity. This is similar to the example where each Quantity was in its own annotSet even if they belonged to the same entity. But in this case, since the two dimensions are part of the same MeasuredProperty (size) of the same MeasuredEntity, but the problem's example separates each Quantity into its own annotSet, this must be the approach.
+
+Alternatively, the two dimensions (640 m and 320 m) could be part of the same annotSet. However, in the example, three separate quantities (temperature, volume, amount) each have their own annotSets, even if they relate to the same solution. So following that, each Quantity here is in its own annotSet.
+
+Thus, the TSV for annotSet9 and 10 are as I wrote above.
+
+Now, compiling all the entries into TSV:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	π/640 m−1	{"unit": "m⁻¹", "mods": []}
+1	MeasuredEntity	T2	k	{"HasQuantity": "T1"}
+2	Quantity	T3	2 m	{"unit": "m", "mods": []}
+2	MeasuredEntity	T4	η0	{"HasQuantity": "T3"}
+3	Quantity	T5	50 m	{"unit": "m", "mods": []}
+3	MeasuredEntity	T6	H	{"HasQuantity": "T5"}
+4	Quantity	T7	3 m² s−1	{"unit": "m² s⁻¹", "mods": []}
+4	MeasuredEntity	T8	ν	{"HasQuantity": "T7"}
+5	Quantity	T9	0	{"mods": ["IsCount"]}
+5	MeasuredEntity	T10	ct	{"HasQuantity": "T9"}
+6	Quantity	T11	0.0025	{"mods": ["IsCount"]}
+6	MeasuredEntity	T12	cb	{"HasQuantity": "T11"}
+7	Quantity	T13	9.81 m s−2	{"unit": "m s⁻²", "mods": []}
+7	MeasuredEntity	T14	g	{"HasQuantity": "T13"}
+8	Quantity	T15	≈28.9s	{"unit": "s", "mods": ["IsApproximate"]}
+8	MeasuredEntity	T16	T	{"HasQuantity": "T15"}
+9	Quantity	T17	640 m	{"unit": "m", "mods": []}
+9	MeasuredEntity	T18	computational domain Ω	{"HasProperty": "T19"}
+9	MeasuredProperty	T19	size	{"HasQuantity": "T17", "HasProperty": "T18"}
+10	Quantity	T20	320 m	{"unit": "m", "mods": []}
+10	MeasuredEntity	T21	computational domain Ω	{"HasProperty": "T22"}
+10	MeasuredProperty	T22	size	{"HasQuantity": "T20", "HasProperty": "T21"}
+
+This covers all the variables and quantities mentioned in the input text. Each Quantity is properly annotated with its unit and modifiers (if any), linked to their respective MeasuredEntity and MeasuredProperty where applicable.

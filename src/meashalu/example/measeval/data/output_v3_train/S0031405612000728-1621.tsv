@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0031405612000728-1621	1	Quantity	207	214	T1	7-month	"{""unit"": ""months"", ""mods"": [""IsCount""]}"
+S0031405612000728-1621	1	MeasuredProperty	215	221	T3	period	"{""HasQuantity"": ""T1""}"
+S0031405612000728-1621	2	Quantity	932	933	T4	9	"{""unit"": ""months"", ""mods"": [""IsCount""]}"
+S0031405612000728-1621	2	MeasuredEntity	922	927	T5	soils	"{""HasQuantity"": ""T4""}"
+S0031405612000728-1621	3	Quantity	937	940	T7	4.8	"{""unit"": ""months"", ""mods"": [""IsCount""]}"
+S0031405612000728-1621	3	MeasuredEntity	922	927	T8	soils	"{""HasQuantity"": ""T7""}"

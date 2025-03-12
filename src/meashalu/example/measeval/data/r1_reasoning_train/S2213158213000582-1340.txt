@@ -1,0 +1,28 @@
+Okay, let's tackle this step by step. First, I need to extract all the quantities from the input text. The input mentions several numerical values with units and some ranges. Let's list them out:
+
+1. "5–55 Hz" – this is a frequency range with Hz as the unit.
+2. "30–130 ms" – a time range in milliseconds.
+3. "4D activation map" – here, 4D is a count (dimensions), but "activation map" might be the measured entity. However, "4D" is a count, so maybe Quantity with IsCount.
+4. "3D volumes" – similar to above, 3D counts.
+5. "2D source time-course matrix" – 2D as a count.
+6. "95.81%" – percentage variance explained.
+7. "94.38%" – another percentage.
+8. "96.24%" and "93.17%" – more percentages.
+9. "t(39) = 1.16" – statistical value with degrees of freedom and p-value.
+10. "p = 0.25" – p-value.
+11. "t(39) = 1.31"
+12. "p = 0.20"
+
+Next, checking for modifiers. The ranges 5–55 Hz and 30–130 ms should have IsRange. The percentages like 95.81% are measurements with unit "%". The t and p values might be IsMean or other modifiers, but the text says "average percent variance", so maybe those percentages have IsMean. The t and p values are statistical results, perhaps counts or measurements, but considering the context, they might be standalone quantities without MeasuredEntities.
+
+Now, MeasuredEntities and MeasuredProperties. For "5–55 Hz bandpass filter", the MeasuredEntity is "bandpass filter" and the MeasuredProperty is "frequency". Similarly, "30–130 ms post-stimulus" – MeasuredEntity could be "activity" and MeasuredProperty "time". The percentages are explained variance for "gradiometer data" and "magnetometer data" – so those data types are the MeasuredEntities, and "percent variance explained" is the MeasuredProperty. For the t-tests, the entities might be "gradiometer data" and "magnetometer data" again, with properties like "percent variance explained".
+
+Qualifiers: "Prior to VESTAL analyses" might qualify the bandpass filter application. "post-stimulus" is a qualifier for the activity time. Also, "using VESTAL" and "using VESTAL program" could be qualifiers for the variance explained percentages.
+
+Now, structuring annotations into sets. Each main quantity and its related entities/properties form a set. For example, the 5–55 Hz with bandpass filter and frequency as property. The 30–130 ms with activity and time. Each percentage (95.81%, 94.38%, etc.) would form their own sets linked to their respective data types and variance explained.
+
+Checking relationships: Each MeasuredEntity (like gradiometer data) has a HasProperty link to the MeasuredProperty (percent variance explained), which in turn HasQuantity to the percentage value. The t and p values are quantities linked to their tests, but since the text mentions group differences, the entities might be "gradiometer data" and "magnetometer data" with properties related to statistical tests, but maybe those are standalone quantities without MeasuredProperties.
+
+Potential errors to avoid: Not splitting sets correctly. For example, each percentage (95.81% for HC, 94.38% for SZ) should be separate sets. Also, ensuring that the Qualifiers like "using VESTAL" are linked properly. Also, "3D volumes" and "4D activation map" – the numbers here are counts (dimensions), so Quantity with IsCount.
+
+Let me proceed to build the TSV step by step, ensuring each set has Quantity, MeasuredEntity, MeasuredProperty, and any Qualifiers with correct relationships.

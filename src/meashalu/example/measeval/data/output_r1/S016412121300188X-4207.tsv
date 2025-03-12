@@ -1,0 +1,9 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S016412121300188X-4207	1	Quantity	158	161	T3	14%	"{""unit"": ""%"", ""mods"": [""IsMean""]}"
+S016412121300188X-4207	1	MeasuredEntity	142	148	T2	slices	"{""HasProperty"": ""T1""}"
+S016412121300188X-4207	2	Quantity	235	238	T3	37%	"{""unit"": ""%""}"
+S016412121300188X-4207	2	MeasuredEntity	192	205	T1	Program userv	"{""HasProperty"": ""T2""}"
+S016412121300188X-4207	2	MeasuredProperty	222	231	T2	deviation	"{""HasQuantity"": ""T3""}"
+S016412121300188X-4207	2	Qualifier	239	265	T4	when using the Low setting	"{""Qualifies"": ""T3""}"
+S016412121300188X-4207	3	Quantity	541	543	T1	30	"{""mods"": [""IsCount""]}"
+S016412121300188X-4207	3	MeasuredEntity	544	552	T2	programs	"{""HasQuantity"": ""T1""}"

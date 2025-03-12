@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S1570870512000637-1206	1	Quantity	297	301	T1	many	"{""mods"": [""IsCount""]}"
+S1570870512000637-1206	1	MeasuredEntity	313	321	T2	contacts	"{""HasQuantity"": ""T1""}"
+S1570870512000637-1206	2	Quantity	297	301	T3	many	"{""mods"": [""IsCount""]}"
+S1570870512000637-1206	2	MeasuredEntity	313	321	T4	contacts	"{""HasQuantity"": ""T3""}"
+S1570870512000637-1206	3	Quantity	297	301	T5	many	"{""mods"": [""IsCount""]}"
+S1570870512000637-1206	3	MeasuredEntity	313	321	T6	contacts	"{""HasQuantity"": ""T5""}"

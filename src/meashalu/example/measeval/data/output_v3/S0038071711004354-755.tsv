@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0038071711004354-755	1	Quantity	162	180	T1	approximately −14‰	"{""unit"": ""\u2030"", ""mods"": [""IsApproximate""]}"
+S0038071711004354-755	1	MeasuredEntity	197	216	T2	δ13C of ambient CO2	"{""HasQuantity"": ""T1""}"
+S0038071711004354-755	1	MeasuredProperty	112	116	T3	δ13C	"{""HasQuantity"": ""T1""}"
+S0038071711004354-755	2	Quantity	596	615	T4	approximately 2.5 h	"{""unit"": ""h"", ""mods"": [""IsApproximate""]}"
+S0038071711004354-755	2	MeasuredEntity	557	578	T5	δ13C value of the CO2	"{""HasQuantity"": ""T4""}"
+S0038071711004354-755	2	MeasuredProperty	543	547	T6	time	"{""HasQuantity"": ""T4""}"
+S0038071711004354-755	3	Quantity	619	632	T7	−28.5 ± 0.33‰	"{""unit"": ""\u2030"", ""mods"": [""IsMeanHasSD""]}"
+S0038071711004354-755	3	MeasuredEntity	557	578	T8	δ13C value of the CO2	"{""HasQuantity"": ""T7""}"
+S0038071711004354-755	3	MeasuredProperty	557	561	T9	δ13C	"{""HasQuantity"": ""T7""}"

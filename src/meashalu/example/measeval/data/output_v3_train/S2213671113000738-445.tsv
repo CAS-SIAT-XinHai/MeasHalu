@@ -1,0 +1,3 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2213671113000738-445	1	Quantity	105	110	T1	48 hr	"{""unit"": ""hr""}"
+S2213671113000738-445	1	MeasuredEntity	84	89	T2	cells	"{""HasQuantity"": ""T1""}"

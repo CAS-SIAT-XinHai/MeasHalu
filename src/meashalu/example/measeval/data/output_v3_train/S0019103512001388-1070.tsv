@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103512001388-1070	1	Quantity	40	55	T1	6 November 2011	"{""unit"": ""date"", ""mods"": []}"
+S0019103512001388-1070	1	MeasuredEntity	0	30	T2	H-band slit-viewing VLT images	"{""HasQuantity"": ""T1""}"
+S0019103512001388-1070	1	MeasuredProperty	31	39	T3	taken on	"{""HasQuantity"": ""T1""}"
+S0019103512001388-1070	2	Quantity	65	73	T4	two days	"{""unit"": ""days"", ""mods"": [""IsCount""]}"
+S0019103512001388-1070	2	MeasuredEntity	85	114	T5	close approach of BS1 and BS2	"{""HasQuantity"": ""T4""}"
+S0019103512001388-1070	2	MeasuredProperty	74	80	T6	before	"{""HasQuantity"": ""T4""}"
+S0019103512001388-1070	3	Quantity	596	602	T7	30 min	"{""unit"": ""minutes"", ""mods"": [""IsCount""]}"
+S0019103512001388-1070	3	MeasuredEntity	609	612	T8	BS1	"{""HasQuantity"": ""T7""}"
+S0019103512001388-1070	3	MeasuredProperty	603	608	T9	after	"{""HasQuantity"": ""T7""}"

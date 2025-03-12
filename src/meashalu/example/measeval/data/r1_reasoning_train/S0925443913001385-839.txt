@@ -1,0 +1,336 @@
+Okay, let's tackle this step by step. The input text is about mitochondrial protein synthesis experiments comparing patient and control fibroblasts. I need to extract quantities, measured entities, properties, and qualifiers.
+
+First, I'll look for quantities. The text mentions "50 μg" which is a clear quantity with a unit. Then there's "35S-methionine/cysteine" – here, 35S is a radioactive isotope, so "35S" might be part of the compound name, but "35S" itself is a quantity (an isotopic label). However, in the context, it's used to label the methionine/cysteine, so maybe "35S-methionine/cysteine" is the measured entity, and "35S" is the quantity. Wait, but the instruction says quantities are values or counts. 35S here is part of the compound name, indicating the radioactive isotope used. So perhaps "35S" is a quantity here, as a measurement unit for the methionine/cysteine.
+
+Wait, the example given in the problem had "10 grams of salt" where "10 grams" is the quantity. Similarly, "35S" here is specifying the labeled compound. So maybe "35S-methionine/cysteine" is the measured entity, and the quantity is the 35S part. Hmm, but 35S is part of the compound's name. Alternatively, "35S-methionine/cysteine" could be the measured entity, and there's no quantity here. Wait, the text says "incorporation of 35S-methionine/cysteine into..." – perhaps "35S" is the quantity here. So "35S" is the radioactive measurement, so the quantity is "35S", with unit being the isotope, but units are like grams, milliliters, etc. Maybe "35S" is the unit here. But the problem is tricky here. Let me check the definition again.
+
+Quantity includes measurements and counts. "35S" is a radioisotope label, but in terms of quantity, perhaps it's a measurement. However, I'm not sure if "35S" is a unit or part of the compound name. Maybe in this context, "35S-methionine/cysteine" refers to the compound labeled with 35S, so the 35S is part of the compound's name, not a separate quantity. So perhaps there's no quantity here. Alternatively, the "35S" could be considered a quantity with unit "S" (for sulfur isotope), but I'm not sure. Let me think again.
+
+The main quantity I see is "50 μg". The other part is "35S-methionine/cysteine". Since the quantity definition includes values with units, "35S" here is a value (35) with unit (S, as in the isotope). So maybe "35S" is a quantity here, part of the compound's name. So in "35S-methionine/cysteine", the quantity is "35S", unit is "S", and the measured entity is "methionine/cysteine". But I'm not certain. Alternatively, maybe "35S-methionine/cysteine" is the measured entity, and the quantity is 35S, but that's unclear. Let me check the example again. The example had "10 grams of salt" where "10 grams" is the quantity. Similarly, "35S-methionine/cysteine" – maybe "35S" is the quantity here. So, "35S" as quantity, unit "S", mods would be isotope? But the modifiers are predefined. Wait, the modifiers include things like IsApproximate, IsCount, etc. Since "35S" is a specific isotope, perhaps it's a unit. But the unit field is for things like kg, ml, etc. So maybe "S" is the unit here. But this is a bit tricky. Alternatively, maybe this is a count? Not sure. Alternatively, maybe "35S" isn't considered a quantity here, and the main quantity is "50 μg". Let me proceed with that for now.
+
+Next, "50 μg" is a quantity with unit micrograms. The measured entity here is "cell lysate", so the measured entity would be "cell lysate", measured property could be "loading" (as in the lower panel mentions "equal loading"), but in the text, it's "separation of cell lysate (50 μg) through SDS–PAGE". So the quantity 50 μg is the amount of cell lysate used. Therefore, the measured entity is "cell lysate", measured property is "amount" or "loading". The qualifiers might be the conditions mentioned, like "under conditions that inhibited cytosolic translation [45]" which is a qualifier for the mitochondrial protein synthesis measurement.
+
+Wait, but the qualifier would be the condition that inhibited cytosolic translation. So that's a qualifier for the MeasuredEntity or Quantity related to the synthesis. Let's break it down.
+
+Let's list all the possible quantities first:
+
+1. 35S-methionine/cysteine – maybe, but unsure if 35S is a quantity.
+2. 50 μg – definite quantity.
+
+Now, focusing on "50 μg" first. The text says "separation of cell lysate (50 μg) through SDS–PAGE". So "cell lysate" is the measured entity, and "50 μg" is the quantity. The measured property here could be "amount" or "quantity loaded". So the relationships would be MeasuredEntity (cell lysate) HasQuantity (50 μg). Since the quantity is part of the cell lysate's amount, maybe the measured property is "amount", but the text doesn't explicitly mention a property like "amount", it's implied by the quantity. Alternatively, maybe the MeasuredProperty is omitted here.
+
+Another part: "the gel was subsequently rehydrated and stained with Coomassie blue to confirm equal loading (lower panel)". "equal loading" refers to the same amount, but "equal" is a qualifier here. However, "loading" could be a MeasuredProperty, but in the context, it's about confirming that the loading was equal. The "50 μg" is the quantity used for the cell lysate in the gel. So the MeasuredEntity is "cell lysate", Quantity is "50 μg", MeasuredProperty maybe "loading amount". But again, the text doesn't mention a property explicitly here. So perhaps only Quantity and MeasuredEntity are present.
+
+Now, for the first part: "De novo synthesis of mitochondrial proteins was determined in patient (P) and control (C) fibroblasts under conditions that inhibited cytosolic translation [45]." The conditions that inhibited cytosolic translation would be a Qualifier, qualifying the MeasuredEntity (mitochondrial proteins synthesis) or the process. So the Qualifier would be "under conditions that inhibited cytosolic translation [45]".
+
+Then, "In vivo incorporation of 35S-methionine/cysteine into mitochondrially encoded proteins..." – here, "In vivo" is a qualifier for the incorporation process. The "35S-methionine/cysteine" is the compound used. If "35S" is a quantity, then it's part of the compound. But maybe in this context, "35S" is part of the compound's name and not a separate quantity. Therefore, maybe the quantity here is not present except for "50 μg".
+
+Looking back at the problem statement, Quantity can be a value with unit or a count. "35S" here is a label, not a quantity used for measurement in terms of amount. So perhaps the only quantity is "50 μg".
+
+Then, the other parts: the "upper panel" and "lower panel" might refer to parts of the gel image, but not quantities. The "aligned densitometric profiles" – densitometric profiles are measured entities, but there's no quantity mentioned there. The traces (patient lower trace, control upper trace) are part of the profiles but not quantities.
+
+So the main quantity is "50 μg".
+
+MeasuredEntity: "cell lysate" (50 μg of cell lysate)
+
+MeasuredProperty: Maybe "amount" as in the quantity loaded, but since the text mentions "equal loading" in the lower panel, the MeasuredProperty here might be "loading", and the Qualifier would be "equal" for the lower panel. But the 50 μg is in the upper panel's process. The "equal loading" is confirmed by staining, so "equal" is a qualifier for the loading, which would be a MeasuredProperty.
+
+But according to the problem's example, if the MeasuredProperty is explicit, like "volume", then it's annotated. In this case, "loading" is mentioned in "equal loading", but "loading" is part of the phrase "equal loading", which is a Qualifier.
+
+Wait, in the input text: "To the right of the gel are the aligned densitometric profiles of the patient (lower trace) and control (upper trace). The gel was subsequently rehydrated and stained with Coomassie blue to confirm equal loading (lower panel)."
+
+Here, "equal loading" refers to the amount of lysate loaded into each lane of the gel. The "50 μg" is the quantity of cell lysate loaded, and the staining confirmed that the loading was equal. So, "equal" is a Qualifier for the loading (MeasuredProperty) or for the Quantity (50 μg). But since "equal loading" is a result of the 50 μg quantity, maybe "equal" is a Qualifier for the MeasuredProperty "loading", which is linked to the Quantity "50 μg".
+
+So, MeasuredEntity: cell lysate (T2)
+Quantity: 50 μg (T1)
+MeasuredProperty: loading (T3)
+Qualifier: equal (from "equal loading") (T4)
+
+But "equal loading" is mentioned in the lower panel, referring to the staining confirmation. The actual quantity loaded is 50 μg. So the "equal" qualifies the loading, which is a MeasuredProperty. So relationships would be:
+
+- MeasuredEntity (cell lysate) HasQuantity T1 (50 μg)
+- MeasuredEntity (cell lysate) HasProperty T3 (loading)
+- MeasuredProperty (loading) HasQuantity T1 (50 μg)
+- Qualifier "equal" Qualifies T3 (loading)
+
+But in the text, "equal loading" is mentioned in the context of the lower panel, which is a confirmation step. However, the 50 μg is in the upper panel's process. So there might be two quantities: 50 μg in the upper panel, and "equal" as a qualifier in the lower panel. But "equal" is not a quantity, it's a Qualifier. The "loading" in the lower panel is confirmed to be equal, which relates to the quantity 50 μg in the upper panel.
+
+This is getting a bit complicated. Let me try to outline the annotations step by step.
+
+First, extract all quantities:
+
+- "50 μg" is a quantity with unit μg, no modifiers.
+
+Next, MeasuredEntity linked to this quantity is "cell lysate".
+
+MeasuredProperty would be "loading" as in the amount loaded, but "loading" is mentioned later in the context of equal loading. However, the quantity "50 μg" is explicitly stated, so perhaps the MeasuredProperty here is "amount" or "quantity". Since the text doesn't explicitly mention a property here, maybe only the MeasuredEntity and Quantity are present.
+
+Then, the Qualifier is "under conditions that inhibited cytosolic translation [45]" which qualifies the entire synthesis process. But according to the annotation steps, Qualifiers can be linked to Quantities, MeasuredEntities, or MeasuredProperties. So this qualifier would qualify the MeasuredEntity "mitochondrial proteins" or the process of synthesis. However, the main MeasuredEntity here for the quantity "50 μg" is "cell lysate".
+
+Another Qualifier is "In vivo" in "In vivo incorporation...", which qualifies the incorporation process. But again, how does this relate to the quantities?
+
+Let's focus on the definite quantity "50 μg".
+
+So annotSet 1:
+
+- Quantity T1: 50 μg, unit μg.
+
+MeasuredEntity: cell lysate (text: "cell lysate (50 μg)")
+
+So MeasuredEntity T2: cell lysate, HasQuantity T1.
+
+MeasuredProperty: Not explicitly mentioned, maybe omitted.
+
+Qualifiers: The "conditions that inhibited cytosolic translation [45]" which is a qualifier for the synthesis process. If the synthesis process is a MeasuredEntity, then this qualifier would qualify it. But according to the input text, the MeasuredEntity here is "mitochondrial proteins" for the synthesis, but the Quantity 50 μg is related to cell lysate.
+
+Alternatively, the Qualifier "under conditions that inhibited cytosolic translation [45]" could qualify the MeasuredEntity "mitochondrial proteins" or the process. But in terms of the quantity 50 μg, it's part of the cell lysate separation.
+
+This is a bit confusing. Let me try to list all possible components:
+
+Quantities:
+
+1. 50 μg (explicit)
+
+MeasuredEntities:
+
+- cell lysate (for 50 μg)
+- mitochondrial proteins (de novo synthesis)
+- 35S-methionine/cysteine (if considered as a MeasuredEntity)
+
+MeasuredProperties:
+
+- synthesis (if considered a property, but probably not)
+- incorporation (of 35S-methionine/cysteine)
+- loading (amount)
+
+Qualifiers:
+
+- under conditions that inhibited cytosolic translation [45]
+- In vivo
+- equal (loading)
+
+But perhaps "In vivo" is a Qualifier for the incorporation process.
+
+Now, for the quantity "50 μg":
+
+- Quantity T1: 50 μg, unit μg, no modifiers.
+
+MeasuredEntity T2: cell lysate, linked via HasQuantity T1.
+
+The text mentions "separation of cell lysate (50 μg) through SDS–PAGE". So cell lysate is the entity, and 50 μg is its quantity.
+
+The MeasuredProperty here could be "amount" or "quantity", but since it's not explicit, maybe we don't annotate it. However, in the lower panel, "equal loading" refers to the same quantity, implying that "loading" is the MeasuredProperty. So MeasuredProperty T3: loading, linked to Quantity T1 via HasQuantity, and linked to MeasuredEntity T2 via HasProperty.
+
+Qualifier T4: "under conditions that inhibited cytosolic translation [45]" – this qualifies the overall experiment, perhaps qualifying the MeasuredEntity (mitochondrial proteins) or the synthesis process. But since this condition is applied to the patient and control fibroblasts, it might qualify the MeasuredEntity "fibroblasts" or the synthesis process.
+
+But the annotation instructions mention that Qualifiers can be linked to any of the three types. So perhaps this qualifier is linked to the MeasuredEntity "fibroblasts", but fibroblasts are not directly linked to a quantity here. Alternatively, it's linked to the overall synthesis measurement.
+
+This is getting a bit too complex. Let me focus on the definite annotations first.
+
+annotSet 1:
+
+- Quantity T1: 50 μg, unit μg.
+
+- MeasuredEntity T2: cell lysate, HasQuantity T1.
+
+- MeasuredProperty T3: loading (from "equal loading"), HasQuantity T1, HasProperty T2.
+
+- Qualifier T4: "under conditions that inhibited cytosolic translation [45]", Qualifies T2 or T3? Or maybe the synthesis process, which isn't a measured entity here. Alternatively, this qualifier applies to the synthesis, which is the MeasuredEntity. The synthesis was done under certain conditions, so the qualifier would qualify the MeasuredEntity "mitochondrial protein synthesis".
+
+But "mitochondrial protein synthesis" is the process being measured. So MeasuredEntity T5: mitochondrial proteins (de novo synthesis).
+
+Then, this qualifier would Qualify T5.
+
+But how does this relate to the quantity? The synthesis was determined under those conditions, which may affect the quantities measured. But the quantity here is 50 μg of cell lysate. So perhaps the qualifier is part of a different annotSet.
+
+Alternatively, maybe there are multiple annotSets. Let's consider each logical grouping:
+
+annotSet 1: De novo synthesis of mitochondrial proteins in fibroblasts under conditions. The qualifier here is the conditions.
+
+annotSet 2: Incorporation of 35S-methionine/cysteine into proteins. Possible quantities here, but unsure.
+
+annotSet 3: Cell lysate (50 μg) separated by SDS-PAGE.
+
+annotSet 4: Equal loading confirmed with Coomassie blue.
+
+But this approach might split things into different sets, but according to the example, each logical group is an annotSet. For example, each quantity and its related entities form a set.
+
+In the example, each quantity (25°C, 500 ml, 10g) were separate sets. So here, "50 μg" would be one set, and "equal loading" might be another.
+
+But "equal" is a Qualifier, not a quantity. So the main quantity is 50 μg.
+
+Another possible quantity is the "35S" in "35S-methionine/cysteine". If considered a quantity, it's 35S. The unit is "S" (sulfur isotope), but this is unconventional. Alternatively, it's a label, not a quantity. Since the problem's example included "10 grams" as a quantity, maybe "35S" is not a quantity here. So only "50 μg" is the quantity.
+
+Therefore, the main annotations:
+
+annotSet 1:
+
+- Quantity T1: 50 μg, unit μg.
+
+- MeasuredEntity T2: cell lysate.
+
+- Relationship: T2 HasQuantity T1.
+
+There's no explicit MeasuredProperty mentioned here. The text mentions "separation of cell lysate (50 μg)", so the quantity is about the cell lysate's amount used in the separation.
+
+Then, the Qualifier "under conditions that inhibited cytosolic translation [45]" – this may qualify the overall experiment, but perhaps it's linked to the MeasuredEntity "fibroblasts" (patient and control) mentioned earlier. The sentence is about determining synthesis in fibroblasts under these conditions. But fibroblasts are part of the MeasuredEntity here. However, the quantity is linked to cell lysate, not directly to fibroblasts. So maybe this qualifier is part of a different annotSet.
+
+Another Qualifier is "In vivo" in "In vivo incorporation..." – this qualifies the incorporation process. If the incorporation is a MeasuredProperty, then this Qualifier would qualify it. But again, how to link this.
+
+Alternatively, perhaps "In vivo" is a Qualifier for the incorporation, which is a MeasuredProperty, linked to the MeasuredEntity "35S-methionine/cysteine". But this is getting too speculative.
+
+For the purpose of this task, I'll focus on the clear quantity "50 μg" and its related entities.
+
+annotSet 1:
+
+- Quantity T1: 50 μg, unit μg.
+
+- MeasuredEntity T2: cell lysate, HasQuantity T1.
+
+Now, the text also mentions "equal loading" in the lower panel. "Loading" refers to the amount of cell lysate loaded into the gel. The quantity here is "50 μg", which is the amount loaded. The "equal loading" is confirmed by staining, meaning that the loading was the same (equal) for patient and control. So "equal" is a Qualifier for the MeasuredProperty "loading".
+
+So:
+
+annotSet 2:
+
+- MeasuredProperty T3: loading.
+
+- Qualifier T4: equal.
+
+- Relationships: Qualifier T4 Qualifies T3.
+
+But where is the quantity here? The quantity is 50 μg from annotSet1. So perhaps annotSet2 should be linked to annotSet1, but according to the example, each annotSet is a separate group. Alternatively, maybe "loading" is a MeasuredProperty in annotSet1.
+
+Wait, in the example, each quantity is a separate annotSet. So for "50 μg" in annotSet1, the related MeasuredEntity is cell lysate, and the MeasuredProperty could be "amount" or "loading". Since the text later mentions "equal loading", the MeasuredProperty here is "loading".
+
+So in annotSet1:
+
+- Quantity T1: 50 μg.
+
+- MeasuredEntity T2: cell lysate.
+
+- MeasuredProperty T3: loading.
+
+- Relationships: T2 HasQuantity T1, T2 HasProperty T3, T3 HasQuantity T1.
+
+Then, the Qualifier "equal" from "equal loading" would be in another annotSet, but since "loading" is part of annotSet1, perhaps the Qualifier "equal" is part of annotSet1 as well. However, "equal loading" is mentioned in the lower panel, which is a different part of the text. The problem requires that each logical grouping is an annotSet. Since the "equal loading" is confirmed later but relates to the same quantity (50 μg), perhaps it's part of the same annotSet.
+
+Wait, "equal loading" refers to the same quantity of cell lysate loaded into each lane. So the Qualifier "equal" qualifies the MeasuredProperty "loading", which is linked to the Quantity "50 μg". Therefore, the Qualifier is part of annotSet1.
+
+But in the text, "equal loading" is mentioned in the lower panel when talking about staining. So the Qualifier is part of a different sentence. However, according to the problem's instructions, each logical grouping is an annotSet, and the example grouped quantities with their immediate entities and properties. So perhaps "equal loading" is a separate annotSet.
+
+Alternatively, if "equal" is a Qualifier for the loading, which is linked to the 50 μg quantity, then it's part of annotSet1.
+
+This is tricky. Let me proceed step by step.
+
+annotSet1:
+
+- Quantity T1: 50 μg, unit μg.
+
+- MeasuredEntity T2: cell lysate.
+
+- MeasuredProperty T3: loading.
+
+- Relationships: T2 HasQuantity T1, T2 HasProperty T3, T3 HasQuantity T1.
+
+- Qualifier T4: equal (text: "equal loading").
+
+But "equal loading" is mentioned later. The text says "to confirm equal loading (lower panel)". So the Qualifier "equal" is part of the lower panel's description, qualifying the loading. So the Qualifier T4: "equal", Qualifies T3 (loading).
+
+This would be part of annotSet1, as it relates to the same MeasuredProperty and Quantity.
+
+But the problem's example grouped each quantity and its related components in separate annotSets. So even if the Qualifier is mentioned later, it should be part of the same set if it logically belongs.
+
+Thus, annotSet1 would have:
+
+annotSet    annotType           annotId    text                other
+1           Quantity            T1         50 μg              {"unit": "μg"}
+1           MeasuredEntity      T2         cell lysate        {"HasQuantity": "T1"}
+1           MeasuredProperty    T3         loading            {"HasQuantity": "T1", "HasProperty": "T2"}
+1           Qualifier           T4         equal              {"Qualifies": "T3"}
+
+But the Qualifier "equal" is part of the text "equal loading", which is in a different sentence. The exact text for the Qualifier is "equal".
+
+Now, checking the input text: "confirm equal loading (lower panel)". So the Qualifier's text is "equal".
+
+Another Qualifier is "under conditions that inhibited cytosolic translation [45]". This is a longer phrase. Should that be a Qualifier as well? Let's see.
+
+The sentence is: "De novo synthesis of mitochondrial proteins was determined in patient (P) and control (C) fibroblasts under conditions that inhibited cytosolic translation [45]."
+
+"Under conditions that inhibited cytosolic translation [45]" is a Qualifier for the synthesis determination. So if the synthesis is a MeasuredEntity or MeasuredProperty, this Qualifier would qualify it. But the main entity here is "mitochondrial proteins", and the synthesis is the process.
+
+Assuming "De novo synthesis of mitochondrial proteins" is the MeasuredEntity, then the Qualifier would Qualify that.
+
+So MeasuredEntity T5: mitochondrial proteins (de novo synthesis).
+
+Qualifier T6: "under conditions that inhibited cytosolic translation [45]", Qualifies T5.
+
+But there's no quantity directly associated with this. Unless the synthesis is measured via the incorporation of 35S-methionine/cysteine, which is another part.
+
+The text mentions "In vivo incorporation of 35S-methionine/cysteine into mitochondrially encoded proteins was visualised...". The incorporation is measured, and the visualization involves the quantity 50 μg of cell lysate. But the 35S here might be a MeasuredEntity or part of a Quantity.
+
+If "35S-methionine/cysteine" is the MeasuredEntity, then the incorporation's quantity might be related to the presence of 35S. But without a specific numeric quantity mentioned for the incorporation, it's unclear.
+
+In this case, perhaps "35S" is a Qualifier indicating the method (radioactive labeling), but not a Quantity. Therefore, the only Quantity is "50 μg".
+
+Thus, the annotations would be:
+
+annotSet1: 50 μg related entities and qualifiers.
+
+annotSet2: Conditions qualifier for mitochondrial protein synthesis.
+
+But since there's no quantity in annotSet2, maybe it's not included. The problem requires annotating Quantities, MeasuredEntities, MeasuredProperties, and Qualifiers. So even if there's no Quantity, but there's a Qualifier linked to a MeasuredEntity, it should be annotated.
+
+For example, in the input text, "under conditions that inhibited cytosolic translation [45]" is a Qualifier for the MeasuredEntity "mitochondrial proteins" or the synthesis process.
+
+Assuming the synthesis is a MeasuredEntity:
+
+annotSet2:
+
+- MeasuredEntity T5: mitochondrial proteins (de novo synthesis)
+
+- Qualifier T6: conditions that inhibited cytosolic translation [45], Qualifies T5.
+
+But there's no Quantity here, so according to the problem's instructions, each annotSet groups related annotations, which must include at least a Quantity. But the example included sets without quantities? Wait, no. In the example, each set had a Quantity. For example, the first set had Quantity, MeasuredEntity, MeasuredProperty, and Qualifier.
+
+Wait, looking at the example:
+
+The example had three annotSets, each centered around a Quantity. So each annotSet must have a Quantity. Therefore, if there's no Quantity, it's not annotated. Therefore, "under conditions..." is a Qualifier, but without a Quantity, it's not part of an annotSet. So perhaps it's not annotated.
+
+Thus, the only Quantity is "50 μg".
+
+Another possible Quantity: The "35S" in "35S-methionine/cysteine". If considered a Quantity, then:
+
+Quantity: 35S, unit S, type isotope. But this is speculative. The problem's example includes units like °C, milliliters, grams. "S" as a unit isn't standard, so maybe this is not considered a Quantity here.
+
+Therefore, the only Quantity is "50 μg".
+
+Now, the other parts:
+
+"In vivo incorporation...": "In vivo" is a Qualifier for the incorporation. If incorporation is a MeasuredProperty, then:
+
+MeasuredProperty: incorporation.
+
+Qualifier: In vivo.
+
+But without a Quantity linked to this, it's not part of an annotSet. Therefore, it's not annotated.
+
+Thus, the final annotations are focused on "50 μg" and its related entities.
+
+So, the TSV would be:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	50 μg	{"unit": "μg"}
+1	MeasuredEntity	T2	cell lysate	{"HasQuantity": "T1"}
+1	MeasuredProperty	T3	loading	{"HasQuantity": "T1", "HasProperty": "T2"}
+1	Qualifier	T4	equal	{"Qualifies": "T3"}
+
+Wait, but "equal" is from "equal loading" in the text. The exact text for the Qualifier is "equal". However, in the input text, it's part of the phrase "equal loading", so the Qualifier's text is "equal".
+
+But according to the annotation steps, Qualifiers are spans of text. So "equal" is the exact text span. Yes.
+
+Now, also, the "conditions that inhibited cytosolic translation [45]" is a Qualifier, but since there's no Quantity linked to it, it's not annotated.
+
+Another possible Qualifier is "In vivo" in "In vivo incorporation...", but again, no Quantity linked.
+
+Therefore, the final answer includes only the annotSet for 50 μg.

@@ -1,0 +1,5 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0031405612000728-769	1	Quantity	56	68	T1	seven months	"{""mods"": [""IsCount""]}"
+S0031405612000728-769	1	MeasuredEntity	39	43	T2	TRFs	"{""HasQuantity"": ""T1""}"
+S0031405612000728-769	2	Quantity	90	97	T3	month 7	"{""mods"": [""IsCount""]}"
+S0031405612000728-769	2	MeasuredEntity	39	43	T4	TRFs	"{""HasQuantity"": ""T3""}"

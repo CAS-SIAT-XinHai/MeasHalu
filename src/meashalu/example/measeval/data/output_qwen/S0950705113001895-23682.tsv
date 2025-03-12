@@ -1,0 +1,5 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0950705113001895-23682	1	Quantity	564	566	T1	5%	"{""unit"": ""%"", ""mods"": [""IsMean""]}"
+S0950705113001895-23682	1	MeasuredEntity	537	551	T2	updating ratio	"{""HasQuantity"": ""T1""}"
+S0950705113001895-23682	4	Quantity	564	566	T6	5%	"{""unit"": ""%"", ""mods"": [""IsMean""]}"
+S0950705113001895-23682	4	MeasuredEntity	537	551	T7	updating ratio	"{""HasQuantity"": ""T6""}"

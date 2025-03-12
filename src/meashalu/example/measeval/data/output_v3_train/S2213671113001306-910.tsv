@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2213671113001306-910	1	Quantity	901	908	T1	10,500×	"{""unit"": ""\u00d7"", ""mods"": [""IsCount""]}"
+S2213671113001306-910	1	Quantity	974	981	T2	25,000×	"{""unit"": ""\u00d7"", ""mods"": [""IsCount""]}"
+S2213671113001306-910	1	Quantity	1004	1008	T3	2 μm	"{""unit"": ""\u03bcm""}"
+S2213671113001306-910	1	Quantity	1015	1021	T4	0.2 μm	"{""unit"": ""\u03bcm""}"
+S2213671113001306-910	1	MeasuredEntity	930	941	T6	micrographs	"{""HasQuantity"": ""T2""}"
+S2213671113001306-910	1	MeasuredEntity	983	993	T7	scale bars	"{""HasQuantity"": ""T3""}"
+S2213671113001306-910	1	MeasuredEntity	1009	1014	T8	inset	"{""HasQuantity"": ""T4""}"
+S2213671113001306-910	1	MeasuredProperty	1022	1030	T11	distance	"{""HasQuantity"": ""T3""}"
+S2213671113001306-910	1	MeasuredProperty	1022	1030	T12	distance	"{""HasQuantity"": ""T4""}"

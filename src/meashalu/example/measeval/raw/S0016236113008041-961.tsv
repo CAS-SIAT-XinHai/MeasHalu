@@ -1,0 +1,5 @@
+docId	annotSet	annotType	annotId	text	other
+S0016236113008041-961	1	Quantity	T1	+1%	"{""unit"": ""%"", ""mods"": [""HasTolerance""]}"
+S0016236113008041-961	1	MeasuredEntity	T2	sorbent	"{""HasQuantity"": ""T1""}"
+S0016236113008041-961	1	MeasuredProperty	T3	error bars	"{""HasProperty"": ""T2"", ""HasQuantity"": ""T1""}"
+S0016236113008041-961	1	Qualifier	T4	for reactions undertaken with different SO2 concentrations	"{""Qualifies"": ""T2""}"

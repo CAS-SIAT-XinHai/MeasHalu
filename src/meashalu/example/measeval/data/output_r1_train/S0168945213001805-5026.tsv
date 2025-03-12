@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0168945213001805-5026	1	MeasuredEntity	14	51	T2	wild-type cottonwood (P. trichocarpa)	"{""HasQuantity"": ""T1""}"
+S0168945213001805-5026	2	Quantity	201	204	T4	13%	"{""unit"": ""%""}"
+S0168945213001805-5026	2	MeasuredEntity	159	174	T5	wild-type trees	"{""HasQuantity"": ""T4""}"
+S0168945213001805-5026	2	MeasuredProperty	181	191	T6	net growth	"{""HasQuantity"": ""T4""}"
+S0168945213001805-5026	3	Quantity	431	436	T7	three	"{""mods"": [""IsCount""]}"
+S0168945213001805-5026	3	MeasuredEntity	437	451	T8	beetle species	"{""HasQuantity"": ""T7""}"

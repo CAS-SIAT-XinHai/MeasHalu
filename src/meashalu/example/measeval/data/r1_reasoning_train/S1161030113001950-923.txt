@@ -1,0 +1,171 @@
+Alright, let's tackle this annotation task step by step. First, I need to go through the input text and identify all the quantities mentioned. The quantities can be measurements, counts, or ranges. Let me start by scanning each paragraph carefully.
+
+In the first paragraph, there's "4 classes, low, medium, high to very high". The number here is 4 classes, so that's a Quantity. It's a count, so IsCount modifier applies. The MeasuredEntity would be "classes" and the MeasuredProperty might be "fertilizer application classes" or similar. 
+
+Next, in the part about Kansas University, there's "2 systems" mentioned. So "2 systems" is a Quantity with IsCount. The MeasuredEntity is "systems", and the MeasuredProperty could be "recommendation systems".
+
+Then, looking at the "90–95% maximum yield". The percentage here is a range, so "90–95%" is a Quantity with IsRange. The MeasuredEntity here is "maximum yield", and the MeasuredProperty is "yield percentage".
+
+In the same section, there's "4–8 years". Again, a range, so IsRange. The MeasuredEntity is "planned period of time", and the MeasuredProperty is "years".
+
+Moving to West Africa's framework, "NPK" is mentioned, but those are elements, not quantities. However, later there's "required fertilizer doses to obtain different yield targets". The word "doses" implies a quantity, but the exact value isn't specified here. Wait, maybe I missed something. Let me check again. The input mentions "indigenous NPK supply" and "recovery efficiency of applied N, P and K". Those are properties but not quantities. Hmm. 
+
+Wait, in the output variable for the Brazilian system, it says "the amount of fertilizer to be applied" which is based on 4 classes. The 4 classes were already covered. In the Kansas section, the two systems (nutrient sufficiency and build maintenance) are mentioned. The numbers here are 2 systems, 4-8 years, and 90-95% yield. 
+
+So summarizing the quantities I found:
+1. "4 classes" – IsCount
+2. "2 systems" – IsCount
+3. "90–95%" – IsRange (as a percentage)
+4. "4–8 years" – IsRange
+
+Now, for each of these, I need to determine the MeasuredEntity, MeasuredProperty, and any Qualifiers. Let's start with the first one: "4 classes". The context is that the Brazilian recommendation system's output is based on 4 classes. So the MeasuredEntity here might be "classes", and the MeasuredProperty is "fertilizer application amount". The relationship would be the classes having a quantity of 4.
+
+Next, "2 systems" in the Kansas University part. The MeasuredEntity is "systems" (the two recommendation systems), and the MeasuredProperty is "fertilizer recommendation system options". The Quantity here is 2, IsCount.
+
+Then "90–95% maximum yield". The MeasuredEntity is "maximum yield", the MeasuredProperty is "yield percentage", and the Quantity is the range 90-95% with IsRange. The unit here is "%".
+
+"4–8 years" is a range, so IsRange. The MeasuredEntity is "planned period of time", and the MeasuredProperty is "duration". The unit is "years".
+
+Now, checking if there are any modifiers. For "4 classes", it's a count. For "2 systems", also a count. The ranges have IsRange modifiers. The percentages and years have units. 
+
+Now, Qualifiers: Any phrases that affect these quantities? The "nutrient sufficiency recommendation system" which aims for 90–95% yield. The qualifier here might be the system's name qualifying the yield percentage. But the example given in the instructions uses a separate qualifier phrase. In this text, the "nutrient sufficiency..." is part of the MeasuredEntity's description. So maybe no separate Qualifier here. Similarly, "build maintenance fertility program" over 4–8 years. The program name could be a Qualifier for the 4–8 years quantity. But according to the instructions, Qualifiers are spans that provide conditions or attributes. So perhaps "nutrient sufficiency recommendation system" and "build maintenance fertility program" are Qualifiers for their respective quantities. 
+
+Wait, but in the example given, the Qualifier was "after I drank half the can". Here, the systems' names describe the context of the quantities. So maybe "nutrient sufficiency recommendation system" and "build maintenance fertility program" are Qualifiers for the 90–95% and 4–8 years quantities, respectively. However, the text says "choosing from 2 systems, the 'nutrient sufficiency...' which is developed to provide a 90–95% maximum yield..." So the system's name is part of the MeasuredEntity. Hmm. Maybe the Qualifier here is the entire clause that describes the purpose of the system. But according to the instructions, Qualifiers are spans that affect the interpretation of the quantity. For example, "after I drank half the can" affects the volume. In this case, the system names might not be Qualifiers but rather part of the MeasuredEntity or MeasuredProperty. 
+
+Alternatively, maybe "for the year" in "maximum yield for the year" could be a Qualifier for the 90–95% yield. Similarly, "over a planned period of time, usually 4–8 years" – "over a planned period of time" could qualify the 4–8 years. But "usually" is part of the Quantity's modifier as IsApproximate? Wait, "usually 4–8 years" – "usually" indicates approximation, so the Quantity would be "usually 4–8 years" with IsApproximate and IsRange. But in the original text, the exact phrase is "usually 4–8 years". So the Quantity span would be "4–8 years" and "usually" is a Qualifier. Therefore, "usually" would be a Qualifier that qualifies the Quantity "4–8 years".
+
+Similarly, "developed to provide a 90–95% maximum yield for the year" – "for the year" is a Qualifier for the 90–95% Quantity. So "for the year" would be a Qualifier linked via Qualifies to the 90–95% Quantity.
+
+Let me check if these Qualifiers are adjacent. "usually 4–8 years" – "usually" directly precedes the quantity, so maybe it's part of the Quantity's modifier. But according to the instructions, if a quantity has a modifier like "approximately", include it in the Quantity span. So "usually" here is a modifier indicating approximation, so the Quantity would be "usually 4–8 years" with IsApproximate and IsRange. But in the example given, "approximately 25°C" includes "approximately" in the Quantity span. So similarly, "usually" would be part of the Quantity span. However, in the text, it's written as "usually 4–8 years". So the Quantity here is "4–8 years" with a Qualifier "usually". But the instructions say that if the modifier is adjacent, include it in the Quantity span. So maybe "usually" is part of the Quantity's modifier. But "usually" is not a numerical modifier; it's a frequency qualifier. Hmm. The example includes "approximately" as part of the Quantity span. So according to the example, the modifier "usually" should be part of the Quantity span, making the Quantity "usually 4–8 years" with modifiers IsApproximate and IsRange. But "usually" isn't exactly an approximation of the value but rather the frequency. This is a bit ambiguous. Alternatively, "usually" could be considered a Qualifier. The instruction says Qualifiers are conditions or attributes that affect the Quantity. Since "usually" isn't part of the numerical value but describes the condition under which the 4–8 years apply, it should be a Qualifier. Therefore, the Quantity is "4–8 years" with IsRange, and "usually" is a Qualifier that qualifies it. 
+
+Similarly, "for the year" in "90–95% maximum yield for the year" – "for the year" is a Qualifier indicating the time frame for the yield. So the Quantity is "90–95%", and "for the year" is a Qualifier.
+
+So now, the Qualifiers "usually" and "for the year" need to be annotated and linked to their respective Quantities.
+
+Now, compiling all the annotations:
+
+AnnotSet 1:
+- Quantity: "4 classes" (mods: IsCount)
+- MeasuredEntity: "classes" (linked via HasQuantity)
+- MeasuredProperty: "fertilizer application amount" (linked to MeasuredEntity via HasProperty and to Quantity via HasQuantity)
+
+But wait, the original text says "based on 4 classes, low, medium, high to very high". The classes are the output variable's classification. The MeasuredEntity here is "classes", and the MeasuredProperty would be "fertilizer application classes" or similar. The Quantity is 4, which is the number of classes.
+
+AnnotSet 2:
+- Quantity: "2 systems" (mods: IsCount)
+- MeasuredEntity: "systems" (the two systems)
+- MeasuredProperty: "recommendation systems" (linked to systems via HasProperty)
+
+AnnotSet 3:
+- Quantity: "90–95%" (unit: "%", mods: IsRange)
+- MeasuredEntity: "maximum yield"
+- MeasuredProperty: "yield percentage"
+- Qualifier: "for the year" (Qualifies the Quantity)
+
+AnnotSet 4:
+- Quantity: "4–8 years" (unit: "years", mods: IsRange)
+- MeasuredEntity: "planned period of time"
+- Qualifier: "usually" (Qualifies the Quantity)
+
+Wait, but in the text, the phrase is "over a planned period of time, usually 4–8 years". So "over a planned period of time" may also be a Qualifier for the Quantity. Hmm, but "over a planned period of time" describes the duration, so maybe it's part of the MeasuredEntity. Alternatively, the MeasuredEntity is "planned period of time" and the Quantity is "4–8 years". The "over" is a preposition, so maybe the MeasuredEntity is "planned period of time", and the Quantity is "4–8 years". The Qualifier here is "usually".
+
+But the exact text is "build maintenance fertility program” based soil test values over a planned period of time, usually 4–8 years". So "usually 4–8 years" modifies "planned period of time". So the MeasuredEntity is "planned period of time", the Quantity is "4–8 years", and "usually" is a Qualifier for the Quantity. 
+
+Similarly, "for the year" in "maximum yield for the year" is a Qualifier for the Quantity "90–95%".
+
+Now, putting this all together into the TSV format.
+
+Each annotSet groups related annotations. So for the first Quantity "4 classes", annotSet 1 would have:
+
+- Quantity T1: "4 classes" with mods IsCount, no unit.
+- MeasuredEntity T2: "classes"
+- MeasuredProperty T3: "fertilizer application classes" (from the context of classes determining fertilizer amount)
+Relationships: T2 HasQuantity T1; T3 HasProperty T2 and HasQuantity T1.
+
+Wait, no. According to the example, the MeasuredProperty is linked to the MeasuredEntity via HasProperty and to the Quantity via HasQuantity. For instance, in the example, "temperature" (MeasuredProperty) HasProperty linked to "solution" (MeasuredEntity) and HasQuantity linked to the Quantity.
+
+So in the first case, the MeasuredEntity is "classes", the MeasuredProperty is the property that the classes represent, which in the text is the output variable "the amount of fertilizer to be applied". But the MeasuredProperty here would be "amount of fertilizer", and the classes are the MeasuredEntity. Hmm, this is getting a bit complex. Let me re-examine the original text.
+
+"The output variable of the system is the amount of fertilizer to be applied. This is mainly based on 4 classes, low, medium, high to very high..."
+
+So the 4 classes determine the amount of fertilizer. The MeasuredProperty here is "amount of fertilizer", and the classes are categories of that property. But the Quantity is the number of classes (4). The MeasuredEntity would be the classes themselves, and the MeasuredProperty is "amount of fertilizer". So relationships: Classes (MeasuredEntity T2) HasProperty "amount of fertilizer" (MeasuredProperty T3), and the Quantity T1 (4 classes) HasQuantity linked to the MeasuredEntity T2.
+
+But in the example, the MeasuredProperty is "temperature", which is a property of the MeasuredEntity "solution". Here, the MeasuredProperty would be "amount of fertilizer", which is a property of the classes? That doesn't quite fit. Maybe the structure here is different. The Quantity "4 classes" is a count of the classes used to determine the fertilizer amount. So the MeasuredEntity is "classes", and the MeasuredProperty isn't explicitly stated but inferred as "number of classes". However, the instructions say MeasuredProperty is optional. Maybe in this case, since the property isn't explicitly mentioned, we can omit the MeasuredProperty and just link the MeasuredEntity "classes" to the Quantity "4 classes" via HasQuantity.
+
+Alternatively, the MeasuredProperty could be "number", but that's redundant. Hmm. The example had "volume" as a MeasuredProperty for "solvent". Here, the number of classes is a count, so the MeasuredProperty might not be necessary. Let me check the example again. In the example, "volume" was the MeasuredProperty of "solvent", linked to the Quantity. In our case, "4 classes" is a count of the classes, so perhaps the MeasuredEntity is "classes", and there's no explicit MeasuredProperty, so we can omit it. The example also had cases without MeasuredProperty when it's a count. For instance, "salt" as a MeasuredEntity linked to "10 grams" without a MeasuredProperty. Wait, no, in the example, the third set had "amount" as the MeasuredProperty for "salt".
+
+Wait, in the example:
+
+3           Quantity            T7         10 grams            {"unit": "grams"}
+3           MeasuredEntity      T8         salt                {"HasQuantity": "T7"}
+3           MeasuredProperty    T9         amount              {"HasQuantity": "T7", "HasProperty": "T8"}
+
+So the MeasuredProperty is "amount", which is the property of "salt", and the Quantity is "10 grams". In our case, "4 classes" is the Quantity, the MeasuredEntity is "classes", and the MeasuredProperty could be "number" or "count", but the example uses "amount" for salt's quantity. However, in the text, the classes are part of the system's output variable, which is "the amount of fertilizer to be applied". So the classes are categories that determine the amount. Therefore, the MeasuredProperty here could be "amount of fertilizer", and the MeasuredEntity is "classes". But that might be stretching it. Alternatively, since the output variable is "amount of fertilizer", which is determined by the classes, the Quantity "4 classes" is a count of the classes used in the system. Therefore, the MeasuredEntity is "classes", and there's no explicit MeasuredProperty, so we can omit the MeasuredProperty for this case.
+
+So annotSet 1 would be:
+
+annotSet 1:
+- Quantity: "4 classes" (T1, mods: IsCount)
+- MeasuredEntity: "classes" (T2, HasQuantity: T1)
+
+No MeasuredProperty since it's not explicitly mentioned and the example allows for standalone Quantities.
+
+AnnotSet 2:
+The next Quantity is "2 systems". The text says "choosing from 2 systems, the 'nutrient sufficiency...' and the 'build maintenance...'". So the Quantity is "2 systems", MeasuredEntity is "systems", mods: IsCount. No explicit MeasuredProperty, but the systems are types of recommendation systems. So:
+
+- Quantity T3: "2 systems" (mods: IsCount)
+- MeasuredEntity T4: "systems" (HasQuantity: T3)
+
+AnnotSet 3:
+"90–95% maximum yield". Quantity is "90–95%", unit: "%", mods: IsRange. The MeasuredEntity is "maximum yield", and the MeasuredProperty is "yield percentage". The Qualifier is "for the year".
+
+So:
+
+- Quantity T5: "90–95%" (mods: IsRange, unit: "%")
+- MeasuredEntity T6: "maximum yield" (HasQuantity: T5)
+- MeasuredProperty T7: "yield percentage" (HasQuantity: T5, HasProperty: T6)
+- Qualifier T8: "for the year" (Qualifies: T5)
+
+AnnotSet 4:
+"4–8 years". Quantity T9: "4–8 years" (mods: IsRange, unit: "years"). The MeasuredEntity is "planned period of time". The Qualifier is "usually".
+
+- Quantity T9: "4–8 years" (mods: IsRange, unit: "years")
+- MeasuredEntity T10: "planned period of time" (HasQuantity: T9)
+- Qualifier T11: "usually" (Qualifies: T9)
+
+Wait, but the exact text is "over a planned period of time, usually 4–8 years". The "over a planned period of time" might be part of the MeasuredEntity. So the MeasuredEntity is "planned period of time", and the Quantity is "4–8 years". The Qualifier "usually" qualifies the Quantity. But the phrase "over a planned period of time" could be a Qualifier as well. However, according to the instructions, Qualifiers are spans that provide conditions. Here, "over a planned period of time" is describing the duration, which is the MeasuredEntity. So perhaps the MeasuredEntity is "planned period of time", and the Quantity is "4–8 years". The word "usually" is a Qualifier for the Quantity.
+
+So in this case, the annotSet 4 would have:
+
+- Quantity T9: "4–8 years" (mods: IsRange, unit: "years")
+- MeasuredEntity T10: "planned period of time" (HasQuantity: T9)
+- Qualifier T11: "usually" (Qualifies: T9)
+
+Are there any other Quantities I missed? Let's check again. 
+
+In the West Africa section: "required fertilizer doses to obtain different yield targets depending on yield potential and the soil nutrient supply". The "doses" are mentioned but no specific values. So no Quantity here. The other variables like N, P, K are elements, not quantities. 
+
+Another possible Quantity is "single rate recommendation" in the Kansas section. "single rate" implies one, but it's not a numerical value. "single" is a descriptor, not a count. So not a Quantity. 
+
+So the four Quantities are covered.
+
+Now, compiling all into TSV:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	4 classes	{"mods": ["IsCount"]}
+1	MeasuredEntity	T2	classes	{"HasQuantity": "T1"}
+2	Quantity	T3	2 systems	{"mods": ["IsCount"]}
+2	MeasuredEntity	T4	systems	{"HasQuantity": "T3"}
+3	Quantity	T5	90–95%	{"unit": "%", "mods": ["IsRange"]}
+3	MeasuredEntity	T6	maximum yield	{"HasQuantity": "T5"}
+3	MeasuredProperty	T7	yield percentage	{"HasQuantity": "T5", "HasProperty": "T6"}
+3	Qualifier	T8	for the year	{"Qualifies": "T5"}
+4	Quantity	T9	4–8 years	{"unit": "years", "mods": ["IsRange"]}
+4	MeasuredEntity	T10	planned period of time	{"HasQuantity": "T9"}
+4	Qualifier	T11	usually	{"Qualifies": "T9"}
+
+I need to ensure that each annotSet groups related annotations. For example, the "90–95%" Quantity, its MeasuredEntity, MeasuredProperty, and Qualifier are all in annotSet 3. Similarly for the others.
+
+Also, checking the relationships. For annotSet 3, the MeasuredProperty "yield percentage" has HasQuantity pointing to T5 and HasProperty pointing to T6 (maximum yield). That's correct as per the example where the MeasuredProperty links to both the MeasuredEntity and Quantity.
+
+This should cover all required elements.

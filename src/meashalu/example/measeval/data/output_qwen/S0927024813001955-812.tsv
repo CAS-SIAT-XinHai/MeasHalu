@@ -1,0 +1,12 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0927024813001955-812	1	Quantity	194	205	T1	41.73 mg/mL	"{""unit"": ""mg/mL""}"
+S0927024813001955-812	1	MeasuredProperty	177	190	T3	concentration	"{""HasQuantity"": ""T1""}"
+S0927024813001955-812	2	Quantity	194	205	T1	41.73 mg/mL	"{""unit"": ""mg/mL""}"
+S0927024813001955-812	2	MeasuredProperty	177	190	T3	concentration	"{""HasQuantity"": ""T1""}"
+S0927024813001955-812	3	Quantity	233	236	T4	2 h	"{""unit"": ""h""}"
+S0927024813001955-812	3	MeasuredProperty	221	228	T6	stirred	"{""HasQuantity"": ""T4""}"
+S0927024813001955-812	4	Quantity	240	247	T7	800 rpm	"{""unit"": ""rpm""}"
+S0927024813001955-812	4	MeasuredProperty	221	228	T9	stirred	"{""HasQuantity"": ""T7""}"
+S0927024813001955-812	5	Quantity	252	257	T10	60 °C	"{""unit"": ""\u00b0C""}"
+S0927024813001955-812	7	Quantity	326	335	T14	overnight	"{""unit"": ""overnight""}"
+S0927024813001955-812	7	MeasuredProperty	318	325	T16	stirred	"{""HasQuantity"": ""T14""}"

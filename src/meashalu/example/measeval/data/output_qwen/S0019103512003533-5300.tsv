@@ -1,0 +1,12 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103512003533-5300	1	Quantity	135	144	T1	80 mV m−1	"{""unit"": ""mV m\u22121""}"
+S0019103512003533-5300	1	MeasuredEntity	64	87	T2	electric field strength	"{""HasQuantity"": ""T1""}"
+S0019103512003533-5300	2	Quantity	227	237	T4	1.2 mW m−2	"{""unit"": ""mW m\u22122""}"
+S0019103512003533-5300	2	MeasuredEntity	203	214	T5	energy flux	"{""HasQuantity"": ""T4""}"
+S0019103512003533-5300	2	MeasuredProperty	149	160	T6	temperature	"{""HasQuantity"": ""T4""}"
+S0019103512003533-5300	3	Quantity	252	262	T7	100 mV m−1	"{""unit"": ""mV m\u22121""}"
+S0019103512003533-5300	4	Quantity	281	287	T9	∼550 K	"{""unit"": ""K"", ""mods"": [""IsApproximate""]}"
+S0019103512003533-5300	4	Quantity	291	296	T10	850 K	"{""unit"": ""K""}"
+S0019103512003533-5300	5	Quantity	526	532	T13	10 keV	"{""unit"": ""keV""}"
+S0019103512003533-5300	5	MeasuredEntity	499	522	T14	energetic electron flux	"{""HasQuantity"": ""T13""}"
+S0019103512003533-5300	6	Quantity	613	619	T15	500 eV	"{""unit"": ""eV""}"

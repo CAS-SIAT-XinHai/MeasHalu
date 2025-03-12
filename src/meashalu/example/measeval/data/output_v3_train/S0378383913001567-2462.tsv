@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0378383913001567-2462	1	Quantity	68	74	T1	0.5 Hz	"{""unit"": ""Hz""}"
+S0378383913001567-2462	1	MeasuredEntity	41	57	T2	JONSWAP spectrum	"{""HasQuantity"": ""T1""}"
+S0378383913001567-2462	1	MeasuredProperty	63	65	T3	fp	"{""HasQuantity"": ""T1""}"
+S0378383913001567-2462	2	Quantity	84	90	T4	1.8 cm	"{""unit"": ""cm""}"
+S0378383913001567-2462	2	MeasuredEntity	41	57	T5	JONSWAP spectrum	"{""HasQuantity"": ""T4""}"
+S0378383913001567-2462	2	MeasuredProperty	79	81	T6	Hp	"{""HasQuantity"": ""T4""}"

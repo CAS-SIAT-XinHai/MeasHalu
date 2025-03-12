@@ -1,0 +1,13 @@
+docId	annotSet	annotType	annotId	text	other
+S0378112713005288-1916	1	Quantity	T1	100 m	"{""unit"": ""m""}"
+S0378112713005288-1916	1	MeasuredEntity	T2	distance from seed source	"{""HasQuantity"": ""T1""}"
+S0378112713005288-1916	1	MeasuredProperty	T3	distance	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0378112713005288-1916	1	Qualifier	T4	for distances up to 100 m from the source	"{""Qualifies"": ""T2""}"
+S0378112713005288-1916	2	Quantity	T1	0.23	"{""unit"": """"}"
+S0378112713005288-1916	2	MeasuredEntity	T2	rowan	"{""HasQuantity"": ""T1""}"
+S0378112713005288-1916	2	MeasuredProperty	T3	R	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0378112713005288-1916	2	Qualifier	T4	p < 0.0001	"{""Qualifies"": ""T1""}"
+S0378112713005288-1916	3	Quantity	T1	0.28	"{""unit"": """"}"
+S0378112713005288-1916	3	MeasuredEntity	T2	oak	"{""HasQuantity"": ""T1""}"
+S0378112713005288-1916	3	MeasuredProperty	T3	R	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0378112713005288-1916	3	Qualifier	T4	p < 0.0001	"{""Qualifies"": ""T1""}"

@@ -1,0 +1,13 @@
+docId	annotSet	annotType	annotId	text	other
+S2213671113000738-647	1	Quantity	T1	two	"{""mods"": [""IsCount""]}"
+S2213671113000738-647	1	MeasuredEntity	T2	first two animals	"{""HasQuantity"": ""T1""}"
+S2213671113000738-647	2	Quantity	T3	1 and 4	"{""mods"": [""IsList"", ""IsCount""], ""unit"": ""Nos.""}"
+S2213671113000738-647	2	MeasuredEntity	T4	first two animals	"{""HasQuantity"": ""T3""}"
+S2213671113000738-647	3	Quantity	T5	two	"{""mods"": [""IsCount""]}"
+S2213671113000738-647	3	MeasuredEntity	T6	other two animals	"{""HasQuantity"": ""T5""}"
+S2213671113000738-647	4	Quantity	T7	6 and 8	"{""mods"": [""IsList"", ""IsCount""], ""unit"": ""Nos.""}"
+S2213671113000738-647	4	MeasuredEntity	T8	other two animals	"{""HasQuantity"": ""T7""}"
+S2213671113000738-647	5	Quantity	T9	12 weeks	"{""unit"": ""weeks""}"
+S2213671113000738-647	5	MeasuredEntity	T10	teratomas	"{""HasQuantity"": ""T9""}"
+S2213671113000738-647	5	MeasuredProperty	T11	time	"{""HasQuantity"": ""T9"", ""HasProperty"": ""T10""}"
+S2213671113000738-647	5	Qualifier	T12	within 12 weeks	"{""Qualifies"": ""T11""}"

@@ -1,0 +1,4 @@
+docId	annotSet	annotType	annotId	text	other
+S0019103512003995-2681	1	Quantity	T1	5Rp	"{""unit"": ""Rp""}"
+S0019103512003995-2681	1	MeasuredEntity	T2	cutoff level	"{""HasQuantity"": ""T1""}"
+S0019103512003995-2681	1	Qualifier	T3	for the ions only	"{""Qualifies"": ""T2""}"

@@ -1,0 +1,12 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0016236113008041-3127	1	Quantity	271	287	T1	4 major elements	"{""mods"": [""IsCount""]}"
+S0016236113008041-3127	1	Quantity	316	332	T2	9 minor elements	"{""mods"": [""IsCount""]}"
+S0016236113008041-3127	1	Quantity	938	944	T3	600 °C	"{""unit"": ""\u00b0C""}"
+S0016236113008041-3127	1	Quantity	952	958	T4	750 °C	"{""unit"": ""\u00b0C""}"
+S0016236113008041-3127	1	Quantity	979	986	T5	1000 °C	"{""unit"": ""\u00b0C""}"
+S0016236113008041-3127	1	Quantity	1016	1021	T6	20 °C	"{""unit"": ""\u00b0C""}"
+S0016236113008041-3127	1	MeasuredEntity	922	933	T9	temperature	"{""HasQuantity"": ""T3""}"
+S0016236113008041-3127	1	MeasuredEntity	922	933	T10	temperature	"{""HasQuantity"": ""T4""}"
+S0016236113008041-3127	1	MeasuredEntity	922	933	T11	temperature	"{""HasQuantity"": ""T5""}"
+S0016236113008041-3127	1	MeasuredEntity	1007	1012	T12	steps	"{""HasQuantity"": ""T6""}"
+S0016236113008041-3127	1	MeasuredProperty	1007	1012	T16	steps	"{""HasQuantity"": ""T6""}"

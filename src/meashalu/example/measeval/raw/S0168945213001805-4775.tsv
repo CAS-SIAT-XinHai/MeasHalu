@@ -1,0 +1,6 @@
+docId	annotSet	annotType	annotId	text	other
+S0168945213001805-4775	1	Quantity	T1	down to −18 °C	"{""unit"": ""°C""}"
+S0168945213001805-4775	1	MeasuredEntity	T2	winter temperatures	"{""HasQuantity"": ""T1""}"
+S0168945213001805-4775	2	Quantity	T3	−8 °C	"{""unit"": ""°C""}"
+S0168945213001805-4775	2	MeasuredEntity	T4	Eucalyptus hybrid (E. urophylla × E. grandis)	"{""HasProperty"": ""T5""}"
+S0168945213001805-4775	2	MeasuredProperty	T5	tolerance	"{""HasQuantity"": ""T3"", ""HasProperty"": ""T4""}"

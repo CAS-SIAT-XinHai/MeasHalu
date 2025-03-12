@@ -1,0 +1,80 @@
+Okay, let's tackle this annotation step by step. The input is a paragraph about Bacillus thuringiensis (Bt) and its toxins. I need to extract quantities, measured entities, properties, and qualifiers.
+
+First, I'll read through the text to identify any quantities. The paragraph mentions "several Bt toxins". The word "several" here is a count, so that's a Quantity. There's also a reference "[163]", which is a citation, but since the user didn't specify handling citations, maybe I should check if that's considered a quantity. However, citations are typically not quantities unless specified. So the main quantity here is "several".
+
+Next, for the Quantity "several", I need to note the modifiers. Since "several" is a count, the modifier should be "IsCount". There's no unit here because it's a count of toxins. So the Quantity entry would be {"mods": ["IsCount"], "unit": null}.
+
+Now, the MeasuredEntity associated with "several" would be "Bt toxins". Then, the MeasuredProperty here might be the "over-expression", which is the property related to the quantity of toxins. However, the sentence says "simultaneous over-expression of several Bt toxins", so "over-expression" is the property, and "Bt toxins" is the entity. 
+
+The relationships would be: the MeasuredEntity "Bt toxins" has a Quantity "several" via HasQuantity. The MeasuredProperty "over-expression" would then relate to the MeasuredEntity "Bt toxins" via HasProperty and also to the Quantity via HasQuantity. However, the example in the instruction shows MeasuredProperty linking to both HasQuantity and HasProperty. Wait, in the example, the MeasuredProperty (like temperature) is linked to the MeasuredEntity (solution) via HasProperty, and the MeasuredProperty (temperature) is linked to the Quantity via HasQuantity. So applying that here: "over-expression" (MeasuredProperty) is linked to "Bt toxins" (MeasuredEntity) via HasProperty, and the Quantity "several" is linked to the MeasuredProperty "over-expression" via HasQuantity.
+
+But wait, the sentence structure is "over-expression of several Bt toxins". So "over-expression" is the property of what? The "simultaneous over-expression" is the property being discussed, and the entity here is "a tree" (as the result of the over-expression). Hmm, this might be a bit tricky. Let me parse the sentence again: "Hence, simultaneous over-expression of several Bt toxins should produce a tree that would be poisonous..." So the over-expression is a property of the process that produces the tree. The entity here could be "Bt toxins", but the over-expression is a property related to the action of expressing the toxins. Alternatively, the entity might be the tree, but that seems less direct. 
+
+Alternatively, the MeasuredEntity might be "Bt toxins" and the MeasuredProperty is "over-expression". Then the Quantity "several" relates to the MeasuredProperty. So the relationships would be: MeasuredEntity "Bt toxins" has a Property "over-expression", which has Quantity "several". So "over-expression" (MeasuredProperty) would have HasQuantity pointing to the Quantity "several", and HasProperty pointing to "Bt toxins" (MeasuredEntity).
+
+Also, the word "simultaneous" is a qualifier for the over-expression, so that's a Qualifier. The Qualifier "simultaneous" would qualify the MeasuredProperty "over-expression". So the Qualifier entry would have a Qualifies relationship pointing to the MeasuredProperty.
+
+Putting this all together:
+
+AnnotSet 1 would include:
+
+- Quantity: "several" with IsCount, no unit.
+- MeasuredEntity: "Bt toxins"
+- MeasuredProperty: "over-expression"
+- Qualifier: "simultaneous"
+
+Relationships:
+- MeasuredEntity (Bt toxins) has Property (over-expression)
+- MeasuredProperty (over-expression) has Quantity (several)
+- Qualifier (simultaneous) qualifies the MeasuredProperty (over-expression)
+
+I need to check if there are other quantities or entities. The citation [163] is a reference and not a quantity. The text mentions "specific orders of Insecta" but that's a list, but there's no numerical quantity attached. So "lepidopterans, dipterans, coleopterans, hymenopterans" are examples, not quantities. The word "many" in "poisonous to many insect herbivores" is another count. "many" would be a Quantity with IsCount. The MeasuredEntity here would be "insect herbivores", and the MeasuredProperty could be "poisonous", but "poisonous" might not be a MeasuredProperty. Wait, the sentence is "produce a tree that would be poisonous to many insect herbivores". So "many" is a Quantity (IsCount) related to "insect herbivores" (MeasuredEntity). The property here might be "poisonous", but is that a MeasuredProperty? The example had "volume" as a property. "Poisonous" is a quality, but perhaps not a MeasuredProperty. Alternatively, it might be considered a Qualifier. Hmm. The instruction says MeasuredProperty is a descriptive property linked to both a MeasuredEntity and a Quantity. Since "poisonous" describes the tree's property, but the Quantity "many" refers to the number of herbivores. So perhaps the structure is:
+
+- Quantity: "many" (IsCount)
+- MeasuredEntity: "insect herbivores"
+- Relationships: The MeasuredEntity "insect herbivores" has a Quantity "many" via HasQuantity. But the property here is not clearly a MeasuredProperty. The sentence states the tree is poisonous to them. Maybe "poisonous" is a MeasuredProperty of the tree, but that's a stretch. Alternatively, maybe there's no MeasuredProperty here, just a MeasuredEntity and Quantity.
+
+So for "many insect herbivores", "many" is Quantity, "insect herbivores" is MeasuredEntity, related via HasQuantity. No MeasuredProperty here.
+
+So AnnotSet 2 would be:
+
+- Quantity: "many" with IsCount
+- MeasuredEntity: "insect herbivores"
+
+So now I have two annotSets. Let's structure this.
+
+First AnnotSet (1):
+
+annotSet 1:
+- Quantity: several (T1) {"mods": ["IsCount"]}
+- MeasuredEntity: Bt toxins (T2) {"HasQuantity": "T1"}
+- MeasuredProperty: over-expression (T3) {"HasQuantity": "T1", "HasProperty": "T2"}
+- Qualifier: simultaneous (T4) {"Qualifies": "T3"}
+
+Second AnnotSet (2):
+
+annotSet 2:
+- Quantity: many (T5) {"mods": ["IsCount"]}
+- MeasuredEntity: insect herbivores (T6) {"HasQuantity": "T5"}
+
+Wait, but in the original example, each set groups related annotations. The first set in the example had temperature, solution, and temperature property. Similarly, here, the first set is about the over-expression of Bt toxins. The second set is about the number of insect herbivores affected.
+
+Additionally, is there a MeasuredProperty for the second set? The tree is poisonous to many insect herbivores. The poisonous aspect could be a MeasuredProperty, but perhaps it's not directly a measurable property with a quantity. The example's MeasuredProperties were things like volume, temperature. If we consider "poisonous" as a MeasuredProperty, then it would be linked to the tree (MeasuredEntity) and have a Quantity (many). But the sentence structure is "poisonous to many insect herbivores", so maybe "poisonous" is the property of the tree, and "many" is the quantity related to the herbivores. This is a bit ambiguous. Since the instruction says MeasuredProperty is optional, perhaps it's better to leave it out here if not clear.
+
+Therefore, AnnotSet 2 would have Quantity "many" and MeasuredEntity "insect herbivores", linked by HasQuantity.
+
+Putting this into TSV:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	several	{"mods": ["IsCount"]}
+1	MeasuredEntity	T2	Bt toxins	{"HasQuantity": "T1"}
+1	MeasuredProperty	T3	over-expression	{"HasQuantity": "T1", "HasProperty": "T2"}
+1	Qualifier	T4	simultaneous	{"Qualifies": "T3"}
+2	Quantity	T5	many	{"mods": ["IsCount"]}
+2	MeasuredEntity	T6	insect herbivores	{"HasQuantity": "T5"}
+
+I need to check if "simultaneous" is correctly a Qualifier for the MeasuredProperty "over-expression". Yes, because it describes the condition of the over-expression.
+
+Another point: The text mentions "δ-endotoxins" and "toxic polypeptides", but these aren't quantities. The reference [163] is a citation, which we can ignore unless the user specifies otherwise. The mention of "specific orders" (lepidopterans, etc.) is a list but not a numerical quantity, so no Quantity there.
+
+So the final TSV should include the two annotSets as above.

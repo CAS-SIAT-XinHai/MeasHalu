@@ -1,0 +1,8 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0167739X12001525-6016	1	Quantity	387	390	T1	10%	"{""unit"": ""%"", ""mods"": [""IsMean""]}"
+S0167739X12001525-6016	1	MeasuredEntity	326	374	T2	executed reallocation actions for most scenarios	"{""HasQuantity"": ""T1""}"
+S0167739X12001525-6016	1	MeasuredProperty	316	322	T3	amount	"{""HasQuantity"": ""T1""}"
+S0167739X12001525-6016	2	Quantity	430	435	T4	19.8%	"{""unit"": ""%"", ""mods"": [""IsMean""]}"
+S0167739X12001525-6016	3	Quantity	512	514	T7	5%	"{""unit"": ""%"", ""mods"": [""IsMean""]}"
+S0167739X12001525-6016	3	MeasuredEntity	491	500	T8	scenarios	"{""HasQuantity"": ""T7""}"
+S0167739X12001525-6016	3	Qualifier	473	490	T10	Five out of eight	"{""Qualifies"": ""T8""}"

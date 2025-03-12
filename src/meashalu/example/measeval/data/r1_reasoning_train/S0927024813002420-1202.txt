@@ -1,0 +1,179 @@
+Okay, let me tackle this step by step. The task is to extract quantities, measured entities, properties, and qualifiers from the given text. Let's start by reading through the input carefully.
+
+First, looking for quantities. The text mentions "60% higher photocurrents" and "80%". Also, there's a reference to "microcrystals" but that's part of a phrase, not a quantity. Let's check each sentence.
+
+In the second sentence: "co-deposition of blended mixtures leads to 60% higher photocurrents..." Here, "60%" is a quantity. The unit here is percentage, so that's a Quantity. The MeasuredEntity here would be "photocurrents", and the MeasuredProperty is "higher" but wait, "higher" is a comparative, maybe the MeasuredProperty would be "photocurrents" itself? Hmm, need to think. The text says "60% higher photocurrents than...", so the MeasuredProperty is "photocurrents". The MeasuredEntity is "co-deposition of blended mixtures" or maybe "PTh/C60 planar heterojunction counterparts"? Wait, the sentence structure is a comparison. The 60% higher is in comparison to the counterparts. But the main entity here is the co-deposition leading to higher photocurrents. So MeasuredEntity might be "photocurrents", but perhaps the entity is "co-deposition of blended mixtures". Not sure. Alternatively, the entity could be "photocurrents" and the property is "higher". But according to the definitions, MeasuredEntity is the object associated with the quantity. Here, the quantity "60%" is modifying the higher photocurrents. So maybe the MeasuredEntity is "photocurrents" and the MeasuredProperty is "higher", but "higher" is a qualifier. Wait, maybe "higher" is part of the Quantity's modifier? Because "60% higher" is a comparative value. So the Quantity is "60% higher", but the unit is "%", and mods could be IsApproximate if there's any, but here it's exact. Wait, the example had "approximately 25°C" as a Quantity with IsApproximate. In this case, "60% higher" is a percentage increase, so the Quantity is "60%", with the unit "%", and the modifier IsCount? No, because it's a percentage increase. Wait, perhaps the modifier is "IsCount" only for actual counts like "five samples". Here, it's a measurement. So mods could be empty. Wait, but the example counts are for numbers without units. So here, "60%" has a unit (%), so it's a measurement. So the Quantity is "60%", unit "%", mods maybe "IsMean"? Not sure. The example had "IsMean" for averages. Here, maybe no mods. Let's note that.
+
+Next, the third sentence: "we improved their power conversion efficiency by as much as 80%". Here, "80%" is another Quantity. Unit "%", no modifiers. The MeasuredEntity would be "power conversion efficiency", and the MeasuredProperty is "improved by". Wait, but MeasuredProperty is a descriptive property linked to the entity. So the entity is "power conversion efficiency", which is a property of the devices. But then the MeasuredEntity would be "devices", and the MeasuredProperty is "power conversion efficiency". The Quantity "80%" is linked to that. Then, relationships: MeasuredEntity (devices) has a property (power conversion efficiency), which has quantity 80%. Also, the text mentions "achieving performance comparable to PTh:PCBM equivalents..." but "performance" here is general, not a specific property with a quantity.
+
+Then, looking at other parts: "modestly larger grain sizes" – "larger" is a comparative, but no quantity given. "increased crystallization" – again no specific quantity. "microcrystals" – not a quantity. The last sentence mentions "advantage of polymers over molecular systems", but again no quantities.
+
+So the quantities are "60% higher photocurrents" (but the actual quantity is "60%") and "80%" in the efficiency improvement. Let's extract those.
+
+For the first quantity: "60%". The text is "60% higher photocurrents". The unit is "%", mods could be none. The MeasuredEntity here is "photocurrents", which is a property. Wait, perhaps the MeasuredEntity is "co-deposition of blended mixtures" or "PTh/C60 planar heterojunction counterparts". But according to the example, the MeasuredEntity is the object that has the property. So in the example, "solution" was the entity, "temperature" the property, and "25°C" the quantity. Here, "photocurrents" is the MeasuredProperty, and the MeasuredEntity would be the "co-deposition of blended mixtures" or the "planar heterojunction counterparts". Wait, the sentence says that co-deposition leads to 60% higher photocurrents than in counterparts. So the photocurrents are a property of the counterparts? Maybe the MeasuredEntity is "PTh/C60 planar heterojunction counterparts", and the MeasuredProperty is "photocurrents", with the Quantity "60% higher". But how is the percentage being used here? It's a 60% increase compared to counterparts. So the Quantity is "60%", which is a percentage increase. The MeasuredProperty here is "photocurrents", and the MeasuredEntity is the "co-deposition... mixtures" or the counterparts. This is a bit tricky.
+
+Alternatively, the MeasuredEntity could be "co-deposition of blended mixtures" and the MeasuredProperty is "photocurrents", which has a Quantity of 60% higher. But I think the structure is that the photocurrents are higher by 60%, so the MeasuredEntity is "photocurrents", and the Quantity is 60% with a unit of "%". The MeasuredProperty would be "higher", but maybe that's part of the Qualifier. Wait, perhaps the MeasuredProperty is "photocurrents" and the Quantity is "60% higher", but the unit here is "%", and the modifier is "IsCount"? Or maybe "IsMean". But I'm not sure. Let's proceed.
+
+For the second quantity: "80%", in "improved their power conversion efficiency by as much as 80%". The unit is "%". The MeasuredEntity is "power conversion efficiency", which is a property of "devices" (the devices mentioned earlier). So MeasuredEntity is "devices", MeasuredProperty is "power conversion efficiency", Quantity is "80%".
+
+Now, Qualifiers: "by as much as" could be a Qualifier indicating the maximum improvement. So "as much as" qualifies the 80%. So the Quantity is "80%", and the Qualifier is "as much as", with a "Qualifies" relationship to the Quantity.
+
+Also, there's "post-production thermal annealing" mentioned, which might be a Qualifier for the entities or quantities, but it's part of the process affecting the photovoltaic performance. However, in the example, the Qualifier was "after I drank half the can", which is a span that qualifies the quantity. Here, "by annealing the devices post-situ" might be a Qualifier for the Quantity "80%", indicating the condition under which the efficiency was improved. So "post-situ" and "annealing" might be part of the Qualifier. Wait, the text says "by annealing the devices post-situ we improved...". So the phrase "annealing the devices post-situ" is the method that caused the improvement. So that phrase could be a Qualifier that qualifies the Quantity "80%".
+
+Additionally, "achieving performance comparable to PTh:PCBM equivalents..." mentions a comparison, but there's no quantity here, just a qualifier of comparison. So maybe "comparable to PTh:PCBM equivalents processed..." is a Qualifier for the power conversion efficiency.
+
+But perhaps the main Qualifiers here are "by as much as" and "by annealing the devices post-situ".
+
+Now, let's structure this into annotSets.
+
+First annotSet for the 60%:
+
+- Quantity: "60%", unit "%", mods: maybe "IsCount"? Wait, "60% higher" is a measurement of increase, so it's not a count. So no mods. The MeasuredEntity is "photocurrents", but according to the definitions, MeasuredEntity is the object associated with the quantity. So "photocurrents" is the MeasuredEntity? Then the MeasuredProperty would be the property being measured, perhaps "higher" (but that's a comparative). Alternatively, "photocurrents" is the MeasuredEntity, and the MeasuredProperty is "increase" or "higher". But the example had "volume" as the MeasuredProperty when the Quantity was "500 milliliters". So in this case, the MeasuredProperty would be "photocurrents", and the MeasuredEntity is "co-deposition of blended mixtures" or the "PTh/C60 planar heterojunction counterparts". Hmm, this is confusing.
+
+Wait, looking back at the example:
+
+In the example, "The soda can's volume was 355 ml."
+
+- MeasuredEntity: soda can
+- MeasuredProperty: volume
+- Quantity: 355 ml
+
+So, in the current case, when the text says "60% higher photocurrents than...", the structure is similar to "volume was 355 ml". Here, "photocurrents" is the MeasuredProperty, and the MeasuredEntity would be the "co-deposition of blended mixtures" leading to higher photocurrents compared to the counterparts. But the exact wording is "co-deposition... leads to 60% higher photocurrents than in... counterparts". So the photocurrents are a property of the counterparts. Wait, perhaps the MeasuredEntity here is the "PTh/C60 planar heterojunction counterparts", and the MeasuredProperty is "photocurrents". The Quantity is "60% higher", but the actual numerical quantity is 60%, unit "%", with mods maybe "IsApproximate" if "higher" implies approximation, but the example didn't use "IsApproximate" for "approximately". Wait, in the example, "approximately" was part of the Quantity's text, hence marked as IsApproximate. Here, "higher" is a comparative, not an approximate. So "60%" is exact. So the Quantity is "60%", unit "%", mods: none. The MeasuredEntity would be "co-deposition of blended mixtures" (the subject leading to the higher photocurrents), but the actual photocurrents are a property. Alternatively, it's the counterparts, but that's the comparison. Maybe the MeasuredEntity is the "co-deposition of blended mixtures", MeasuredProperty is "photocurrents", Quantity is "60%". The relation would be HasProperty between co-deposition and photocurrents, then HasQuantity between photocurrents and 60%. But this is getting complicated. Let's try to outline:
+
+annotSet 1:
+
+- Quantity: T1: 60% → {"unit": "%"}
+- MeasuredEntity: T2: PTh/C60 planar heterojunction counterparts (since the photocurrents are compared to these counterparts)
+Wait, but the sentence says co-deposition leads to 60% higher photocurrents than in counterparts. So the counterparts have a base photocurrent, and the co-deposition leads to 60% higher. But how does that structure into entities and properties? Maybe:
+
+The MeasuredEntity for the Quantity 60% would be the "photocurrents", which is a property of the co-deposition's result. But I'm not sure. Alternatively, the MeasuredProperty is "photocurrents" and the MeasuredEntity is the "co-deposition". Then, the Quantity 60% is linked via HasQuantity to the MeasuredProperty. The "higher" is part of the text but maybe not a modifier. So:
+
+annotSet 1:
+
+- Quantity: T1: 60% → {"unit": "%"}
+- MeasuredProperty: T3: photocurrents
+- MeasuredEntity: T2: co-deposition of blended mixtures
+Relationships:
+- MeasuredEntity (T2) HasProperty → T3
+- MeasuredProperty (T3) HasQuantity → T1
+But then, what about the comparison to the counterparts? Maybe that's a Qualifier. The phrase "than in thickness-optimized PTh/C60 planar heterojunction counterparts [37]" could be a Qualifier for the Quantity. So the Qualifier is "than in... counterparts", which qualifies the Quantity 60%. Therefore, T4: Qualifier: "than in thickness-optimized PTh/C60 planar heterojunction counterparts [37]", with Qualifies → T1.
+
+But in the example, the Qualifier was a separate phrase. Here, the Qualifier is part of the same sentence. So annotSet 1 would have:
+
+annotSet1:
+
+T1: Quantity: 60% → {"unit": "%"}
+T2: MeasuredEntity: co-deposition of blended mixtures
+T3: MeasuredProperty: photocurrents
+T4: Qualifier: than in thickness-optimized PTh/C60 planar heterojunction counterparts [37]
+
+Relationships:
+T2 HasProperty → T3
+T3 HasQuantity → T1
+T4 Qualifies → T1
+
+But I'm not sure if the Qualifier should be the entire phrase. Alternatively, maybe the Qualifier is the comparison part. However, in the example, the Qualifier was a separate clause. Here, the comparison is part of the Quantity's context. So perhaps the Qualifier is necessary to explain the 60% higher. So that's part of the Qualifier.
+
+Now, moving to the second Quantity: 80% in "improved their power conversion efficiency by as much as 80%". The Quantity is "80%", unit "%", mods: perhaps "IsApproximate" because of "as much as", which indicates a maximum possible value. So the "as much as" is a modifier. Therefore, the Quantity would be "80%", with mods: IsApproximate. The MeasuredEntity is "devices" (their refers back to the devices), and the MeasuredProperty is "power conversion efficiency". The phrase "by as much as" is a Qualifier for the Quantity. Also, "by annealing the devices post-situ" is another Qualifier that affects how the efficiency was improved.
+
+So annotSet2:
+
+Quantity: T5: 80% → {"unit": "%", "mods": ["IsApproximate"]} (because "as much as" implies it's up to 80%, approximate)
+MeasuredEntity: T6: devices
+MeasuredProperty: T7: power conversion efficiency
+Qualifier1: T8: by as much as
+Qualifier2: T9: by annealing the devices post-situ
+
+Relationships:
+T6 HasProperty → T7
+T7 HasQuantity → T5
+T8 Qualifies → T5
+T9 Qualifies → T5 (since annealing is the method leading to the improvement)
+
+But wait, "by annealing..." is part of the action that caused the improvement, so it qualifies the entire efficiency improvement. So the Qualifier T9 would Qualify either the MeasuredEntity (devices), the MeasuredProperty (efficiency), or the Quantity (80%). According to the example, Qualifiers can link to any of these. Since the annealing is the method that leads to the efficiency improvement, it could Qualify the Quantity "80%". Alternatively, it could Qualify the MeasuredProperty "power conversion efficiency". But in the example, "after I drank half the can" qualified the Quantity. Here, "by annealing..." explains how the efficiency was improved, so it might Qualify the Quantity. However, "by as much as" directly modifies the 80%, making it a Qualifier for the Quantity.
+
+Also, "achieving performance comparable to PTh:PCBM equivalents processed in solution from thermo-cleavable precursors [52]" is another Qualifier, but this is part of the result of achieving 80% efficiency. The phrase "achieving performance..." could Qualify the Quantity or the MeasuredProperty. However, since there's no quantity mentioned here, maybe it's a Qualifier for the MeasuredProperty or the MeasuredEntity. But this might be beyond the scope as it doesn't directly relate to a specific quantity. Therefore, maybe focus on the direct Qualifiers.
+
+Putting this together, annotSet2 would have:
+
+annotSet2:
+
+T5: Quantity: 80% → {"unit": "%", "mods": ["IsApproximate"]}
+T6: MeasuredEntity: devices → {"HasQuantity": "T5"} (Wait, no. According to relationships, MeasuredEntity links to MeasuredProperty via HasProperty, and MeasuredProperty links to Quantity via HasQuantity. So the structure is:
+
+- MeasuredEntity (devices) → HasProperty → MeasuredProperty (power conversion efficiency)
+- MeasuredProperty → HasQuantity → Quantity (80%)
+- Qualifier1 (by as much as) → Qualifies → Quantity
+- Qualifier2 (by annealing...) → Qualifies → Quantity or MeasuredProperty?
+
+Hmm. In the example, the Qualifier "after I drank..." qualified the Quantity. So here, "by as much as" would qualify the Quantity 80%, and "by annealing..." would qualify how the efficiency was achieved, possibly qualifying the MeasuredProperty or the MeasuredEntity. Alternatively, since annealing is the method used, it could Qualify the Quantity. But I think the example indicates that Qualifiers that affect the Quantity directly (like time or method) are linked to the Quantity. However, the phrase "by annealing..." explains the method leading to the improvement, so it may qualify the entire MeasuredProperty or the MeasuredEntity. But according to the guidelines, Qualifiers can qualify any of the three. It's safer to link it to the Quantity if possible.
+
+Another point: "as much as" is part of the Quantity's text. Wait, in the example, "approximately" was part of the Quantity's text. Here, "by as much as" is part of the sentence structure. The actual Quantity is "80%", and "as much as" is a qualifier indicating the upper limit. So the Quantity text is "80%", and the Qualifier is "by as much as". But the original text says "improved ... by as much as 80%". So the "as much as" is adjacent to the quantity. According to Step 1, if a modifier is adjacent to the quantity, include it in the Quantity span. Wait, in the example, "approximately 25°C" was included as part of the Quantity with the modifier. So in this case, "as much as 80%" would be the Quantity span. Therefore, the Quantity text should be "as much as 80%", with the unit "%", and mods: ["IsApproximate", "IsMaximum"]? But the modifiers allowed are predefined. The allowed modifiers are IsApproximate, IsCount, IsRange, IsList, IsMedian, IsMean, IsMeanHasSD. "IsMaximum" isn't listed. So maybe "as much as" indicates an approximation, hence IsApproximate.
+
+Therefore, the Quantity would be "as much as 80%", unit "%", mods: ["IsApproximate"]. But according to the instructions, Quantity spans should include modifiers if adjacent. So if "as much as" is directly before the number, then the Quantity is "as much as 80%". However, in the example, "approximately 25°C" was the entire Quantity span. So here, "as much as 80%" would be the Quantity, which includes the modifier. So the text field would be "as much as 80%", and other: {"unit": "%", "mods": ["IsApproximate"]}.
+
+But wait, the original instruction says: "If a quantity involves a modifier such as 'approximately' or symbols like '>', include it if adjacent to the quantity span." So "as much as" is a modifier adjacent to the quantity, so the Quantity span is "as much as 80%".
+
+Similarly, the first Quantity would be "60% higher", but according to the same logic, should "higher" be included? Because in the example, "higher" wasn't part of the Quantity. Wait, the first example had "approximately 25°C" as the Quantity including the modifier. So in the current case, "60% higher" – "higher" is part of the quantity description. But "higher" is a comparative adjective. So according to the instructions, the Quantity should include the value and unit, along with adjacent modifiers. However, "60% higher" is a comparative phrase where "higher" describes the nature of the quantity. Is "higher" part of the Quantity or the MeasuredProperty? The example didn't include such a case. Let's check:
+
+In the example, "higher photocurrents" would have "photocurrents" as the MeasuredProperty, and "higher" as a qualifier. But in the given example, the Quantity was "355 ml" with no comparative. So in this case, the Quantity is "60%", unit "%", and the "higher" is part of the MeasuredProperty or a Qualifier. However, according to the instructions, the Quantity should include modifiers adjacent to the value. Here, "60%" is followed by "higher", which is part of the same noun phrase. So perhaps "60% higher" is the full Quantity, with unit "%", and mods: IsCount? No, because it's a percentage. However, "higher" could be part of the MeasuredProperty. This is ambiguous.
+
+Perhaps the correct approach is to annotate "60%" as the Quantity, unit "%", and the "higher" as part of the MeasuredProperty's text. But in the example, the MeasuredProperty was "temperature", which was a noun. Here, "higher" is an adjective modifying "photocurrents". So maybe the MeasuredProperty is "photocurrents", and the adjective "higher" is part of the text, not the Quantity.
+
+Alternatively, if "higher" is part of the Quantity's modifier, then the Quantity would be "60% higher", unit "%", but what's the unit here? It's a percentage increase, so unit "%". The mods could be none, or maybe "IsMean" if it's an average. But without clear guidance, perhaps the best is to take "60%" as the Quantity, unit "%", and "higher" as part of the MeasuredProperty's description. But this might not fit the example's structure.
+
+This is getting complex. To proceed, I'll assume that the Quantity is "60%", with unit "%", and the "higher" is part of the MeasuredProperty or a Qualifier. But according to the instructions, if the modifier is adjacent, include it in the Quantity. So "60% higher" would be the Quantity, unit "%", with mods: perhaps "IsCount" if it's a count, but here it's a measurement. Alternatively, no mods. But "higher" isn't a modifier like "approximately", so maybe the Quantity is just "60%", with "higher" being part of the MeasuredProperty's text. Let me check the example again.
+
+In the example, "approximately 25°C" was the Quantity, including the modifier "approximately". Here, "as much as 80%" would include "as much as" as part of the Quantity, but "higher" in "60% higher" is a comparative adjective. So perhaps "higher" is part of the MeasuredProperty. For example, the MeasuredProperty could be "photocurrent increase", but the text says "higher photocurrents". So the MeasuredProperty is "photocurrents", and the Quantity "60%" indicates the percentage increase. Therefore, the Quantity is "60%", unit "%", mods: none. The MeasuredEntity is the "co-deposition of blended mixtures", and the MeasuredProperty is "photocurrents". The phrase "higher" is part of the context but not part of the Quantity or modifiers.
+
+But then, the example shows that the MeasuredProperty can be a noun like "volume". Here, "photocurrents" is a noun, so that's the MeasuredProperty. The "higher" is an adjective describing the photocurrents, so maybe it's part of the MeasuredProperty's text. However, the MeasuredProperty is just "photocurrents", and "higher" is a Qualifier. Alternatively, the entire phrase "higher photocurrents" is the MeasuredProperty.
+
+This is tricky. To avoid overcomplicating, perhaps the best is to take "60%" as the Quantity, unit "%", and the MeasuredProperty is "photocurrents", with the Qualifier "higher than in counterparts". The Qualifier would be "than in thickness-optimized PTh/C60 planar heterojunction counterparts [37]".
+
+So annotSet1 would be:
+
+annotSet	annotType	annotId	text	other
+
+1	Quantity	T1	60%	{"unit": "%"}
+1	MeasuredEntity	T2	co-deposition of blended mixtures	{"HasProperty": "T3"}
+1	MeasuredProperty	T3	photocurrents	{"HasQuantity": "T1"}
+1	Qualifier	T4	than in thickness-optimized PTh/C60 planar heterojunction counterparts [37]	{"Qualifies": "T1"}
+
+Then for the second Quantity:
+
+annotSet2:
+
+annotSet	annotType	annotId	text	other
+2	Quantity	T5	as much as 80%	{"unit": "%", "mods": ["IsApproximate"]}
+2	MeasuredEntity	T6	devices	{"HasProperty": "T7"}
+2	MeasuredProperty	T7	power conversion efficiency	{"HasQuantity": "T5"}
+2	Qualifier	T8	by annealing the devices post-situ	{"Qualifies": "T5"}
+
+But wait, "by annealing..." is a method, so it qualifies the action leading to the efficiency improvement. Should it qualify the Quantity or the MeasuredProperty? In the example, the Qualifier was a time clause. Here, it's a method, which may qualify the MeasuredEntity or the MeasuredProperty. But according to the guidelines, Qualifiers can qualify any of the three. To be safe, link it to the Quantity.
+
+Another possible Qualifier is the reference "[52]" in "achieving performance comparable to PTh:PCBM equivalents processed in solution from thermo-cleavable precursors [52]". But this is part of a separate clause and doesn't directly modify the Quantity. So it may not be necessary to annotate unless it's affecting the Quantity.
+
+In the third sentence, "An enhanced photoresponse results from the favorable morphological development of PTh upon annealing, modestly larger grain sizes and increased crystallization of C60." Here, "modestly larger grain sizes" has "larger" but no quantity, so no annotation. "increased crystallization" also no quantity. "microcrystals" is mentioned but again no quantity.
+
+Finally, "This is an inherent advantage of polymers over molecular systems." No quantities here.
+
+Thus, the main Quantities are "60%" and "as much as 80%". 
+
+Now, cross-checking the instructions:
+
+- Quantities must include units if applicable. Here, both are percentages, so unit "%".
+- Modifiers: "as much as" implies approximation, so IsApproximate.
+- "60%" is a exact percentage but part of a comparative. So no modifiers.
+- Relationships: MeasuredEntity links to MeasuredProperty via HasProperty, and MeasuredProperty links to Quantity via HasQuantity.
+
+So the final TSV would look like:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	60%	{"unit": "%"}
+1	MeasuredEntity	T2	co-deposition of blended mixtures	{"HasProperty": "T3"}
+1	MeasuredProperty	T3	photocurrents	{"HasQuantity": "T1"}
+1	Qualifier	T4	than in thickness-optimized PTh/C60 planar heterojunction counterparts [37]	{"Qualifies": "T1"}
+2	Quantity	T5	as much as 80%	{"unit": "%", "mods": ["IsApproximate"]}
+2	MeasuredEntity	T6	devices	{"HasProperty": "T7"}
+2	MeasuredProperty	T7	power conversion efficiency	{"HasQuantity": "T5"}
+2	Qualifier	T8	by annealing the devices post-situ	{"Qualifies": "T5"}

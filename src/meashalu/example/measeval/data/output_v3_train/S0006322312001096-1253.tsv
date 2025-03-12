@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0006322312001096-1253	1	Quantity	320	328	T1	65 years	"{""unit"": ""years"", ""mods"": [""IsCount""]}"
+S0006322312001096-1253	1	MeasuredEntity	282	301	T2	depressive symptoms	"{""HasQuantity"": ""T1""}"
+S0006322312001096-1253	1	MeasuredProperty	273	278	T3	onset	"{""HasQuantity"": ""T1""}"
+S0006322312001096-1253	2	Quantity	521	526	T4	three	"{""mods"": [""IsCount""]}"
+S0006322312001096-1253	2	MeasuredEntity	537	572	T5	vascular risk prediction algorithms	"{""HasQuantity"": ""T4""}"
+S0006322312001096-1253	2	MeasuredProperty	511	515	T6	data	"{""HasQuantity"": ""T4""}"
+S0006322312001096-1253	3	Quantity	655	658	T7	two	"{""mods"": [""IsCount""]}"
+S0006322312001096-1253	3	MeasuredEntity	659	677	T8	survey instruments	"{""HasQuantity"": ""T7""}"
+S0006322312001096-1253	3	MeasuredProperty	620	639	T9	depressive symptoms	"{""HasQuantity"": ""T7""}"

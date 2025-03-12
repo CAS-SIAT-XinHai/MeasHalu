@@ -1,0 +1,9 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S1873506114000075-665	1	Quantity	100	113	T1	100-mm dishes	"{""unit"": ""mm"", ""mods"": [""IsCount""]}"
+S1873506114000075-665	1	MeasuredEntity	41	46	T2	cells	"{""HasQuantity"": ""T1""}"
+S1873506114000075-665	2	Quantity	419	424	T3	50 μm	"{""unit"": ""\u03bcm""}"
+S1873506114000075-665	2	MeasuredEntity	408	417	T4	Scale bar	"{""HasQuantity"": ""T3""}"
+S1873506114000075-665	3	Quantity	429	435	T5	100 μm	"{""unit"": ""\u03bcm""}"
+S1873506114000075-665	3	MeasuredEntity	408	417	T6	Scale bar	"{""HasQuantity"": ""T5""}"
+S1873506114000075-665	4	Quantity	429	435	T7	100 μm	"{""unit"": ""\u03bcm""}"
+S1873506114000075-665	4	MeasuredEntity	408	417	T8	Scale bar	"{""HasQuantity"": ""T7""}"

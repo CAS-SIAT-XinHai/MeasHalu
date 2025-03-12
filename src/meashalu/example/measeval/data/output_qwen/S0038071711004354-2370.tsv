@@ -1,0 +1,9 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0038071711004354-2370	1	Quantity	186	189	T1	15%	"{""unit"": ""%"", ""mods"": [""IsMeanHasSD""]}"
+S0038071711004354-2370	1	MeasuredEntity	123	125	T2	fL	"{""HasQuantity"": ""T1""}"
+S0038071711004354-2370	1	MeasuredProperty	165	167	T3	SE	"{""HasQuantity"": ""T1""}"
+S0038071711004354-2370	1	Qualifier	191	209	T4	±t0.05,dƒ = 14–75%	"{""Qualifies"": ""T1""}"
+S0038071711004354-2370	2	Quantity	187	189	T5	5%	"{""unit"": ""%"", ""mods"": [""IsMeanHasSD""]}"
+S0038071711004354-2370	2	MeasuredEntity	218	222	T6	fSOM	"{""HasQuantity"": ""T5""}"
+S0038071711004354-2370	2	MeasuredProperty	165	167	T7	SE	"{""HasQuantity"": ""T5""}"
+S0038071711004354-2370	2	Qualifier	250	268	T8	±t0.05,dƒ = 27–48%	"{""Qualifies"": ""T5""}"

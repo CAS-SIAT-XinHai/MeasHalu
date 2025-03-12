@@ -1,0 +1,12 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0960148113002048-3775	1	Quantity	37	45	T1	Eq. (29)	"{""mods"": [""IsCount""]}"
+S0960148113002048-3775	1	MeasuredEntity	4	13	T2	generator	"{""HasProperty"": ""T3""}"
+S0960148113002048-3775	1	MeasuredProperty	14	24	T3	efficiency	"{""HasQuantity"": ""T1""}"
+S0960148113002048-3775	2	Quantity	63	70	T4	Fig. 13	"{""mods"": [""IsCount""]}"
+S0960148113002048-3775	2	MeasuredProperty	14	24	T3	efficiency	"{""HasQuantity"": ""T4""}"
+S0960148113002048-3775	3	Quantity	713	725	T5	0.01–0.03 Hz	"{""unit"": ""Hz"", ""mods"": [""IsRange""]}"
+S0960148113002048-3775	3	MeasuredEntity	693	709	T6	wind frequencies	"{""HasQuantity"": ""T5""}"
+S0960148113002048-3775	4	Quantity	991	999	T7	0.003 Hz	"{""unit"": ""Hz""}"
+S0960148113002048-3775	4	Qualifier	985	999	T8	above 0.003 Hz	"{""Qualifies"": ""T7""}"
+S0960148113002048-3775	5	Quantity	1099	1114	T9	Figs. 10 and 11	"{""mods"": [""IsList"", ""IsCount""]}"
+S0960148113002048-3775	5	MeasuredEntity	1079	1093	T10	energy capture	"{""HasQuantity"": ""T9""}"

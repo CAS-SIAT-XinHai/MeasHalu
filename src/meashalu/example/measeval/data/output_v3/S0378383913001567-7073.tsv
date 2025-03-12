@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0378383913001567-7073	1	Quantity	158	163	T1	0.2 m	"{""unit"": ""m""}"
+S0378383913001567-7073	1	MeasuredEntity	68	78	T2	time steps	"{""HasQuantity"": ""T1""}"
+S0378383913001567-7073	1	MeasuredProperty	122	130	T3	sequence	"{""HasQuantity"": ""T1""}"
+S0378383913001567-7073	2	Quantity	172	180	T4	1,2,…,10	"{""mods"": [""IsList""]}"
+S0378383913001567-7073	2	MeasuredEntity	79	80	T5	i	"{""HasQuantity"": ""T4""}"
+S0378383913001567-7073	3	Quantity	158	163	T6	0.2 m	"{""unit"": ""m""}"
+S0378383913001567-7073	3	MeasuredProperty	208	216	T8	constant	"{""HasQuantity"": ""T6""}"
+S0378383913001567-7073	4	Quantity	332	336	T9	2.33	"{""mods"": [""IsMean""]}"
+S0378383913001567-7073	4	MeasuredEntity	316	319	T10	Rij	"{""HasQuantity"": ""T9""}"

@@ -1,0 +1,9 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0167610513001001-1751	1	Quantity	161	168	T1	1 m s−1	"{""unit"": ""m s\u22121"", ""mods"": [""IsCount""]}"
+S0167610513001001-1751	1	MeasuredEntity	153	157	T2	bins	"{""HasQuantity"": ""T1""}"
+S0167610513001001-1751	2	Quantity	363	378	T3	0 and 0.5 m s−1	"{""unit"": ""m s\u22121"", ""mods"": [""IsRange""]}"
+S0167610513001001-1751	2	MeasuredEntity	316	321	T4	lidar	"{""HasQuantity"": ""T3""}"
+S0167610513001001-1751	2	MeasuredProperty	341	351	T5	wind speed	"{""HasQuantity"": ""T3""}"
+S0167610513001001-1751	3	Quantity	408	416	T6	20 m s−1	"{""unit"": ""m s\u22121""}"
+S0167610513001001-1751	3	MeasuredEntity	383	394	T7	wind speeds	"{""HasQuantity"": ""T6""}"
+S0167610513001001-1751	3	MeasuredProperty	341	351	T8	wind speed	"{""HasQuantity"": ""T6""}"

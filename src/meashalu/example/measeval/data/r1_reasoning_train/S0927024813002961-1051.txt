@@ -1,0 +1,207 @@
+Okay, let's tackle this step by step. First, I need to go through the input paragraph and identify all the quantities. The user mentioned using the example as a guide, so I'll start by scanning for numerical values and their units.
+
+Starting with the first paragraph: "The energy yield delivered by different types of photovoltaic device is a key consideration..." Hmm, no numbers here. Next sentence: "The different technologies currently on the market..." Still no quantities. Then, "There is a plethora of comparative tests on-going with sometimes contradictory results." Again, nothing. 
+
+Moving on: "This paper investigates device behaviour of contrasting thin film technologies, specifically a-Si and CIGS derivatives..." Still no numbers. Then, "Specific consideration is given to the accuracy of module inter-comparisons, as most outdoor monitoring at this scale is conducted to compare devices against one another." Nope. 
+
+Now, "It is shown that there are five main contributors to differences in energy delivery..." Here's "five main contributors" – that's a count. So, "five" would be a Quantity with IsCount modifier. MeasuredEntity might be "contributors", and MeasuredProperty could be "differences in energy delivery". But wait, the example used "five samples" as a Quantity. So here, "five" is the quantity, "contributors" as the MeasuredEntity, and "differences in energy delivery" as the MeasuredProperty? Or maybe "contributors to differences in energy delivery" is the MeasuredEntity. Need to think about relationships.
+
+Next, "the magnitude of these depends on the environments in which the devices are operated." No numbers yet. Then, "the paper shows that two effects, typically not considered in inter-comparisons, dominate the reported energy delivery." Here, "two effects" – another count. So "two" is a Quantity with IsCount. MeasuredEntity would be "effects", MeasuredProperty maybe "not considered in inter-comparisons"? Or perhaps the MeasuredProperty is "effects not considered in inter-comparisons"?
+
+Moving on: "Environmental influences such as light intensity, spectrum and operating temperature introduce performance variations typically in the range of 2–7% in the course of a year." Here's a range: "2–7%". So Quantity with IsRange. The unit is "%". The MeasuredProperty is "performance variations", and MeasuredEntity could be "environmental influences".
+
+Next sentence: "However, most comparative tests are carried out only for short periods of time, in the order of months." "months" here is a unit, but there's no number. Wait, "in the order of months" is a bit vague. Maybe not a Quantity since there's no specific number. The example had "approximately 25°C" as a Quantity with IsApproximate. But here, "in the order of months" is more of a qualifier, but no exact number. So maybe skip this.
+
+Then: "Here, the power rating is a key factor and adds uncertainty for new technologies such as thin films often in the range of 10–15%." Another range: "10–15%". Quantity with IsRange. MeasuredProperty is "uncertainty", MeasuredEntity is "new technologies such as thin films".
+
+Next: "This dominates inter-comparisons looking at as-new, first-year energy yields, yet considering the life-time energy yield it is found that ageing causes up to 25% variation between different devices." "up to 25%" – that's a Quantity. But how to handle "up to"? The modifier "up to" would make it IsApproximate or IsRange? Maybe IsApproximate. The unit is "%", and the MeasuredProperty is "variation", MeasuredEntity is "ageing".
+
+Finally: "The discussion is based on long-term measurements carried out in Loughborough, UK by the Centre for Renewable Energy Systems Technology (CREST) at Loughborough University." No quantities here.
+
+So compiling the Quantities:
+
+1. "five main contributors" – Quantity: "five", unit: count (IsCount), MeasuredEntity: "contributors", MeasuredProperty: "differences in energy delivery".
+2. "two effects" – Quantity: "two", IsCount, MeasuredEntity: "effects", MeasuredProperty: "reported energy delivery"?
+3. "2–7%" – Quantity: "2–7%", IsRange, unit: "%", MeasuredProperty: "performance variations", MeasuredEntity: "environmental influences".
+4. "10–15%" – Quantity: "10–15%", IsRange, unit: "%", MeasuredProperty: "uncertainty", MeasuredEntity: "new technologies such as thin films".
+5. "25% variation" – Quantity: "25%", unit: "%", modifier "up to" as IsApproximate. MeasuredProperty: "variation", MeasuredEntity: "ageing".
+
+Wait, the text says "up to 25% variation". The Quantity here is "25%", with "up to" as a modifier. So the Quantity span is "25%", with "up to" being a qualifier. So "up to" would be a Qualifier that qualifies the Quantity "25%". So need to create a Qualifier "up to" linked to the Quantity.
+
+But in the example, "approximately 25°C" was part of the Quantity span. In this case, "up to" is adjacent to "25%", so should "up to 25%" be the Quantity span with IsApproximate? Or is "up to" a separate Qualifier? Hmm, according to the instructions: "If a quantity involves a modifier such as 'approximately' or symbols like '>', include it if adjacent to the quantity span." So "up to" is a modifier adjacent to the quantity, so "up to 25%" would be the Quantity text, with mods: IsApproximate. Unit is "%".
+
+So adjusting:
+
+5. "up to 25%" – Quantity: "up to 25%", unit: "%", mods: ["IsApproximate", "IsRange"]? Wait, "up to 25%" is more of an upper limit, so maybe IsApproximate. But the original example had "approximately" leading to IsApproximate. So here, "up to" would be similar, hence IsApproximate.
+
+Now, MeasuredEntities and MeasuredProperties:
+
+For Quantity 1: "five main contributors to differences in energy delivery". The text is "five main contributors". The MeasuredEntity would be "contributors", and the MeasuredProperty is "differences in energy delivery". But the example's MeasuredProperty is a single noun like "temperature". Here, "differences in energy delivery" is more complex. But according to the guidelines, MeasuredProperty is a descriptive property. So perhaps "differences in energy delivery" is the MeasuredProperty, linked to the MeasuredEntity "contributors".
+
+Wait, but in the example, the MeasuredProperty was "temperature" linked to the MeasuredEntity "solution". Here, for "five main contributors to differences in energy delivery", the main entity is "contributors", and their property is "differences in energy delivery". So the relationships would be: MeasuredEntity T2 (contributors) HasProperty T3 (differences...), and HasQuantity T1 (five).
+
+But in the input text, the full phrase is "five main contributors to differences in energy delivery". So the MeasuredEntity is "contributors to differences in energy delivery", but maybe split into "contributors" as MeasuredEntity and "differences in energy delivery" as MeasuredProperty. Or perhaps the entire phrase "contributors to differences in energy delivery" is the MeasuredEntity. Hmm, this is tricky. According to the guidelines, MeasuredEntity is the object or entity associated with a Quantity. So perhaps the MeasuredEntity is "contributors", and the MeasuredProperty is "differences in energy delivery". Then, the relationships would be:
+
+- T2 (contributors) HasProperty T3 (differences...)
+- T3 HasQuantity T1 (five)
+
+But maybe the MeasuredEntity is more precise. Alternatively, maybe the MeasuredEntity is "contributors to differences in energy delivery", but that might be too long. The example used "soda can" as the entity. So in this case, "contributors" is the entity, and the property is "differences in energy delivery". So I'll proceed with that.
+
+Similarly, for "two effects", the MeasuredEntity is "effects", and the MeasuredProperty might be "dominate the reported energy delivery", but that's an action. Alternatively, maybe the MeasuredProperty is "effects typically not considered in inter-comparisons". But MeasuredProperty should be a property, like "volume" in the example. So perhaps "effects" is the MeasuredEntity, and the MeasuredProperty is "not considered in inter-comparisons"? That doesn't fit exactly. Alternatively, maybe the MeasuredProperty is omitted here, and the Quantity "two" is directly linked to the MeasuredEntity "effects".
+
+The example had "amount" as the MeasuredProperty for "salt". So maybe, in cases where there's no explicit property, we can link the Quantity directly to the MeasuredEntity without a MeasuredProperty. But in the example, each Quantity had a MeasuredProperty. Let me check the example again. In the example, "10 grams of salt" had MeasuredEntity "salt" and MeasuredProperty "amount". So "amount" is the MeasuredProperty. So in the current case, for "five main contributors", the MeasuredProperty would be "main contributors to differences in energy delivery", but that seems too long. Alternatively, perhaps the MeasuredProperty is "number of contributors", but that's not explicit in the text. Hmm, maybe in this case, there's no explicit MeasuredProperty, and the Quantity is directly linked to the MeasuredEntity. But according to the guidelines, MeasuredProperty is optional. So maybe in some cases, the MeasuredProperty isn't present.
+
+Wait, in the example, every Quantity had a MeasuredProperty, but the guidelines say MeasuredProperty is optional. So perhaps in cases where the property isn't explicitly mentioned, we can omit it. For example, "five samples" would have MeasuredEntity "samples" and no MeasuredProperty. Wait, in the example given by the user, the third Quantity was "10 grams" with MeasuredEntity "salt" and MeasuredProperty "amount". So if the text had said "10 grams salt", maybe the MeasuredProperty is "amount", which is inferred. But in the current input, "five main contributors" – the "main contributors" is the MeasuredEntity, and the MeasuredProperty might be "number" or "count", but that's not explicit. So perhaps here, the MeasuredProperty is omitted, and the Quantity "five" is linked directly to the MeasuredEntity "contributors".
+
+But the example shows that even when the MeasuredProperty is not explicit, it's still created. Hmm, this is a bit confusing. Let me check the example again. In the example, "five samples" would be Quantity with IsCount, MeasuredEntity "samples", and no MeasuredProperty. But in the user's example, all three Quantities had MeasuredProperties. Wait, no: in the example, the third example was "10 grams" with MeasuredProperty "amount". If the text had been "five samples", would that have a MeasuredProperty? The user's example doesn't have such a case. But according to the guidelines, MeasuredProperty is optional. So in the current case, perhaps "five main contributors" has a MeasuredEntity "contributors" and the Quantity is "five" with IsCount. So no MeasuredProperty. But in the user's example, each Quantity had a MeasuredProperty. Hmm.
+
+Alternatively, maybe the MeasuredProperty here is "main contributors" and the MeasuredEntity is "differences in energy delivery". That seems inverted. But I'm getting confused.
+
+Wait, the original text says: "there are five main contributors to differences in energy delivery". So the structure is "contributors to differences in energy delivery". The main noun is "contributors", which is modified by "to differences in energy delivery". So the MeasuredEntity would be "contributors", and the MeasuredProperty could be "differences in energy delivery". Then, the relationship is MeasuredEntity "contributors" HasProperty "differences in energy delivery". But that might not be accurate. Alternatively, the MeasuredEntity is "differences in energy delivery", and the MeasuredProperty is "contributors", but that doesn't make sense.
+
+Alternatively, perhaps the MeasuredEntity is "energy delivery" and the MeasuredProperty is "differences". Then, the Quantity "five" would be linked to the MeasuredProperty "differences". But this is getting too ambiguous. Maybe the safest approach here is to treat "contributors" as the MeasuredEntity and not specify a MeasuredProperty, given that the example allowed for some cases without MeasuredProperties.
+
+Alternatively, perhaps the MeasuredProperty is omitted here, and the Quantity is linked directly to the MeasuredEntity "contributors". Let's proceed with that for now.
+
+Moving on to Quantity 2: "two effects". The text is "two effects, typically not considered in inter-comparisons". Here, "effects" is the MeasuredEntity, and the Quantity is "two" with IsCount. Again, perhaps no MeasuredProperty.
+
+Quantity 3: "2–7%". The text is "performance variations typically in the range of 2–7%". The MeasuredProperty is "performance variations", and the MeasuredEntity is "environmental influences". The Quantity "2–7%" is a range with unit "%", IsRange.
+
+Quantity 4: "10–15%". The text is "uncertainty... in the range of 10–15%". MeasuredProperty is "uncertainty", MeasuredEntity is "new technologies such as thin films".
+
+Quantity 5: "up to 25%". Text: "ageing causes up to 25% variation". So Quantity is "up to 25%", unit "%", mods: IsApproximate. MeasuredProperty is "variation", MeasuredEntity is "ageing".
+
+Now, Qualifiers. The example included "after I drank half the can" as a Qualifier. In the input text, "in the course of a year" could be a Qualifier for the 2–7% performance variations. Similarly, "in the order of months" for the comparative tests, and "for new technologies such as thin films" might qualify the uncertainty. Also, "looking at as-new, first-year energy yields" and "considering the life-time energy yield" could be Qualifiers.
+
+Let's look for phrases that qualify the Quantities or entities. 
+
+- "in the course of a year" qualifies the performance variations (2–7%). So Qualifier: "in the course of a year" Qualifies the Quantity "2–7%".
+
+- "most comparative tests are carried out only for short periods of time, in the order of months." "in the order of months" could be a Qualifier related to the tests' duration, but since there's no Quantity here for time, maybe it's not directly linked. However, the example had "after I drank half the can" linked to the quantity. If there's no Quantity here, perhaps it's not annotated. Alternatively, if "months" is considered a unit without a number, maybe not.
+
+- "often in the range of 10–15%" – "often" could be a modifier for the uncertainty, but "often" is part of the Quantity's context. However, according to the guidelines, modifiers adjacent to the Quantity should be included in the span. Here, "often" is adjacent to "in the range of 10–15%", but the actual Quantity is "10–15%". So "often" is a Qualifier that qualifies the Quantity. So Qualifier "often" linked to Quantity "10–15%".
+
+- "up to" in "up to 25% variation" is part of the Quantity span as a modifier, so included in the Quantity's text and marked with IsApproximate.
+
+- "looking at as-new, first-year energy yields" qualifies the inter-comparisons that this uncertainty dominates. So if "this dominates inter-comparisons looking at as-new, first-year energy yields", then "looking at as-new, first-year energy yields" is a Qualifier for the MeasuredEntity or MeasuredProperty related to the 10–15% uncertainty. But this might be more complex. Since the uncertainty is in the context of "inter-comparisons looking at as-new, first-year energy yields", the Qualifier would be "looking at as-new, first-year energy yields" and qualify the MeasuredEntity or MeasuredProperty.
+
+However, this is getting complicated. According to the guidelines, Qualifiers are spans that describe conditions or attributes affecting the Quantity, MeasuredEntity, or MeasuredProperty. So "in the course of a year" affects the 2–7% Quantity, "often" affects the 10–15% Quantity, "looking at as-new, first-year energy yields" affects the inter-comparisons, which is the MeasuredEntity for the 10–15% uncertainty. Similarly, "considering the life-time energy yield" would qualify the 25% variation.
+
+So for each Quantity, I need to check for Qualifiers.
+
+Now, creating the TSV.
+
+Starting with annotSet 1: Quantity "five" (text: "five"), but in the input text, it's "five main contributors". Wait, according to the example, the Quantity is the entire phrase including modifiers. For example, "approximately 25°C" was the Quantity. So in "five main contributors", is "five" the Quantity, and "main contributors" the MeasuredEntity? Or is "five main contributors" the MeasuredEntity and "five" the Quantity? According to the guidelines, the Quantity is the value and unit, which in this case is a count. So "five" is the Quantity, and the MeasuredEntity is "main contributors". But "main" is an adjective, so the MeasuredEntity should be "contributors", and "main" is part of the text. Wait, the example had "soda can" as the MeasuredEntity, so adjectives are included. So "main contributors" is the MeasuredEntity. Therefore, the Quantity is "five", with IsCount, linked to MeasuredEntity "main contributors". No MeasuredProperty here, as "contributors" is the entity.
+
+But then, in the example, each Quantity had a MeasuredProperty. Hmm. Maybe in this case, the MeasuredProperty is omitted. Alternatively, perhaps the MeasuredProperty is "number of contributors".
+
+But according to the guidelines, MeasuredProperty is optional. So maybe here, we don't include a MeasuredProperty.
+
+So annotSet 1:
+
+- Quantity: "five" (text: "five"), mods: IsCount, unit: count (but no unit specified). Wait, counts don't have units. So in the 'other' field, for Quantity, unit would be null, and mods: ["IsCount"].
+
+Wait, in the example, "five samples" was not given, but in the example provided by the user, the third example was "10 grams" with unit "grams". For counts, like "five samples", the unit would be omitted, and mods: ["IsCount"].
+
+So for "five" here, the 'other' field would be {"mods": ["IsCount"]}, no unit.
+
+MeasuredEntity: "main contributors".
+
+But the text is "five main contributors". So the MeasuredEntity is "main contributors". The text span is "main contributors".
+
+Relationships: MeasuredEntity T2 HasQuantity T1.
+
+No MeasuredProperty here.
+
+So annotSet 1:
+
+annotSet 1:
+- Quantity T1: text "five", other: {"mods": ["IsCount"]}
+- MeasuredEntity T2: text "main contributors", other: {"HasQuantity": "T1"}
+
+Next, annotSet 2: "two effects". Quantity is "two", IsCount, MeasuredEntity "effects". So:
+
+annotSet 2:
+- Quantity T3: "two", other: {"mods": ["IsCount"]}
+- MeasuredEntity T4: "effects", {"HasQuantity": "T3"}
+
+Proceeding to annotSet 3: "2–7%". Quantity text is "2–7%", unit "%", mods: IsRange. MeasuredProperty is "performance variations", MeasuredEntity is "environmental influences". Relationships: MeasuredEntity T5 HasProperty T6 (performance variations), T6 HasQuantity T5 (the Quantity). Wait, no: MeasuredProperty links to MeasuredEntity via HasProperty, and to Quantity via HasQuantity.
+
+So annotSet 3:
+
+- Quantity T5: "2–7%", other: {"unit": "%", "mods": ["IsRange"]}
+- MeasuredEntity T6: "environmental influences", {"HasQuantity": "T5"}
+- MeasuredProperty T7: "performance variations", {"HasQuantity": "T5", "HasProperty": "T6"}
+- Qualifier T8: "in the course of a year", {"Qualifies": "T5"} (since it qualifies the Quantity)
+
+Wait, the text says "performance variations typically in the range of 2–7% in the course of a year". So "in the course of a year" is a Qualifier for the Quantity "2–7%". So in annotSet 3, we have:
+
+annotSet 3:
+
+annotSet    annotType           annotId    text                other
+3           Quantity            T5         2–7%               {"unit": "%", "mods": ["IsRange"]}
+3           MeasuredEntity      T6         environmental influences {"HasQuantity": "T5"}
+3           MeasuredProperty    T7         performance variations {"HasQuantity": "T5", "HasProperty": "T6"}
+3           Qualifier           T8         in the course of a year {"Qualifies": "T5"}
+
+Then, annotSet 4: "10–15%". Quantity text: "10–15%", mods: IsRange, unit "%". MeasuredEntity: "new technologies such as thin films", MeasuredProperty: "uncertainty". Qualifier: "often" in "often in the range of 10–15%". So:
+
+annotSet 4:
+
+- Quantity T9: "10–15%", {"unit": "%", "mods": ["IsRange"]}
+- MeasuredEntity T10: "new technologies such as thin films", {"HasQuantity": "T9"}
+- MeasuredProperty T11: "uncertainty", {"HasQuantity": "T9", "HasProperty": "T10"}
+- Qualifier T12: "often", {"Qualifies": "T9"}
+
+But wait, the text is "adds uncertainty for new technologies such as thin films often in the range of 10–15%". The "often" is part of the phrase leading to the Quantity. So "often" would be a Qualifier for the Quantity "10–15%".
+
+Next, annotSet 5: "up to 25%". Quantity text: "up to 25%", unit "%", mods: IsApproximate. MeasuredEntity: "ageing", MeasuredProperty: "variation". The text says "ageing causes up to 25% variation". So:
+
+annotSet 5:
+
+- Quantity T13: "up to 25%", {"unit": "%", "mods": ["IsApproximate"]}
+- MeasuredEntity T14: "ageing", {"HasQuantity": "T13"}
+- MeasuredProperty T15: "variation", {"HasQuantity": "T13", "HasProperty": "T14"}
+- Qualifier: "considering the life-time energy yield" – this phrase qualifies the variation. So Qualifier T16: "considering the life-time energy yield", {"Qualifies": "T15"} (qualifies the MeasuredProperty "variation")
+
+But the text says "... considering the life-time energy yield it is found that ageing causes up to 25% variation...". So "considering the life-time energy yield" is a Qualifier for the variation, which is the MeasuredProperty. Hence, Qualifier links to MeasuredProperty T15.
+
+Additionally, there's "looking at as-new, first-year energy yields" in the previous sentence. That Qualifier would be part of annotSet 4, perhaps, but it's in the context of the uncertainty dominating inter-comparisons. Let me check the text: "This dominates inter-comparisons looking at as-new, first-year energy yields, yet considering the life-time energy yield it is found that ageing causes up to 25% variation..." So "looking at as-new, first-year energy yields" is a Qualifier for the MeasuredEntity "inter-comparisons" related to the uncertainty. But since the uncertainty is in annotSet 4, maybe that Qualifier is part of annotSet 4. However, the MeasuredEntity in annotSet 4 is "new technologies such as thin films". Hmm, this is getting complicated. Maybe "looking at as-new, first-year energy yields" is a Qualifier for the MeasuredEntity "inter-comparisons", but "inter-comparisons" isn't a MeasuredEntity here. Alternatively, perhaps it qualifies the MeasuredProperty "uncertainty".
+
+But this might be beyond the scope of the current task, so I'll focus on the more straightforward Qualifiers identified earlier.
+
+Now, compiling all the annotSets:
+
+annotSet 1:
+- Quantity T1: five, mods: IsCount
+- MeasuredEntity T2: main contributors, HasQuantity T1
+
+annotSet 2:
+- Quantity T3: two, mods: IsCount
+- MeasuredEntity T4: effects, HasQuantity T3
+
+annotSet 3:
+- Quantity T5: 2–7%, unit %, mods: IsRange
+- MeasuredEntity T6: environmental influences, HasQuantity T5
+- MeasuredProperty T7: performance variations, HasQuantity T5, HasProperty T6
+- Qualifier T8: in the course of a year, Qualifies T5
+
+annotSet 4:
+- Quantity T9: 10–15%, unit %, mods: IsRange
+- MeasuredEntity T10: new technologies such as thin films, HasQuantity T9
+- MeasuredProperty T11: uncertainty, HasQuantity T9, HasProperty T10
+- Qualifier T12: often, Qualifies T9
+
+annotSet 5:
+- Quantity T13: up to 25%, unit %, mods: IsApproximate
+- MeasuredEntity T14: ageing, HasQuantity T13
+- MeasuredProperty T15: variation, HasQuantity T13, HasProperty T14
+- Qualifier T16: considering the life-time energy yield, Qualifies T15
+
+Additionally, there's "dominate the reported energy delivery" for the two effects in annotSet 2. But this may not be a Qualifier but part of the context. Since it's not directly affecting a Quantity, maybe it's not annotated.
+
+Another potential Qualifier is "for new technologies such as thin films" in annotSet 4. The text says "adds uncertainty for new technologies such as thin films often...". The phrase "for new technologies such as thin films" could be a Qualifier for the uncertainty. So that would be another Qualifier in annotSet 4: "for new technologies such as thin films" Qualifies T11 (MeasuredProperty "uncertainty"). But in the current structure, the MeasuredEntity is "new technologies such as thin films", so perhaps that's already covered. Hmm.
+
+Alternatively, "for new technologies such as thin films" is part of the MeasuredEntity. So the MeasuredEntity is "new technologies such as thin films", and the Qualifier "often" qualifies the Quantity. So no additional Qualifier needed here.
+
+This is getting quite involved. I think I've covered the main Quantities and their related entities and properties. Now, I'll proceed to format this into TSV.

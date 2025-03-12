@@ -1,0 +1,245 @@
+Okay, let me try to tackle this annotation task step by step. First, I need to extract all the quantities mentioned in the text. Let me read through the input paragraph carefully.
+
+The first quantity I notice is "1.3 ± 0.5 wt.%" which is associated with soluble sulfate. The ± indicates a tolerance, so that's a modifier. The unit here is wt.%. Then there's "∼0.5 wt.%" for perchlorate. The ∼ symbol means approximate, so IsApproximate. The unit again is wt.%. 
+
+Next, the text mentions the perchlorate-sensitive electrode was "1000 times more sensitive." The "1000 times" is a count, so that's a Quantity with IsCount. No unit here, just a number. 
+
+Looking further, there's "⩽1.6% perchlorate." The ⩽ symbol is a modifier for the quantity, making it a range (IsRange). The unit here is %. Then "level <1 ppm" where < is another modifier, indicating a range again. The unit is ppm. 
+
+Now, for each of these quantities, I need to identify the MeasuredEntities and MeasuredProperties. For the first quantity "1.3 ± 0.5 wt.%", the MeasuredEntity is "soluble sulfate" and the MeasuredProperty is "present." But wait, "present" might not be a property. Let me check the context. It says "Soluble sulfate was present at 1.3 ± 0.5 wt.%." Here, "present" is part of the statement, but the actual property here is the concentration, which is implied. Since the text doesn't explicitly mention "concentration," maybe the MeasuredProperty is omitted or needs to be inferred. Hmm, but according to the guidelines, MeasuredProperty is optional. Maybe in this case, the MeasuredProperty is "concentration" even though it's not explicitly stated. Alternatively, perhaps the MeasuredEntity is "soluble sulfate" and the Quantity is directly linked via HasQuantity without a MeasuredProperty. But the example given in the instructions had "volume" as the MeasuredProperty when it was explicitly mentioned. Since the text here doesn't have an explicit property like "concentration," perhaps it's better to omit the MeasuredProperty here and link the MeasuredEntity directly to the Quantity. However, the example in the instructions included "amount" when it wasn't explicitly stated. Wait, in the example, "We also added 10 grams of salt to the solution." The MeasuredProperty was "amount," which wasn't in the text. So maybe in such cases, we infer the MeasuredProperty. So for "soluble sulfate was present at 1.3 ± 0.5 wt.%", the MeasuredProperty could be "concentration," even though it's not explicitly mentioned. Or perhaps "present" is the MeasuredProperty. Hmm, this is a bit ambiguous. Let me check the guidelines again. MeasuredProperty is a descriptive property linked to both a MeasuredEntity and a Quantity. If the property is implied, like "concentration" here, maybe we should include it. Alternatively, if the text doesn't state it, maybe it's omitted. The example provided by the user included "amount" even though the text didn't say "amount," but in the example, the instruction's example had "We also added 10 grams of salt to the solution," and the MeasuredProperty was "amount." So in that case, "amount" was inferred. So perhaps here, "concentration" is inferred as the MeasuredProperty. So for "soluble sulfate was present at 1.3 ± 0.5 wt.%", the MeasuredEntity is "soluble sulfate," the MeasuredProperty is "concentration," and the Quantity is "1.3 ± 0.5 wt.%". Then, the relationships would be HasProperty between MeasuredEntity and MeasuredProperty, and HasQuantity from MeasuredProperty to Quantity. But the text says "soluble sulfate was present at...", so maybe the MeasuredProperty is "presence" or "concentration." The example used "amount" for "salt," which was not explicitly stated. So perhaps "concentration" is appropriate here.
+
+Similarly, the next quantity is "∼0.5 wt.% (Hecht et al., 2009; Kounaves et al., 2010a)" for perchlorate. The text says "inferred concentration in the soil of ∼0.5 wt.%". Here, "concentration" is explicitly mentioned, so MeasuredProperty would be "concentration," MeasuredEntity is "soil" (or "perchlorate in soil"?). Wait, the text says "presence of perchlorate (ClO4-) at an inferred concentration in the soil of ∼0.5 wt.%". So the MeasuredEntity would be "soil," and the MeasuredProperty is "concentration of perchlorate." Wait, perchlorate is the entity being measured. Or is "perchlorate" the MeasuredEntity, and the MeasuredProperty is "concentration in the soil"? This is a bit tricky. Let's parse it: "presence of perchlorate [...] at an inferred concentration in the soil of ∼0.5 wt.%". So the concentration is of perchlorate in the soil. So the MeasuredEntity is "soil" (location) and the substance is "perchlorate." Alternatively, the MeasuredEntity is "perchlorate in soil." But according to the guidelines, it's better to capture the entity as the object. So perhaps the MeasuredEntity is "perchlorate," and the MeasuredProperty is "concentration in the soil." Or maybe "soil" is the MeasuredEntity, and the MeasuredProperty is "perchlorate concentration." This is a bit ambiguous, but I think the key here is to capture the main entities and properties as per the text. The text states "concentration in the soil," so the MeasuredEntity would be "soil," and the MeasuredProperty is "perchlorate concentration." So relationships would be HasProperty between soil and perchlorate concentration, which then HasQuantity to the ∼0.5 wt.%.
+
+The next quantity is "1000 times more sensitive." The text says "it was 1000 times more sensitive to perchlorate." Here, "1000 times" is a count (IsCount) without a unit. The MeasuredEntity here is "perchlorate-sensitive electrode" or "electrode," and the MeasuredProperty could be "sensitivity." The relationship would be HasQuantity from the MeasuredProperty to the Quantity.
+
+Then we have "⩽1.6% perchlorate." The MeasuredEntity is "Viking 1 and Viking 2 landing sites" and the MeasuredProperty is "perchlorate content." The Quantity here is "⩽1.6%", with the unit "%" and modifier IsRange due to the ⩽ symbol.
+
+Next, "level <1 ppm by mass" in the meteorite EETA79001. The Quantity is "<1 ppm," unit is ppm, modifier IsRange. The MeasuredEntity is "martian meteorite EETA79001," MeasuredProperty is "level" (as in concentration level).
+
+Now, Qualifiers: For example, "reanalysis of the Viking thermal volatilization experiments suggest..." could be a qualifier for the ⩽1.6% quantity. Also, "albeit at a level <1 ppm by mass" might have "albeit..." as a qualifier, but the exact text would be "albeit at a level <1 ppm by mass." However, the Qualifier is an optional span describing conditions. So "albeit..." could be a Qualifier for the Quantity "<1 ppm."
+
+Also, in the example, "after I drank half the can" was a Qualifier. So in this text, phrases like "if all of the evolved O2 was released from perchlorate" could be a Qualifier for the later quantity. But let's check the specific text: "If all of the evolved O2 was released from perchlorate, then the samples contained a comparable amount of perchlorate..." Here, the "If..." clause is a Qualifier for the Quantity "comparable amount..." but that's a comparative and not a specific quantity. Wait, the actual quantity here is "comparable amount," but in the given text, maybe that's not a specific numeric quantity. The only specific quantity after that is the reference to Phoenix landing site's samples, which is a comparison, not a new quantity. So perhaps the "If..." is a Qualifier for the statement about the samples containing a comparable amount, but since "comparable amount" is not a numeric quantity, maybe it's not annotated. Therefore, focusing on the numeric quantities only.
+
+Now, compiling all the quantities:
+
+1. "1.3 ± 0.5 wt.%" – modifiers: HasTolerance (±), unit: wt.%
+2. "∼0.5 wt.%" – modifiers: IsApproximate, unit: wt.%
+3. "1000 times" – modifiers: IsCount, no unit
+4. "⩽1.6%" – modifiers: IsRange, unit: %
+5. "<1 ppm" – modifiers: IsRange, unit: ppm
+
+Each of these needs their own annotSet. Let's start with the first one.
+
+AnnotSet 1:
+- Quantity: "1.3 ± 0.5 wt.%" with unit wt.%, mods: HasTolerance
+- MeasuredEntity: "soluble sulfate"
+- MeasuredProperty: "concentration" (inferred)
+Relationships: MeasuredEntity (soluble sulfate) HasProperty to MeasuredProperty (concentration), which HasQuantity to the Quantity.
+
+AnnotSet 2:
+- Quantity: "∼0.5 wt.%" with unit wt.%, mods: IsApproximate
+- MeasuredEntity: "soil" (from "concentration in the soil")
+- MeasuredProperty: "concentration of perchlorate"
+Relationships: MeasuredEntity (soil) HasProperty to MeasuredProperty (concentration of perchlorate), which HasQuantity to Quantity.
+
+AnnotSet 3:
+- Quantity: "1000 times" with mods: IsCount
+- MeasuredEntity: "perchlorate-sensitive electrode"
+- MeasuredProperty: "sensitivity"
+Relationships: MeasuredEntity (electrode) HasProperty to MeasuredProperty (sensitivity), which HasQuantity to Quantity.
+
+AnnotSet 4:
+- Quantity: "⩽1.6%" with unit %, mods: IsRange
+- MeasuredEntity: "Viking 1 and Viking 2 landing sites"
+- MeasuredProperty: "perchlorate content"
+Relationships: MeasuredEntity (landing sites) HasProperty to MeasuredProperty (perchlorate content), which HasQuantity to Quantity.
+
+AnnotSet 5:
+- Quantity: "<1 ppm" with unit ppm, mods: IsRange
+- MeasuredEntity: "martian meteorite EETA79001"
+- MeasuredProperty: "level" (from "level <1 ppm by mass")
+Relationships: MeasuredEntity (meteorite) HasProperty to MeasuredProperty (level), which HasQuantity to Quantity.
+
+Additionally, there's a Qualifier in "albeit at a level <1 ppm by mass" – "albeit..." could be a Qualifier, but the exact text is "albeit at a level <1 ppm by mass." However, the Qualifier should be the span that qualifies the Quantity. In this case, "albeit at a level <1 ppm by mass" is part of the same sentence, but the Quantity is "<1 ppm." The "albeit" phrase is providing context, so perhaps it's a Qualifier for the Quantity. But according to the guidelines, the Qualifier is a separate span. So maybe "albeit at a level <1 ppm by mass" is the Qualifier, linked to the Quantity via Qualifies. But the Quantity is "<1 ppm," so the Qualifier would be "albeit at a level <1 ppm by mass"? Wait, but the Qualifier should be a separate span. Alternatively, maybe the Qualifier is "albeit" part, but the exact text is "albeit at a level <1 ppm by mass." However, the Quantity itself is "<1 ppm." So perhaps the Qualifier is the entire phrase "albeit at a level <1 ppm by mass," but that includes the Quantity. That seems conflicting. Alternatively, the Qualifier is "albeit" which is qualifying the fact that the measurement is in the meteorite. But I'm not sure. Maybe in this case, there's no Qualifier needed for that Quantity.
+
+Another possible Qualifier is in the sentence "reanalysis of the Viking thermal volatilization experiments suggest ⩽1.6% perchlorate..." Here, "reanalysis of the Viking thermal volatilization experiments" could be a Qualifier for the Quantity "⩽1.6%", indicating the method or context of the measurement.
+
+Similarly, "If all of the evolved O2 was released from perchlorate" is a condition qualifying the statement about the samples containing a comparable amount. However, since "comparable amount" is not a specific quantity, maybe that's not annotated. But the following part mentions "samples contained a comparable amount of perchlorate to the samples at the Phoenix landing site," which refers back to the earlier ∼0.5 wt.% quantity. The "If..." clause would then be a Qualifier for that comparison, but since it's not a new quantity, perhaps it's not annotated here.
+
+Putting it all together, each Quantity gets its own annotSet. Now, let's structure each set:
+
+AnnotSet 1:
+- Quantity: T1, text "1.3 ± 0.5 wt.%", other: {"unit": "wt.%", "mods": ["HasTolerance"]}
+- MeasuredEntity: T2, text "soluble sulfate", other: {"HasQuantity": "T1"}
+- Or, if there's a MeasuredProperty, like "concentration":
+- MeasuredProperty: T3, text "concentration", other: {"HasQuantity": "T1", "HasProperty": "T2"}
+
+But wait, the text says "soluble sulfate was present at 1.3 ± 0.5 wt.%." The MeasuredProperty here is "present," but that's part of the verb. Alternatively, the property is the concentration. Since "present" isn't a property, maybe the MeasuredProperty is omitted, and the MeasuredEntity directly links to the Quantity. But according to the example, when "amount" wasn't mentioned, they still included it. So perhaps here, the MeasuredProperty is "concentration," even if not explicitly stated. So:
+
+AnnotSet1:
+T1: Quantity, "1.3 ± 0.5 wt.%", {"unit": "wt.%", "mods": ["HasTolerance"]}
+T2: MeasuredEntity, "soluble sulfate", {"HasQuantity": "T1"}
+Or with MeasuredProperty:
+T1: Quantity
+T2: MeasuredEntity: "soluble sulfate"
+T3: MeasuredProperty: "concentration", {"HasQuantity": "T1", "HasProperty": "T2"}
+
+But the text doesn't mention "concentration," so it's inferred. The example allowed inferred properties like "amount," so perhaps this is acceptable. So yes, include MeasuredProperty as "concentration."
+
+Similarly for other quantities.
+
+Now, let's list all annotSets:
+
+1. AnnotSet 1:
+   - Quantity: "1.3 ± 0.5 wt.%" (T1)
+   - MeasuredEntity: "soluble sulfate" (T2)
+   - MeasuredProperty: "concentration" (T3)
+   - Relationships: T2 HasProperty T3, T3 HasQuantity T1
+
+2. AnnotSet 2:
+   - Quantity: "∼0.5 wt.%" (T4)
+   - MeasuredEntity: "soil" (T5)
+   - MeasuredProperty: "concentration of perchlorate" (T6)
+   - Relationships: T5 HasProperty T6, T6 HasQuantity T4
+
+3. AnnotSet 3:
+   - Quantity: "1000 times" (T7)
+   - MeasuredEntity: "perchlorate-sensitive electrode" (T8)
+   - MeasuredProperty: "sensitivity" (T9)
+   - Relationships: T8 HasProperty T9, T9 HasQuantity T7
+
+4. AnnotSet 4:
+   - Quantity: "⩽1.6%" (T10)
+   - MeasuredEntity: "Viking 1 and Viking 2 landing sites" (T11)
+   - MeasuredProperty: "perchlorate content" (T12)
+   - Relationships: T11 HasProperty T12, T12 HasQuantity T10
+
+5. AnnotSet 5:
+   - Quantity: "<1 ppm" (T13)
+   - MeasuredEntity: "martian meteorite EETA79001" (T14)
+   - MeasuredProperty: "level" (T15)
+   - Relationships: T14 HasProperty T15, T15 HasQuantity T13
+
+Additionally, for the Qualifiers:
+
+In AnnotSet4, the text mentions "reanalysis of the Viking thermal volatilization experiments suggest ⩽1.6% perchlorate..." The phrase "reanalysis of the Viking thermal volatilization experiments" is a Qualifier for the Quantity "⩽1.6%". So in this case, the Qualifier would be "reanalysis of the Viking thermal volatilization experiments" and relates to the Quantity T10 via Qualifies.
+
+Similarly, in AnnotSet5, the text says "albeit at a level <1 ppm by mass". The "albeit..." could be a Qualifier, but the exact span would be "albeit at a level <1 ppm by mass". However, since the Quantity itself is "<1 ppm", the Qualifier might be "albeit at a level by mass" or "albeit..." but this is part of the same clause. Alternatively, maybe "albeit" is part of the Qualifier, indicating a contrast. So the Qualifier text is "albeit at a level <1 ppm by mass" but the Quantity is within that. However, according to the guidelines, Qualifiers are separate spans that provide context. So perhaps the Qualifier is "albeit at a level by mass" and the Quantity is "<1 ppm". But I'm not sure if that's the correct approach. Alternatively, since the entire phrase includes the Quantity, perhaps the Qualifier is the entire "albeit at a level <1 ppm by mass", but that would mean the Qualifier includes the Quantity, which isn't allowed. Therefore, perhaps the Qualifier is "albeit at a level by mass" and linked to the Quantity "<1 ppm". But the exact text is "albeit at a level <1 ppm by mass". This is a bit unclear. Maybe in this case, there's no Qualifier, as the Quantity is part of the same phrase. Alternatively, if the Qualifier is "albeit," then it's a single word, but that's not very meaningful. Perhaps it's better not to include a Qualifier here.
+
+Another Qualifier might be "using pyrolysis as part of the SAM experiment" for the later mention of perchlorate detection by MSL, but that's not directly linked to a Quantity. The Quantity in that part is the "comparable amount," which is not numeric, so it's not annotated. Therefore, the main Qualifiers are those linked to the Quantities we've identified.
+
+So, for AnnotSet4, adding a Qualifier "reanalysis of the Viking thermal volatilization experiments" which qualifies the Quantity T10. The Qualifier would be in a new annotSet? No, Qualifiers are part of the same annotSet as the Quantity they qualify. Wait, each annotSet is a logical grouping. So if a Qualifier qualifies a Quantity in annotSet4, it should be part of annotSet4.
+
+Wait, each annotSet groups related annotations. So for each Quantity, its associated MeasuredEntity, MeasuredProperty, and any Qualifiers would be in the same annotSet. So in annotSet4, the Qualifier "reanalysis of the Viking thermal volatilization experiments" would be part of that set.
+
+So, let's adjust AnnotSet4 to include the Qualifier:
+
+AnnotSet4:
+- Quantity: T10
+- MeasuredEntity: T11
+- MeasuredProperty: T12
+- Qualifier: T16, text "reanalysis of the Viking thermal volatilization experiments", other: {"Qualifies": "T10"}
+
+Similarly, the Qualifier text "reanalysis of the Viking thermal volatilization experiments" would be part of annotSet4.
+
+But wait, the original text for AnnotSet4's Quantity is "⩽1.6% perchlorate at both Viking 1 and Viking 2 landing sites (Navarro-Gonzalez et al., 2010); however, this has been subject to some debate (Biemann and Bada, 2011)." The Qualifier here is "reanalysis of the Viking thermal volatilization experiments suggest" which is the method or source of the measurement. So the exact Qualifier text would be "reanalysis of the Viking thermal volatilization experiments".
+
+Thus, adding to AnnotSet4:
+
+Qualifier T16: text "reanalysis of the Viking thermal volatilization experiments", other: {"Qualifies": "T10"}.
+
+Similarly, for other Qualifiers if any.
+
+Another possible Qualifier is in AnnotSet5: "albeit at a level <1 ppm by mass" – but since the Quantity is part of this phrase, the Qualifier would be the surrounding context. However, since the Quantity is "<1 ppm", maybe the Qualifier is "albeit at a level by mass" (excluding the Quantity itself). But that might not capture the intended meaning. Alternatively, the entire phrase "albeit at a level <1 ppm by mass" is a Qualifier, but that includes the Quantity. However, according to the guidelines, Qualifiers are separate from the Quantity. Therefore, perhaps in this case, there's no Qualifier annotated for AnnotSet5.
+
+Another possible Qualifier is the "however, further analysis..." in the sentence about Ca(ClO4)2, but this is not directly linked to a Quantity. So probably, only the Qualifier in AnnotSet4 is relevant.
+
+Now, let's structure each annotSet properly in TSV format.
+
+For AnnotSet1:
+annotSet 1:
+- T1: Quantity, "1.3 ± 0.5 wt.%", {"unit": "wt.%", "mods": ["HasTolerance"]}
+- T2: MeasuredEntity, "soluble sulfate", {"HasProperty": "T3"}
+- T3: MeasuredProperty, "concentration", {"HasQuantity": "T1", "HasProperty": "T2"}
+
+Wait, according to the example, the MeasuredEntity has a "HasQuantity" directly. Wait in the example:
+
+1           MeasuredEntity      T2         solution            {"HasQuantity": "T1"}
+1           MeasuredProperty    T3         temperature         {"HasQuantity": "T1", "HasProperty": "T2"}
+
+So the MeasuredEntity (solution) HasQuantity to T1, and the MeasuredProperty (temperature) HasProperty to T2 and HasQuantity to T1.
+
+But in our case, if the MeasuredProperty is inferred, then perhaps the MeasuredEntity should HasProperty to the MeasuredProperty, which in turn HasQuantity to the Quantity. So:
+
+MeasuredEntity (soluble sulfate) → HasProperty → MeasuredProperty (concentration) → HasQuantity → Quantity (1.3 ± 0.5 wt.%)
+
+So in TSV:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	1.3 ± 0.5 wt.%	{"unit": "wt.%", "mods": ["HasTolerance"]}
+1	MeasuredEntity	T2	soluble sulfate	{"HasProperty": "T3"}
+1	MeasuredProperty	T3	concentration	{"HasQuantity": "T1"}
+
+Wait, but according to the example, the MeasuredProperty has both HasQuantity and HasProperty. For instance, in the example:
+
+1           MeasuredProperty    T3         temperature         {"HasQuantity": "T1", "HasProperty": "T2"}
+
+So in our case, the MeasuredProperty (concentration) should have "HasQuantity": "T1" and "HasProperty": "T2". Therefore, the MeasuredEntity (T2) has "HasProperty": "T3", and the MeasuredProperty (T3) has "HasQuantity": "T1" and "HasProperty": "T2". Wait, that would create a loop. Maybe the example is structured as:
+
+MeasuredEntity (T2) has "HasProperty": "T3" (MeasuredProperty)
+MeasuredProperty (T3) has "HasQuantity": "T1" (Quantity)
+
+So in our case:
+
+T2 (MeasuredEntity: soluble sulfate) → HasProperty → T3 (MeasuredProperty: concentration)
+T3 (MeasuredProperty) → HasQuantity → T1 (Quantity)
+
+So the TSV for AnnotSet1 would be:
+
+1	Quantity	T1	1.3 ± 0.5 wt.%	{"unit": "wt.%", "mods": ["HasTolerance"]}
+1	MeasuredEntity	T2	soluble sulfate	{"HasProperty": "T3"}
+1	MeasuredProperty	T3	concentration	{"HasQuantity": "T1"}
+
+Similarly for other annotSets.
+
+AnnotSet2:
+- Quantity: T4, "∼0.5 wt.%", {"unit": "wt.%", "mods": ["IsApproximate"]}
+- MeasuredEntity: T5, "soil", {"HasProperty": "T6"}
+- MeasuredProperty: T6, "concentration of perchlorate", {"HasQuantity": "T4"}
+
+But wait, the text says "inferred concentration in the soil of ∼0.5 wt.%" so the MeasuredProperty is "concentration of perchlorate", and the MeasuredEntity is "soil". Therefore:
+
+annotSet2:
+2	Quantity	T4	∼0.5 wt.%	{"unit": "wt.%", "mods": ["IsApproximate"]}
+2	MeasuredEntity	T5	soil	{"HasProperty": "T6"}
+2	MeasuredProperty	T6	concentration of perchlorate	{"HasQuantity": "T4"}
+
+AnnotSet3:
+3	Quantity	T7	1000 times	{"mods": ["IsCount"]}
+3	MeasuredEntity	T8	perchlorate-sensitive electrode	{"HasProperty": "T9"}
+3	MeasuredProperty	T9	sensitivity	{"HasQuantity": "T7"}
+
+AnnotSet4:
+4	Quantity	T10	⩽1.6%	{"unit": "%", "mods": ["IsRange"]}
+4	MeasuredEntity	T11	Viking 1 and Viking 2 landing sites	{"HasProperty": "T12"}
+4	MeasuredProperty	T12	perchlorate content	{"HasQuantity": "T10"}
+4	Qualifier	T13	reanalysis of the Viking thermal volatilization experiments	{"Qualifies": "T10"}
+
+AnnotSet5:
+5	Quantity	T14	<1 ppm	{"unit": "ppm", "mods": ["IsRange"]}
+5	MeasuredEntity	T15	martian meteorite EETA79001	{"HasProperty": "T16"}
+5	MeasuredProperty	T16	level	{"HasQuantity": "T14"}
+
+Wait, in AnnotSet5, the text says "level <1 ppm by mass". The MeasuredProperty is "level", and the MeasuredEntity is "martian meteorite EETA79001". So:
+
+5	Quantity	T14	<1 ppm	{"unit": "ppm", "mods": ["IsRange"]}
+5	MeasuredEntity	T15	martian meteorite EETA79001	{"HasProperty": "T16"}
+5	MeasuredProperty	T16	level	{"HasQuantity": "T14"}
+
+Now, checking for other possible Qualifiers. For example, "Recently, the MSL mission has also confirmed the presence of perchlorate using pyrolysis as part of the SAM experiment" – the phrase "using pyrolysis..." could be a Qualifier for a Quantity, but in the text, the Quantity related to SAM experiment is "pyrolysis showed release of chloromethane and O2 from heated soil samples..." which doesn't have a numeric quantity, so it's not annotated. Thus, no Qualifier there.
+
+Another point: "If all of the evolved O2 was released from perchlorate..." is a conditional Qualifier, but it's qualifying a non-quantitative statement, so it's not included.
+
+Finally, the Qualifier in AnnotSet4: "reanalysis of the Viking thermal volatilization experiments" is a Qualifier for the Quantity ⩽1.6%, so it's part of AnnotSet4.
+
+Now, compiling all these into the TSV format.

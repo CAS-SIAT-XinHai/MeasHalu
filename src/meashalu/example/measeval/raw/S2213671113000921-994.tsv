@@ -1,0 +1,6 @@
+docId	annotSet	annotType	annotId	text	other
+S2213671113000921-994	1	Quantity	T1	36 clones	"{""mods"": [""IsCount""]}"
+S2213671113000921-994	1	MeasuredEntity	T2	clones	"{""HasQuantity"": ""T1""}"
+S2213671113000921-994	2	Quantity	T1	26	"{""mods"": [""IsCount""]}"
+S2213671113000921-994	2	MeasuredEntity	T2	clones	"{""HasQuantity"": ""T1""}"
+S2213671113000921-994	3	Quantity	T1	72%	"{""unit"": ""%""}"

@@ -1,0 +1,180 @@
+Okay, I need to extract the quantities and related entities from this paragraph. Let me start by reading through the text carefully.
+
+First sentence: "The Spectralis HRA/OCT device (Heidelberg Engineering) was used to acquire laser-interferometric reflectance OCT images of the retina and choroid, with resolutions comparable to a light microscopic section." Hmm, "resolutions comparable to a light microscopic section" might be a qualifier, but there's no numerical quantity here. Maybe "comparable to a light microscopic section" is a qualifier for the resolution, but since there's no numerical value, perhaps it's not a Quantity.
+
+Next sentence: "Longitudinal and transversal line OCT scans through the center of the implant were taken with the 30-degrees-of-visual-field setting of the Spectralis." Here, "30-degrees-of-visual-field" seems like a Quantity. The number is 30, and the unit is degrees-of-visual-field. The MeasuredEntity here might be "Spectralis" but looking at the context, the setting is for the device. The MeasuredProperty could be "visual field setting". However, the exact phrasing is "30-degrees-of-visual-field setting". So the MeasuredEntity is "Spectralis" or maybe "setting"? Wait, the "30-degrees-of-visual-field" is part of the setting. The MeasuredEntity might be "OCT scans" but the sentence says "taken with the 30-degrees-of-visual-field setting of the Spectralis." So the MeasuredEntity could be "Spectralis" and the MeasuredProperty is "visual field setting", and the Quantity is "30-degrees-of-visual-field". But maybe the MeasuredEntity is the "OCT scans" and the setting is a property. Let me think. The "30-degrees-of-visual-field" is a setting of the device, which is the Spectralis. So MeasuredEntity is Spectralis, MeasuredProperty is "visual field setting", Quantity is 30 degrees. But the text says "30-degrees-of-visual-field setting", so maybe the entire phrase is the MeasuredProperty. Hmm, perhaps it's better to split it: the Quantity is "30 degrees-of-visual-field" and the MeasuredProperty is "setting". Then, the MeasuredEntity is the Spectralis. The relationship would be Spectralis (Entity) has a Property "setting", which has Quantity "30 degrees-of-visual-field". But the text is "30-degrees-of-visual-field setting", so maybe the "setting" is part of the MeasuredProperty. Alternatively, maybe the MeasuredProperty is "visual field", and the Quantity is "30 degrees". But the hyphenation makes it a bit tricky. The unit here might be "degrees-of-visual-field", which is a compound unit. So Quantity is "30-degrees-of-visual-field", with unit "degrees-of-visual-field". The MeasuredEntity is "Spectralis", and the MeasuredProperty is "setting". So the relationships would be Spectralis (Entity) HasProperty "setting", and "setting" HasQuantity "30-degrees-of-visual-field".
+
+Next sentence: "Volume scans were obtained with 60 μm distance between each scan with the device set to 20 × 20 degrees of visual field centered on the implant." Here, "60 μm" is a Quantity: value 60, unit μm (micrometers). The MeasuredEntity is "distance between each scan", but maybe "distance" is the MeasuredProperty, and the Entity is "scans" or "volume scans". Then another Quantity: "20 × 20 degrees of visual field". This is two quantities: 20 degrees and 20 degrees. But written as a product. Maybe "20 × 20 degrees" is a single Quantity with unit "degrees of visual field", and the value is 20x20. But how to represent that? Alternatively, treat it as two separate quantities, but the text says "20 × 20 degrees". Since they are combined, perhaps it's a single Quantity with IsList modifier. However, the original example shows that "4.5kg, 6kg, 13kg" would be IsList, but here it's written as "20 × 20". Maybe it's considered a range? No, a range would be like 1.5-2.6m. Alternatively, it's two separate 20 degrees quantities. But in the text, it's "20 × 20 degrees of visual field", which might be a way to denote a grid, so perhaps the unit is "degrees of visual field" and the value is 20x20. Since it's a product, maybe the Quantity is "20 × 20 degrees of visual field", with unit "degrees of visual field" and possibly a modifier. But maybe it's better to split into two quantities. However, the text says "20 × 20 degrees", which is a single term. Alternatively, annotate as a single Quantity with value "20 × 20" and unit "degrees of visual field". The modifier could be something like IsArea, but there's no such modifier in the definitions. So perhaps just note the unit as "degrees of visual field" and not split it. The MeasuredEntity here would be "device" (as in "the device set to...") and the MeasuredProperty is "visual field". But again, the structure is a bit complex.
+
+Next sentence: "To approximate human optical parameters to rabbit eyes, the Spectralis’ corneal curvature settings were set by default to 4.2 mm." Here, "4.2 mm" is a Quantity. The MeasuredEntity is "Spectralis’ corneal curvature settings", so MeasuredEntity could be "corneal curvature settings", and the MeasuredProperty is possibly "curvature" or "settings". The Quantity is 4.2 mm. The unit is mm. The relationship would be "corneal curvature settings" (Entity) HasQuantity "4.2 mm". The MeasuredProperty might be "curvature".
+
+Next sentence: "Red-free and infrared cSLO images were taken at 30 degrees of visual field in the HRA mode of the device." Another Quantity: "30 degrees of visual field". This is similar to the earlier "30-degrees-of-visual-field" but phrased as "30 degrees of visual field". The unit here is "degrees of visual field". The MeasuredEntity could be "cSLO images" or "HRA mode", but the context is that the images were taken at this setting. The MeasuredProperty might be "visual field" again, and the Entity could be "device" or "HRA mode".
+
+Now, let's list all the Quantities:
+
+1. 30-degrees-of-visual-field (from the second sentence)
+2. 60 μm (third sentence)
+3. 20 × 20 degrees of visual field (third sentence)
+4. 4.2 mm (fourth sentence)
+5. 30 degrees of visual field (fifth sentence)
+
+Now, each of these needs to be annotated as Quantity, and then their respective MeasuredEntities, MeasuredProperties, and Qualifiers.
+
+Let's start with the first Quantity: "30-degrees-of-visual-field" in the second sentence. The text is "30-degrees-of-visual-field setting of the Spectralis." The Quantity is "30-degrees-of-visual-field", unit is "degrees-of-visual-field". The MeasuredEntity is "Spectralis" (the device). The MeasuredProperty would be "setting", as it's the setting of the device. So relationships: MeasuredEntity (T2: Spectralis) HasProperty (T3: setting), and setting HasQuantity (T1: 30-degrees-of-visual-field). Then, the Quantity T1 has unit "degrees-of-visual-field", no modifiers like IsCount or IsApproximate here.
+
+Second Quantity: "60 μm" in the third sentence. The text is "60 μm distance between each scan". The Quantity is "60 μm". Unit is "μm". The MeasuredEntity is "distance between each scan", but perhaps the MeasuredEntity is "distance" and the MeasuredProperty is "distance". Wait, maybe the MeasuredEntity here is "scans" and the MeasuredProperty is "distance between each scan". Then, the MeasuredProperty "distance" (T6) HasQuantity T4 (60 μm), and the MeasuredEntity would be "scans" (T5) which HasProperty T6. Alternatively, "distance between each scan" is the MeasuredEntity. Hmm, perhaps in this case, the MeasuredEntity is "distance between each scan", and the MeasuredProperty is "distance", but that's redundant. Alternatively, the MeasuredEntity is "scans" and the MeasuredProperty is "distance between each scan". Then, T5 (scans) HasProperty T6 (distance between each scan), which HasQuantity T4 (60 μm). But the exact text says "60 μm distance between each scan", so the Quantity is "60 μm" modifying "distance". So the MeasuredEntity would be "distance between each scan" (T5), and the MeasuredProperty is "distance", but that might not be necessary. Alternatively, maybe the MeasuredProperty is "distance", and the MeasuredEntity is "scans". So T5 (scans) HasProperty T6 (distance), which HasQuantity T4 (60 μm). But the phrase is "distance between each scan", so perhaps the MeasuredEntity is "each scan" and the MeasuredProperty is "distance between". But this is getting complicated. The safest approach is to take "distance between each scan" as the MeasuredEntity (T5), and it HasQuantity T4 (60 μm). Maybe there's no MeasuredProperty here, just a direct link from the Entity to the Quantity. Wait, according to the definitions, MeasuredEntity must relate to Quantity via HasQuantity. If the MeasuredEntity is "distance between each scan", then that's the entity, and it has the Quantity "60 μm". But "distance" is a property, so perhaps the MeasuredProperty is "distance", and the MeasuredEntity is "scans". So:
+
+- MeasuredEntity: scans (T5)
+- MeasuredProperty: distance between each scan (T6)
+- Quantity: 60 μm (T4)
+
+Then, T5 HasProperty T6, and T6 HasQuantity T4. But the text says "distance between each scan", which is part of the MeasuredProperty. Hmm. Alternatively, the MeasuredEntity is "volume scans" since the sentence starts with "Volume scans were obtained with 60 μm distance...". So the MeasuredEntity is "volume scans" (T5), MeasuredProperty is "distance between each scan" (T6), which HasQuantity T4 (60 μm). So in this case, the relationships would be T5 HasProperty T6, and T6 HasQuantity T4.
+
+Third Quantity: "20 × 20 degrees of visual field". The unit is "degrees of visual field". The value is "20 × 20". Since it's a product of two values, maybe this is considered a list (IsList) modifier? Or perhaps it's a single quantity with a combined value. The example given in the problem includes "4.5kg, 6kg, 13kg" as a list with IsList. Here, it's "20 × 20", which is two instances of 20 degrees. So perhaps annotate this as a Quantity with value "20 × 20", unit "degrees of visual field", and modifier IsList. Then, the MeasuredEntity would be "device" (as in "the device set to 20 × 20 degrees..."), and the MeasuredProperty is "visual field". So relationships: device (T7) HasProperty visual field (T8), which HasQuantity T9 (20 × 20 degrees of visual field). But the text says "the device set to 20 × 20 degrees of visual field", so the MeasuredEntity is device, the MeasuredProperty is "visual field", and the Quantity is 20 × 20 degrees. Alternatively, the MeasuredProperty could be the setting, but the structure is similar to the first Quantity. So for this Quantity (20 × 20 degrees of visual field), the MeasuredEntity is the device, MeasuredProperty is "visual field", and the Quantity is T9 with IsList if applicable.
+
+Fourth Quantity: "4.2 mm" in "set by default to 4.2 mm". The MeasuredEntity is "Spectralis’ corneal curvature settings", so MeasuredEntity T10: corneal curvature settings. The MeasuredProperty would be "curvature", but the text says "corneal curvature settings", so the setting is the MeasuredProperty. So T10 (corneal curvature settings) HasQuantity T11 (4.2 mm). The unit here is mm. No modifiers like approximate.
+
+Fifth Quantity: "30 degrees of visual field" in the last sentence. The text is "taken at 30 degrees of visual field". The Quantity is "30 degrees of visual field", unit is "degrees of visual field". The MeasuredEntity is "cSLO images" or "HRA mode". The sentence says "Red-free and infrared cSLO images were taken at 30 degrees... in the HRA mode". So the HRA mode is part of the device. The MeasuredEntity could be "HRA mode", and the MeasuredProperty is "visual field". So relationships: HRA mode (T12) HasProperty visual field (T13), which HasQuantity T14 (30 degrees of visual field).
+
+Now, Qualifiers: The first sentence mentions "resolutions comparable to a light microscopic section". This is a Qualifier for the resolutions, but there's no numerical Quantity associated. Since there's no Quantity here, maybe it's not part of any annotSet. The sentence "To approximate human optical parameters to rabbit eyes" is a qualifier for why the settings were set to 4.2 mm. So "To approximate human optical parameters to rabbit eyes" would be a Qualifier (T15) that Qualifies the Quantity "4.2 mm" (T11). So in annotSet 4, there would be a Qualifier T15 with relationship Qualifies: T11.
+
+Let me start building the TSV step by step.
+
+AnnotSet 1:
+- Quantity: 30-degrees-of-visual-field (T1)
+- MeasuredEntity: Spectralis (T2)
+- MeasuredProperty: setting (T3)
+Relationships: T2 HasProperty T3; T3 HasQuantity T1
+Other fields: For T1, unit is degrees-of-visual-field, no modifiers.
+
+AnnotSet 2:
+- Quantity: 60 μm (T4)
+- MeasuredEntity: volume scans (T5)
+- MeasuredProperty: distance between each scan (T6)
+Relationships: T5 HasProperty T6; T6 HasQuantity T4
+Unit: μm
+
+AnnotSet 3:
+- Quantity: 20 × 20 degrees of visual field (T7)
+- MeasuredEntity: device (T8)
+- MeasuredProperty: visual field (T9)
+Relationships: T8 HasProperty T9; T9 HasQuantity T7
+Unit: degrees of visual field, and since it's two values, maybe IsList? But in the example, "4.5kg, 6kg, 13kg" uses IsList. Here, "20 × 20" is written as a product, but the modifier options don't include a product. Maybe just treat it as a single value with unit.
+
+AnnotSet 4:
+- Quantity: 4.2 mm (T10)
+- MeasuredEntity: corneal curvature settings (T11)
+- No MeasuredProperty here if the setting itself is the entity. Wait, the text says "corneal curvature settings were set to 4.2 mm". So the MeasuredEntity is "corneal curvature settings", and it HasQuantity T10. So maybe no MeasuredProperty here, as the setting is the entity. So:
+- MeasuredEntity: corneal curvature settings (T11)
+- Quantity: 4.2 mm (T10)
+- Then, T11 HasQuantity T10. But according to the definitions, MeasuredEntity can relate directly to Quantity via HasQuantity. So no MeasuredProperty needed here.
+
+AnnotSet 5:
+- Quantity: 30 degrees of visual field (T12)
+- MeasuredEntity: HRA mode (T13)
+- MeasuredProperty: visual field (T14)
+Relationships: T13 HasProperty T14; T14 HasQuantity T12
+
+Qualifier in AnnotSet 4:
+- Qualifier: "To approximate human optical parameters to rabbit eyes" (T15)
+- Qualifies T10 (4.2 mm)
+
+Wait, the Qualifier "To approximate..." explains why the settings were set to 4.2 mm, so it Qualifies the Quantity T10. So in annotSet 4, we have:
+
+annotSet 4:
+- Quantity T10: 4.2 mm
+- MeasuredEntity T11: corneal curvature settings
+- Qualifier T15: "To approximate human optical parameters to rabbit eyes"
+Relationships: T15 Qualifies T10
+
+But according to the output format, each annotSet is a grouping of related annotations. So annotSet 4 would include T10 (Quantity), T11 (MeasuredEntity), T15 (Qualifier), and their relationships.
+
+Wait, but the example in the problem shows that each Quantity, its Entity, Property, and any Qualifiers are grouped in the same annotSet. So in the example, each Quantity is in its own annotSet (1, 2, 3). Each annotSet starts at 1 for each logical group. So each Quantity and its related entities are in their own annotSet.
+
+But in the current case, the Qualifier "To approximate..." is part of the same annotSet as the Quantity 4.2 mm. So annotSet 4 would include T10 (Quantity), T11 (Entity), and T15 (Qualifier).
+
+Similarly, the first Quantity (30-degrees-of-visual-field) is in annotSet 1 with its Entity and Property.
+
+Now, let's structure each annotSet:
+
+AnnotSet 1:
+- T1: Quantity (30-degrees-of-visual-field)
+- T2: MeasuredEntity (Spectralis)
+- T3: MeasuredProperty (setting)
+Relationships:
+- T2 HasProperty T3
+- T3 HasQuantity T1
+
+AnnotSet 2:
+- T4: Quantity (60 μm)
+- T5: MeasuredEntity (volume scans)
+- T6: MeasuredProperty (distance between each scan)
+Relationships:
+- T5 HasProperty T6
+- T6 HasQuantity T4
+
+AnnotSet 3:
+- T7: Quantity (20 × 20 degrees of visual field)
+- T8: MeasuredEntity (device)
+- T9: MeasuredProperty (visual field)
+Relationships:
+- T8 HasProperty T9
+- T9 HasQuantity T7
+
+AnnotSet 4:
+- T10: Quantity (4.2 mm)
+- T11: MeasuredEntity (corneal curvature settings)
+- T15: Qualifier (To approximate human optical parameters to rabbit eyes)
+Relationships:
+- T11 HasQuantity T10
+- T15 Qualifies T10
+
+AnnotSet 5:
+- T12: Quantity (30 degrees of visual field)
+- T13: MeasuredEntity (HRA mode)
+- T14: MeasuredProperty (visual field)
+Relationships:
+- T13 HasProperty T14
+- T14 HasQuantity T12
+
+Now, checking for modifiers:
+
+- "approximately" isn't present in the current text, but in the fourth sentence, the Qualifier "To approximate..." is a Qualifier. However, "approximate" in the Qualifier text is a verb, not a modifier for the Quantity. The Quantity 4.2 mm is set by default, but there's no mention of approximation in the Quantity itself. So the Qualifier explains the reason but doesn't make the Quantity approximate. So no IsApproximate modifier.
+
+The 20 × 20 degrees: since it's two values, but the example uses IsList for multiple items separated by commas. Here, "20 × 20" might be considered a single value (an area), but according to the modifiers, there's no IsArea. So perhaps it's better to treat it as a single Quantity without any modifier. Alternatively, since it's two values, maybe IsList. However, the problem's examples show that IsList is for a list like "4.5kg, 6kg, 13kg". Here, it's written as a product. But since the user's instruction says to use IsList for a list of quantities, I think "20 × 20" is not a list but a product, so no modifier. So the Quantity is "20 × 20 degrees of visual field", unit is "degrees of visual field", no modifiers.
+
+Now, let's write the TSV:
+
+AnnotSet 1:
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	30-degrees-of-visual-field	{"unit": "degrees-of-visual-field"}
+1	MeasuredEntity	T2	Spectralis	{"HasProperty": "T3"}
+1	MeasuredProperty	T3	setting	{"HasQuantity": "T1", "HasProperty": "T2"}
+
+AnnotSet 2:
+2	Quantity	T4	60 μm	{"unit": "μm"}
+2	MeasuredEntity	T5	volume scans	{"HasProperty": "T6"}
+2	MeasuredProperty	T6	distance between each scan	{"HasQuantity": "T4", "HasProperty": "T5"}
+
+AnnotSet 3:
+3	Quantity	T7	20 × 20 degrees of visual field	{"unit": "degrees of visual field"}
+3	MeasuredEntity	T8	device	{"HasProperty": "T9"}
+3	MeasuredProperty	T9	visual field	{"HasQuantity": "T7", "HasProperty": "T8"}
+
+AnnotSet 4:
+4	Quantity	T10	4.2 mm	{"unit": "mm"}
+4	MeasuredEntity	T11	corneal curvature settings	{"HasQuantity": "T10"}
+4	Qualifier	T15	To approximate human optical parameters to rabbit eyes	{"Qualifies": "T10"}
+
+AnnotSet 5:
+5	Quantity	T12	30 degrees of visual field	{"unit": "degrees of visual field"}
+5	MeasuredEntity	T13	HRA mode	{"HasProperty": "T14"}
+5	MeasuredProperty	T14	visual field	{"HasQuantity": "T12", "HasProperty": "T13"}
+
+Wait, but in AnnotSet 4, the MeasuredEntity is "corneal curvature settings", which HasQuantity T10. There's no MeasuredProperty here because the entity itself is the setting. In the previous example, like "solution" had "temperature" as the MeasuredProperty. Here, "corneal curvature settings" is the entity, and the Quantity is its value, so no need for a MeasuredProperty.
+
+Now, checking for any other Qualifiers. The phrase "with resolutions comparable to a light microscopic section" might be a Qualifier for the resolutions of the OCT images, but since there's no Quantity mentioned for the resolution (just "comparable to..."), it's not directly qualifying a Quantity. So maybe it's not annotated.
+
+Another check: In the third sentence, "with the device set to 20 × 20 degrees of visual field". Here, "set to" is part of the context, but no Qualifier unless specified. The main Qualifier is the one about approximating human parameters.
+
+So the final TSV should include these five annotSets with their respective entries.

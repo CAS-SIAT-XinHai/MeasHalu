@@ -1,0 +1,7 @@
+docId	annotSet	annotType	annotId	text	other
+S0960148113002735-2182	1	Quantity	T1	1050 s	"{""unit"": ""s"", ""mods"": []}"
+S0960148113002735-2182	1	Quantity	T2	1170 s	"{""unit"": ""s"", ""mods"": []}"
+S0960148113002735-2182	1	MeasuredEntity	T3	turbines 1 and 3	"{""HasQuantity"": ""T1""}"
+S0960148113002735-2182	1	MeasuredEntity	T4	turbine 3	"{""HasQuantity"": ""T2""}"
+S0960148113002735-2182	1	MeasuredProperty	T5	rotational velocity	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T3""}"
+S0960148113002735-2182	1	MeasuredProperty	T6	rotational velocity	"{""HasQuantity"": ""T2"", ""HasProperty"": ""T4""}"

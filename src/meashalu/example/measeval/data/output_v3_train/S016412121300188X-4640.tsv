@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S016412121300188X-4640	1	Quantity	60	65	T1	52.1%	"{""unit"": ""%"", ""mods"": []}"
+S016412121300188X-4640	1	MeasuredEntity	73	91	T2	program's vertices	"{""HasQuantity"": ""T1""}"
+S016412121300188X-4640	1	MeasuredProperty	32	48	T3	coherent cluster	"{""HasQuantity"": ""T1""}"
+S016412121300188X-4640	2	Quantity	132	134	T4	54	"{""mods"": [""IsCount""]}"
+S016412121300188X-4640	2	MeasuredEntity	135	144	T5	functions	"{""HasQuantity"": ""T4""}"
+S016412121300188X-4640	3	Quantity	157	158	T6	7	"{""mods"": [""IsCount""]}"
+S016412121300188X-4640	3	MeasuredEntity	159	171	T7	source files	"{""HasQuantity"": ""T6""}"
+S016412121300188X-4640	4	Quantity	272	274	T8	26	"{""mods"": [""IsCount""]}"
+S016412121300188X-4640	4	MeasuredEntity	261	270	T9	functions	"{""HasQuantity"": ""T8""}"

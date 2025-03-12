@@ -1,0 +1,6 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S1359645413009816-1712	1	Quantity	187	205	T1	1.25 to 50 K min-1	"{""unit"": ""K min-1"", ""mods"": [""IsRange""]}"
+S1359645413009816-1712	1	MeasuredEntity	153	166	T2	heating rates	"{""HasQuantity"": ""T1""}"
+S1359645413009816-1712	1	MeasuredProperty	176	181	T3	range	"{""HasQuantity"": ""T1""}"
+S1359645413009816-1712	2	Quantity	22	37	T4	temperatures Tp	"{""unit"": ""K"", ""mods"": []}"
+S1359645413009816-1712	2	MeasuredProperty	22	34	T6	temperatures	"{""HasQuantity"": ""T4""}"

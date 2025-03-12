@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0022399913003358-931	1	Quantity	470	478	T1	7 to 20%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
+S0022399913003358-931	1	MeasuredEntity	492	510	T2	general population	"{""HasQuantity"": ""T1""}"
+S0022399913003358-931	1	MeasuredProperty	446	456	T3	prevalence	"{""HasQuantity"": ""T1""}"
+S0022399913003358-931	2	Quantity	584	587	T4	13%	"{""unit"": ""%""}"
+S0022399913003358-931	2	MeasuredEntity	555	580	T5	adults aged over 48 years	"{""HasQuantity"": ""T4""}"
+S0022399913003358-931	2	MeasuredProperty	537	551	T6	incidence rate	"{""HasQuantity"": ""T4""}"
+S0022399913003358-931	3	Quantity	607	609	T7	5%	"{""unit"": ""%""}"
+S0022399913003358-931	3	MeasuredEntity	617	627	T8	population	"{""HasQuantity"": ""T7""}"
+S0022399913003358-931	3	MeasuredProperty	631	648	T9	severely affected	"{""HasQuantity"": ""T7""}"

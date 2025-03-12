@@ -1,0 +1,4 @@
+docId	annotSet	annotType	annotId	text	other
+S0022399913003358-956	1	Quantity	T1	aged 40 to 69 years	"{""unit"": ""years"", ""mods"": [""IsRange""]}"
+S0022399913003358-956	1	MeasuredEntity	T2	UK adults	"{""HasQuantity"": ""T1""}"
+S0022399913003358-956	1	MeasuredProperty	T3	age	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"

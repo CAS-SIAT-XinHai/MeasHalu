@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0038071713001971-1427	1	Quantity	100	109	T1	two years	"{""unit"": ""years"", ""mods"": [""IsCount""]}"
+S0038071713001971-1427	1	MeasuredEntity	76	89	T2	yield records	"{""HasQuantity"": ""T1""}"
+S0038071713001971-1427	1	Qualifier	93	99	T4	recent	"{""Qualifies"": ""T1""}"
+S0038071713001971-1427	2	Quantity	162	173	T5	yield range	"{""mods"": [""IsRange""]}"
+S0038071713001971-1427	2	MeasuredEntity	115	126	T6	yield level	"{""HasQuantity"": ""T5""}"
+S0038071713001971-1427	2	MeasuredProperty	76	81	T7	yield	"{""HasQuantity"": ""T5""}"

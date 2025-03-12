@@ -1,0 +1,8 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0167610513001001-858	1	Quantity	0	4	T1	Mean	"{""mods"": [""IsMean""]}"
+S0167610513001001-858	1	Quantity	6	12	T2	median	"{""mods"": [""IsMedian""]}"
+S0167610513001001-858	1	Quantity	17	36	T3	interquartile range	"{""mods"": [""IsRange""]}"
+S0167610513001001-858	1	MeasuredEntity	40	61	T4	lidar error variances	"{""HasQuantity"": ""T3""}"
+S0167610513001001-858	1	Qualifier	62	82	T6	due to sampling rate	"{""Qualifies"": ""T4""}"
+S0167610513001001-858	2	Quantity	109	115	T7	60 min	"{""unit"": ""min"", ""mods"": [""IsCount""]}"
+S0167610513001001-858	2	MeasuredEntity	88	105	T8	averaging periods	"{""HasQuantity"": ""T7""}"

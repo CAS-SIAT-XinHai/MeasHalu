@@ -1,0 +1,8 @@
+docId	annotSet	annotType	annotId	text	other
+S0167610513002729-1062	1	Quantity	T1	0.64 H	"{""unit"": ""H""}"
+S0167610513002729-1062	1	MeasuredEntity	T2	street	"{""HasProperty"": ""T3""}"
+S0167610513002729-1062	1	MeasuredProperty	T3	way into the street	"{""HasQuantity"": ""T1""}"
+S0167610513002729-1062	1	Qualifier	T4	about two-third of the way into the street	"{""Qualifies"": ""T1""}"
+S0167610513002729-1062	2	Quantity	T5	about two-third	"{""mods"": [""IsApproximate"", ""IsCount""]}"
+S0167610513002729-1062	2	MeasuredEntity	T6	street	"{""HasProperty"": ""T7""}"
+S0167610513002729-1062	2	MeasuredProperty	T7	way into the street	"{""HasQuantity"": ""T5""}"

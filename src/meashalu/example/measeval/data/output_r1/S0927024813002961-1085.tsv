@@ -1,0 +1,5 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0927024813002961-1085	1	Quantity	324	329	T1	25 °C	"{""unit"": ""\u00b0C""}"
+S0927024813002961-1085	1	MeasuredEntity	304	310	T2	module	"{""HasProperty"": ""T3""}"
+S0927024813002961-1085	1	MeasuredProperty	311	322	T3	temperature	"{""HasQuantity"": ""T1""}"
+S0927024813002961-1085	1	Qualifier	299	303	T4	cold	"{""Qualifies"": ""T3""}"

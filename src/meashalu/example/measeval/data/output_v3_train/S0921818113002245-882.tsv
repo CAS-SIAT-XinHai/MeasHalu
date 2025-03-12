@@ -1,0 +1,9 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0921818113002245-882	1	Quantity	186	196	T1	873 varves	"{""unit"": ""varves"", ""mods"": [""IsCount""]}"
+S0921818113002245-882	1	MeasuredEntity	190	196	T2	varves	"{""HasQuantity"": ""T1""}"
+S0921818113002245-882	2	Quantity	276	285	T4	46–52.1.1	"{""mods"": [""IsRange""]}"
+S0921818113002245-882	2	MeasuredEntity	239	267	T5	terrestrial macrofossil ages	"{""HasQuantity"": ""T4""}"
+S0921818113002245-882	2	MeasuredProperty	263	266	T6	age	"{""HasQuantity"": ""T4""}"
+S0921818113002245-882	3	Quantity	700	706	T7	10.5 m	"{""unit"": ""m""}"
+S0921818113002245-882	3	MeasuredEntity	684	693	T8	sediments	"{""HasQuantity"": ""T7""}"
+S0921818113002245-882	3	MeasuredProperty	707	712	T9	depth	"{""HasQuantity"": ""T7""}"

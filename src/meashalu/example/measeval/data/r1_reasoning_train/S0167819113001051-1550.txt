@@ -1,0 +1,90 @@
+Okay, let's tackle this input. First, I need to extract quantities, measured entities, properties, and qualifiers, then relate them properly.
+
+Starting with the first sentence: "a conventional unit deadlocked roughly 2% of the times that a glitch appears." The quantity here is "roughly 2%". "Roughly" is a modifier indicating approximation, so IsApproximate. The unit is "%". The measured entity here is "a conventional unit" deadlocking, so the entity is "conventional unit". The measured property would be the deadlock occurrence rate, which is implied by "deadlocked... of the times". However, the phrase "2% of the times" relates to the frequency or percentage of deadlocks. So the measured property could be "deadlocked" or "deadlock rate". But since the text says "deadlocked roughly 2%...", maybe "deadlocked" is the property linked to the percentage. 
+
+Next, the qualifier here is "that a glitch appears", which qualifies the condition under which the 2% occurs. So "that a glitch appears" is a qualifier for the quantity or the measured entity/property.
+
+Now, the next part: "as a single deadlock has the potential to cripple a link permanently (until the whole system is rebooted)". Here, "a single deadlock" mentions a count, so "single" might be a quantity with IsCount. But "single" is an adjective here meaning one. So "single" as a count. The measured entity would be "deadlock", and the property is "has the potential to cripple...", but maybe the measured entity is "deadlock" and the quantity is "single" as a count. However, "single" here is more of a qualifier indicating the number. Hmm. Maybe "single" is a Quantity with IsCount. The measured entity would be "deadlock". So Quantity: "single", unit: count, mods: IsCount. Then, "permanently (until... rebooted)" could be a qualifier for the effect, but "permanently" might be a qualifier for the crippling action.
+
+Then, "Given the communication-intensive application model supported by SpiNNaker this would mean a network becoming highly degraded very quickly if glitches appeared." Here, "communication-intensive" might be a qualifier for the application model, but not a quantity. "Highly degraded" is a property, but not a quantity. "Very quickly" is a qualifier of time. However, these are descriptive and may not be quantities. 
+
+So, focusing back on the explicit quantities:
+
+1. "roughly 2%" → Quantity with IsApproximate, unit "%". MeasuredEntity: "conventional unit", MeasuredProperty: "deadlocked" (since the unit deadlocked 2% of the times). The qualifier is "that a glitch appears".
+
+2. "a single deadlock" → "single" as a Quantity with IsCount. MeasuredEntity: "deadlock". Here, the sentence is "a single deadlock has the potential...", so the entity is "deadlock", property could be "potential to cripple..." but that's more of a description. The quantity here is the count of deadlocks (single). 
+
+So annotSet 1: 
+- Quantity: "roughly 2%" with mods IsApproximate, unit "%". 
+- MeasuredEntity: "conventional unit"
+- MeasuredProperty: "deadlocked" (since the unit deadlocked 2% of the times). 
+- Qualifier: "that a glitch appears" which qualifies the quantity or the MeasuredProperty.
+
+Relationships: MeasuredEntity (conventional unit) HasProperty (deadlocked), which HasQuantity (2%). The qualifier "that a glitch appears" would Qualifies the Quantity or the MeasuredProperty. Since the deadlock occurs when glitches appear, the qualifier applies to the condition of the deadlock, so probably Qualifies the MeasuredProperty or the Quantity.
+
+AnnotSet 2:
+- Quantity: "single" with IsCount.
+- MeasuredEntity: "deadlock". 
+- The sentence says "a single deadlock has the potential...", so the deadlock (entity) has a quantity of single (count). The MeasuredProperty here might be "potential to cripple...", but that's more of an effect, not a measured property. So maybe the MeasuredProperty isn't present here. So the Quantity "single" is linked directly to the MeasuredEntity "deadlock" via HasQuantity.
+
+Qualifier for AnnotSet 1: "that a glitch appears" would Qualifies either the MeasuredProperty "deadlocked" or the Quantity "2%". Since the 2% is the times when a glitch appears, the qualifier describes the condition under which the deadlock happens. So "that a glitch appears" Qualifies the MeasuredProperty "deadlocked" or the Quantity. Hmm. The structure is "deadlocked roughly 2% of the times that a glitch appears". The "that a glitch appears" modifies "times", which is part of the Quantity's context. So maybe the qualifier applies to the Quantity. Alternatively, it could apply to the MeasuredProperty. This is a bit ambiguous. But according to the example, qualifiers like "after I drank half the can" qualify the Quantity. So here, "that a glitch appears" is a condition qualifying when the 2% occurs, so it would Qualify the Quantity. So in the TSV, the Qualifier entry would have a relationship Qualifies: T1 (the Quantity).
+
+Putting this together:
+
+AnnotSet 1:
+- Quantity: T1 "roughly 2%", mods IsApproximate, unit "%".
+- MeasuredEntity: T2 "conventional unit"
+- MeasuredProperty: T3 "deadlocked" (HasProperty: T2, HasQuantity: T1)
+- Qualifier: T4 "that a glitch appears" (Qualifies: T1)
+
+AnnotSet 2:
+- Quantity: T5 "single", mods IsCount, no unit (as it's a count).
+- MeasuredEntity: T6 "deadlock" (HasQuantity: T5)
+
+Wait, but "single" is part of "a single deadlock", so the entity is "deadlock", quantity is "single". So yes.
+
+Other parts: "until the whole system is rebooted" is a qualifier for "permanently", but "permanently" is a qualifier for "cripple a link". So "until..." might be a qualifier for "permanently". But I'm not sure if that's needed here. The main quantities are "2%" and "single". The other parts may not contain quantities. So perhaps those are the only two quantities.
+
+So the final TSV would have two annotSets.
+
+Let me check again.
+
+First annotSet for "roughly 2%":
+- annotSet 1, Quantity T1: roughly 2%, unit "%", mods IsApproximate.
+- MeasuredEntity T2: conventional unit.
+- MeasuredProperty T3: deadlocked (since the deadlock is the property measured as 2% of times).
+- Relationships: T2 HasProperty T3, T3 HasQuantity T1.
+- Qualifier T4: that a glitch appears, Qualifies T1.
+
+Second annotSet for "single":
+- annotSet 2, Quantity T5: single, mods IsCount.
+- MeasuredEntity T6: deadlock.
+- Relationships: T6 HasQuantity T5.
+
+Is there a MeasuredProperty for the second case? The sentence is "a single deadlock has the potential...", but there's no explicit property like "count" mentioned. So perhaps no MeasuredProperty here.
+
+So the TSV would look like:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	roughly 2%	{"unit": "%", "mods": ["IsApproximate"]}
+1	MeasuredEntity	T2	conventional unit	{"HasQuantity": "T1"}
+1	MeasuredProperty	T3	deadlocked	{"HasQuantity": "T1", "HasProperty": "T2"}
+1	Qualifier	T4	that a glitch appears	{"Qualifies": "T1"}
+2	Quantity	T5	single	{"mods": ["IsCount"]}
+2	MeasuredEntity	T6	deadlock	{"HasQuantity": "T5"}
+
+Wait, but in the example provided earlier, when there's a MeasuredProperty, the MeasuredEntity has HasProperty pointing to the MeasuredProperty, and the MeasuredProperty has HasQuantity pointing to the Quantity. So in the example, MeasuredEntity (solution) HasProperty T3 (temperature), and T3 (temperature) HasQuantity T1 (25°C). Similarly, here, MeasuredEntity T2 (conventional unit) HasProperty T3 (deadlocked), and T3 HasQuantity T1 (2%).
+
+But in the input sentence, the structure is "a conventional unit deadlocked roughly 2% of the times...", so "deadlocked" is the verb. So the MeasuredProperty is "deadlocked" (the occurrence of deadlock), the MeasuredEntity is "conventional unit", and the Quantity is 2% with qualifier.
+
+Yes, that makes sense.
+
+Now, for the second annotSet, "a single deadlock". Here, "deadlock" is the entity, and "single" is the quantity (count). There's no MeasuredProperty mentioned here, just the entity and its count. So the structure is MeasuredEntity (deadlock) HasQuantity (single). No MeasuredProperty needed here.
+
+So the TSV entries would be as above.
+
+Now, checking the other sentences:
+
+"the whole system is rebooted" – could this be a qualifier? Maybe, but "until the whole system is rebooted" qualifies "permanently", which is a qualifier for "cripple a link". But since "permanently" is not a quantity, maybe it's not needed here. The instruction says to focus on quantities and their related entities, properties, qualifiers. So perhaps this part isn't relevant unless there's a quantity involved. Since there's no quantity here, we can ignore it.
+
+So the final answer should have two annotSets as described.

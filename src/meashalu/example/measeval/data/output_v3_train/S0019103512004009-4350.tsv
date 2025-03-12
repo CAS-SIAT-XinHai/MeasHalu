@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103512004009-4350	1	Quantity	515	522	T1	∼1000 K	"{""unit"": ""K"", ""mods"": [""IsApproximate""]}"
+S0019103512004009-4350	1	MeasuredEntity	466	485	T2	maximum temperature	"{""HasQuantity"": ""T1""}"
+S0019103512004009-4350	1	MeasuredProperty	474	485	T3	temperature	"{""HasQuantity"": ""T1""}"
+S0019103512004009-4350	2	Quantity	571	582	T4	1000–2000 K	"{""unit"": ""K"", ""mods"": [""IsRange""]}"
+S0019103512004009-4350	2	MeasuredEntity	493	501	T5	C3 model	"{""HasQuantity"": ""T4""}"
+S0019103512004009-4350	2	MeasuredProperty	474	485	T6	temperature	"{""HasQuantity"": ""T4""}"

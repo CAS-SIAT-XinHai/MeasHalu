@@ -1,0 +1,4 @@
+docId	annotSet	annotType	annotId	text	other
+S0167880913001229-1033	1	Quantity	T1	0–10 cm	"{""unit"": ""cm"", ""mods"": [""IsRange""]}"
+S0167880913001229-1033	1	MeasuredEntity	T2	SOC	"{""HasQuantity"": ""T1""}"
+S0167880913001229-1033	3	reduction	2	"Qualifier	T4	at depth"	"{""Qualifies"": ""T3""}"

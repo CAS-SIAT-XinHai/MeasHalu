@@ -1,0 +1,114 @@
+Okay, let's start breaking down this input. The user needs me to extract quantities and related entities, properties, qualifiers, etc. First, I need to go through the text step by step.
+
+Looking at the input: The first sentence mentions the study approval by IRB and Ethics Committees, but no quantities here. Next, "written informed consent was obtained in all cases." Hmm, "all cases" could be a quantity? Wait, "all" is a qualifier but not a numerical value. Maybe not a quantity here.
+
+Next, "The patient with the PGRN S116X mutation followed the classic clinical progression for FTD..." No numbers here. Then, "developed parkinsonism, as do all FTD patients with PGRN mutations." Again, "all" is a qualifier, but not a specific quantity.
+
+Then, "Skin biopsies were collected, cut into small pieces, and placed on culture dishes..." No numbers here either. The next part: "The cells were maintained in Dulbecco's modified Eagle's medium supplemented with 10% fetal bovine serum, 1X nonessential amino acids, and penicillin/streptomycin (100 U/ml)." Ah, here's the quantities. "10% fetal bovine serum" – 10% is a percentage, so Quantity. Then "1X nonessential amino acids" – 1X is a concentration. "100 U/ml" penicillin/streptomycin – another concentration.
+
+So, the quantities are "10%", "1X", and "100 U/ml". Let's check each. 
+
+First, "10%": The unit is "%", and it's a percentage. The MeasuredEntity here would be "fetal bovine serum". The MeasuredProperty is "supplemented" but maybe that's part of the medium. Wait, the sentence is "supplemented with 10% fetal bovine serum". So the MeasuredEntity is "fetal bovine serum", the MeasuredProperty is "supplemented concentration" or perhaps just "concentration"? Or maybe the property is "concentration". But according to the example, in "The soda can's volume was 355 ml", the MeasuredProperty is "volume". So here, the property for "10%" would be the concentration. But the text doesn't explicitly mention "concentration". Hmm. Maybe the MeasuredEntity is "fetal bovine serum", and the MeasuredProperty is "concentration" (implied). But since it's not explicitly stated, maybe not. Alternatively, the property could be a part of the supplementation. This is a bit tricky.
+
+Alternatively, maybe the MeasuredEntity is "Dulbecco's modified Eagle's medium" and the MeasuredProperty is "supplementation" with fetal bovine serum. But the quantity is 10% fetal bovine serum. So the structure would be: MeasuredEntity "Dulbecco's modified Eagle's medium" has a MeasuredProperty "supplemented with fetal bovine serum", which has a Quantity "10%". But the example had "volume" as the MeasuredProperty. So perhaps here, the MeasuredProperty is "concentration" of fetal bovine serum. But since the text says "supplemented with 10% fetal bovine serum", the MeasuredEntity would be the medium, the MeasuredProperty is the supplementation, and the Quantity is 10%. But the original example includes "temperature" as the MeasuredProperty when the sentence was "The soda can's volume was 355 ml." So in that case, "volume" is the MeasuredProperty. Following that model, here, the MeasuredProperty would be the "concentration" or the "percentage" of fetal bovine serum in the medium. But the text doesn't explicitly mention "concentration" or "percentage". So perhaps the MeasuredEntity is "fetal bovine serum", the MeasuredProperty is "concentration" (implied), and the Quantity is "10%". But maybe the MeasuredEntity is "Dulbecco's modified Eagle's medium", and the MeasuredProperty is "supplemented with fetal bovine serum", with the Quantity being 10%. Alternatively, maybe the MeasuredProperty is the component being supplemented, which is "fetal bovine serum", and the Quantity is 10%. This is confusing. Let me check the example again.
+
+In the example, "10 grams of salt" has MeasuredEntity "salt", MeasuredProperty "amount", Quantity "10 grams". So the structure is MeasuredEntity (salt) has a property (amount) quantified as 10 grams. So here, "10% fetal bovine serum" would be similar: the MeasuredEntity is "fetal bovine serum", the MeasuredProperty is "concentration", and the Quantity is "10%". But in the text, it's written as "supplemented with 10% fetal bovine serum". So "fetal bovine serum" is the entity, and the 10% is the quantity. But the property here is part of the supplementation. Maybe the MeasuredEntity is the medium, the MeasuredProperty is "fetal bovine serum supplementation", and the Quantity is "10%". Alternatively, the MeasuredEntity is the fetal bovine serum, and the Quantity is 10%, but then the MeasuredProperty would need to be linked via HasProperty. Hmm. Maybe the way to model it is:
+
+MeasuredEntity: "fetal bovine serum"
+
+Quantity: "10%"
+
+Relation: MeasuredEntity HasQuantity Quantity. And maybe the MeasuredProperty is "concentration", but since that word isn't in the text, perhaps it's omitted. However, the example includes "volume" even though it's part of the possessive noun phrase. So in the given example, the MeasuredProperty is "volume" which is explicitly mentioned. Here, "concentration" isn't mentioned, so maybe the MeasuredProperty is implied. But according to the guidelines, should we only annotate explicit properties? The user instructions state: "MeasuredProperty: A descriptive property linked to both a MeasuredEntity (via "HasProperty") and a Quantity (via "HasQuantity"). It is optional." So if the property is not explicit, maybe it's omitted. So in this case, perhaps the MeasuredEntity is "fetal bovine serum", the Quantity is "10%", and there's no MeasuredProperty because the property (like concentration) isn't mentioned.
+
+Wait, but in the sentence, "supplemented with 10% fetal bovine serum", the "10%" is the concentration of fetal bovine serum in the medium. So perhaps the MeasuredEntity is the medium ("Dulbecco's modified Eagle's medium") and the MeasuredProperty is "fetal bovine serum supplementation", which would then have the Quantity "10%". But that feels a bit forced. Alternatively, maybe the MeasuredEntity is "fetal bovine serum", and the Quantity is "10%", and the MeasuredProperty is the supplementation. But the example uses explicit properties like "volume". Since "supplemented with" is a verb, maybe the MeasuredProperty is not explicitly present. Therefore, maybe we omit the MeasuredProperty here and just link the MeasuredEntity (fetal bovine serum) directly to the Quantity (10%) via HasQuantity.
+
+Similarly, "1X nonessential amino acids": 1X is the quantity, unit is "X", which is a concentration multiplier. The MeasuredEntity is "nonessential amino acids", and the Quantity is "1X". No explicit MeasuredProperty here either, so just link the entity to the quantity.
+
+"penicillin/streptomycin (100 U/ml)": Quantity is "100 U/ml", which is a concentration. The MeasuredEntity is "penicillin/streptomycin", and the unit is "U/ml". So again, no explicit MeasuredProperty, so link entity to quantity.
+
+So for each of these three quantities:
+
+1. 10% fetal bovine serum: Quantity is "10%", unit "%", mods: none (maybe IsCount? No, it's a percentage. Wait, IsCount is for counts of entities. Here, 10% is a measurement, not a count. So no mods. The unit is "%".
+
+2. 1X nonessential amino acids: Quantity "1X", unit "X", no mods. But "X" here is a multiplier, like a concentration. The "X" is a unit, so in other field, unit: "X".
+
+3. 100 U/ml: Quantity "100 U/ml", unit "U/ml", no mods.
+
+Now, the structure:
+
+Each of these quantities is part of the same supplement, but each is a separate component. So each is a separate annotSet. Let's see:
+
+First quantity: "10% fetal bovine serum" – "10%" is the quantity. The text is "10% fetal bovine serum". So the MeasuredEntity is "fetal bovine serum". The Quantity is "10%".
+
+AnnotSet 1:
+
+- Quantity: T1, text "10%", other: {"unit": "%"}
+
+- MeasuredEntity: T2, text "fetal bovine serum", {"HasQuantity": "T1"}
+
+Second quantity: "1X nonessential amino acids" – Quantity "1X", MeasuredEntity "nonessential amino acids".
+
+AnnotSet 2:
+
+- Quantity: T3, text "1X", other: {"unit": "X"}
+
+- MeasuredEntity: T4, text "nonessential amino acids", {"HasQuantity": "T3"}
+
+Third quantity: "100 U/ml" – Quantity "100 U/ml", MeasuredEntity "penicillin/streptomycin".
+
+AnnotSet 3:
+
+- Quantity: T5, text "100 U/ml", other: {"unit": "U/ml"}
+
+- MeasuredEntity: T6, text "penicillin/streptomycin", {"HasQuantity": "T5"}
+
+Wait, but in the input text, the part is "penicillin/streptomycin (100 U/ml)". So the Quantity is within parentheses next to the entity. So MeasuredEntity is "penicillin/streptomycin", Quantity "100 U/ml".
+
+Additionally, the main sentence is "supplemented with 10% fetal bovine serum, 1X nonessential amino acids, and penicillin/streptomycin (100 U/ml)". So each of these three components is part of the same medium. Are these three quantities part of the same annotSet or different? Because each is a separate component, each with their own Quantity and MeasuredEntity. So each would be a separate annotSet. In the example given earlier, each quantity (25°C, 500 milliliters, 10 grams) were in separate annotSets. So following that, each here would be separate.
+
+Now, checking the original example:
+
+In the example, each quantity is part of a different annotSet. For example, "approximately 25°C" is annotSet 1, "500 milliliters" is annotSet 2, etc. So each quantity, along with its related MeasuredEntity and MeasuredProperty, forms a separate annotSet. Therefore, in this case, each of the three quantities here would be separate annotSets.
+
+But wait, in the example, "temperature of the solution" leads to annotSet 1 with solution, temperature, and the quantity. Each is part of the same logical grouping. So in our case, each supplement is a separate component, so each has its own annotSet.
+
+So for "10% fetal bovine serum", annotSet 1: Quantity (10%) and MeasuredEntity (fetal bovine serum).
+
+Similarly for 1X and 100 U/ml.
+
+Are there any MeasuredProperties here? Like, in the example, "volume" was a MeasuredProperty. Here, since the text says "supplemented with 10% fetal bovine serum", perhaps the MeasuredProperty is the supplementation, but that's not a property like volume. Since the example required MeasuredProperties to be explicit, and here there are no explicit properties mentioned (like concentration, volume, etc.), perhaps there are no MeasuredProperties in this case. So each annotSet would have Quantity and MeasuredEntity only.
+
+Thus, the TSV would look like:
+
+annotSet | annotType | annotId | text | other
+
+1 | Quantity | T1 | 10% | {"unit": "%"}
+1 | MeasuredEntity | T2 | fetal bovine serum | {"HasQuantity": "T1"}
+
+2 | Quantity | T3 | 1X | {"unit": "X"}
+2 | MeasuredEntity | T4 | nonessential amino acids | {"HasQuantity": "T3"}
+
+3 | Quantity | T5 | 100 U/ml | {"unit": "U/ml"}
+3 | MeasuredEntity | T6 | penicillin/streptomycin | {"HasQuantity": "T5"}
+
+Are there any qualifiers? The text doesn't have any qualifiers like "approximately" here. All quantities are exact. "10%", "1X", "100 U/ml" – all precise. So no Qualifiers.
+
+Are there any modifiers for the quantities? Let's see:
+
+- "10%": Is it a count? No, it's a percentage. So no IsCount. It's a measurement. No modifiers. So "other" field is {"unit": "%"}.
+
+- "1X": "X" is a unit (times concentration). So same here, unit "X".
+
+- "100 U/ml": unit "U/ml".
+
+Therefore, these are all straightforward. Each Quantity has a unit, no modifiers.
+
+Now, checking the rest of the input text. Any other quantities?
+
+Looking at "iPSCs were generated as described previously (Takahashi et al., 2007)." The year 2007 is a date, not a quantity related to a measurement or count. So ignore.
+
+"Please see Supplemental Information for more details." No quantities there.
+
+So the three quantities are the only ones.
+
+Now, need to structure the TSV accordingly. Each annotSet increases by 1 for each quantity group.

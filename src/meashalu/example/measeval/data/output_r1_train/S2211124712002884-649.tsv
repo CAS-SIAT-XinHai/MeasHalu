@@ -1,0 +1,6 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2211124712002884-649	1	Quantity	117	121	T1	100%	"{""unit"": ""%""}"
+S2211124712002884-649	1	MeasuredEntity	89	104	T2	control line 20	"{""HasQuantity"": ""T1""}"
+S2211124712002884-649	1	MeasuredProperty	79	85	T3	Values	"{""HasQuantity"": ""T1""}"
+S2211124712002884-649	2	Quantity	127	130	T4	3–4	"{""mods"": [""IsRange"", ""IsCount""]}"
+S2211124712002884-649	2	MeasuredEntity	131	151	T5	independent cultures	"{""HasQuantity"": ""T4""}"

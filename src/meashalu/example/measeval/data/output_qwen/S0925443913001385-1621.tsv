@@ -1,0 +1,6 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0925443913001385-1621	1	Quantity	16	21	T1	27.5%	"{""unit"": ""%"", ""mods"": [""IsMean""]}"
+S0925443913001385-1621	1	MeasuredEntity	6	12	T2	MRPL12	"{""HasQuantity"": ""T1""}"
+S0925443913001385-1621	1	MeasuredProperty	22	31	T3	identical	"{""HasQuantity"": ""T1""}"
+S0925443913001385-1621	2	Quantity	150	160	T4	107 to end	"{""unit"": """", ""mods"": [""IsRange""]}"
+S0925443913001385-1621	2	MeasuredEntity	125	142	T5	C-terminal domain	"{""HasQuantity"": ""T4""}"

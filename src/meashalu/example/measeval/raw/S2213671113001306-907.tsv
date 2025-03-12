@@ -1,0 +1,7 @@
+docId	annotSet	annotType	annotId	text	other
+S2213671113001306-907	1	Quantity	T1	50 μm	"{""unit"": ""μm"", ""mods"": []}"
+S2213671113001306-907	1	MeasuredEntity	T2	scale bar	"{""HasQuantity"": ""T1""}"
+S2213671113001306-907	1	Qualifier	T3	stained for pan-cytokeratin	"{""Qualifies"": ""T2""}"
+S2213671113001306-907	2	Quantity	T4	200 μm	"{""unit"": ""μm"", ""mods"": []}"
+S2213671113001306-907	2	MeasuredEntity	T5	scale bar	"{""HasQuantity"": ""T4""}"
+S2213671113001306-907	2	Qualifier	T6	stained with hematoxylin/eosin	"{""Qualifies"": ""T5""}"

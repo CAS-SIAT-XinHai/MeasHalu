@@ -1,0 +1,6 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0960148113005727-1494	1	Quantity	42	81	T1	−0.43 ± 0.05 percentage points per year	"{""unit"": ""percentage points per year"", ""mods"": [""IsMeanHasSD""]}"
+S0960148113005727-1494	1	MeasuredProperty	4	20	T2	combined average	"{""HasQuantity"": ""T1""}"
+S0960148113005727-1494	1	MeasuredEntity	24	38	T3	these measures	"{""HasQuantity"": ""T1""}"
+S0960148113005727-1494	2	Quantity	90	101	T4	−1.6 ± 0.2%	"{""unit"": ""%"", ""mods"": [""IsMeanHasSD""]}"
+S0960148113005727-1494	2	MeasuredProperty	102	120	T5	annual degradation	"{""HasQuantity"": ""T4""}"

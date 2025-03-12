@@ -1,0 +1,13 @@
+docId	annotSet	annotType	annotId	text	other
+S0960148113005727-1451	1	Quantity	T1	12%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
+S0960148113005727-1451	1	Quantity	T2	2%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
+S0960148113005727-1451	1	MeasuredEntity	T3	load factor	"{""HasQuantity"": ""T1""}"
+S0960148113005727-1451	1	MeasuredProperty	T4	load factor	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T3""}"
+S0960148113005727-1451	2	Quantity	T5	12	"{""mods"": [""IsRange""]}"
+S0960148113005727-1451	2	Quantity	T6	17	"{""mods"": [""IsRange""]}"
+S0960148113005727-1451	2	MeasuredEntity	T7	age	"{""HasQuantity"": ""T5""}"
+S0960148113005727-1451	2	MeasuredProperty	T8	age	"{""HasQuantity"": ""T5"", ""HasProperty"": ""T7""}"
+S0960148113005727-1451	3	Quantity	T9	one	"{""mods"": [""IsCount""]}"
+S0960148113005727-1451	3	Quantity	T10	nine	"{""mods"": [""IsCount""]}"
+S0960148113005727-1451	3	MeasuredEntity	T11	turbines	"{""HasQuantity"": ""T9""}"
+S0960148113005727-1451	3	MeasuredProperty	T12	count	"{""HasQuantity"": ""T9"", ""HasProperty"": ""T11""}"

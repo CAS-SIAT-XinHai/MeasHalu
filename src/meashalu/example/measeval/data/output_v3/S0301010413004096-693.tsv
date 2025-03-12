@@ -1,0 +1,8 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0301010413004096-693	1	Quantity	575	579	T1	77 K	"{""unit"": ""K""}"
+S0301010413004096-693	1	MeasuredEntity	548	560	T2	temperatures	"{""HasQuantity"": ""T1""}"
+S0301010413004096-693	1	MeasuredProperty	538	560	T3	cryogenic temperatures	"{""HasQuantity"": ""T1""}"
+S0301010413004096-693	2	Quantity	602	609	T4	∼16 wt%	"{""unit"": ""wt%"", ""mods"": [""IsApproximate""]}"
+S0301010413004096-693	2	MeasuredProperty	610	631	T6	total uptake capacity	"{""HasQuantity"": ""T4""}"
+S0301010413004096-693	3	Quantity	1180	1184	T7	10 K	"{""unit"": ""K""}"
+S0301010413004096-693	3	MeasuredEntity	1138	1170	T8	neutron powder diffraction (NPD)	"{""HasQuantity"": ""T7""}"

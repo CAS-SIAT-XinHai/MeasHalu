@@ -1,0 +1,5 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0167610513002729-1062	1	Quantity	5	11	T1	0.64 H	"{""unit"": ""H""}"
+S0167610513002729-1062	1	MeasuredEntity	49	55	T2	street	"{""HasQuantity"": ""T1""}"
+S0167610513002729-1062	2	Quantity	13	28	T4	about two-third	"{""mods"": [""IsApproximate""]}"
+S0167610513002729-1062	2	MeasuredEntity	36	55	T5	way into the street	"{""HasQuantity"": ""T4""}"

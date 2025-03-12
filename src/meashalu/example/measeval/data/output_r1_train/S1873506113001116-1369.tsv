@@ -1,0 +1,12 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S1873506113001116-1369	1	Quantity	51	72	T1	more than 10 passages	"{""unit"": ""passages"", ""mods"": [""IsCount"", ""IsApproximate""]}"
+S1873506113001116-1369	1	MeasuredEntity	0	19	T2	BC1 and TNC1 hiPSCs	"{""HasQuantity"": ""T1""}"
+S1873506113001116-1369	1	MeasuredProperty	64	72	T3	passages	"{""HasQuantity"": ""T1""}"
+S1873506113001116-1369	2	Quantity	440	446	T4	8 days	"{""unit"": ""days""}"
+S1873506113001116-1369	3	Quantity	476	482	T7	4 days	"{""unit"": ""days""}"
+S1873506113001116-1369	4	Quantity	1185	1199	T10	43.57% ± 4.35%	"{""unit"": ""%"", ""mods"": [""IsMeanHasSD""]}"
+S1873506113001116-1369	4	Qualifier	1201	1206	T13	n = 3	"{""Qualifies"": ""T10""}"
+S1873506113001116-1369	5	Quantity	1212	1226	T14	43.22% ± 7.13%	"{""unit"": ""%"", ""mods"": [""IsMeanHasSD""]}"
+S1873506113001116-1369	5	Qualifier	1201	1206	T17	n = 3	"{""Qualifies"": ""T14""}"
+S1873506113001116-1369	6	Quantity	1533	1539	T18	0.0307	"{""mods"": [""IsCount""]}"
+S1873506113001116-1369	6	Qualifier	1541	1546	T21	n = 3	"{""Qualifies"": ""T18""}"

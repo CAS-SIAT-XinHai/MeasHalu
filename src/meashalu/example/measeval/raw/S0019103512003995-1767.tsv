@@ -1,0 +1,7 @@
+docId	annotSet	annotType	annotId	text	other
+S0019103512003995-1767	1	Quantity	T1	1083 nm	"{""unit"": ""nm""}"
+S0019103512003995-1767	1	MeasuredEntity	T2	He 1083 nm line	"{""HasQuantity"": ""T1""}"
+S0019103512003995-1767	2	Qualifier	T4	ground-based searches	"{""Qualifies"": ""T3""}"
+S0019103512003995-1767	2	Qualifier	T5	non-detection	"{""Qualifies"": ""T3""}"
+S0019103512003995-1767	2	Qualifier	T6	few observations	"{""Qualifies"": ""T5""}"
+S0019103512003995-1767	2	Qualifier	T7	difficult to analyze	"{""Qualifies"": ""T6""}"

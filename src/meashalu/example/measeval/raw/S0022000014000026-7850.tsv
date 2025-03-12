@@ -1,0 +1,5 @@
+docId	annotSet	annotType	annotId	text	other
+S0022000014000026-7850	1	Quantity	T1	[13]	"{""mods"": [""IsCount""]}"
+S0022000014000026-7850	1	MeasuredEntity	T2	model	"{""HasQuantity"": ""T1""}"
+S0022000014000026-7850	2	Quantity	T3	[13]	"{""mods"": [""IsCount""]}"
+S0022000014000026-7850	2	MeasuredEntity	T4	properties	"{""HasQuantity"": ""T3""}"

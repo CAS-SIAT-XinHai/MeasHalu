@@ -1,0 +1,3 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2213671113000738-430	1	Quantity	28	36	T1	3 months	"{""unit"": ""months""}"
+S2213671113000738-430	1	MeasuredEntity	43	58	T2	transplantation	"{""HasQuantity"": ""T1""}"

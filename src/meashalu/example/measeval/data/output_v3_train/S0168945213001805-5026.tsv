@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0168945213001805-5026	1	Quantity	201	204	T1	13%	"{""unit"": ""%"", ""mods"": []}"
+S0168945213001805-5026	1	MeasuredEntity	159	174	T2	wild-type trees	"{""HasQuantity"": ""T1""}"
+S0168945213001805-5026	1	MeasuredProperty	181	191	T3	net growth	"{""HasQuantity"": ""T1""}"
+S0168945213001805-5026	2	Quantity	431	436	T4	three	"{""mods"": [""IsCount""]}"
+S0168945213001805-5026	2	MeasuredEntity	437	451	T5	beetle species	"{""HasQuantity"": ""T4""}"
+S0168945213001805-5026	2	MeasuredProperty	422	427	T6	toxic	"{""HasQuantity"": ""T4""}"

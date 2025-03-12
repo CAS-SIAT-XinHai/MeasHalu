@@ -1,0 +1,3 @@
+docId	annotSet	annotType	annotId	text	other
+S2213671113000921-714	1	Quantity	T1	100 μm	"{""unit"": ""μm""}"
+S2213671113000921-714	1	MeasuredEntity	T2	scale bar	"{""HasQuantity"": ""T1""}"

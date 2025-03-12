@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0960148113005727-903	1	Quantity	108	140	T1	lower cumulative lifetime output	"{""mods"": [""IsCount""]}"
+S0960148113005727-903	1	MeasuredEntity	82	92	T2	wind farms	"{""HasQuantity"": ""T1""}"
+S0960148113005727-903	1	MeasuredProperty	134	140	T3	output	"{""HasQuantity"": ""T1""}"
+S0960148113005727-903	2	Quantity	378	409	T4	shorter than its technical life	"{""mods"": [""IsCount""]}"
+S0960148113005727-903	2	MeasuredEntity	301	308	T5	turbine	"{""HasQuantity"": ""T4""}"
+S0960148113005727-903	2	MeasuredProperty	345	358	T6	economic life	"{""HasQuantity"": ""T4""}"

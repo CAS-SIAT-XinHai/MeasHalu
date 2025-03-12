@@ -1,0 +1,5 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2213158213000582-1390	1	Quantity	23	28	T1	50 ms	"{""unit"": ""ms""}"
+S2213158213000582-1390	1	MeasuredEntity	66	89	T2	STG and non-STG regions	"{""HasQuantity"": ""T3""}"
+S2213158213000582-1390	1	MeasuredProperty	45	62	T3	group differences	"{""HasQuantity"": ""T3""}"
+S2213158213000582-1390	1	MeasuredEntity	106	108	T5	HC	"{""HasQuantity"": ""T1""}"

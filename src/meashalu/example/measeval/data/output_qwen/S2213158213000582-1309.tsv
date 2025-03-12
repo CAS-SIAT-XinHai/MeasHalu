@@ -1,0 +1,9 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2213158213000582-1309	1	Quantity	372	378	T1	500 ms	"{""unit"": ""ms"", ""mods"": [""IsRange""]}"
+S2213158213000582-1309	1	MeasuredProperty	365	371	T3	epochs	"{""HasQuantity"": ""T1""}"
+S2213158213000582-1309	2	Quantity	511	521	T4	103 trials	"{""unit"": ""trials"", ""mods"": [""IsMean""]}"
+S2213158213000582-1309	2	MeasuredEntity	540	552	T5	each subject	"{""HasQuantity"": ""T4""}"
+S2213158213000582-1309	3	Quantity	622	624	T7	39	"{""unit"": """", ""mods"": [""IsCount""]}"
+S2213158213000582-1309	3	MeasuredEntity	572	577	T8	group	"{""HasQuantity"": ""T7""}"
+S2213158213000582-1309	4	Quantity	628	632	T10	0.30	"{""unit"": """", ""mods"": [""IsMean""]}"
+S2213158213000582-1309	5	Quantity	638	642	T13	0.77	"{""unit"": """", ""mods"": [""IsMean""]}"

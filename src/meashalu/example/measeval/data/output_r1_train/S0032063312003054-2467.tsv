@@ -1,0 +1,5 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0032063312003054-2467	1	Quantity	719	722	T1	10%	"{""unit"": ""%""}"
+S0032063312003054-2467	1	MeasuredEntity	726	736	T2	MEX orbits	"{""HasQuantity"": ""T1""}"
+S0032063312003054-2467	2	Quantity	479	490	T3	almost half	"{""mods"": [""IsApproximate""]}"
+S0032063312003054-2467	2	MeasuredEntity	413	472	T4	combination of up-going electrons and down-going heavy-ions	"{""HasQuantity"": ""T3""}"

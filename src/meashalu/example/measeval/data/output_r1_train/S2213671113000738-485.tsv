@@ -1,0 +1,6 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2213671113000738-485	1	Quantity	81	89	T1	3 months	"{""unit"": ""months""}"
+S2213671113000738-485	1	MeasuredEntity	6	31	T2	Magnetic resonance images	"{""HasQuantity"": ""T1""}"
+S2213671113000738-485	1	Qualifier	90	110	T3	after the transplant	"{""Qualifies"": ""T1""}"
+S2213671113000738-485	2	Quantity	60	65	T4	No. 6	"{""mods"": [""IsCount""]}"
+S2213671113000738-485	2	MeasuredEntity	37	77	T5	representative animal (No. 6, autograft)	"{""HasQuantity"": ""T4""}"

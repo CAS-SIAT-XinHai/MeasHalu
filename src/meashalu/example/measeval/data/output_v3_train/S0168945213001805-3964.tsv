@@ -1,0 +1,6 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0168945213001805-3964	1	Quantity	290	295	T1	51-bp	"{""unit"": ""bp""}"
+S0168945213001805-3964	1	MeasuredEntity	271	282	T2	mutant gene	"{""HasQuantity"": ""T1""}"
+S0168945213001805-3964	2	Quantity	975	978	T4	40%	"{""unit"": ""%""}"
+S0168945213001805-3964	2	MeasuredEntity	900	912	T5	Hybrid aspen	"{""HasQuantity"": ""T4""}"
+S0168945213001805-3964	3	Quantity	1011	1021	T7	nine weeks	"{""unit"": ""weeks""}"

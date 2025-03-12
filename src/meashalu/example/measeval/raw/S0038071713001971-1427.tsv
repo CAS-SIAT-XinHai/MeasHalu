@@ -1,0 +1,4 @@
+docId	annotSet	annotType	annotId	text	other
+S0038071713001971-1427	1	Quantity	T1	two years	"{""unit"": ""years""}"
+S0038071713001971-1427	1	MeasuredEntity	T2	yield records	"{""HasQuantity"": ""T1""}"
+S0038071713001971-1427	1	Qualifier	T3	recent	"{""Qualifies"": ""T1""}"

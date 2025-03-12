@@ -1,0 +1,183 @@
+Okay, I need to process this input text and extract the structured annotations as per the guidelines. Let's start by understanding the task. The goal is to identify Quantities, MeasuredEntities, MeasuredProperties, and Qualifiers, and their relationships. The output should be in TSV format with specific fields.
+
+First, I'll go through the input paragraph step by step. Let me highlight all the quantities mentioned here. The text mentions several days (D5, D13, D20), percentages with standard deviations (like approximately 78 ± 0.6%, 88 ± 1.1%, 29 ± 0.9%), and a concentration (20 μg/ml). Also, there's "periodic acid-Schiff (PAS)-positive" but that's a test result, not a quantity.
+
+Starting with the quantities. The days like Day 5, D5, D13, D20 are counts of days. But according to the examples, counts are annotated as Quantities with IsCount modifier. However, the example given for IsCount was "five samples". Here, D5, D13, D20 are references to specific days in the differentiation process. Are they counts? Maybe, but need to check the guidelines. The instructions say counts of entities (e.g., "five samples") should be annotated. Days here are more like time points rather than counts of objects. So maybe not. Wait, the example includes "four samples" as a Quantity with IsCount. But in the input text, "Day 5", "D5", etc., are time points. Maybe they are not considered quantities here. Let's check the original example again. The example had "The soda can's volume was 355 ml." So quantities are numerical values with units or counts. The days here are numerical but without a unit, perhaps. Wait, "D5" is "Day 5", which is a count of days. So "Day 5" would be "5 days", but here it's written as "Day 5". Hmm. So maybe "Day 5" is a MeasuredEntity, but the "5" is a Quantity. Wait, according to the Annotation Type Definitions, Quantity includes counts. So "5" in "Day 5" is a count, hence a Quantity. But in the input text, they are written as "Day 5 (D5)", "D13", etc. So the text "D5", "D13", "D20" would be the Quantity spans. For example, "D5" is equivalent to "5 days", so Quantity is "D5" with unit "days" and IsCount? Wait, but "D5" is a nominal label for the day of the experiment, not exactly a count. The same applies to "D20". However, in the example, "five samples" is annotated as a Quantity with IsCount. So perhaps "D5" is a label, not a quantity. Alternatively, maybe "Day 5" is part of the MeasuredEntity. Hmm. Let me check the example again. In the example, "The soda can's volume was 355 ml." The Quantity is "355 ml", MeasuredEntity is "soda can", MeasuredProperty is "volume". So in the current input, when they mention "Day 5 differentiated FAP-specific iPS cells", maybe "Day 5" is a Qualifier indicating the time point. But according to the problem, Qualifiers are spans that describe conditions affecting the Quantity, etc. So perhaps "Day 5" here is a Qualifier that qualifies when the measurement was taken. But in the input text, the quantities are the percentages like "approximately 78 ± 0.6%", "88 ± 1.1%", etc., and "20 μg/ml". Also, the "5" in "Day 5" could be a Quantity. Let me think again. The Annotation Steps say to annotate counts as Quantities. "Day 5" is a count of days, so the Quantity would be "5" with IsCount modifier, unit "days", but in the text, it's written as "Day 5" or "D5". So the exact span would be "D5" as the text, but "5" is the numerical part. However, the instruction says to extract the exact text of the annotation from the input. So if the text says "D5", then "D5" is the Quantity span. But "D5" is not a numerical value; it's a label. Maybe this is a tricky case. Alternatively, perhaps "D5" is part of the MeasuredEntity or Qualifier, not a Quantity. Let's check the input text again. For example, the sentence: "real-time PCR analysis on Day 5 (D5), D13 and D20 differentiated FAP-specific iPS cells". Here, "Day 5 (D5)", "D13", "D20" are time points when the cells were differentiated. The percentages mentioned later are the actual quantities. Let me focus on the clear quantities first. 
+
+The percentages: "approximately 78 ± 0.6%", "approximately 88 ± 1.1%", "approximately 29 ± 0.9%", and "20 μg/ml". Each of these is a Quantity. Let's process these first.
+
+For "approximately 78 ± 0.6%": The text is "approximately 78 ± 0.6%", which is a Quantity. The unit is "%", and the modifiers are IsApproximate and IsMeanHasSD (since it's a mean with standard deviation). The MeasuredEntity here would be "cells" (as in "Sox17-positive cells"), and the MeasuredProperty is the percentage positive. But looking at the context: "approximately 78 ± 0.6% of cells were Sox17-positive on D5". The MeasuredProperty here is "Sox17-positive", but according to the definitions, MeasuredProperty is a descriptive property like "volume" or "temperature". So maybe the MeasuredProperty is "percentage" or "positivity". Alternatively, "Sox17-positive" could be part of the MeasuredEntity. Hmm. Let's break it down. The Quantity is "78 ± 0.6%", which is a percentage. The MeasuredEntity is "cells", and the MeasuredProperty is "Sox17-positive percentage". But the text says "Sox17-positive on D5". So perhaps the MeasuredProperty is "positivity", and the MeasuredEntity is "Sox17 cells on D5". Alternatively, the MeasuredEntity is "cells", and the MeasuredProperty is "Sox17-positive", with a Qualifier "on D5". But this is getting complicated. According to the example, in "The can contained 175 ml of soda after I drank half the can", the Qualifier is "after I drank half the can". So time points like "on D5" would be Qualifiers. Therefore, "on D5" would be a Qualifier that qualifies the Quantity. So for each percentage, the Qualifier is "on D5", "on D13", etc. However, in the input text, the Qualifiers are part of the sentences. For example: "approximately 78 ± 0.6% of cells were Sox17-positive on D5". Here, "on D5" is a Qualifier for the Quantity "approximately 78 ± 0.6%". Similarly, "on D13" and "on D20" are Qualifiers for their respective percentages. Additionally, "The ALB secretion ... on D20 was approximately 20 μg/ml". So "on D20" is a Qualifier for the Quantity "20 μg/ml". So the structure would be:
+
+- Quantity: "approximately 78 ± 0.6%", with modifiers IsApproximate and IsMeanHasSD, unit "%".
+- MeasuredEntity: "cells" (from "cells were Sox17-positive").
+- MeasuredProperty: "Sox17-positive" (as the property being measured).
+- Qualifier: "on D5".
+
+But according to the guidelines, MeasuredProperty should be a property linked to the MeasuredEntity. So in this case, the MeasuredProperty could be "positivity" or "expression level", but in the text, it's "Sox17-positive". Alternatively, maybe the MeasuredProperty is "Sox17-positive percentage", but the exact term in the text is "Sox17-positive". Let me check the example again. In the example, "volume" was the MeasuredProperty. So in the current case, the MeasuredProperty would be "expression" or "positivity", but the text refers to "Sox17-positive" as a marker. Maybe "Sox17-positive" is part of the MeasuredEntity. Alternatively, perhaps the MeasuredEntity is "cells", and the MeasuredProperty is "Sox17-positive percentage", but the actual MeasuredProperty from the text would be "percentage", and the "Sox17-positive" is a descriptor. This is a bit ambiguous. To follow the example structure, perhaps:
+
+MeasuredEntity: "Sox17-positive cells"
+
+But according to the guidelines, MeasuredEntity is the object associated with the Quantity. So if the Quantity is the percentage of cells that are Sox17-positive, then the MeasuredEntity could be "cells", and the MeasuredProperty is "Sox17-positive percentage". Alternatively, the MeasuredProperty is "percentage", and the Qualifier is "Sox17-positive". Hmm. This is getting complicated. Let's try to proceed step by step.
+
+Starting with the Quantity "approximately 78 ± 0.6%". The text is "approximately 78 ± 0.6%". The modifiers here are IsApproximate (because of "approximately") and IsMeanHasSD (due to "± 0.6"). The unit is "%". So in the 'other' field, it would be {"mods": ["IsApproximate", "IsMeanHasSD"], "unit": "%"}.
+
+The MeasuredEntity here is "cells" (as in "cells were Sox17-positive"), but the exact text is "cells" in "Sox17-positive cells". However, the sentence is "approximately 78 ± 0.6% of cells were Sox17-positive on D5". So the MeasuredEntity is "cells" (the entity being measured), and the MeasuredProperty is "Sox17-positive percentage". But the MeasuredProperty in the text is not explicitly stated; instead, "Sox17-positive" is a marker. So perhaps the MeasuredProperty is "positivity" (as in the property being measured is the positivity for Sox17), and the MeasuredEntity is "cells". The relationship would be:
+
+MeasuredEntity (cells) --HasProperty--> MeasuredProperty (Sox17-positive) --HasQuantity--> Quantity (78 ± 0.6%).
+
+But wait, in the example, the MeasuredProperty was "volume" linked to the MeasuredEntity "soda can" via HasProperty, and the Quantity "355 ml" via HasQuantity. Similarly, here, the MeasuredProperty could be "Sox17 positivity", the MeasuredEntity is "cells", and the Quantity is the percentage. However, the text doesn't explicitly mention "positivity" as a property; it says "Sox17-positive". Therefore, perhaps the MeasuredProperty is "Sox17-positive", and the MeasuredEntity is "cells". But the example used "volume" as the property. Alternatively, maybe "Sox17" is the MeasuredProperty, and "positive" is part of the Quantity's modifier. Hmm. Another approach: the sentence is about the percentage of cells that are positive for Sox17. The MeasuredEntity is the cells, the MeasuredProperty is the percentage of Sox17-positive cells, and the Quantity is 78 ± 0.6%. But the MeasuredProperty would then be the "percentage of Sox17-positive cells", but the text mentions "Sox17-positive" as a marker. 
+
+Alternatively, perhaps the MeasuredEntity is "Sox17-positive cells", and the Quantity is the percentage, but that doesn't fit the structure. Let's think differently. Maybe the MeasuredEntity is "cells", the MeasuredProperty is "Sox17-positive", and the Quantity is the percentage. So relationships would be: MeasuredEntity (cells) --HasProperty--> MeasuredProperty (Sox17-positive), and MeasuredProperty --HasQuantity--> Quantity (78 ± 0.6%). But in the example, the MeasuredProperty (volume) is linked to the MeasuredEntity (soda can) and the Quantity (355 ml). So maybe here, the MeasuredProperty is "percentage" or "expression level", and the MeasuredEntity is "cells", with the Qualifier "Sox17-positive". But I need to follow the example structure.
+
+Alternatively, perhaps the MeasuredProperty is "percentage", and the MeasuredEntity is "Sox17-positive cells". Then, the Quantity is 78 ± 0.6%, and the MeasuredEntity is "Sox17-positive cells". But that might not fit. This is getting a bit tricky. To proceed, I'll need to make a judgment call based on the guidelines. Let's try to model one of the percentages first.
+
+Take "approximately 78 ± 0.6% of cells were Sox17-positive on D5". The Quantity is "approximately 78 ± 0.6%", with unit "%", modifiers IsApproximate and IsMeanHasSD. The MeasuredEntity would be "cells", and the MeasuredProperty would be "Sox17-positive". The Qualifier is "on D5". So:
+
+- Quantity T1: "approximately 78 ± 0.6%", other: {"mods": ["IsApproximate", "IsMeanHasSD"], "unit": "%"}
+- MeasuredEntity T2: "cells", other: {"HasQuantity": "T1"}
+- MeasuredProperty T3: "Sox17-positive", other: {"HasQuantity": "T1", "HasProperty": "T2"}
+- Qualifier T4: "on D5", other: {"Qualifies": "T1"}
+
+Wait, but "Sox17-positive" is a marker, not a property. Maybe the MeasuredProperty is "positivity" and the Qualifier is "Sox17". Hmm. Alternatively, maybe the MeasuredProperty is "expression level" of Sox17. But the text refers to "Sox17-positive", indicating the presence of the marker. This is complex. According to the guidelines, MeasuredProperty is a descriptive property linked to the MeasuredEntity. In the example, "volume" is a property of the soda can. Here, the property being measured is the percentage of cells positive for Sox17, so the MeasuredProperty could be "percentage positive", and the MeasuredEntity is "cells". But the term "percentage positive" isn't in the text; "Sox17-positive" is part of the description. Therefore, maybe the MeasuredEntity is "Sox17-positive cells", but that's combining the property with the entity. Alternatively, perhaps the MeasuredEntity is "cells", and the MeasuredProperty is "Sox17-positive percentage". However, the text doesn't explicitly mention "percentage" as a property. The challenge here is identifying the MeasuredProperty when it's implied rather than stated. 
+
+In the example, "volume" was explicitly mentioned. In the input text, the closest explicit properties are "expression" (e.g., "Expression of the endoderm marker Sox17 was observed"), but in the quantitative parts, the properties are implicit. Let's consider that the MeasuredProperty here is the "percentage" (the actual quantity being measured), and the Qualifier "Sox17-positive" describes what the percentage refers to. But according to the guidelines, Qualifiers are conditions or attributes affecting the Quantity, etc. So "Sox17-positive" could be a Qualifier for the Quantity, indicating what the percentage measures. However, in the example, the Qualifier was a temporal condition ("after I drank half the can"). Alternatively, "Sox17-positive" could be part of the MeasuredEntity or MeasuredProperty. 
+
+Alternatively, perhaps the MeasuredProperty is "positivity", and the Qualifier is "Sox17", but this is speculative. Given the ambiguity, I'll proceed by considering "Sox17-positive" as part of the MeasuredEntity, making it "Sox17-positive cells", but that may not align with the example structure. Alternatively, maybe the MeasuredEntity is "cells", and the MeasuredProperty is "Sox17-positive", with the Quantity being the percentage. This would follow the example where the MeasuredProperty is "volume" (a property) of the MeasuredEntity "soda can". So MeasuredEntity: "cells", MeasuredProperty: "Sox17-positive", Quantity: "78 ± 0.6%". Relationships: MeasuredEntity (cells) --HasProperty--> MeasuredProperty (Sox17-positive), and MeasuredProperty --HasQuantity--> Quantity. The Qualifier "on D5" would qualify the Quantity. 
+
+Proceeding with this approach:
+
+For the first Quantity "approximately 78 ± 0.6%":
+- annotSet 1
+- Quantity T1: text "approximately 78 ± 0.6%", other: {"mods": ["IsApproximate", "IsMeanHasSD"], "unit": "%"}
+- MeasuredEntity T2: text "cells", other: {"HasProperty": "T3"} (assuming MeasuredProperty is T3)
+- MeasuredProperty T3: text "Sox17-positive", other: {"HasQuantity": "T1", "HasProperty": "T2"}
+- Qualifier T4: text "on D5", other: {"Qualifies": "T1"}
+
+But wait, the MeasuredEntity should have a HasQuantity relationship. In the example, the MeasuredEntity (soda can) HasQuantity to the Quantity (355 ml), and the MeasuredProperty (volume) HasQuantity to the same Quantity. So in this case, if the MeasuredEntity is "cells", then it should have a HasQuantity to T1, and the MeasuredProperty "Sox17-positive" would have HasProperty to T2 and HasQuantity to T1. Hmm, maybe. Let's model it like the example:
+
+In the example, the MeasuredEntity (T2: solution) HasQuantity to T1 (25°C), and the MeasuredProperty (T3: temperature) HasProperty to T2 and HasQuantity to T1. So similarly here:
+
+- MeasuredEntity T2: "cells" would HasQuantity to T1.
+- MeasuredProperty T3: "Sox17-positive" would HasProperty to T2 and HasQuantity to T1.
+
+But "Sox17-positive" is a state of the cells, not a property like temperature. This may not fit perfectly, but given the example, this seems like the way to proceed.
+
+Next, the other percentages: "approximately 88 ± 1.1%" and "approximately 29 ± 0.9%". These are for AFP-positive and ALB-positive cells, respectively. Each would follow a similar structure:
+
+For "approximately 88 ± 1.1%":
+- Quantity T5: "approximately 88 ± 1.1%", modifiers IsApproximate and IsMeanHasSD, unit "%".
+- MeasuredEntity T6: "cells" (same as before, but perhaps a new annotSet since it's a different measurement)
+Wait, but "cells" is mentioned again here. However, each annotSet is a logical grouping. Since these are different measurements (different percentages for different markers), each would be a separate annotSet. So annotSet 2 for the AFP-positive, annotSet 3 for ALB-positive, etc.
+
+Wait, but in the example, each Quantity with its related entities formed a separate annotSet. For example, the first annotSet was for the temperature, the second for volume, etc. So here, each percentage would be its own annotSet.
+
+So:
+
+annotSet 1:
+- Quantity T1: approximately 78 ± 0.6%
+- MeasuredEntity T2: cells
+- MeasuredProperty T3: Sox17-positive
+- Qualifier T4: on D5
+
+annotSet 2:
+- Quantity T5: approximately 88 ± 1.1%
+- MeasuredEntity T6: cells
+- MeasuredProperty T7: AFP-positive
+- Qualifier T8: on D13
+
+annotSet 3:
+- Quantity T9: approximately 29 ± 0.9%
+- MeasuredEntity T10: cells
+- MeasuredProperty T11: ALB-positive
+- Qualifier T12: on D20
+
+Then, the fourth Quantity is "approximately 20 μg/ml" for ALB secretion. This would be annotSet 4:
+- Quantity T13: approximately 20 μg/ml
+- MeasuredEntity T14: ALB secretion
+- MeasuredProperty T15: concentration (implied by μg/ml)
+- Qualifier T16: on D20
+
+But wait, the text says "The ALB secretion in the media of differentiated FAP-specific iPS cells on D20 was approximately 20 μg/ml". So the MeasuredEntity here is "ALB secretion", the MeasuredProperty is "concentration", and the Quantity is "20 μg/ml". The Qualifier is "on D20".
+
+So putting it all together:
+
+Each of these percentages and the concentration will be separate annotSets.
+
+Additionally, there are references to days (D5, D13, D20) in the Qualifiers. Are these days considered Quantities? For example, in "Day 5 (D5)", the "5" is a count of days. According to the guidelines, counts should be annotated as Quantities. However, in the text, the days are mentioned as "D5", "D13", which are labels. So perhaps "D5" is not a Quantity but a Qualifier. However, if "5" is part of the text as a count, like "Day 5", then "5" would be a Quantity with IsCount. Let's check the text again. The text says "real-time PCR analysis on Day 5 (D5), D13 and D20 differentiated FAP-specific iPS cells". Here, "Day 5" is written with the number, and "D5" is the abbreviation. So "Day 5" includes the Quantity "5" as a count of days. However, the exact text span would be "Day 5", so the Quantity would be "5" with unit "days" and IsCount. But the problem is whether we should annotate "Day 5" as a Quantity. The example included "four samples" as a Quantity with IsCount. Here, "Day 5" is a count of days, so the Quantity would be "5" with unit "days" and IsCount. However, the text span is "Day 5", which includes "Day". According to the guidelines, the Quantity is the exact text span. So if the text says "Day 5", do we annotate "5" as the Quantity, or the whole "Day 5" as the MeasuredEntity? This is unclear.
+
+Perhaps "Day 5" is a MeasuredEntity indicating the time point, and the "5" within it is a Quantity. However, the guidelines state that the text should be the exact span. For example, in the text "five samples", the Quantity is "five samples"? Wait, no. In the example given in the initial instruction, "four samples" is the Quantity. Wait, the example shows:
+
+Example: "four samples" in "four samples" would be a Quantity with IsCount. So in that case, the entire "four samples" is the Quantity. But according to the definition, Quantity can be a count (e.g., "5 apples"). So "four samples" is a Quantity with IsCount. However, in the example provided by the user in the initial prompt, "four samples" is not present. The example given was:
+
+Example Paragraph:
+"The temperature of the solution was approximately 25°C, and the volume of the solvent was 500 milliliters. We also added 10 grams of salt to the solution."
+
+In their example output, the Quantities are "approximately 25°C", "500 milliliters", "10 grams". So counts like "10 grams" is a Quantity. So in the current input, the days are labeled as "D5", "D13", etc. However, in the sentence "real-time PCR analysis on Day 5 (D5)...", "Day 5" includes the number 5. Should "Day 5" be considered a Quantity with IsCount, unit "days"? The "5" is a count of days, so yes. But the exact text is "Day 5". However, according to the guidelines, the Quantity should include the entire span. For example, "approximately 25°C" includes the modifier "approximately". Similarly, "Day 5" includes the word "Day", but the numerical value is "5". However, according to the guidelines, if a quantity involves a modifier like "approximately", include it in the span. But "Day" here is part of the entity, not a modifier. This is a bit ambiguous. Perhaps "Day 5" is part of the Qualifier or MeasuredEntity, and the "5" is a Quantity. But according to the guidelines, the Quantity should be the exact text span. So if "Day 5" is part of the text, and the number 5 is embedded within it, but the entire phrase is not a numerical value, perhaps it's not a Quantity. Alternatively, if the text was "5 days", that would be a Quantity. But "Day 5" is a label for a specific day in an experiment. Therefore, it's more likely a Qualifier indicating the time point. Therefore, the Qualifier spans like "on D5", "on D13", etc., include the day labels, but the days themselves (D5, D13, D20) are not Quantities but part of the Qualifier text. Therefore, the only Quantities are the percentages and the concentration. 
+
+So, proceeding with the Quantities identified:
+
+1. approximately 78 ± 0.6%
+2. approximately 88 ± 1.1%
+3. approximately 29 ± 0.9%
+4. approximately 20 μg/ml
+
+Each of these has their own annotSets.
+
+Now, let's process each Quantity:
+
+AnnotSet 1: "approximately 78 ± 0.6%"
+- Quantity T1: text "approximately 78 ± 0.6%", other: {"mods": ["IsApproximate", "IsMeanHasSD"], "unit": "%"}
+- MeasuredEntity: "cells" (from "cells were Sox17-positive")
+- MeasuredProperty: "Sox17-positive" (the property being measured is the positivity for Sox17)
+- Qualifier: "on D5"
+
+Relationships:
+- MeasuredEntity T2 ("cells") has HasQuantity to T1.
+- MeasuredProperty T3 ("Sox17-positive") has HasProperty to T2 and HasQuantity to T1.
+- Qualifier T4 ("on D5") Qualifies T1.
+
+AnnotSet 2: "approximately 88 ± 1.1%"
+- Quantity T5: text "approximately 88 ± 1.1%", other: {"mods": ["IsApproximate", "IsMeanHasSD"], "unit": "%"}
+- MeasuredEntity T6: "cells"
+- MeasuredProperty T7: "AFP-positive"
+- Qualifier T8: "on D13"
+
+AnnotSet 3: "approximately 29 ± 0.9%"
+- Quantity T9: text "approximately 29 ± 0.9%", other: {"mods": ["IsApproximate", "IsMeanHasSD"], "unit": "%"}
+- MeasuredEntity T10: "cells"
+- MeasuredProperty T11: "ALB-positive"
+- Qualifier T12: "on D20"
+
+AnnotSet 4: "approximately 20 μg/ml"
+- Quantity T13: text "approximately 20 μg/ml", other: {"mods": ["IsApproximate"], "unit": "μg/ml"}
+- MeasuredEntity T14: "ALB secretion"
+- MeasuredProperty T15: "concentration" (implied by the unit μg/ml)
+- Qualifier T16: "on D20"
+
+Wait, the text says "The ALB secretion ... was approximately 20 μg/ml". The MeasuredEntity here is "ALB secretion", the MeasuredProperty is "concentration", and the Quantity is "20 μg/ml". The Qualifier is "on D20".
+
+But in this case, the MeasuredProperty "concentration" is not explicitly mentioned in the text. However, the unit "μg/ml" implies it's a concentration. According to the guidelines, if the MeasuredProperty is not explicit, should we infer it? The example had explicit properties like "volume". Here, since the unit implies concentration, it's reasonable to infer "concentration" as the MeasuredProperty. Therefore, MeasuredProperty is "concentration".
+
+Putting this into TSV:
+
+annotSet    annotType           annotId    text                         other
+1           Quantity            T1         approximately 78 ± 0.6%      {"mods": ["IsApproximate", "IsMeanHasSD"], "unit": "%"}
+1           MeasuredEntity      T2         cells                        {"HasQuantity": "T1"}
+1           MeasuredProperty    T3         Sox17-positive               {"HasProperty": "T2", "HasQuantity": "T1"}
+1           Qualifier           T4         on D5                        {"Qualifies": "T1"}
+2           Quantity            T5         approximately 88 ± 1.1%      {"mods": ["IsApproximate", "IsMeanHasSD"], "unit": "%"}
+2           MeasuredEntity      T6         cells                        {"HasQuantity": "T5"}
+2           MeasuredProperty    T7         AFP-positive                 {"HasProperty": "T6", "HasQuantity": "T5"}
+2           Qualifier           T8         on D13                       {"Qualifies": "T5"}
+3           Quantity            T9         approximately 29 ± 0.9%      {"mods": ["IsApproximate", "IsMeanHasSD"], "unit": "%"}
+3           MeasuredEntity      T10        cells                        {"HasQuantity": "T9"}
+3           MeasuredProperty    T11        ALB-positive                 {"HasProperty": "T10", "HasQuantity": "T9"}
+3           Qualifier           T12        on D20                       {"Qualifies": "T9"}
+4           Quantity            T13        approximately 20 μg/ml       {"mods": ["IsApproximate"], "unit": "μg/ml"}
+4           MeasuredEntity      T14        ALB secretion                {"HasQuantity": "T13"}
+4           MeasuredProperty    T15        concentration                {"HasProperty": "T14", "HasQuantity": "T13"}
+4           Qualifier           T16        on D20                       {"Qualifies": "T13"}
+
+Additionally, the text mentions "periodic acid-Schiff (PAS)-positive", but this is a test result and not a quantity, so it's not annotated.
+
+Finally, check if there are any other quantities. The initial part mentions "serial changes of media as shown in Fig. 3A" but there's no numerical quantity there. The other parts mention "D7" but no quantity associated with it. The other days are part of the differentiation process but without quantities attached. Thus, the four Quantities identified are the only ones.

@@ -1,0 +1,8 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0016236113008041-3161	1	Quantity	50	56	T1	4.5 kg	"{""unit"": ""kg""}"
+S0016236113008041-3161	1	Quantity	536	545	T3	<0.01 ppm	"{""unit"": ""ppm"", ""mods"": [""IsRange""]}"
+S0016236113008041-3161	1	Quantity	667	673	T5	<2 ppm	"{""unit"": ""ppm"", ""mods"": [""IsRange""]}"
+S0016236113008041-3161	1	MeasuredEntity	686	699	T2	bed inventory	"{""HasQuantity"": ""T1""}"
+S0016236113008041-3161	1	MeasuredEntity	623	637	T6	concentrations	"{""HasQuantity"": ""T5""}"
+S0016236113008041-3161	2	Quantity	450	455	T7	13 kg	"{""unit"": ""kg""}"
+S0016236113008041-3161	3	Quantity	484	488	T9	6 kg	"{""unit"": ""kg""}"

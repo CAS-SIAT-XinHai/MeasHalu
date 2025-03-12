@@ -1,0 +1,281 @@
+Okay, let's tackle this. First, I need to read through the input text carefully and identify all the quantities mentioned. The user has given an example, so I can model my approach after that.
+
+Starting with the first sentence: "Epoxy polymers are a class of high-performance thermosetting polymers..." No quantities here. Next, the second sentence mentions "excellent engineering properties, such as high modulus, low creep, high strength..." These are properties but not quantities yet. 
+
+Moving on: "However, epoxy polymers have inherently low toughness and impact resistance..." Still no quantities. Then, "To improve the toughness... incorporation of a second micro-phase... rubber, e.g. Refs. [1–5], or a thermoplastic polymer, e.g. Ref. [6–8]..." The references here are in ranges, but they are citations, not actual quantities related to measurements. So probably not relevant.
+
+Next important part: "Here the rubber or thermoplastic particles are typically about 0.1–5 μm in diameter with a volume fraction of about 5–20%." Here, I see two quantities. The first is "0.1–5 μm" which is a range for diameter. The second is "5–20%" which is a range for volume fraction. 
+
+Looking at modifiers: "typically about" indicates approximation. So "0.1–5 μm" has "about" as a modifier, making it approximate. Similarly, "about 5–20%" also has "about". Both are ranges and approximate.
+
+Now, the units. "μm" is the unit for diameter, and "%" for volume fraction. So those would be units in the Quantity annotations. Since they are ranges, the mods should include "IsRange" and "IsApproximate".
+
+Next sentences: "The particles are typically well-dispersed..." No quantities here. Then, "However, the particle size is difficult to control..." Again, no specific quantities mentioned.
+
+Now, mapping the quantities to their MeasuredEntities and MeasuredProperties. 
+
+For "0.1–5 μm in diameter": The MeasuredEntity would be "rubber or thermoplastic particles" (since the sentence starts with "Here the rubber or thermoplastic particles..."), and the MeasuredProperty is "diameter". So the Quantity here is "0.1–5 μm", with unit "μm", mods ["IsRange", "IsApproximate"]. The relationships would be: MeasuredEntity (particles) HasProperty (diameter), and both have HasQuantity to the Quantity.
+
+For "5–20% volume fraction": The MeasuredProperty is "volume fraction", and the MeasuredEntity is again the particles. The Quantity is "5–20%", unit "%", mods ["IsRange", "IsApproximate"]. Relationships: MeasuredEntity HasProperty (volume fraction), which HasQuantity the percentage.
+
+Wait, but in the example given, the MeasuredProperty is like "temperature" linked to the solution. So here, "diameter" and "volume fraction" are MeasuredProperties, linked to the particles (MeasuredEntity), and each has their own Quantity.
+
+So each Quantity (0.1–5 μm and 5–20%) would be in separate annotSets. Let's check the example again. In the example, each Quantity is in its own annotSet. Wait, no: in the example, each Quantity is part of a set with their respective entities and properties. For instance, the first set is temperature of solution: Quantity (25°C), Entity (solution), Property (temperature). So each set is grouped by the entity-property-quantity trio.
+
+In the input text here, the two quantities (diameter and volume fraction) both relate to the same MeasuredEntity: "rubber or thermoplastic particles". So each quantity would be in a separate annotSet because they are different properties. So first annotSet for diameter, second for volume fraction.
+
+So first annotSet: Quantity "0.1–5 μm", MeasuredEntity "rubber or thermoplastic particles", MeasuredProperty "diameter". Relationships: Entity HasProperty (diameter), Property HasQuantity (Quantity). The Qualifier here is "typically about", which qualifies the Quantity. But "typically about" is part of the Quantity's text? Wait, the Quantity is "0.1–5 μm", but the text mentions "about" before it. Wait, the original text says "typically about 0.1–5 μm". So "about" is part of the Quantity modifier. So the Quantity span should include "about 0.1–5 μm". But in the example, "approximately 25°C" includes "approximately" in the Quantity text. So here, "about" is part of the Quantity text. So the exact text for the first Quantity would be "about 0.1–5 μm". Similarly, the second Quantity is "about 5–20%".
+
+So adjusting:
+
+First Quantity: "about 0.1–5 μm", unit "μm", mods "IsRange" and "IsApproximate".
+
+Second Quantity: "about 5–20%", unit "%", mods "IsRange" and "IsApproximate".
+
+Now, the MeasuredEntity for both is "rubber or thermoplastic particles". But in the example, each set is grouped by their specific trio. So even though the Entity is the same, each Property and Quantity form a separate set. Wait, no. Let me check the example again. The example has three separate sets for each trio. So in the input text here, two sets would be created: one for diameter and one for volume fraction. Each would have their own annotSet.
+
+Therefore:
+
+annotSet 1:
+
+- Quantity: "about 0.1–5 μm" (T1), mods IsRange and IsApproximate, unit μm.
+
+- MeasuredEntity: "rubber or thermoplastic particles" (T2).
+
+- MeasuredProperty: "diameter" (T3).
+
+Relationships:
+
+- T2 (Entity) HasProperty T3 (Property).
+
+- T3 (Property) HasQuantity T1 (Quantity).
+
+annotSet 2:
+
+- Quantity: "about 5–20%" (T4), mods IsRange and IsApproximate, unit %.
+
+- MeasuredEntity: "rubber or thermoplastic particles" (T5). Wait, but the Entity is the same as in set 1. But according to the example, each set is separate. So even if the Entity is the same, they are in different sets. Thus, in the example, "solution", "solvent", and "salt" are all separate, hence separate sets. Here, the same Entity is used twice, but in different sets. However, the problem is that the Entity text would be the same. But according to the example, each set is a trio. So perhaps each set is a single Quantity with its Entity and Property. Thus, even if the Entity is the same, each is in a separate set. So in this case, two sets: one for diameter and one for volume fraction, each with their own Entity, Property, and Quantity.
+
+Wait, but the Entity in both cases is exactly the same: "rubber or thermoplastic particles". Should they be considered the same Entity across multiple sets, or each set has their own instance? The example didn't have this case, but according to the output format, each annotSet is a logical grouping. If the Entity is the same but associated with different Properties and Quantities, they might be in separate sets. However, perhaps in the TSV, each occurrence of the Entity is a separate annotation. For example, in the example, even if "solution" appeared in another set, it would be a separate T number. So in this case, even if the Entity is the same text, each mention is a separate annotation. Therefore, in the input text here, "rubber or thermoplastic particles" appears once in the sentence, so both sets would reference the same text. Wait no, the sentence is: "Here the rubber or thermoplastic particles are typically about 0.1–5 μm in diameter with a volume fraction of about 5–20%." So "rubber or thermoplastic particles" is mentioned once, but it's the Entity for both quantities. However, in the TSV format, each annotation is a span of text. So the Entity in both sets would have the same text "rubber or thermoplastic particles". But according to the example, each Entity is a separate T even if the text is the same. But in the example, each Entity is different ("solution", "solvent", "salt"). So here, the same Entity text would be used in two different sets, but each would have their own T ID. So in set 1, the Entity is "rubber or thermoplastic particles" (T2), and in set 2, the Entity is "rubber or thermoplastic particles" (T5). Even though the text is the same, they are separate annotations.
+
+But that might be correct because each set is separate. So each set has its own Entity, Property, Quantity.
+
+Alternatively, maybe the Entity is the same and should be grouped under the same set. But the example shows that each trio is in its own set. For example, each Quantity, Entity, Property trio is a separate set. So in this case, the two trios (diameter and volume fraction for the same Entity) would each be their own set. So set 1 is diameter, set 2 is volume fraction.
+
+Thus, proceeding:
+
+Set 1:
+
+annotSet 1:
+
+annotType: Quantity, T1, text "about 0.1–5 μm", other: {"unit": "μm", "mods": ["IsRange", "IsApproximate"]}
+
+annotType: MeasuredEntity, T2, text "rubber or thermoplastic particles", other: {"HasProperty": "T3"}
+
+annotType: MeasuredProperty, T3, text "diameter", other: {"HasQuantity": "T1", "HasProperty": "T2"}
+
+Set 2:
+
+annotSet 2:
+
+annotType: Quantity, T4, text "about 5–20%", other: {"unit": "%", "mods": ["IsRange", "IsApproximate"]}
+
+annotType: MeasuredEntity, T5, text "rubber or thermoplastic particles", other: {"HasProperty": "T6"}
+
+annotType: MeasuredProperty, T6, text "volume fraction", other: {"HasQuantity": "T4", "HasProperty": "T5"}
+
+Wait, but the original sentence says "with a volume fraction of about 5–20%". So the MeasuredProperty here is "volume fraction". So the MeasuredProperty is "volume fraction", the Entity is "rubber or thermoplastic particles", Quantity is "about 5–20%".
+
+So yes, that makes sense. Each set is separate.
+
+Also, check for Qualifiers. The text says "typically about" for both quantities. However, "typically" might be a Qualifier. Wait, in the example, "approximately" was part of the Quantity text, but "after I drank half the can" was a Qualifier. So in this case, "typically" may be a separate Qualifier. Let's look at the Qualifier definition: "An optional span describing conditions or attributes that affect a Quantity, MeasuredEntity, or MeasuredProperty. Related using 'Qualifies'."
+
+In the example, "after I drank half the can" was a Qualifier. So here, "typically" might be a Qualifier. However, in the example, "approximately" was included in the Quantity text and its modifier. But according to the instruction for Step 1: "If a quantity involves a modifier such as 'approximately' or symbols like '>', include it if adjacent to the quantity span." So in the example, "approximately 25°C" includes the modifier. Therefore, in this case, "typically about" is adjacent to the quantity. However, "typically" and "about" are both modifiers. Wait, "typically about" – "typically" is an adverb modifying "about". So the Quantity span would be "about 0.1–5 μm" and "about 5–20%", and "typically" is a separate Qualifier.
+
+Wait, but in the original text, it's "typically about 0.1–5 μm". So the full phrase is "typically about 0.1–5 μm". But according to the instructions, if the modifier is adjacent, include it in the Quantity span. However, "typically" is an adverb that modifies the entire statement. So perhaps "typically" is a Qualifier that qualifies the Quantity. But how do we handle this?
+
+The example included "approximately" as part of the Quantity. So in that case, "approximately 25°C" is the entire Quantity span. Here, "typically about" would mean that "about" is part of the Quantity (as a modifier for approximation), and "typically" is a separate Qualifier. But according to the instructions, if the modifier is adjacent, include it. However, "typically" is a separate word before "about". So maybe "typically" is a Qualifier, and "about" is part of the Quantity with IsApproximate.
+
+Alternatively, the entire phrase "typically about" could be considered part of the Quantity. However, "typically" might be a separate Qualifier. Let's refer back to the example. The example had "approximately 25°C" as the Quantity text, including "approximately". So here, "about" is part of the Quantity, but "typically" is a separate adverb. Therefore, "typically" would be a Qualifier that Qualifies the Quantity.
+
+So in this case, the Quantities would be "about 0.1–5 μm" and "about 5–20%", with "about" as part of their text and marked as IsApproximate. The word "typically" is a separate Qualifier that applies to both Quantities. Wait, but "typically" appears once before the first Quantity and applies to both? Let's check the original sentence:
+
+"Here the rubber or thermoplastic particles are typically about 0.1–5 μm in diameter with a volume fraction of about 5–20%."
+
+The structure is: "particles are typically about 0.1–5 μm... with a volume fraction of about 5–20%." So "typically" applies to both the diameter and the volume fraction. So "typically" is a Qualifier that qualifies both Quantities.
+
+But in the TSV format, each Qualifier is in the same annotSet as the Quantity it qualifies. However, since the two Quantities are in different annotSets, does "typically" apply to both? That complicates things. Alternatively, maybe "typically" applies to the entire statement, hence qualifies both MeasuredEntities or Properties. But according to the relationships, Qualifiers can qualify a Quantity, MeasuredEntity, or MeasuredProperty. So in this case, "typically" could be a Qualifier in each annotSet, qualifying the Quantity. But "typically" is mentioned once in the text. Wait, the text has "typically about 0.1–5 μm... with a volume fraction of about 5–20%." So "typically" is part of the first part of the sentence. So does it apply to both? The "with a volume fraction..." part might not be under the "typically". But in the sentence structure, "are typically about X in diameter with Y..." – the "typically" applies to the entire predicate, meaning both X and Y. So "typically" qualifies both the diameter and the volume fraction. Therefore, "typically" is a single Qualifier that qualifies both Quantities. However, in the TSV format, each Qualifier must be linked via "Qualifies" to a target. Since the two Quantities are in separate annotSets, the Qualifier "typically" would need to be part of both annotSets. But each annotSet is a separate group. Therefore, perhaps "typically" is a Qualifier in each of the two annotSets, each linking to their respective Quantity. But the text "typically" appears once. This is a problem because the text span "typically" is only present once, but it's being used in two different annotSets. However, the annotation requires the exact text of the annotation. So in this case, "typically" would be annotated once as a Qualifier, but linked to both Quantities. Wait, but the example had a Qualifier that was a separate span. For instance, "after I drank half the can" was a Qualifier for the quantity in that set. So in this case, "typically" would be a single Qualifier that qualifies both Quantities. But according to the TSV format, each Qualifier is part of an annotSet. Therefore, perhaps the solution is to have the Qualifier "typically" in a separate annotSet that qualifies both annotSet 1 and 2. But the example shows that each Qualifier is within the same annotSet as the Quantity it qualifies. However, in the example, the Qualifier was part of the same sentence as the Quantity.
+
+Alternatively, maybe "typically" is part of both annotSets. But since "typically" is a single occurrence in the text, it can't be split. Therefore, this might be a case where the Qualifier "typically" is linked to both Quantities. However, the TSV format requires each annotation to be in a single annotSet. Therefore, perhaps "typically" is a separate annotSet (annotSet 3), and it qualifies both Quantity T1 and T4. But according to the output format, each annotSet groups related annotations. So maybe annotSet 3 contains the Qualifier "typically" and its relations. But this is getting complicated. Let's see what the instructions say: "Create Relationships: - Qualifies: If a modifier is not adjacent to the Quantity, link it to the relevant span using a 'Qualifies' relationship." If the modifier is adjacent, include it in the Quantity span. Since "typically" is not adjacent to the Quantity spans (the first Quantity is "about 0.1–5 μm", preceded by "typically"), but "typically" is before "about". So "typically" is not part of the Quantity span. Therefore, "typically" is a separate Qualifier that qualifies the Quantity. So in this case, "typically" would be a Qualifier in each annotSet, linked via "Qualifies" to the respective Quantity. But since "typically" is a single text span, it can only be annotated once. Therefore, this is a conflict. 
+
+Alternatively, perhaps the correct approach is to treat "typically" as a Qualifier that qualifies both Quantities. But the problem is that each Qualifier can only be in one annotSet. Therefore, this might require two separate Qualifiers, but that's not possible because the text is the same. Therefore, this indicates that "typically" is a single Qualifier that qualifies both Quantities, but this would require cross-annotSet relationships, which the example doesn't cover. According to the instructions, relationships are within an annotSet. Therefore, this suggests that the annotator should include "typically" in both annotSets as a Qualifier, but that would duplicate the text. But the text is the same, so maybe it's allowed. For example, in annotSet 1, the Qualifier "typically" is linked to Quantity T1. In annotSet 2, the same text "typically" is linked to Quantity T4. But this is technically the same text span in the original paragraph. However, according to the annotation guidelines, each occurrence is treated as a separate annotation. But in the original text, "typically" appears once. Therefore, this is a problem. 
+
+Alternatively, perhaps "typically" is part of the MeasuredEntity or MeasuredProperty. For example, the MeasuredEntity is "rubber or thermoplastic particles (typically)". But no, "typically" is an adverb modifying the entire clause.
+
+This is a tricky case. Given the example provided, perhaps the best approach is to consider "typically" as a Qualifier in each annotSet, even though it's the same text. So in annotSet 1, we have a Qualifier "typically" linked to Quantity T1. In annotSet 2, another Qualifier "typically" linked to T4. However, this would duplicate the same text span in two different annotSets, which may be against the guidelines. Alternatively, perhaps the Qualifier "typically" is in a separate annotSet (annotSet 3) and linked to both T1 and T4. But the relationships in the TSV are per annotSet, so this might not be possible. Given the example, each Qualifier is within the same annotSet as the Quantity it qualifies. Therefore, in this case, since "typically" applies to both Quantities but is a single text span, it might not be possible to annotate it properly under the given guidelines. Perhaps the correct approach is to ignore the "typically" and only annotate "about" as part of the Quantity. Because "typically" is not adjacent to the Quantity spans. The instruction says: "If a quantity involves a modifier such as 'approximately' or symbols like '>', include it if adjacent to the quantity span." So "typically" is not adjacent to "0.1–5 μm"; it's adjacent to "about", which is part of the Quantity. Therefore, "typically" is a separate Qualifier. However, since "typically" qualifies the entire clause, it might qualify the MeasuredEntity or the MeasuredProperty. For example, "rubber or thermoplastic particles are typically..." So "typically" could qualify the MeasuredEntity. Therefore, in each annotSet, the Qualifier "typically" would qualify the MeasuredEntity. 
+
+But the original sentence structure is: "Here the rubber or thermoplastic particles are typically about 0.1–5 μm in diameter with a volume fraction of about 5–20%." The word "typically" modifies the verb "are", so it applies to both the diameter and the volume fraction. Therefore, "typically" is a Qualifier that qualifies both MeasuredEntities or their Properties. Therefore, in each annotSet, the Qualifier "typically" would be linked to the MeasuredEntity. 
+
+But how to represent that. Each annotSet has the MeasuredEntity "rubber or thermoplastic particles" (T2 in set 1, T5 in set 2). So annotSet 1 would have:
+
+Qualifier "typically" (T4) with {"Qualifies": "T2"}.
+
+Similarly, annotSet 2 would have Qualifier "typically" (T7) with {"Qualifies": "T5"}.
+
+But the text "typically" is the same in both sets. However, each occurrence in the TSV is a separate annotation, even if the text is the same. So in set 1, we have:
+
+annotSet 1:
+
+- Qualifier T4: text "typically", {"Qualifies": "T2"}.
+
+In set 2:
+
+annotSet 2:
+
+- Qualifier T7: text "typically", {"Qualifies": "T5"}.
+
+But this duplicates the same text span. However, in the original text, "typically" is mentioned once. Therefore, this approach is incorrect. 
+
+Given this confusion, perhaps the best approach is to follow the example strictly. In the example, "approximately" was part of the Quantity text. So here, "about" is part of the Quantity text, marked with IsApproximate, and "typically" is not annotated as a Qualifier because it's not adjacent to the Quantity. Or perhaps "typically" is considered a Qualifier not adjacent to the Quantity and therefore linked via Qualifies. But how?
+
+Alternatively, considering that "typically about" is part of the Quantity's modifiers, but "typically" is not a direct modifier of the Quantity, but rather a qualifier of the entire statement. Given the complexity and the example, the safest approach is to include "about" in the Quantity as part of the text and mark IsApproximate and IsRange. The word "typically" would then be a Qualifier that qualifies the Quantity. However, since "typically" is not adjacent to the Quantity, we must link it via Qualifies.
+
+Wait, the instruction says: "If a modifier is not adjacent to the Quantity, link it to the relevant span using a 'Qualifies' relationship." So "typically" is a Qualifier that is not adjacent to the Quantity (since the Quantity includes "about 0.1–5 μm" and "typically" is before "about"). Therefore, "typically" is a separate Qualifier that qualifies the Quantity. But since "typically" is before the Quantity, we need to create a Qualifier annotation for "typically" and link it to the Quantity.
+
+But how to handle this in the annotSet. Let's see:
+
+In annotSet 1:
+
+- Quantity T1: "about 0.1–5 μm" with mods IsApproximate and IsRange.
+
+- MeasuredEntity T2: "rubber or thermoplastic particles".
+
+- MeasuredProperty T3: "diameter".
+
+- Qualifier T4: "typically", which Qualifies T1.
+
+Similarly, in annotSet 2:
+
+- Quantity T5: "about 5–20%".
+
+- MeasuredEntity T6: "rubber or thermoplastic particles".
+
+- MeasuredProperty T7: "volume fraction".
+
+- Qualifier T8: "typically", but wait, the text "typically" is only present once. Therefore, this approach would erroneously duplicate the Qualifier.
+
+This indicates a problem. The correct approach here would be to recognize that "typically" applies to both quantities and thus should be linked to both. However, under the current TSV structure, each annotSet is independent. Therefore, the solution is to have the Qualifier "typically" in each annotSet, even though it's the same text. This is a limitation of the format but necessary under the given constraints.
+
+Therefore, proceeding:
+
+For annotSet 1:
+
+annotSet 1:
+
+- Quantity T1: "about 0.1–5 μm" with mods IsRange and IsApproximate, unit μm.
+
+- MeasuredEntity T2: "rubber or thermoplastic particles".
+
+- MeasuredProperty T3: "diameter".
+
+- Qualifier T4: "typically" linked to T1.
+
+Relationships:
+
+- T2 HasProperty T3.
+
+- T3 HasQuantity T1.
+
+- T4 Qualifies T1.
+
+For annotSet 2:
+
+annotSet 2:
+
+- Quantity T5: "about 5–20%" with mods IsRange and IsApproximate, unit %.
+
+- MeasuredEntity T6: "rubber or thermoplastic particles".
+
+- MeasuredProperty T7: "volume fraction".
+
+- Qualifier T8: "typically" linked to T5.
+
+Relationships:
+
+- T6 HasProperty T7.
+
+- T7 HasQuantity T5.
+
+- T8 Qualifies T5.
+
+But in the original text, "typically" is mentioned once, so annotating it twice as separate Qualifiers is incorrect. This is a challenge. Given the example and the instructions, perhaps the correct approach is to consider "typically" as a Qualifier that qualifies both Quantities even though it's a single occurrence. However, the TSV format doesn't allow cross-annotSet relationships, so this can't be represented. Therefore, perhaps the best solution is to omit the "typically" Qualifier and only annotate the "about" in the Quantity with IsApproximate. Because "about" is part of the Quantity text and indicates approximation, and "typically" is redundant or not directly part of the Quantity. Alternatively, considering that "typically" is a separate Qualifier that qualifies the MeasuredEntity or MeasuredProperty. 
+
+Alternatively, maybe "typically" qualifies the MeasuredEntity, indicating that the particles are typically of a certain size. So Qualifier "typically" would qualify the MeasuredEntity "rubber or thermoplastic particles". Therefore, in each annotSet, the Qualifier "typically" is linked to the MeasuredEntity. But since the MeasuredEntity is the same text in both sets, each set would have its own Qualifier linked to their respective MeasuredEntity annotations.
+
+But again, this duplicates the Qualifier. This seems unavoidable given the TSV structure. Therefore, the correct approach under the guidelines is to include the Qualifier "typically" in each annotSet, linked to the respective MeasuredEntity. 
+
+So for annotSet 1:
+
+- Qualifier T4: "typically", {"Qualifies": "T2"}.
+
+For annotSet 2:
+
+- Qualifier T7: "typically", {"Qualifies": "T5"}.
+
+This way, each annotSet has its own Qualifier. Even though the text is the same, it's allowed as each annotation is part of a different set.
+
+But in reality, the text "typically" occurs once. However, in the TSV, each annotation is defined by the exact text span. Since "typically" is part of the same text span in both cases, this would technically be incorrect. But according to the example, each Qualifier is in the same annotSet as the Quantity or Entity it qualifies, so we proceed.
+
+This is a bit of a edge case, but proceeding with the above structure.
+
+Now, putting this all together into the TSV:
+
+annotSet 1:
+
+annotType Quantity T1 "about 0.1–5 μm" {"unit": "μm", "mods": ["IsRange", "IsApproximate"]}
+
+annotType MeasuredEntity T2 "rubber or thermoplastic particles" {"HasProperty": "T3"}
+
+annotType MeasuredProperty T3 "diameter" {"HasQuantity": "T1", "HasProperty": "T2"}
+
+annotType Qualifier T4 "typically" {"Qualifies": "T1"} 
+
+Wait, but in the example, Qualifier is linked to the Quantity. For example, "after I drank half the can" in the example is linked to the Quantity. So if "typically" qualifies the Quantity, then in annotSet 1, Qualifier T4 would have {"Qualifies": "T1"}.
+
+Similarly, in annotSet 2, Qualifier T7 would have {"Qualifies": "T5"}.
+
+But the original text's structure is that "typically" applies to both. However, under the current TSV structure, this is the only way.
+
+Thus, the final TSV would have:
+
+Set 1:
+
+annotSet	annotType	annotId	text	other
+
+1	Quantity	T1	about 0.1–5 μm	{"unit": "μm", "mods": ["IsRange", "IsApproximate"]}
+
+1	MeasuredEntity	T2	rubber or thermoplastic particles	{"HasProperty": "T3"}
+
+1	MeasuredProperty	T3	diameter	{"HasQuantity": "T1", "HasProperty": "T2"}
+
+1	Qualifier	T4	typically	{"Qualifies": "T1"}
+
+Set 2:
+
+2	Quantity	T5	about 5–20%	{"unit": "%", "mods": ["IsRange", "IsApproximate"]}
+
+2	MeasuredEntity	T6	rubber or thermoplastic particles	{"HasProperty": "T7"}
+
+2	MeasuredProperty	T7	volume fraction	{"HasQuantity": "T5", "HasProperty": "T6"}
+
+2	Qualifier	T8	typically	{"Qualifies": "T5"}
+
+This way, each set includes a Qualifier "typically" linked to their respective Quantity. Even though the original text has "typically" once, the TSV treats each occurrence in each annotSet as separate. This might be the best possible under the given structure.
+
+Other elements in the input text: 
+
+The paragraph also mentions "e.g. Refs. [1–5]" and "Ref. [6–8]". These are references and not quantities related to measurements, so they are ignored.
+
+Another potential quantity: "low creep", "high strength", etc. But these are adjectives describing properties, not numerical quantities, so they aren't considered.
+
+So the final answer should include two annotSets as above.

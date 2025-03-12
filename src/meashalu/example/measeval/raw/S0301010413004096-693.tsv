@@ -1,0 +1,13 @@
+docId	annotSet	annotType	annotId	text	other
+S0301010413004096-693	1	Quantity	T1	77 K	"{""unit"": ""K""}"
+S0301010413004096-693	1	MeasuredEntity	T2	cryogenic temperatures	"{""HasQuantity"": ""T1""}"
+S0301010413004096-693	2	Quantity	T3	∼16 wt%	"{""unit"": ""wt%"", ""mods"": [""IsApproximate""]}"
+S0301010413004096-693	2	MeasuredEntity	T4	NU-100	"{""HasQuantity"": ""T3""}"
+S0301010413004096-693	2	MeasuredProperty	T5	total uptake capacity	"{""HasQuantity"": ""T3"", ""HasProperty"": ""T4""}"
+S0301010413004096-693	3	MeasuredEntity	T6	MOF-200	"{""HasQuantity"": ""T3""}"
+S0301010413004096-693	3	MeasuredProperty	T7	total uptake capacity	"{""HasQuantity"": ""T3"", ""HasProperty"": ""T6""}"
+S0301010413004096-693	4	Quantity	T8	below 10 K	"{""unit"": ""K"", ""mods"": [""IsApproximate""]}"
+S0301010413004096-693	4	MeasuredEntity	T9	in situ neutron powder diffraction	"{""HasQuantity"": ""T8""}"
+S0301010413004096-693	5	MeasuredEntity	T10	D2	"{""HasProperty"": ""T11""}"
+S0301010413004096-693	5	MeasuredProperty	T11	molecular separations	"{""HasProperty"": ""T10"", ""HasQuantity"": ""T12""}"
+S0301010413004096-693	5	Quantity	T12	comparable to that to D2 in the solid state	"{""mods"": [""IsApproximate""]}"

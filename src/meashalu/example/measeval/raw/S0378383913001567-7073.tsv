@@ -1,0 +1,11 @@
+docId	annotSet	annotType	annotId	text	other
+S0378383913001567-7073	1	Quantity	T1	0.2 m	"{""unit"": ""m""}"
+S0378383913001567-7073	1	MeasuredEntity	T2	time steps	"{""HasQuantity"": ""T1""}"
+S0378383913001567-7073	1	MeasuredProperty	T3	sequence	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0378383913001567-7073	2	Quantity	T4	1,2,…,10	"{""mods"": [""IsList""]}"
+S0378383913001567-7073	2	MeasuredEntity	T5	i	"{""HasQuantity"": ""T4""}"
+S0378383913001567-7073	3	Quantity	T6	0.2 m	"{""unit"": ""m""}"
+S0378383913001567-7073	3	MeasuredEntity	T7	spatial discretisation	"{""HasQuantity"": ""T6""}"
+S0378383913001567-7073	3	MeasuredProperty	T8	constant	"{""HasQuantity"": ""T6"", ""HasProperty"": ""T7""}"
+S0378383913001567-7073	4	Quantity	T9	2.33	"{""mods"": [""IsMean""]}"
+S0378383913001567-7073	4	MeasuredEntity	T10	Rij	"{""HasQuantity"": ""T9""}"

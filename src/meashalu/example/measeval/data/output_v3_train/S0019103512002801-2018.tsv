@@ -1,0 +1,4 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103512002801-2018	1	Quantity	1401	1404	T1	10%	"{""mods"": [""IsCount""], ""unit"": ""%""}"
+S0019103512002801-2018	1	MeasuredEntity	1412	1416	T2	time	"{""HasQuantity"": ""T1""}"
+S0019103512002801-2018	1	MeasuredProperty	1360	1377	T3	ULF wave activity	"{""HasQuantity"": ""T1""}"

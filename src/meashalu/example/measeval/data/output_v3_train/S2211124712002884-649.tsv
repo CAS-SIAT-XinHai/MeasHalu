@@ -1,0 +1,6 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2211124712002884-649	1	Quantity	117	121	T1	100%	"{""unit"": ""%"", ""mods"": []}"
+S2211124712002884-649	1	Quantity	127	130	T2	3–4	"{""mods"": [""IsRange""]}"
+S2211124712002884-649	1	MeasuredEntity	89	104	T3	control line 20	"{""HasQuantity"": ""T1""}"
+S2211124712002884-649	1	Qualifier	54	77	T5	after medium collection	"{""Qualifies"": ""T4""}"
+S2211124712002884-649	1	Qualifier	123	151	T6	n = 3–4 independent cultures	"{""Qualifies"": ""T1""}"

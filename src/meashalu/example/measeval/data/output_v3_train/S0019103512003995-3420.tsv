@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103512003995-3420	1	Quantity	12	19	T1	density	"{""mods"": [""IsCount""]}"
+S0019103512003995-3420	1	MeasuredEntity	27	35	T2	material	"{""HasQuantity"": ""T1""}"
+S0019103512003995-3420	1	MeasuredProperty	12	19	T3	density	"{""HasQuantity"": ""T1""}"
+S0019103512003995-3420	2	Quantity	12	19	T4	density	"{""mods"": [""IsCount""]}"
+S0019103512003995-3420	2	MeasuredEntity	43	52	T5	particles	"{""HasQuantity"": ""T4""}"
+S0019103512003995-3420	2	MeasuredProperty	12	19	T6	density	"{""HasQuantity"": ""T4""}"

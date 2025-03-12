@@ -1,0 +1,8 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2211124713006475-1195	1	Quantity	285	290	T1	10–12	"{""unit"": ""stage"", ""mods"": [""IsRange""]}"
+S2211124713006475-1195	1	MeasuredEntity	221	233	T2	chick embryo	"{""HasQuantity"": ""T1""}"
+S2211124713006475-1195	1	MeasuredProperty	275	284	T3	H&H stage	"{""HasQuantity"": ""T1""}"
+S2211124713006475-1195	2	Quantity	429	437	T4	Two days	"{""unit"": ""days"", ""mods"": [""IsCount""]}"
+S2211124713006475-1195	2	MeasuredEntity	444	466	T5	in ovo transplantation	"{""HasQuantity"": ""T4""}"
+S2211124713006475-1195	3	Quantity	812	818	T6	2 days	"{""unit"": ""days"", ""mods"": [""IsCount""]}"
+S2211124713006475-1195	3	MeasuredEntity	825	840	T7	transplantation	"{""HasQuantity"": ""T6""}"

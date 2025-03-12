@@ -1,0 +1,4 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0960148113005727-739	1	Quantity	203	220	T1	last eleven years	"{""unit"": ""years"", ""mods"": [""IsCount""]}"
+S0960148113005727-739	1	MeasuredEntity	177	193	T2	individual farms	"{""HasQuantity"": ""T1""}"
+S0960148113005727-739	1	MeasuredProperty	160	172	T3	load factors	"{""HasQuantity"": ""T1""}"

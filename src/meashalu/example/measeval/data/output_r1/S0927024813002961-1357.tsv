@@ -1,0 +1,5 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0927024813002961-1357	1	Quantity	103	110	T1	0.65%/a	"{""unit"": ""%/a""}"
+S0927024813002961-1357	1	MeasuredEntity	36	43	T2	devices	"{""HasQuantity"": ""T1""}"
+S0927024813002961-1357	1	MeasuredProperty	4	15	T3	degradation	"{""HasQuantity"": ""T1""}"
+S0927024813002961-1357	1	Qualifier	89	102	T4	not more than	"{""Qualifies"": ""T1""}"

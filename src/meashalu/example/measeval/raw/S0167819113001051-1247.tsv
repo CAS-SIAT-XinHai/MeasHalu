@@ -1,0 +1,8 @@
+docId	annotSet	annotType	annotId	text	other
+S0167819113001051-1247	1	Quantity	T1	18 cores	"{""unit"": ""cores"", ""mods"": [""IsCount""]}"
+S0167819113001051-1247	1	MeasuredEntity	T2	node	"{""HasProperty"": ""T3""}"
+S0167819113001051-1247	1	MeasuredProperty	T3	cores	"{""HasQuantity"": ""T1""}"
+S0167819113001051-1247	2	Quantity	T4	50% to around 80%	"{""unit"": ""%"", ""mods"": [""IsRange"", ""IsApproximate""]}"
+S0167819113001051-1247	2	MeasuredEntity	T5	manufactured dice	"{""HasProperty"": ""T6""}"
+S0167819113001051-1247	2	MeasuredProperty	T6	usability	"{""HasQuantity"": ""T4""}"
+S0167819113001051-1247	2	Qualifier	T7	yield estimates suggest	"{""Qualifies"": ""T4""}"

@@ -1,0 +1,11 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0038071711004354-2389	1	Quantity	103	121	T1	0.18 g CO2 m−2 h−1	"{""unit"": ""g CO2 m\u22122 h\u22121""}"
+S0038071711004354-2389	1	MeasuredEntity	83	99	T2	autotrophic flux	"{""HasQuantity"": ""T1""}"
+S0038071711004354-2389	1	MeasuredProperty	95	99	T3	flux	"{""HasQuantity"": ""T1""}"
+S0038071711004354-2389	2	Quantity	160	163	T4	56%	"{""unit"": ""%""}"
+S0038071711004354-2389	2	MeasuredEntity	156	158	T5	RS	"{""HasQuantity"": ""T4""}"
+S0038071711004354-2389	2	MeasuredProperty	144	152	T6	fraction	"{""HasQuantity"": ""T4""}"
+S0038071711004354-2389	3	Quantity	207	225	T7	0.15 g CO2 m−2 h−1	"{""unit"": ""g CO2 m\u22122 h\u22121""}"
+S0038071711004354-2389	3	MeasuredEntity	175	203	T8	heterotrophic component flux	"{""HasQuantity"": ""T7""}"
+S0038071711004354-2389	3	MeasuredProperty	199	203	T9	flux	"{""HasQuantity"": ""T7""}"
+S0038071711004354-2389	4	Quantity	253	256	T10	44%	"{""unit"": ""%""}"

@@ -1,0 +1,9 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0167577X13006393-662	1	Quantity	59	63	T1	1 ml	"{""unit"": ""ml""}"
+S0167577X13006393-662	1	MeasuredEntity	72	79	T2	syringe	"{""HasQuantity"": ""T1""}"
+S0167577X13006393-662	2	Quantity	67	71	T3	5 ml	"{""unit"": ""ml""}"
+S0167577X13006393-662	2	MeasuredEntity	72	79	T4	syringe	"{""HasQuantity"": ""T3""}"
+S0167577X13006393-662	3	Quantity	212	218	T5	1 ml/h	"{""unit"": ""ml/h""}"
+S0167577X13006393-662	3	MeasuredEntity	144	152	T6	solution	"{""HasQuantity"": ""T5""}"
+S0167577X13006393-662	3	MeasuredProperty	204	208	T7	rate	"{""HasQuantity"": ""T5""}"
+S0167577X13006393-662	4	Quantity	246	253	T8	12.2 kV	"{""unit"": ""kV""}"

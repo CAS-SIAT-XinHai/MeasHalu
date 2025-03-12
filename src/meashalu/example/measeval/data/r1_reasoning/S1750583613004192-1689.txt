@@ -1,0 +1,235 @@
+Okay, let's tackle this text step by step. First, I need to identify all the quantities mentioned here. The user provided an example where quantities include numbers with units and modifiers. Let me look for similar patterns.
+
+Starting with the first paragraph: "The modeled low shale barrier threshold pressures are potentially indicative of fracturing..." Hmm, not seeing numbers here. Next sentence: "However, the current pressure regime is extremely unlikely to cause fracturing..." Still no quantities.
+
+Moving on: "A transient ice sheet load equivalent to 10 MPa of overpressure could have been removed rapidly..." Here's "10 MPa". That's a quantity with unit MPa. Need to note this. Then, "during a typical ablation timespan of less than a few thousand years." The phrase "less than a few thousand years" – "a few thousand years" is a quantity. Wait, "few thousand years" is a count with "years" as the unit. But "a few" is approximate, so it's an approximate count. The "less than" part is a qualifier, right? So this might be a Quantity with IsApproximate and IsCount modifiers.
+
+Next paragraph: "At the shallow burial depth of these shales, 10 MPa is sufficient..." Another "10 MPa". So repeat of 10 MPa. Then, "a conservative approximation for the fracture gradient, based on present-day leak-off tests (Nicoll, 2012), suggests..." But no specific numbers here. 
+
+So the quantities I see are:
+1. 10 MPa
+2. less than a few thousand years
+3. 10 MPa (again)
+
+Wait, the first "10 MPa" is in "equivalent to 10 MPa of overpressure", the second is "10 MPa is sufficient". Are these two separate quantities? The text mentions "10 MPa" twice. The first instance is part of a transient ice sheet load, and the second is the same value but in a different context. Since they are the same numerical value but in different contexts, they should be separate entries. So each occurrence is a separate Quantity.
+
+Wait, but in the example given, like "10 grams" is listed once even if it appears multiple times, but in the example, each occurrence is treated as a separate quantity. Wait, in the example, "10 grams" is in the input once. So according to the instructions, each occurrence is annotated separately. So here, "10 MPa" appears twice, so two separate Quantity entries.
+
+Next, "less than a few thousand years" – "a few thousand" is a count. The unit is "years". "a few" is approximate. So modifiers would be IsApproximate and IsCount. Also, the "less than" is a qualifier. So "less than a few thousand years" – the quantity is "a few thousand years", and "less than" is a qualifier for that quantity. Wait, but according to the instructions, Qualifiers are separate annotations that relate via "Qualifies". So the Quantity here is "a few thousand years", and "less than" is a Qualifier that qualifies this Quantity. But how to split that?
+
+Wait, the instruction says Quantity may include modifiers if adjacent. For example, "approximately 25°C" includes "approximately" as part of the Quantity. In this case, "less than a few thousand years" – "less than" is adjacent to the quantity "a few thousand years". So according to the example, the entire phrase including the modifier would be part of the Quantity. Wait, but in the example, "approximately 25°C" is the entire Quantity, and "approximately" is part of the Quantity text, with the modifier IsApproximate. Then "less than" would be part of the Quantity text here? But "less than" is a qualifier indicating a range upper limit. Hmm. Alternatively, maybe the Quantity is "a few thousand years" and "less than" is a Qualifier. But according to the instructions, Qualifiers are spans that affect the Quantity. So if "less than" is adjacent, should it be included in the Quantity span or treated as a separate Qualifier?
+
+Looking back to the example, the Quantity "approximately 25°C" includes "approximately" as part of the text, and the modifier IsApproximate is applied. Similarly, if "less than a few thousand years" is considered, "less than" is part of the Quantity's text, and maybe the modifier IsRange? But "less than" isn't a range. Alternatively, "a few thousand years" is the Quantity, and "less than" is a Qualifier. But how do the instructions handle this?
+
+The instructions say: "If a quantity involves a modifier such as 'approximately' or symbols like '>', include it if adjacent to the quantity span." So "less than" is a modifier and adjacent, so it should be included in the Quantity span. Therefore, the Quantity would be "less than a few thousand years", with modifiers IsApproximate (since "a few" is approximate) and IsCount. But "less than" might be a modifier indicating a range upper limit. However, the modifiers defined include IsRange for ranges like "1.5–2.6 m". "Less than X" is a range but only upper bound. The modifiers don't have an IsUpperBound, so perhaps we can treat this as IsApproximate? Or maybe it's a Qualifier. This is a bit ambiguous.
+
+Alternatively, perhaps "less than" is part of the Quantity text, and the only modifiers are IsApproximate (from "a few") and IsCount. The "less than" would be part of the Quantity's text but not a modifier. But the instructions don't have a specific modifier for "less than". So maybe it's just part of the Quantity text. But according to the example, "approximately" is part of the text and the IsApproximate modifier is applied. Similarly, here, "less than" is a modifier indicating an upper limit. Since the modifiers don't include a specific option for upper limit, perhaps the Quantity is "less than a few thousand years" with modifiers IsApproximate and IsCount, and the "less than" is part of the text. The Qualifier would not be needed here since the modifier is part of the Quantity span. Hmm, but the instructions specify that Qualifiers are optional spans that affect the Quantity and are linked via Qualifies. So maybe "less than" is part of the Quantity's text but not a separate Qualifier. 
+
+Alternatively, perhaps "a few thousand years" is the Quantity, and "less than" is a Qualifier. But how would that work? Because "less than" is adjacent. Let me check the example again. In the example, "after I drank half the can" is a Qualifier that's not adjacent. But "approximately" is part of the Quantity. So adjacent modifiers are part of the Quantity, non-adjacent are Qualifiers. Therefore, in "less than a few thousand years", "less than" is adjacent, so it's part of the Quantity text. So the Quantity is "less than a few thousand years", modifiers are IsApproximate (due to "a few") and IsCount (since it's a count of years). The unit is "years". Then, this would be a Quantity with text "less than a few thousand years", unit "years", mods ["IsApproximate", "IsCount"].
+
+Wait, but "less than" could be considered as a modifier indicating a range. However, the modifiers list includes IsRange for ranges like "1.5–2.6 m". Since "less than a few thousand years" is an upper bound, not a range between two numbers, maybe it's not an IsRange. So perhaps no IsRange here. Then the modifiers are IsApproximate and IsCount.
+
+So, the quantities in the input are:
+
+1. 10 MPa (first mention)
+2. less than a few thousand years
+3. 10 MPa (second mention)
+
+Now, moving to MeasuredEntities and MeasuredProperties. For each Quantity, need to find what they are measuring.
+
+First Quantity: 10 MPa (transient ice sheet load equivalent to 10 MPa of overpressure). The MeasuredEntity here would be "ice sheet load" or "overpressure". Wait, the text says "equivalent to 10 MPa of overpressure". So overpressure is the MeasuredProperty, and the MeasuredEntity is "transient ice sheet load". Wait, maybe:
+
+MeasuredEntity: transient ice sheet load
+
+MeasuredProperty: overpressure
+
+Quantity: 10 MPa
+
+Relationships: MeasuredEntity "transient ice sheet load" HasProperty "overpressure", and "overpressure" HasQuantity "10 MPa".
+
+Alternatively, maybe the MeasuredEntity is "ice sheet load", and the MeasuredProperty is "overpressure". Then, "transient" is a qualifier. But according to the instructions, adjectives should be included in the MeasuredEntity if they describe it. So "transient ice sheet load" as MeasuredEntity.
+
+Second Quantity: less than a few thousand years (during a typical ablation timespan of less than a few thousand years). The MeasuredEntity here is "ablation timespan", and the MeasuredProperty is duration or time. The Quantity "less than a few thousand years" measures the duration. So:
+
+MeasuredEntity: ablation timespan
+
+MeasuredProperty: duration (but the text says "timespan", which is the MeasuredProperty. Hmm. Wait, the text says "ablation timespan", so "timespan" is the MeasuredProperty, and the MeasuredEntity is "ablation". Or perhaps "ablation timespan" is the MeasuredEntity, but "timespan" is a property. Wait, the example had "volume" as a MeasuredProperty for "solvent". Here, "timespan" is a property of the ablation. So:
+
+MeasuredEntity: ablation
+
+MeasuredProperty: timespan
+
+Quantity: less than a few thousand years
+
+Third Quantity: 10 MPa (second mention: At the shallow burial depth of these shales, 10 MPa is sufficient...). Here, 10 MPa is the overpressure, which causes fracturing. The MeasuredEntity here might be "overpressure" again, but the context is the pressure required to fracture the shale. The sentence says "10 MPa is sufficient to exceed the tensional rock strength...". So the MeasuredEntity could be "tensional rock strength" and the MeasuredProperty is "pressure threshold" or something. But the text just says "10 MPa is sufficient". Maybe the MeasuredEntity is "tensional rock strength" and the MeasuredProperty is "pressure required", but the text isn't explicit. Alternatively, "10 MPa" is the MeasuredProperty (pressure) of the MeasuredEntity "shales" or "tensional rock strength".
+
+This is a bit ambiguous. Let's look at the sentence: "At the shallow burial depth of these shales, 10 MPa is sufficient to exceed the tensional rock strength and cause pervasive hydraulic fracturing." Here, 10 MPa refers to the pressure that exceeds the rock strength. So the MeasuredEntity could be "tensional rock strength", and the MeasuredProperty is "pressure". Then, the Quantity "10 MPa" is the value of that pressure. But the text is a bit unclear. Alternatively, the MeasuredEntity is "shales" and the MeasuredProperty is "pressure required to fracture", with the Quantity "10 MPa". Alternatively, maybe the MeasuredEntity is "shales" and the MeasuredProperty is "tensional rock strength", and the Quantity "10 MPa" is the value that exceeds it. Hmm. But the sentence says "10 MPa is sufficient to exceed the tensional rock strength". So, the 10 MPa is the pressure applied, and the rock strength is the threshold. So perhaps the MeasuredEntity here is "tensional rock strength", and the MeasuredProperty is "threshold pressure", but the text doesn't mention "threshold pressure" directly. This is confusing.
+
+Alternatively, maybe the MeasuredEntity is "shales" and the MeasuredProperty is "required pressure", with Quantity "10 MPa". But the text just says "10 MPa is sufficient". Maybe in this case, the Quantity is standalone because the MeasuredEntity isn't explicitly mentioned. However, the instructions say to link to MeasuredEntity or MeasuredProperty if possible. But if the text is unclear, maybe leave it standalone. Alternatively, perhaps the MeasuredEntity is "shales", and the MeasuredProperty is "sufficient pressure", but that's not in the text. Hmm.
+
+Alternatively, the 10 MPa here is linked to the overpressure mentioned earlier. The first 10 MPa was part of the overpressure from ice sheet load, and the second 10 MPa refers to the same value. But in the text, they are two separate mentions. So for the second mention, the MeasuredEntity would be "shales" and the MeasuredProperty is "overpressure required". But the text says "10 MPa is sufficient to exceed the tensional rock strength", implying that the rock strength's threshold is less than 10 MPa. So the MeasuredEntity here is "tensional rock strength", and the MeasuredProperty is "threshold pressure", with Quantity "10 MPa". But again, the text doesn't explicitly state "threshold pressure". So maybe this Quantity is standalone, or linked to "tensional rock strength" as the MeasuredEntity with MeasuredProperty as "sufficient pressure". This is tricky.
+
+Given the ambiguity, perhaps better to link the second 10 MPa to "tensional rock strength" as the MeasuredEntity, with MeasuredProperty as "pressure required for fracturing". But the exact wording is a challenge. Let's proceed with what's explicit.
+
+Now, the Qualifiers. For the first Quantity (10 MPa), the text says "transient pulse of fluid overpressure sufficient to fracture the rock". The "transient" could be a Qualifier for the pulse. But "transient" here is an adjective describing the pulse, so it's part of the MeasuredEntity. Similarly, "during a typical ablation timespan of less than a few thousand years" – "during a typical ablation timespan" might be a Qualifier for the Quantity "less than a few thousand years". But since "during..." is part of the context, maybe it's a Qualifier.
+
+Also, "based on present-day leak-off tests (Nicoll, 2012)" – this could be a Qualifier for the fracture gradient approximation.
+
+Putting this together:
+
+AnnotSet 1:
+- Quantity: 10 MPa (first mention)
+  - Unit: MPa
+  - Mods: none (exact value)
+- MeasuredEntity: transient ice sheet load
+- MeasuredProperty: overpressure
+- Relationships: MeasuredEntity HasProperty MeasuredProperty, MeasuredProperty HasQuantity Quantity
+
+AnnotSet 2:
+- Quantity: less than a few thousand years
+  - Unit: years
+  - Mods: IsApproximate (due to "a few"), IsCount
+- MeasuredEntity: ablation timespan (or just "ablation timespan" as MeasuredEntity)
+Wait, the text says "ablation timespan of less than a few thousand years", so the MeasuredEntity is "ablation timespan", and the Quantity measures its duration. So:
+- MeasuredEntity: ablation timespan
+- Relationships: MeasuredEntity HasQuantity Quantity
+
+But if there's no MeasuredProperty mentioned, perhaps the MeasuredEntity is directly linked to the Quantity. Alternatively, if the MeasuredProperty is "duration", but the text uses "timespan", which is similar. Maybe "timespan" is the MeasuredProperty, but then the MeasuredEntity would be "ablation". Wait, the text says "ablation timespan", which could be considered a MeasuredEntity (the timespan of ablation), and the MeasuredProperty is "duration". However, since "timespan" already implies duration, perhaps there's no need for a MeasuredProperty here, and the MeasuredEntity is "ablation timespan" linked directly to the Quantity.
+
+AnnotSet 3:
+- Quantity: 10 MPa (second mention)
+  - Unit: MPa
+- MeasuredEntity: tensional rock strength (from the sentence "exceed the tensional rock strength")
+- MeasuredProperty: pressure required (implied)
+But this is unclear. Alternatively, simply link the Quantity to "shales" as the MeasuredEntity with MeasuredProperty "sufficient pressure". But the text doesn't state that. Maybe it's better to leave the second 10 MPa without a MeasuredEntity and MeasuredProperty if they're not explicit.
+
+Alternatively, since the sentence is "10 MPa is sufficient to exceed the tensional rock strength", the Quantity 10 MPa is measuring the pressure required to exceed the rock strength. The MeasuredEntity here is "tensional rock strength", and the MeasuredProperty is "pressure threshold". But again, not explicit. Maybe this Quantity is standalone.
+
+Additionally, the phrase "a conservative approximation for the fracture gradient" – "conservative approximation" could be a Qualifier for the fracture gradient, but there's no specific Quantity mentioned here. The text says "based on present-day leak-off tests (Nicoll, 2012)" – this is a Qualifier for the approximation.
+
+Also, "equivalent to 10 MPa of overpressure" – "equivalent" might be a Qualifier, but it's part of the description of the ice sheet load.
+
+So, putting this into TSV format:
+
+For the first Quantity (10 MPa, first mention):
+
+annotSet 1:
+- Quantity T1: 10 MPa, unit MPa
+- MeasuredEntity T2: transient ice sheet load
+- MeasuredProperty T3: overpressure
+- Relationships: T2 HasProperty T3; T3 HasQuantity T1
+
+For the second Quantity (less than a few thousand years):
+
+annotSet 2:
+- Quantity T4: less than a few thousand years, unit years, mods IsApproximate and IsCount
+- MeasuredEntity T5: ablation timespan
+- Relationships: T5 HasQuantity T4
+
+For the third Quantity (10 MPa, second mention):
+
+annotSet 3:
+- Quantity T6: 10 MPa, unit MPa
+- Maybe MeasuredEntity T7: tensional rock strength
+- MeasuredProperty T8: pressure (if applicable)
+But since it's unclear, perhaps leave as standalone. However, the sentence mentions "exceed the tensional rock strength", so the Quantity 10 MPa is the pressure that exceeds it. So:
+
+- MeasuredEntity T7: tensional rock strength
+- MeasuredProperty T8: pressure required for fracturing (but not explicit)
+Alternatively, since the text says "sufficient to exceed...", the Quantity is linked to the MeasuredEntity "tensional rock strength" via HasQuantity, with MeasuredProperty as "sufficient pressure". But the text doesn't state that property explicitly.
+
+Alternatively, perhaps the MeasuredEntity is "shales" (from "At the shallow burial depth of these shales"), and the MeasuredProperty is "sufficient overpressure". But again, the text is not explicit. In such cases, it's better to link to what's explicit. Since the text says "10 MPa is sufficient to exceed the tensional rock strength", the MeasuredEntity could be "tensional rock strength", and the Quantity is the pressure that exceeds it. So:
+
+- MeasuredEntity T7: tensional rock strength
+- MeasuredProperty T8: sufficient pressure (implied)
+But since MeasuredProperty should be explicit, maybe omit it. So the Quantity is linked directly to the MeasuredEntity "tensional rock strength" via HasQuantity.
+
+Qualifiers:
+
+- "during a typical ablation timespan..." – the phrase "during a typical ablation timespan of" is part of the context for the Quantity "less than a few thousand years". Maybe "typical" is a Qualifier for the ablation timespan. But in the Quantity annotation, "typical" is not part of the Quantity text. So the Quantity is "less than a few thousand years", and "during a typical ablation timespan" is a Qualifier for that Quantity. But according to the instructions, Qualifiers are linked via Qualifies. However, the phrase "during a typical ablation timespan of" is part of the sentence introducing the Quantity. So maybe "typical" is a Qualifier for the MeasuredEntity "ablation timespan", qualifying it as typical. Or "during..." is a temporal Qualifier for the Quantity.
+
+But how to handle that. The example had "after I drank half the can" as a Qualifier linked to the Quantity. In this case, "during a typical ablation timespan" would be a Qualifier linked to the Quantity "less than a few thousand years". However, the text is "during a typical ablation timespan of less than a few thousand years" – the "of" links the timespan to the Quantity. So the phrase "during a typical ablation timespan" could be a Qualifier for the Quantity. But the structure is "timespan of [Quantity]", so the Quantity is a measure of the timespan. Therefore, the MeasuredEntity is "ablation timespan", and the Qualifier is "typical". Wait, but "typical" is an adjective describing the ablation timespan, so it's part of the MeasuredEntity. Therefore, the MeasuredEntity would be "typical ablation timespan", with "typical" included. So perhaps:
+
+MeasuredEntity T5: typical ablation timespan
+
+But according to the instructions, adjectives should be included in the MeasuredEntity. So "typical ablation timespan" as the MeasuredEntity. Then the Quantity is "less than a few thousand years" linked via HasQuantity.
+
+Similarly, "conservative approximation" in the last sentence: "a conservative approximation for the fracture gradient" – if there was a Quantity here, but there isn't. The approximation is about the fracture gradient, but no specific value is given. So no Quantity here.
+
+Also, "equivalent to 10 MPa of overpressure" – "equivalent to" is part of the description, but the Quantity is "10 MPa", so maybe "equivalent to" is part of the MeasuredEntity or MeasuredProperty. Not sure.
+
+Putting this all together, the TSV might look like:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	10 MPa	{"unit": "MPa"}
+1	MeasuredEntity	T2	transient ice sheet load	{"HasProperty": "T3"}
+1	MeasuredProperty	T3	overpressure	{"HasQuantity": "T1"}
+2	Quantity	T4	less than a few thousand years	{"unit": "years", "mods": ["IsApproximate", "IsCount"]}
+2	MeasuredEntity	T5	ablation timespan	{"HasQuantity": "T4"}
+3	Quantity	T6	10 MPa	{"unit": "MPa"}
+3	MeasuredEntity	T7	tensional rock strength	{"HasQuantity": "T6"}
+
+Wait, but in the second annotSet, the MeasuredEntity is "ablation timespan", which is mentioned as "ablation timespan of less than a few thousand years". The MeasuredEntity is "ablation timespan", and the Quantity is "less than a few thousand years". The relationship is HasQuantity from MeasuredEntity to Quantity. There's no MeasuredProperty here because the timespan itself is the property being measured. Or is "timespan" the MeasuredProperty? This is a bit confusing. If "ablation timespan" is the MeasuredEntity, then what is the MeasuredProperty? Alternatively, the MeasuredEntity is "ablation", and the MeasuredProperty is "timespan", linked via HasProperty. Then the Quantity is linked to the MeasuredProperty.
+
+So:
+
+annotSet2:
+- MeasuredEntity T5: ablation
+- MeasuredProperty T6: timespan
+- Quantity T7: less than a few thousand years
+- Relationships: T5 HasProperty T6; T6 HasQuantity T7
+
+That would align with the example where "solvent" is the MeasuredEntity, "volume" is the MeasuredProperty, and Quantity is "500 milliliters". So in this case, "ablation" (MeasuredEntity) has a MeasuredProperty "timespan" (T6), which HasQuantity T7.
+
+But the text says "ablation timespan", which is a noun phrase. So maybe "ablation timespan" is the MeasuredEntity, and there's no MeasuredProperty. Or "timespan" is the MeasuredProperty of "ablation". This requires some judgment. If the example treats "soda can's volume" as MeasuredEntity "soda can" and MeasuredProperty "volume", then "ablation timespan" would be split into MeasuredEntity "ablation" and MeasuredProperty "timespan". Therefore, annotSet2 would be:
+
+annotSet	annotType	annotId	text	other
+2	Quantity	T4	less than a few thousand years	{"unit": "years", "mods": ["IsApproximate", "IsCount"]}
+2	MeasuredEntity	T5	ablation	{"HasProperty": "T6"}
+2	MeasuredProperty	T6	timespan	{"HasQuantity": "T4"}
+
+This makes sense.
+
+Now, the third Quantity (second 10 MPa) is in the sentence: "At the shallow burial depth of these shales, 10 MPa is sufficient to exceed the tensional rock strength...". The MeasuredEntity here could be "tensional rock strength", and the MeasuredProperty is "pressure required". But since "10 MPa" is the pressure that exceeds the strength, the relationship would be that the MeasuredProperty (pressure required) HasQuantity 10 MPa. But the text doesn't explicitly mention "pressure required" as a property. So perhaps the MeasuredEntity is "tensional rock strength", and the Quantity is linked directly via HasQuantity. Alternatively, create a MeasuredProperty "sufficient pressure" even if it's not explicit. But according to the instructions, MeasuredProperty should be explicit. Therefore, perhaps the MeasuredEntity is "tensional rock strength", and the Quantity is linked directly:
+
+annotSet3:
+- Quantity T7: 10 MPa
+- MeasuredEntity T8: tensional rock strength
+- Relationships: T8 HasQuantity T7
+
+But how does that fit? The sentence is "10 MPa is sufficient to exceed the tensional rock strength". So the Quantity 10 MPa is the pressure that exceeds the strength. Thus, the MeasuredEntity is "tensional rock strength", and the Quantity is the pressure value. The MeasuredProperty would be "pressure required to exceed", but since it's not explicit, perhaps omit it. So the link is direct from MeasuredEntity to Quantity.
+
+Alternatively, the pressure is a property of the shales. The sentence starts with "At the shallow burial depth of these shales...", so maybe the MeasuredEntity is "shales", MeasuredProperty is "pressure", and Quantity is 10 MPa. But the text says "10 MPa is sufficient to exceed...", so the pressure is not a property of the shales but the pressure applied. This is getting complicated. Given the ambiguity, perhaps it's better to link the Quantity to "tensional rock strength" as the MeasuredEntity without a MeasuredProperty.
+
+So final TSV would be:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	10 MPa	{"unit": "MPa"}
+1	MeasuredEntity	T2	transient ice sheet load	{"HasProperty": "T3"}
+1	MeasuredProperty	T3	overpressure	{"HasQuantity": "T1"}
+2	Quantity	T4	less than a few thousand years	{"unit": "years", "mods": ["IsApproximate", "IsCount"]}
+2	MeasuredEntity	T5	ablation	{"HasProperty": "T6"}
+2	MeasuredProperty	T6	timespan	{"HasQuantity": "T4"}
+3	Quantity	T7	10 MPa	{"unit": "MPa"}
+3	MeasuredEntity	T8	tensional rock strength	{"HasQuantity": "T7"}
+
+Additionally, the phrase "based on present-day leak-off tests (Nicoll, 2012)" is a Qualifier for the fracture gradient approximation mentioned later. But the approximation isn't quantified with a specific value. So if there's no Quantity, this Qualifier isn't linked to anything. Therefore, it's not annotated.
+
+Another Qualifier could be "during a typical ablation timespan" for the second Quantity. But if the MeasuredEntity is "ablation" and the MeasuredProperty is "timespan", then "typical" is part of the MeasuredEntity's text. Wait, in the example, "soda can's volume" is MeasuredEntity "soda can" and MeasuredProperty "volume". Similarly, "typical ablation timespan" would be split into MeasuredEntity "ablation" with MeasuredProperty "timespan", and "typical" is part of the MeasuredEntity's text? No, because "typical" modifies "ablation timespan". Wait, the text says "during a typical ablation timespan", so "typical" is an adjective for "ablation timespan". If we split "ablation timespan" into MeasuredEntity "ablation" and MeasuredProperty "timespan", then the "typical" would need to be a Qualifier for the MeasuredEntity or MeasuredProperty. But according to the instructions, adjectives should be included in the MeasuredEntity if possible. So perhaps the MeasuredEntity is "typical ablation" and the MeasuredProperty is "timespan". But that complicates it. Alternatively, the entire phrase "typical ablation timespan" is the MeasuredEntity. But according to the example, "soda can" is the MeasuredEntity, not "soda can's volume". So in this case, the MeasuredEntity would be "ablation timespan" with the adjective "typical", making it "typical ablation timespan" as the MeasuredEntity. Then the MeasuredProperty is not needed since the timespan is the property. Alternatively, the MeasuredEntity is "ablation", MeasuredProperty is "timespan", and "typical" is a Qualifier for the MeasuredProperty. 
+
+This is getting too ambiguous. To follow the example's structure, perhaps splitting into MeasuredEntity and MeasuredProperty is better. So:
+
+MeasuredEntity: ablation
+MeasuredProperty: timespan
+Qualifier: typical (qualifies the MeasuredProperty)
+
+But the text has "typical ablation timespan", so "typical" is part of the MeasuredEntity's description. Alternatively, "typical" is a Qualifier for the MeasuredEntity "ablation timespan". So:
+
+Qualifier: typical
+Qualifies: T5 (MeasuredEntity "ablation timespan")
+
+But earlier analysis suggested that the MeasuredEntity is "ablation" and MeasuredProperty is "timespan". Hmm. This is a bit of a knot. Given the time constraints, perhaps proceed with the initial TSV as drafted, acknowledging that there could be variations based on interpretation.
+
+Another point: the first mention of "10 MPa" is part of "transient ice sheet load equivalent to 10 MPa of overpressure". The MeasuredProperty here is "overpressure", which HasQuantity T1.
+
+The final answer should include all these annotations in TSV format with annotSet grouping related annotations.

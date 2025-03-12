@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103511004994-1607	1	Quantity	178	188	T1	only 50 km	"{""unit"": ""km"", ""mods"": [""IsApproximate""]}"
+S0019103511004994-1607	1	MeasuredEntity	146	150	T2	moon	"{""HasQuantity"": ""T1""}"
+S0019103511004994-1607	1	MeasuredProperty	166	174	T3	distance	"{""HasQuantity"": ""T1""}"
+S0019103511004994-1607	2	Quantity	554	558	T4	115°	"{""unit"": ""\u00b0"", ""mods"": []}"
+S0019103511004994-1607	2	MeasuredEntity	600	634	T5	low-energy telescope of MIMI/LEMMS	"{""HasQuantity"": ""T4""}"
+S0019103511004994-1607	2	MeasuredProperty	535	552	T6	local pitch angle	"{""HasQuantity"": ""T4""}"
+S0019103511004994-1607	3	Quantity	574	583	T7	about 75°	"{""unit"": ""\u00b0"", ""mods"": [""IsApproximate""]}"
+S0019103511004994-1607	3	MeasuredEntity	600	634	T8	low-energy telescope of MIMI/LEMMS	"{""HasQuantity"": ""T7""}"
+S0019103511004994-1607	3	MeasuredProperty	535	552	T9	local pitch angle	"{""HasQuantity"": ""T7""}"

@@ -1,0 +1,9 @@
+docId	annotSet	annotType	annotId	text	other
+S0167577X13006393-662	1	Quantity	T1	1 ml	"{""unit"": ""ml"", ""mods"": [""IsCount""]}"
+S0167577X13006393-662	1	Quantity	T2	5 ml	"{""unit"": ""ml"", ""mods"": [""IsCount""]}"
+S0167577X13006393-662	1	MeasuredEntity	T3	syringe	"{""HasQuantity"": ""T1"", ""HasQuantity"": ""T2""}"
+S0167577X13006393-662	2	Quantity	T3	1 ml/h	"{""unit"": ""ml/h"", ""mods"": []}"
+S0167577X13006393-662	2	MeasuredEntity	T4	solution	"{""HasQuantity"": ""T3""}"
+S0167577X13006393-662	2	MeasuredProperty	T5	rate	"{""HasQuantity"": ""T3"", ""HasProperty"": ""T4""}"
+S0167577X13006393-662	3	Quantity	T6	12.2 kV	"{""unit"": ""kV"", ""mods"": []}"
+S0167577X13006393-662	3	MeasuredEntity	T7	voltage	"{""HasQuantity"": ""T6""}"

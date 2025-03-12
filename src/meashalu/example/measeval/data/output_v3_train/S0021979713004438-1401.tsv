@@ -1,0 +1,11 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0021979713004438-1401	1	Quantity	111	118	T1	10 wt.%	"{""unit"": ""wt.%"", ""mods"": []}"
+S0021979713004438-1401	1	MeasuredEntity	119	132	T2	NaOH solution	"{""HasQuantity"": ""T1""}"
+S0021979713004438-1401	2	Quantity	207	212	T3	99.5%	"{""unit"": ""%"", ""mods"": []}"
+S0021979713004438-1401	2	MeasuredEntity	218	225	T4	ethanol	"{""HasQuantity"": ""T3""}"
+S0021979713004438-1401	3	Quantity	825	832	T5	69 ± 3°	"{""unit"": ""\u00b0"", ""mods"": [""IsMeanHasSD""]}"
+S0021979713004438-1401	3	MeasuredEntity	805	821	T6	hematite surface	"{""HasQuantity"": ""T5""}"
+S0021979713004438-1401	3	MeasuredProperty	778	797	T7	water contact angle	"{""HasQuantity"": ""T5""}"
+S0021979713004438-1401	4	Quantity	888	895	T8	−0.72 V	"{""unit"": ""V"", ""mods"": []}"
+S0021979713004438-1401	4	MeasuredEntity	842	864	T9	open circuit potential	"{""HasQuantity"": ""T8""}"
+S0021979713004438-1401	4	MeasuredProperty	865	884	T10	relative to Ag/AgCl	"{""HasQuantity"": ""T8""}"

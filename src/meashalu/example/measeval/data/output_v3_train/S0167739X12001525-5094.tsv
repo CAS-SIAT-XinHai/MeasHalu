@@ -1,0 +1,4 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0167739X12001525-5094	1	Quantity	768	775	T1	TThighr	"{""mods"": [""IsCount""]}"
+S0167739X12001525-5094	1	MeasuredEntity	777	793	T2	storage_utilized	"{""HasQuantity"": ""T1""}"
+S0167739X12001525-5094	1	MeasuredProperty	729	739	T3	percentage	"{""HasQuantity"": ""T1""}"

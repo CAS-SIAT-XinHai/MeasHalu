@@ -1,0 +1,4 @@
+docId	annotSet	annotType	annotId	text	other
+S016412121300188X-5038	1	Quantity	T1	three	"{""mods"": [""IsCount""]}"
+S016412121300188X-5038	1	MeasuredEntity	T2	case studies	"{""HasQuantity"": ""T1""}"
+S016412121300188X-5038	1	Qualifier	T3	all	"{""Qualifies"": ""T1""}"

@@ -1,0 +1,8 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0006322312001096-1260	1	Quantity	233	245	T1	70 or higher	"{""unit"": ""years"", ""mods"": [""IsRange""]}"
+S0006322312001096-1260	1	MeasuredEntity	221	227	T2	adults	"{""HasQuantity"": ""T1""}"
+S0006322312001096-1260	1	MeasuredProperty	228	231	T3	age	"{""HasQuantity"": ""T1""}"
+S0006322312001096-1260	2	Quantity	403	409	T4	2-year	"{""unit"": ""years""}"
+S0006322312001096-1260	2	MeasuredEntity	410	451	T5	incidence of elevated depressive symptoms	"{""HasQuantity"": ""T4""}"
+S0006322312001096-1260	3	Quantity	653	660	T7	6 years	"{""unit"": ""years""}"
+S0006322312001096-1260	3	MeasuredEntity	624	636	T8	older adults	"{""HasQuantity"": ""T7""}"

@@ -1,0 +1,11 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0960148113005727-903	1	Quantity	108	140	T1	lower cumulative lifetime output	"{""mods"": [""IsCount""]}"
+S0960148113005727-903	1	MeasuredEntity	82	92	T3	wind farms	"{""HasProperty"": ""T2""}"
+S0960148113005727-903	2	Quantity	157	186	T4	levelised cost of electricity	"{""mods"": [""IsCount""]}"
+S0960148113005727-903	2	MeasuredEntity	196	202	T5	plants	"{""HasQuantity"": ""T4""}"
+S0960148113005727-903	3	Quantity	211	230	T6	rate of degradation	"{""mods"": [""IsCount""]}"
+S0960148113005727-903	3	MeasuredEntity	301	309	T7	turbines	"{""HasQuantity"": ""T6""}"
+S0960148113005727-903	3	Qualifier	236	245	T8	too great	"{""Qualifies"": ""T6""}"
+S0960148113005727-903	4	Quantity	345	358	T9	economic life	"{""mods"": [""IsCount""]}"
+S0960148113005727-903	4	Quantity	395	409	T10	technical life	"{""mods"": [""IsCount""]}"
+S0960148113005727-903	4	MeasuredEntity	301	308	T11	turbine	"{""HasQuantity"": ""T10""}"

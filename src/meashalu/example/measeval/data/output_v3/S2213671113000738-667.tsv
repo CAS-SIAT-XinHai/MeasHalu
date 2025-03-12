@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2213671113000738-667	1	Quantity	241	255	T1	days 35 and 71	"{""unit"": ""days"", ""mods"": [""IsList""]}"
+S2213671113000738-667	1	MeasuredEntity	223	237	T2	mature neurons	"{""HasQuantity"": ""T1""}"
+S2213671113000738-667	2	Quantity	370	378	T4	25 ng/ml	"{""unit"": ""ng/ml""}"
+S2213671113000738-667	2	MeasuredEntity	363	368	T5	IFN-γ	"{""HasQuantity"": ""T4""}"
+S2213671113000738-667	3	Quantity	383	388	T7	48 hr	"{""unit"": ""hr""}"
+S2213671113000738-667	3	MeasuredEntity	363	368	T8	IFN-γ	"{""HasQuantity"": ""T7""}"
+S2213671113000738-667	4	Quantity	440	459	T10	approximately 1:100	"{""mods"": [""IsApproximate""]}"
+S2213671113000738-667	4	MeasuredEntity	430	435	T11	mRNAs	"{""HasQuantity"": ""T10""}"
+S2213671113000738-667	4	MeasuredProperty	406	422	T12	expression level	"{""HasQuantity"": ""T10""}"

@@ -1,0 +1,8 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S016412121300188X-4545	1	Quantity	37	41	T1	five	"{""mods"": [""IsCount""]}"
+S016412121300188X-4545	1	MeasuredEntity	50	66	T2	clusters of acct	"{""HasQuantity"": ""T1""}"
+S016412121300188X-4545	2	Quantity	449	462	T3	11.4% to 2.4%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
+S016412121300188X-4545	2	MeasuredEntity	424	437	T4	cluster sizes	"{""HasQuantity"": ""T3""}"
+S016412121300188X-4545	3	Quantity	605	617	T5	less than 2%	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
+S016412121300188X-4545	3	Quantity	621	623	T6	30	"{""mods"": [""IsCount""]}"
+S016412121300188X-4545	3	MeasuredEntity	580	588	T7	clusters	"{""HasQuantity"": ""T6""}"

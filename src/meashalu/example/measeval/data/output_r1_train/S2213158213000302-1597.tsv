@@ -1,0 +1,4 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2213158213000302-1597	1	Quantity	152	174	T1	between 100 and 200 ms	"{""unit"": ""ms"", ""mods"": [""IsRange""]}"
+S2213158213000302-1597	1	MeasuredEntity	124	138	T2	MMNm component	"{""HasQuantity"": ""T1""}"
+S2213158213000302-1597	1	Qualifier	177	220	T4	automatic or largely pre-attentive response	"{""Qualifies"": ""T2""}"

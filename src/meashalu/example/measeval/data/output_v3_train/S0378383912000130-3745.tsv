@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0378383912000130-3745	1	Quantity	8	14	T1	8.5 mm	"{""unit"": ""mm""}"
+S0378383912000130-3745	1	MeasuredEntity	15	20	T2	beach	"{""HasQuantity"": ""T1""}"
+S0378383912000130-3745	2	Quantity	79	86	T3	1980 mm	"{""unit"": ""mm""}"
+S0378383912000130-3745	2	MeasuredEntity	75	76	T4	x	"{""HasQuantity"": ""T3""}"
+S0378383912000130-3745	3	Quantity	101	108	T5	2780 mm	"{""unit"": ""mm""}"
+S0378383912000130-3745	3	MeasuredEntity	75	76	T6	x	"{""HasQuantity"": ""T5""}"

@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S1359835X13001875-1359	1	Quantity	87	90	T1	1 m	"{""unit"": ""m""}"
+S1359835X13001875-1359	1	MeasuredEntity	68	79	T2	side length	"{""HasQuantity"": ""T1""}"
+S1359835X13001875-1359	1	MeasuredProperty	68	79	T3	side length	"{""HasQuantity"": ""T1""}"
+S1359835X13001875-1359	2	Quantity	107	111	T4	1000	"{""mods"": [""IsCount""]}"
+S1359835X13001875-1359	2	MeasuredEntity	112	130	T5	discrete particles	"{""HasQuantity"": ""T4""}"
+S1359835X13001875-1359	2	MeasuredProperty	198	204	T6	number	"{""HasQuantity"": ""T4""}"
+S1359835X13001875-1359	3	Quantity	233	241	T7	1000 m−2	"{""unit"": ""m\u22122""}"
+S1359835X13001875-1359	3	MeasuredEntity	173	181	T8	material	"{""HasQuantity"": ""T7""}"
+S1359835X13001875-1359	3	MeasuredProperty	198	212	T9	number density	"{""HasQuantity"": ""T7""}"

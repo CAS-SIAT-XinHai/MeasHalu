@@ -1,0 +1,8 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0006322312001096-1253	1	Quantity	320	328	T1	65 years	"{""unit"": ""years""}"
+S0006322312001096-1253	1	MeasuredProperty	313	316	T3	age	"{""HasQuantity"": ""T1""}"
+S0006322312001096-1253	1	Qualifier	302	328	T4	before the age of 65 years	"{""Qualifies"": ""T3""}"
+S0006322312001096-1253	2	Quantity	521	526	T5	three	"{""mods"": [""IsCount""]}"
+S0006322312001096-1253	2	MeasuredEntity	537	572	T6	vascular risk prediction algorithms	"{""HasQuantity"": ""T5""}"
+S0006322312001096-1253	3	Quantity	655	658	T7	two	"{""mods"": [""IsCount""]}"
+S0006322312001096-1253	3	MeasuredEntity	659	677	T8	survey instruments	"{""HasQuantity"": ""T7""}"

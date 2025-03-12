@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2213158213000582-751	1	Quantity	27	32	T1	50 ms	"{""unit"": ""ms"", ""mods"": [""IsCount""]}"
+S2213158213000582-751	1	MeasuredEntity	33	41	T2	activity	"{""HasQuantity"": ""T1""}"
+S2213158213000582-751	2	Quantity	93	105	T3	FDR q < 0.05	"{""mods"": []}"
+S2213158213000582-751	2	MeasuredProperty	78	89	T4	thresholded	"{""HasQuantity"": ""T3""}"
+S2213158213000582-751	3	Quantity	93	105	T5	FDR q < 0.05	"{""mods"": []}"
+S2213158213000582-751	3	MeasuredProperty	78	89	T6	thresholded	"{""HasQuantity"": ""T5""}"

@@ -1,0 +1,9 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0927024813002961-1051	1	Quantity	1210	1214	T1	2–7%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
+S0927024813002961-1051	1	MeasuredEntity	1161	1183	T2	performance variations	"{""HasQuantity"": ""T1""}"
+S0927024813002961-1051	1	Qualifier	1215	1238	T3	in the course of a year	"{""Qualifies"": ""T1""}"
+S0927024813002961-1051	2	Quantity	1466	1472	T4	10–15%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
+S0927024813002961-1051	2	MeasuredEntity	1392	1424	T5	uncertainty for new technologies	"{""HasQuantity"": ""T4""}"
+S0927024813002961-1051	3	Quantity	1632	1635	T6	25%	"{""unit"": ""%""}"
+S0927024813002961-1051	3	MeasuredEntity	1636	1671	T7	variation between different devices	"{""HasQuantity"": ""T6""}"
+S0927024813002961-1051	3	Qualifier	1556	1594	T8	considering the life-time energy yield	"{""Qualifies"": ""T6""}"

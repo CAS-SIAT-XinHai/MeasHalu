@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0960148113002735-1989	1	Quantity	68	74	T1	1800 s	"{""unit"": ""s""}"
+S0960148113002735-1989	1	MeasuredEntity	63	67	T2	time	"{""HasQuantity"": ""T1""}"
+S0960148113002735-1989	2	Quantity	365	368	T3	57%	"{""unit"": ""%"", ""mods"": [""IsMean""]}"
+S0960148113002735-1989	2	MeasuredEntity	361	363	T4	CP	"{""HasQuantity"": ""T3""}"
+S0960148113002735-1989	2	MeasuredProperty	353	363	T5	reduced CP	"{""HasQuantity"": ""T3""}"
+S0960148113002735-1989	2	MeasuredEntity	376	393	T6	separate topology	"{""HasProperty"": ""T5""}"
+S0960148113002735-1989	2	Qualifier	394	403	T7	at 1800 s	"{""Qualifies"": ""T4""}"
+S0960148113002735-1989	3	Quantity	501	507	T8	2700 s	"{""unit"": ""s""}"
+S0960148113002735-1989	3	MeasuredEntity	437	454	T10	separate topology	"{""HasProperty"": ""T11""}"

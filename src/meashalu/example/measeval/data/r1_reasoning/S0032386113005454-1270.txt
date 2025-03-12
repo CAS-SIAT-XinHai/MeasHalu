@@ -1,0 +1,184 @@
+Alright, let's tackle this input. The sentence is about various material properties of epoxy polymers, both unmodified and modified with S-CSR, measured at 20°C. 
+
+First, I need to identify all the quantities. The obvious one here is "20 °C". But wait, the text lists several properties like Tg, E, σf, GIc, KIc. These symbols might represent properties but aren't quantities themselves unless paired with values. However, in this context, they're being listed as properties that have been measured, but their actual numerical values aren't provided here. So maybe they are MeasuredProperties rather than Quantities.
+
+The main Quantity here is "20 °C". Let's check modifiers. The temperature is given as "20 °C" without any approximate terms, so no IsApproximate. The unit is °C. Since there's no range or list, it's a straightforward measurement.
+
+Now, MeasuredEntities. The sentence mentions "unmodified and S-CSR-modified epoxy polymers". These are the entities being measured. So the MeasuredEntity is "unmodified and S-CSR-modified epoxy polymers".
+
+MeasuredProperties are all the listed properties: Glass transition temperature (Tg), tensile Young's modulus (E), fracture stress (σf), fracture energy (GIc), and fracture toughness (KIc). Each of these properties is associated with the MeasuredEntity.
+
+The Qualifier here is "at 20 °C", which qualifies the conditions under which these properties were measured. So "at 20 °C" is a Qualifier that applies to all the MeasuredProperties and the MeasuredEntity.
+
+Relationships: The MeasuredEntity (epoxy polymers) has multiple HasProperty relationships with each MeasuredProperty (Tg, E, etc.). Each MeasuredProperty then HasQuantity to the temperature "20 °C". The Qualifier "at 20 °C" Qualifies the MeasuredProperties or the entire set.
+
+Wait, but how to structure the annotSets? Since all properties are measured under the same condition (20°C), they might form a single annotSet. But each property could be a separate MeasuredProperty. Let me list them all.
+
+So annotSet 1 would include the MeasuredEntity, the Qualifier, the Quantity, and each MeasuredProperty linked to the Quantity. But how to handle multiple MeasuredProperties?
+
+Alternatively, maybe each MeasuredProperty is part of the same set since they're all related to the same entity and qualifier. Let's see:
+
+- Quantity: "20 °C" (T1)
+- MeasuredEntity: "unmodified and S-CSR-modified epoxy polymers" (T2)
+- MeasuredProperties: Glass transition temperature (Tg) as T3, tensile Young's modulus (E) as T4, fracture stress (σf) as T5, fracture energy (GIc) as T6, fracture toughness (KIc) as T7.
+- Qualifier: "at 20 °C" (T8)
+
+Each MeasuredProperty (T3-T7) has a HasProperty link to T2, and a HasQuantity link to T1. The Qualifier T8 qualifies T1 or the MeasuredProperties.
+
+But the original sentence lists the properties and their symbols, then states they are measured at 20°C. So each property is a MeasuredProperty, linked to the entity, and the qualifier applies to all.
+
+Thus, in the TSV:
+
+annotSet 1 would have the Quantity T1 (20 °C), MeasuredEntity T2, Qualifier T8, and MeasuredProperties T3-T7. Each MeasuredProperty links to T2 via HasProperty and to T1 via HasQuantity. The Qualifier T8 Qualifies T1 or the MeasuredProperties. But according to the relationships, Qualifier can qualify Quantity, MeasuredEntity, or MeasuredProperty. Since "at 20 °C" is the condition for the measurements, it likely qualifies all the MeasuredProperties or the Quantity. However, the qualifier "at 20 °C" is linked to the entire set, so perhaps it qualifies the Quantity "20 °C".
+
+Alternatively, maybe the Qualifier "at 20 °C" qualifies each MeasuredProperty, indicating that all those properties were measured at that temperature. So each MeasuredProperty would have a Qualifies relationship. But in the output, each annotation must have their own relationships. However, the Qualifier "at 20 °C" is a single span that qualifies multiple things. How to represent that?
+
+In the example provided in the instructions, the Qualifier "after I drank half the can" qualifies the Quantity. Here, "at 20 °C" might qualify all the MeasuredProperties. But in the TSV, each Qualifier can only have one Qualifies relationship. So perhaps the Qualifier "at 20 °C" qualifies the MeasuredEntity, as the conditions under which the entity's properties are measured. Or maybe it qualifies the entire set. Alternatively, it qualifies the Quantity "20 °C" since the temperature is the condition. But the temperature itself is a Quantity. Hmm.
+
+Wait, the Quantity "20 °C" is a measurement, and the Qualifier "at 20 °C" is the condition. So maybe the Qualifier "at 20 °C" qualifies the MeasuredProperties, indicating that those properties are measured at that temperature. So each MeasuredProperty would be qualified by T8. But that's not possible since the Qualifier is a single annotation. Alternatively, the Qualifier qualifies the entire annotSet, which includes all MeasuredProperties and the Quantity. But according to the rules, each Qualifier can be linked to one target via Qualifies. So perhaps the Qualifier "at 20 °C" qualifies the MeasuredEntity, indicating the entity was tested at that temperature, which in turn affects all properties. Or it qualifies the Quantity "20 °C". Hmm.
+
+Alternatively, maybe the phrase "at 20 °C" is part of the Quantity, but in the input it's written as "at 20 °C". Wait, the original input says "...epoxy polymers at 20 °C." So the "at" is part of the Qualifier. So the Quantity is "20 °C", and the Qualifier is the entire phrase "at 20 °C", which then qualifies the MeasuredEntity or the MeasuredProperties.
+
+Wait, in the example given in the instructions, the Qualifier "after I drank half the can" is a separate Qualifier that qualifies the Quantity. Similarly, here "at 20 °C" would be a Qualifier that qualifies the MeasuredEntity or the MeasuredProperties. Let's parse this.
+
+Original input: "Glass transition temperature, Tg, tensile Young's modulus, E, and fracture stress, σf, fracture energy, GIc, and fracture toughness, KIc, for the unmodified and S-CSR-modified epoxy polymers at 20 °C."
+
+So the structure is: list of properties (MeasuredProperties) for the epoxy polymers (MeasuredEntity) at 20 °C (Qualifier). The Quantity here is "20 °C", unit °C, no modifiers. The Qualifier is "at 20 °C", which would link to either the MeasuredEntity or the MeasuredProperties.
+
+But according to the annotation steps, Qualifiers can be linked to Quantity, MeasuredEntity, or MeasuredProperty. Here, "at 20 °C" is the condition under which the properties are measured, so it's qualifying the MeasuredProperties. However, since there are multiple MeasuredProperties, how to handle that? Maybe the Qualifier qualifies the entire group, so it would link to the MeasuredEntity. Alternatively, each MeasuredProperty is qualified by the Qualifier. But since the Qualifier is a single span, it can't link to multiple targets. So perhaps linking the Qualifier to the MeasuredEntity makes sense, as the entity was tested at that temperature, thereby affecting all properties.
+
+So the relationships would be:
+
+- MeasuredEntity T2 (epoxy polymers) has HasProperty relationships with each MeasuredProperty T3-T7.
+- Each MeasuredProperty T3-T7 has HasQuantity to T1 (20 °C).
+- The Qualifier T8 (at 20 °C) Qualifies T2 (MeasuredEntity) or T1 (Quantity). Hmm.
+
+Alternatively, the Qualifier "at 20 °C" qualifies the Quantity T1. But the phrase "at 20 °C" includes the Quantity itself. Wait, "at 20 °C" is a prepositional phrase where "20 °C" is the Quantity. So the Qualifier is the entire phrase "at 20 °C", which includes the Quantity. But according to the instructions, the Qualifier should be a separate annotation. However, in the example provided, the Qualifier "after I drank half the can" is separate from the Quantity "175 ml". So in this case, "at 20 °C" is a Qualifier that includes the Quantity. But according to the Quantity definition, "20 °C" is a Quantity, and "at" is part of the Qualifier. Wait, but the example in the instruction has "after I drank half the can" as a Qualifier, which doesn't include the Quantity. Here, "at 20 °C" is a prepositional phrase where "20 °C" is the Quantity. So the Qualifier is "at 20 °C", which includes the Quantity. But according to the Quantity extraction step, we should first extract the Quantity "20 °C". Then the Qualifier is "at 20 °C", but that includes the Quantity. This is conflicting.
+
+Wait, the instructions say that in Step 1, extract Quantities. Then in Step 2, the Qualifiers are separate. So maybe the Qualifier is "at 20 °C", but the Quantity "20 °C" is extracted separately, and the "at" is part of the Qualifier. Wait, but the "at" is a preposition, not part of the Quantity. So the Quantity is "20 °C", unit °C. The Qualifier is "at 20 °C", which includes the Quantity. But that would mean overlapping annotations. However, the instructions don't mention handling overlapping spans. Alternatively, the Qualifier is just the "at" part, but that's not meaningful. Hmm, this is a bit tricky.
+
+Alternatively, perhaps "at 20 °C" is the Qualifier, and the Quantity "20 °C" is a separate annotation. Then the Qualifier would have a relationship Qualifies to the MeasuredEntity or MeasuredProperties, and the Quantity is part of that Qualifier. But according to the relationships, the Qualifier can qualify the Quantity as well. Wait, but in this case, "at 20 °C" is a condition where the measurement was taken. So maybe the Qualifier is "at 20 °C", which includes the Quantity "20 °C". But according to the annotation steps, the Quantity should be extracted first. So first, extract "20 °C" as a Quantity. Then, the Qualifier would be "at 20 °C", which includes the preposition "at" and the Quantity. However, overlapping annotations might not be allowed. The example given in the instructions has the Qualifier as a separate span. So perhaps in this case, the entire phrase "at 20 °C" is the Qualifier, which includes the Quantity "20 °C" as part of its text. But according to the Quantity extraction step, we need to extract "20 °C" as a Quantity. So there's an overlap here. How to resolve this?
+
+Maybe the solution is to annotate "20 °C" as a Quantity, and "at 20 °C" as a Qualifier. Even though "at 20 °C" includes the Quantity, they are separate annotations. The Qualifier "at 20 °C" would then Qualify the MeasuredEntity or MeasuredProperties. But in that case, the Qualifier's text is "at 20 °C", which includes the Quantity. However, the instructions don't prohibit this; they just require that each annotation is a span of text. So in the TSV, the Qualifier would be "at 20 °C" (text), and the Quantity is "20 °C" (text). They're separate annotations, even though overlapping. Then, the relationships would have the Qualifier "at 20 °C" (T8) Qualifies the MeasuredEntity (T2) or the MeasuredProperties (T3-T7). But the problem is that the Qualifier includes the Quantity. Alternatively, maybe the Qualifier is just "at", but that doesn't make sense. Alternatively, perhaps the entire phrase "at 20 °C" is a Qualifier that qualifies the MeasuredEntity, and the Quantity "20 °C" is part of the Qualifier. But according to the steps, the Quantity must be extracted first. So I think the correct approach is to have:
+
+- Quantity T1: "20 °C" with unit °C.
+- Qualifier T8: "at 20 °C" which Qualifies either the MeasuredEntity or the MeasuredProperties.
+
+But how does the Qualifier relate to the Quantity? The Qualifier text includes the Quantity's text. So in the TSV, the Qualifier's text is "at 20 °C", and the Quantity's text is "20 °C". Then, the Qualifier T8 would have a Qualifies relationship to the Quantity T1. But in the example, the Qualifier "after I drank half the can" qualifies the Quantity "175 ml", but they are separate spans. Similarly here, "at 20 °C" qualifies the MeasuredEntity or MeasuredProperties, not the Quantity. Wait, the Qualifier "at 20 °C" provides the condition under which the measurements were taken. So it's qualifying the act of measurement, likely the MeasuredProperties. So each MeasuredProperty (Tg, E, etc.) is qualified by T8. But since the Qualifier is a single annotation, it can only Qualify one entity. Alternatively, the Qualifier qualifies the entire annotSet's MeasuredEntity, indicating that all properties are measured under that condition. So T8 (Qualifier "at 20 °C") Qualifies T2 (MeasuredEntity). But then, how does the Quantity "20 °C" relate? The MeasuredProperties (Tg, E, etc.) each have a HasQuantity relationship to T1 (20 °C). Wait, but in the example, the MeasuredProperty (temperature) HasQuantity to the Quantity (25°C). Here, each MeasuredProperty (like Glass transition temperature) would have a HasQuantity to T1 (20 °C). But that doesn't make sense because 20 °C is the temperature at which the properties were measured, not the value of the properties themselves. Wait, maybe I'm misunderstanding. The sentence states that the Glass transition temperature (Tg) and other properties are for the polymers at 20°C. So the actual values of Tg, E, etc., are measured at 20°C, but their specific values aren't given here. The input is listing the properties that were measured, not their numerical values. So the only Quantity present is "20 °C", which is the condition. So in this case, the MeasuredProperties (Tg, E, etc.) are being measured, and the condition (20°C) is where those measurements took place. Therefore, the MeasuredProperties each have a Qualifier that specifies the measurement condition. But since their actual values aren't provided, perhaps the only Quantity is "20 °C", which is part of the Qualifier "at 20 °C". Wait, but the original sentence doesn't provide the actual values of Tg, E, etc. It just lists the properties. So the only numerical Quantity is "20 °C". Therefore, the structure is:
+
+- MeasuredEntity: "unmodified and S-CSR-modified epoxy polymers" (T2)
+- MeasuredProperties: Glass transition temperature (T3), etc. (T3-T7)
+- Quantity: "20 °C" (T1)
+- Qualifier: "at 20 °C" (T8)
+
+Relationships:
+- Each MeasuredProperty (T3-T7) HasProperty to T2.
+- The Qualifier T8 Qualifies T2 (since the condition applies to the entity) or the MeasuredProperties.
+- The Quantity T1 is part of the Qualifier T8's text but is a separate annotation. The Qualifier T8 would Qualify the MeasuredEntity or the MeasuredProperties. But how?
+
+Alternatively, the Qualifier "at 20 °C" qualifies the Quantity T1. But why? The Qualifier is providing the context for the measurements. Since the actual values of Tg, E, etc., aren't given, but they were measured at 20°C, the Qualifier "at 20 °C" would qualify the MeasuredProperties. However, without their values, the HasQuantity relationship might not apply. Wait, the problem states that even if the MeasuredEntity doesn't have a corresponding Quantity, the Quantity can be standalone. But in this case, the only Quantity is "20 °C", which is part of the Qualifier.
+
+I'm getting a bit confused here. Let me re-examine the input sentence:
+
+"Glass transition temperature, Tg, tensile Young's modulus, E, and fracture stress, σf, fracture energy, GIc, and fracture toughness, KIc, for the unmodified and S-CSR-modified epoxy polymers at 20 °C."
+
+The structure is listing several material properties (MeasuredProperties) of the epoxy polymers (MeasuredEntity) measured at 20°C (Qualifier). The actual values of those properties aren't provided; the sentence is stating that these properties are evaluated/measured at 20°C. So the only explicit Quantity is "20 °C", which is the temperature condition. Therefore:
+
+- Quantity: "20 °C" (T1, unit °C)
+- MeasuredEntity: "unmodified and S-CSR-modified epoxy polymers" (T2)
+- MeasuredProperties: Glass transition temperature (T3), Tg (T4), tensile Young's modulus (T5), E (T6), fracture stress (T7), σf (T8), fracture energy (T9), GIc (T10), fracture toughness (T11), KIc (T12). Wait, but the input lists each property with its symbol, separated by commas. For example, "Glass transition temperature, Tg" – so "Glass transition temperature" is the MeasuredProperty, and "Tg" is its symbol. Similarly for the others.
+
+But according to the annotation guidelines, MeasuredProperty is the descriptive property. So in this case, the MeasuredProperties would be "Glass transition temperature", "tensile Young's modulus", "fracture stress", "fracture energy", "fracture toughness". Their symbols (Tg, E, σf, GIc, KIc) are likely part of the MeasuredProperty annotations as well, or separate? The example in the instruction includes "volume" as the MeasuredProperty. So perhaps the entire phrase including the symbol is part of the MeasuredProperty. For example, "Glass transition temperature, Tg" – should that be two separate MeasuredProperties, or one? The sentence is using appositives: "Glass transition temperature, Tg" means Tg is the symbol for Glass transition temperature. So the MeasuredProperty is "Glass transition temperature" and "Tg" is a symbol, but according to the guidelines, the MeasuredProperty is the descriptive term, so perhaps "Glass transition temperature" is the MeasuredProperty, and "Tg" is part of the same span. But the text includes "Glass transition temperature, Tg," so the exact text for the MeasuredProperty would be "Glass transition temperature", and "Tg" is a separate mention. Alternatively, the entire span "Glass transition temperature, Tg" is the MeasuredProperty. But I think the MeasuredProperty is "Glass transition temperature", and "Tg" is its symbol, but since the task is to extract the exact text, the MeasuredProperty would be "Glass transition temperature", and "Tg" is another MeasuredProperty? That seems incorrect. Alternatively, each pair (e.g., "Glass transition temperature, Tg") is a single MeasuredProperty with two names. But according to the example, "volume" is the MeasuredProperty. So perhaps each full term is the MeasuredProperty, and the symbol is part of the same span. So the text for the first MeasuredProperty is "Glass transition temperature, Tg". Similarly for the others.
+
+But that might complicate things. Alternatively, split them into separate MeasuredProperties. But that's not correct. The correct approach is to take the entire span as the MeasuredProperty, including the symbol. For example, "Glass transition temperature, Tg" is the MeasuredProperty, with "Tg" being the symbol. Similarly, "tensile Young's modulus, E" is another MeasuredProperty.
+
+Therefore, the MeasuredProperties are:
+
+1. Glass transition temperature, Tg
+2. tensile Young's modulus, E
+3. fracture stress, σf
+4. fracture energy, GIc
+5. fracture toughness, KIc
+
+Each of these is a MeasuredProperty. The commas here are separating the property name from its symbol, but the entire phrase is part of the MeasuredProperty.
+
+So now, the annotations are:
+
+- Quantity T1: 20 °C (unit °C)
+- MeasuredEntity T2: unmodified and S-CSR-modified epoxy polymers
+- MeasuredProperties T3 to T7: the five properties listed with their symbols
+- Qualifier T8: at 20 °C
+
+Relationships:
+
+Each MeasuredProperty (T3-T7) has a HasProperty relationship to T2 (MeasuredEntity). Each MeasuredProperty also HasQuantity to T1 (20 °C)? No, wait. The 20 °C is the condition at which these properties are measured, not the value of the properties themselves. The actual values of the properties (Tg, E, etc.) aren't provided in the input. So the HasQuantity relationship would not apply here. Instead, the Qualifier "at 20 °C" indicates the condition of measurement. Therefore, the Qualifier T8 (at 20 °C) should Qualify the MeasuredEntity or each MeasuredProperty.
+
+But according to the input sentence, the properties are for the epoxy polymers at 20°C. So the Qualifier "at 20 °C" is linked to the MeasuredEntity, indicating that the entity was tested/measured at that temperature. Therefore, the Qualifier T8 Qualifies T2 (MeasuredEntity). The Quantity T1 is part of the Qualifier's text but is a separate annotation. The relationships would be:
+
+- T3 (Glass transition temperature, Tg) HasProperty T2
+- T4 (tensile Young's modulus, E) HasProperty T2
+- ... and so on for each MeasuredProperty.
+- T8 (at 20 °C) Qualifies T2 (MeasuredEntity)
+- T1 (20 °C) is a standalone Quantity, but since the MeasuredEntity or MeasuredProperties don't have a Quantity value (their values aren't given), but the condition is 20°C, perhaps the Qualifier includes the Quantity. But according to the example, the Qualifier is a separate annotation that can qualify other annotations.
+
+Wait, the example has the Qualifier "after I drank half the can" qualifying the Quantity "175 ml". In this case, the Qualifier "at 20 °C" would qualify the MeasuredEntity, and the Quantity "20 °C" is part of that Qualifier. But according to the annotation steps, Qualifiers are separate from Quantities. So the structure should be:
+
+- annotSet 1 includes:
+  - Quantity T1: 20 °C, unit °C
+  - MeasuredEntity T2: unmodified and S-CSR-modified epoxy polymers
+  - MeasuredProperties T3-T7: each property with symbol
+  - Qualifier T8: at 20 °C
+  - Relationships:
+    - Each MeasuredProperty T3-T7 HasProperty T2
+    - Qualifier T8 Qualifies T2
+    - The Quantity T1 is part of the Qualifier T8's text, but there's no direct relationship between T8 and T1 unless specified.
+
+But according to the relationships, the Qualifier can qualify a Quantity, MeasuredEntity, or MeasuredProperty. Here, T8 Qualifies T2 (MeasuredEntity). The Quantity T1 is a separate annotation but doesn't have a direct relationship to anything else except maybe via the Qualifier. However, in the example, the Qualifier "after I drank half the can" doesn't have a relationship to the Quantity; instead, the Quantity is linked to the MeasuredEntity via HasQuantity. But in this case, the MeasuredEntity isn't linked to the Quantity via HasQuantity because the Quantity is part of the Qualifier, not a direct measurement of the entity.
+
+This is getting a bit complicated. Let's try to structure it step by step.
+
+1. Extract Quantities: Only "20 °C".
+   - T1: Quantity, text "20 °C", unit °C, no modifiers.
+
+2. MeasuredEntity: "unmodified and S-CSR-modified epoxy polymers" (T2).
+
+3. MeasuredProperties: Each property with its symbol. That's five properties:
+   - "Glass transition temperature, Tg" (T3)
+   - "tensile Young's modulus, E" (T4)
+   - "fracture stress, σf" (T5)
+   - "fracture energy, GIc" (T6)
+   - "fracture toughness, KIc" (T7)
+
+4. Qualifier: "at 20 °C" (T8)
+
+Relationships:
+
+- Each MeasuredProperty (T3-T7) HasProperty to T2.
+- Qualifier T8 Qualifies T2 (since it's the condition for the entire entity).
+- The Quantity T1 (20 °C) is part of the Qualifier T8's text but is a separate annotation. However, there's no direct relationship between T1 and T2 or T3-T7 since the actual measured properties' values aren't provided. The Quantity here is part of the Qualifier, which qualifies the entity.
+
+But according to the guidelines, the Quantity should ideally relate to a MeasuredEntity or MeasuredProperty via HasQuantity. In this case, since the properties are measured at 20°C, perhaps the MeasuredProperties each have a HasQuantity relationship to T1. However, that would imply that each property's value is 20°C, which is incorrect. The temperature is the condition, not the value of the properties. Therefore, the HasQuantity relationship wouldn't apply here. The only Quantity is the temperature condition, which is linked via the Qualifier.
+
+So, in this case, the Quantity "20 °C" doesn't have a HasQuantity relationship to any MeasuredEntity or MeasuredProperty. Instead, the Qualifier "at 20 °C" Qualifies the MeasuredEntity T2. The Quantity T1 is standalone, but since it's part of the Qualifier's text, perhaps there's a relationship from the Qualifier to the Quantity. But according to the guidelines, Qualifier can only Qualify Quantity, MeasuredEntity, or MeasuredProperty. So T8 (Qualifier "at 20 °C") Qualifies T2 (MeasuredEntity), and the Quantity T1 is separate.
+
+Thus, the final TSV would look like:
+
+annotSet    annotType           annotId    text                                      other
+1           Quantity            T1         20 °C                                    {"unit": "°C"}
+1           MeasuredEntity      T2         unmodified and S-CSR-modified epoxy polymers  {}
+1           MeasuredProperty    T3         Glass transition temperature, Tg         {"HasProperty": "T2"}
+1           MeasuredProperty    T4         tensile Young's modulus, E               {"HasProperty": "T2"}
+1           MeasuredProperty    T5         fracture stress, σf                      {"HasProperty": "T2"}
+1           MeasuredProperty    T6         fracture energy, GIc                     {"HasProperty": "T2"}
+1           MeasuredProperty    T7         fracture toughness, KIc                  {"HasProperty": "T2"}
+1           Qualifier           T8         at 20 °C                                 {"Qualifies": "T2"}
+
+Wait, but in the other field for MeasuredEntity T2, should there be a HasQuantity relationship to T1? But there's no, because the MeasuredEntity's properties are measured at 20°C, but the MeasuredEntity itself isn't associated with the Quantity via HasQuantity. The HasQuantity relationship is between MeasuredEntity/MeasuredProperty and Quantity when the Quantity is a value of that property. In this case, the Quantity is the condition, not the property's value. Therefore, T2 doesn't HasQuantity T1. Instead, the Qualifier T8 Qualifies T2, and T1 is a standalone Quantity.
+
+However, according to the guidelines: "If a quantity involves a modifier such as 'approximately' or symbols like '>', include it if adjacent to the quantity span." In the Qualifier "at 20 °C", the Quantity is "20 °C". Therefore, the Qualifier includes the Quantity. But according to the example, the Qualifier is a separate annotation. So the Quantity "20 °C" is extracted, and the Qualifier "at 20 °C" is another annotation that Qualifies the MeasuredEntity. The Quantity stands alone.
+
+But then, the Quantity T1 isn't linked to any entity or property via HasQuantity, which is allowed according to the guidelines: "It may include optional Modifiers such as tolerances and must ideally relate to a MeasuredEntity or MeasuredProperty using the 'HasQuantity' relationship. If no such entity exists, the Quantity can remain standalone."
+
+In this case, the Quantity "20 °C" is standalone. The MeasuredEntity and MeasuredProperties are linked via HasProperty, and the Qualifier Qualifies the MeasuredEntity. The Quantity isn't directly linked to anything, which is permissible.
+
+Thus, the final TSV is as outlined above. Each MeasuredProperty is linked to the MeasuredEntity via HasProperty. The Qualifier "at 20 °C" Qualifies the MeasuredEntity. The Quantity "20 °C" is standalone.

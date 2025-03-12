@@ -1,0 +1,11 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0167577X13006393-644	1	Quantity	66	73	T1	1000 °C	"{""unit"": ""\u00b0C""}"
+S0167577X13006393-644	1	MeasuredEntity	13	30	T2	pure HA particles	"{""HasQuantity"": ""T1""}"
+S0167577X13006393-644	1	MeasuredProperty	93	114	T3	sintering temperature	"{""HasQuantity"": ""T1""}"
+S0167577X13006393-644	2	Quantity	240	244	T4	1.67	"{""mods"": [""IsCount""]}"
+S0167577X13006393-644	2	MeasuredEntity	221	228	T5	pure HA	"{""HasQuantity"": ""T4""}"
+S0167577X13006393-644	2	MeasuredProperty	230	235	T6	ratio	"{""HasQuantity"": ""T4""}"
+S0167577X13006393-644	3	Quantity	308	315	T7	1200 °C	"{""unit"": ""\u00b0C""}"
+S0167577X13006393-644	3	MeasuredEntity	221	228	T8	pure HA	"{""HasQuantity"": ""T7""}"
+S0167577X13006393-644	4	Quantity	380	386	T10	800 °C	"{""unit"": ""\u00b0C""}"
+S0167577X13006393-644	4	MeasuredEntity	409	437	T11	calcium deficient HA samples	"{""HasQuantity"": ""T10""}"

@@ -1,0 +1,9 @@
+docId	annotSet	annotType	annotId	text	other
+S037842901300244X-1801	1	Quantity	T1	three weeks	"{""mods"": [""IsCount""], ""unit"": ""weeks""}"
+S037842901300244X-1801	1	MeasuredEntity	T2	S1 progenies	"{""HasQuantity"": ""T1""}"
+S037842901300244X-1801	1	MeasuredProperty	T3	flowering time	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S037842901300244X-1801	2	Quantity	T4	484 g m−2	"{""unit"": ""g m-2""}"
+S037842901300244X-1801	2	MeasuredEntity	T5	FS	"{""HasQuantity"": ""T4""}"
+S037842901300244X-1801	2	MeasuredProperty	T6	panicle yield	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"
+S037842901300244X-1801	3	Qualifier	T7	after a severe drought that occurred after planting	"{""Qualifies"": ""T1""}"
+S037842901300244X-1801	4	Qualifier	T8	due to the favorable 2009 rainy season conditions	"{""Qualifies"": ""T4""}"

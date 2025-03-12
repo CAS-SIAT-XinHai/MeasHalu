@@ -1,0 +1,13 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103513005058-4158	1	Quantity	704	715	T1	0.51–0.85 m	"{""unit"": ""m"", ""mods"": [""IsRange""]}"
+S0019103513005058-4158	1	MeasuredEntity	666	670	T2	soil	"{""HasQuantity"": ""T1""}"
+S0019103513005058-4158	1	MeasuredProperty	688	700	T3	mixing depth	"{""HasQuantity"": ""T1""}"
+S0019103513005058-4158	2	Quantity	767	776	T4	1.5–2.6 m	"{""unit"": ""m"", ""mods"": [""IsRange""]}"
+S0019103513005058-4158	2	MeasuredEntity	842	846	T5	soil	"{""HasQuantity"": ""T4""}"
+S0019103513005058-4158	2	MeasuredProperty	695	700	T6	depth	"{""HasQuantity"": ""T4""}"
+S0019103513005058-4158	3	Quantity	796	800	T7	∼2 m	"{""unit"": ""m"", ""mods"": [""IsMean"", ""IsApproximate""]}"
+S0019103513005058-4158	3	MeasuredEntity	842	846	T8	soil	"{""HasQuantity"": ""T7""}"
+S0019103513005058-4158	3	MeasuredProperty	740	745	T9	depth	"{""HasQuantity"": ""T7""}"
+S0019103513005058-4158	4	Quantity	858	866	T10	1 g cm−3	"{""unit"": ""g cm\u22123""}"
+S0019103513005058-4158	4	MeasuredEntity	842	846	T11	soil	"{""HasQuantity"": ""T10""}"
+S0019103513005058-4158	4	MeasuredProperty	847	854	T12	density	"{""HasQuantity"": ""T10""}"

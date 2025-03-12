@@ -1,0 +1,8 @@
+docId	annotSet	annotType	annotId	text	other
+S0960148113005727-1203	1	Quantity	T1	2–5%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
+S0960148113005727-1203	1	MeasuredEntity	T2	output	"{""HasQuantity"": ""T1""}"
+S0960148113005727-1203	1	MeasuredProperty	T3	reduction	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0960148113005727-1203	2	Quantity	T4	1%	"{""unit"": ""%""}"
+S0960148113005727-1203	2	MeasuredEntity	T5	output	"{""HasQuantity"": ""T4""}"
+S0960148113005727-1203	3	Quantity	T7	3%	"{""unit"": ""%""}"
+S0960148113005727-1203	3	MeasuredProperty	T9	increase	"{""HasQuantity"": ""T7"", ""HasProperty"": ""T8""}"

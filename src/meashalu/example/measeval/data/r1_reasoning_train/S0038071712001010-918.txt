@@ -1,0 +1,311 @@
+Okay, I need to process this input text about AM fungal inoculum and root colonisation. Let's start by following the steps outlined.
+
+First, I'll extract all the quantities. Scanning through the text, I see several numerical values and percentages. Let's list them:
+
+- "P < 0.001" – this is a quantity with a value and a unit (though P is a measured property here). Wait, the unit here is just the value, so maybe the unit is "unitless"? Or since P is a probability, maybe the unit is not applicable. Hmm, according to the guidelines, if it's a count, we mark IsCount. Otherwise, if it's a measurement with a unit. Here, 0.001 is a probability, so maybe the unit is not present. But the quantity is "0.001" with the modifier from "P < 0.001". So maybe the text for the quantity is "< 0.001" and the unit is not present. But the example shows "approximately 25°C" has unit °C. So in this case, "P < 0.001" – the quantity is "0.001", but the "<" is part of the modifier. Wait, the instruction says to include modifiers adjacent to the quantity, like "approximately" or symbols like ">". So maybe the quantity is "< 0.001" with IsApproximate? Or maybe "IsRange"? No, it's a single value. But the symbol < indicates a threshold. Hmm, maybe "mods" could include "IsApproximate" here.
+
+Wait, the example for IsApproximate includes "around 1300 m/s". So in the case of "P < 0.001", the "<" is part of the quantity's modifier. So the text should be "P < 0.001" as a Quantity? Or is the Quantity just "0.001" with the "<" as part of the modifiers? The problem is that P is the MeasuredProperty here. Wait, the instruction says that MeasuredProperty is a descriptive property linked to both a MeasuredEntity and a Quantity. So perhaps "P" is the MeasuredProperty, and "0.001" is the Quantity. But in the text, it's written as "P < 0.001". So maybe the Quantity is "< 0.001", with the "<" as part of the text. Then the unit would be unitless. But how to handle the "<"?
+
+Alternatively, maybe "0.001" is the Quantity, and the "<" is part of the Qualifier. But according to the steps, modifiers adjacent to the quantity should be included in the span. So the quantity here would be "< 0.001", with the modifier indicating a threshold. However, the modifiers list doesn't have an option for thresholds; the closest is IsApproximate. But maybe the mods can be left blank, or we can use a custom modifier. But the instructions specify to use the given modifiers. Alternatively, maybe it's a range? No, since it's a single value. Hmm. Let's proceed by including the "<" in the quantity text and note that the modifier is not one of the predefined options. Wait, but the example includes "approximately 25°C" with IsApproximate. So maybe in this case, "< 0.001" is a Quantity with text "< 0.001" and no modifiers. Alternatively, the "mods" might include something else. Alternatively, since there's a comparison operator, maybe IsRange? No, IsRange is for ranges like 1.5-2.6m. So maybe this is a regular quantity with the operator as part of the value.
+
+Ok, moving on. Next quantity is "7.01" in "LSD = 7.01". Here, "7.01" is the quantity. The unit is not present, so it's a count? But LSD is a statistical measure, so maybe the unit is implied but not stated. So here, the quantity would be "7.01" with no unit and IsCount? But LSD is a MeasuredProperty. So the MeasuredEntity might be "LSD", or maybe the test (LSD is a type of test), but this is getting complicated.
+
+Wait, the text says "9.9%–16.2%; LSD = 7.01". The percentages here: "9.9%–16.2%" is a range of percentages. So this is a Quantity with IsRange, unit "%". Similarly, "7.01" is a Quantity, possibly unitless or with LSD as part of the MeasuredProperty. Then "25.4%" is another Quantity, unit "%", and "23.8%", "16.2%", "9.9%", "7.5%", "14.2%".
+
+Also, "the combination of all three species (23.8%)", so "23.8%" is a Quantity. Also, "G. geosporum; 9.9% G. mosseae" – the "9.9%" here. Then later "7.5%" and "14.2%".
+
+So the Quantities are:
+
+- < 0.001 (from P < 0.001)
+- 9.9%–16.2%
+- 7.01 (from LSD = 7.01)
+- 25.4%
+- 23.8%
+- 16.2%
+- 9.9%
+- 7.5%
+- 14.2%
+
+Wait, but the text says "9.9%–16.2%; LSD = 7.01". The semicolon separates two quantities: the range and the LSD value. So "9.9%–16.2%" is one Quantity (IsRange, unit %), and "7.01" is another (unit unclear, but LSD is a statistical value, perhaps unitless).
+
+Also, "LSD = 7.01" here, LSD is the Least Significant Difference, which is a statistical measure. So the MeasuredProperty would be "LSD", and the Quantity is "7.01".
+
+Now, processing each Quantity:
+
+1. "P < 0.001": Here, "0.001" is the value, but with the "<" operator. So the Quantity text is "< 0.001". Since there's no unit, but P is a probability (MeasuredProperty), we can note that. However, unit may be considered unitless, but since it's a probability, maybe the unit is "probability" or just left out. According to the example, in the soda can's volume, "ml" is the unit. So in this case, "0.001" has no unit, so the unit field is empty. The modifiers: the "<" could indicate a threshold, but the allowed modifiers don't include that. So perhaps no modifiers here. Or maybe IsApproximate? Not sure, but since the example didn't use any modifiers for such cases, perhaps we leave mods empty.
+
+But wait, the example had "approximately 25°C" where "approximately" is part of the Quantity text and mods included IsApproximate. So here, the "<" is part of the Quantity text, so the Quantity is "< 0.001". The unit is not present, so the 'unit' field is empty, and mods could be something. Since there's no modifier specified, maybe no mods.
+
+Alternatively, maybe the "<" is a modifier. But according to the guidelines, modifiers like "approximately" or symbols like ">" should be included if adjacent. So the Quantity is "< 0.001", and modifiers could be something like IsThreshold. But since the allowed modifiers don't include that, perhaps we leave mods empty.
+
+2. "9.9%–16.2%": This is a range, so IsRange, unit "%".
+
+3. "7.01": Quantity text is "7.01", no unit, perhaps IsCount. But LSD is a MeasuredProperty, so maybe it's a measurement. But without a unit, it's a count? Or maybe it's a unitless measurement. So unit is empty, mods can be left empty.
+
+4. "25.4%": unit "%", no modifiers.
+
+5. "23.8%": same.
+
+6. "16.2%": same.
+
+7. "9.9%": same.
+
+8. "7.5%": same.
+
+9. "14.2%": same.
+
+Now, the MeasuredEntities and MeasuredProperties.
+
+For "P < 0.001", the MeasuredProperty is "P", which is linked to a MeasuredEntity, but what's the MeasuredEntity here? The sentence starts with "AM fungal inoculum as a single factor was significant (P < 0.001)". So the MeasuredEntity here is "AM fungal inoculum as a single factor" but that's a bit long. However, according to the guidelines, we should capture modified nouns, so perhaps "AM fungal inoculum" as the MeasuredEntity, and "significance" as the MeasuredProperty? Wait, but "P" here refers to the p-value, which is a statistical measure of significance. So the MeasuredProperty is "P", and the Quantity is "< 0.001". The MeasuredEntity would be the factor being tested, which is "AM fungal inoculum as a single factor". But maybe the MeasuredEntity is just "AM fungal inoculum" and the rest is part of the context. Alternatively, perhaps the entire "AM fungal inoculum as a single factor" is the MeasuredEntity. This would be linked via HasProperty to "P" (MeasuredProperty), which then HasQuantity to "< 0.001".
+
+Next, "distinct species combinations resulting in different levels of root colonisation". Then "The individual inocula resulted in similar levels of colonisation (9.9%–16.2%; LSD = 7.01)". Here, the colonisation is the MeasuredProperty ("levels of root colonisation"), and the MeasuredEntity would be "individual inocula" or "root colonisation". Wait, the "levels of root colonisation" is the MeasuredProperty for the inocula. So the colonisation levels are the MeasuredProperty. Then the Quantity is the range 9.9%–16.2%. The LSD is another MeasuredProperty, "LSD", with Quantity "7.01".
+
+The next part: "The highest percentage colonisation was observed in the two-species mixture of G. geosporum plus G. mosseae (25.4%), followed by the combination of all three species (23.8%)." Here, the percentages are Quantities for colonisation, so MeasuredProperty is "percentage colonisation", and the MeasuredEntities are the mixtures: "two-species mixture of G. geosporum plus G. mosseae", "combination of all three species".
+
+Then, "Percentage colonisation by G. geosporum plus G. mosseae in combination appeared to be additive relative to that observed by the species individually (16.2%, G. geosporum; 9.9% G. mosseae)." So the Quantities here are 16.2% and 9.9%, each linked to their respective MeasuredEntities (G. geosporum and G. mosseae) and MeasuredProperty "percentage colonisation".
+
+The next part: "Colonisation was markedly reduced when G. mosseae and G. intraradices were paired (7.5%), particularly compared to the performance of G. intraradices individually (14.2%)." Here, 7.5% and 14.2% are Quantities, MeasuredProperty is "colonisation", MeasuredEntities are "G. mosseae and G. intraradices paired" and "G. intraradices individually".
+
+Finally, "No mycorrhizal colonisation was observed in the uninoculated plant roots." – no quantity here.
+
+Also, the part about arbuscules: "Arbuscules followed a similar pattern to hyphal colonisation, with the G. geosporum and G. mosseae combination containing the most arbuscules (data not shown)." But since the data isn't shown, there's no quantity here.
+
+Now, the Qualifiers. For example, "in the two-species mixture of G. geosporum plus G. mosseae" could be a Qualifier for the Quantity 25.4%, but according to the guidelines, Qualifiers are spans that describe conditions affecting the Quantity. So maybe "in the two-species mixture..." is a Qualifier. But in the example, Qualifiers are phrases like "after I drank half the can". However, in this case, the mixture is part of the MeasuredEntity. So perhaps the MeasuredEntity here is "two-species mixture of G. geosporum plus G. mosseae", and no Qualifier is needed.
+
+Another possible Qualifier is "irrespective of species" in "The individual inocula resulted in similar levels of colonisation (9.9%–16.2%; LSD = 7.01) irrespective of species". This could qualify the colonisation levels, indicating that the species didn't affect it. So "irrespective of species" would be a Qualifier linked to the Quantity 9.9%–16.2% or to the MeasuredEntity/MeasuredProperty.
+
+Similarly, "when G. mosseae and G. intraradices were paired" is a condition for the 7.5% colonisation, so that could be a Qualifier.
+
+Putting this all together:
+
+Each Quantity will be part of an annotSet. Let's start with the first Quantity: "P < 0.001".
+
+annotSet 1:
+- Quantity: T1, text "< 0.001", other: {"mods": [], "unit": ""} (since there's no unit and no applicable modifiers)
+- MeasuredEntity: T2, text "AM fungal inoculum", other: {"HasQuantity": "T1"}
+- MeasuredProperty: T3, text "significance (P)", but wait, the MeasuredProperty is "P", but in the text it's written as "(P < 0.001)". So maybe the MeasuredProperty is "P", and the Quantity is "< 0.001". The MeasuredEntity is "AM fungal inoculum as a single factor". However, the exact text is "AM fungal inoculum as a single factor was significant (P < 0.001)". The MeasuredEntity would be "AM fungal inoculum as a single factor", but that's quite long. Alternatively, "AM fungal inoculum" is the entity, and "as a single factor" is a qualifier. But according to the guidelines, we should include modifying adjectives or nouns. So perhaps the MeasuredEntity is "AM fungal inoculum as a single factor".
+
+So:
+
+annotSet1:
+- Quantity T1: "< 0.001", unit empty, mods empty.
+- MeasuredEntity T2: "AM fungal inoculum as a single factor", {"HasQuantity": "T1"}
+- MeasuredProperty T3: "P", {"HasQuantity": "T1", "HasProperty": "T2"}
+
+But wait, in the example, the MeasuredProperty is "temperature" linked to the solution. Here, "P" is the MeasuredProperty, which is a statistical measure (significance). The HasProperty links the MeasuredEntity to MeasuredProperty, and HasQuantity links the MeasuredProperty to the Quantity.
+
+Next annotSet for the colonisation levels:
+
+"In the individual inocula resulted in similar levels of colonisation (9.9%–16.2%; LSD = 7.01) irrespective of species..."
+
+So here, the Quantity is "9.9%–16.2%", which is a range (IsRange), unit "%". The MeasuredEntity is "individual inocula", MeasuredProperty is "levels of colonisation". Then, the "irrespective of species" is a Qualifier. Also, the LSD = 7.01 is another Quantity, so that's another annotSet.
+
+So annotSet2:
+
+- Quantity T4: "9.9%–16.2%", {"unit": "%", "mods": ["IsRange"]}
+- MeasuredEntity T5: "individual inocula", {"HasQuantity": "T4"}
+- MeasuredProperty T6: "levels of colonisation", {"HasQuantity": "T4", "HasProperty": "T5"}
+- Qualifier T7: "irrespective of species", {"Qualifies": "T4"} (assuming it qualifies the Quantity)
+
+Then, the LSD = 7.01 is annotSet3:
+
+- Quantity T8: "7.01", {"unit": "", "mods": []}
+- MeasuredProperty T9: "LSD", {"HasQuantity": "T8"}
+- MeasuredEntity: Not sure. The LSD is a statistical measure related to the colonisation levels. But the sentence says "LSD = 7.01", so maybe the MeasuredEntity is the test or analysis, but the text doesn't specify. So perhaps the MeasuredEntity is not present, and the MeasuredProperty "LSD" directly links to Quantity T8. So annotSet3 would have:
+
+annotSet3:
+- Quantity T8: "7.01"
+- MeasuredProperty T9: "LSD", {"HasQuantity": "T8"}
+
+But maybe the MeasuredEntity here is the same as in annotSet2, since LSD is related to the colonisation levels. But the text doesn't make that explicit. Alternatively, perhaps there's no MeasuredEntity here, just a MeasuredProperty "LSD" linked to Quantity.
+
+Next, the two-species mixture's colonisation: "The highest percentage colonisation was observed in the two-species mixture of G. geosporum plus G. mosseae (25.4%)".
+
+annotSet4:
+
+- Quantity T10: "25.4%", {"unit": "%", "mods": []}
+- MeasuredEntity T11: "two-species mixture of G. geosporum plus G. mosseae", {"HasQuantity": "T10"}
+- MeasuredProperty T12: "percentage colonisation", {"HasQuantity": "T10", "HasProperty": "T11"}
+
+Then the combination of all three species (23.8%):
+
+annotSet5:
+
+- Quantity T13: "23.8%", {"unit": "%", "mods": []}
+- MeasuredEntity T14: "combination of all three species", {"HasQuantity": "T13"}
+- MeasuredProperty T15: "percentage colonisation", {"HasQuantity": "T13", "HasProperty": "T14"}
+
+Next, the individual species colonisation percentages: "16.2%, G. geosporum; 9.9% G. mosseae".
+
+For G. geosporum (16.2%):
+
+annotSet6:
+
+- Quantity T16: "16.2%", {"unit": "%", "mods": []}
+- MeasuredEntity T17: "G. geosporum", {"HasQuantity": "T16"}
+- MeasuredProperty T18: "percentage colonisation", {"HasQuantity": "T16", "HasProperty": "T17"}
+
+For G. mosseae (9.9%):
+
+annotSet7:
+
+- Quantity T19: "9.9%", {"unit": "%", "mods": []}
+- MeasuredEntity T20: "G. mosseae", {"HasQuantity": "T19"}
+- MeasuredProperty T21: "percentage colonisation", {"HasQuantity": "T19", "HasProperty": "T20"}
+
+Next, the paired colonisation: "Colonisation was markedly reduced when G. mosseae and G. intraradices were paired (7.5%), particularly compared to the performance of G. intraradices individually (14.2%)."
+
+For the paired case (7.5%):
+
+annotSet8:
+
+- Quantity T22: "7.5%", {"unit": "%", "mods": []}
+- MeasuredEntity T23: "G. mosseae and G. intraradices paired", {"HasQuantity": "T22"}
+- MeasuredProperty T24: "colonisation", {"HasQuantity": "T22", "HasProperty": "T23"}
+- Qualifier T25: "when G. mosseae and G. intraradices were paired", {"Qualifies": "T22"}
+
+For G. intraradices individually (14.2%):
+
+annotSet9:
+
+- Quantity T26: "14.2%", {"unit": "%", "mods": []}
+- MeasuredEntity T27: "G. intraradices individually", {"HasQuantity": "T26"}
+- MeasuredProperty T28: "performance", {"HasQuantity": "T26", "HasProperty": "T27"}
+
+Wait, but the MeasuredProperty here is "performance", but in the text, it's "compared to the performance of G. intraradices individually (14.2%)". So the MeasuredProperty would be "performance", but perhaps more accurately, "colonisation" as before. The phrase is "performance of G. intraradices individually (14.2%)", implying that the 14.2% is the colonisation percentage. So maybe the MeasuredProperty is still "colonisation".
+
+So adjusting annotSet9:
+
+- Quantity T26: "14.2%", {"unit": "%", "mods": []}
+- MeasuredEntity T27: "G. intraradices individually", {"HasQuantity": "T26"}
+- MeasuredProperty T28: "colonisation", {"HasQuantity": "T26", "HasProperty": "T27"}
+
+Now, checking if all quantities are covered:
+
+Original list of quantities:
+
+- < 0.001 (annotSet1)
+- 9.9%–16.2% (annotSet2)
+- 7.01 (annotSet3)
+- 25.4% (annotSet4)
+- 23.8% (annotSet5)
+- 16.2% (annotSet6)
+- 9.9% (annotSet7)
+- 7.5% (annotSet8)
+- 14.2% (annotSet9)
+
+Now, the Qualifier "irrespective of species" in annotSet2. Also, the "when..." in annotSet8.
+
+Additionally, in the example, the Qualifier's 'other' field is {"Qualifies": "T4-5"}, which is the target annotation. So for annotSet2, the Qualifier T7 would be {"Qualifies": "T4"} (the Quantity) or perhaps the MeasuredEntity or MeasuredProperty. The sentence says "The individual inocula resulted in similar levels of colonisation (9.9%–16.2%; LSD = 7.01) irrespective of species". So "irrespective of species" qualifies the colonisation levels, which is the MeasuredProperty or the Quantity. So the Qualifier "irrespective of species" would qualify the MeasuredProperty "levels of colonisation" (T6) or the Quantity T4. The example had "after I drank half the can" qualifying the Quantity. So maybe here, "irrespective of species" qualifies the Quantity T4.
+
+So in annotSet2:
+
+Qualifier T7: "irrespective of species" → {"Qualifies": "T4"}
+
+Similarly, in annotSet8, the Qualifier is "when G. mosseae and G. intraradices were paired", which qualifies the Quantity T22.
+
+Now, let's check all the relationships.
+
+For annotSet1:
+
+- T2 (MeasuredEntity) has HasQuantity → T1
+- T3 (MeasuredProperty) has HasQuantity → T1 and HasProperty → T2
+
+annotSet2:
+
+- T5 (MeasuredEntity) → T4
+- T6 (MeasuredProperty) → T4 and HasProperty T5
+- T7 (Qualifier) → Qualifies T4
+
+annotSet3:
+
+- T9 (MeasuredProperty) → T8
+
+annotSet4:
+
+- T11 → T10
+- T12 → T10 and T11
+
+And so on.
+
+Another thing to note: The text mentions "root colonisation" in the first sentence. In annotSet2, the MeasuredProperty is "levels of colonisation", but maybe it should be "root colonisation". However, the exact text is "levels of root colonisation", so that's the MeasuredProperty.
+
+Wait, in the sentence: "distinct species combinations resulting in different levels of root colonisation". So the MeasuredProperty is "levels of root colonisation". Then in the next sentence, "The individual inocula resulted in similar levels of colonisation (9.9%–16.2%...)", which is "levels of colonisation" without "root". But they're referring to the same concept. To be precise, we should use the exact text. So in the first case, the MeasuredProperty is "levels of root colonisation", and in the second case, "levels of colonisation". However, they may not be the same entity. But in the second case, it's the same concept, just abbreviated. To be accurate, we should annotate the exact text. So in annotSet2, the MeasuredProperty is "levels of colonisation".
+
+But this could lead to redundancy, but according to the guidelines, we must use the exact text. So perhaps they're separate MeasuredProperties. Alternatively, if the text is slightly different but refers to the same property, maybe they should be grouped. But the example in the guidelines didn't merge different phrases. So perhaps it's better to annotate them as separate.
+
+However, in the example given in the problem statement, "volume" is the MeasuredProperty for both "soda can" and "solvent". So different MeasuredEntities can share the same MeasuredProperty. In this case, "levels of root colonisation" and "levels of colonisation" might be considered the same, but since the text differs, they should be separate annotations.
+
+But looking back at the input text:
+
+First sentence: "different levels of root colonisation"
+
+Second sentence: "similar levels of colonisation"
+
+So the first is "root colonisation", the second is "colonisation". Therefore, they are different MeasuredProperties. However, the second one is likely referring to root colonisation as well, just abbreviated. Since the task is to extract exact text, we need to take "levels of colonisation" as the MeasuredProperty in the second case.
+
+So annotSet2's MeasuredProperty is "levels of colonisation", while the first mention is "levels of root colonisation". But the first mention is in a different context (species combinations), while the second is about individual inocula. So they are separate.
+
+But in the input, the first mention is part of the significance statement, not directly linked to a Quantity. The first Quantity is P < 0.001. The colonisation levels come later. So perhaps the "levels of root colonisation" is not directly linked to a Quantity in the first sentence. The first Quantity is P < 0.001.
+
+Therefore, the MeasuredProperty "levels of root colonisation" isn't directly linked to a Quantity in the text but is part of the context. The actual Quantities start from "9.9%–16.2%".
+
+So, in annotSet2, the MeasuredProperty is "levels of colonisation" (exact text from "similar levels of colonisation").
+
+Now, putting it all together in TSV format. Each annotSet is a group of related annotations. Let's start with annotSet1:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	< 0.001	{"unit": "", "mods": []}
+1	MeasuredEntity	T2	AM fungal inoculum as a single factor	{"HasQuantity": "T1"}
+1	MeasuredProperty	T3	P	{"HasQuantity": "T1", "HasProperty": "T2"}
+
+annotSet2:
+2	Quantity	T4	9.9%–16.2%	{"unit": "%", "mods": ["IsRange"]}
+2	MeasuredEntity	T5	individual inocula	{"HasQuantity": "T4"}
+2	MeasuredProperty	T6	levels of colonisation	{"HasQuantity": "T4", "HasProperty": "T5"}
+2	Qualifier	T7	irrespective of species	{"Qualifies": "T4"}
+
+annotSet3:
+3	Quantity	T8	7.01	{"unit": "", "mods": []}
+3	MeasuredProperty	T9	LSD	{"HasQuantity": "T8"}
+
+annotSet4:
+4	Quantity	T10	25.4%	{"unit": "%", "mods": []}
+4	MeasuredEntity	T11	two-species mixture of G. geosporum plus G. mosseae	{"HasQuantity": "T10"}
+4	MeasuredProperty	T12	percentage colonisation	{"HasQuantity": "T10", "HasProperty": "T11"}
+
+annotSet5:
+5	Quantity	T13	23.8%	{"unit": "%", "mods": []}
+5	MeasuredEntity	T14	combination of all three species	{"HasQuantity": "T13"}
+5	MeasuredProperty	T15	percentage colonisation	{"HasQuantity": "T13", "HasProperty": "T14"}
+
+annotSet6:
+6	Quantity	T16	16.2%	{"unit": "%", "mods": []}
+6	MeasuredEntity	T17	G. geosporum	{"HasQuantity": "T16"}
+6	MeasuredProperty	T18	percentage colonisation	{"HasQuantity": "T16", "HasProperty": "T17"}
+
+annotSet7:
+7	Quantity	T19	9.9%	{"unit": "%", "mods": []}
+7	MeasuredEntity	T20	G. mosseae	{"HasQuantity": "T19"}
+7	MeasuredProperty	T21	percentage colonisation	{"HasQuantity": "T19", "HasProperty": "T20"}
+
+annotSet8:
+8	Quantity	T22	7.5%	{"unit": "%", "mods": []}
+8	MeasuredEntity	T23	G. mosseae and G. intraradices paired	{"HasQuantity": "T22"}
+8	MeasuredProperty	T24	colonisation	{"HasQuantity": "T22", "HasProperty": "T23"}
+8	Qualifier	T25	when G. mosseae and G. intraradices were paired	{"Qualifies": "T22"}
+
+annotSet9:
+9	Quantity	T26	14.2%	{"unit": "%", "mods": []}
+9	MeasuredEntity	T27	G. intraradices individually	{"HasQuantity": "T26"}
+9	MeasuredProperty	T28	colonisation	{"HasQuantity": "T26", "HasProperty": "T27"}
+
+Wait, in annotSet8 and annotSet9, the MeasuredProperty is "colonisation", whereas earlier sets have "percentage colonisation" or "levels of colonisation". This is because the text in annotSet8 says "Colonisation was markedly reduced..." and the quantity is "7.5%", so the MeasuredProperty is "colonisation". The other sets have "percentage colonisation" because the text uses "percentage colonisation".
+
+This is acceptable since the exact text differs. For example, "percentage colonisation" vs. "colonisation" – they are different spans, so different MeasuredProperties.
+
+Another check: The "combination of all three species" in annotSet5 has MeasuredProperty "percentage colonisation", which matches the text "The highest percentage colonisation was observed...".
+
+Additionally, the Qualifier in annotSet8 is "when G. mosseae and G. intraradices were paired", which qualifies the Quantity T22.
+
+This should cover all quantities and their respective entities, properties, and qualifiers. Now, compiling all into TSV.

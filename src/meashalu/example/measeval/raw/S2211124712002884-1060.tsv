@@ -1,0 +1,7 @@
+docId	annotSet	annotType	annotId	text	other
+S2211124712002884-1060	1	Quantity	T1	10%	"{""unit"": ""%""}"
+S2211124712002884-1060	1	MeasuredEntity	T2	fetal bovine serum	"{""HasQuantity"": ""T1""}"
+S2211124712002884-1060	2	Quantity	T3	1X	"{""unit"": ""X""}"
+S2211124712002884-1060	2	MeasuredEntity	T4	nonessential amino acids	"{""HasQuantity"": ""T3""}"
+S2211124712002884-1060	3	Quantity	T5	100 U/ml	"{""unit"": ""U/ml""}"
+S2211124712002884-1060	3	MeasuredEntity	T6	penicillin/streptomycin	"{""HasQuantity"": ""T5""}"

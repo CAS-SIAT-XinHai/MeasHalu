@@ -1,0 +1,185 @@
+Okay, let's tackle this input step by step. First, I need to extract all the quantities mentioned. The first sentence has "−0.43 ± 0.05 percentage points per year" and "−1.6 ± 0.2% annual degradation". These are both quantities with modifiers. The ± indicates a mean with standard deviation, so mods should include IsMeanHasSD. The units here are "percentage points per year" and "% annual degradation". Wait, but "% annual degradation" might be tricky. The unit is "%", and "annual degradation" is part of the MeasuredProperty.
+
+Next, I check if there are any other quantities. The rest of the text talks about trends and methods but doesn't have specific numerical values. So two quantities in total.
+
+Now, for each quantity, extract modifiers and units. The first quantity "−0.43 ± 0.05 percentage points per year" has a unit "percentage points per year" and mods "IsMeanHasSD". The second quantity "−1.6 ± 0.2%" has unit "%" and mods "IsMeanHasSD". The "annual degradation" in the second case is part of the MeasuredProperty, which would be "annual degradation rate" or similar.
+
+Now, identify MeasuredEntities and MeasuredProperties. For the first quantity, the MeasuredProperty might be "combined average of these measures", which refers to the average degradation. The MeasuredEntity here isn't directly mentioned but could be implied as "measures" or "degradation measures". Alternatively, the MeasuredEntity might be "load factor" mentioned later, but that's in a different context. Hmm. The sentence says "the decline in load factor with age", so maybe "load factor" is the MeasuredEntity, and "decline" is the MeasuredProperty. But the first part refers to the "combined average" of the measures. So perhaps the MeasuredEntity is "measures", and the MeasuredProperty is "combined average".
+
+Wait, the first part says "The combined average of these measures is −0.43 ± 0.05 percentage points per year". So "combined average" is the MeasuredProperty, "measures" is the MeasuredEntity. Then the Quantity is linked via HasQuantity to the MeasuredProperty, which in turn links to the MeasuredEntity via HasProperty.
+
+For the second quantity, "giving −1.6 ± 0.2% annual degradation". The MeasuredProperty here is "annual degradation", and the MeasuredEntity could be "load factor" as mentioned later. But the sentence structure connects it back to the measures. Alternatively, perhaps the MeasuredEntity is still "measures" or the degradation itself. Maybe "annual degradation" is the MeasuredProperty, and the MeasuredEntity is "load factor". But the sentence says "the decline in load factor with age", so perhaps "decline" is the MeasuredProperty, and "load factor" is the MeasuredEntity. But this is getting a bit complicated.
+
+Alternatively, for the second quantity, maybe "annual degradation" is the MeasuredProperty, and the MeasuredEntity is implied as the system or process being measured, which might not be explicitly stated. But the text does mention "decline in load factor with age" which relates to degradation. So maybe "load factor" is the MeasuredEntity here, and the MeasuredProperty is "annual degradation rate".
+
+But the first quantity's MeasuredEntity is "measures", and the second quantity's MeasuredEntity is "load factor". Let's proceed with that.
+
+So for the first annotSet (1):
+
+- Quantity: "−0.43 ± 0.05 percentage points per year" with mods IsMeanHasSD, unit "percentage points per year"
+- MeasuredProperty: "combined average of these measures"
+- MeasuredEntity: "measures" (but the text says "these measures", so the exact text is "these measures", but maybe the MeasuredEntity is "measures" and the MeasuredProperty is "combined average"
+
+Wait, the text for MeasuredProperty would be "combined average", and the MeasuredEntity is "these measures". So:
+
+annotSet 1:
+- Quantity T1: −0.43 ± 0.05 percentage points per year → {"unit": "percentage points per year", "mods": ["IsMeanHasSD"]}
+- MeasuredProperty T2: combined average → {"HasQuantity": "T1", "HasProperty": "T3"}
+- MeasuredEntity T3: these measures → {"HasQuantity": "T1"}
+
+Wait, relationships: MeasuredEntity (T3) has a HasProperty to MeasuredProperty (T2), and MeasuredProperty (T2) has HasQuantity to Quantity (T1).
+
+Then annotSet 2 for the second quantity:
+
+- Quantity T4: −1.6 ± 0.2% → {"unit": "%", "mods": ["IsMeanHasSD"]}
+- MeasuredProperty T5: annual degradation → {"HasQuantity": "T4", "HasProperty": "T6"}
+- MeasuredEntity T6: load factor → {"HasQuantity": "T4"}
+
+But the text "annual degradation" is part of the phrase "giving −1.6 ± 0.2% annual degradation". So the MeasuredProperty is "annual degradation", and the MeasuredEntity is "load factor" mentioned later in "decline in load factor with age". However, the "load factor" is mentioned in the next sentence. The relationships could be a bit disconnected. Alternatively, perhaps the MeasuredEntity for the second quantity is still "measures" or the overall study subject. This might require some interpretation.
+
+Alternatively, perhaps the second quantity's MeasuredEntity is the same as the first one, but that's not clear. The text says "giving −1.6 ± 0.2% annual degradation", which is a result derived from the first average. So maybe the MeasuredProperty here is "annual degradation", and the MeasuredEntity is the same "measures" or the system being measured. Alternatively, since later it mentions "decline in load factor", perhaps "load factor" is the MeasuredEntity for the second quantity.
+
+This is a bit ambiguous. To resolve this, I'll proceed with:
+
+For annotSet 2:
+
+- Quantity T4: −1.6 ± 0.2% → {"unit": "%", "mods": ["IsMeanHasSD"]}
+- MeasuredProperty T5: annual degradation → {"HasQuantity": "T4"}
+- MeasuredEntity T6: load factor → {"HasProperty": "T5", "HasQuantity": "T4"}
+
+But the text for the MeasuredEntity "load factor" is mentioned in the next sentence. The original sentence with the quantity is "giving −1.6 ± 0.2% annual degradation". The next sentence refers to "decline in load factor with age". So "decline" here is the MeasuredProperty (equivalent to degradation), and "load factor" is the MeasuredEntity. Therefore, the second quantity's MeasuredEntity is "load factor", and the MeasuredProperty is "annual degradation".
+
+This requires linking the second quantity to "annual degradation" as MeasuredProperty, which is linked to "load factor" as MeasuredEntity.
+
+But the phrase "annual degradation" is part of the same clause as the quantity. So the structure would be:
+
+annotSet 2:
+
+- Quantity T4: −1.6 ± 0.2% → {"unit": "%", "mods": ["IsMeanHasSD"]}
+- MeasuredProperty T5: annual degradation → {"HasQuantity": "T4"}
+- MeasuredEntity T6: load factor → {"HasProperty": "T5"}
+
+But the problem is that "load factor" is mentioned later. The relationship might be inferred from context. Alternatively, perhaps the MeasuredEntity for the second quantity is implied but not explicitly mentioned in the same sentence. Hmm. Maybe it's better to have the MeasuredEntity as "load factor" even though it's mentioned later. The text says "the decline in load factor with age is...", so "decline" is the MeasuredProperty, "load factor" is the MeasuredEntity, and the Quantity is the −1.6 ± 0.2%.
+
+But the original sentence with the quantity is "giving −1.6 ± 0.2% annual degradation". So "annual degradation" is the MeasuredProperty, and the Quantity is linked to it. Then "decline in load factor" in the next sentence relates to this. But how to connect them? Maybe the MeasuredEntity is "load factor" and the MeasuredProperty is "annual degradation".
+
+Therefore, the second annotSet would be:
+
+annotSet 2:
+
+- Quantity T4: −1.6 ± 0.2% → {"unit": "%", "mods": ["IsMeanHasSD"]}
+- MeasuredProperty T5: annual degradation → {"HasQuantity": "T4"}
+- MeasuredEntity T6: load factor → {"HasProperty": "T5"}
+
+But "annual degradation" is mentioned in the same sentence as the quantity, and "load factor" is mentioned later. The connection between them is implied but not explicit. However, for the purpose of annotation, we can link them based on context.
+
+Additionally, there's a Qualifier: "with age" mentioned in the next sentence as part of the decline. But "with age" might qualify the degradation or the load factor. The sentence says "the decline in load factor with age is neither...", so "with age" qualifies the decline (MeasuredProperty). But since the decline is the same as the annual degradation, perhaps "with age" is a Qualifier for the MeasuredProperty "annual degradation".
+
+But the Qualifier "with age" is part of the next sentence. So perhaps:
+
+Qualifier T7: with age → {"Qualifies": "T5"} (MeasuredProperty "annual degradation")
+
+But that's part of annotSet 2?
+
+Alternatively, create a new annotSet for that, but the relationships should be within the same set. Hmm, maybe annotSet 2 includes the Quantity, MeasuredProperty, MeasuredEntity, and the Qualifier "with age".
+
+Wait, but the Qualifier "with age" is mentioned in the next sentence. Let me check the text again:
+
+"...the decline in load factor with age is neither an artefact..."
+
+So "with age" is part of "decline in load factor with age". So "with age" qualifies the decline (MeasuredProperty). But since the decline is linked to the annual degradation, perhaps "with age" qualifies the MeasuredProperty "annual degradation". However, "decline" and "annual degradation" are related but not exactly the same. 
+
+This is getting complex. Maybe it's better to handle "decline in load factor with age" as another MeasuredEntity and MeasuredProperty. But the original quantities are about the average and the annual degradation. The decline in load factor is part of the explanation of the results.
+
+Alternatively, perhaps the Qualifier "with age" qualifies the MeasuredEntity "load factor", indicating that the load factor changes with age. But I'm not sure. Since the user's example didn't include Qualifiers in the example output unless they were adjacent, maybe "with age" is a Qualifier for the MeasuredProperty "decline" or "annual degradation".
+
+But in the given input, the main quantities are the two numbers. The rest is explanation. So perhaps the Qualifiers are not directly linked to the quantities but to the MeasuredProperties or Entities. However, the instruction says to include Qualifiers that affect the Quantity, MeasuredEntity, or MeasuredProperty.
+
+In this case, "with age" might be a Qualifier for the MeasuredProperty "annual degradation" or the MeasuredEntity "load factor". Let's proceed by creating a Qualifier "with age" that Qualifies the MeasuredProperty "annual degradation".
+
+So annotSet 2 would have:
+
+- Quantity T4: −1.6 ± 0.2% annual degradation → Wait, no, the text is "−1.6 ± 0.2% annual degradation". Wait, the exact text of the Quantity is "−1.6 ± 0.2%", and "annual degradation" is part of the MeasuredProperty.
+
+Wait, in the input sentence: "giving −1.6 ± 0.2% annual degradation." So the Quantity is "−1.6 ± 0.2%", and "annual degradation" is the MeasuredProperty. So:
+
+annotSet 2:
+
+- Quantity T4: −1.6 ± 0.2% → {"unit": "%", "mods": ["IsMeanHasSD"]}
+- MeasuredProperty T5: annual degradation → {"HasQuantity": "T4"}
+- MeasuredEntity T6: load factor → {"HasProperty": "T5"}
+- Qualifier T7: with age → {"Qualifies": "T5"} (Qualifies the MeasuredProperty "annual degradation")
+
+But "with age" is mentioned in the next sentence: "the decline in load factor with age is neither...". So the Qualifier "with age" is part of that sentence. So the exact text for the Qualifier is "with age".
+
+Therefore, annotSet 2 includes:
+
+annotSet	annotType	annotId	text	other
+2	Quantity	T4	−1.6 ± 0.2%	{"unit": "%", "mods": ["IsMeanHasSD"]}
+2	MeasuredProperty	T5	annual degradation	{"HasQuantity": "T4"}
+2	MeasuredEntity	T6	load factor	{"HasProperty": "T5"}
+2	Qualifier	T7	with age	{"Qualifies": "T5"}
+
+But the original sentence with the Quantity is "giving −1.6 ± 0.2% annual degradation". So the MeasuredProperty "annual degradation" is directly mentioned there. The MeasuredEntity "load factor" is mentioned later, so the relationship is established by context.
+
+This requires assuming that "annual degradation" refers to the degradation of the load factor. Therefore, the MeasuredEntity is "load factor", and the MeasuredProperty is "annual degradation", linked via HasProperty.
+
+Additionally, the Qualifier "with age" qualifies the MeasuredProperty "annual degradation", indicating that the degradation occurs with age.
+
+Now, compiling all this into the TSV format.
+
+For annotSet 1:
+
+- Quantity T1: "−0.43 ± 0.05 percentage points per year" → unit "percentage points per year", mods IsMeanHasSD
+- MeasuredProperty T2: "combined average of these measures" → links to T1 via HasQuantity and to T3 via HasProperty
+- MeasuredEntity T3: "these measures" → links to T1 via HasQuantity
+
+Wait, but in the example given in the problem statement, the MeasuredEntity was "solution" and the MeasuredProperty was "temperature". So the structure is:
+
+MeasuredEntity (solution) → HasProperty → MeasuredProperty (temperature) → HasQuantity → Quantity (25°C)
+
+So in this case, the first annotSet would be:
+
+annotSet 1:
+
+- Quantity T1: −0.43 ± 0.05 percentage points per year → {"unit": "percentage points per year", "mods": ["IsMeanHasSD"]}
+- MeasuredProperty T2: combined average → {"HasQuantity": "T1", "HasProperty": "T3"}
+- MeasuredEntity T3: these measures → {"HasQuantity": "T1"}
+
+But the text for MeasuredProperty is "combined average of these measures". Should the MeasuredProperty be "combined average" and the MeasuredEntity "these measures"? Yes, because "combined average" is the property of the measures.
+
+So the relationships are:
+
+- MeasuredEntity T3 (these measures) HasProperty T2 (combined average)
+- MeasuredProperty T2 HasQuantity T1
+
+So the TSV entries would be:
+
+1	Quantity	T1	−0.43 ± 0.05 percentage points per year	{"unit": "percentage points per year", "mods": ["IsMeanHasSD"]}
+1	MeasuredProperty	T2	combined average	{"HasQuantity": "T1", "HasProperty": "T3"}
+1	MeasuredEntity	T3	these measures	{"HasQuantity": "T1"}
+
+Then, annotSet 2 for the second quantity:
+
+2	Quantity	T4	−1.6 ± 0.2%	{"unit": "%", "mods": ["IsMeanHasSD"]}
+2	MeasuredProperty	T5	annual degradation	{"HasQuantity": "T4", "HasProperty": "T6"}
+2	MeasuredEntity	T6	load factor	{"HasQuantity": "T4"}
+2	Qualifier	T7	with age	{"Qualifies": "T5"}
+
+But wait, in the MeasuredProperty T5 (annual degradation), the HasProperty should link to the MeasuredEntity T6 (load factor). So the MeasuredEntity T6 should have HasProperty pointing to T5, and T5 has HasQuantity pointing to T4. Wait, the relationship is MeasuredEntity → HasProperty → MeasuredProperty, and MeasuredProperty → HasQuantity → Quantity.
+
+So:
+
+- MeasuredEntity T6 (load factor) → HasProperty → T5 (annual degradation)
+- MeasuredProperty T5 → HasQuantity → T4 (quantity)
+
+Therefore, the entries would be:
+
+2	MeasuredEntity	T6	load factor	{"HasProperty": "T5"}
+2	MeasuredProperty	T5	annual degradation	{"HasQuantity": "T4"}
+2	Quantity	T4	−1.6 ± 0.2%	{"unit": "%", "mods": ["IsMeanHasSD"]}
+2	Qualifier	T7	with age	{"Qualifies": "T5"}
+
+Yes, this makes sense. The Qualifier "with age" qualifies the MeasuredProperty "annual degradation".
+
+Therefore, the final TSV should have two annotSets, each with their respective annotations.

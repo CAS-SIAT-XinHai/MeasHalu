@@ -1,0 +1,8 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S175058361300203X-1483	1	Quantity	765	769	T1	33 m	"{""unit"": ""m""}"
+S175058361300203X-1483	1	MeasuredEntity	753	763	T2	upper part	"{""HasQuantity"": ""T1""}"
+S175058361300203X-1483	2	Quantity	1050	1056	T4	20–25%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
+S175058361300203X-1483	2	MeasuredEntity	1013	1033	T5	effective porosities	"{""HasQuantity"": ""T4""}"
+S175058361300203X-1483	3	Quantity	1400	1415	T7	decimeter range	"{""unit"": ""decimeter"", ""mods"": [""IsRange""]}"
+S175058361300203X-1483	3	MeasuredEntity	1366	1375	T8	thickness	"{""HasQuantity"": ""T7""}"
+S175058361300203X-1483	3	MeasuredProperty	1366	1375	T9	thickness	"{""HasQuantity"": ""T7""}"

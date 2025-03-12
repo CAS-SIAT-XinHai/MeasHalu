@@ -1,0 +1,255 @@
+Okay, let's tackle this step by step. First, I need to extract all quantities as per the instructions. Looking at the input text, the first quantity I notice is "less than 5%". That's definitely a percentage, so Quantity with unit "%". The modifier here is "less than", which would make it IsApproximate.
+
+Next, there's "650–750 W/m2". This is a range of values, so IsRange. The unit here is "W/m2". Then "700 W/m2" is another quantity, unit "W/m2". Then "25 °C" with unit "°C".
+
+Moving on, "P700" might be a bit tricky. Since it's annotated as power values corrected to 700 W/m², but "P700" itself doesn't have a numerical value. Wait, maybe it's a MeasuredProperty instead? Or perhaps "700" in P700 is part of the name, not a quantity. The instructions say Quantity is a numerical value, so maybe "700" here isn't a separate quantity since it's part of a label. Let me check the example again. In the example, "P700" wasn't mentioned. Hmm, maybe "P700" is a MeasuredProperty? Let me think. The text says "These power values are annotated as P700." So P700 is a label for power values, not a quantity itself. So I'll skip that.
+
+Then "Fig. 9" and "Table 2" are references, not quantities. The main quantities are the percentages and the measurements with units.
+
+So the quantities I have are:
+1. less than 5% (unit "%", mods: IsApproximate)
+2. 650–750 W/m2 (unit "W/m2", mods: IsRange)
+3. 700 W/m2 (unit "W/m2")
+4. 25 °C (unit "°C")
+
+Now, for each of these quantities, I need to link them to MeasuredEntities and MeasuredProperties. Let's take "less than 5%". The surrounding text says "affects the annual energy prediction by less than 5%". So the MeasuredEntity here is "annual energy prediction", and the MeasuredProperty might be "effect" or "percentage impact". Wait, the sentence is talking about the effect of Staebler-Wronski or pre-conditioning affecting the prediction. But the MeasuredProperty could be the "annual energy prediction", and the Quantity is the 5%. So maybe MeasuredEntity is "Staebler–Wronski effect for a-Si" or "pre-conditioning for CIGS", but the text mentions both. However, the exact phrase is "affects the annual energy prediction by less than 5%". So the MeasuredEntity here is "annual energy prediction", and the MeasuredProperty could be "effect" (but not explicitly stated). Alternatively, maybe the MeasuredProperty is "affects" or the impact. But the example from before used "volume" as a property. Here, perhaps the MeasuredProperty is "effect" or the impact percentage. Wait, maybe the MeasuredEntity is "annual energy prediction", and the MeasuredProperty is "effect", but it's a bit unclear. Alternatively, maybe the MeasuredEntity is "the effect" (Staebler-Wronski or pre-conditioning), and the MeasuredProperty is "impact on annual energy prediction". Hmm, this is a bit ambiguous. Let's look at the example again. In the example, "The soda can's volume was 355 ml." The MeasuredEntity is "soda can", MeasuredProperty is "volume", and Quantity is "355 ml". So here, if the sentence is "affects the annual energy prediction by less than 5%", then "annual energy prediction" is the MeasuredEntity, and the MeasuredProperty would be the "effect" (since it's the property being measured). But "effect" isn't explicitly mentioned here. Alternatively, maybe the MeasuredProperty is "percentage impact" and the MeasuredEntity is "annual energy prediction". Alternatively, perhaps the MeasuredEntity is "Staebler–Wronski effect for a-Si" or "pre-conditioning for CIGS", and the MeasuredProperty is "annual energy prediction". Wait, the effect affects the prediction, so the prediction is the entity being affected, so the quantity (5%) is the extent of the effect. Therefore, the MeasuredEntity could be "annual energy prediction", and the MeasuredProperty is "effect" (though "effect" is part of the cause here). This is a bit confusing. Let's proceed carefully. The sentence says the effect affects the prediction by less than 5%. So the effect (MeasuredEntity?) has a MeasuredProperty of "impact", and the Quantity is 5%. But perhaps the structure is: MeasuredEntity is "annual energy prediction", MeasuredProperty is "effect" (though not explicitly stated), and the Quantity is 5%. Alternatively, maybe the effect is the MeasuredEntity, and the MeasuredProperty is the impact on the prediction. This is tricky. Maybe in this case, the MeasuredEntity is "annual energy prediction", and the Quantity is 5%, with the MeasuredProperty being implied as "effect percentage". Since the example had "volume" explicitly, here "effect" is part of the cause. Perhaps the best approach is to take "annual energy prediction" as the MeasuredEntity and the Quantity as the 5%, with the MeasuredProperty being "effect" (even though it's not directly stated). Alternatively, since the sentence says "affects... by less than 5%", the MeasuredProperty could be "effect" and the MeasuredEntity is "it" (referring to the Staebler-Wronski effect or pre-conditioning). But I need to base this on the text. The exact phrase is "affects the annual energy prediction by less than 5%". So the verb is "affects", and the Quantity is the 5% which is the extent of the effect. So the MeasuredEntity here is "annual energy prediction", and the MeasuredProperty would be "effect" (the effect on it), but "effect" isn't in the text. Alternatively, maybe the MeasuredProperty is "impact", but that's not in the text either. Maybe in this case, the MeasuredEntity is "annual energy prediction", and there's no explicit MeasuredProperty, so just a Quantity linked via HasQuantity. But according to the example, a MeasuredProperty is required if possible. Hmm. Alternatively, perhaps the MeasuredEntity is the effect (Staebler-Wronski effect or pre-conditioning), and the MeasuredProperty is the "annual energy prediction", but that might not fit. Wait, the example had "volume" as the MeasuredProperty, which was a property of the soda can. Here, the effect is causing a change in the annual energy prediction. So the annual energy prediction is the entity, and the property being measured is the "effect" of the Staebler-Wronski or pre-conditioning. But "effect" isn't directly mentioned in the same sentence as the quantity. Hmm. Maybe in this case, the MeasuredEntity is "annual energy prediction", and the MeasuredProperty is not explicitly stated, so we just link the Quantity directly to the MeasuredEntity. But according to the guidelines, MeasuredProperty is optional. So maybe it's acceptable to have a MeasuredEntity linked to a Quantity without a MeasuredProperty. So in that case, annotSet 1 would have MeasuredEntity "annual energy prediction", Quantity "less than 5%", and no MeasuredProperty.
+
+Moving to the next quantity, "650–750 W/m2". The text says "irradiance range of 650–750 W/m2". So the MeasuredEntity here is "irradiance", and the MeasuredProperty would be "range". The Quantity is the range, with unit W/m². So MeasuredEntity is "irradiance", MeasuredProperty is "range", linked via HasProperty. Then the Quantity is linked via HasQuantity to the MeasuredProperty.
+
+Next, "700 W/m2" is corrected to this value. The text says "corrected to 700 W/m2 and 25 °C". The MeasuredEntity here would be "irradiance" again, and the MeasuredProperty is "corrected value". But maybe the MeasuredEntity is "devices" (as in "all devices within an irradiance range..."), but the correction is to irradiance. So MeasuredEntity is "irradiance", MeasuredProperty could be "corrected value", or the property is "irradiance level". The Quantity is 700 W/m2.
+
+Then "25 °C" is the temperature correction. The MeasuredEntity here would be the temperature, and the MeasuredProperty is "corrected value". The text says "corrected to ... 25 °C". So the MeasuredEntity is "temperature", and the MeasuredProperty is "corrected value" or "temperature value".
+
+Now, for the relationships. Each Quantity should have a HasQuantity link from either the MeasuredEntity or MeasuredProperty. Let's structure these:
+
+AnnotSet 1:
+- Quantity: less than 5% (T1)
+- MeasuredEntity: annual energy prediction (T2)
+- Link T2 HasQuantity T1.
+
+AnnotSet 2:
+- Quantity: 650–750 W/m2 (T3)
+- MeasuredEntity: irradiance (T4)
+- MeasuredProperty: range (T5)
+- T4 HasProperty T5
+- T5 HasQuantity T3
+
+AnnotSet 3:
+- Quantity: 700 W/m2 (T6)
+- MeasuredEntity: irradiance (T7)
+- MeasuredProperty: corrected value (T8)
+- T7 HasProperty T8
+- T8 HasQuantity T6
+
+AnnotSet 4:
+- Quantity: 25 °C (T9)
+- MeasuredEntity: temperature (T10)
+- MeasuredProperty: corrected value (T11)
+- T10 HasProperty T11
+- T11 HasQuantity T9
+
+Wait, but "irradiance" and "temperature" might be MeasuredProperties themselves. Let me check the example. In the example, "volume" was a MeasuredProperty of the "solvent". So "irradiance" here is a property of the devices or the environment. The text says "irradiance range of 650–750 W/m²", so "irradiance" is the MeasuredProperty, and the MeasuredEntity might be "devices" (as in "all devices within an irradiance range..."). But the exact phrase is "irradiance range", so "irradiance" is the MeasuredProperty, and the MeasuredEntity is perhaps implied as the environment or the devices. However, the example used "solvent" as the MeasuredEntity with "volume" as the property. So here, "irradiance" is the MeasuredProperty, and the MeasuredEntity could be the "environment" or "devices". But the text mentions "all devices within an irradiance range...", so the MeasuredEntity is "devices", MeasuredProperty is "irradiance", and the Quantity is the range. So:
+
+AnnotSet 2:
+- Quantity: 650–750 W/m2 (T3)
+- MeasuredEntity: devices (T4)
+- MeasuredProperty: irradiance (T5)
+- T4 HasProperty T5
+- T5 HasQuantity T3
+
+Similarly for 700 W/m²:
+
+AnnotSet 3:
+- Quantity: 700 W/m2 (T6)
+- MeasuredEntity: devices (T7)
+- MeasuredProperty: irradiance (T8)
+- T7 HasProperty T8
+- T8 HasQuantity T6
+
+Wait, but that would imply that both the range and the corrected value are properties of the same MeasuredEntity and MeasuredProperty. Alternatively, perhaps the corrected value is a different property. The text says "corrected to 700 W/m² and 25 °C using bi-linear interpolation". So the correction applies to both irradiance and temperature. Therefore, the MeasuredEntity for "700 W/m²" would be "irradiance", and the MeasuredProperty could be "corrected irradiance". But "irradiance" itself is a property. Alternatively, the MeasuredEntity is "devices", and the MeasuredProperty is "irradiance", with the corrected value as Quantity. Similarly, for temperature, the MeasuredEntity is "devices" (or perhaps "temperature" as a MeasuredEntity? No, temperature is a property. So MeasuredEntity could be "environment" or "devices", and MeasuredProperty is "temperature".
+
+This is getting complicated. Let me try to outline each AnnotSet properly.
+
+AnnotSet 1: "less than 5%"
+- Quantity: T1 (less than 5%, mods: IsApproximate, unit: %)
+- MeasuredEntity: T2 (annual energy prediction)
+- Relationship: T2 HasQuantity T1
+
+AnnotSet 2: "650–750 W/m2"
+- Quantity: T3 (650–750 W/m2, mods: IsRange, unit: W/m²)
+- MeasuredEntity: T4 (devices) [since the phrase is "all devices within an irradiance range..."]
+- MeasuredProperty: T5 (irradiance)
+- Relationships: T4 HasProperty T5, T5 HasQuantity T3
+
+AnnotSet 3: "700 W/m2"
+- Quantity: T6 (700 W/m2, unit: W/m²)
+- MeasuredEntity: T7 (devices) [same as above]
+- MeasuredProperty: T8 (irradiance)
+- Relationships: T7 HasProperty T8, T8 HasQuantity T6
+
+AnnotSet 4: "25 °C"
+- Quantity: T9 (25 °C, unit: °C)
+- MeasuredEntity: T10 (temperature)
+- Wait, temperature is a property. So MeasuredEntity might need to be something else. The sentence says "corrected to ... 25 °C". The correction is applied to the devices' temperature? Or the ambient temperature? The text mentions "corrected to 700 W/m² and 25 °C", so the correction is for irradiance and temperature. Therefore, the MeasuredEntity is "devices", and the MeasuredProperty is "temperature". So:
+
+AnnotSet 4:
+- Quantity: T9 (25 °C, unit: °C)
+- MeasuredEntity: T10 (devices)
+- MeasuredProperty: T11 (temperature)
+- Relationships: T10 HasProperty T11, T11 HasQuantity T9
+
+But wait, in the example, "temperature" was a MeasuredProperty of the "solution". So here, "temperature" is the MeasuredProperty of "devices". That makes sense.
+
+Now, checking for Qualifiers. The text mentions "using bi-linear interpolation". This could be a Qualifier for the correction of the quantities to 700 W/m² and 25 °C. Also, "statistically significant number of data points" might be a Qualifier for "P700", but since P700 isn't a quantity, maybe it's not relevant here. "In each month of the year" could qualify the data points. But according to the guidelines, Qualifiers are spans that affect the interpretation of quantities. For example, "after I drank half the can" qualifies the quantity. Here, "using bi-linear interpolation" is a method used to correct the values, so it qualifies the corrected quantities (700 W/m² and 25 °C). So we need to create a Qualifier for that.
+
+So, Qualifier: "using bi-linear interpolation" which qualifies the Quantities T6 and T9. But each Qualifier can only link to one target. Alternatively, if the same Qualifier applies to multiple quantities, but according to the example, each Qualifier is a separate annotation. Wait, in the example, the Qualifier "after I drank half the can" was part of the same sentence as the quantity. Here, "using bi-linear interpolation" is the method used for correction. So this Qualifier would qualify both the 700 W/m² and 25 °C quantities. But in the output format, each Qualifier must have a relation to a specific annotation. Therefore, we might need to create two Qualifiers, one for each Quantity, but that seems redundant. Alternatively, perhaps the Qualifier is linked to the correction process, which affects both quantities. But the annotation guidelines state that Qualifiers are linked to a specific Quantity, MeasuredEntity, or MeasuredProperty. Therefore, "using bi-linear interpolation" would Qualify both the 700 W/m² and 25 °C quantities, requiring two separate Qualifier entries, each with their own annotSet. But the text mentions the correction to both values using the same method. Since they are in the same sentence, maybe the Qualifier applies to both. However, the relationships are per annotation, so each Qualifier can only link to one target. Therefore, perhaps we need to create two Qualifiers, each linking to their respective Quantity. Alternatively, create one Qualifier and have it link to both, but the TSV format doesn't allow multiple targets. So, two separate Qualifiers, each with "Qualifies" pointing to T6 and T9 respectively.
+
+So AnnotSet 3 and 4 would each have a Qualifier:
+
+AnnotSet 3:
+- Qualifier: using bi-linear interpolation (Qualifies T6)
+
+AnnotSet 4:
+- Qualifier: using bi-linear interpolation (Qualifies T9)
+
+But the exact same text appears once in the sentence. The text is "corrected to 700 W/m2 and 25 °C using bi-linear interpolation". So "using bi-linear interpolation" qualifies both corrections. Therefore, the Qualifier "using bi-linear interpolation" should be part of both AnnotSet 3 and 4. But each AnnotSet is a logical grouping. So perhaps create two Qualifiers, each in their respective AnnotSet, with the same text. For example:
+
+AnnotSet 3:
+- Quantity: T6
+- MeasuredEntity: T7 (devices)
+- MeasuredProperty: T8 (irradiance)
+- Qualifier: T12 (using bi-linear interpolation) linked to T6
+
+AnnotSet 4:
+- Quantity: T9
+- MeasuredEntity: T10 (devices)
+- MeasuredProperty: T11 (temperature)
+- Qualifier: T13 (using bi-linear interpolation) linked to T9
+
+But this duplicates the Qualifier text. Alternatively, maybe the Qualifier is part of a separate AnnotSet that qualifies both. However, according to the guidelines, each AnnotSet is a logical grouping of related annotations. So if the Qualifier applies to two different Quantities in different AnnotSets, it's better to include them in each respective AnnotSet.
+
+Now, let's check for other Qualifiers. The text mentions "statistically significant number of data points" and "fewer outliers to affect the analysis". These might qualify the choice of irradiance level (700 W/m²), so "statistically significant number of data points" could be a Qualifier for the 700 W/m² Quantity. But how does that affect the quantity? It explains why the particular irradiance level was chosen, thus qualifying the context of the Quantity. So this would be a Qualifier linked to T6 (700 W/m²). Similarly, "in each month of the year" could also be a Qualifier explaining the data distribution.
+
+So, "This particular irradiance level was chosen as there is a statistically significant number of data points in each month of the year and thus fewer outliers to affect the analysis." The phrases "statistically significant number of data points" and "fewer outliers to affect the analysis" could be Qualifiers for the 700 W/m² Quantity. But according to the guidelines, Qualifiers are spans that directly affect the interpretation of the Quantity. Since these explain why the level was chosen, they qualify the context. So perhaps both are Qualifiers linked to T6.
+
+So AnnotSet 3 would have two Qualifiers:
+
+- "statistically significant number of data points in each month of the year"
+- "fewer outliers to affect the analysis"
+
+But the exact text for the first Qualifier is "there is a statistically significant number of data points in each month of the year". However, the exact span should be the minimal necessary. "statistically significant number of data points" and "in each month of the year" might be separate, but the sentence says "in each month of the year" is where the data points are. So the full Qualifier span would be "there is a statistically significant number of data points in each month of the year", but that's long. However, the guideline says to use the exact text of the annotation from the input. Let me check the input text:
+
+" This particular irradiance level was chosen as there is a statistically significant number of data points in each month of the year and thus fewer outliers to affect the analysis."
+
+So the Qualifiers here would be:
+
+1. "there is a statistically significant number of data points in each month of the year"
+2. "fewer outliers to affect the analysis"
+
+Both qualify why the irradiance level (700 W/m²) was chosen, thus qualifying the Quantity T6. But these are two separate Qualifiers. Each would have their own entry in the TSV, linked to T6.
+
+Additionally, the phrase "using bi-linear interpolation" is another Qualifier for T6 and T9.
+
+This is getting quite complex. Let me try to structure all AnnotSets properly.
+
+AnnotSet 1: less than 5%
+- Quantity: T1 (less than 5%, mods: IsApproximate, unit: %)
+- MeasuredEntity: T2 (annual energy prediction)
+- Relationship: T2 HasQuantity T1
+
+AnnotSet 2: 650–750 W/m²
+- Quantity: T3 (650–750 W/m², mods: IsRange, unit: W/m²)
+- MeasuredEntity: T4 (devices)
+- MeasuredProperty: T5 (irradiance)
+- Relationships: T4 HasProperty T5, T5 HasQuantity T3
+
+AnnotSet 3: 700 W/m²
+- Quantity: T6 (700 W/m², unit: W/m²)
+- MeasuredEntity: T7 (devices)
+- MeasuredProperty: T8 (irradiance)
+- Relationships: T7 HasProperty T8, T8 HasQuantity T6
+- Qualifiers:
+  - T9: using bi-linear interpolation → Qualifies T6
+  - T10: there is a statistically significant number of data points in each month of the year → Qualifies T6
+  - T11: fewer outliers to affect the analysis → Qualifies T6
+
+AnnotSet 4: 25 °C
+- Quantity: T12 (25 °C, unit: °C)
+- MeasuredEntity: T13 (devices)
+- MeasuredProperty: T14 (temperature)
+- Relationships: T13 HasProperty T14, T14 HasQuantity T12
+- Qualifier: T15: using bi-linear interpolation → Qualifies T12
+
+Wait, but "devices" are mentioned in multiple AnnotSets. For example, AnnotSet 2 and 3 both have MeasuredEntity "devices". Since each AnnotSet is a separate logical grouping, this is acceptable. Each AnnotSet is independent, so the same entity can appear in multiple sets.
+
+Now, I need to ensure that each AnnotSet has its own numbering starting from 1. Wait, no—the annotSet should group related annotations. For example, in the example given, each Quantity, its MeasuredEntity, MeasuredProperty, and Qualifiers are grouped under the same annotSet. So in the example, "approximately 25°C" is in annotSet 1 along with its MeasuredEntity and MeasuredProperty. Similarly, each logical group (each Quantity and its related entities) gets its own annotSet. So in the current case:
+
+AnnotSet 1: less than 5% and related entities
+AnnotSet 2: 650–750 W/m² and related
+AnnotSet 3: 700 W/m² and related (including Qualifiers)
+AnnotSet 4: 25 °C and related (including Qualifiers)
+
+But wait, the Qualifiers for 700 W/m² are part of AnnotSet 3, and those for 25 °C are part of AnnotSet 4.
+
+Now, writing all this into the TSV format.
+
+Let me start with AnnotSet 1:
+
+annotSet | annotType        | annotId | text                     | other
+1        | Quantity         | T1      | less than 5%             | {"unit": "%", "mods": ["IsApproximate"]}
+1        | MeasuredEntity   | T2      | annual energy prediction | {"HasQuantity": "T1"}
+
+AnnotSet 2:
+
+2        | Quantity         | T3      | 650–750 W/m2             | {"unit": "W/m2", "mods": ["IsRange"]}
+2        | MeasuredEntity   | T4      | devices                  | {"HasProperty": "T5"}
+2        | MeasuredProperty | T5      | irradiance               | {"HasQuantity": "T3"}
+
+Wait, according to the example, the MeasuredEntity links to the MeasuredProperty via HasProperty, and the MeasuredProperty links to the Quantity via HasQuantity. So in AnnotSet 2:
+
+- T4 (devices) HasProperty → T5 (irradiance)
+- T5 (irradiance) HasQuantity → T3 (650–750 W/m²)
+
+Therefore, the MeasuredEntity's other field is {"HasProperty": "T5"}, and the MeasuredProperty's other is {"HasQuantity": "T3"}.
+
+AnnotSet 3:
+
+3        | Quantity         | T6      |700 W/m2                  | {"unit": "W/m2"}
+3        | MeasuredEntity   | T7      | devices                  | {"HasProperty": "T8"}
+3        | MeasuredProperty | T8      | irradiance               | {"HasQuantity": "T6"}
+3        | Qualifier        | T9      | using bi-linear interpolation | {"Qualifies": "T6"}
+3        | Qualifier        | T10     | there is a statistically significant number of data points in each month of the year | {"Qualifies": "T6"}
+3        | Qualifier        | T11     | fewer outliers to affect the analysis | {"Qualifies": "T6"}
+
+AnnotSet 4:
+
+4        | Quantity         | T12     |25 °C                     | {"unit": "°C"}
+4        | MeasuredEntity   | T13     | devices                  | {"HasProperty": "T14"}
+4        | MeasuredProperty | T14     | temperature              | {"HasQuantity": "T12"}
+4        | Qualifier        | T15     | using bi-linear interpolation | {"Qualifies": "T12"}
+
+But wait, "using bi-linear interpolation" is mentioned once in the text, but appears in both AnnotSet 3 and 4. That's acceptable if it's part of different sets. The same text can be annotated in multiple sets if it qualifies different quantities.
+
+However, in the input text, the phrase "using bi-linear interpolation" appears once, modifying both corrections (700 W/m² and 25°C). Therefore, in the TSV, each occurrence would have the same text but belong to different annotSets. That's permissible as per the guidelines.
+
+Additionally, I need to check if there are other quantities. Looking back at the input text:
+
+- "pre-conditioning for CIGS, which affects the annual energy prediction by less than 5%"
+- "the maximum power point data of all devices within an irradiance range of 650–750 W/m2 have been extracted and corrected to 700 W/m2 and 25 °C"
+- "This particular irradiance level was chosen as there is a statistically significant number of data points..."
+- "monthly performance ratios are also plotted"
+
+But "monthly performance ratios" is a MeasuredProperty, but there's no quantity directly attached. So no Quantity there.
+
+Now, verify all quantities are captured:
+
+- less than 5%
+- 650–750 W/m2
+- 700 W/m2
+- 25 °C
+
+Yes, those are all.
+
+Now, check if any other Qualifiers are present. The phrase "not further explored here" could be a Qualifier for the 5% effect, but that's more of a statement about the research focus, not directly qualifying the quantity. Similarly, "slightly contradictory" might qualify the effect, but not the quantity itself. According to the guidelines, Qualifiers are spans that affect the interpretation of the Quantity, so phrases like "not further explored here" probably don't qualify the quantity's value but rather the discussion. So they can be omitted.
+
+Thus, the final TSV should include the four Quantities with their respective entities, properties, and qualifiers as outlined.

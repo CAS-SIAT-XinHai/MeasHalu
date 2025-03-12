@@ -1,0 +1,9 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0927024813002420-1202	1	Quantity	273	276	T1	60%	"{""unit"": ""%""}"
+S0927024813002420-1202	1	MeasuredEntity	230	263	T2	co-deposition of blended mixtures	"{""HasProperty"": ""T3""}"
+S0927024813002420-1202	1	MeasuredProperty	284	297	T3	photocurrents	"{""HasQuantity"": ""T1""}"
+S0927024813002420-1202	1	Qualifier	298	373	T4	than in thickness-optimized PTh/C60 planar heterojunction counterparts [37]	"{""Qualifies"": ""T1""}"
+S0927024813002420-1202	2	Quantity	472	486	T5	as much as 80%	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
+S0927024813002420-1202	2	MeasuredEntity	405	412	T6	devices	"{""HasProperty"": ""T7""}"
+S0927024813002420-1202	2	MeasuredProperty	441	468	T7	power conversion efficiency	"{""HasQuantity"": ""T5""}"
+S0927024813002420-1202	2	Qualifier	388	422	T8	by annealing the devices post-situ	"{""Qualifies"": ""T5""}"

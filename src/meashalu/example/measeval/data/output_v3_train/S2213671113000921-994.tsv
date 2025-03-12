@@ -1,0 +1,11 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2213671113000921-994	1	Quantity	369	378	T1	36 clones	"{""unit"": ""clones"", ""mods"": [""IsCount""]}"
+S2213671113000921-994	1	MeasuredEntity	372	378	T2	clones	"{""HasQuantity"": ""T1""}"
+S2213671113000921-994	2	Quantity	484	486	T3	26	"{""unit"": ""clones"", ""mods"": [""IsCount""]}"
+S2213671113000921-994	2	MeasuredEntity	476	482	T4	clones	"{""HasQuantity"": ""T3""}"
+S2213671113000921-994	3	Quantity	488	491	T5	72%	"{""unit"": ""%""}"
+S2213671113000921-994	3	MeasuredEntity	476	482	T6	clones	"{""HasQuantity"": ""T5""}"
+S2213671113000921-994	4	Quantity	1480	1491	T7	20 passages	"{""unit"": ""passages"", ""mods"": [""IsCount""]}"
+S2213671113000921-994	4	MeasuredEntity	1414	1439	T8	GFP-positive (GFP+) cells	"{""HasQuantity"": ""T7""}"
+S2213671113000921-994	5	Quantity	1550	1554	T9	100%	"{""unit"": ""%""}"
+S2213671113000921-994	5	MeasuredEntity	1558	1568	T10	GFP+ cells	"{""HasQuantity"": ""T9""}"

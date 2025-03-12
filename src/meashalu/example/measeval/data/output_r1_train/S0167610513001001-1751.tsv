@@ -1,0 +1,9 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0167610513001001-1751	1	Quantity	161	168	T1	1 m s−1	"{""unit"": ""m s\u22121"", ""mods"": [""IsCount""]}"
+S0167610513001001-1751	1	MeasuredEntity	131	135	T2	data	"{""HasQuantity"": ""T1""}"
+S0167610513001001-1751	1	MeasuredProperty	153	157	T3	bins	"{""HasQuantity"": ""T1""}"
+S0167610513001001-1751	2	MeasuredEntity	69	95	T5	lidar and sonic anemometer	"{""HasQuantity"": ""T4""}"
+S0167610513001001-1751	2	MeasuredProperty	17	32	T6	mean difference	"{""HasQuantity"": ""T4""}"
+S0167610513001001-1751	3	Quantity	395	416	T7	greater than 20 m s−1	"{""unit"": ""m s\u22121""}"
+S0167610513001001-1751	3	MeasuredEntity	383	394	T8	wind speeds	"{""HasQuantity"": ""T7""}"
+S0167610513001001-1751	3	MeasuredProperty	346	351	T9	speed	"{""HasQuantity"": ""T7""}"

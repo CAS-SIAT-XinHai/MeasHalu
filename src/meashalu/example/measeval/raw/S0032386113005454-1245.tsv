@@ -1,0 +1,10 @@
+docId	annotSet	annotType	annotId	text	other
+S0032386113005454-1245	1	Quantity	T1	10 wt%	"{""unit"": ""wt%""}"
+S0032386113005454-1245	1	MeasuredEntity	T2	epoxy polymers	"{""HasQuantity"": ""T1""}"
+S0032386113005454-1245	1	MeasuredProperty	T3	percentage	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0032386113005454-1245	2	Quantity	T4	20 wt%	"{""unit"": ""wt%""}"
+S0032386113005454-1245	2	MeasuredEntity	T5	epoxy polymers	"{""HasQuantity"": ""T4""}"
+S0032386113005454-1245	2	MeasuredProperty	T6	percentage	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"
+S0032386113005454-1245	3	Quantity	T7	20 °C	"{""unit"": ""°C""}"
+S0032386113005454-1245	3	MeasuredEntity	T8	fracture surface	"{""HasQuantity"": ""T7""}"
+S0032386113005454-1245	3	MeasuredProperty	T9	temperature	"{""HasQuantity"": ""T7"", ""HasProperty"": ""T8""}"

@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0032063312002437-627	1	Quantity	32	46	T1	a large number	"{""mods"": [""IsCount""]}"
+S0032063312002437-627	1	MeasuredEntity	50	56	T2	orbits	"{""HasQuantity"": ""T1""}"
+S0032063312002437-627	1	MeasuredProperty	40	46	T3	number	"{""HasQuantity"": ""T1""}"
+S0032063312002437-627	2	Quantity	343	348	T4	192 s	"{""unit"": ""s""}"
+S0032063312002437-627	2	MeasuredEntity	349	354	T5	cycle	"{""HasQuantity"": ""T4""}"
+S0032063312002437-627	3	Quantity	434	436	T7	15	"{""mods"": [""IsCount""]}"
+S0032063312002437-627	3	MeasuredEntity	385	404	T8	mass channel number	"{""HasQuantity"": ""T7""}"
+S0032063312002437-627	3	MeasuredProperty	412	429	T9	maximum ion count	"{""HasQuantity"": ""T7""}"
+S0032063312002437-627	3	Qualifier	437	444	T10	or less	"{""Qualifies"": ""T7""}"

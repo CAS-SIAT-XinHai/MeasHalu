@@ -1,0 +1,10 @@
+docId	annotSet	annotType	annotId	text	other
+S0038071712001010-1044	1	Quantity	T1	∼0.4 mm²	"{""unit"": ""mm²"", ""mods"": [""IsApproximate""]}"
+S0038071712001010-1044	1	MeasuredEntity	T2	small pores	"{""HasQuantity"": ""T1""}"
+S0038071712001010-1044	1	MeasuredProperty	T3	size	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0038071712001010-1044	2	Quantity	T4	84 days	"{""unit"": ""days""}"
+S0038071712001010-1044	2	MeasuredEntity	T5	experiment	"{""HasQuantity"": ""T4""}"
+S0038071712001010-1044	2	MeasuredProperty	T6	duration	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"
+S0038071712001010-1044	2	Qualifier	T7	wet–dry cycles	"{""Qualifies"": ""T4""}"
+S0038071712001010-1044	3	Quantity	T8	six	"{""mods"": [""IsCount""]}"
+S0038071712001010-1044	3	MeasuredEntity	T9	Glomus species	"{""HasQuantity"": ""T8""}"

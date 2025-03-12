@@ -1,0 +1,6 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2213158213000582-1410	1	Quantity	501	511	T1	left 50 ms	"{""unit"": ""ms"", ""mods"": [""IsCount""]}"
+S2213158213000582-1410	1	Quantity	516	532	T2	bilateral 100 ms	"{""unit"": ""ms"", ""mods"": [""IsCount""]}"
+S2213158213000582-1410	1	Quantity	506	511	T3	50 ms	"{""unit"": ""ms"", ""mods"": [""IsCount""]}"
+S2213158213000582-1410	1	Quantity	526	532	T4	100 ms	"{""unit"": ""ms"", ""mods"": [""IsCount""]}"
+S2213158213000582-1410	1	MeasuredProperty	537	554	T6	group differences	"{""HasQuantity"": ""T4""}"

@@ -1,0 +1,12 @@
+docId	annotSet	annotType	annotId	text	other
+S0927775713009606-1361	1	Quantity	T1	0.097 nm	"{""unit"": ""nm""}"
+S0927775713009606-1361	1	MeasuredEntity	T2	Cd2+	"{""HasProperty"": ""T3""}"
+S0927775713009606-1361	1	MeasuredProperty	T3	ionic radius	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0927775713009606-1361	2	Quantity	T4	ca. 0.4–1.0 nm	"{""unit"": ""nm"", ""mods"": [""IsApproximate"", ""IsRange""]}"
+S0927775713009606-1361	2	MeasuredEntity	T5	internal cavity of the amylose helix	"{""HasProperty"": ""T6""}"
+S0927775713009606-1361	2	MeasuredProperty	T6	diameter	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"
+S0927775713009606-1361	2	Qualifier	T7	presumably flexible under the synthesis conditions	"{""Qualifies"": ""T5""}"
+S0927775713009606-1361	3	Quantity	T8	0.19–0.21 nm	"{""unit"": ""nm"", ""mods"": [""IsRange""]}"
+S0927775713009606-1361	3	MeasuredEntity	T9	adjacent glucose residues	"{""HasProperty"": ""T10""}"
+S0927775713009606-1361	3	MeasuredProperty	T10	H-bonding distances	"{""HasQuantity"": ""T8"", ""HasProperty"": ""T9""}"
+S0927775713009606-1361	3	Qualifier	T11	believed to be key to the formation of the porous polysaccharide phase	"{""Qualifies"": ""T10""}"

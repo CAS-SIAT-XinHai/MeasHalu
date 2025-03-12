@@ -1,0 +1,4 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2213671113001306-908	1	Quantity	68	74	T1	125 μm	"{""unit"": ""\u03bcm""}"
+S2213671113001306-908	1	Quantity	69	74	T2	25 μm	"{""unit"": ""\u03bcm""}"
+S2213671113001306-908	1	MeasuredEntity	56	66	T3	scale bars	"{""HasQuantity"": ""T2""}"

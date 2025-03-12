@@ -1,0 +1,11 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0006322312001096-1136	1	Quantity	73	77	T1	1991	"{""mods"": [""IsCount""]}"
+S0006322312001096-1136	1	Quantity	103	107	T2	1997	"{""mods"": [""IsCount""]}"
+S0006322312001096-1136	1	Quantity	109	113	T3	2003	"{""mods"": [""IsCount""]}"
+S0006322312001096-1136	1	Quantity	119	123	T4	2008	"{""mods"": [""IsCount""]}"
+S0006322312001096-1136	1	Quantity	205	209	T5	5318	"{""mods"": [""IsCount""]}"
+S0006322312001096-1136	1	Quantity	224	243	T6	mean age 54.8 years	"{""unit"": ""years"", ""mods"": [""IsMean""]}"
+S0006322312001096-1136	1	Quantity	245	248	T7	31%	"{""unit"": ""%"", ""mods"": [""IsCount""]}"
+S0006322312001096-1136	1	MeasuredEntity	210	222	T8	participants	"{""HasQuantity"": ""T5""}"
+S0006322312001096-1136	1	MeasuredEntity	198	201	T9	age	"{""HasQuantity"": ""T6""}"
+S0006322312001096-1136	1	MeasuredEntity	249	254	T10	women	"{""HasQuantity"": ""T7""}"

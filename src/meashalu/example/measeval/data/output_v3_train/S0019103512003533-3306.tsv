@@ -1,0 +1,6 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103512003533-3306	1	Quantity	214	223	T1	320–500 K	"{""unit"": ""K"", ""mods"": [""IsRange""]}"
+S0019103512003533-3306	1	MeasuredEntity	206	212	T2	Saturn	"{""HasQuantity"": ""T1""}"
+S0019103512003533-3306	1	MeasuredProperty	174	186	T3	temperatures	"{""HasQuantity"": ""T1""}"
+S0019103512003533-3306	2	Quantity	436	442	T4	∼500 K	"{""unit"": ""K"", ""mods"": [""IsApproximate""]}"
+S0019103512003533-3306	2	MeasuredEntity	417	429	T5	temperatures	"{""HasQuantity"": ""T4""}"

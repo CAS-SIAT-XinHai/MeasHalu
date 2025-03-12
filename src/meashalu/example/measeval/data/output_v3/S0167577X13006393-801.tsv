@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0167577X13006393-801	1	Quantity	237	252	T1	less than 10 nm	"{""unit"": ""nm"", ""mods"": [""IsRange""]}"
+S0167577X13006393-801	1	MeasuredEntity	222	236	T2	analysis depth	"{""HasQuantity"": ""T1""}"
+S0167577X13006393-801	1	MeasuredProperty	231	236	T3	depth	"{""HasQuantity"": ""T1""}"
+S0167577X13006393-801	2	Quantity	1129	1139	T4	0.4 to 0.5	"{""mods"": [""IsRange""]}"
+S0167577X13006393-801	2	MeasuredEntity	1108	1125	T5	conversion degree	"{""HasQuantity"": ""T4""}"
+S0167577X13006393-801	2	MeasuredProperty	1119	1125	T6	degree	"{""HasQuantity"": ""T4""}"
+S0167577X13006393-801	3	Quantity	1093	1100	T7	1200 °C	"{""unit"": ""\u00b0C""}"
+S0167577X13006393-801	3	MeasuredEntity	1064	1085	T8	sintering temperature	"{""HasQuantity"": ""T7""}"
+S0167577X13006393-801	3	MeasuredProperty	1003	1014	T9	temperature	"{""HasQuantity"": ""T7""}"

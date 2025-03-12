@@ -1,0 +1,347 @@
+Okay, let's start tackling this problem. The user has provided a paragraph from a research paper, and I need to extract the quantities, measured entities, properties, and qualifiers following the guidelines given.
+
+First, I'll read through the input paragraph carefully to identify all the quantities mentioned. The example in the instructions shows that quantities can be counts (like "5 apples") or measurements (like "355 ml"). 
+
+Looking at the input:
+
+- "89% of the programs studied contained at least one dependence cluster composed of 10% or more of the program's statements."
+  Here, "89%" and "10%" are percentages, which are quantities. The "89%" refers to the percentage of programs with a dependence cluster, and "10%" is the threshold for the cluster size relative to the program's statements.
+
+- "The average size of the programs studied was 20KLoC..."
+  "20KLoC" is a quantity. "KLoC" stands for thousand lines of code. Since it's an average, I need to note the "IsMean" modifier.
+
+- "clusters of more than 10% denoted significant portions of code."
+  Another "10%" here, but this might be a repetition of the earlier 10%, so I need to check if it's the same or a different instance. In this case, it's part of the same context but mentioned again, so maybe it's a separate quantity? Wait, the first 10% is part of the cluster composition, while this second mention is referring to the clusters being significant. But actually, the text says "clusters of more than 10%", which is the same threshold as before. However, in the previous sentence, "10% or more" is part of the cluster definition. The second mention is restating that clusters over 10% are significant. So maybe this is a new quantity? Or is it referencing the same one? Hmm. Since the text says "more than 10%", it's the same as the previous "10% or more", so perhaps it's the same quantity. But in the original example, percentages are treated as separate quantities. Alternatively, maybe the second mention is a different instance. I need to check the exact text. The first is "10% or more", the second is "more than 10%". They are different in the exact value, so perhaps they should be considered separate. Wait, no, the first is a threshold (>=10%), the second refers to clusters that have exceeded that threshold (so >10%). But in the context, they might both refer to the same 10% value. However, in the text, the first is part of the cluster composition, and the second is emphasizing the significance. So maybe they are different quantities. However, the exact text for the second is "more than 10%", which is a different value. So perhaps these are two different quantities. Let me check the paragraph again.
+
+Wait, the first 10% is part of the dependence cluster definition: "composed of 10% or more of the program's statements." The second mention says "clusters of more than 10% denoted significant portions of code." So both are referring to the percentage of the program's statements in a cluster. However, the first is a threshold (>=10%) and the second is a reference to those exceeding the threshold. But the actual quantity spans are "10% or more" and "more than 10%". Since they are different phrases, they need to be treated as separate quantities. But in the original example, "approximately 25°C" and "500 milliliters" are separate. So here, each occurrence is a separate quantity.
+
+Wait, but in the input text, the first mention is "10% or more", and the second is "more than 10%". Therefore, these are two separate quantity mentions. But let's check the exact text:
+
+Original text:
+
+"Our findings over a large corpus of C code was that 89% of the programs studied contained at least one dependence cluster composed of 10% or more of the program's statements. The average size of the programs studied was 20KLoC, so these clusters of more than 10% denoted significant portions of code."
+
+So "10% or more" and "more than 10%" are two different quantity phrases. Therefore, each should be annotated as a separate Quantity. But wait, maybe the "more than 10%" is part of the same cluster description. Let's see: The first part says that clusters are composed of 10% or more, and then the next sentence says that clusters of more than 10% (i.e., those clusters that meet the previous criterion) are significant. So the "more than 10%" here is actually referring back to the same 10% threshold but phrased differently. However, the actual text is different, so they must be considered separate quantities. Therefore, both "10% or more" and "more than 10%" are separate quantities. But let's confirm: the first is "10% or more", which is a range (>=10%), which would trigger the IsRange modifier. The second is "more than 10%", which is a lower bound (>10%), which is also a range. However, in the example given, "1.5-2.6m" is an example of IsRange. So here, "10% or more" is a range starting at 10%, so it would have IsRange. Similarly, "more than 10%" is a range starting just above 10%, also IsRange. But perhaps in the input, these are separate Quantity annotations.
+
+Next, "40% of the programs had a dependence cluster that consumed over half of the program."
+
+Here, "40%" is a percentage, and "over half" (which is equivalent to "more than 50%") is another quantity. "over half" can be considered as a quantity with an approximate value, maybe IsApproximate, but "over half" is a range (>50%), so IsRange. Alternatively, since "over half" is a count, but it's a measurement (percentage). Alternatively, perhaps "over half" is a count modifier. Hmm.
+
+Let's list all potential quantities:
+
+1. 89% of the programs studied
+2. 10% or more of the program's statements
+3. 20KLoC (average size)
+4. more than 10% (denoted significant portions)
+5. 40% of the programs
+6. over half of the program
+
+Now, let's process each of these.
+
+First, "89% of the programs studied": The quantity here is "89%". The unit is "%". The measured entity would be "programs studied", but the measured property is the percentage containing dependence clusters. The relation would be that the MeasuredEntity is "programs studied", and the MeasuredProperty is something like "percentage containing dependence clusters", but in the text, the exact phrase is "contained at least one dependence cluster". So maybe the MeasuredProperty here is not explicitly stated but could be "percentage" or "proportion". However, according to the guidelines, the MeasuredProperty should be a descriptive property linked to the entity. In the example given, "temperature" was the MeasuredProperty for "solution". Here, for "89% of the programs", the MeasuredEntity is "programs studied", and the MeasuredProperty would be the proportion or percentage that had at least one dependence cluster. But in the text, the exact phrase is "89% of the programs studied contained...", so the MeasuredProperty might be implicit. Alternatively, the Quantity is "89%" and relates to the MeasuredEntity "programs" with a MeasuredProperty of "proportion containing dependence clusters". But since the property isn't explicitly mentioned, perhaps the MeasuredProperty is not present. Wait, the guidelines say that MeasuredProperty is optional. So maybe we can skip it if not explicit.
+
+Next, "10% or more of the program's statements": The quantity is "10% or more", unit is "%", and modifiers include IsRange. The MeasuredEntity here is "program's statements", and the MeasuredProperty could be the percentage threshold for cluster composition.
+
+Third, "20KLoC": The quantity is "20KLoC". The unit is "KLoC" (thousand lines of code). Since it's the average size, the modifier is IsMean. The MeasuredEntity is "programs studied", and the MeasuredProperty is "size".
+
+Fourth, "more than 10%": quantity is "more than 10%", unit "%", modifier IsRange. The MeasuredEntity is "clusters" (but the exact text is "clusters of more than 10%"), so the MeasuredEntity here is "clusters", and the MeasuredProperty is the percentage of the program's statements.
+
+Fifth, "40% of the programs": quantity "40%", unit "%". MeasuredEntity is "programs", MeasuredProperty is the percentage with a dependence cluster over half the program.
+
+Sixth, "over half of the program": quantity "over half", which is equivalent to >50%, so unit "%" (assuming percentage), modifier IsRange. But the text says "over half", which is a fraction, but in terms of units, maybe it's treated as a count? Or is there a unit here? Since half is 50%, the unit would still be "%", and the quantity is "over half" (i.e., >50%). So "over half" is a quantity with IsRange modifier.
+
+Now, for each quantity, I need to extract them and assign annotSet, annotType, annotId, text, and other fields.
+
+Let's start with the first quantity: "89%".
+
+AnnotSet 1:
+
+- Quantity: "89%" with unit "%", no modifiers except maybe IsCount if it's a count. Wait, 89% is a measurement (percentage), so IsCount doesn't apply. So mods would be empty? Or is there a modifier here? Since it's a percentage, the unit is "%". The "89%" is a precise value, so no IsApproximate. So other field: {"unit": "%"}.
+
+MeasuredEntity: "programs studied" (text is "programs studied", from "89% of the programs studied"). So annotType MeasuredEntity, text "programs studied". Relation: HasQuantity to T1.
+
+MeasuredProperty: In the example, the MeasuredProperty was "temperature" for the solution. Here, the property being measured is the percentage of programs that contained a dependence cluster. But the text says "contained at least one dependence cluster...", so the MeasuredProperty could be "proportion containing dependence clusters", but that's not explicitly stated. Since the MeasuredProperty is optional and needs to be explicit in the text, perhaps there is no MeasuredProperty here. Alternatively, if the sentence structure allows, maybe "contained" is the property? Not sure. The example had "volume" as a MeasuredProperty when the text was "volume of the solvent was 500 milliliters". Here, the structure is "89% of the programs studied contained...", which is similar to "X% of Y had Z". The MeasuredProperty might not be explicit here, so perhaps we can omit it.
+
+So for AnnotSet 1:
+
+annotSet 1:
+
+- Quantity T1: "89%", {"unit": "%"}
+- MeasuredEntity T2: "programs studied", {"HasQuantity": "T1"}
+
+No MeasuredProperty since it's not explicit.
+
+Next quantity: "10% or more" in "composed of 10% or more of the program's statements."
+
+AnnotSet 2:
+
+- Quantity T3: "10% or more", unit "%", modifiers IsRange (since it's a range starting at 10%).
+  other: {"unit": "%", "mods": ["IsRange"]}
+
+MeasuredEntity: "program's statements" (text from "of the program's statements").
+So MeasuredEntity T4: "program's statements", {"HasQuantity": "T3"}.
+
+MeasuredProperty: The property here is the percentage threshold for the cluster composition. The text says "composed of 10% or more...", so the MeasuredProperty could be "composition" or "size", but the exact term isn't present. Since the example required explicit properties like "volume", perhaps this is omitted here. So no MeasuredProperty.
+
+Third quantity: "20KLoC" (average size).
+
+AnnotSet 3:
+
+- Quantity T5: "20KLoC", unit "KLoC", modifiers IsMean because it's the average size.
+  other: {"unit": "KLoC", "mods": ["IsMean"]}
+
+MeasuredEntity: "programs studied" (from "the average size of the programs studied").
+MeasuredEntity T6: "programs studied", {"HasQuantity": "T5"}.
+
+MeasuredProperty: "size" (from "average size").
+MeasuredProperty T7: "size", {"HasQuantity": "T5", "HasProperty": "T6"}.
+
+Fourth quantity: "more than 10%" in "clusters of more than 10% denoted significant portions."
+
+AnnotSet 4:
+
+- Quantity T8: "more than 10%", unit "%", modifiers IsRange.
+  other: {"unit": "%", "mods": ["IsRange"]}
+
+MeasuredEntity: "clusters" (from "clusters of more than 10%").
+MeasuredEntity T9: "clusters", {"HasQuantity": "T8"}.
+
+MeasuredProperty: The percentage here refers to the size of the cluster relative to the program. The text doesn't explicitly state the property, so perhaps omit.
+
+Fifth quantity: "40% of the programs".
+
+AnnotSet 5:
+
+- Quantity T10: "40%", unit "%".
+  other: {"unit": "%"}
+
+MeasuredEntity: "programs" (from "40% of the programs").
+MeasuredEntity T11: "programs", {"HasQuantity": "T10"}.
+
+Sixth quantity: "over half of the program".
+
+AnnotSet 6:
+
+- Quantity T12: "over half", unit "%" (since half is 50%, so over half is >50%).
+  modifiers: IsRange.
+  other: {"unit": "%", "mods": ["IsRange"]}
+
+MeasuredEntity: "program" (from "over half of the program").
+MeasuredEntity T13: "program", {"HasQuantity": "T12"}.
+
+Now, checking for any qualifiers. The example had "approximately" as a qualifier. In the input text, are there any qualifiers? The phrase "perhaps surprisingly" appears in the first sentence: "demonstrated that large dependence clusters were (perhaps surprisingly) common". This could be a Qualifier that qualifies the MeasuredEntity "dependence clusters" or the fact that they are common. However, the quantities are in later sentences. Since Qualifiers can be conditions or attributes affecting a Quantity, etc., but in this context, "perhaps surprisingly" is a qualifier on the commonness of dependence clusters, which is not directly linked to a specific quantity. So maybe this qualifier isn't associated with any quantity here. The other sentences don't have obvious qualifiers like "after...", so perhaps there are no Qualifiers to annotate.
+
+Now, annotSets should group related annotations. For example, in the example, each quantity and its associated entity and property form an annotSet. So each quantity is part of its own annotSet with related entities and properties.
+
+But let's see: 
+
+For the first quantity "89%", it's part of the finding that 89% of programs had clusters. So AnnotSet 1 includes Quantity T1, MeasuredEntity T2.
+
+The second quantity "10% or more" is part of the cluster composition, so AnnotSet 2: Quantity T3, MeasuredEntity T4.
+
+Third quantity "20KLoC" is the average size, AnnotSet 3: T5 (Quantity), T6 (Entity), T7 (Property).
+
+Fourth quantity "more than 10%": AnnotSet 4: T8, T9.
+
+Fifth quantity "40%": AnnotSet 5: T10, T11.
+
+Sixth quantity "over half": AnnotSet 6: T12, T13.
+
+Now, check if any of these quantities share the same logical grouping. For example, the 10% or more and more than 10% are related, but they are separate mentions. So each gets their own annotSet.
+
+Another point: The sentence "Our findings over a large corpus of C code was that 89% of the programs studied contained at least one dependence cluster composed of 10% or more of the program's statements."
+
+Here, the 89% and 10% are part of the same finding. But according to the example, each quantity is in its own annotSet. For instance, in the example, each quantity (25°C, 500 milliliters, 10 grams) each have their own annotSet. So even if they are in the same sentence, each quantity is a separate set. Therefore, 89% and 10% would each be in their own annotSet.
+
+Another thing to consider: "The average size of the programs studied was 20KLoC, so these clusters of more than 10% denoted significant portions of code."
+
+Here, "20KLoC" and "more than 10%" are separate quantities, each in their own annotSet.
+
+Now, let's structure the TSV accordingly.
+
+annotSet | annotType | annotId | text | other
+
+1 | Quantity | T1 | 89% | {"unit": "%"}
+1 | MeasuredEntity | T2 | programs studied | {"HasQuantity": "T1"}
+
+2 | Quantity | T3 | 10% or more | {"unit": "%", "mods": ["IsRange"]}
+2 | MeasuredEntity | T4 | program's statements | {"HasQuantity": "T3"}
+
+3 | Quantity | T5 | 20KLoC | {"unit": "KLoC", "mods": ["IsMean"]}
+3 | MeasuredEntity | T6 | programs studied | {"HasQuantity": "T5"}
+3 | MeasuredProperty | T7 | size | {"HasQuantity": "T5", "HasProperty": "T6"}
+
+4 | Quantity | T8 | more than 10% | {"unit": "%", "mods": ["IsRange"]}
+4 | MeasuredEntity | T9 | clusters | {"HasQuantity": "T8"}
+
+5 | Quantity | T10 | 40% | {"unit": "%"}
+5 | MeasuredEntity | T11 | programs | {"HasQuantity": "T10"}
+
+6 | Quantity | T12 | over half | {"unit": "%", "mods": ["IsRange"]}
+6 | MeasuredEntity | T13 | program | {"HasQuantity": "T12"}
+
+Wait, but the "clusters" in annotSet4: the text is "clusters of more than 10%", so the MeasuredEntity is "clusters", and the Quantity is "more than 10%". The MeasuredProperty here could be the size relative to the program, but it's not explicit. So no MeasuredProperty.
+
+Another point: "over half of the program"—the unit here is a percentage (50%), so we treat "over half" as a percentage with IsRange. The MeasuredEntity is "program", which in this context refers to the entire program's size.
+
+Now, checking for any missed quantities or relations.
+
+Also, in the input text, "large dependence clusters"—"large" could be a Qualifier, but it's an adjective describing the clusters. However, according to the guidelines, Qualifiers are spans describing conditions or attributes affecting a Quantity, etc. Since "large" is part of the MeasuredEntity "dependence clusters", maybe it's part of the MeasuredEntity's text. For example, in the example, "Venera-I spacecraft" instead of just "spacecraft". So "large dependence clusters" would be the MeasuredEntity. However, in the current setup, we only have "dependence clusters" mentioned in the first sentence, but the quantities are in later sentences. The "large dependence clusters" is part of the earlier context but not directly linked to a quantity here. So perhaps it's not necessary to annotate unless it's linked to a quantity.
+
+In the given input, the quantities are percentages and KLoC. "large" is part of the description of clusters but not tied to a specific quantity here. So perhaps we don't need to annotate it.
+
+Additionally, "in previous work (Binkley and Harman, 2005)" and "Harman et al., 2009" are citations, not relevant to quantities.
+
+Another potential quantity: "four samples" in the example is a count. In the input, is there any count? For example, "at least one dependence cluster"—"one" is a count. So "one" in "at least one dependence cluster" would be a Quantity with IsCount modifier. Let's check the input:
+
+"contained at least one dependence cluster composed of 10% or more of the program's statements."
+
+Here, "one" is a count (IsCount). So that's another Quantity. I missed this earlier.
+
+So Quantity "one" with unit count (IsCount), related to the MeasuredEntity "dependence cluster". So let's process this.
+
+Text: "at least one dependence cluster"
+
+So the quantity is "one", which is a count. The modifier "at least" would indicate a range, so IsRange. But since it's a count, "one" with "at least" makes it a minimum count of 1, so it's a range. So the Quantity is "at least one", unit is count, modifiers IsRange and IsCount? Wait, according to the modifiers: IsCount is for counts, and IsRange is for ranges. So if it's "at least one", which is a range (≥1), then the modifiers would be ["IsCount", "IsRange"].
+
+So another Quantity:
+
+Text: "at least one"
+
+AnnotSet7:
+
+- Quantity T14: "at least one", modifiers ["IsCount", "IsRange"], since it's a count and a range (≥1). However, the unit here is a count, so no unit. The other field would be {"mods": ["IsCount", "IsRange"]}.
+
+MeasuredEntity: "dependence cluster" (from "dependence cluster").
+
+So MeasuredEntity T15: "dependence cluster", {"HasQuantity": "T14"}.
+
+This was missed earlier. So adding this.
+
+Now, this affects the previous annotations. So I need to go back and check.
+
+So the input has "contained at least one dependence cluster composed of 10% or more...", so "at least one" is a Quantity (count) with IsCount and IsRange modifiers.
+
+This would form a new annotSet7.
+
+Another possible quantity: "large corpus of C code"—"large" is a qualifier but not a quantity. "corpus" is the entity but there's no quantity mentioned here related to its size.
+
+So with this addition, the quantities are:
+
+1. 89%
+2. at least one (count)
+3. 10% or more
+4. 20KLoC
+5. more than 10%
+6. 40%
+7. over half
+
+So now annotSet7 would be for "at least one".
+
+This is a good catch. The initial analysis missed this count.
+
+Similarly, "We also found evidence of super-large clusters: 40% of the programs had a dependence cluster that consumed over half of the program."
+
+Here, "a dependence cluster"—the "a" is an article, not a quantity. But "consumed over half"—the quantity is "over half".
+
+Another point: "large dependence clusters were... common"—"common" is a property but not a quantity.
+
+So now, updating the list of quantities:
+
+1. 89%
+2. at least one
+3. 10% or more
+4. 20KLoC
+5. more than 10%
+6. 40%
+7. over half
+
+Now, annotating each:
+
+AnnotSet1: 89% (T1), programs studied (T2)
+AnnotSet2: at least one (T3), dependence cluster (T4)
+AnnotSet3: 10% or more (T5), program's statements (T6)
+AnnotSet4: 20KLoC (T7), programs studied (T8), size (T9)
+AnnotSet5: more than 10% (T10), clusters (T11)
+AnnotSet6: 40% (T12), programs (T13)
+AnnotSet7: over half (T14), program (T15)
+
+Wait, but the order might be different. Let's go step by step.
+
+The original sentence order:
+
+1. In previous work..., large dependence clusters were common.
+2. Our findings... 89% of the programs studied contained at least one dependence cluster composed of 10% or more...
+3. The average size... 20KLoC...
+4. clusters of more than 10% denoted significant portions.
+5. We also found... 40% of the programs had a dependence cluster that consumed over half...
+
+So the quantities in order:
+
+- "89%" (AnnotSet1)
+- "at least one" (AnnotSet2)
+- "10% or more" (AnnotSet3)
+- "20KLoC" (AnnotSet4)
+- "more than 10%" (AnnotSet5)
+- "40%" (AnnotSet6)
+- "over half" (AnnotSet7)
+
+Now, structuring the TSV.
+
+Let's assign annotSet numbers in the order they appear.
+
+annotSet1: 89%
+annotSet2: at least one
+annotSet3: 10% or more
+annotSet4: 20KLoC
+annotSet5: more than 10%
+annotSet6: 40%
+annotSet7: over half
+
+Now, filling in each annotSet:
+
+annotSet1:
+- Quantity T1: 89%, unit "%", no modifiers (exact value)
+- MeasuredEntity T2: programs studied, HasQuantity T1
+
+annotSet2:
+- Quantity T3: "at least one", modifiers IsCount and IsRange
+  other: {"mods": ["IsCount", "IsRange"]}
+- MeasuredEntity T4: dependence cluster, HasQuantity T3
+
+annotSet3:
+- Quantity T5: 10% or more, unit "%", mods IsRange
+- MeasuredEntity T6: program's statements, HasQuantity T5
+
+annotSet4:
+- Quantity T7: 20KLoC, unit KLoC, mods IsMean
+- MeasuredEntity T8: programs studied, HasQuantity T7
+- MeasuredProperty T9: size, HasQuantity T7 and HasProperty T8
+
+annotSet5:
+- Quantity T10: more than 10%, unit "%", mods IsRange
+- MeasuredEntity T11: clusters, HasQuantity T10
+
+annotSet6:
+- Quantity T12: 40%, unit "%"
+- MeasuredEntity T13: programs, HasQuantity T12
+
+annotSet7:
+- Quantity T14: over half, unit "%", mods IsRange
+- MeasuredEntity T15: program, HasQuantity T14
+
+Now, checking if all quantities are captured.
+
+Yes, that's seven annotSets.
+
+Now, let's verify if any MeasuredProperties are missed. For example, the "average size" in annotSet4 has MeasuredProperty "size", which is explicitly mentioned.
+
+Other quantities don't have explicit properties, so they are omitted.
+
+Now, the Qualifiers: The example had "approximately" as a qualifier. In the input, any qualifiers?
+
+The phrase "at least" in "at least one" is part of the Quantity span itself. According to the guidelines, if a modifier is adjacent to the quantity, it's included in the span. So "at least one" is the entire Quantity span, and the modifiers IsCount and IsRange are applied.
+
+Another potential qualifier: "super-large clusters" in "We also found evidence of super-large clusters". But "super-large" is an adjective describing the clusters, and there's no quantity directly associated with it. So it's part of the MeasuredEntity "clusters" but not a separate Qualifier affecting a Quantity. So no Qualifier annotations needed here.
+
+Therefore, the final TSV should have these seven annotSets as outlined.

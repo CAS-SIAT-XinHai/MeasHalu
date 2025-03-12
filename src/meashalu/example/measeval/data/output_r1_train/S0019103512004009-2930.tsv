@@ -1,0 +1,5 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103512004009-2930	1	Quantity	1141	1144	T1	3.1	"{""mods"": [""IsCount""]}"
+S0019103512004009-2930	1	MeasuredEntity	1133	1144	T2	Section 3.1	"{""HasQuantity"": ""T1""}"
+S0019103512004009-2930	2	Quantity	1353	1355	T4	II	"{""mods"": [""IsCount""]}"
+S0019103512004009-2930	2	MeasuredEntity	1347	1355	T5	Paper II	"{""HasQuantity"": ""T4""}"

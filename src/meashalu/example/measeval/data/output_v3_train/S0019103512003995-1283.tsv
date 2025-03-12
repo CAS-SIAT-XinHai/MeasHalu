@@ -1,0 +1,3 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103512003995-1283	1	Quantity	149	155	T1	7200 K	"{""unit"": ""K"", ""mods"": [""IsMean""]}"
+S0019103512003995-1283	1	MeasuredProperty	129	145	T3	mean temperature	"{""HasQuantity"": ""T1""}"

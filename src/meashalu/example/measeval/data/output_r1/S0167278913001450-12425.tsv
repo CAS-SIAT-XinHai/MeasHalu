@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0167278913001450-12425	1	Quantity	48	74	T1	100, 500, 1000, and 1500 m	"{""unit"": ""m"", ""mods"": [""IsList""]}"
+S0167278913001450-12425	1	MeasuredEntity	22	37	T2	quadrupole flow	"{""HasQuantity"": ""T1""}"
+S0167278913001450-12425	1	MeasuredProperty	41	47	T3	depths	"{""HasQuantity"": ""T1""}"
+S0167278913001450-12425	1	Qualifier	15	21	T4	steady	"{""Qualifies"": ""T2""}"
+S0167278913001450-12425	2	Quantity	109	111	T5	28	"{""mods"": [""IsCount""]}"
+S0167278913001450-12425	2	MeasuredEntity	80	93	T6	A(z) and B(z)	"{""HasQuantity"": ""T5""}"

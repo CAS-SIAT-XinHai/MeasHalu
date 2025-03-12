@@ -1,0 +1,3 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0168945213001805-4536	1	Quantity	345	349	T1	∼70%	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
+S0168945213001805-4536	1	MeasuredEntity	353	357	T2	wood	"{""HasQuantity"": ""T1""}"

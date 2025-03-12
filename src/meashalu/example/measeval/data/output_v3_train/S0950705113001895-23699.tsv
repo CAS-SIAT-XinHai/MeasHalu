@@ -1,0 +1,4 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0950705113001895-23699	1	Quantity	567	570	T1	10%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
+S0950705113001895-23699	1	Quantity	574	578	T2	100%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
+S0950705113001895-23699	1	Quantity	734	737	T3	85%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"

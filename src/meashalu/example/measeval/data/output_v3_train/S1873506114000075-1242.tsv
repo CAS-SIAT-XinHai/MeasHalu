@@ -1,0 +1,13 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S1873506114000075-1242	1	Quantity	943	966	T1	approximately 78 ± 0.6%	"{""unit"": ""%"", ""mods"": [""IsApproximate"", ""IsMeanHasSD""]}"
+S1873506114000075-1242	1	MeasuredEntity	970	975	T2	cells	"{""HasQuantity"": ""T1""}"
+S1873506114000075-1242	1	MeasuredProperty	981	995	T3	Sox17-positive	"{""HasQuantity"": ""T1""}"
+S1873506114000075-1242	2	Quantity	1006	1029	T4	approximately 88 ± 1.1%	"{""unit"": ""%"", ""mods"": [""IsApproximate"", ""IsMeanHasSD""]}"
+S1873506114000075-1242	2	MeasuredEntity	970	975	T5	cells	"{""HasQuantity"": ""T4""}"
+S1873506114000075-1242	2	MeasuredProperty	1044	1056	T6	AFP-positive	"{""HasQuantity"": ""T4""}"
+S1873506114000075-1242	3	Quantity	1068	1091	T7	approximately 29 ± 0.9%	"{""unit"": ""%"", ""mods"": [""IsApproximate"", ""IsMeanHasSD""]}"
+S1873506114000075-1242	3	MeasuredEntity	970	975	T8	cells	"{""HasQuantity"": ""T7""}"
+S1873506114000075-1242	3	MeasuredProperty	1106	1118	T9	ALB-positive	"{""HasQuantity"": ""T7""}"
+S1873506114000075-1242	4	Quantity	1220	1242	T10	approximately 20 μg/ml	"{""unit"": ""\u03bcg/ml"", ""mods"": [""IsApproximate""]}"
+S1873506114000075-1242	4	MeasuredEntity	1141	1167	T11	ALB secretion in the media	"{""HasQuantity"": ""T10""}"
+S1873506114000075-1242	4	MeasuredProperty	1141	1154	T12	ALB secretion	"{""HasQuantity"": ""T10""}"

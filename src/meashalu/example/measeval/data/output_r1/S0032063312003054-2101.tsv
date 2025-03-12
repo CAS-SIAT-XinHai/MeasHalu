@@ -1,0 +1,4 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0032063312003054-2101	1	Quantity	585	595	T1	a fraction	"{""mods"": [""IsCount""]}"
+S0032063312003054-2101	1	MeasuredEntity	610	631	T2	distribution function	"{""HasQuantity"": ""T1""}"
+S0032063312003054-2101	1	MeasuredProperty	587	595	T3	fraction	"{""HasQuantity"": ""T1""}"

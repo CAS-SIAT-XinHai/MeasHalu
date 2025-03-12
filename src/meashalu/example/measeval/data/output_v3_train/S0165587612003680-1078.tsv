@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0165587612003680-1078	1	Quantity	719	734	T1	three occasions	"{""mods"": [""IsCount""]}"
+S0165587612003680-1078	1	MeasuredEntity	686	700	T2	S. lugdunensis	"{""HasQuantity"": ""T1""}"
+S0165587612003680-1078	1	MeasuredProperty	725	734	T3	occasions	"{""HasQuantity"": ""T1""}"
+S0165587612003680-1078	2	Quantity	1025	1028	T4	60%	"{""unit"": ""%""}"
+S0165587612003680-1078	2	MeasuredEntity	1032	1040	T5	bacteria	"{""HasQuantity"": ""T4""}"
+S0165587612003680-1078	2	MeasuredProperty	1013	1024	T6	account for	"{""HasQuantity"": ""T4""}"

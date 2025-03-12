@@ -1,0 +1,13 @@
+docId	annotSet	annotType	annotId	text	other
+S0021979713004438-1401	1	Quantity	T1	10 wt.%	"{""unit"": ""wt.%""}"
+S0021979713004438-1401	1	MeasuredEntity	T2	NaOH solution	"{""HasProperty"": ""T3""}"
+S0021979713004438-1401	1	MeasuredProperty	T3	concentration	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0021979713004438-1401	2	Quantity	T4	99.5%	"{""unit"": ""%""}"
+S0021979713004438-1401	2	MeasuredEntity	T5	ethanol	"{""HasProperty"": ""T6""}"
+S0021979713004438-1401	2	MeasuredProperty	T6	purity	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"
+S0021979713004438-1401	3	Quantity	T7	69 ± 3°	"{""unit"": ""°"", ""mods"": [""IsMeanHasSD""]}"
+S0021979713004438-1401	3	MeasuredEntity	T8	hematite surface	"{""HasProperty"": ""T9""}"
+S0021979713004438-1401	3	MeasuredProperty	T9	water contact angle	"{""HasQuantity"": ""T7"", ""HasProperty"": ""T8""}"
+S0021979713004438-1401	4	Quantity	T10	-0.72 V	"{""unit"": ""V""}"
+S0021979713004438-1401	4	MeasuredEntity	T11	hematite surface	"{""HasProperty"": ""T12""}"
+S0021979713004438-1401	4	MeasuredProperty	T12	open circuit potential relative to Ag/AgCl	"{""HasQuantity"": ""T10"", ""HasProperty"": ""T11""}"

@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103513005058-4302	1	Quantity	581	601	T1	3.5–6.1 (×10−4) wt.%	"{""unit"": ""wt.%"", ""mods"": [""IsRange""]}"
+S0019103513005058-4302	1	MeasuredEntity	602	603	T2	N	"{""HasQuantity"": ""T1""}"
+S0019103513005058-4302	1	MeasuredProperty	604	626	T3	accumulated over 3 byr	"{""HasQuantity"": ""T1""}"
+S0019103513005058-4302	2	Quantity	642	651	T4	1.5–2.6 m	"{""unit"": ""m"", ""mods"": [""IsRange""]}"
+S0019103513005058-4302	2	MeasuredEntity	655	659	T5	soil	"{""HasQuantity"": ""T4""}"
+S0019103513005058-4302	2	MeasuredProperty	631	641	T6	mixed into	"{""HasQuantity"": ""T4""}"

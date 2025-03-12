@@ -1,0 +1,9 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2211124712002884-903	1	Quantity	194	200	T1	8-year	"{""unit"": ""years"", ""mods"": [""IsCount""]}"
+S2211124712002884-903	1	MeasuredProperty	201	208	T3	history	"{""HasQuantity"": ""T1""}"
+S2211124712002884-903	2	Quantity	317	328	T4	67-year-old	"{""unit"": ""years"", ""mods"": [""IsCount""]}"
+S2211124712002884-903	2	MeasuredEntity	329	333	T5	male	"{""HasQuantity"": ""T4""}"
+S2211124712002884-903	3	Quantity	431	442	T6	64-year-old	"{""unit"": ""years"", ""mods"": [""IsCount""]}"
+S2211124712002884-903	3	MeasuredEntity	443	447	T7	male	"{""HasQuantity"": ""T6""}"
+S2211124712002884-903	5	Quantity	431	442	T10	64-year-old	"{""unit"": ""years"", ""mods"": [""IsCount""]}"
+S2211124712002884-903	5	MeasuredEntity	443	447	T11	male	"{""HasQuantity"": ""T10""}"

@@ -1,0 +1,4 @@
+docId	annotSet	annotType	annotId	text	other
+S0016236113008041-872	1	Quantity	T1	4.5 kg, 6 kg and 13 kg	"{""unit"": ""kg"", ""mods"": [""IsList""]}"
+S0016236113008041-872	1	MeasuredEntity	T2	bed inventories	"{""HasQuantity"": ""T1""}"
+S0016236113008041-872	1	Qualifier	T3	CaCO3	"{""Qualifies"": ""T2""}"

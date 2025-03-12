@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0032063312003054-2483	1	Quantity	56	68	T1	∼01:25:00 UT	"{""unit"": ""UT"", ""mods"": [""IsApproximate""]}"
+S0032063312003054-2483	1	Quantity	73	84	T2	01:25:40 UT	"{""unit"": ""UT""}"
+S0032063312003054-2483	1	MeasuredEntity	37	47	T3	heavy-ions	"{""HasProperty"": ""T4""}"
+S0032063312003054-2483	1	MeasuredProperty	21	33	T4	acceleration	"{""HasQuantity"": ""T2""}"
+S0032063312003054-2483	1	Qualifier	48	84	T5	between ∼01:25:00 UT and 01:25:40 UT	"{""Qualifies"": ""T4""}"
+S0032063312003054-2483	1	Qualifier	86	169	T6	prior to the first signature of electron precipitation shown in the ELS spectrogram	"{""Qualifies"": ""T4""}"
+S0032063312003054-2483	2	Quantity	518	525	T7	Table 1	"{""mods"": [""IsCount""]}"
+S0032063312003054-2483	2	MeasuredEntity	508	514	T8	events	"{""HasProperty"": ""T9""}"
+S0032063312003054-2483	2	MeasuredProperty	484	498	T9	identification	"{""HasQuantity"": ""T7""}"

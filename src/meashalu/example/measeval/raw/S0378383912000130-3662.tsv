@@ -1,0 +1,6 @@
+docId	annotSet	annotType	annotId	text	other
+S0378383912000130-3662	1	Quantity	T1	8.5 mm	"{""unit"": ""mm""}"
+S0378383912000130-3662	1	MeasuredEntity	T2	beach	"{""HasQuantity"": ""T1""}"
+S0378383912000130-3662	2	Quantity	T3	1.5 mm	"{""unit"": ""mm""}"
+S0378383912000130-3662	2	MeasuredEntity	T4	beach	"{""HasQuantity"": ""T3""}"
+S0378383912000130-3662	2	Qualifier	T5	low permeability	"{""Qualifies"": ""T4""}"

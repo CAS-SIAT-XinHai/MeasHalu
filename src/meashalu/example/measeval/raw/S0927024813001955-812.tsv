@@ -1,0 +1,12 @@
+docId	annotSet	annotType	annotId	text	other
+S0927024813001955-812	1	Quantity	T1	41.73 mg/mL	"{""unit"": ""mg/mL""}"
+S0927024813001955-812	1	MeasuredEntity	T2	P3HT	"{""HasQuantity"": ""T1""}"
+S0927024813001955-812	1	MeasuredEntity	T3	PCBM	"{""HasQuantity"": ""T1""}"
+S0927024813001955-812	1	MeasuredProperty	T4	concentration	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0927024813001955-812	1	MeasuredProperty	T5	concentration	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T3""}"
+S0927024813001955-812	2	Quantity	T6	2 h	"{""unit"": ""h"", ""mods"": [""IsCount""]}"
+S0927024813001955-812	2	MeasuredEntity	T7	vial	"{""HasQuantity"": ""T6""}"
+S0927024813001955-812	3	Quantity	T8	800 rpm	"{""unit"": ""rpm""}"
+S0927024813001955-812	3	MeasuredEntity	T9	vial	"{""HasQuantity"": ""T8""}"
+S0927024813001955-812	4	Quantity	T10	60 °C	"{""unit"": ""°C""}"
+S0927024813001955-812	4	MeasuredEntity	T11	vial	"{""HasQuantity"": ""T10""}"

@@ -1,0 +1,13 @@
+docId	annotSet	annotType	annotId	text	other
+S0038071711004354-2389	1	Quantity	T1	0.18 g CO2 m−2 h−1	"{""unit"": ""g CO2 m−2 h−1""}"
+S0038071711004354-2389	1	MeasuredEntity	T2	autotrophic flux	"{""HasQuantity"": ""T1""}"
+S0038071711004354-2389	1	MeasuredProperty	T3	flux	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0038071711004354-2389	2	Quantity	T4	56%	"{""unit"": ""%""}"
+S0038071711004354-2389	2	MeasuredEntity	T5	RS	"{""HasQuantity"": ""T4""}"
+S0038071711004354-2389	2	MeasuredProperty	T6	fraction	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"
+S0038071711004354-2389	3	Quantity	T7	0.15 g CO2 m−2 h−1	"{""unit"": ""g CO2 m−2 h−1""}"
+S0038071711004354-2389	3	MeasuredEntity	T8	heterotrophic component flux	"{""HasQuantity"": ""T7""}"
+S0038071711004354-2389	3	MeasuredProperty	T9	flux	"{""HasQuantity"": ""T7"", ""HasProperty"": ""T8""}"
+S0038071711004354-2389	4	Quantity	T10	44%	"{""unit"": ""%""}"
+S0038071711004354-2389	4	MeasuredEntity	T11	remaining fraction	"{""HasQuantity"": ""T10""}"
+S0038071711004354-2389	4	MeasuredProperty	T12	fraction	"{""HasQuantity"": ""T10"", ""HasProperty"": ""T11""}"

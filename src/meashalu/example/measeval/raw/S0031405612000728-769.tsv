@@ -1,0 +1,7 @@
+docId	annotSet	annotType	annotId	text	other
+S0031405612000728-769	1	Quantity	T1	seven	"{""mods"": [""IsCount""], ""unit"": ""months""}"
+S0031405612000728-769	1	MeasuredEntity	T2	months	"{""HasQuantity"": ""T1""}"
+S0031405612000728-769	1	Qualifier	T3	all seven months combined	"{""Qualifies"": ""T1""}"
+S0031405612000728-769	2	Quantity	T4	7	"{""mods"": [""IsCount""], ""unit"": ""month""}"
+S0031405612000728-769	2	MeasuredEntity	T5	month	"{""HasQuantity"": ""T4""}"
+S0031405612000728-769	2	Qualifier	T6	only	"{""Qualifies"": ""T4""}"

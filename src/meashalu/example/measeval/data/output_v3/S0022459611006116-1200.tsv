@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0022459611006116-1200	1	Quantity	287	297	T1	5≤2θ/°≤120	"{""unit"": ""\u00b0"", ""mods"": [""IsRange""]}"
+S0022459611006116-1200	1	Quantity	318	323	T2	0.02°	"{""unit"": ""\u00b0""}"
+S0022459611006116-1200	1	Quantity	329	333	T3	14 h	"{""unit"": ""h""}"
+S0022459611006116-1200	1	MeasuredEntity	240	244	T4	data	"{""HasQuantity"": ""T1""}"
+S0022459611006116-1200	1	MeasuredProperty	305	314	T6	step size	"{""HasQuantity"": ""T2""}"
+S0022459611006116-1200	1	MeasuredProperty	274	280	T7	period	"{""HasQuantity"": ""T3""}"

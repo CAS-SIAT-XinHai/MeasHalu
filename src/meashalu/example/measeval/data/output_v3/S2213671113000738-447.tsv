@@ -1,0 +1,3 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2213671113000738-447	1	Quantity	234	238	T1	>10%	"{""unit"": ""%"", ""mods"": [""IsCount""]}"
+S2213671113000738-447	1	MeasuredEntity	242	261	T2	cDNA sequence reads	"{""HasQuantity"": ""T1""}"

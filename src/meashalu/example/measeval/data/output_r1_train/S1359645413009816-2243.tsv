@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S1359645413009816-2243	1	Quantity	152	158	T1	1.5 nm	"{""unit"": ""nm""}"
+S1359645413009816-2243	1	MeasuredProperty	130	148	T2	nominal resolution	"{""HasQuantity"": ""T1""}"
+S1359645413009816-2243	1	MeasuredEntity	69	121	T3	LEO 1525 field emission scanning electron microscope	"{""HasProperty"": ""T2""}"
+S1359645413009816-2243	1	Qualifier	159	167	T4	at 20 kV	"{""Qualifies"": ""T2""}"
+S1359645413009816-2243	2	Quantity	162	167	T5	20 kV	"{""unit"": ""kV""}"
+S1359645413009816-2243	3	Quantity	515	522	T6	5 K/min	"{""unit"": ""K/min""}"
+S1359645413009816-2243	3	MeasuredProperty	499	511	T7	heating rate	"{""HasQuantity"": ""T6""}"
+S1359645413009816-2243	4	Quantity	586	600	T9	about 30 K/min	"{""unit"": ""K/min"", ""mods"": [""IsApproximate""]}"
+S1359645413009816-2243	4	Qualifier	536	541	T12	rapid	"{""Qualifies"": ""T11""}"

@@ -1,0 +1,4 @@
+docId	annotSet	annotType	annotId	text	other
+S2213671113000738-787	1	Quantity	T1	40 μm	"{""unit"": ""μm""}"
+S2213671113000738-787	1	MeasuredEntity	T2	brains	"{""HasQuantity"": ""T1""}"
+S2213671113000738-787	1	MeasuredProperty	T3	thickness	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"

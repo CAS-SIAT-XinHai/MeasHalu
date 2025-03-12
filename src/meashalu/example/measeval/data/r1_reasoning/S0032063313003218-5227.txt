@@ -1,0 +1,131 @@
+Okay, let me start by reading through the input paragraph carefully. The task is to extract quantities, measured entities, measured properties, qualifiers, and their relationships.
+
+First, looking for quantities. The first sentence mentions "700 K higher". Here, "700 K" is a quantity. The unit is "K" (Kelvin), and there's a modifier "higher" which might indicate a comparison. The phrase "up to" suggests it's a maximum value, so "up to 700 K" might be the quantity with an approximate or upper limit modifier.
+
+Next, "over 40 years" in the second sentence. "40 years" is a quantity, and "over" implies it's an approximate value. The unit here is "years".
+
+Other parts of the paragraph discuss theories like gravity waves, auroral particle precipitation, etc., but these don't contain numerical quantities. The studies mentioned (Strobel and Smith, 1973; Yelle and Miller, 2004) are citations, not quantities.
+
+Now, measured entities. The Jovian upper atmosphere is mentioned as the entity for the temperature. The "energy crisis" at Jupiter is a qualifier perhaps, but not a measured entity. The "theories" are not entities related to quantities here.
+
+Measured properties would be "temperature" in the first sentence, linked to the "700 K" quantity. The "40 years" is related to the time scientists have been puzzled, which could be a measured property like "duration".
+
+Qualifiers: "up to" qualifies the 700 K as an upper limit. "higher than that predicted by solar heating alone" could be a qualifier explaining the context of the temperature value. "over" in "over 40 years" is another qualifier indicating approximation.
+
+Relationships: The MeasuredEntity "Jovian upper atmospheric temperature" should have a HasProperty linking to "temperature" as the MeasuredProperty. Then, the MeasuredProperty "temperature" has a HasQuantity to the "700 K" quantity. The "up to" qualifier would qualify the quantity. Similarly, the "40 years" quantity is linked to the MeasuredEntity "scientists" or the "energy crisis", but the text says "has puzzled scientists for over 40 years". The duration here might be a MeasuredProperty "duration" linked to the "energy crisis" or the "puzzling" period.
+
+Wait, the sentence is: "This ‘energy crisis’ ... has puzzled scientists for over 40 years." So the duration "over 40 years" is the quantity associated with how long the crisis has puzzled them. The MeasuredEntity here would be the "energy crisis", and the MeasuredProperty is "duration". The quantity is "40 years" with a qualifier "over".
+
+Putting this together, the first annotSet would be for the temperature:
+
+- Quantity: "up to 700 K" with unit "K", mods: ["IsApproximate", "IsRange"]? Wait, "up to" implies a maximum, so maybe "IsApproximate" or a different modifier. The example given uses "IsApproximate" for "around", so "up to" might also be considered approximate. Alternatively, maybe "IsRange" if it's indicating a range up to that value, but "up to" is more of an upper limit. The guidelines mention modifiers like IsApproximate, so I'll use that.
+
+MeasuredEntity: "Jovian upper atmospheric temperature" – but wait, the text says "The Jovian upper atmospheric temperature is up to 700 K higher...", so the entity is "Jovian upper atmospheric temperature", but then the MeasuredProperty would be "temperature"? Or is "temperature" the property and the entity is "Jovian upper atmosphere"? Let me parse that. The phrase is "The Jovian upper atmospheric temperature is...", so "temperature" is the property, and the entity is "Jovian upper atmosphere". Wait, perhaps splitting "Jovian upper atmosphere" as the MeasuredEntity and "temperature" as the MeasuredProperty.
+
+But the original example in the problem statement had "soda can's volume" where "soda can" is the MeasuredEntity and "volume" the MeasuredProperty. Similarly here, "Jovian upper atmospheric temperature" – the possessive structure would have "Jovian upper atmosphere" as the entity and "temperature" as the property. However, the phrasing here is "The Jovian upper atmospheric temperature", which is a noun phrase where "temperature" is the head noun, modified by "Jovian upper atmospheric". So perhaps the entire phrase "Jovian upper atmospheric temperature" is the MeasuredEntity, and the MeasuredProperty is "temperature"? That might be conflicting. Alternatively, split it into the entity "Jovian upper atmosphere" and property "temperature".
+
+Hmm. The example given in the problem for the soda can has "soda can" as the entity and "volume" as the property. So here, the entity would be "Jovian upper atmosphere" and the property is "temperature". But the original text says "Jovian upper atmospheric temperature", which is a compound noun. Maybe the MeasuredEntity is "Jovian upper atmosphere", and the MeasuredProperty is "temperature". Then, the Quantity "700 K" is linked via the property.
+
+But the text says "temperature is up to 700 K higher...", so the base property is temperature, and the quantity is the increase. Wait, but the quantity here is "700 K", but the actual value is the temperature being higher by that amount. This complicates things. Maybe the MeasuredProperty is "temperature increase" and the Quantity is "700 K". But the problem's example has "temperature" as the property directly. Alternatively, perhaps the quantity is the amount by which the temperature is higher, so the measured property is "temperature difference".
+
+This is a bit ambiguous. According to the problem statement's example, "The soda can's volume was 355 ml" has "volume" as the measured property. Similarly, here, the temperature is the measured property. But in this case, the temperature is being compared to a predicted value. However, the quantity "700 K higher" is the difference. So perhaps the MeasuredProperty is "temperature difference" and the Quantity is "700 K". Then, the MeasuredEntity is "Jovian upper atmosphere". The qualifier here is "higher than that predicted by solar heating alone", which would qualify the quantity or the measured property.
+
+So, breaking it down:
+
+- Quantity: "up to 700 K" with unit "K", mods: ["IsApproximate"] (since "up to" indicates an upper limit, which could be considered approximate)
+- MeasuredEntity: "Jovian upper atmosphere"
+- MeasuredProperty: "temperature difference" (since it's the difference from the predicted value)
+- Qualifier: "higher than that predicted by solar heating alone" which qualifies the quantity or the property.
+
+But the original text says "temperature is up to 700 K higher", so "temperature" is the property, and "higher" is part of the qualifier. Wait, maybe:
+
+- The MeasuredEntity is "Jovian upper atmosphere"
+- MeasuredProperty is "temperature"
+- Quantity is "700 K" with qualifier "up to" and "higher than predicted..."
+- So the sentence is stating that the temperature (property) of the Jovian upper atmosphere (entity) is up to 700 K higher (quantity with qualifiers) than predicted.
+
+In this case, the Quantity is the difference, so maybe the quantity is "+700 K" but the text says "700 K higher". Alternatively, the quantity is "700 K" with a qualifier "higher".
+
+This is tricky. Let's stick to the text. The exact quantity mentioned is "700 K higher". However, "higher" is a qualifier, so perhaps the quantity is "700 K", and the qualifier is "higher than that predicted..." which explains the context.
+
+Therefore, the first annotSet would be:
+
+annotSet 1:
+- Quantity: "up to 700 K" (text includes "up to" as part of the quantity span)
+- Unit: K
+- Mods: IsApproximate (because "up to" indicates an upper limit, which is an approximate)
+- MeasuredEntity: "Jovian upper atmosphere" (since the temperature is of the Jovian upper atmosphere)
+- MeasuredProperty: "temperature" (the property being measured)
+- Relationships: MeasuredEntity (T2) has property T3 (temperature), T3 has quantity T1 (700 K). The qualifier "higher than..." would be another Qualifier (T4), qualifying the quantity or the property.
+
+Wait, the original text is "The Jovian upper atmospheric temperature is up to 700 K higher than...". So the phrase "Jovian upper atmospheric temperature" is the subject. Here, "temperature" is the MeasuredProperty, and the MeasuredEntity is "Jovian upper atmosphere". Therefore, T2: MeasuredEntity "Jovian upper atmosphere", T3: MeasuredProperty "temperature", T1: Quantity "up to 700 K". Then, the relationship is T2 HasProperty T3, T3 HasQuantity T1. The qualifier "higher than..." is a Qualifier (T4) that Qualifies T1 or T3.
+
+But the example in the problem has "soda can's volume was 355 ml" split into entity (soda can), property (volume), and quantity (355 ml). Similarly here, "Jovian upper atmospheric temperature" would have the entity as "Jovian upper atmosphere" and property as "temperature".
+
+Now, the next quantity is "over 40 years". This is in the sentence: "has puzzled scientists for over 40 years". Here, "40 years" is the quantity, unit "years", with "over" as a modifier (IsApproximate). The MeasuredEntity here could be the "energy crisis" (since it's the crisis that has lasted 40 years), and the MeasuredProperty is "duration". The Qualifier would be "for over 40 years" qualifying the duration.
+
+So annotSet 2:
+
+- Quantity: "over 40 years" (text includes "over" as part of the quantity span)
+- Unit: years
+- Mods: IsApproximate
+- MeasuredEntity: "energy crisis" (the 'energy crisis' has a duration)
+- MeasuredProperty: "duration"
+- Relationships: Entity (T5: energy crisis) HasProperty T6 (duration), T6 HasQuantity T7 (40 years). The Qualifier here would be "for over..." but since the "over" is part of the quantity, maybe not an additional qualifier.
+
+Wait, the text is "has puzzled scientists for over 40 years". The duration is "over 40 years", so the quantity is "40 years" with "over" as a modifier. So the MeasuredEntity is the action of puzzling scientists, but that's not a physical entity. Alternatively, the MeasuredEntity could be "energy crisis" and the MeasuredProperty is "duration of puzzling". Hmm. This is a bit ambiguous. The problem's example didn't have such a case. The example with "The can contained 175 ml of soda after I drank half the can" had the Qualifier as "after..." qualifying the quantity. Here, "for over 40 years" is a duration qualifier. Maybe the MeasuredProperty is "duration" and the MeasuredEntity is "energy crisis". But the problem's guidelines state that MeasuredEntity must relate to the Quantity via HasQuantity. Alternatively, maybe the MeasuredEntity here is not explicitly stated, so the Quantity can remain standalone. But the sentence says the energy crisis has puzzled scientists for over 40 years. So the duration is associated with the crisis. Therefore, the MeasuredEntity would be "energy crisis", the MeasuredProperty is "duration", and the Quantity is "40 years" with "over" as a modifier.
+
+But the problem's example had "The can contained 175 ml...", where the entity is "can". Here, the entity is "energy crisis", property "duration", quantity "40 years".
+
+So annotSet 2 would be:
+
+- Quantity: "over 40 years" with unit "years", mods: IsApproximate
+- MeasuredEntity: "energy crisis"
+- MeasuredProperty: "duration"
+- Relationships: T5 (energy crisis) HasProperty T6 (duration), T6 HasQuantity T7 (40 years). The "over" is part of the Quantity's modifiers.
+
+Other parts of the paragraph mention theories like gravity waves, auroral particle precipitation, etc., but these don't have quantities attached. The citations (Strobel and Smith, 1973; Yelle and Miller, 2004) are references and not quantities.
+
+So the final TSV should have two annotSets: one for the temperature quantity and one for the 40 years duration.
+
+Now, structuring the TSV:
+
+For annotSet 1:
+- T1: Quantity "up to 700 K", other: {"unit": "K", "mods": ["IsApproximate"]}
+- T2: MeasuredEntity "Jovian upper atmosphere"
+- T3: MeasuredProperty "temperature"
+- Relationships: T2 HasProperty T3; T3 HasQuantity T1
+- Qualifier: "higher than that predicted by solar heating alone (Strobel and Smith, 1973; Yelle and Miller, 2004)" as T4, Qualifies T1 or T3. Wait, the text includes the citations in parentheses. Should the qualifier include those? The qualifier is "higher than that predicted by solar heating alone", and the citations are references. Since the example included the qualifier "after I drank half the can" in the Qualifier, including the reason. So perhaps the qualifier here is the entire phrase "higher than... (Strobel...)". But the citations might be considered separate. However, according to the guidelines, the Qualifier is a span that affects the interpretation. The main qualifier is "higher than..." and the citations are references, not part of the qualifier. So the qualifier text would be "higher than that predicted by solar heating alone", and the citations are separate. So T4: Qualifier "higher than that predicted by solar heating alone", Qualifies the Quantity T1.
+
+For annotSet 1, the TSV would have:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	up to 700 K	{"unit": "K", "mods": ["IsApproximate"]}
+1	MeasuredEntity	T2	Jovian upper atmosphere	{"HasProperty": "T3"}
+1	MeasuredProperty	T3	temperature	{"HasQuantity": "T1"}
+1	Qualifier	T4	higher than that predicted by solar heating alone	{"Qualifies": "T1"}
+
+Wait, but the original text says "The Jovian upper atmospheric temperature is up to 700 K higher than that predicted...". So the MeasuredEntity is "Jovian upper atmosphere", and the MeasuredProperty is "temperature". The Quantity is "up to 700 K", which is a modifier to the temperature being higher. The Qualifier is "higher than..." explaining the comparison.
+
+But in the example provided in the problem, the Qualifier "after I drank half the can" was linked to the Quantity. Here, the Qualifier "higher than..." is describing the context of the Quantity, so it should Qualify the Quantity T1.
+
+Then, annotSet 1 includes all these elements.
+
+annotSet 2:
+- Quantity "over 40 years" with unit years, mods IsApproximate
+- MeasuredEntity "energy crisis"
+- MeasuredProperty "duration"
+- Relationships: Entity HasProperty duration, duration HasQuantity 40 years.
+
+But the text refers to "This ‘energy crisis’ at Jupiter and the other giant planets has puzzled scientists for over 40 years." The MeasuredEntity here is "energy crisis", the MeasuredProperty is "duration", and the Quantity is "40 years" with "over" as a modifier. The Qualifier here is "for over 40 years", but "for" is part of the prepositional phrase. Wait, the quantity is "over 40 years", so the text span for the Quantity is "over 40 years". Thus, the Quantity is "over 40 years", unit "years", mods IsApproximate. The MeasuredEntity is "energy crisis", MeasuredProperty is "duration", and the HasQuantity links the MeasuredProperty to the Quantity. Also, since the sentence says the crisis has puzzled for over 40 years, the duration is a property of the crisis.
+
+Therefore, annotSet 2 would be:
+
+annotSet	annotType	annotId	text	other
+2	Quantity	T5	over 40 years	{"unit": "years", "mods": ["IsApproximate"]}
+2	MeasuredEntity	T6	energy crisis	{"HasProperty": "T7"}
+2	MeasuredProperty	T7	duration	{"HasQuantity": "T5"}
+
+Now, checking for other quantities. The paragraph mentions different theories but no other numerical quantities. The studies cited (Strobel and Smith, 1973; Yelle and Miller, 2004) are references, not quantities. The other numbers like years in citations (e.g., 1973, 2004) are years but are part of citations, not quantities related to measured entities or properties, so they are excluded per the problem's example where citations were not included.
+
+Thus, the final TSV should have two annotSets.

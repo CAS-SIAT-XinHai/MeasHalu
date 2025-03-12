@@ -1,0 +1,12 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103513005058-3154	1	Quantity	175	189	T1	1.3 ± 0.5 wt.%	"{""unit"": ""wt.%"", ""mods"": [""IsMeanHasSD""]}"
+S0019103513005058-3154	1	MeasuredProperty	94	105	T3	composition	"{""HasQuantity"": ""T1""}"
+S0019103513005058-3154	2	Quantity	391	400	T4	∼0.5 wt.%	"{""unit"": ""wt.%"", ""mods"": [""IsApproximate""]}"
+S0019103513005058-3154	2	MeasuredEntity	383	387	T5	soil	"{""HasQuantity"": ""T4""}"
+S0019103513005058-3154	2	MeasuredProperty	362	375	T6	concentration	"{""HasQuantity"": ""T4""}"
+S0019103513005058-3154	3	Quantity	820	830	T7	1000 times	"{""mods"": [""IsCount""]}"
+S0019103513005058-3154	3	MeasuredEntity	724	755	T8	perchlorate-sensitive electrode	"{""HasQuantity"": ""T7""}"
+S0019103513005058-3154	4	Quantity	1641	1646	T10	⩽1.6%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
+S0019103513005058-3154	4	MeasuredEntity	1647	1658	T11	perchlorate	"{""HasQuantity"": ""T10""}"
+S0019103513005058-3154	5	Quantity	1913	1919	T13	<1 ppm	"{""unit"": ""ppm"", ""mods"": [""IsRange""]}"
+S0019103513005058-3154	5	MeasuredEntity	1866	1893	T14	martian meteorite EETA79001	"{""HasQuantity"": ""T13""}"

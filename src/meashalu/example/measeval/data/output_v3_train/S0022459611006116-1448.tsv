@@ -1,0 +1,8 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0022459611006116-1448	1	Quantity	140	157	T1	∼5×10−4 emu mol−1	"{""unit"": ""emu mol\u22121"", ""mods"": [""IsApproximate""]}"
+S0022459611006116-1448	1	MeasuredEntity	51	66	T2	samples 1 and 2	"{""HasQuantity"": ""T1""}"
+S0022459611006116-1448	1	MeasuredProperty	80	126	T3	temperature independent paramagnetic behaviour	"{""HasQuantity"": ""T1""}"
+S0022459611006116-1448	2	Quantity	167	178	T4	5 and 300 K	"{""unit"": ""K"", ""mods"": [""IsRange""]}"
+S0022459611006116-1448	2	MeasuredProperty	80	91	T6	temperature	"{""HasQuantity"": ""T4""}"
+S0022459611006116-1448	3	Quantity	59	66	T7	1 and 2	"{""mods"": [""IsList""]}"
+S0022459611006116-1448	3	MeasuredEntity	51	66	T8	samples 1 and 2	"{""HasQuantity"": ""T7""}"

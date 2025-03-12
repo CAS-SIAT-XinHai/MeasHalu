@@ -1,0 +1,9 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103513005058-4098	1	Quantity	423	428	T1	211 K	"{""unit"": ""K""}"
+S0019103513005058-4098	1	Quantity	432	437	T2	284 K	"{""unit"": ""K""}"
+S0019103513005058-4098	1	Quantity	465	469	T3	∼35%	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
+S0019103513005058-4098	1	MeasuredEntity	385	404	T4	surface temperature	"{""HasQuantity"": ""T1""}"
+S0019103513005058-4098	1	MeasuredEntity	385	404	T5	surface temperature	"{""HasQuantity"": ""T2""}"
+S0019103513005058-4098	1	MeasuredProperty	393	404	T6	temperature	"{""HasQuantity"": ""T1""}"
+S0019103513005058-4098	1	MeasuredProperty	393	404	T7	temperature	"{""HasQuantity"": ""T2""}"
+S0019103513005058-4098	1	Qualifier	506	558	T8	more representative of surface temperatures on Earth	"{""Qualifies"": ""T5""}"

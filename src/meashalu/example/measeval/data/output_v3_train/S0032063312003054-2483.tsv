@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0032063312003054-2483	1	Quantity	56	68	T1	∼01:25:00 UT	"{""unit"": ""UT"", ""mods"": [""IsApproximate""]}"
+S0032063312003054-2483	1	MeasuredEntity	37	47	T2	heavy-ions	"{""HasQuantity"": ""T1""}"
+S0032063312003054-2483	1	MeasuredProperty	21	33	T3	acceleration	"{""HasQuantity"": ""T1""}"
+S0032063312003054-2483	2	Quantity	73	84	T4	01:25:40 UT	"{""unit"": ""UT""}"
+S0032063312003054-2483	2	MeasuredEntity	37	47	T5	heavy-ions	"{""HasQuantity"": ""T4""}"
+S0032063312003054-2483	2	MeasuredProperty	21	33	T6	acceleration	"{""HasQuantity"": ""T4""}"

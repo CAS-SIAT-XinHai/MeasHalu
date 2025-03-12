@@ -1,0 +1,8 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103512004009-5271	1	Quantity	166	171	T1	3.5Rp	"{""unit"": ""Rp""}"
+S0019103512004009-5271	1	MeasuredEntity	130	159	T2	heavy neutral atoms such as O	"{""HasProperty"": ""T3""}"
+S0019103512004009-5271	1	MeasuredProperty	117	126	T3	transport	"{""HasQuantity"": ""T1""}"
+S0019103512004009-5271	1	Qualifier	160	171	T4	below 3.5Rp	"{""Qualifies"": ""T3""}"
+S0019103512004009-5271	4	Quantity	643	649	T11	≳ 10−4	"{""unit"": ""ratio"", ""mods"": [""IsRange""]}"
+S0019103512004009-5271	4	MeasuredEntity	577	612	T12	transport of heavy ions such as Si+	"{""HasProperty"": ""T13""}"
+S0019103512004009-5271	4	MeasuredProperty	628	642	T13	ratio [H+]/[H]	"{""HasQuantity"": ""T11""}"

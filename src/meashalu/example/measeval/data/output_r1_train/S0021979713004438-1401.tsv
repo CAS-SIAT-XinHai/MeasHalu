@@ -1,0 +1,8 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0021979713004438-1401	1	Quantity	111	118	T1	10 wt.%	"{""unit"": ""wt.%""}"
+S0021979713004438-1401	1	MeasuredEntity	119	132	T2	NaOH solution	"{""HasProperty"": ""T3""}"
+S0021979713004438-1401	2	Quantity	207	212	T4	99.5%	"{""unit"": ""%""}"
+S0021979713004438-1401	2	MeasuredEntity	218	225	T5	ethanol	"{""HasProperty"": ""T6""}"
+S0021979713004438-1401	3	Quantity	825	832	T7	69 ± 3°	"{""unit"": ""\u00b0"", ""mods"": [""IsMeanHasSD""]}"
+S0021979713004438-1401	3	MeasuredEntity	805	821	T8	hematite surface	"{""HasProperty"": ""T9""}"
+S0021979713004438-1401	3	MeasuredProperty	778	797	T9	water contact angle	"{""HasQuantity"": ""T7""}"

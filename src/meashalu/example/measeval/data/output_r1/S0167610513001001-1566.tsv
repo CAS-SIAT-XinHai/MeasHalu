@@ -1,0 +1,4 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0167610513001001-1566	1	Quantity	796	799	T1	≈2%	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
+S0167610513001001-1566	1	MeasuredEntity	739	750	T2	corrections	"{""HasQuantity"": ""T1""}"
+S0167610513001001-1566	1	Qualifier	800	822	T3	of the mean wind speed	"{""Qualifies"": ""T1""}"

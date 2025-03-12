@@ -1,0 +1,10 @@
+docId	annotSet	annotType	annotId	text	other
+S2213158213000582-1424	1	Quantity	T1	50 ms	"{""unit"": ""ms"", ""mods"": []}"
+S2213158213000582-1424	1	MeasuredEntity	T2	temporal and frontal auditory activity	"{""HasQuantity"": ""T1""}"
+S2213158213000582-1424	1	MeasuredProperty	T3	activity	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S2213158213000582-1424	2	Quantity	T4	100 ms	"{""unit"": ""ms"", ""mods"": []}"
+S2213158213000582-1424	2	MeasuredEntity	T5	temporal and frontal auditory activity	"{""HasQuantity"": ""T4""}"
+S2213158213000582-1424	2	MeasuredProperty	T6	activity	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"
+S2213158213000582-1424	3	Quantity	T7	100 ms	"{""unit"": ""ms"", ""mods"": []}"
+S2213158213000582-1424	3	MeasuredEntity	T8	auditory activity	"{""HasQuantity"": ""T7""}"
+S2213158213000582-1424	3	MeasuredProperty	T9	activity	"{""HasQuantity"": ""T7"", ""HasProperty"": ""T8""}"

@@ -1,0 +1,9 @@
+docId	annotSet	annotType	annotId	text	other
+S016412121300188X-4937	1	Quantity	T1	two	"{""mods"": [""IsCount""]}"
+S016412121300188X-4937	1	MeasuredEntity	T2	coherent clusters	"{""HasQuantity"": ""T1""}"
+S016412121300188X-4937	2	Quantity	T3	around 10%	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
+S016412121300188X-4937	2	MeasuredEntity	T4	smaller one	"{""HasQuantity"": ""T3""}"
+S016412121300188X-4937	2	Qualifier	T5	of the code	"{""Qualifies"": ""T3""}"
+S016412121300188X-4937	3	Quantity	T6	around 40%	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
+S016412121300188X-4937	3	MeasuredEntity	T7	larger	"{""HasQuantity"": ""T6""}"
+S016412121300188X-4937	3	Qualifier	T8	of the code	"{""Qualifies"": ""T6""}"

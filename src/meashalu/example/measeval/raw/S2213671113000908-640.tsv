@@ -1,0 +1,4 @@
+docId	annotSet	annotType	annotId	text	other
+S2213671113000908-640	1	Quantity	T1	25 days	"{""unit"": ""days""}"
+S2213671113000908-640	1	MeasuredEntity	T2	cells	"{""HasProperty"": ""T3""}"
+S2213671113000908-640	1	MeasuredProperty	T3	differentiation	"{""HasQuantity"": ""T1""}"

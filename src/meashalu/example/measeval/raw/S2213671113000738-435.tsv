@@ -1,0 +1,13 @@
+docId	annotSet	annotType	annotId	text	other
+S2213671113000738-435	1	Quantity	T1	3	"{""mods"": [""IsCount""]}"
+S2213671113000738-435	1	MeasuredEntity	T2	independent experiments	"{""HasProperty"": ""T3""}"
+S2213671113000738-435	1	MeasuredProperty	T3	n	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S2213671113000738-435	2	Quantity	T4	200 μm	"{""unit"": ""μm""}"
+S2213671113000738-435	2	MeasuredEntity	T5	Scale bars	"{""HasQuantity"": ""T4""}"
+S2213671113000738-435	2	Qualifier	T6	in (A)–(H)	"{""Qualifies"": ""T4""}"
+S2213671113000738-435	3	Quantity	T7	50 μm	"{""unit"": ""μm""}"
+S2213671113000738-435	3	MeasuredEntity	T8	Scale bars	"{""HasQuantity"": ""T7""}"
+S2213671113000738-435	3	Qualifier	T9	in insets of (C)–(F)	"{""Qualifies"": ""T7""}"
+S2213671113000738-435	4	Quantity	T10	100 μm	"{""unit"": ""μm""}"
+S2213671113000738-435	4	MeasuredEntity	T11	Scale bars	"{""HasQuantity"": ""T10""}"
+S2213671113000738-435	4	Qualifier	T12	in (J)–(M) and (Q)	"{""Qualifies"": ""T10""}"

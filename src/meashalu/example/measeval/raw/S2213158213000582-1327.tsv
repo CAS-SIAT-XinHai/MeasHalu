@@ -1,0 +1,10 @@
+docId	annotSet	annotType	annotId	text	other
+S2213158213000582-1327	1	Quantity	T1	96	"{""mods"": [""IsCount""], ""unit"": ""regions""}"
+S2213158213000582-1327	1	MeasuredEntity	T2	cortical gray-matter regions	"{""HasQuantity"": ""T1""}"
+S2213158213000582-1327	2	Quantity	T3	48	"{""mods"": [""IsCount""], ""unit"": ""regions""}"
+S2213158213000582-1327	2	MeasuredEntity	T4	regions in each hemisphere	"{""HasQuantity"": ""T3""}"
+S2213158213000582-1327	3	Quantity	T5	21	"{""mods"": [""IsCount""], ""unit"": ""regions""}"
+S2213158213000582-1327	3	MeasuredEntity	T6	sub-cortical regions	"{""HasQuantity"": ""T5""}"
+S2213158213000582-1327	4	Quantity	T7	5 mm	"{""unit"": ""mm""}"
+S2213158213000582-1327	4	MeasuredEntity	T8	voxels	"{""HasQuantity"": ""T7""}"
+S2213158213000582-1327	4	Qualifier	T9	per side	"{""Qualifies"": ""T7""}"

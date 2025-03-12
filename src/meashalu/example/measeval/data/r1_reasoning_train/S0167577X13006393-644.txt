@@ -1,0 +1,19 @@
+Okay, let me tackle this step by step. First, I need to extract all quantities from the given text.
+
+Looking at the input, the first sentence mentions "1000 °C" – that's a quantity. The "above" here is a modifier indicating a range, so I'll note that. Next, "upto 1200 °C" – again, a quantity with "upto" as a modifier. Then, "800 °C" with "as low as 800 °C" – "as low as" is a modifier here. Also, the ratio "CaP=1.67" is a quantity, probably a count or a specific measurement.
+
+Now, for each quantity, I need to determine the modifiers and units. "1000 °C" has a unit of °C, and the modifier "above" which suggests IsRange. "1200 °C" has "upto" as a modifier, again IsRange. "800 °C" has "as low as" which is IsApproximate. The ratio "1.67" here is a count without a unit, so IsCount.
+
+Next, measured entities and properties. For "1000 °C", the measured property is "sintering temperature" linked to the entity "HA particles". Similarly, "1200 °C" relates to HA being stable, so the entity is "pure HA" and property "stability". For "800 °C", the entity is "calcium deficient HA samples" and property "decomposition". The ratio "1.67" is a property of "pure HA", so MeasuredProperty here would be "ratio CaP".
+
+Qualifiers: The part about "in an air and argon atmosphere" qualifies the stability of HA, so that's a qualifier for the 1200 °C quantity. Also, the reference "[18–20]" and "[19]" are qualifiers providing sources.
+
+Now, structuring this into the TSV format. Each quantity and its related entities and properties form an annotSet. For example, "1000 °C" is in annotSet 1 with its entity and property. Similarly, "1200 °C" is annotSet 2, and "800 °C" is annotSet 3. The ratio "1.67" is annotSet 4.
+
+Relationships: Each MeasuredEntity links to a MeasuredProperty via HasProperty, and both link to the Quantity via HasQuantity. Qualifiers link using Qualifies. The units are captured in the Quantity's 'other' field with modifiers.
+
+I need to make sure the TSV columns are correctly filled with annotSet, annotType, annotId, text, and other. Each annotSet groups related annotations. For example, in annotSet 2, the Quantity is "1200 °C", MeasuredEntity is "pure HA", MeasuredProperty is "stability", and Qualifier is "in an air and argon atmosphere" and the citation.
+
+Also, check that units are properly noted. The ratio "1.67" has no unit, so its 'other' field would have IsCount. The others have °C as units. The modifiers like IsRange and IsApproximate are correctly assigned.
+
+Finally, verifying all relationships and that each part of the text is accounted for. The references in brackets are qualifiers, so they get Qualifies relationships pointing to their respective quantities.

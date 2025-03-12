@@ -1,0 +1,13 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S175058361300203X-1240	1	Quantity	482	503	T1	approximately 6.2 MPa	"{""unit"": ""MPa"", ""mods"": [""IsApproximate""]}"
+S175058361300203X-1240	1	MeasuredEntity	459	476	T2	injection horizon	"{""HasQuantity"": ""T1""}"
+S175058361300203X-1240	1	MeasuredProperty	427	435	T3	pressure	"{""HasQuantity"": ""T1""}"
+S175058361300203X-1240	2	Quantity	508	513	T4	34 °C	"{""unit"": ""\u00b0C""}"
+S175058361300203X-1240	2	MeasuredEntity	459	476	T5	injection horizon	"{""HasQuantity"": ""T4""}"
+S175058361300203X-1240	2	MeasuredProperty	440	451	T6	temperature	"{""HasQuantity"": ""T4""}"
+S175058361300203X-1240	3	Quantity	696	718	T7	approximately 7.73 MPa	"{""unit"": ""MPa"", ""mods"": [""IsApproximate""]}"
+S175058361300203X-1240	3	MeasuredEntity	751	778	T8	injection well Ktzi201/2007	"{""HasQuantity"": ""T7""}"
+S175058361300203X-1240	3	MeasuredProperty	653	661	T9	pressure	"{""HasQuantity"": ""T7""}"
+S175058361300203X-1240	4	Quantity	723	728	T10	38 °C	"{""unit"": ""\u00b0C""}"
+S175058361300203X-1240	4	MeasuredEntity	751	778	T11	injection well Ktzi201/2007	"{""HasQuantity"": ""T10""}"
+S175058361300203X-1240	4	MeasuredProperty	666	677	T12	temperature	"{""HasQuantity"": ""T10""}"

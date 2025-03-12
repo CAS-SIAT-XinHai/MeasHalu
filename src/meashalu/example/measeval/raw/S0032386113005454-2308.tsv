@@ -1,0 +1,12 @@
+docId	annotSet	annotType	annotId	text	other
+S0032386113005454-2308	1	Quantity	T1	3.19 ± 0.10 GPa	"{""unit"": ""GPa"", ""mods"": [""HasTolerance""]}"
+S0032386113005454-2308	1	MeasuredProperty	T2	tensile modulus	"{""HasQuantity"": ""T1""}"
+S0032386113005454-2308	1	MeasuredEntity	T3	unmodified epoxy polymer	"{""HasProperty"": ""T2""}"
+S0032386113005454-2308	2	Quantity	T4	1.96 ± 0.08 GPa	"{""unit"": ""GPa"", ""mods"": [""HasTolerance""]}"
+S0032386113005454-2308	2	MeasuredProperty	T5	modulus	"{""HasQuantity"": ""T4""}"
+S0032386113005454-2308	2	MeasuredEntity	T6	epoxy polymer	"{""HasProperty"": ""T5""}"
+S0032386113005454-2308	2	Qualifier	T7	approximately linearly	"{""Qualifies"": ""T5""}"
+S0032386113005454-2308	2	Qualifier	T8	when 20 wt% of S-CSR particles were added	"{""Qualifies"": ""T4""}"
+S0032386113005454-2308	3	Quantity	T9	20 wt%	"{""unit"": ""wt%""}"
+S0032386113005454-2308	3	MeasuredProperty	T10	CSR content	"{""HasQuantity"": ""T9""}"
+S0032386113005454-2308	3	MeasuredEntity	T11	epoxy polymer	"{""HasProperty"": ""T10""}"

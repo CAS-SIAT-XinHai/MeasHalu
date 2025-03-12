@@ -1,0 +1,9 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0960148113002735-1289	1	Quantity	63	69	T1	200 kW	"{""unit"": ""kW"", ""mods"": []}"
+S0960148113002735-1289	1	MeasuredEntity	23	30	T2	turbine	"{""HasQuantity"": ""T1""}"
+S0960148113002735-1289	2	Quantity	140	144	T3	24 m	"{""unit"": ""m"", ""mods"": []}"
+S0960148113002735-1289	2	MeasuredEntity	122	136	T4	turbine height	"{""HasQuantity"": ""T3""}"
+S0960148113002735-1289	2	MeasuredProperty	130	136	T5	height	"{""HasQuantity"": ""T3""}"
+S0960148113002735-1289	3	Quantity	158	162	T6	26 m	"{""unit"": ""m"", ""mods"": []}"
+S0960148113002735-1289	3	MeasuredEntity	146	154	T7	diameter	"{""HasQuantity"": ""T6""}"
+S0960148113002735-1289	3	MeasuredProperty	146	154	T8	diameter	"{""HasQuantity"": ""T6""}"

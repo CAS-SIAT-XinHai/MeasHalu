@@ -1,0 +1,4 @@
+docId	annotSet	annotType	annotId	text	other
+S1873506114000075-1132	1	Quantity	T1	48 h	"{""unit"": ""h""}"
+S1873506114000075-1132	1	MeasuredEntity	T2	differentiation medium	"{""HasQuantity"": ""T1""}"
+S1873506114000075-1132	1	Qualifier	T3	before the assay	"{""Qualifies"": ""T1""}"

@@ -1,0 +1,5 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0016236113008041-872	1	Quantity	99	105	T1	4.5 kg	"{""unit"": ""kg"", ""mods"": [""IsList""]}"
+S0016236113008041-872	1	Quantity	107	111	T2	6 kg	"{""unit"": ""kg"", ""mods"": [""IsList""]}"
+S0016236113008041-872	1	Quantity	116	121	T3	13 kg	"{""unit"": ""kg"", ""mods"": [""IsList""]}"
+S0016236113008041-872	1	MeasuredEntity	80	95	T4	bed inventories	"{""HasQuantity"": ""T3""}"

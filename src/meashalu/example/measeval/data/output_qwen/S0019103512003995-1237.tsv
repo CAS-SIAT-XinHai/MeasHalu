@@ -1,0 +1,11 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103512003995-1237	1	Quantity	13	21	T1	1334.5 Å	"{""unit"": ""\u00c5""}"
+S0019103512003995-1237	2	Quantity	237	252	T3	2.23 × 1019 m−2	"{""unit"": ""m\u22122"", ""mods"": [""IsCount""]}"
+S0019103512003995-1237	2	MeasuredEntity	189	233	T4	column density of ground state C+ in the ISM	"{""HasQuantity"": ""T3""}"
+S0019103512003995-1237	3	Quantity	312	323	T5	−6.6 km s−1	"{""unit"": ""km s\u22121""}"
+S0019103512003995-1237	3	MeasuredEntity	258	308	T6	relative velocity of the ISM with respect to Earth	"{""HasQuantity"": ""T5""}"
+S0019103512003995-1237	4	Quantity	388	399	T7	12.3 km s−1	"{""unit"": ""km s\u22121""}"
+S0019103512003995-1237	4	MeasuredEntity	332	384	T8	effective thermal velocity along the LOS to the star	"{""HasQuantity"": ""T7""}"
+S0019103512003995-1237	5	Quantity	434	442	T9	1335.7 Å	"{""unit"": ""\u00c5""}"
+S0019103512003995-1237	6	Quantity	603	613	T11	R = 17,500	"{""unit"": """", ""mods"": [""IsCount""]}"
+S0019103512003995-1237	6	MeasuredEntity	580	599	T12	spectral resolution	"{""HasQuantity"": ""T11""}"

@@ -1,0 +1,7 @@
+docId	annotSet	annotType	annotId	text	other
+S0019103512004009-2930	1	Quantity	T1	3.1	"{""mods"": [""IsCount""]}"
+S0019103512004009-2930	1	MeasuredEntity	T2	Section 3.1	"{""HasQuantity"": ""T1""}"
+S0019103512004009-2930	1	MeasuredProperty	T3	number	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0019103512004009-2930	2	Quantity	T4	II	"{""mods"": [""IsCount""]}"
+S0019103512004009-2930	2	MeasuredEntity	T5	Paper II	"{""HasQuantity"": ""T4""}"
+S0019103512004009-2930	2	MeasuredProperty	T6	number	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"

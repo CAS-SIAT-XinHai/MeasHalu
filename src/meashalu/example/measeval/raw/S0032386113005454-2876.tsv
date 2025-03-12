@@ -1,0 +1,4 @@
+docId	annotSet	annotType	annotId	text	other
+S0032386113005454-2876	1	Quantity	T1	20 °C	"{""unit"": ""°C""}"
+S0032386113005454-2876	1	MeasuredEntity	T2	fracture	"{""HasQuantity"": ""T1""}"
+S0032386113005454-2876	1	MeasuredProperty	T3	temperature	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"

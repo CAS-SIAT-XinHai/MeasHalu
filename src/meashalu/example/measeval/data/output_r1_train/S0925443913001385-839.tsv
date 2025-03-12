@@ -1,0 +1,3 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0925443913001385-839	1	Quantity	327	332	T1	50 μg	"{""unit"": ""\u03bcg""}"
+S0925443913001385-839	1	MeasuredEntity	314	325	T2	cell lysate	"{""HasQuantity"": ""T1""}"

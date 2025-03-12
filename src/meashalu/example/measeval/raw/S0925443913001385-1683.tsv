@@ -1,0 +1,10 @@
+docId	annotSet	annotType	annotId	text	other
+S0925443913001385-1683	1	Quantity	T1	two L7/L12 heterodimers	"{""mods"": [""IsCount""]}"
+S0925443913001385-1683	1	MeasuredEntity	T2	LSU	"{""HasQuantity"": ""T1""}"
+S0925443913001385-1683	1	MeasuredProperty	T3	association	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0925443913001385-1683	2	Quantity	T4	~ 49% MRPL12	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
+S0925443913001385-1683	2	MeasuredEntity	T5	patient IP	"{""HasQuantity"": ""T4""}"
+S0925443913001385-1683	2	MeasuredProperty	T6	MRPL12	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"
+S0925443913001385-1683	3	Quantity	T7	~ 58% of control	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
+S0925443913001385-1683	3	MeasuredEntity	T8	IP	"{""HasQuantity"": ""T7""}"
+S0925443913001385-1683	3	MeasuredProperty	T9	ICT1	"{""HasQuantity"": ""T7"", ""HasProperty"": ""T8""}"

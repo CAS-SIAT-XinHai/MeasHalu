@@ -1,0 +1,11 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2213671113000738-738	1	Quantity	660	686	T1	more than 50,000 TH+ cells	"{""unit"": ""cells"", ""mods"": [""IsCount""]}"
+S2213671113000738-738	1	MeasuredEntity	677	686	T2	TH+ cells	"{""HasQuantity"": ""T1""}"
+S2213671113000738-738	2	Quantity	544	552	T3	6 months	"{""unit"": ""months"", ""mods"": [""IsCount""]}"
+S2213671113000738-738	2	MeasuredEntity	459	482	T4	immunosuppressive drugs	"{""HasQuantity"": ""T3""}"
+S2213671113000738-738	3	Quantity	867	871	T5	1/10	"{""unit"": ""ratio"", ""mods"": [""IsCount""]}"
+S2213671113000738-738	4	Quantity	1005	1013	T7	2 months	"{""unit"": ""months"", ""mods"": [""IsCount""]}"
+S2213671113000738-738	4	MeasuredEntity	971	991	T8	serum level of IFN-γ	"{""HasQuantity"": ""T7""}"
+S2213671113000738-738	5	Quantity	1084	1096	T9	3.5–4 months	"{""unit"": ""months"", ""mods"": [""IsRange""]}"
+S2213671113000738-738	5	MeasuredEntity	1019	1030	T10	CD45+ cells	"{""HasQuantity"": ""T9""}"
+S2213671113000738-738	6	Quantity	1903	1908	T11	1/100	"{""unit"": ""ratio"", ""mods"": [""IsCount""]}"

@@ -1,0 +1,86 @@
+Okay, let's tackle this annotation task. The input text is about ALP staining procedures, so I need to look for quantities, measured entities, properties, and qualifiers.
+
+First, I'll read through the sentence. The main part here is "fixation with 10% neutral buffered formalin solution". The percentage "10%" is a quantity. But wait, percentages can sometimes be tricky. Since it's 10% concentration, that's a measurement, not a count. The unit here is "%", and there's no modifier like "approximately" mentioned. So the Quantity would be "10%", with the unit "%". 
+
+Next, the measured entity here is "neutral buffered formalin solution" because the 10% is describing the concentration of this solution. The measured property would be the concentration itself. However, in the sentence, "10%" directly modifies the solution, so maybe the measured property isn't explicitly stated. But according to the guidelines, if there's a property like concentration, it should be a MeasuredProperty. However, in this sentence, "10%" is used as a concentration, which is a property of the solution. So the MeasuredEntity is "neutral buffered formalin solution", and the MeasuredProperty would be "10% concentration"? Wait, but the text doesn't explicitly say "concentration". Hmm. The example given in the problem had "volume" as the MeasuredProperty. Here, "10%" is the concentration, which is a property. But since the text doesn't mention "concentration" explicitly, maybe the MeasuredProperty is inferred. Or perhaps, in this case, the 10% is a Quantity directly linked to the MeasuredEntity without a MeasuredProperty. Let me check the example again. In the example, "500 milliliters" is linked to the MeasuredEntity "solvent" via the MeasuredProperty "volume". Here, "10%" is similar to "500 milliliters", where the MeasuredProperty might be "concentration", but since that word isn't present, maybe it's omitted. However, according to the guidelines, MeasuredProperty is a descriptive property linked to both MeasuredEntity and Quantity. If the property isn't explicitly mentioned, perhaps there is no MeasuredProperty here. Wait, in the example, "10 grams" has a MeasuredProperty "amount", which is inferred. So maybe in this case, the MeasuredProperty could be "concentration" even if it's not explicitly stated. Or maybe the 10% is just a Quantity linked to the solution as a MeasuredEntity without a MeasuredProperty. Hmm. This is a bit ambiguous. Let's check the problem statement again. The MeasuredProperty is "a descriptive property linked to both a MeasuredEntity and a Quantity". If the property isn't in the text, perhaps we can't annotate it. So in this case, maybe there's no MeasuredProperty. Let me look at the example. In the example, "10 grams" of salt has the MeasuredProperty "amount". "Amount" is inferred from the context. So maybe in this case, even though "concentration" isn't stated, we can consider the MeasuredProperty as "concentration". Alternatively, the percentage itself might be considered the MeasuredProperty. Wait, no. The Quantity is the 10%, and the MeasuredProperty would be the type of measurement, like concentration. Since "concentration" isn't mentioned, maybe it's better to leave the MeasuredProperty out. But according to the example, they included "amount" even when it wasn't explicitly stated. So perhaps in this case, the MeasuredProperty is "concentration". But since that's not in the text, maybe we shouldn't make that assumption. Maybe the example is different because "amount" is a more general term. Alternatively, maybe in this case, the MeasuredProperty is missing. Let me think. If we follow the example strictly, when a Quantity is associated with a MeasuredEntity, but there's no explicit property mentioned, then maybe we shouldn't create a MeasuredProperty. However, in the example, "10 grams" is linked to "salt" as the MeasuredEntity, and "amount" as the MeasuredProperty even though "amount" isn't in the text. So in this case, perhaps the MeasuredProperty is implied. But how? The example's "amount" seems to be part of the phrase "added 10 grams of salt", where "added" implies the amount. But perhaps the annotator inferred that "amount" is the MeasuredProperty. Following that logic, in the current input, "fixation with 10% neutral buffered formalin solution" would have the MeasuredProperty as "concentration" even though it's not stated. Alternatively, maybe the MeasuredEntity is "neutral buffered formalin solution" and the Quantity is "10%", and there's no MeasuredProperty because there's no explicit property like "concentration" mentioned. This is a bit confusing. Let me check the guidelines again. MeasuredProperty is defined as a descriptive property linked to both MeasuredEntity and Quantity. It's optional. So maybe in this case, it's optional and not present. So perhaps we have just the Quantity and the MeasuredEntity.
+
+So the annotations would be:
+
+AnnotSet 1:
+- Quantity: "10%", unit "%", mods (if any). Since it's a percentage, maybe IsCount isn't applicable. The mods here would be none. The unit is "%", which is a percentage. So the other field would be {"unit": "%"}.
+
+MeasuredEntity: "neutral buffered formalin solution" linked to the Quantity via HasQuantity.
+
+But what about the word "10% neutral buffered formalin solution"? The "10%" is the concentration of the solution. So the solution is the entity, and the concentration is the property. But since "concentration" isn't mentioned, maybe the MeasuredProperty isn't present. So the example in the problem shows that even without an explicit property, they used "amount" as the MeasuredProperty. Therefore, perhaps in this case, "concentration" should be considered as the MeasuredProperty even if it's not stated. Alternatively, maybe the MeasuredProperty is omitted. However, according to the example, they included "amount" even when not explicitly mentioned. Let me look again. The example input had "We also added 10 grams of salt to the solution." The MeasuredProperty there is "amount", which isn't in the text. So the annotator inferred it. So following that, here, the MeasuredProperty would be "concentration". Therefore, the MeasuredEntity is "neutral buffered formalin solution", the MeasuredProperty is "concentration", linked via HasProperty, and the Quantity "10%" is linked via HasQuantity to the MeasuredProperty. But how? Wait, in the example, the MeasuredProperty "amount" is linked to the MeasuredEntity "salt" via HasProperty, and the Quantity "10 grams" is linked to the MeasuredProperty via HasQuantity. So in the current case, the MeasuredProperty would be "concentration", linked to the MeasuredEntity "neutral buffered formalin solution" via HasProperty, and the Quantity "10%" is linked to the MeasuredProperty via HasQuantity.
+
+But since "concentration" isn't in the text, is that allowed? The problem statement says MeasuredProperty is optional, but in the example, they included it even when it wasn't explicit. So perhaps in such cases, we need to infer the MeasuredProperty. That seems to be the case. So here, "concentration" would be the MeasuredProperty. However, the problem with this approach is that "concentration" isn't mentioned in the text. Therefore, maybe the correct approach is to not include the MeasuredProperty here, as it's not explicitly stated. Alternatively, maybe the unit "%" implies that the MeasuredProperty is concentration. But that's an assumption. 
+
+Alternatively, perhaps the MeasuredProperty is left out, and the Quantity is directly linked to the MeasuredEntity. Let's see. In the example given in the problem statement, the MeasuredProperty "amount" was included even though it wasn't in the text. So the annotators inferred it based on context. Therefore, in this case, it's appropriate to infer "concentration" as the MeasuredProperty even if it's not present. Therefore, the annotations would be:
+
+AnnotSet 1:
+- Quantity: T1, "10%", unit "%", mods: none.
+- MeasuredEntity: T2, "neutral buffered formalin solution", HasQuantity: T1.
+- MeasuredProperty: T3, "concentration", HasProperty: T2, HasQuantity: T1.
+
+But "concentration" isn't present in the text. So this might be incorrect. The problem here is that the example included MeasuredProperties that weren't in the text, but perhaps in their case "amount" was inferred from "added". In our current input, "10% neutral buffered formalin solution" is used for fixation. The "10%" here refers to the concentration, but "concentration" isn't mentioned. Therefore, should the MeasuredProperty be "concentration" even if it's not stated? The guidelines say MeasuredProperty is optional, so maybe it's acceptable to omit it. Let's compare with the example. In their example, "added 10 grams of salt" led to MeasuredProperty "amount". So if "added" implies "amount", then here, "fixation with 10% solution" might imply "concentration". So following that logic, the MeasuredProperty is "concentration". However, since "concentration" isn't in the text, maybe it's not allowed. Alternatively, maybe the MeasuredProperty is part of the Quantity's unit. For example, "%" here is a unit of concentration. Therefore, the MeasuredProperty could be "concentration", but since it's not in the text, perhaps it's better to leave it out.
+
+This is a bit confusing. Let me check the example again. The example input was "added 10 grams of salt", and the MeasuredProperty was "amount". The word "amount" isn't present, but it's inferred. Therefore, in this case, "10%" would have a MeasuredProperty of "concentration" even if it's not stated. Thus, I should include it. So the MeasuredProperty is "concentration", linked to the MeasuredEntity "neutral buffered formalin solution" via HasProperty, and the Quantity "10%" linked via HasQuantity to the MeasuredProperty.
+
+But how is "concentration" the MeasuredProperty if it's not in the text? The problem statement's example shows that MeasuredProperty can be inferred. Therefore, perhaps we can do that here.
+
+So, the annotations would be:
+
+AnnotSet 1:
+- Quantity T1: "10%", unit "%".
+- MeasuredEntity T2: "neutral buffered formalin solution".
+- MeasuredProperty T3: "concentration".
+
+Relationships:
+- MeasuredEntity T2 hasProperty T3.
+- MeasuredProperty T3 hasQuantity T1.
+
+But the problem is that "concentration" isn't in the text. The example had "amount" even though it wasn't in the text. So the answer in the example included MeasuredProperties that weren't explicitly mentioned. Therefore, following that approach, I should include "concentration" here as the MeasuredProperty. But since the text doesn't mention "concentration", this might not be correct. Alternatively, maybe the MeasuredProperty is omitted here, and the Quantity is directly linked to the MeasuredEntity. However, in the example, even in cases where the MeasuredProperty wasn't explicit, they still included it. So, perhaps the correct approach is to include it here as well.
+
+Another point: the unit here is "%", which can be considered a unit of concentration. So if the unit implies the property, perhaps "concentration" is the MeasuredProperty. Therefore, the MeasuredProperty is "concentration" (not in the text), but inferred from the unit. That's a possible approach.
+
+Alternatively, maybe we shouldn't create a MeasuredProperty here because it's not in the text. The guidelines say that MeasuredProperty is optional. So perhaps in this case, since there's no explicit property mentioned, we can omit it. Therefore, the annotations would be:
+
+AnnotSet 1:
+- Quantity T1: "10%", unit "%".
+- MeasuredEntity T2: "neutral buffered formalin solution", which hasQuantity T1.
+
+No MeasuredProperty in this case.
+
+But the example shows that even when the property isn't explicit, it's included. For instance, "amount" in the example. So in that case, the MeasuredProperty was inferred. Therefore, in this case, I should include the inferred MeasuredProperty "concentration". However, the problem is that the example's "amount" might be considered part of the verb "added", but in reality, "amount" isn't explicitly stated. It's possible that the annotator in the example considered "added" as implying an amount. But in our current case, "10% solution" implies concentration. So following that, the MeasuredProperty is "concentration".
+
+However, since the guidelines say that MeasuredProperty is optional, but in the example it's not optional (they included it even when not in text), perhaps we need to follow that approach. Therefore, I'll include the MeasuredProperty "concentration" even though it's not present in the text.
+
+Therefore, the TSV would look like:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	10%	{"unit": "%"}
+1	MeasuredEntity	T2	neutral buffered formalin solution	{"HasQuantity": "T1"}
+1	MeasuredProperty	T3	concentration	{"HasQuantity": "T1", "HasProperty": "T2"}
+
+But wait, the MeasuredProperty "concentration" isn't present in the text. The actual text is "10% neutral buffered formalin solution". The "10%" is part of the solution's name, implying concentration. However, the example from the problem had "10 grams of salt" leading to MeasuredProperty "amount", which isn't in the text. So in that case, "amount" was inferred. Therefore, following that example, here, "concentration" would be inferred as the MeasuredProperty.
+
+So the answer would include the MeasuredProperty "concentration" even if it's not explicitly stated.
+
+But does that make sense? The problem's example's MeasuredProperty "amount" might have been inferred from the verb "added". So "added 10 grams" implies an amount added. In our case, "10% solution" is a concentration. So while the property isn't stated, it's inferred. Therefore, including the MeasuredProperty is appropriate.
+
+Another point: the problem instructions state that the user is an expert, so perhaps the example is a guide, and the user should follow it even if it's not perfect. Therefore, the correct approach is to include the MeasuredProperty "concentration" here.
+
+Now, checking for other quantities in the input. The input also mentions "ALP substrate (1-Step NBT/BCIP; Pierce, IL, USA)". The "1-Step" here is part of the product name, so it's not a quantity. The numbers in references like "Fusaki et al., 2009; Ban et al., 2011" are citations and not quantities related to measurements. Therefore, the only quantity here is "10%".
+
+So the final TSV should have one annotSet with Quantity, MeasuredEntity, and MeasuredProperty.
+
+Wait, but in the example, each Quantity and associated entities are grouped into separate annotSets. For instance, "approximately 25°C" is annotSet 1, "500 milliliters" is annotSet 2, etc. So each Quantity and its related entities form a separate annotSet. Therefore, in this case, "10%" would be annotSet 1, with its own MeasuredEntity and MeasuredProperty.
+
+Therefore, the TSV would be:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	10%	{"unit": "%"}
+1	MeasuredEntity	T2	neutral buffered formalin solution	{"HasQuantity": "T1"}
+1	MeasuredProperty	T3	concentration	{"HasQuantity": "T1", "HasProperty": "T2"}
+
+But the problem is that "concentration" isn't in the text. However, based on the example given in the problem, this approach is acceptable. Therefore, the answer should follow this structure.

@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0012821X12004384-1221	1	Quantity	670	685	T1	200 and >1000 m	"{""unit"": ""m"", ""mods"": [""IsRange""]}"
+S0012821X12004384-1221	1	MeasuredEntity	686	697	T2	water depth	"{""HasQuantity"": ""T1""}"
+S0012821X12004384-1221	1	MeasuredProperty	586	613	T3	extant benthic foraminifera	"{""HasQuantity"": ""T1""}"
+S0012821X12004384-1221	2	Quantity	1069	1076	T4	>0.5 km	"{""unit"": ""km""}"
+S0012821X12004384-1221	2	MeasuredEntity	995	1034	T5	central parts of the northern North Sea	"{""HasQuantity"": ""T4""}"
+S0012821X12004384-1221	2	MeasuredProperty	1054	1065	T6	paleodepths	"{""HasQuantity"": ""T4""}"

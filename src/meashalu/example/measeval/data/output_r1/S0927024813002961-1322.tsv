@@ -1,0 +1,5 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0927024813002961-1322	1	Quantity	515	524	T1	about ±3%	"{""unit"": ""%"", ""mods"": [""IsApproximate"", ""HasTolerance""]}"
+S0927024813002961-1322	1	MeasuredProperty	434	489	T3	relative changes in the generated short-circuit current	"{""HasQuantity"": ""T1""}"
+S0927024813002961-1322	2	Quantity	547	559	T4	+10% to −20%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
+S0927024813002961-1322	2	MeasuredEntity	564	576	T5	a-Si devices	"{""HasProperty"": ""T6""}"

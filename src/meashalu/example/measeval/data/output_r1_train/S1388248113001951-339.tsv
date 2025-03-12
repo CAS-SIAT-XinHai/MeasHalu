@@ -1,0 +1,5 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S1388248113001951-339	1	Quantity	110	115	T1	4.0 V	"{""unit"": ""V""}"
+S1388248113001951-339	1	MeasuredEntity	77	82	T2	cells	"{""HasQuantity"": ""T1""}"
+S1388248113001951-339	2	MeasuredEntity	77	82	T5	cells	"{""HasQuantity"": ""T4""}"
+S1388248113001951-339	3	MeasuredEntity	77	82	T8	cells	"{""HasQuantity"": ""T7""}"

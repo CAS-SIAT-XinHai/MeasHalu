@@ -1,0 +1,207 @@
+Okay, let's tackle this. First, I need to process the input text and follow the annotation steps. The goal is to extract Quantities, MeasuredEntities, MeasuredProperties, and Qualifiers, then link them with the specified relationships.
+
+The first sentence: "A tensile modulus of 3.19 ± 0.10 GPa was measured for the unmodified epoxy polymer."
+
+Looking for Quantities here. "3.19 ± 0.10 GPa" is a Quantity. The unit here is GPa. The ± indicates a tolerance, so mods should include HasTolerance. The MeasuredProperty is "tensile modulus", and the MeasuredEntity is "unmodified epoxy polymer". The relationship here is that the MeasuredProperty "tensile modulus" HasQuantity the Quantity "3.19 ± 0.10 GPa", and the MeasuredEntity "unmodified epoxy polymer" HasProperty the MeasuredProperty "tensile modulus". So annotSet 1 would include these three.
+
+Next sentence: "The modulus decreased approximately linearly with increasing CSR content to 1.96 ± 0.08 GPa when 20 wt% of S-CSR particles were added, see Table 1."
+
+Quantities here are "1.96 ± 0.08 GPa" and "20 wt%". 
+
+For "1.96 ± 0.08 GPa": Unit is GPa, mods HasTolerance. The MeasuredProperty here is "modulus" (since it refers back to tensile modulus from before). The MeasuredEntity would be "epoxy polymer with S-CSR particles" or similar, but the text says "when 20 wt% of S-CSR particles were added". So the MeasuredEntity might be "epoxy polymer" modified by the addition. However, the text mentions "unmodified" earlier, so here it's modified. But the exact MeasuredEntity here is perhaps "epoxy polymer with 20 wt% S-CSR particles". Wait, the sentence says "when 20 wt% of S-CSR particles were added", so the MeasuredEntity for the second modulus is the modified epoxy polymer. But the text directly mentions "the modulus decreased...", so the MeasuredProperty is still "modulus" (short for tensile modulus), and the MeasuredEntity would be the modified version. However, the way it's phrased, the MeasuredEntity might still be "epoxy polymer", but with a qualifier about the CSR content. Alternatively, maybe the qualifier is the "when 20 wt%... added" part. Let me check.
+
+Also, the Quantity "20 wt%" has unit wt%, and the mods would be... it's a percentage, so unit is wt%, and the MeasuredEntity here is "S-CSR particles", but the context is "20 wt% of S-CSR particles were added", so the MeasuredProperty might be "content" (from "CSR content"). Wait, the first part of the sentence says "modulus decreased approximately linearly with increasing CSR content to 1.96 ± 0.08 GPa when 20 wt%...". So "CSR content" is the MeasuredProperty here, which HasQuantity "20 wt%". The MeasuredEntity for the CSR content would be "S-CSR particles" perhaps, but the sentence structure is a bit complex. Alternatively, maybe "CSR content" is the MeasuredProperty of the epoxy polymer composite. Hmm.
+
+Wait, let's break it down. The modulus (MeasuredProperty) decreased to 1.96 ± 0.08 GPa when 20 wt% of S-CSR particles were added. The "20 wt%" is the Quantity for the CSR content, so the MeasuredProperty would be "CSR content", and the MeasuredEntity would be the epoxy polymer (since the CSR particles are added to it). So for the "20 wt%", the MeasuredEntity is "epoxy polymer" (modified), and the MeasuredProperty is "CSR content". Then, the "1.96 ± 0.08 GPa" is the modulus value for the modified epoxy polymer. So two separate annotSets here.
+
+Wait, perhaps. Let's consider each Quantity and its context.
+
+First Quantity in second sentence: "1.96 ± 0.08 GPa" – this is the modulus value after adding 20 wt% S-CSR. So the MeasuredProperty is "modulus" (same as before), MeasuredEntity is "epoxy polymer with 20 wt% S-CSR particles". However, the text doesn't explicitly mention that entity; it just refers to the modulus decreasing when particles are added. So maybe the MeasuredEntity remains "epoxy polymer", and the Qualifier is "when 20 wt% of S-CSR particles were added". But according to the guidelines, Qualifiers are spans that affect the interpretation. So "when 20 wt%..." is a Qualifier that qualifies the modulus Quantity. Alternatively, the 20 wt% is a separate Quantity related to CSR content.
+
+So for "1.96 ± 0.08 GPa" (annotSet 2?), MeasuredProperty is "modulus", MeasuredEntity is "epoxy polymer", and there's a Qualifier "when 20 wt% of S-CSR particles were added". But also, "20 wt%" is another Quantity (annotSet 3?) where MeasuredProperty is "CSR content", MeasuredEntity is "epoxy polymer", and the Qualifier would link to that. But the sentence says "modulus decreased... with increasing CSR content to 1.96... when 20 wt%...". So the "increasing CSR content" leads to the modulus decreasing. The 20 wt% is the specific content at which the modulus is 1.96 GPa. So the "20 wt%" is the CSR content Quantity. So:
+
+- Quantity "20 wt%": unit wt%, mods: none? Or "IsCount"? Wait, wt% is a percentage by weight, so it's a measurement, not a count. So mods: none. The MeasuredProperty would be "CSR content", and the MeasuredEntity is "epoxy polymer" (since it's the content in the polymer). 
+
+Additionally, the phrase "approximately linearly" is a Qualifier for how the modulus decreased. But Qualifiers are supposed to affect the Quantity. Does "approximately linearly" qualify the decrease (which is a process), or the modulus value? Maybe it's a Qualifier for the modulus's change, but according to the guidelines, Qualifiers are spans that affect the Quantity, MeasuredEntity, or MeasuredProperty. Since the decrease is linear, it might be a Qualifier for the MeasuredProperty "modulus", indicating the manner of change. But I'm not sure. The example given in the guidelines was "after I drank half the can" qualifying the volume. Here, "approximately linearly" describes how the modulus decreases with CSR content. Maybe this is a Qualifier linked to the MeasuredProperty "modulus" or the Quantity "1.96 ± 0.08 GPa". Alternatively, it could be part of the relationship between CSR content and modulus. Hmm. The instruction says to link Qualifiers using "Qualifies" relationships. Since "approximately linearly" is an adverb describing the decrease, perhaps it's a Qualifier for the MeasuredProperty's change, but not directly tied to the Quantity. Maybe not. Alternatively, perhaps it's a Qualifier for the entire relationship, but the guidelines require Qualifiers to link to a specific annotation. This is a bit ambiguous, but I'll proceed cautiously.
+
+Third sentence: "Similar results were reported by Giannakopoulos et al. [30] using the same formulation of epoxy polymer but with different CSR particles." No quantities here, so we can ignore this for annotations.
+
+Now, let's structure everything.
+
+AnnotSet 1:
+- Quantity: "3.19 ± 0.10 GPa" (mods: HasTolerance, unit: GPa)
+- MeasuredProperty: "tensile modulus"
+- MeasuredEntity: "unmodified epoxy polymer"
+Relationships: MeasuredEntity (T2) HasProperty MeasuredProperty (T3), MeasuredProperty (T3) HasQuantity Quantity (T1)
+
+AnnotSet 2:
+- Quantity: "1.96 ± 0.08 GPa" (mods: HasTolerance, unit: GPa)
+- MeasuredProperty: "modulus" (since it refers back to tensile modulus, but the text here just says "modulus")
+- MeasuredEntity: "epoxy polymer" (but modified with S-CSR particles; however, the text doesn't explicitly name it, so we need to capture the Qualifier "when 20 wt% of S-CSR particles were added" as a Qualifier for this Quantity or MeasuredEntity)
+- Qualifier: "when 20 wt% of S-CSR particles were added" – this would Qualify the MeasuredEntity or Quantity. Since the MeasuredEntity here is still "epoxy polymer", but modified, perhaps the Qualifier is linked to the MeasuredEntity to indicate the modification.
+
+But according to the text, the sentence is "The modulus decreased... when 20 wt%... were added". So the addition of 20 wt% S-CSR particles is the condition under which the modulus is 1.96 GPa. Therefore, "when 20 wt%..." is a Qualifier that Qualifies the Quantity "1.96 ± 0.08 GPa".
+
+AnnotSet 3:
+- Quantity: "20 wt%" (unit: wt%, no mods)
+- MeasuredProperty: "CSR content"
+- MeasuredEntity: "epoxy polymer" (since the content is in the polymer)
+Relationships: MeasuredEntity HasProperty MeasuredProperty, MeasuredProperty HasQuantity Quantity.
+
+But wait, the text says "increasing CSR content to 1.96..." – no, the CSR content increases, and the modulus decreases to 1.96. The 20 wt% is the amount added. Let me re-examine the sentence:
+
+"The modulus decreased approximately linearly with increasing CSR content to 1.96 ± 0.08 GPa when 20 wt% of S-CSR particles were added, see Table 1."
+
+So, "increasing CSR content" leads to the modulus decreasing to 1.96 GPa. The "when 20 wt%..." is the condition at which this modulus value is observed. Therefore, the 20 wt% is the CSR content at that point. So the MeasuredProperty here is "CSR content", MeasuredEntity is "epoxy polymer with S-CSR particles", and the Quantity is "20 wt%". But the wording is a bit tricky. Alternatively, maybe "CSR content" is the MeasuredProperty, and the Quantity is the 20 wt%, but the sentence structure is such that "increasing CSR content" is a process that leads to the modulus value. So the 20 wt% is the level of CSR content, hence the Quantity for CSR content is 20 wt%.
+
+So AnnotSet 3 would be:
+- Quantity: "20 wt%"
+- MeasuredProperty: "CSR content"
+- MeasuredEntity: "epoxy polymer"
+- Relationships: MeasuredEntity HasProperty MeasuredProperty, MeasuredProperty HasQuantity Quantity.
+
+Additionally, the Qualifier "when ... were added" would Qualify the Quantity "20 wt%", but that might be part of the MeasuredEntity. Hmm. Alternatively, the MeasuredEntity might be "S-CSR particles" for the Quantity "20 wt%", but the context is that 20 wt% of S-CSR particles were added to the epoxy polymer. So the MeasuredProperty would be "content", MeasuredEntity is "epoxy polymer", and the Quantity is 20 wt% of S-CSR particles. Wait, perhaps the MeasuredEntity here is the "epoxy polymer", the MeasuredProperty is "CSR content", and the Quantity is 20 wt%. The "of S-CSR particles" is part of the Quantity's context. So the text is "20 wt% of S-CSR particles", which is the Quantity. So the Quantity span is "20 wt%", with the unit "wt%", and the "of S-CSR particles" is part of the MeasuredEntity or MeasuredProperty? Hmm. Wait, according to the guidelines, the MeasuredEntity should be the object associated with the Quantity. Here, "20 wt% of S-CSR particles" – the particles are the entity, but the content is 20 wt% in the epoxy. So maybe the MeasuredEntity is "epoxy polymer", the MeasuredProperty is "S-CSR particles content", and the Quantity is "20 wt%". Alternatively, perhaps the MeasuredEntity is "S-CSR particles", but that doesn't fit because the content is within the epoxy. This is a bit confusing. Let me think again.
+
+In "20 wt% of S-CSR particles were added", the Quantity is "20 wt%", which is the percentage of S-CSR particles added. The MeasuredEntity here would be the "epoxy polymer" (since the particles are added to it), and the MeasuredProperty is "S-CSR particles content" or just "content". However, the original sentence mentions "CSR content" earlier: "with increasing CSR content". So the MeasuredProperty is "CSR content", which is a property of the epoxy polymer. Therefore, the Quantity "20 wt%" is the value of the CSR content, measured in wt%, and the MeasuredEntity is "epoxy polymer", with MeasuredProperty "CSR content".
+
+So AnnotSet 3:
+- Quantity: "20 wt%" (unit: wt%, mods: none)
+- MeasuredProperty: "CSR content"
+- MeasuredEntity: "epoxy polymer"
+Relationships: Entity HasProperty Property, Property HasQuantity Quantity.
+
+Now, the Qualifier "when 20 wt% of S-CSR particles were added" – this phrase is a Qualifier that provides context for the modulus value (1.96 GPa). Therefore, this Qualifier should be linked to the Quantity "1.96 ± 0.08 GPa" in AnnotSet 2. But how to represent that? The text of the Qualifier is "when 20 wt% of S-CSR particles were added", which is a condition affecting the modulus measurement. So in AnnotSet 2, we would have a Qualifier entry with text "when 20 wt% of S-CSR particles were added" and a "Qualifies" relationship pointing to the Quantity T4 (1.96 ± 0.08 GPa). But wait, the "when..." clause is attached to the modulus's value, indicating that when this addition occurred, the modulus was 1.96 GPa. So yes, that Qualifier qualifies the Quantity in AnnotSet 2.
+
+Additionally, the phrase "approximately linearly" in "decreased approximately linearly" – does this qualify the decrease (a process) or the Quantity? Since the decrease is in the modulus, maybe it qualifies the MeasuredProperty "modulus". But according to the guidelines, Qualifiers can qualify Quantity, MeasuredEntity, or MeasuredProperty. So "approximately linearly" describes how the modulus decreased, so it might be a Qualifier for the MeasuredProperty "modulus" in AnnotSet 2. But the exact text is "decreased approximately linearly", so the Qualifier span would be "approximately linearly". Therefore, we should create a Qualifier entry with text "approximately linearly" and link it to the MeasuredProperty "modulus" using "Qualifies".
+
+Putting this all together:
+
+AnnotSet 1:
+- T1: Quantity: "3.19 ± 0.10 GPa" → {"unit": "GPa", "mods": ["HasTolerance"]}
+- T2: MeasuredEntity: "unmodified epoxy polymer"
+- T3: MeasuredProperty: "tensile modulus"
+Relationships: T2 HasProperty T3, T3 HasQuantity T1.
+
+AnnotSet 2:
+- T4: Quantity: "1.96 ± 0.08 GPa" → {"unit": "GPa", "mods": ["HasTolerance"]}
+- T5: MeasuredProperty: "modulus" (since it's a shortened form of tensile modulus)
+- T6: MeasuredEntity: "epoxy polymer" (assuming it's the same entity as before but without the "unmodified" qualifier; however, the text may consider it modified now. But the exact MeasuredEntity here is tricky. The original sentence refers to "the unmodified epoxy polymer" in the first part and in the second part, after adding particles. So perhaps the MeasuredEntity is still "epoxy polymer", but with a Qualifier indicating the modification. Alternatively, the MeasuredEntity for AnnotSet 2 is the modified epoxy polymer. But the text doesn't explicitly state "modified epoxy polymer"; it's implied by adding particles. To adhere to the text, maybe the MeasuredEntity is "epoxy polymer" and the Qualifier "when 20 wt%..." provides context. So relationships: T5 (modulus) HasQuantity T4, and T6 (epoxy polymer) HasProperty T5. But then, how does the Qualifier fit in? The Qualifier "when 20 wt%..." would Qualify T4 (Quantity) or T6 (MeasuredEntity). Probably T4, as it's the condition under which that Quantity applies.
+
+AnnotSet 3:
+- T7: Quantity: "20 wt%" → {"unit": "wt%"}
+- T8: MeasuredProperty: "CSR content"
+- T9: MeasuredEntity: "epoxy polymer"
+Relationships: T9 HasProperty T8, T8 HasQuantity T7.
+
+Qualifiers:
+- In AnnotSet 2: "approximately linearly" → Qualifies T5 (MeasuredProperty "modulus")?
+- "when 20 wt% of S-CSR particles were added" → Qualifies T4 (Quantity "1.96 ± 0.08 GPa").
+
+Additionally, "see Table 1" might be a Qualifier, but according to the example, such references aren't annotated unless they affect the interpretation. The guidelines don't mention handling references, so we can ignore "see Table 1".
+
+Now, let's structure the TSV.
+
+AnnotSet 1:
+annotSet	annotType		annotId	text					other
+1		Quantity		T1	3.19 ± 0.10 GPa		{"unit": "GPa", "mods": ["HasTolerance"]}
+1		MeasuredEntity	T2	unmodified epoxy polymer	{"HasProperty": "T3"}
+1		MeasuredProperty T3	tensile modulus			{"HasQuantity": "T1", "HasProperty": "T2"}
+
+AnnotSet 2:
+2		Quantity		T4	1.96 ± 0.08 GPa		{"unit": "GPa", "mods": ["HasTolerance"]}
+2		MeasuredProperty T5	modulus				{"HasQuantity": "T4"}
+2		MeasuredEntity	T6	epoxy polymer			{"HasProperty": "T5"}
+2		Qualifier		T7	approximately linearly	{"Qualifies": "T5"}
+2		Qualifier		T8	when 20 wt% of S-CSR particles were added	{"Qualifies": "T4"}
+
+AnnotSet 3:
+3		Quantity		T9	20 wt%				{"unit": "wt%"}
+3		MeasuredProperty T10	CSR content			{"HasQuantity": "T9"}
+3		MeasuredEntity	T11	epoxy polymer			{"HasProperty": "T10"}
+
+Wait, but the MeasuredEntity in AnnotSet 3 should be "epoxy polymer" (assuming the CSR content is a property of the polymer). However, the original sentence for AnnotSet 3's Quantity is "when 20 wt% of S-CSR particles were added". The "were added" implies that the S-CSR particles are added to the epoxy polymer, so the MeasuredEntity is still the epoxy polymer, and the MeasuredProperty is the CSR content. Therefore, the relationships are correct as above.
+
+Also, need to check if "modulus" in AnnotSet 2 is sufficient. The original text in the second sentence refers to "the modulus", which is the same as "tensile modulus" from the first sentence. Should we consider it the same MeasuredProperty or a different one? The example in the problem statement had "volume" and "amount" as separate MeasuredProperties. Here, since "modulus" is a shorthand for "tensile modulus", maybe it's the same, but in the first annotSet, the MeasuredProperty is "tensile modulus", and in the second, it's "modulus". However, the text treats them as the same property, so perhaps they should be merged. But according to the guidelines, each instance is annotated separately. So even if they refer to the same property, each mention is a separate annotation. However, in the example provided in the problem, each Quantity was in a separate annotSet even if they were part of the same entity. For example, the three Quantities (25°C, 500 ml, 10g) each had their own annotSet. So here, each Quantity is in its own annotSet. Wait, but looking back at the example:
+
+In the example, each Quantity (25°C, 500ml, 10g) is in separate annotSets (1,2,3). So each Quantity and its associated MeasuredEntity and MeasuredProperty form an annotSet. But in the current input, the first Quantity is "3.19...GPa" (annotSet1), the second is "1.96...GPa" (annotSet2), and the third is "20 wt%" (annotSet3). However, the example grouped each Quantity and its related entities into separate annotSets regardless of whether they shared a MeasuredEntity.
+
+Wait, no. In the example, each Quantity is in a separate annotSet. For example:
+
+annotSet 1: temperature, solution, Quantity 25°C.
+
+annotSet 2: volume, solvent, Quantity 500ml.
+
+annotSet 3: amount, salt, Quantity 10g.
+
+Each is a separate set. So in this case, even if the MeasuredEntity is the same (e.g., epoxy polymer), each Quantity and its related entities form a new annotSet. Therefore, in the current problem, each Quantity is in its own annotSet.
+
+But in the first sentence, there's one Quantity. In the second sentence, two Quantities. So three annotSets in total.
+
+Wait, the second sentence has two Quantities: "1.96 ±0.08 GPa" and "20 wt%". So each would be their own annotSet. So:
+
+AnnotSet1: 3.19 ±0.10 GPa, tensile modulus, unmodified epoxy polymer.
+
+AnnotSet2: 1.96 ±0.08 GPa, modulus, epoxy polymer.
+
+AnnotSet3: 20 wt%, CSR content, epoxy polymer.
+
+Then, the Qualifiers would be in their own annotSets? Or part of the annotSet where they qualify.
+
+Wait, the Qualifiers are part of the same logical grouping. For example, in the example, the Qualifier "after I drank..." was in the same annotSet as the Quantity it qualifies. But in that example, each annotSet is a logical grouping around a Quantity. So for the second Quantity (1.96 GPa), the Qualifiers "approximately linearly" and "when 20 wt%..." are part of annotSet2. Similarly, the 20 wt% Quantity is in annotSet3, and if there's a Qualifier for it, it would be there.
+
+But according to the guidelines, each annotSet starts from 1 for each logical grouping. So each Quantity and its related entities and qualifiers form an annotSet. Therefore:
+
+AnnotSet1: 3.19 GPa, tensile modulus, unmodified epoxy polymer.
+
+AnnotSet2: 1.96 GPa, modulus, epoxy polymer, with Qualifiers "approximately linearly" and "when 20 wt%...".
+
+AnnotSet3: 20 wt%, CSR content, epoxy polymer.
+
+Now, structuring each annotSet:
+
+AnnotSet1:
+- Quantity T1: 3.19 ±0.10 GPa
+- MeasuredProperty T2: tensile modulus
+- MeasuredEntity T3: unmodified epoxy polymer
+Relationships: T3 HasProperty T2, T2 HasQuantity T1.
+
+AnnotSet2:
+- Quantity T4: 1.96 ±0.08 GPa
+- MeasuredProperty T5: modulus
+- MeasuredEntity T6: epoxy polymer
+- Qualifier T7: approximately linearly → Qualifies T5 (modulus)
+- Qualifier T8: when 20 wt%... → Qualifies T4 (Quantity)
+Relationships: T6 HasProperty T5, T5 HasQuantity T4; Qualifiers link to their respective targets.
+
+AnnotSet3:
+- Quantity T9: 20 wt%
+- MeasuredProperty T10: CSR content
+- MeasuredEntity T11: epoxy polymer
+Relationships: T11 HasProperty T10, T10 HasQuantity T9.
+
+But wait, the MeasuredEntity for AnnotSet3's CSR content is the same epoxy polymer, but modified. However, the text refers to "unmodified" in the first case and modified in the second. Should the MeasuredEntity reflect this? The example differentiated "soda can" and "can" as separate entities. If the text explicitly mentions modification, we should capture it. In this case, the first MeasuredEntity is "unmodified epoxy polymer", while the second (AnnotSet2) is just "epoxy polymer" (without "unmodified"). However, the Qualifier "when 20 wt%... added" provides context that this is a modified version. Therefore, perhaps the MeasuredEntity in AnnotSet2 is still "epoxy polymer", but the Qualifier indicates the modification. However, the guidelines require MeasuredEntities to be exact spans. Since the text for AnnotSet2's MeasuredEntity is "epoxy polymer" (without "unmodified"), it's correct as is.
+
+Now, the final TSV:
+
+annotSet	annotType			annotId	text							other
+1			Quantity			T1		3.19 ± 0.10 GPa					{"unit": "GPa", "mods": ["HasTolerance"]}
+1			MeasuredProperty		T2		tensile modulus				{"HasQuantity": "T1"}
+1			MeasuredEntity		T3		unmodified epoxy polymer		{"HasProperty": "T2"}
+
+2			Quantity			T4		1.96 ± 0.08 GPa					{"unit": "GPa", "mods": ["HasTolerance"]}
+2			MeasuredProperty		T5		modulus						{"HasQuantity": "T4"}
+2			MeasuredEntity		T6		epoxy polymer				{"HasProperty": "T5"}
+2			Qualifier			T7		approximately linearly		{"Qualifies": "T5"}
+2			Qualifier			T8		when 20 wt% of S-CSR particles were added	{"Qualifies": "T4"}
+
+3			Quantity			T9		20 wt%						{"unit": "wt%"}
+3			MeasuredProperty		T10		CSR content					{"HasQuantity": "T9"}
+3			MeasuredEntity		T11		epoxy polymer				{"HasProperty": "T10"}
+
+Wait, but in AnnotSet1, the MeasuredProperty is "tensile modulus" and it has {"HasQuantity": "T1"} and the MeasuredEntity has {"HasProperty": "T2"} (T2 is the MeasuredProperty). So the relationships are correct.
+
+In AnnotSet2, MeasuredProperty is "modulus" which HasQuantity T4, and the MeasuredEntity "epoxy polymer" HasProperty T5. Then the Qualifiers T7 and T8 qualify T5 and T4, respectively.
+
+AnnotSet3 for the 20 wt% Quantity, with CSR content as MeasuredProperty and epoxy polymer as MeasuredEntity.
+
+This should cover all the necessary annotations.

@@ -1,0 +1,6 @@
+docId	annotSet	annotType	annotId	text	other
+S0168945213001805-4574	1	Quantity	T1	50%	"{""mods"": [""IsCount""], ""unit"": ""%""}"
+S0168945213001805-4574	1	MeasuredEntity	T2	mortality rate	"{""HasQuantity"": ""T1""}"
+S0168945213001805-4574	2	Qualifier	T3	in the greenhouse	"{""Qualifies"": ""T2""}"
+S0168945213001805-4574	3	MeasuredEntity	T4	root systems	"{""HasProperty"": ""T5""}"
+S0168945213001805-4574	3	MeasuredProperty	T5	normal	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T4""}"

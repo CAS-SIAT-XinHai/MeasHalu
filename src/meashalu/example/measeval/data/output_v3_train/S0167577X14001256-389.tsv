@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0167577X14001256-389	1	Quantity	197	200	T1	12×	"{""unit"": ""\u00d7""}"
+S0167577X14001256-389	1	MeasuredEntity	182	195	T2	magnification	"{""HasQuantity"": ""T1""}"
+S0167577X14001256-389	1	MeasuredProperty	182	195	T3	magnification	"{""HasQuantity"": ""T1""}"
+S0167577X14001256-389	2	Quantity	265	269	T4	4 nm	"{""unit"": ""nm""}"
+S0167577X14001256-389	2	MeasuredEntity	256	261	T5	arrow	"{""HasQuantity"": ""T4""}"
+S0167577X14001256-389	2	MeasuredProperty	270	275	T6	width	"{""HasQuantity"": ""T4""}"

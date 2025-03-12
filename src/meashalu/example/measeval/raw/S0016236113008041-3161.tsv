@@ -1,0 +1,13 @@
+docId	annotSet	annotType	annotId	text	other
+S0016236113008041-3161	1	Quantity	T1	4.5 kg	"{""unit"": ""kg""}"
+S0016236113008041-3161	1	MeasuredEntity	T2	bed inventory	"{""HasQuantity"": ""T1""}"
+S0016236113008041-3161	2	Quantity	T3	13 kg	"{""unit"": ""kg""}"
+S0016236113008041-3161	2	MeasuredEntity	T4	bed inventory	"{""HasQuantity"": ""T3""}"
+S0016236113008041-3161	3	Quantity	T5	6 kg	"{""unit"": ""kg""}"
+S0016236113008041-3161	3	MeasuredEntity	T6	bed inventory	"{""HasQuantity"": ""T5""}"
+S0016236113008041-3161	4	Quantity	T7	<0.01 ppm	"{""unit"": ""ppm""}"
+S0016236113008041-3161	4	MeasuredEntity	T8	P	"{""HasQuantity"": ""T7""}"
+S0016236113008041-3161	4	MeasuredProperty	T9	concentration	"{""HasQuantity"": ""T7"", ""HasProperty"": ""T8""}"
+S0016236113008041-3161	5	Quantity	T10	<2 ppm	"{""unit"": ""ppm""}"
+S0016236113008041-3161	5	MeasuredEntity	T11	flue gas	"{""HasQuantity"": ""T10""}"
+S0016236113008041-3161	5	MeasuredProperty	T12	concentration	"{""HasQuantity"": ""T10"", ""HasProperty"": ""T11""}"

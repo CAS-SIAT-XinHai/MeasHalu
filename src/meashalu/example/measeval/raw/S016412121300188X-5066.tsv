@@ -1,0 +1,7 @@
+docId	annotSet	annotType	annotId	text	other
+S016412121300188X-5066	1	Quantity	T1	78% to 95%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
+S016412121300188X-5066	1	MeasuredProperty	T2	precision	"{""HasQuantity"": ""T1""}"
+S016412121300188X-5066	1	MeasuredEntity	T3	slice approximation	"{""HasProperty"": ""T2""}"
+S016412121300188X-5066	2	Quantity	T4	30	"{""mods"": [""IsCount""]}"
+S016412121300188X-5066	2	MeasuredEntity	T5	production programs	"{""HasQuantity"": ""T4""}"
+S016412121300188X-5066	2	Qualifier	T7	by considering 30 production programs	"{""Qualifies"": ""T6""}"

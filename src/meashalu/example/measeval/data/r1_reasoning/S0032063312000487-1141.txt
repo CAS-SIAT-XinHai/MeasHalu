@@ -1,0 +1,438 @@
+Alright, let's start by looking at the input text. The user wants me to extract quantities, measured entities, measured properties, and qualifiers, along with their relationships. 
+
+First, I'll scan through the text to identify all quantities. The paragraphs mention percentages like "77%", "77%", "76%", "89%", "94%", and "86%". These are all numerical values with a percentage unit, so they should be annotated as Quantity types.
+
+Next, I need to check if there are any modifiers. The text uses "of the crossings" repeatedly, which might relate to the measured entities. For example, "77% of the crossings" implies that "crossings" is the measured entity here. Each percentage is a quantity linked to these crossings. 
+
+Looking at the measured properties, the text talks about "propagation" in phrases like "tailward propagation" and "sunward propagation". However, "propagation" here seems to be the property being measured. So, each percentage (quantity) is associated with the measured entity "crossings" and the measured property "propagation". 
+
+Wait, actually, the text says "77% of the crossings suggest tailward propagation". Here, the 77% is a quantity of crossings that suggest a particular propagation direction. So the measured property might be "propagation direction", but since it's mentioned as "tailward propagation", the property is the direction of propagation. However, the exact measured property might be the percentage of crossings indicating a specific direction. Alternatively, maybe "propagation" is the property. This part needs careful consideration.
+
+Also, there are mentions of "dawn side crossings" and "dusk side crossings". These could be qualifiers that specify subsets of the crossings. For example, "77% of the dawn side crossings" would have "dawn side" as a qualifier for the crossings. Similarly, "dusk side crossings" would have "dusk side" as a qualifier.
+
+Now, structuring the annotations. Each percentage (quantity) is part of a set. The first set includes 77%, 77%, and 76%, all discussing crossings suggesting tailward propagation. The next set includes 89%, 94%, and 86%, related to wave-associated crossings. Each of these should be separate annotation sets.
+
+For each quantity, I need to link it to the measured entity (crossings) and the measured property (propagation direction). The qualifiers like "dawn side" and "dusk side" should be linked to the measured entity or quantity using the Qualifies relationship.
+
+Wait, let me parse each occurrence step by step.
+
+1. "77% of the crossings suggest tailward propagation": Here, "77%" is the quantity. The measured entity is "crossings", and the measured property is "tailward propagation". But "tailward propagation" is the result suggested by the crossings. Maybe the measured property here is "suggestion of tailward propagation", but that's a bit abstract. Alternatively, the property could be "propagation direction", and the value is "tailward".
+
+But according to the definitions, MeasuredProperty is a descriptive property linked to both MeasuredEntity and Quantity. So perhaps the property here is "propagation direction", and the quantity (77%) is the measure of crossings that have that property.
+
+Similarly, "77% of the dawn side crossings" – here, "dawn side" is a qualifier for the crossings. The quantity is 77%, measured entity is "crossings" with a qualifier "dawn side", and the measured property is "tailward propagation".
+
+But how to model this? The qualifier "dawn side" would qualify the measured entity "crossings". So each annotation set would have:
+
+- Quantity: 77%
+- MeasuredEntity: crossings (qualified by "dawn side")
+- MeasuredProperty: propagation direction (with value tailward)
+- Qualifier: dawn side (qualifies the crossings)
+
+But the way the text is structured, "dawn side crossings" is the entity. So maybe the measured entity is "dawn side crossings", making "dawn side" part of the entity name. Alternatively, "crossings" is the entity, and "dawn side" is a qualifier.
+
+The annotation guidelines say that Qualifiers are spans that describe conditions or attributes affecting the Quantity, MeasuredEntity, or MeasuredProperty. So "dawn side" would be a Qualifier that qualifies "crossings" (MeasuredEntity).
+
+Similarly, "wave-associated crossings" would have "wave-associated" as a qualifier for "crossings".
+
+So for the first instance: "77% of the crossings suggest tailward propagation":
+
+- Quantity: 77% (unit: %, mods: IsCount? Or since it's a percentage, maybe it's a measurement. Wait, "IsCount" is for counts of entities, like "five samples". Here, 77% is a measurement of proportion, not a count. So unit is "%", no IsCount modifier.
+
+But the problem is whether percentage counts as a unit. Yes, "%" is a unit here. So each quantity is 77%, 77%, etc., with unit "%".
+
+The measured entity is "crossings", and the measured property is "tailward propagation" (but how is that a property?). Alternatively, maybe the measured property is "suggestion of tailward propagation", but that seems more like a result. Alternatively, perhaps the measured property isn't explicitly stated here. Maybe the property is "percentage suggesting tailward propagation", but that's not a standard property. This might be a case where the MeasuredProperty is not explicitly mentioned, so the Quantity is linked directly to the MeasuredEntity.
+
+Wait, looking back at the example given in the problem statement: in the example, "volume" was the MeasuredProperty for "soda can". So in the current case, if the text had said "the percentage of crossings suggesting tailward propagation was 77%", then "percentage" would be the MeasuredProperty. But in the given text, it's "77% of the crossings suggest tailward propagation". The structure is different. Here, the 77% is the proportion of crossings that suggest a direction. So maybe the MeasuredProperty is "proportion suggesting tailward propagation", but that's not explicitly mentioned. Therefore, perhaps the MeasuredProperty is omitted, and the Quantity is directly linked to the MeasuredEntity.
+
+Alternatively, the MeasuredProperty could be "tailward propagation", and the Quantity 77% is the measure of that property's occurrence. But the example shows "volume" as a property, which is a clear property. Here, "tailward propagation" is more of a value or result rather than a property. This is a bit ambiguous.
+
+Given the ambiguity, perhaps the safest approach is to link the Quantity to the MeasuredEntity "crossings" and not specify a MeasuredProperty unless it's explicitly mentioned. However, the text does say "suggest tailward propagation", which might imply that the property being measured is the propagation direction. So the MeasuredProperty could be "propagation direction", and the Quantity 77% indicates the proportion of crossings that suggest "tailward" as the direction. But the problem is that "tailward propagation" is the value of the property, not the property itself. The property is "propagation direction", and the value is "tailward". However, according to the annotation guidelines, MeasuredProperty is a descriptive property linked to both MeasuredEntity and Quantity. So in this case, if we consider "propagation direction" as the MeasuredProperty, then the Quantity (77%) is the measure of crossings that have that property's value. But since the property isn't explicitly named in the text, maybe we can't annotate it. Alternatively, maybe "tailward propagation" is the MeasuredProperty. This is a bit tricky.
+
+Alternatively, perhaps the structure is:
+
+- MeasuredEntity: crossings
+
+- MeasuredProperty: propagation (with the direction being part of the Qualifier or the context). But again, not sure.
+
+Since the guidelines say that MeasuredProperty is optional, maybe in this case, we can omit it and link the Quantity directly to the MeasuredEntity. But then, what's the relationship? The example had "volume" as the MeasuredProperty linking "soda can" to the Quantity.
+
+Alternatively, perhaps "tailward propagation" is the MeasuredProperty. Let's think. For example, if the text was "the temperature was 25°C", then "temperature" is the MeasuredProperty. In this case, "tailward propagation" is the result, but not a property like temperature or volume. So perhaps there is no explicit MeasuredProperty here, and the structure is just Quantity linked to MeasuredEntity. 
+
+Given that, perhaps the correct approach is:
+
+- Quantity: 77% (unit: %, no modifiers beyond unit)
+
+- MeasuredEntity: crossings (with qualifiers like "dawn side" when applicable)
+
+- Relationships: HasQuantity from MeasuredEntity to Quantity.
+
+Additionally, any qualifiers like "dawn side" or "wave-associated" would be Qualifiers linked to the MeasuredEntity.
+
+So for the first mention: "77% of the crossings suggest tailward propagation"
+
+- AnnotSet 1:
+
+  - Quantity: 77% (unit: %)
+
+  - MeasuredEntity: crossings
+
+  - Relationship: HasQuantity (crossings -> 77%)
+
+  - Qualifier: none here, but later mentions have "dawn side" and "dusk side".
+
+But then, the text says "77% of the dawn side crossings and 76% of the dusk side crossings". So here, "dawn side" and "dusk side" are Qualifiers for the MeasuredEntity "crossings". Each percentage is a separate Quantity linked to the qualified MeasuredEntity.
+
+Wait, but in the text: "77% of the crossings suggest tailward propagation, comprising 77% of the dawn side crossings and 76% of the dusk side crossings." So the first 77% is overall, then 77% of dawn and 76% of dusk. Each of these would be separate annotation sets.
+
+So:
+
+AnnotSet 1:
+
+- Quantity: 77% (overall crossings)
+
+- MeasuredEntity: crossings
+
+AnnotSet 2:
+
+- Quantity: 77% (dawn side)
+
+- MeasuredEntity: crossings with Qualifier "dawn side"
+
+AnnotSet 3:
+
+- Quantity: 76% (dusk side)
+
+- MeasuredEntity: crossings with Qualifier "dusk side"
+
+Similarly, later in the text: "89% of the crossings suggest tailward propagation, comprising 94% of the dawn side crossings and 86% of the dusk side crossings." Each of these would be separate sets.
+
+But wait, the user's example in the problem statement grouped quantities with their entities and properties into separate sets. Each set represents a logical grouping. For example, in the example, each Quantity (25°C, 500ml, 10g) was in separate sets with their own entities and properties.
+
+In the current case, each percentage is part of a different grouping. However, the text mentions "Panels (a) and (b)" and "Panels (c) and (d)", which might indicate different contexts. But for the purpose of annotation sets, each Quantity, along with its associated entities and qualifiers, should be in its own set.
+
+So proceeding step by step:
+
+1. "77% of the crossings suggest tailward propagation"
+
+   - Quantity: 77% (T1), unit: "%"
+
+   - MeasuredEntity: crossings (T2)
+
+   - Relationship: T2 HasQuantity T1
+
+   - MeasuredProperty: Maybe not applicable here.
+
+   - Qualifier: none in this line.
+
+2. "comprising 77% of the dawn side crossings and 76% of the dusk side crossings"
+
+   a. "77% of the dawn side crossings"
+
+      - Quantity: 77% (T3), unit: "%"
+
+      - MeasuredEntity: crossings (T4) with Qualifier "dawn side" (T5)
+
+      - Relationships: T4 HasQuantity T3, T5 Qualifies T4
+
+   b. "76% of the dusk side crossings"
+
+      - Quantity: 76% (T6), unit: "%"
+
+      - MeasuredEntity: crossings (T7) with Qualifier "dusk side" (T8)
+
+      - Relationships: T7 HasQuantity T6, T8 Qualifies T7
+
+3. "89% of the crossings suggest tailward propagation"
+
+   - Quantity: 89% (T9), unit: "%"
+
+   - MeasuredEntity: crossings (T10)
+
+   - Relationship: T10 HasQuantity T9
+
+4. "comprising 94% of the dawn side crossings and 86% of the dusk side crossings"
+
+   a. "94% of the dawn side crossings"
+
+      - Quantity: 94% (T11), unit: "%"
+
+      - MeasuredEntity: crossings (T12) with Qualifier "dawn side" (T13)
+
+      - Relationships: T12 HasQuantity T11, T13 Qualifies T12
+
+   b. "86% of the dusk side crossings"
+
+      - Quantity: 86% (T14), unit: "%"
+
+      - MeasuredEntity: crossings (T15) with Qualifier "dusk side" (T16)
+
+      - Relationships: T15 HasQuantity T14, T16 Qualifies T15
+
+Additionally, "wave-associated crossings" would have Qualifier "wave-associated" for crossings.
+
+In the text: "The wave-associated crossings that suggest sunward propagation are all relatively close to the subsolar region."
+
+But this is a mention that doesn't include a quantity, so perhaps not relevant for the current extraction.
+
+Now, another point: "Considering that not all of the crossings were necessarily crossings of a boundary perturbed by surface waves, these results support predominantly tailward wave propagation." Here, "not all of the crossings" is a qualifier for the crossings, but it's a general statement, not linked to a specific quantity. So perhaps not part of the annotations unless it's directly qualifying a specific quantity.
+
+Similarly, "Panels (a) and (b) of Fig. 9 show the results of this exercise." – mentions panels but no quantities here.
+
+Putting this all together, the TSV output will have multiple annotation sets, each with their own Quantity, MeasuredEntity, possible Qualifiers, and relationships.
+
+Each annotation set corresponds to each unique quantity mention. For example:
+
+- The first set is for "77% of the crossings" (annotSet 1)
+
+- The second set is for "77% of the dawn side crossings" (annotSet 2)
+
+- The third set is for "76% of the dusk side crossings" (annotSet 3)
+
+- The fourth set is for "89% of the crossings" (annotSet 4)
+
+- The fifth set is for "94% of the dawn side crossings" (annotSet 5)
+
+- The sixth set is for "86% of the dusk side crossings" (annotSet 6)
+
+Each of these will have their own MeasuredEntity and Qualifiers where applicable.
+
+But wait, the example in the problem statement grouped related annotations into the same set. For instance, in the example, "approximately 25°C", "solution", and "temperature" were in the same set (annotSet 1). However, in our case, each percentage and its corresponding crossings might form separate sets. However, in the given example, each quantity (like 25°C, 500ml, 10g) were separate sets. So perhaps each percentage here is a separate set.
+
+But sometimes, multiple quantities are part of the same logical grouping. For example, "comprising 77% of the dawn side crossings and 76% of the dusk side crossings" – these two percentages are part of the same analysis, so maybe they belong to the same set. But according to the user's example, each quantity is in its own set. Let me check the example:
+
+In the example:
+
+- The three quantities (25°C, 500ml, 10g) each have their own annotSet (1,2,3). So each quantity is a separate set.
+
+Therefore, in our case, each percentage mention, even if part of the same sentence, should be in separate annotSets.
+
+So:
+
+annotSet 1: 77% crossings
+
+annotSet 2: 77% dawn crossings
+
+annotSet 3: 76% dusk crossings
+
+annotSet 4: 89% crossings (wave-associated)
+
+annotSet 5:94% dawn crossings (wave-associated)
+
+annotSet 6:86% dusk crossings (wave-associated)
+
+Each of these would have their own annotSet number.
+
+Now, for the Qualifiers. For example, in annotSet 2, the MeasuredEntity is "crossings" qualified by "dawn side". So:
+
+- Quantity: 77% (T1)
+
+- MeasuredEntity: crossings (T2), with Qualifier "dawn side" (T3)
+
+- Relationships: T2 HasQuantity T1; T3 Qualifies T2
+
+But the text for the MeasuredEntity would be "dawn side crossings", but according to the guidelines, the MeasuredEntity should be the exact text. However, in the example given by the user, "soda can" is the exact text. So in the phrase "dawn side crossings", "crossings" is the entity, and "dawn side" is a qualifier.
+
+Wait, the text says "dawn side crossings", which is a noun phrase. Should the MeasuredEntity be "crossings" and the Qualifier "dawn side", or should the entire phrase "dawn side crossings" be the MeasuredEntity? According to the guidelines: "Be sure to include modifying adjectives or nouns that describe the MeasuredEntity (e.g., "Venera-I spacecraft" instead of just "spacecraft")." So in this case, "dawn side crossings" would be the MeasuredEntity, and "dawn side" is part of the entity name. But wait, that's conflicting with the qualifier definition.
+
+Alternatively, if the qualifier is a separate span that qualifies the MeasuredEntity, then "dawn side" would be a Qualifier for the MeasuredEntity "crossings". This is tricky.
+
+Looking back at the example in the problem statement: "after I drank half the can" is a Qualifier for the Quantity "175 ml of soda". The Qualifier is a separate span that modifies the Quantity. In our case, "dawn side" is part of the MeasuredEntity's noun phrase. According to the guidelines: "Mark the MeasuredEntity associated with the Quantity. Be sure to include modifying adjectives or nouns that describe the MeasuredEntity (e.g., "Venera-I spacecraft" instead of just "spacecraft")."
+
+Therefore, "dawn side crossings" should be the MeasuredEntity, with the text "dawn side crossings". However, in the original text, it's "dawn side crossings", so the entire phrase is the MeasuredEntity. But wait, the text says "77% of the dawn side crossings". Here, "dawn side" is part of the MeasuredEntity's text. So the MeasuredEntity's text is "dawn side crossings", which includes the qualifier. However, according to the Qualifier definition, a Qualifier is a separate span. Therefore, this seems contradictory.
+
+Alternatively, perhaps "dawn side" is a Qualifier for the MeasuredEntity "crossings". In this case, the MeasuredEntity is "crossings", and "dawn side" is a Qualifier that qualifies it. This would align with the example where "after I drank half the can" is a Qualifier for the Quantity.
+
+But in the text, "dawn side" is part of the noun phrase modifying "crossings". So according to the guideline, the MeasuredEntity should include the entire noun phrase. However, the Qualifier definition says it's a separate span. This is a bit ambiguous.
+
+The example given by the user includes "soda can" as the MeasuredEntity. If the text had "dawn side crossings", then according to the example, the entire phrase would be the MeasuredEntity, and there would be no Qualifier. However, if the Qualifier is a separate clause or phrase, like "after drinking", then it's a Qualifier.
+
+In our case, "dawn side" is an adjective modifying "crossings", so the entire noun phrase "dawn side crossings" is the MeasuredEntity. Therefore, no Qualifier is needed here. But that contradicts the idea that "dawn side" is a qualifier.
+
+Alternatively, perhaps "dawn side" is a Qualifier. Let's think about how the example was structured. In the example, "after I drank half the can" is a Qualifier for the Quantity "175 ml of soda". It's a separate clause. In our case, "dawn side" is an adjective within the noun phrase. According to the example, perhaps such adjectives are part of the MeasuredEntity's text, not a separate Qualifier.
+
+Therefore, the MeasuredEntity for "dawn side crossings" would be "dawn side crossings", with the full text. Then, there's no Qualifier in this case. But this approach would miss the chance to capture "dawn side" as a qualifier. 
+
+This is a bit confusing. Let's refer back to the problem statement's example. In the example, "The can contained 175 ml of soda after I drank half the can." The Qualifier is "after I drank half the can". The MeasuredEntity is "soda". So the Qualifier is a separate phrase modifying the context of the Quantity.
+
+In our case, "dawn side" is part of the MeasuredEntity's noun phrase. Therefore, according to the example, the entire noun phrase "dawn side crossings" would be the MeasuredEntity, not needing a separate Qualifier annotation. Thus, the MeasuredEntity's text is "dawn side crossings".
+
+But this would mean that for the phrase "77% of the dawn side crossings", the MeasuredEntity is "dawn side crossings", and the Quantity is 77%. So the TSV entry would be:
+
+annotSet    annotType           annotId    text                other
+2           Quantity            T3         77%                {"unit": "%"}
+2           MeasuredEntity      T4         dawn side crossings {"HasQuantity": "T3"}
+
+But this doesn't account for the fact that "dawn side" could be a Qualifier. However, according to the example, adjectives modifying the entity are part of the entity's text.
+
+Alternatively, if we split "dawn side" as a Qualifier, then the MeasuredEntity is "crossings", and "dawn side" is a Qualifier. But in the text, "dawn side" is part of the noun phrase, not a separate clause. So this is a gray area.
+
+Maybe the correct approach here is to annotate "dawn side crossings" as the MeasuredEntity, without a separate Qualifier. That way, the entire phrase is captured as the entity. This aligns with the example where "soda can" is the entity, not "soda" with a Qualifier "can".
+
+Therefore, in our case, the MeasuredEntity for "dawn side crossings" is "dawn side crossings", and similarly for "dusk side crossings".
+
+But then, how do we handle the fact that "dawn side" and "dusk side" are qualifiers? According to the guidelines, Qualifiers are optional spans describing conditions or attributes. If they are integral parts of the MeasuredEntity's name, perhaps they are not Qualifiers.
+
+But the problem is that "dawn side" is a descriptor of the crossings. If there are multiple instances where the same concept is referred to (e.g., "dawn side crossings" and "crossings on the dawn side"), the annotation should capture the exact text. However, according to the guidelines, the Qualifier is a separate span. 
+
+Given the ambiguity, perhaps the safest approach is to treat "dawn side crossings" as the MeasuredEntity, with the exact text, and not use a Qualifier in this case. Therefore, in the TSV:
+
+For "77% of the dawn side crossings":
+
+annotSet    annotType           annotId    text                other
+2           Quantity            T3         77%                {"unit": "%"}
+2           MeasuredEntity      T4         dawn side crossings {"HasQuantity": "T3"}
+
+Similarly for others.
+
+But this would miss the opportunity to link "dawn side" as a Qualifier. However, given the example in the problem statement, where the Qualifier was a separate clause, it's possible that adjectives within the noun phrase are considered part of the MeasuredEntity's text and not a separate Qualifier.
+
+Therefore, proceeding under that assumption:
+
+- Each percentage is a Quantity with unit "%"
+
+- The MeasuredEntity is the full noun phrase, e.g., "crossings", "dawn side crossings", "dusk side crossings", "wave-associated crossings"
+
+- Qualifiers are not used here since the descriptors are part of the entity's name.
+
+But wait, in the text, it's "wave-associated crossings". So "wave-associated" is part of the MeasuredEntity's text. But in the sentence "the wave-associated crossings that suggest sunward propagation", there's no quantity mentioned, so it's not part of our current extraction.
+
+Thus, for the given quantities:
+
+1. "77% of the crossings" → MeasuredEntity: crossings
+
+2. "77% of the dawn side crossings" → MeasuredEntity: dawn side crossings
+
+3. "76% of the dusk side crossings" → MeasuredEntity: dusk side crossings
+
+4. "89% of the crossings" → MeasuredEntity: crossings (but in the context of wave-associated, from the later part of the text)
+
+Wait, no. The text says: "Panels (c) and (d) of Fig. 9 show the inferred propagation directions for the crossings associated with waves only. In this case, 89% of the crossings suggest tailward propagation, comprising 94% of the dawn side crossings and 86% of the dusk side crossings."
+
+Here, "crossings associated with waves only" would have the MeasuredEntity as "crossings associated with waves", but in the quantity mentions, it's "89% of the crossings", which now refers to the wave-associated crossings. However, the text says "comprising 94% of the dawn side crossings and 86% of the dusk side crossings" within the context of wave-associated crossings. 
+
+But how is this reflected in the text? The exact phrases are:
+
+- "89% of the crossings" (in the context of wave-associated)
+
+- "94% of the dawn side crossings" (wave-associated dawn side)
+
+- "86% of the dusk side crossings" (wave-associated dusk side)
+
+But the text does not explicitly say "wave-associated dawn side crossings". It just says "dawn side crossings" in the context of the previous mention of wave-associated crossings. Therefore, perhaps the MeasuredEntity for the 94% and 86% is still "dawn side crossings" and "dusk side crossings", but the overall context is wave-associated. However, since the annotation is based on the exact text, and the text for those quantities is "dawn side crossings" and "dusk side crossings" without the "wave-associated" qualifier, we can't assume that. 
+
+Therefore, the later quantities (89%, 94%, 86%) are part of a different context (wave-associated crossings), which is mentioned in the preceding sentence: "Panels (c) and (d) of Fig. 9 show the inferred propagation directions for the crossings associated with waves only." So the crossings in these quantities are "wave-associated crossings". Therefore, the MeasuredEntity for the 89% quantity would be "crossings associated with waves", but the exact text in the quantity mention is "crossings", which now refers back to the "crossings associated with waves". However, the text for the MeasuredEntity should be the exact span. 
+
+This is a bit tricky. The mention of "89% of the crossings" refers back to "crossings associated with waves only" from the previous sentence, but the exact text in the quantity's context is just "crossings". Therefore, how do we annotate this?
+
+According to the guidelines, annotations should be based on the exact text. Therefore, even if the crossings are wave-associated in context, the MeasuredEntity's text is "crossings". However, this would lose the information that these crossings are wave-associated. 
+
+Alternatively, perhaps the MeasuredEntity is "crossings associated with waves", but the text span for the MeasuredEntity would be in the previous sentence: "crossings associated with waves only". But the quantity mentions "crossings" without repeating that qualifier. Therefore, this is a co-reference issue, which the guidelines don't explicitly handle. The annotation is supposed to be based on exact spans.
+
+Therefore, for the quantity "89% of the crossings", the MeasuredEntity is "crossings" as per the exact text, even though the context implies they are wave-associated. However, the previous sentence mentions "crossings associated with waves only", so maybe that's the MeasuredEntity. But the quantity mention is in a separate sentence, referring back to them. Since the annotation requires exact text spans, we can't link them unless the text is in the same sentence. Therefore, the MeasuredEntity for the 89% quantity is "crossings", but we might need a Qualifier to indicate that they are wave-associated. 
+
+Wait, the sentence containing the quantity is: "In this case, 89% of the crossings suggest tailward propagation, comprising 94% of the dawn side crossings and 86% of the dusk side crossings." The previous sentence is: "Panels (c) and (d) of Fig. 9 show the inferred propagation directions for the crossings associated with waves only." Therefore, "crossings" in the quantity refers to "crossings associated with waves only". However, the text of the MeasuredEntity for the 89% is "crossings" in the current sentence. To capture the association with waves, we might need a Qualifier. 
+
+But according to the guidelines, Qualifiers are spans in the text that qualify the entity. Since "crossings associated with waves only" is in a previous sentence, it's not part of the same span. Therefore, we can't use that as a Qualifier for the 89% quantity's MeasuredEntity. This is a limitation, but per the instructions, annotations should be based on exact text spans.
+
+Therefore, the MeasuredEntity for the 89% quantity is just "crossings", and the context is lost. However, the text later says "the wave-associated crossings that suggest sunward propagation are all relatively close to the subsolar region." But again, that's a separate mention.
+
+Given the guidelines' emphasis on exact text spans, I think we have to annotate the MeasuredEntity as "crossings" for the 89% quantity, even if the context implies they are wave-associated. However, in the TSV, perhaps we can include a Qualifier from the same sentence. But the sentence with the quantity doesn't mention "wave-associated"; it's inferred from the previous sentence. Therefore, we can't include it as a Qualifier.
+
+This is a challenge. The correct approach here is to annotate based on the exact text mentioned in the same sentence as the quantity. Therefore:
+
+- For "89% of the crossings", the MeasuredEntity is "crossings" (text span "crossings")
+
+- For "94% of the dawn side crossings", the MeasuredEntity is "dawn side crossings"
+
+- For "86% of the dusk side crossings", the MeasuredEntity is "dusk side crossings"
+
+Even though the context implies they are wave-associated, the exact text in those quantity mentions does not include "wave-associated", so we can't annotate that unless it's part of the same span.
+
+Therefore, proceeding with this approach, the TSV would have the following entries:
+
+annotSet 1:
+
+- Quantity: 77% (text: 77%), MeasuredEntity: crossings, no Qualifier.
+
+annotSet 2:
+
+- Quantity: 77% (text: 77%), MeasuredEntity: dawn side crossings.
+
+annotSet 3:
+
+- Quantity: 76% (text: 76%), MeasuredEntity: dusk side crossings.
+
+annotSet 4:
+
+- Quantity: 89% (text: 89%), MeasuredEntity: crossings.
+
+annotSet 5:
+
+- Quantity: 94% (text: 94%), MeasuredEntity: dawn side crossings.
+
+annotSet 6:
+
+- Quantity: 86% (text: 86%), MeasuredEntity: dusk side crossings.
+
+However, this misses the "wave-associated" context for annotSets 4-6. But since the text in those quantity mentions doesn't include "wave-associated", we can't capture it as a Qualifier or part of the MeasuredEntity.
+
+Alternatively, maybe the MeasuredEntity for annotSet 4 is "crossings associated with waves" from the previous sentence. But the quantity mention is in a different sentence. According to the guidelines, annotations are based on the text, so we can only include spans from the same sentence. Therefore, this is not possible.
+
+Given that, proceed with the above structure.
+
+Now, for the other field in the TSV:
+
+For each Quantity, the 'other' field should have the unit and modifiers. Here, each quantity is a percentage, so unit is "%", and there are no modifiers like IsApproximate, IsCount, etc. The quantities are exact percentages, so no approximate modifiers. Therefore, 'other' for each Quantity is {"unit": "%"}
+
+For MeasuredEntity entries, the 'other' field should have relationships. Each MeasuredEntity has a HasQuantity relationship to the Quantity in its annotSet.
+
+For example, annotSet 1:
+
+annotSet 1:
+
+annotType: Quantity, annotId: T1, text: 77%, other: {"unit": "%"}
+
+annotType: MeasuredEntity, annotId: T2, text: crossings, other: {"HasQuantity": "T1"}
+
+annotSet 2:
+
+annotType: Quantity, annotId: T3, text: 77%, other: {"unit": "%"}
+
+annotType: MeasuredEntity, annotId: T4, text: dawn side crossings, other: {"HasQuantity": "T3"}
+
+And so on for each set.
+
+Therefore, the final TSV would have six annotation sets, each with a Quantity and MeasuredEntity, linked via HasQuantity.
+
+But wait, the example provided in the problem statement includes MeasuredProperty. However, in our case, there's no explicit MeasuredProperty like "temperature" or "volume". The text mentions "suggest tailward propagation", but that is not a property of the crossings but rather a result or conclusion. Therefore, MeasuredProperty is not present here, so we don't annotate it.
+
+Thus, each annotSet contains a Quantity and a MeasuredEntity with a HasQuantity relationship.
+
+Therefore, the final TSV would look like:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	77%	{"unit": "%"}
+1	MeasuredEntity	T2	crossings	{"HasQuantity": "T1"}
+2	Quantity	T3	77%	{"unit": "%"}
+2	MeasuredEntity	T4	dawn side crossings	{"HasQuantity": "T3"}
+3	Quantity	T5	76%	{"unit": "%"}
+3	MeasuredEntity	T6	dusk side crossings	{"HasQuantity": "T5"}
+4	Quantity	T7	89%	{"unit": "%"}
+4	MeasuredEntity	T8	crossings	{"HasQuantity": "T7"}
+5	Quantity	T9	94%	{"unit": "%"}
+5	MeasuredEntity	T10	dawn side crossings	{"HasQuantity": "T9"}
+6	Quantity	T11	86%	{"unit": "%"}
+6	MeasuredEntity	T12	dusk side crossings	{"HasQuantity": "T11"}
+
+But wait, the original text mentions "wave-associated crossings" in the later part, but the quantities for 89%, 94%, and 86% are in the context of wave-associated crossings. However, since the text of those quantities doesn't include "wave-associated", we can't annotate it unless it's part of the same span.
+
+In the sentence: "Panels (c) and (d) of Fig. 9 show the inferred propagation directions for the crossings associated with waves only. In this case, 89% of the crossings suggest tailward propagation, comprising 94% of the dawn side crossings and 86% of the dusk side crossings."
+
+Here, "crossings associated with waves only" is in the first sentence, and "crossings" in the next sentence refers to them. But according to the guidelines, we can't link these across sentences unless the exact span is present. Therefore, the MeasuredEntity for the 89% quantity is just "crossings", and there's no way to link it to "associated with waves" from the previous sentence.
+
+Therefore, the TSV as outlined above is correct under the given guidelines.
+
+However, there's another mention later: "The wave-associated crossings that suggest sunward propagation are all relatively close to the subsolar region." Here, "wave-associated crossings" is a noun phrase, but there's no quantity associated with it in the same sentence, so it's not annotated.
+
+Therefore, the final TSV includes the six annotation sets as outlined.

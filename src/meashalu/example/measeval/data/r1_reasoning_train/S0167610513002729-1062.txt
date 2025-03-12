@@ -1,0 +1,312 @@
+Okay, let me tackle this step by step. First, I need to identify all the quantities in the input text. The input starts with "x=0.64 H". That looks like a measurement. The value is 0.64, and the unit is H. Wait, but H is mentioned here. Then there's a qualifier "about two-third of the way into the street". Let me check if "two-third" is a quantity. Yes, it's a count or fraction. Also, "Fig. 6d" is mentioned. Should that be considered a quantity? Probably not, since figures are references, not measurable entities.
+
+So, the main quantities here are "0.64 H" and "two-third". Let's confirm. The first part, "x=0.64 H", is a measurement with a unit H. The second is "about two-third", which is a fraction, so maybe a count with an approximate modifier.
+
+Next, for each quantity, I need to extract modifiers and units. "0.64 H" has unit H. The "two-third" part has "about" as a modifier, indicating approximation. So "about two-third" would be a quantity with IsApproximate and IsCount modifiers? Wait, IsCount is for counts of entities. Two-third is a fraction, so maybe it's a count. Or perhaps since it's a fraction of a whole, it's a measurement? Hmm. The example in the guidelines had "five samples" as IsCount. So maybe "two-third" is a count here. But I'm not entirely certain. Alternatively, maybe it's a dimensionless quantity. The guidelines mention that counts lack units. Here, "two-third" is a fraction without a unit, so perhaps it's a count. The modifier "about" would make it IsApproximate.
+
+Now, looking for measured entities. For "0.64 H", the text says "at x=0.64 H (about two-third of the way into the street...)". So the measured entity here could be "the way into the street" or "street". Wait, the phrase is "about two-third of the way into the street". The MeasuredEntity here might be "street" and the MeasuredProperty is "the way into the street", but that's a bit unclear. Alternatively, the position along the street is being measured. The quantity "0.64 H" is a position along the street, so the MeasuredEntity would be "street" and the MeasuredProperty is "position" or "distance". However, the text mentions "the way into the street", which could be paraphrased as the distance or position. So perhaps the MeasuredProperty is "way into the street".
+
+But in the example given previously, the MeasuredProperty was things like "temperature" or "volume". So here, maybe the MeasuredProperty for "0.64 H" is "position". And the MeasuredEntity would be "street". However, the text also says "Fig. 6d", but figures are not entities here.
+
+For the "about two-third" quantity, the MeasuredEntity would be "street" as well, and the MeasuredProperty might be "way into the street", but this is getting a bit ambiguous. Let's think again.
+
+Looking at the structure: "x=0.64 H (about two-third of the way into the street, Fig. 6d)". The part in parentheses is explaining what 0.64 H represents. So "0.64 H" is the x position, which is equivalent to about two-thirds of the way into the street. So here, "x=0.64 H" is a quantity, and "about two-third" is another quantity that explains it. So for "0.64 H", the MeasuredEntity would be "street" and MeasuredProperty is "x position". Alternatively, maybe the MeasuredEntity is "street" and the MeasuredProperty is "distance" or "position".
+
+But the text doesn't explicitly mention "position" as a property. It says "the way into the street", which is a way of expressing position. So perhaps "way into the street" is the MeasuredProperty. Then, "0.64 H" is the quantity for that property. Then the "about two-third" is another quantity that refers to the same position but as a fraction.
+
+So now, for each quantity:
+
+1. "0.64 H": Quantity with unit H. The MeasuredEntity is "street", MeasuredProperty is "way into the street" (or "position"). The relationship would be HasProperty from street to "way into the street", then HasQuantity from the property to the quantity.
+
+Wait, but "the way into the street" is part of the explanation of the quantity. Maybe the phrase "the way into the street" is the MeasuredProperty. So the MeasuredEntity is "street", the MeasuredProperty is "the way into the street", and the quantity is "0.64 H" and "two-third". But "two-third" is a separate quantity here, explaining the same position.
+
+But according to the example, each quantity has its own set. So "0.64 H" would be in one set, "two-third" in another. Wait, but they are related. But according to the guidelines, each logical grouping is an annotSet. Here, both quantities are referring to the same position, so maybe they should be in the same annotSet. But the example had separate sets for each quantity-entity-property trio. Wait, in the example given, each quantity was in a separate annotSet. Let me check the example again.
+
+In the example, each quantity (25°C, 500 milliliters, 10 grams) were each in separate annotSets (1, 2, 3). Each with their own entities and properties. So perhaps here, "0.64 H" and "two-third" are in separate annotSets. But since they are explaining the same position, perhaps they are in the same set. Hmm, the example grouped by each quantity and their related entities. So each quantity starts a new set. So in this case, "0.64 H" is one set, and "two-third" is another set. But how do they relate?
+
+Alternatively, since they are both describing the same position, perhaps they are part of the same set. Let me think. The first part is "x=0.64 H (about two-third of the way into the street, Fig. 6d)". So "0.64 H" is a position, and "two-third" is a fraction of the way into the street, which explains what 0.64 H represents. So maybe they are part of the same set. But according to the example, each quantity is in its own set. For instance, "approximately 25°C" was set 1, and "500 milliliters" was set 2. So maybe each quantity is its own annotSet. So here, "0.64 H" is set 1, and "two-third" is set 2.
+
+But the problem is that "two-third" is a qualifier for "0.64 H". Wait, no. The structure is that "x=0.64 H (about two-third of the way into the street...)". So "about two-third of the way..." is a qualifier explaining the position. So "about two-third" is a quantity that is a qualifier for the position. But I'm not sure.
+
+Alternatively, "about two-third" is a separate quantity, with its own MeasuredEntity and MeasuredProperty. The MeasuredProperty here could be the "way into the street", and the MeasuredEntity is the street. Then, the two quantities (0.64 H and two-third) are both related to the same MeasuredEntity and MeasuredProperty. But according to the example, each quantity has its own set. So maybe that's the case here. Let's proceed.
+
+First, annotSet 1: Quantity "0.64 H". The MeasuredEntity is "street", MeasuredProperty is "way into the street". Then annotSet 2: Quantity "about two-third" (modifier IsApproximate, IsCount?), MeasuredEntity "street", MeasuredProperty "way into the street".
+
+But then, how are these grouped? Each set is a logical grouping. Since both quantities refer to the same position, perhaps they are in the same set. But in the example, each quantity was separate. I'm a bit confused here.
+
+Alternatively, "0.64 H" is part of the x=0.64 H, which is a position. The MeasuredEntity here could be "position" or "street canyon" mentioned later. Wait, the input mentions "street canyon" later, which is a different entity. The first part is about the position in the street.
+
+Wait, looking at the input text: "At x=0.64 H (about two-third of the way into the street, Fig. 6d), a similar picture applies, but the core of the vortex is further up and there is now a strong flow in the lower part of the canyon towards the lee of the building. This would cause any material in the street canyon (which, for example, might have come from advection along the street from upstream) to be driven into the recirculation region."
+
+So "street canyon" is mentioned later as a location. The "street canyon" is the area where material is present. But back to the quantities.
+
+Let me focus on the first part: x=0.64 H (about two-third of the way into the street...). The main quantity here is "0.64 H", and "about two-third" is providing an approximate equivalent in terms of fractions.
+
+So, according to the guidelines, each quantity is in its own set. So "0.64 H" is set 1, "about two-third" is set 2.
+
+But how about the MeasuredEntity and MeasuredProperty for each? For "0.64 H", the MeasuredEntity would be "street" and MeasuredProperty could be "x position". However, the text says "the way into the street", so maybe the MeasuredProperty is "way into the street". Then, for "about two-third", the MeasuredEntity is "street", MeasuredProperty is "way into the street", but the quantity is "two-third" as a fraction.
+
+But in that case, both quantities would be linked to the same MeasuredEntity and MeasuredProperty. But in the example, each quantity had its own. So perhaps here, each quantity is in its own set, even if they relate to the same entity and property. Alternatively, the guidelines say "each logical grouping of related annotations". So if two quantities are describing the same entity and property, they would be in the same set. But in the example, each quantity was part of a different entity and property, hence different sets.
+
+In this case, "0.64 H" and "about two-third" both describe the position along the street, so they might be in the same set. Let's consider that.
+
+AnnotSet 1:
+- Quantity: "0.64 H" (T1)
+- MeasuredEntity: "street" (T2)
+- MeasuredProperty: "way into the street" (T3)
+- Then relationships: T2 HasProperty T3, T3 HasQuantity T1.
+
+Then, the "about two-third" would be another quantity in the same set? Or a different set.
+
+Wait, the example had three sets because each quantity was part of a different entity-property pair. But here, the two quantities are both related to the same entity and property. So that would be part of the same set. But the example didn't have such a case. Let's see:
+
+If both quantities are in the same set, the structure would be:
+
+annotSet 1:
+- Quantity: 0.64 H (T1), unit H, no mods
+- Quantity: about two-third (T2), mods IsApproximate, IsCount?
+- MeasuredEntity: street (T3)
+- MeasuredProperty: way into the street (T4)
+- Relationships: T3 HasProperty T4, T4 HasQuantity T1 and T4 HasQuantity T2? But according to the relationships definitions, MeasuredProperty can have one HasQuantity. Hmm, maybe each quantity is in its own set.
+
+Alternatively, "about two-third" is a qualifier for the first quantity. Wait, the text says "x=0.64 H (about two-third of the way into the street...)". The part in parentheses is explaining the 0.64 H. So "about two-third of the way into the street" is a qualifier for the position. But according to the Qualifier definition, Qualifier is a span that affects the Quantity. So "about two-third of the way into the street" could be a Qualifier that qualifies the Quantity "0.64 H".
+
+But in that case, "about two-third" is part of the Qualifier. Wait, but "about two-third" is a quantity itself. So perhaps there's a Qualifier span "about two-third of the way into the street" that includes the quantity "two-third".
+
+This is getting complicated. Let me break it down.
+
+First, identify all quantities. The obvious ones are "0.64 H" and "two-third".
+
+"0.64 H" is a quantity with unit H.
+
+"two-third" is a quantity (a fraction) with no unit. It's modified by "about", making it approximate.
+
+Now, MeasuredEntity for "0.64 H": The text says "x=0.64 H (about two-third of the way into the street...)". The x position is a coordinate, so perhaps the MeasuredEntity is the street, and the MeasuredProperty is the position along the street (way into the street). So:
+
+AnnotSet 1:
+- Quantity: T1: 0.64 H, unit H.
+- MeasuredEntity: T2: street
+- MeasuredProperty: T3: way into the street
+- Relationships: T2 HasProperty T3, T3 HasQuantity T1.
+
+Then the "about two-third" is another quantity in another set:
+
+AnnotSet 2:
+- Quantity: T4: about two-third, mods IsApproximate, IsCount (since it's a fraction without a unit)
+- MeasuredEntity: T5: street
+- MeasuredProperty: T6: way into the street
+- Relationships: T5 HasProperty T6, T6 HasQuantity T4.
+
+But then both sets are similar. Alternatively, since they refer to the same entity and property, maybe they should be in the same set. But the example had different sets for each quantity. So perhaps each quantity is in its own set.
+
+Alternatively, perhaps "about two-third of the way into the street" is a Qualifier that qualifies the MeasuredProperty "way into the street". But according to the Qualifier definition, a Qualifier is a span that describes conditions or attributes affecting a Quantity, MeasuredEntity, or MeasuredProperty.
+
+So the entire phrase "about two-third of the way into the street" could be a Qualifier that qualifies the MeasuredProperty "way into the street", and within that Qualifier, there's a Quantity "two-third" with modifier "about".
+
+But how to represent that? Let's think in terms of the steps.
+
+Step 1: Extract Quantities.
+
+Quantities are "0.64 H" and "two-third".
+
+Step 2: For each quantity, extract modifiers and units.
+
+For "0.64 H": unit H. No modifiers mentioned here, unless "x=" is part of it, but the quantity is "0.64 H".
+
+For "two-third": "about" is a modifier (IsApproximate), and since it's a fraction without a unit, it's IsCount.
+
+Then, MeasuredEntity for "0.64 H": the street. MeasuredProperty is "way into the street".
+
+For "two-third": the MeasuredEntity is also street, MeasuredProperty is "way into the street".
+
+Then, there's the phrase "about two-third of the way into the street" which could be a Qualifier. But according to the example, a Qualifier in the other field would have a relationship like {"Qualifies": "T1"}.
+
+But if "about two-third of the way into the street" is a Qualifier, then we need to link it. But the problem is that the phrase includes the quantity "two-third". So in this case, "about two-third" is the quantity, and the rest of the phrase ("of the way into the street") is part of the MeasuredProperty?
+
+Alternatively, the entire phrase is a Qualifier that qualifies the first quantity "0.64 H". But that might not fit the model.
+
+Another approach: The main quantity here is "0.64 H", which is part of the coordinate x. The explanation in parentheses is providing a human-readable equivalent: two-thirds of the way into the street. So "about two-third" is a quantity that is related to the same MeasuredProperty (way into the street). So the two quantities are both linked to the same MeasuredProperty and MeasuredEntity.
+
+But according to the example, each quantity is in its own set. So even if they are linked to the same entity and property, they are separate sets. So annotSet 1 for "0.64 H" and annotSet 2 for "two-third".
+
+Now, for each:
+
+AnnotSet 1:
+- Quantity T1: 0.64 H, unit H.
+- MeasuredEntity T2: street
+- MeasuredProperty T3: way into the street
+- Relationships: T2 HasProperty T3, T3 HasQuantity T1.
+
+AnnotSet 2:
+- Quantity T4: about two-third, mods: IsApproximate, IsCount.
+- MeasuredEntity T5: street
+- MeasuredProperty T6: way into the street
+- Relationships: T5 HasProperty T6, T6 HasQuantity T4.
+
+But then we have two separate sets, but the MeasuredEntity and MeasuredProperty are the same in both. However, according to the example, even if two quantities are about the same entity and property, they are split into separate sets. For example, if two temperatures were mentioned for the same solution, each would be a separate set. So here, perhaps each quantity is in a separate set.
+
+Now, the Qualifier part. The phrase "about two-third of the way into the street" is part of the explanation for "x=0.64 H". So maybe this entire phrase is a Qualifier that qualifies the MeasuredProperty "way into the street" or the Quantity "0.64 H". The problem is that the Qualifier "about two-third..." includes the second quantity. So perhaps the Qualifier is "about two-third of the way into the street", which qualifies the MeasuredProperty "way into the street" in AnnotSet 1.
+
+But according to the steps, after extracting quantities, you need to annotate Qualifiers. So the Qualifier here is "about two-third of the way into the street". But this phrase includes the Quantity "two-third". So how to handle that? The Qualifier would have a relation to the Quantity. Wait, but the Qualifier is not a separate entity, but a span that includes a Quantity.
+
+Alternatively, the Qualifier is "about two-third of the way into the street", which qualifies the MeasuredProperty "way into the street" in AnnotSet 1. Then, within that Qualifier, there's a Quantity "two-third" which is part of AnnotSet 2.
+
+This is getting quite complex. Let me try to structure it.
+
+AnnotSet 1:
+- Quantity T1: 0.64 H, unit H.
+- MeasuredEntity T2: street
+- MeasuredProperty T3: way into the street
+- Relationships: T2 HasProperty T3, T3 HasQuantity T1.
+- Qualifier: "about two-third of the way into the street" (if applicable). But according to the definition, Qualifiers are linked using "Qualifies" relation. So perhaps the Qualifier is the entire phrase, which would then relate to T3 (MeasuredProperty) or T1 (Quantity).
+
+But in the example, the Qualifier "after I drank half the can" was linked to the Quantity. So here, perhaps the phrase "about two-third of the way into the street" is a Qualifier for the Quantity T1. So:
+
+AnnotSet 1 would have:
+
+- Qualifier T4: "about two-third of the way into the street", which Qualifies T1.
+
+But within that Qualifier, there's the Quantity "two-third". So we need to also annotate that as part of another set.
+
+So in AnnotSet 2:
+
+- Quantity T5: about two-third, mods: IsApproximate, IsCount.
+- MeasuredEntity T6: way into the street (but wait, the MeasuredEntity here would still be street, and MeasuredProperty would be the fraction of the way? Or not?)
+
+This seems complicated. Maybe the correct approach is to have the phrase "about two-third of the way into the street" as a Qualifier that qualifies the Quantity T1 (0.64 H), and within that Qualifier, the quantity "two-third" is annotated as part of another set.
+
+But how to represent that in TSV? Let me try:
+
+AnnotSet 1:
+- Quantity T1: 0.64 H, unit H.
+- MeasuredEntity T2: street
+- MeasuredProperty T3: way into the street
+- Qualifier T4: about two-third of the way into the street (text: "about two-third of the way into the street")
+- Relationships:
+   - T2 HasProperty T3
+   - T3 HasQuantity T1
+   - T4 Qualifies T1 (or T3?)
+
+But then the Qualifier T4 is a separate annotation in the same set. But according to the example, the Qualifier is linked via the "other" field. So in the TSV, the Qualifier's "other" field would have {"Qualifies": "T1"}.
+
+But the Qualifier's text is "about two-third of the way into the street", which contains the quantity "two-third". So this leads us to another set for the "two-third" quantity.
+
+So AnnotSet 2:
+- Quantity T5: two-third, with mods IsApproximate (because of "about") and IsCount (since it's a fraction without unit).
+- MeasuredEntity T6: way into the street (since "two-third of the way into the street" implies the MeasuredEntity is the way into the street? Or is it still the street?)
+
+Wait, "two-third of the way into the street" is a fraction of the entire street's length. So the MeasuredEntity would still be "street", and the MeasuredProperty is "way into the street" (position). So:
+
+AnnotSet 2:
+- Quantity T5: about two-third (text is "about two-third"), mods: ["IsApproximate", "IsCount"].
+- MeasuredEntity T6: street
+- MeasuredProperty T7: way into the street
+- Relationships: T6 HasProperty T7, T7 HasQuantity T5.
+
+And then in AnnotSet 1, the Qualifier is "about two-third of the way into the street", which is a Qualifier that qualifies the Quantity T1 (0.64 H) or the MeasuredProperty T3 (way into the street). But according to the example, Qualifiers are linked to the Quantity, MeasuredEntity, or MeasuredProperty.
+
+In this case, the Qualifier "about two-third of the way into the street" is explaining what the x=0.64 H represents. So it's qualifying the Quantity T1. So in AnnotSet 1, we have a Qualifier T4: "about two-third of the way into the street" with relationship {"Qualifies": "T1"}.
+
+But this Qualifier's text includes another quantity (T5). However, the guidelines don't mention nesting annotations. Each annotation is a separate span. So the Qualifier span is separate, and the Quantity within it is another annotation. So the TSVs would look like:
+
+annotSet    annotType           annotId    text                other
+1           Quantity            T1         0.64 H             {"unit": "H"}
+1           MeasuredEntity      T2         street             {"HasProperty": "T3"}
+1           MeasuredProperty    T3         way into the street{"HasQuantity": "T1"}
+1           Qualifier           T4         about two-third of the way into the street {"Qualifies": "T1"}
+2           Quantity            T5         about two-third    {"mods": ["IsApproximate", "IsCount"]}
+2           MeasuredEntity      T6         street             {"HasProperty": "T7"}
+2           MeasuredProperty    T7         way into the street{"HasQuantity": "T5"}
+
+Wait, but in the input, the Qualifier's text is "about two-third of the way into the street, Fig. 6d". Wait, the exact text is "(about two-third of the way into the street, Fig. 6d)". So the Qualifier should include both parts? Or just the part about two-third?
+
+But the example given in the problem had a Qualifier "after I drank half the can" linked to the Quantity. So perhaps the entire parenthetical phrase is a Qualifier. But "Fig. 6d" is a figure reference and not part of the Qualifier. So the Qualifier's text would be "about two-third of the way into the street".
+
+But in the input, it's written as "x=0.64 H (about two-third of the way into the street, Fig. 6d)". So the text inside the parentheses includes both the explanation and the figure reference. So the Qualifier would be "about two-third of the way into the street", and "Fig. 6d" is a separate reference (not a Qualifier or Quantity).
+
+So in AnnotSet 1, the Qualifier is "about two-third of the way into the street", linked to Quantity T1.
+
+But then the "about two-third" within the Qualifier is a separate Quantity in AnnotSet 2.
+
+This results in two annotation sets:
+
+Set 1: For "0.64 H", with MeasuredEntity street, MeasuredProperty way into the street, and a Qualifier.
+
+Set 2: For "about two-third", with MeasuredEntity street, MeasuredProperty way into the street.
+
+But then, how is the Qualifier in Set 1 related to the Quantity in Set 2? According to the relationships, the Qualifier in Set 1 would have to reference the Quantity in Set 2, but that's not possible since they're in different sets. Or maybe the Qualifier in Set 1 is a separate annotation that doesn't reference the other set.
+
+Alternatively, perhaps the Qualifier "about two-third of the way into the street" is part of Set 1 and includes the Quantity "two-third" within it. But according to the guidelines, annotations should not overlap. So each span is a separate annotation.
+
+This is getting quite tricky. Let me try to proceed step by step, following the example.
+
+First, extract all Quantities.
+
+1. "0.64 H" – Quantity with unit H.
+2. "about two-third" – Quantity with modifier IsApproximate and IsCount (since it's a fraction without unit).
+
+MeasuredEntities and MeasuredProperties:
+
+For "0.64 H":
+- The text mentions "the street", so MeasuredEntity is "street".
+- The MeasuredProperty is "x" (as in x=0.64 H) or "position", but the text explains it as "the way into the street". So MeasuredProperty is "way into the street".
+
+For "about two-third":
+- The text says "two-third of the way into the street", so the MeasuredEntity is "street", MeasuredProperty is "way into the street".
+
+Qualifiers:
+
+The phrase "about two-third of the way into the street" explains the quantity "0.64 H", so this phrase is a Qualifier qualifying the Quantity "0.64 H". However, the phrase itself contains another quantity "two-third", which must be annotated separately.
+
+So to structure this:
+
+AnnotSet 1:
+- Quantity T1: 0.64 H, unit H.
+- MeasuredEntity T2: street.
+- MeasuredProperty T3: way into the street.
+- Qualifier T4: about two-third of the way into the street (text: "about two-third of the way into the street").
+- Relationships:
+   - T2 HasProperty T3.
+   - T3 HasQuantity T1.
+   - T4 Qualifies T1.
+
+AnnotSet 2:
+- Quantity T5: about two-third, mods: IsApproximate, IsCount.
+- MeasuredEntity T6: street.
+- MeasuredProperty T7: way into the street.
+- Relationships:
+   - T6 HasProperty T7.
+   - T7 HasQuantity T5.
+
+But then, the Qualifier T4 in Set 1 includes the text "about two-third of the way into the street", which contains the Quantity T5 from Set 2. However, the guidelines don't mention overlapping annotations. Each annotation is a non-overlapping span. So the text for T4 is the entire phrase, and T5 is a part of that phrase. But according to the example, each annotation is separate. So this might be acceptable, but it's unclear.
+
+Alternatively, perhaps the Qualifier is just "about two-third", but that doesn't make sense as it's part of a larger explanation.
+
+Alternatively, the Qualifier is "about two-third of the way into the street", and the Quantity within it is "two-third". But since the guidelines require each quantity to be annotated separately, this is allowed.
+
+So the TSV would be:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	0.64 H	{"unit": "H"}
+1	MeasuredEntity	T2	street	{"HasProperty": "T3"}
+1	MeasuredProperty	T3	way into the street	{"HasQuantity": "T1"}
+1	Qualifier	T4	about two-third of the way into the street	{"Qualifies": "T1"}
+2	Quantity	T5	about two-third	{"mods": ["IsApproximate", "IsCount"]}
+2	MeasuredEntity	T6	street	{"HasProperty": "T7"}
+2	MeasuredProperty	T7	way into the street	{"HasQuantity": "T5"}
+
+But in the input text, the exact span for "about two-third" is "about two-third". The full phrase in the parentheses is "about two-third of the way into the street, Fig. 6d". So the Qualifier's text would be "about two-third of the way into the street", excluding "Fig. 6d". But the original text has a comma separating the two parts. So the Qualifier is "about two-third of the way into the street".
+
+Therefore, the TSV would be as above. Each set handles its own Quantity, and the Qualifier in Set 1 is a separate annotation that qualifies T1.
+
+Another point: The example had Qualifier's "other" field as {"Qualifies": "T4-5"}, which was the quantity. So in Set 1's Qualifier T4, "other" field would be {"Qualifies": "T1"}.
+
+This seems to follow the guidelines.
+
+Now, checking if there are any other quantities in the input. The rest of the text mentions "recirculation region", "lower part of the canyon", etc. But are there quantities there? Let me check:
+
+"the core of the vortex is further up and there is now a strong flow in the lower part of the canyon towards the lee of the building. This would cause any material in the street canyon (which, for example, might have come from advection along the street from upstream) to be driven into the recirculation region."
+
+No numeric values or counts here. "lower part" is a descriptive term, not a quantity. "strong flow" is also descriptive. "material" is a noun, not a quantity. So no other quantities to annotate.
+
+Therefore, the final answer should have two annotSets: one for "0.64 H" and one for "about two-third".

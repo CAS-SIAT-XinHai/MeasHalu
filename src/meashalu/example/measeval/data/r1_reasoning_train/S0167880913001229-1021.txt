@@ -1,0 +1,407 @@
+Okay, let's tackle this problem step by step. First, I need to understand the input text and identify all the quantities and related entities. The input is about SOC (Soil Organic Carbon) stocks changes in Costa Rica and Nicaragua, along with some details about soil depth and management practices.
+
+Starting with Step 1: Extract Quantities. I'll go through each bullet point.
+
+1. "SOC stocks decreased by 12.4% in Costa Rica and 0.13% in Nicaragua after establishment of coffee AFS." Here, "12.4%" and "0.13%" are percentages indicating the decrease, so these are Quantities. The units here are "%".
+
+2. "SOC stocks increased in the top 10 cm of soil; greater reduction occurred at 20–40 cm." The "10 cm" and "20–40 cm" are measurements of depth. "cm" is the unit. The "20–40 cm" is a range, so that's a Quantity with IsRange modifier.
+
+3. "Organic management caused a greater increase in 0–10 cm SOC but did not influence reduction at depth." Here, "0–10 cm" is another range, same as before.
+
+4. "Shade type effects on SOC were smaller; no significant difference between shaded and unshaded coffee." No quantities here.
+
+5. "SOC stocks tend to converge on a level determined by site environment during establishment." Again, no explicit quantities.
+
+Now, moving to Step 2: For each Quantity, extract modifiers, units, and relations.
+
+First Quantity: 12.4%. The unit is "%", and it's a percentage decrease. The MeasuredEntity here would be SOC stocks in Costa Rica. The MeasuredProperty is "decrease" or perhaps "percentage decrease". But in the example given, sometimes the MeasuredProperty is something like "volume" or "temperature". So here, maybe the property is "percentage decrease". But the text says "SOC stocks decreased by 12.4%", so the property is "decrease". However, the example uses terms like "volume" and "temperature", so maybe here the MeasuredProperty is "decrease" and the MeasuredEntity is "SOC stocks in Costa Rica". Wait, but "Costa Rica" is a location qualifier. Hmm, perhaps the MeasuredEntity is "SOC stocks" and the location is a Qualifier. But according to the guidelines, Qualifiers are spans that describe conditions affecting the Quantity. So "in Costa Rica" would be a Qualifier for the Quantity 12.4%. Similarly for Nicaragua.
+
+But in the example given earlier, the Qualifier was "after I drank half the can" qualifying the Quantity. So here, "after establishment of coffee AFS" is a Qualifier. Wait, the first bullet says: "after establishment of coffee AFS". That's a Qualifier for both the 12.4% and 0.13% decreases. So each Quantity (12.4% and 0.13%) is linked to their respective countries (Costa Rica and Nicaragua), and the Qualifier is the same for both? Or is "after..." a separate Qualifier for each?
+
+Wait, let's parse the first bullet: "SOC stocks decreased by 12.4% in Costa Rica and 0.13% in Nicaragua after establishment of coffee AFS." So "after..." applies to both decreases. So the Qualifier is "after establishment of coffee AFS", which qualifies both Quantities. But how to structure that? Since each Quantity is in a different country, perhaps each has its own annotSet.
+
+Alternatively, maybe the two Quantities are in the same annotSet because they're related. Let's see the example in the user's message. In their example, each Quantity was in a separate annotSet. For instance, "approximately 25°C" was in set 1, "500 milliliters" in set 2, etc. So each Quantity with its related entities is a separate annotSet.
+
+But in the input here, the first bullet has two Quantities (12.4% and 0.13%) related to two different countries. So perhaps each forms its own annotSet. Let's proceed that way.
+
+So for "12.4%", the MeasuredEntity is "SOC stocks", MeasuredProperty is "decrease", Quantity is "12.4%", and Qualifiers are "in Costa Rica" and "after establishment of coffee AFS".
+
+Wait, but the example didn't include "in Costa Rica" as a Qualifier. The example had "after I drank half the can" as a Qualifier. So "in Costa Rica" would be a Qualifier for the Quantity 12.4%, and "after..." is another Qualifier.
+
+But according to the guidelines, Qualifiers are spans that provide context affecting the Quantity. So location ("in Costa Rica") is a Qualifier. Similarly for Nicaragua.
+
+So each Quantity (12.4% and 0.13%) would have their own annotSets. Let's start with the first one.
+
+AnnotSet 1:
+- Quantity: 12.4% with unit "%". Since it's a percentage decrease, maybe mods could be empty, unless there's a modifier like approximate. The text says "decreased by 12.4%", so no "approximately", so no IsApproximate. The unit is "%". The MeasuredEntity would be "SOC stocks" in Costa Rica. Wait, but "SOC stocks" is the entity, and "Costa Rica" is a Qualifier. So MeasuredEntity is "SOC stocks", and the Qualifier is "in Costa Rica". The MeasuredProperty is "decrease" (from the verb "decreased").
+
+But in the example, MeasuredProperty was "temperature", which is a noun. Here, "decrease" is a noun derived from the verb. So maybe the MeasuredProperty is "decrease".
+
+Then relationships:
+- MeasuredEntity (SOC stocks) HasProperty (decrease).
+- MeasuredProperty (decrease) HasQuantity (12.4%).
+- The Qualifiers "in Costa Rica" and "after establishment..." would Qualify the Quantity or the MeasuredEntity?
+
+Wait, in the example, "after I drank half the can" was a Qualifier for the Quantity. So here, "after establishment..." would Qualify the Quantity 12.4%. Similarly, "in Costa Rica" would also Qualify the Quantity. So two Qualifiers for the same Quantity.
+
+But in the TSV, each Qualifier is a separate annotation. So for annotSet 1, we would have:
+
+Quantity T1: 12.4% with unit "%".
+MeasuredEntity T2: SOC stocks.
+MeasuredProperty T3: decrease.
+Qualifier T4: in Costa Rica.
+Qualifier T5: after establishment of coffee AFS.
+
+Relationships:
+- T2 HasProperty T3.
+- T3 HasQuantity T1.
+- T4 Qualifies T1.
+- T5 Qualifies T1.
+
+Similarly for the second Quantity 0.13% in Nicaragua.
+
+Now, the second bullet: "SOC stocks increased in the top 10 cm of soil; greater reduction occurred at 20–40 cm."
+
+Here, "10 cm" is a Quantity with unit "cm". The MeasuredEntity is "top soil" (but the text says "top 10 cm of soil", so maybe the MeasuredEntity is "soil" and the MeasuredProperty is "depth" or "top depth". However, the context is about SOC stocks increasing in the top 10 cm. So the MeasuredEntity would be "SOC stocks" again, and the MeasuredProperty is "increase in top 10 cm of soil". Wait, but the text is "increased in the top 10 cm of soil". So the MeasuredProperty is "increase", and the Qualifier is "in the top 10 cm of soil". Alternatively, the depth is a Qualifier.
+
+Wait, this is getting complicated. Let's break it down.
+
+The sentence is: SOC stocks increased in the top 10 cm of soil.
+
+So the increase is the MeasuredProperty. The Quantity here is not explicitly stated as a percentage or a number. Wait, the sentence says "increased", but there's no numerical value. Wait, no, the first bullet had "decreased by 12.4%", but this bullet just says "increased". Wait, looking back at the input:
+
+Wait the input says:
+
+•SOC stocks increased in the top 10 cm of soil; greater reduction occurred at 20–40 cm.
+
+Hmm, the first part "SOC stocks increased in the top 10 cm of soil" doesn't mention a numerical Quantity. The actual quantities are the depths: "10 cm" and "20–40 cm".
+
+But the user's instruction says to extract quantities which can be measurements or counts. The depths here are measurements, so "10 cm" and "20–40 cm" are Quantities. Their purpose is to indicate where the SOC stocks increased or decreased. So these depths are Qualifiers for the increase and reduction.
+
+But how to model this. For example, the increase in SOC stocks is qualified by being in the top 10 cm. So "10 cm" is a Qualifier for the MeasuredEntity or MeasuredProperty.
+
+Alternatively, the MeasuredEntity is "SOC stocks in the top 10 cm of soil", but according to the guidelines, we should split the MeasuredEntity and Qualifiers.
+
+Let me think. For the phrase "increased in the top 10 cm of soil", the main MeasuredEntity is "SOC stocks", the MeasuredProperty is "increase", and the depth "10 cm" is a Qualifier. But "top 10 cm of soil" is a location qualifier indicating where the increase occurred.
+
+But "10 cm" is a Quantity (unit cm). Wait, but in this context, "10 cm" is part of the Qualifier describing the location. So "10 cm" is a Quantity, and the Qualifier is "in the top 10 cm of soil". But the Quantity "10 cm" is part of the Qualifier.
+
+But according to the guidelines, Qualifiers are spans that describe conditions affecting the Quantity, so maybe the depth "10 cm" is a Quantity that is part of the Qualifier for the increase in SOC stocks. However, the increase itself doesn't have a numerical quantity here. The original sentence doesn't state by how much SOC increased in the top 10 cm. It just states that the increase occurred there. So perhaps the "10 cm" is a Quantity, part of a Qualifier for the MeasuredEntity or MeasuredProperty.
+
+This is a bit ambiguous. The example given in the user's message included a Qualifier "after I drank half the can" qualifying the Quantity "175 ml". Here, maybe the "top 10 cm of soil" is a Qualifier that affects the SOC stocks' increase. However, since there's no explicit Quantity for the increase (like a percentage), maybe the "10 cm" is a standalone Quantity with its own annotations.
+
+Alternatively, the "10 cm" and "20–40 cm" are Quantities (measurements) that are part of Qualifiers describing where the SOC stocks changed. So each depth is a Quantity, and the Qualifier is the entire phrase indicating the location (e.g., "in the top 10 cm of soil").
+
+Let's proceed by annotating "10 cm" and "20–40 cm" as Quantities. The "20–40 cm" is a range, so IsRange modifier.
+
+For "10 cm":
+
+AnnotSet 4:
+- Quantity T10: 10 cm, unit "cm".
+- MeasuredEntity: Not sure. The sentence is about SOC stocks increasing in that depth. The depth is a location qualifier. So perhaps the MeasuredEntity is "SOC stocks", and the Qualifier is "in the top 10 cm of soil", which includes the Quantity "10 cm".
+
+But how to structure this. The Qualifier "in the top 10 cm of soil" would be linked to the MeasuredEntity "SOC stocks" via Qualifies relationship. But within that Qualifier, the "10 cm" is a Quantity. So the Qualifier span is "in the top 10 cm of soil", and within that, "10 cm" is a Quantity. Then, the Qualifier "in the top 10 cm of soil" would have a relationship Qualifies to the MeasuredEntity or MeasuredProperty. But this is getting complex.
+
+Alternatively, the "10 cm" is a Quantity that is part of a Qualifier. So in this case, the Qualifier is the entire phrase "in the top 10 cm of soil", which includes the Quantity "10 cm". Then, the Qualifier would link to the MeasuredEntity or MeasuredProperty. But according to the guidelines, Qualifiers are spans that provide context, and their relationships are via Qualifies.
+
+But perhaps the approach here is to annotate "10 cm" as a Quantity, and "in the top ... soil" as a Qualifier that includes it. However, the user's example had the Qualifier as a separate span. For example, "after I drank half the can" was the Qualifier text. So here, "in the top 10 cm of soil" would be the Qualifier text, which includes the Quantity "10 cm". But how to represent that. The guidelines don't explicitly mention nested annotations. So perhaps the Qualifier is "in the top 10 cm of soil", and the Quantity "10 cm" is a separate annotation. Then, the Qualifier "in the top..." would Qualify the MeasuredEntity or MeasuredProperty, and the "10 cm" is a Quantity that's part of the Qualifier. But how to link them.
+
+This is getting complicated. Maybe for the purpose of this task, we can treat "10 cm" as a standalone Quantity in its own annotSet, with its own MeasuredEntity and MeasuredProperty. But the context is that it's a depth of soil where the SOC stocks increased. So the MeasuredEntity would be "soil", MeasuredProperty "depth", and Quantity "10 cm". Then, the Qualifier "in the top 10 cm of soil" would Qualify the increase in SOC stocks. But the original sentence is "SOC stocks increased in the top 10 cm of soil". Here, the increase is the MeasuredProperty, and the location (Qualifier) is "in the top 10 cm of soil". The "10 cm" is part of that Qualifier. But according to the guidelines, if the Qualifier includes a Quantity, we need to annotate both the Qualifier and the Quantity.
+
+But this might be beyond the current scope. Perhaps the focus is on extracting explicit quantities mentioned, such as percentages and measurements, and linking them to their entities and properties, along with any qualifiers.
+
+So proceeding with the first bullet:
+
+"12.4%" and "0.13%" are Quantities. Each with their own annotSets.
+
+AnnotSet 1:
+- Quantity T1: 12.4% with unit "%", no modifiers.
+- MeasuredEntity T2: SOC stocks (from "SOC stocks decreased").
+- MeasuredProperty T3: decrease (from "decreased").
+- Qualifier T4: in Costa Rica.
+- Qualifier T5: after establishment of coffee AFS.
+
+Relationships:
+- T2 HasProperty T3.
+- T3 HasQuantity T1.
+- T4 Qualifies T1 (location).
+- T5 Qualifies T1 (time or condition).
+
+AnnotSet 2:
+- Quantity T6: 0.13% with unit "%".
+- MeasuredEntity T7: SOC stocks.
+- MeasuredProperty T8: decrease.
+- Qualifier T9: in Nicaragua.
+- Qualifier T10: after establishment of coffee AFS (same as T5? But in another annotSet. Since each annotSet is separate, T10 would be a new Qualifier in AnnotSet 2).
+
+But wait, the original text says "after establishment of coffee AFS" applies to both decreases. However, since each Quantity is in a separate annotSet, the Qualifier "after..." would need to be duplicated. Alternatively, maybe annotSet 1 and 2 share the same Qualifier "after...", but according to the guidelines, each annotSet is separate. So each would have their own Qualifier entries.
+
+Moving to the second bullet's Quantities: "10 cm" and "20–40 cm".
+
+AnnotSet 3:
+- Quantity T11: 10 cm, unit "cm".
+- MeasuredEntity T12: soil (from "top 10 cm of soil").
+- MeasuredProperty T13: depth.
+- Qualifier T14: top (part of the Qualifier "top 10 cm of soil").
+But this might not fit. Alternatively, the MeasuredEntity is "SOC stocks", and the Qualifier is "in the top 10 cm of soil", which includes the Quantity "10 cm". But again, this is getting complex.
+
+Alternatively, for "SOC stocks increased in the top 10 cm of soil", the increase is the MeasuredProperty, and the Qualifier is "in the top 10 cm of soil", which contains the Quantity "10 cm". So:
+
+AnnotSet 3:
+- MeasuredEntity T15: SOC stocks.
+- MeasuredProperty T16: increase.
+- Qualifier T17: in the top 10 cm of soil.
+- Quantity T18: 10 cm (unit "cm", part of T17).
+
+But how to link them. The Qualifier T17 would Qualify T16 (the increase), and T18 is a Quantity within T17. However, in the TSV format, each annotation is a separate row. So:
+
+annotSet    annotType           annotId    text                           other
+3           MeasuredEntity      T15        SOC stocks                     ...
+3           MeasuredProperty    T16        increase                       {"HasProperty": "T15", "HasQuantity": ...}
+But there's no Quantity for the increase. The problem is that the increase isn't quantified numerically here, unlike the first bullet. So maybe this bullet doesn't have a Quantity, but the depths are Quantities related to where the increase and reduction happened.
+
+Alternatively, the depths are Quantities that are Qualifiers for the MeasuredEntity or MeasuredProperty.
+
+This is getting a bit unclear. Let's focus on the explicit quantities mentioned in the text:
+
+Quantities identified:
+1. 12.4% (Costa Rica)
+2. 0.13% (Nicaragua)
+3. 10 cm (top soil)
+4. 20–40 cm (depth)
+5. 0–10 cm (from third bullet)
+6. 20–40 cm again (third bullet mentions reduction at depth)
+
+Wait, third bullet: "Organic management caused a greater increase in 0–10 cm SOC but did not influence reduction at depth." Here, "0–10 cm" is a range, unit cm, so Quantity with IsRange.
+
+Fourth bullet: no quantities.
+Fifth bullet: no quantities.
+
+So the Quantities are:
+
+- 12.4%
+- 0.13%
+- 10 cm
+- 20–40 cm
+- 0–10 cm
+
+Each of these needs to be annotated as Quantities.
+
+Now, processing each:
+
+AnnotSet 1: 12.4%
+- Quantity T1: 12.4%, unit "%"
+- MeasuredEntity T2: SOC stocks
+- MeasuredProperty T3: decrease
+- Qualifier T4: in Costa Rica
+- Qualifier T5: after establishment of coffee AFS
+
+Relationships:
+- T2 HasProperty T3
+- T3 HasQuantity T1
+- T4 Qualifies T1
+- T5 Qualifies T1
+
+AnnotSet 2: 0.13%
+- Quantity T6: 0.13%, unit "%"
+- MeasuredEntity T7: SOC stocks
+- MeasuredProperty T8: decrease
+- Qualifier T9: in Nicaragua
+- Qualifier T10: after establishment of coffee AFS
+
+Relationships similar to AnnotSet 1.
+
+AnnotSet 3: 10 cm
+- Quantity T11: 10 cm, unit "cm"
+- MeasuredEntity T12: soil (from "top 10 cm of soil")
+- MeasuredProperty T13: depth
+- Qualifier T14: top (part of "top 10 cm of soil")
+- The sentence mentions "SOC stocks increased in the top 10 cm of soil". So the increase is in the MeasuredProperty, and the depth is a Qualifier. However, since the depth is a Quantity, we annotate it, and the Qualifier would be the entire phrase "in the top 10 cm of soil" which includes the Quantity. So:
+
+Qualifier T15: in the top 10 cm of soil (qualifies the increase)
+But the MeasuredProperty here is "increase" (from "SOC stocks increased"), but there's no numerical Quantity for the increase. So perhaps the 10 cm is a Quantity related to the location of the increase.
+
+Alternatively, the 10 cm is a Quantity with MeasuredEntity "soil" and MeasuredProperty "depth". Then, the Qualifier "in the top 10 cm of soil" would link to the increase in SOC stocks.
+
+This is getting a bit tangled. Let's proceed by annotating the depth Quantities and link them to their respective contexts.
+
+AnnotSet 3: 10 cm
+- Quantity T11: 10 cm, unit "cm", no modifiers.
+- MeasuredEntity T12: soil
+- MeasuredProperty T13: depth
+- Qualifier T14: top (from "top 10 cm")
+- Relationships: T12 HasProperty T13, T13 HasQuantity T11, T14 Qualifies T11.
+
+But the original context is about SOC stocks increasing in that depth. So maybe the Qualifier "in the top 10 cm of soil" qualifies the MeasuredEntity "SOC stocks" or the MeasuredProperty "increase". However, the example requires linking Qualifiers to Quantities, MeasuredEntities, or MeasuredProperties. Since the depth is a Quantity, and the Qualifier is the location, perhaps the Qualifier "in the top 10 cm of soil" qualifies the MeasuredEntity "SOC stocks".
+
+But I'm not sure. Maybe it's better to annotate the 10 cm as a standalone Quantity related to soil depth, and the Qualifier "in the top..." as part of another annotation set related to the SOC increase.
+
+This is getting too complicated. Given the time constraints, I'll proceed to annotate each explicit Quantity with their units and modifiers, and link them to the relevant entities and properties, along with any qualifiers.
+
+So proceeding:
+
+AnnotSet 1:
+annotSet    annotType           annotId    text                other
+1           Quantity            T1         12.4%              {"unit": "%"}
+1           MeasuredEntity      T2         SOC stocks         {"HasProperty": "T3"}
+1           MeasuredProperty    T3         decrease           {"HasQuantity": "T1"}
+1           Qualifier           T4         in Costa Rica      {"Qualifies": "T1"}
+1           Qualifier           T5         after establishment of coffee AFS {"Qualifies": "T1"}
+
+AnnotSet 2:
+2           Quantity            T6         0.13%              {"unit": "%"}
+2           MeasuredEntity      T7         SOC stocks         {"HasProperty": "T8"}
+2           MeasuredProperty    T8         decrease           {"HasQuantity": "T6"}
+2           Qualifier           T9         in Nicaragua       {"Qualifies": "T6"}
+2           Qualifier           T10        after establishment of coffee AFS {"Qualifies": "T6"}
+
+AnnotSet 3 (10 cm):
+3           Quantity            T11        10 cm              {"unit": "cm"}
+3           MeasuredEntity      T12        soil               {"HasProperty": "T13"}
+3           MeasuredProperty    T13        depth              {"HasQuantity": "T11"}
+3           Qualifier           T14        top                {"Qualifies": "T11"}
+
+AnnotSet 4 (20–40 cm):
+4           Quantity            T15        20–40 cm           {"unit": "cm", "mods": ["IsRange"]}
+4           MeasuredEntity      T16        soil               {"HasProperty": "T17"}
+4           MeasuredProperty    T17        depth              {"HasQuantity": "T15"}
+4           Qualifier           T18        at                 {"Qualifies": "T15"}  (from "at 20–40 cm")
+
+But the original text says "greater reduction occurred at 20–40 cm". So the reduction is the MeasuredProperty, and the depth is a Qualifier. So:
+
+AnnotSet 4:
+- Quantity T15: 20–40 cm, unit cm, IsRange.
+- MeasuredEntity T16: SOC stocks.
+- MeasuredProperty T17: reduction.
+- Qualifier T18: at 20–40 cm (Qualifies T17).
+
+But the Quantity here is part of the Qualifier for the reduction. So relationships:
+
+- T17 HasQuantity (but there's no Quantity for the reduction's percentage). So maybe the MeasuredProperty "reduction" doesn't have a Quantity here. Hence, the depth is a Qualifier for the reduction.
+
+But the depth itself is a Quantity. So perhaps:
+
+AnnotSet 4:
+- Quantity T15: 20–40 cm, unit cm, IsRange.
+- MeasuredEntity T16: soil.
+- MeasuredProperty T17: depth.
+- Qualifier T18: at 20–40 cm, which Qualifies the MeasuredProperty "reduction" in another annotSet.
+
+Wait, this is getting too tangled. Perhaps I need to model each Quantity separately, even if they are part of a Qualifier for another entity. Let's proceed with AnnotSet 4 focusing on the 20–40 cm depth:
+
+AnnotSet 4:
+annotSet    annotType           annotId    text                other
+4           Quantity            T15        20–40 cm           {"unit": "cm", "mods": ["IsRange"]}
+4           MeasuredEntity      T16        soil               {"HasProperty": "T17"}
+4           MeasuredProperty    T17        depth              {"HasQuantity": "T15"}
+4           Qualifier           T18        at                 {"Qualifies": "T15"}
+
+But the original context is "greater reduction occurred at 20–40 cm". The reduction is a MeasuredProperty (similar to decrease), but there's no Quantity for the reduction's amount. So maybe another annotSet for the reduction:
+
+AnnotSet 5:
+- MeasuredEntity T19: SOC stocks.
+- MeasuredProperty T20: reduction.
+- Qualifier T21: at 20–40 cm (which includes the Quantity T15 from AnnotSet4). But since qualifiers are within the same annotSet, this might not be possible. Each annotSet is a logical grouping, so T21 would need to be part of AnnotSet5, but references T15 from AnnotSet4. However, according to the guidelines, each annotSet is separate, so cross-references between annotSets are not allowed. Hence, the Qualifier "at 20–40 cm" would need to include the Quantity within the same annotSet.
+
+This suggests that each mention of a depth (even if the same numerical value) is a separate annotSet. So "20–40 cm" in the second bullet is AnnotSet4, and "0–10 cm" in the third bullet is AnnotSet5, and "20–40 cm" again in the third bullet is AnnotSet6.
+
+But the third bullet says: "Organic management caused a greater increase in 0–10 cm SOC but did not influence reduction at depth." Here, "0–10 cm" is a range, and "at depth" is vague, but maybe refers to the earlier 20–40 cm.
+
+Proceeding:
+
+AnnotSet5 (0–10 cm):
+5           Quantity            T19        0–10 cm            {"unit": "cm", "mods": ["IsRange"]}
+5           MeasuredEntity      T20        SOC                (but the text says "0–10 cm SOC", so SOC is part of the MeasuredEntity)
+Wait, the text is "increase in 0–10 cm SOC". So the SOC here is the MeasuredEntity, and the depth is a Qualifier.
+
+So:
+
+AnnotSet5:
+- Quantity T19: 0–10 cm, unit cm, IsRange.
+- MeasuredEntity T20: SOC.
+- MeasuredProperty T21: increase.
+- Qualifier T22: in 0–10 cm.
+
+Relationships:
+- T20 HasProperty T21.
+- T21 HasQuantity (but there's no numerical Quantity here; the increase isn't quantified. So maybe this is an issue. Alternatively, the depth is a Qualifier for the increase. So the Qualifier T22 Qualifies T21.
+
+But again, without a numerical Quantity, it's unclear. The main Quantity here is "0–10 cm".
+
+This is getting too complex, and I might be overcomplicating it. Let's stick to annotating explicit numerical quantities and their direct associations, following the example provided.
+
+Final approach:
+
+Each explicit Quantity (numbers with units or percentages) gets its own annotSet, along with their associated MeasuredEntity, MeasuredProperty, and Qualifiers.
+
+So:
+
+1. 12.4% in Costa Rica with Qualifiers.
+2. 0.13% in Nicaragua with Qualifiers.
+3. 10 cm (top soil).
+4. 20–40 cm (depth).
+5. 0–10 cm (depth).
+6. 20–40 cm mentioned again, but treated as separate.
+
+Wait, but "0–10 cm" and the second mention of "20–40 cm" would be separate annotSets.
+
+So proceeding to list all Quantities:
+
+- 12.4% (AnnotSet1)
+- 0.13% (AnnotSet2)
+- 10 cm (AnnotSet3)
+- 20–40 cm (AnnotSet4)
+- 0–10 cm (AnnotSet5)
+- The third bullet mentions "reduction at depth" which might refer to 20–40 cm again, but since it's not explicitly stated, maybe we can't annotate it.
+
+Assuming the input bullets are separate, the annotated TSV would look like:
+
+annotSet | annotType         | annotId | text                          | other
+1        | Quantity          | T1      | 12.4%                        | {"unit": "%"}
+1        | MeasuredEntity    | T2      | SOC stocks                    | {"HasProperty": "T3"}
+1        | MeasuredProperty  | T3      | decrease                      | {"HasQuantity": "T1"}
+1        | Qualifier         | T4      | in Costa Rica                 | {"Qualifies": "T1"}
+1        | Qualifier         | T5      | after establishment of coffee AFS | {"Qualifies": "T1"}
+
+2        | Quantity          | T6      | 0.13%                        | {"unit": "%"}
+2        | MeasuredEntity    | T7      | SOC stocks                    | {"HasProperty": "T8"}
+2        | MeasuredProperty  | T8      | decrease                      | {"HasQuantity": "T6"}
+2        | Qualifier         | T9      | in Nicaragua                  | {"Qualifies": "T6"}
+2        | Qualifier         | T10     | after establishment of coffee AFS | {"Qualifies": "T6"}
+
+3        | Quantity          | T11     | 10 cm                         | {"unit": "cm"}
+3        | MeasuredEntity    | T12     | soil                          | {"HasProperty": "T13"}
+3        | MeasuredProperty  | T13     | depth                         | {"HasQuantity": "T11"}
+3        | Qualifier         | T14     | top                           | {"Qualifies": "T11"}
+
+4        | Quantity          | T15     | 20–40 cm                      | {"unit": "cm", "mods": ["IsRange"]}
+4        | MeasuredEntity    | T16     | soil                          | {"HasProperty": "T17"}
+4        | MeasuredProperty  | T17     | depth                         | {"HasQuantity": "T15"}
+4        | Qualifier         | T18     | at                            | {"Qualifies": "T15"}
+
+5        | Quantity          | T19     | 0–10 cm                       | {"unit": "cm", "mods": ["IsRange"]}
+5        | MeasuredEntity    | T20     | SOC                           | {"HasProperty": "T21"}
+5        | MeasuredProperty  | T21     | increase                      | {"HasQuantity": "T19"}
+5        | Qualifier         | T22     | in                            | {"Qualifies": "T19"}
+
+But in the third bullet, the text is "Organic management caused a greater increase in 0–10 cm SOC...", so the MeasuredEntity should be "SOC" in the depth of 0–10 cm. The Qualifier would be "in 0–10 cm", qualifying the increase.
+
+But according to the example, MeasuredEntity is the entity (e.g., "soda can"), and MeasuredProperty is the property (e.g., "volume"). Here, the increase is the property, and the SOC is the entity. The depth is a Qualifier.
+
+So for AnnotSet5:
+
+- Quantity T19: 0–10 cm (unit cm, IsRange)
+- MeasuredEntity T20: SOC
+- MeasuredProperty T21: increase
+- Qualifier T22: in 0–10 cm (Qualifies T21)
+- Relationships: T20 HasProperty T21, T21 HasQuantity T19, T22 Qualifies T21.
+
+But the "in 0–10 cm" is the Qualifier text, which includes the Quantity. However, in the TSV, the Qualifier's text is "in 0–10 cm", and the Quantity is "0–10 cm". So the Qualifier T22 would have {"Qualifies": "T21"} (the MeasuredProperty), and the Quantity T19 is linked to the MeasuredProperty via HasQuantity.
+
+Additionally, the third bullet mentions "but did not influence reduction at depth." The "at depth" is vague, but if we consider it as referring to the earlier 20–40 cm, but since it's not explicit, perhaps it's not annotated.
+
+Finally, the fifth bullet: "SOC stocks tend to converge on a level determined by site environment during establishment." No quantities here.
+
+Now, checking for any other Quantities. The fourth bullet: "no significant difference between shaded and unshaded coffee." No quantities.
+
+So the final TSV would include the five annotSets as outlined above.

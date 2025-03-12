@@ -1,0 +1,11 @@
+docId	annotSet	annotType	annotId	text	other
+S0022399913003358-931	1	Quantity	T1	7 to 20%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
+S0022399913003358-931	1	MeasuredEntity	T2	general population	"{""HasQuantity"": ""T1""}"
+S0022399913003358-931	1	MeasuredProperty	T3	prevalence	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0022399913003358-931	2	Quantity	T4	13%	"{""unit"": ""%""}"
+S0022399913003358-931	2	MeasuredEntity	T5	adults aged over 48 years	"{""HasQuantity"": ""T4""}"
+S0022399913003358-931	2	MeasuredProperty	T6	estimated 10 year incidence rate	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"
+S0022399913003358-931	3	Quantity	T7	Approximately 5%	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
+S0022399913003358-931	3	MeasuredEntity	T8	population	"{""HasQuantity"": ""T7""}"
+S0022399913003358-931	3	Qualifier	T9	severely affected by their tinnitus	"{""Qualifies"": ""T7""}"
+S0022399913003358-931	3	Qualifier	T10	for example experiencing sleep disorders, concentration difficulties, and symptoms of anxiety and depression	"{""Qualifies"": ""T7""}"

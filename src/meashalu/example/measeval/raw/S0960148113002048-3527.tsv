@@ -1,0 +1,12 @@
+docId	annotSet	annotType	annotId	text	other
+S0960148113002048-3527	1	Quantity	T1	18	"{""mods"": [""IsCount""]}"
+S0960148113002048-3527	1	MeasuredEntity	T2	Eqs.	"{""HasQuantity"": ""T1""}"
+S0960148113002048-3527	2	Quantity	T3	19	"{""mods"": [""IsCount""]}"
+S0960148113002048-3527	2	MeasuredEntity	T4	Eqs.	"{""HasQuantity"": ""T3""}"
+S0960148113002048-3527	3	Quantity	T5	24	"{""mods"": [""IsCount""]}"
+S0960148113002048-3527	3	MeasuredEntity	T6	Eqs.	"{""HasQuantity"": ""T5""}"
+S0960148113002048-3527	4	Quantity	T7	27	"{""mods"": [""IsCount""]}"
+S0960148113002048-3527	4	MeasuredEntity	T8	Eqs.	"{""HasQuantity"": ""T7""}"
+S0960148113002048-3527	5	Quantity	T9	30	"{""mods"": [""IsCount""]}"
+S0960148113002048-3527	5	MeasuredEntity	T10	armature resistive loss	"{""HasQuantity"": ""T9""}"
+S0960148113002048-3527	5	Qualifier	T11	when ωΛ≠0 and the phase currents are drawn at unity power factor	"{""Qualifies"": ""T9""}"

@@ -1,0 +1,9 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0032063312002437-586	1	Quantity	369	375	T1	400 km	"{""unit"": ""km""}"
+S0032063312002437-586	1	MeasuredEntity	298	308	T2	ionosphere	"{""HasProperty"": ""T3""}"
+S0032063312002437-586	1	MeasuredProperty	357	365	T3	altitude	"{""HasQuantity"": ""T1""}"
+S0032063312002437-586	1	Qualifier	348	375	T4	above an altitude of 400 km	"{""Qualifies"": ""T3""}"
+S0032063312002437-586	1	Qualifier	448	460	T5	below 400 km	"{""Qualifies"": ""T3""}"
+S0032063312002437-586	2	Quantity	1115	1122	T6	∼140 km	"{""unit"": ""km"", ""mods"": [""IsApproximate""]}"
+S0032063312002437-586	2	MeasuredEntity	1083	1113	T7	peak density in the ionosphere	"{""HasProperty"": ""T8""}"
+S0032063312002437-586	2	MeasuredProperty	1067	1075	T8	altitude	"{""HasQuantity"": ""T6""}"

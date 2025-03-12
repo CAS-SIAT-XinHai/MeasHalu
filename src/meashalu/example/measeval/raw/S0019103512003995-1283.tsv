@@ -1,0 +1,4 @@
+docId	annotSet	annotType	annotId	text	other
+S0019103512003995-1283	1	Quantity	T1	7200 K	"{""unit"": ""K"", ""mods"": [""IsMean""]}"
+S0019103512003995-1283	1	MeasuredEntity	T2	H	"{""HasQuantity"": ""T1""}"
+S0019103512003995-1283	1	MeasuredProperty	T3	temperature	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"

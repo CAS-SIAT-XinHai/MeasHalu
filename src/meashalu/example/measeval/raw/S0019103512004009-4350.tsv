@@ -1,0 +1,11 @@
+docId	annotSet	annotType	annotId	text	other
+S0019103512004009-4350	1	Quantity	T1	∼1000 K	"{""unit"": ""K"", ""mods"": [""IsApproximate""]}"
+S0019103512004009-4350	1	MeasuredEntity	T2	C3 model	"{""HasQuantity"": ""T1""}"
+S0019103512004009-4350	1	MeasuredProperty	T3	maximum temperature	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0019103512004009-4350	1	Qualifier	T4	Compared to the C1 model	"{""Qualifies"": ""T1""}"
+S0019103512004009-4350	2	Quantity	T5	1000–2000 K	"{""unit"": ""K"", ""mods"": [""IsRange""]}"
+S0019103512004009-4350	2	MeasuredEntity	T6	C3 model	"{""HasQuantity"": ""T5""}"
+S0019103512004009-4350	2	MeasuredProperty	T7	temperature	"{""HasQuantity"": ""T5"", ""HasProperty"": ""T6""}"
+S0019103512004009-4350	2	Qualifier	T8	at high altitudes	"{""Qualifies"": ""T5""}"
+S0019103512004009-4350	3	Quantity	T9	1D	"{""mods"": [""IsCount""], ""unit"": ""count""}"
+S0019103512004009-4350	3	MeasuredEntity	T10	models	"{""HasQuantity"": ""T9""}"

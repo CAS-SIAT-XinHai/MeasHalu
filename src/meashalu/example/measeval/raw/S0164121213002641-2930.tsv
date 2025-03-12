@@ -1,0 +1,5 @@
+docId	annotSet	annotType	annotId	text	other
+S0164121213002641-2930	1	Quantity	T1	(5)	"{""mods"": [""IsCount""]}"
+S0164121213002641-2930	1	MeasuredEntity	T2	Java trace t	"{""HasProperty"": ""T3""}"
+S0164121213002641-2930	1	MeasuredProperty	T3	projection of t onto V ⊆ Var	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0164121213002641-2930	1	Qualifier	T4	Given a subset of variables V ⊆ Var	"{""Qualifies"": ""T3""}"

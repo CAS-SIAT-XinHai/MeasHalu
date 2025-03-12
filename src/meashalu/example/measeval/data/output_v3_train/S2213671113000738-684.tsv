@@ -1,0 +1,12 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2213671113000738-684	1	Quantity	108	116	T1	3 months	"{""unit"": ""months"", ""mods"": [""IsCount""]}"
+S2213671113000738-684	1	MeasuredEntity	75	88	T2	one allograft	"{""HasQuantity"": ""T1""}"
+S2213671113000738-684	1	MeasuredProperty	49	71	T3	uptake of [11C]PK11195	"{""HasQuantity"": ""T1""}"
+S2213671113000738-684	2	Quantity	304	312	T4	2 months	"{""unit"": ""months"", ""mods"": [""IsCount""]}"
+S2213671113000738-684	2	MeasuredEntity	258	278	T5	serum level of IFN-γ	"{""HasQuantity"": ""T4""}"
+S2213671113000738-684	2	MeasuredProperty	291	300	T6	increased	"{""HasQuantity"": ""T4""}"
+S2213671113000738-684	3	Quantity	405	417	T7	3.5–4 months	"{""unit"": ""months"", ""mods"": [""IsRange""]}"
+S2213671113000738-684	3	MeasuredEntity	430	443	T8	MHC-II+ cells	"{""HasQuantity"": ""T7""}"
+S2213671113000738-684	4	Quantity	1249	1252	T10	60%	"{""unit"": ""%"", ""mods"": [""IsCount""]}"
+S2213671113000738-684	4	MeasuredEntity	1214	1225	T11	CD45+ cells	"{""HasQuantity"": ""T10""}"
+S2213671113000738-684	4	MeasuredProperty	1266	1285	T12	CD8+ killer T cells	"{""HasQuantity"": ""T10""}"

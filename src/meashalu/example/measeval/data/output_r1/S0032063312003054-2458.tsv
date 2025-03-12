@@ -1,0 +1,12 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0032063312003054-2458	1	Quantity	190	195	T1	43.0%	"{""unit"": ""%""}"
+S0032063312003054-2458	1	MeasuredEntity	199	209	T2	MEX orbits	"{""HasQuantity"": ""T1""}"
+S0032063312003054-2458	1	MeasuredProperty	153	186	T3	electron precipitation signatures	"{""HasQuantity"": ""T1""}"
+S0032063312003054-2458	1	Qualifier	210	217	T4	at Mars	"{""Qualifies"": ""T2""}"
+S0032063312003054-2458	2	Quantity	303	307	T5	∼70%	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
+S0032063312003054-2458	2	MeasuredEntity	223	294	T6	signatures of unaccelerated electron precipitation from electron spikes	"{""HasQuantity"": ""T5""}"
+S0032063312003054-2458	3	Quantity	336	341	T7	29.8%	"{""unit"": ""%""}"
+S0032063312003054-2458	3	MeasuredEntity	345	355	T8	MEX orbits	"{""HasQuantity"": ""T7""}"
+S0032063312003054-2458	4	Quantity	337	340	T9	9.8	"{""unit"": ""%""}"
+S0032063312003054-2458	5	Quantity	580	584	T12	3.4%	"{""unit"": ""%""}"
+S0032063312003054-2458	5	Qualifier	600	612	T14	respectively	"{""Qualifies"": ""T12""}"

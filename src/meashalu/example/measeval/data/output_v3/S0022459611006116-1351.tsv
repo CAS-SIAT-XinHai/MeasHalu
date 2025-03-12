@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0022459611006116-1351	1	Quantity	58	64	T1	1423 K	"{""unit"": ""K""}"
+S0022459611006116-1351	1	MeasuredEntity	19	36	T2	pale cream powder	"{""HasQuantity"": ""T1""}"
+S0022459611006116-1351	1	MeasuredProperty	110	121	T3	temperature	"{""HasQuantity"": ""T1""}"
+S0022459611006116-1351	2	Quantity	420	433	T4	a=4.1816(4) Å	"{""unit"": ""\u00c5"", ""mods"": [""HasTolerance""]}"
+S0022459611006116-1351	2	Quantity	438	452	T5	c=10.0322(6) Å	"{""unit"": ""\u00c5"", ""mods"": [""HasTolerance""]}"
+S0022459611006116-1351	2	MeasuredEntity	394	414	T6	tetragonal unit cell	"{""HasQuantity"": ""T5""}"
+S0022459611006116-1351	3	Quantity	503	512	T8	a=4.186 Å	"{""unit"": ""\u00c5""}"
+S0022459611006116-1351	3	Quantity	517	527	T9	c=10.042 Å	"{""unit"": ""\u00c5""}"
+S0022459611006116-1351	3	MeasuredEntity	482	499	T10	literature values	"{""HasQuantity"": ""T9""}"

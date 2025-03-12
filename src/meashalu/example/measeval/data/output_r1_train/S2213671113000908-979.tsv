@@ -1,0 +1,6 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2213671113000908-979	1	Quantity	252	258	T1	single	"{""mods"": [""IsCount""]}"
+S2213671113000908-979	1	MeasuredEntity	181	186	T2	cells	"{""HasQuantity"": ""T1""}"
+S2213671113000908-979	2	Quantity	398	403	T3	12 hr	"{""unit"": ""hr""}"
+S2213671113000908-979	2	Qualifier	404	417	T4	after plating	"{""Qualifies"": ""T3""}"
+S2213671113000908-979	3	Quantity	252	258	T5	single	"{""mods"": [""IsCount""]}"

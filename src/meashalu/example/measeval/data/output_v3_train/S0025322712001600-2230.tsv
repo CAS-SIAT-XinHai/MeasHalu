@@ -1,0 +1,4 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0025322712001600-2230	1	Quantity	291	300	T1	200 years	"{""unit"": ""years""}"
+S0025322712001600-2230	1	MeasuredEntity	265	278	T2	sedimentation	"{""HasQuantity"": ""T1""}"
+S0025322712001600-2230	1	Qualifier	279	300	T3	in the last 200 years	"{""Qualifies"": ""T2""}"

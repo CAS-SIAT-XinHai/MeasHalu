@@ -1,0 +1,5 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0167880913001229-1225	1	Quantity	288	295	T1	0–10 cm	"{""unit"": ""cm"", ""mods"": [""IsRange""]}"
+S0167880913001229-1225	1	Quantity	311	317	T2	9-year	"{""unit"": ""year"", ""mods"": [""IsCount""]}"
+S0167880913001229-1225	1	Quantity	495	503	T3	20–40 cm	"{""unit"": ""cm"", ""mods"": [""IsRange""]}"
+S0167880913001229-1225	1	MeasuredProperty	464	487	T7	initial C concentration	"{""HasQuantity"": ""T3""}"

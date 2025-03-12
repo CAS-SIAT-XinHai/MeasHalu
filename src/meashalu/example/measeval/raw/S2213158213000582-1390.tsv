@@ -1,0 +1,8 @@
+docId	annotSet	annotType	annotId	text	other
+S2213158213000582-1390	1	Quantity	T1	50 ms	"{""unit"": ""ms""}"
+S2213158213000582-1390	1	MeasuredEntity	T2	STG and non-STG regions	"{""HasQuantity"": ""T3""}"
+S2213158213000582-1390	1	MeasuredProperty	T3	group differences	"{""HasQuantity"": ""T3"", ""HasProperty"": ""T2""}"
+S2213158213000582-1390	1	MeasuredEntity	T5	HC	"{""HasQuantity"": ""T1""}"
+S2213158213000582-1390	1	MeasuredProperty	T6	activity	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T5""}"
+S2213158213000582-1390	1	MeasuredEntity	T7	SZ	"{""HasQuantity"": ""T1""}"
+S2213158213000582-1390	1	MeasuredProperty	T8	activity	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T7""}"

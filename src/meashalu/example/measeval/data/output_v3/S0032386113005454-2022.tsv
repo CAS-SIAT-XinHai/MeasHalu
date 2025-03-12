@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0032386113005454-2022	1	Quantity	871	879	T1	0.1–5 μm	"{""unit"": ""\u03bcm"", ""mods"": [""IsRange""]}"
+S0032386113005454-2022	1	MeasuredEntity	841	850	T2	particles	"{""HasQuantity"": ""T1""}"
+S0032386113005454-2022	1	MeasuredProperty	883	891	T3	diameter	"{""HasQuantity"": ""T1""}"
+S0032386113005454-2022	2	Quantity	924	929	T4	5–20%	"{""unit"": ""%"", ""mods"": [""IsRange""]}"
+S0032386113005454-2022	2	MeasuredEntity	841	850	T5	particles	"{""HasQuantity"": ""T4""}"
+S0032386113005454-2022	2	MeasuredProperty	899	914	T6	volume fraction	"{""HasQuantity"": ""T4""}"

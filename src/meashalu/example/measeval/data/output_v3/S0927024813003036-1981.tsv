@@ -1,0 +1,12 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0927024813003036-1981	1	Quantity	318	324	T1	99.95%	"{""unit"": ""%"", ""mods"": []}"
+S0927024813003036-1981	1	MeasuredEntity	305	316	T2	iron pieces	"{""HasQuantity"": ""T1""}"
+S0927024813003036-1981	1	MeasuredProperty	325	331	T3	purity	"{""HasQuantity"": ""T1""}"
+S0927024813003036-1981	2	Quantity	442	448	T4	798 °C	"{""unit"": ""\u00b0C"", ""mods"": []}"
+S0927024813003036-1981	2	MeasuredEntity	412	419	T5	furnace	"{""HasQuantity"": ""T4""}"
+S0927024813003036-1981	2	MeasuredProperty	423	435	T6	temperatures	"{""HasQuantity"": ""T4""}"
+S0927024813003036-1981	3	Quantity	862	867	T7	<10 s	"{""unit"": ""s"", ""mods"": [""IsApproximate""]}"
+S0927024813003036-1981	3	MeasuredEntity	822	829	T8	samples	"{""HasQuantity"": ""T7""}"
+S0927024813003036-1981	4	Quantity	851	858	T10	∼100 °C	"{""unit"": ""\u00b0C"", ""mods"": [""IsApproximate""]}"
+S0927024813003036-1981	4	MeasuredEntity	822	829	T11	samples	"{""HasQuantity"": ""T10""}"
+S0927024813003036-1981	4	MeasuredProperty	762	773	T12	temperature	"{""HasQuantity"": ""T10""}"

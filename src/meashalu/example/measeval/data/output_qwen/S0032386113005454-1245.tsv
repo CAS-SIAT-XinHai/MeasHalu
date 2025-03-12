@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0032386113005454-1245	1	Quantity	79	85	T1	10 wt%	"{""unit"": ""wt%"", ""mods"": [""IsCount""]}"
+S0032386113005454-1245	1	MeasuredEntity	105	120	T2	S-CSR particles	"{""HasQuantity"": ""T1""}"
+S0032386113005454-1245	1	Qualifier	121	129	T4	at 20 °C	"{""Qualifies"": ""T1""}"
+S0032386113005454-1245	2	Quantity	95	101	T5	20 wt%	"{""unit"": ""wt%"", ""mods"": [""IsCount""]}"
+S0032386113005454-1245	2	MeasuredEntity	105	120	T6	S-CSR particles	"{""HasQuantity"": ""T5""}"
+S0032386113005454-1245	2	Qualifier	121	129	T8	at 20 °C	"{""Qualifies"": ""T5""}"

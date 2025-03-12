@@ -1,0 +1,8 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2211124713006475-1195	1	Quantity	275	290	T1	H&H stage 10–12	"{""unit"": ""stage"", ""mods"": [""IsRange""]}"
+S2211124713006475-1195	1	MeasuredEntity	210	233	T2	developing chick embryo	"{""HasQuantity"": ""T1""}"
+S2211124713006475-1195	1	MeasuredProperty	248	271	T3	early trigeminal anlage	"{""HasQuantity"": ""T1""}"
+S2211124713006475-1195	2	Quantity	812	818	T4	2 days	"{""unit"": ""days"", ""mods"": [""IsCount""]}"
+S2211124713006475-1195	3	Quantity	812	818	T7	2 days	"{""unit"": ""days"", ""mods"": [""IsCount""]}"
+S2211124713006475-1195	3	MeasuredEntity	788	811	T8	in vivo fiber outgrowth	"{""HasQuantity"": ""T7""}"
+S2211124713006475-1195	3	MeasuredProperty	825	840	T9	transplantation	"{""HasQuantity"": ""T7""}"

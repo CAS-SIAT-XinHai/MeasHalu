@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S1873506114000075-665	1	Quantity	100	106	T1	100-mm	"{""unit"": ""mm"", ""mods"": [""IsCount""]}"
+S1873506114000075-665	1	MeasuredEntity	107	113	T2	dishes	"{""HasQuantity"": ""T1""}"
+S1873506114000075-665	2	Quantity	419	424	T3	50 μm	"{""unit"": ""\u03bcm""}"
+S1873506114000075-665	2	Qualifier	319	337	T5	partially positive	"{""Qualifies"": ""T4""}"
+S1873506114000075-665	3	Quantity	429	435	T6	100 μm	"{""unit"": ""\u03bcm""}"
+S1873506114000075-665	3	Qualifier	355	363	T8	negative	"{""Qualifies"": ""T7""}"
+S1873506114000075-665	4	Quantity	429	435	T9	100 μm	"{""unit"": ""\u03bcm""}"
+S1873506114000075-665	4	MeasuredEntity	459	477	T10	established clones	"{""HasQuantity"": ""T9""}"
+S1873506114000075-665	4	MeasuredProperty	441	455	T11	Immunostaining	"{""HasQuantity"": ""T9""}"

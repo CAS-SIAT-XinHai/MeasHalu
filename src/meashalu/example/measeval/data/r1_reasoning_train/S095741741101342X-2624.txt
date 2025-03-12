@@ -1,0 +1,292 @@
+Okay, let's tackle this input. The user provided a sentence: "The following significance diagram displays the average rank of the classifiers at an 85% good, 15% bad class split."
+
+First, I need to follow the annotation steps. Step 1 is extracting quantities. Let's look for numeric values. There's "85%" and "15%". Both are percentages. So those are the quantities. 
+
+Next, check if there are any modifiers. The percentages are straightforward, no words like "approximately" or ranges. So modifiers might not be needed here. But wait, the sentence mentions "average rank," but that's part of the MeasuredProperty. 
+
+Now, for each quantity, I need to determine the MeasuredEntity and MeasuredProperty. The quantities "85% good" and "15% bad" seem to be describing the class split. The MeasuredEntity here might be "class split" but each percentage is part of it. However, the structure is a bit tricky. 
+
+Looking at the sentence structure: "at an 85% good, 15% bad class split." So the class split has two parts: 85% good and 15% bad. Each percentage is a quantity. The MeasuredEntity for each would be "good" and "bad" classes, but "class split" is the broader entity. Hmm, maybe the MeasuredEntity is "class split," and each percentage is a component of it. But how to structure this?
+
+Alternatively, each percentage could be a separate MeasuredEntity. For "85% good," "good" is the entity, and "85%" is the quantity. Similarly for "15% bad." The MeasuredProperty here could be "split" or "class split." But the sentence says "class split," so maybe the MeasuredEntity is the "class split," and the MeasuredProperty is "good" and "bad," but that doesn't fit perfectly. 
+
+Wait, the MeasuredProperty is a descriptive property linked to the entity. Maybe "class split" is the MeasuredEntity, and the percentages are quantities related to parts of it. The MeasuredProperty for each percentage could be the proportion. For example, "good" and "bad" are categories within the class split, each with their own proportion (85% and 15%). 
+
+So, for the first quantity "85%", the MeasuredEntity might be "good", and the MeasuredProperty is "proportion" or something. But the sentence structure is "85% good", so "good" is a qualifier for the class split. Alternatively, "good class" and "bad class" are the entities, each with their own percentage split. 
+
+This is a bit confusing. Let's break it down. The class split is 85% good and 15% bad. So the split consists of two parts: good classes (85%) and bad classes (15%). Therefore, each percentage is a quantity associated with a MeasuredEntity ("good" and "bad") and the MeasuredProperty would be "proportion" or "split percentage". 
+
+So for "85% good": Quantity is "85%", MeasuredEntity is "good", MeasuredProperty is "split percentage" (or similar). Similarly for "15% bad". However, the original sentence doesn't explicitly mention "split percentage" as a property. So maybe the MeasuredProperty is implicit. 
+
+Alternatively, the MeasuredEntity could be "class split", and the MeasuredProperty is "good" and "bad" proportions. But "good" and "bad" are more like categories rather than properties. 
+
+Hmm. The example provided in the problem had "The soda can's volume was 355 ml." Here, "volume" is the MeasuredProperty, "soda can" is the MeasuredEntity, and "355 ml" is the Quantity. 
+
+In our current case, the structure is "class split" which is divided into 85% good and 15% bad. So the MeasuredEntity is "class split", and each part (good and bad) have their own quantities. But how to model that. 
+
+Perhaps the MeasuredEntity is "class split", and the MeasuredProperties are "good proportion" and "bad proportion", each linked to their respective quantities (85% and 15%). Then, each MeasuredProperty (good proportion, bad proportion) would link to their Quantity. 
+
+But the original sentence doesn't mention "proportion" as a property. It's just "85% good" and "15% bad". So maybe "good" and "bad" are part of the MeasuredEntity, and the MeasuredProperty is the percentage. 
+
+Alternatively, since the sentence says "class split", perhaps the entire split is the MeasuredEntity, and the two percentages are separate quantities linked to it. But each percentage is a part of the split. 
+
+This is a bit ambiguous, but according to the guidelines, the MeasuredEntity is the object associated with the quantity. So in "85% good", "good" is the entity, and "85%" is the quantity. Similarly for "15% bad". 
+
+Then, the MeasuredProperty would be "split" or "proportion". But the sentence doesn't explicitly state a property like "proportion". However, the context implies that these percentages represent the proportion of classes. Therefore, perhaps the MeasuredProperty is "split", and the MeasuredEntities are "good" and "bad" classes. 
+
+Wait, the example had "volume" as the MeasuredProperty. In this case, the property would be "split", and the MeasuredEntity is "class". So for each part of the split, "good class" and "bad class", their split percentages are 85% and 15%. 
+
+But the sentence structure is "85% good, 15% bad class split". So the split is made up of 85% good and 15% bad. Therefore, the class split is the MeasuredEntity, and the MeasuredProperties are the percentages for good and bad. 
+
+But how to model this in the annotations. Each percentage (85% and 15%) is a Quantity. The MeasuredEntity for each would be "class split", and the MeasuredProperty would be "good proportion" and "bad proportion". But since "good" and "bad" are part of the split, perhaps they are Qualifiers. 
+
+Alternatively, "good" and "bad" are adjectives describing parts of the class split, so they are part of the MeasuredEntity. For example, "good class split portion" and "bad class split portion". But the original text doesn't have those, just "85% good" and "15% bad". 
+
+Alternatively, "good" and "bad" are Qualifiers that describe the class split. So the Quantities are 85% and 15%, each qualified by "good" and "bad", respectively. 
+
+But according to the example, Qualifiers are spans that affect the interpretation, like "after I drank half the can". In this case, "good" and "bad" specify what the percentages refer to. So perhaps "good" and "bad" are parts of the MeasuredEntity or MeasuredProperty. 
+
+Another angle: The main MeasuredEntity is "class split", which has a MeasuredProperty of "composition" or "distribution", and the two Quantities (85% and 15%) are parts of that. But then the "good" and "bad" would be Qualifiers indicating the parts. 
+
+Wait, maybe the structure is like this: the class split has two components, each with their own percentage. So each component is a MeasuredEntity (e.g., "good class", "bad class"), each with a Quantity (85%, 15%) and a MeasuredProperty "proportion". 
+
+But the original text doesn't mention "proportion", so perhaps the MeasuredProperty is omitted. Then, each Quantity (85% and 15%) is directly linked to their MeasuredEntities ("good" and "bad") via HasQuantity. But "good" and "bad" are adjectives here. Maybe the MeasuredEntity is "class split", and the Quantities are 85% and 15% with Qualifiers "good" and "bad". 
+
+Alternatively, the MeasuredEntity for each Quantity is "class split", and the Qualifiers "good" and "bad" specify which part of the split the Quantity refers to. 
+
+This is getting complicated. Let's try to model it step by step.
+
+First, extract the Quantities: "85%" and "15%". Units are "%", and since they are percentages, their units would be percent. There's no modifiers like "approximately", so the mods are just ["IsCount"]? Wait, but percentages are measurements, not counts. So maybe "IsCount" isn't applicable here. The example had "five samples" as a count. Here, percentages are measurements, so mods would not include IsCount. 
+
+Next, MeasuredEntities. The main entity here is "class split". The percentages are parts of this split. However, each percentage is associated with a category: good and bad. So perhaps "good class" and "bad class" are the MeasuredEntities. 
+
+So MeasuredEntity for 85% is "good class", and for 15% is "bad class". The MeasuredProperty would be "proportion" or "split percentage", but since that's not mentioned in the text, maybe it's implied. But according to the guidelines, MeasuredProperty is optional. 
+
+Alternatively, the MeasuredEntity is "class split", and each Quantity (85%, 15%) is linked via HasQuantity. Then, the MeasuredProperties could be "good" and "bad", linked via HasProperty. But "good" and "bad" are adjectives, not properties. 
+
+Alternatively, "good" and "bad" are Qualifiers that qualify the Quantities. For example, the 85% is qualified as "good", and 15% as "bad". So the Qualifier would be "good" linked to the 85% Quantity, and "bad" to 15%. 
+
+But in the example, the Qualifier was a separate phrase, like "after I drank half the can". Here, "good" and "bad" are directly adjacent to the quantities, so maybe they are part of the MeasuredEntity. 
+
+Wait, the original sentence is "at an 85% good, 15% bad class split". The structure is that the class split is 85% good and 15% bad. So "good" and "bad" are adjectives describing the classes in the split. 
+
+Therefore, the MeasuredEntity for each Quantity (85% and 15%) is "class split", and the MeasuredProperty would be "good proportion" and "bad proportion", but again, "proportion" isn't in the text. 
+
+Alternatively, the MeasuredProperty is "split", and the MeasuredEntity is "class", with the split percentages. But I'm getting stuck here. Let's refer back to the example. 
+
+In the example, "The soda can's volume was 355 ml." The MeasuredEntity is "soda can", MeasuredProperty is "volume", and Quantity is "355 ml". 
+
+Applying that here, maybe "class split" is the MeasuredEntity, and the MeasuredProperty is "composition" or "split", with the two Quantities 85% and 15%. But the problem is that there are two quantities for one MeasuredEntity and MeasuredProperty. 
+
+Alternatively, each percentage is part of a separate annotation set. So for "85% good", it's one set: Quantity (85%), MeasuredEntity (good class), MeasuredProperty (proportion). Similarly for "15% bad". 
+
+But the phrase "class split" might be part of both. Let's see. 
+
+The entire phrase is "at an 85% good, 15% bad class split". So "class split" is modified by the two percentages. That suggests that the class split has two components, each with their own percentage. So perhaps the MeasuredEntity is "class split", and each Quantity (85%, 15%) is linked to it via HasQuantity. The "good" and "bad" could be Qualifiers that qualify each Quantity, indicating which part of the split they refer to. 
+
+So for example, the first Quantity is "85%", with a Qualifier "good", and the second Quantity is "15%", with a Qualifier "bad". The MeasuredEntity is "class split" for both, and the MeasuredProperty could be something like "percentage composition", but that's not in the text. If MeasuredProperty is optional, maybe it's omitted. 
+
+Alternatively, "class split" is the MeasuredEntity, and each Quantity has its own MeasuredProperty (good and bad). But "good" and "bad" are not properties, they're categories. 
+
+This is tricky. Let's look at the output format. Each annotSet is a grouping of related annotations. So for each percentage, there's an annotSet. 
+
+But considering that both percentages are part of the same class split, maybe they belong to the same annotSet. However, the example had separate annotSets for each quantity-entity-property trio. So perhaps each percentage here is its own annotSet. 
+
+So, annotSet 1: 85% good. Quantity is "85%", MeasuredEntity is "good", MeasuredProperty is "split percentage". But the text doesn't mention "split percentage". 
+
+Alternatively, since the sentence is about the class split, and each percentage refers to a part of that split, the MeasuredEntity could be "class split", with MeasuredProperties "good" and "bad", each linked to their Quantity. 
+
+But how to represent that. For example:
+
+annotSet 1:
+- Quantity: 85% (unit: %, mods: [])
+- MeasuredEntity: class split (HasQuantity: T1)
+- MeasuredProperty: good (HasQuantity: T1, HasProperty: T2)
+
+annotSet 2:
+- Quantity: 15% (unit: %, mods: [])
+- MeasuredEntity: class split (HasQuantity: T4)
+- MeasuredProperty: bad (HasQuantity: T4, HasProperty: T5)
+
+But the problem here is that the MeasuredEntity "class split" is the same in both annotSets. However, according to the example, each annotSet is a separate grouping. But in reality, both percentages are part of the same class split, so maybe they should be in the same annotSet. 
+
+Wait, the example had three separate annotSets for each quantity-entity-property group. But in this case, the two quantities are part of the same logical group (the class split). So maybe they should be in the same annotSet. Let me check the example again.
+
+In the example, each quantity (25°C, 500 milliliters, 10 grams) are in separate annotSets (1, 2, 3). So each is a separate group. So here, the two percentages would be separate annotSets. 
+
+But the problem is that they are part of the same phrase. Let's proceed with separate annotSets. 
+
+So for "85% good":
+- Quantity: 85% (unit: %)
+- MeasuredEntity: good (assuming "good" is the entity here)
+- MeasuredProperty: split (if exists, but not in text)
+
+But since "split" isn't mentioned in the text, maybe MeasuredProperty is omitted. But the problem is that "split" is part of the MeasuredEntity. 
+
+Alternatively, the full MeasuredEntity is "good class split", and the Quantity is 85%. But the text says "85% good", which is part of the larger phrase "85% good, 15% bad class split". 
+
+Alternatively, the MeasuredEntity is "class split", and the MeasuredProperty is "good", with the Quantity 85%. Similarly for "bad". 
+
+So for annotSet 1:
+- Quantity: 85% (unit: %)
+- MeasuredEntity: class split (HasQuantity: T1)
+- MeasuredProperty: good (HasProperty: T2, HasQuantity: T1)
+
+But "good" is the property here? That doesn't seem right. A property would be like "volume" or "temperature". "Good" is a quality, not a property. 
+
+Alternatively, the MeasuredEntity is "class split", and the MeasuredProperty is "percentage", with Qualifiers "good" and "bad". 
+
+So for each percentage:
+- Quantity: 85% (unit: %), linked to MeasuredEntity "class split" via HasQuantity.
+- Qualifier "good" linked to Quantity via Qualifies.
+Similarly for 15% and "bad".
+
+That might make sense. But in the example, Qualifiers were separate phrases (e.g., "after I drank half the can"). Here, "good" and "bad" are adjectives directly attached to the percentages.
+
+In the sentence, it's "85% good, 15% bad class split". So "good" and "bad" are adjectives modifying "class split", but they are adjacent to the percentages. Maybe they are part of the MeasuredEntity. So the MeasuredEntity is "good class split" and "bad class split", but that's not accurate because the split includes both. 
+
+Alternatively, the MeasuredEntity is "class split", and the two percentages are quantities with Qualifiers "good" and "bad". 
+
+So, the Structure would be:
+
+annotSet 1:
+- Quantity: 85% (unit: %, mods: [])
+- MeasuredEntity: class split (HasQuantity: T1)
+- Qualifier: good (Qualifies: T1)
+
+annotSet 2:
+- Quantity: 15% (unit: %, mods: [])
+- MeasuredEntity: class split (HasQuantity: T4)
+- Qualifier: bad (Qualifies: T4)
+
+But then the MeasuredEntity is the same for both. But according to the example, each annotSet is separate. However, in reality, both are part of the same class split. So perhaps they should be in the same annotSet. 
+
+But according to the example, each group is separate. Maybe it's better to treat each percentage as a separate annotSet. 
+
+So annotSet 1 for 85% good:
+- Quantity: 85% (unit: %, mods: [])
+- MeasuredEntity: good class split (text: "class split", but how to handle "good")
+Wait, the original text is "85% good, 15% bad class split". So "good" and "bad" are part of the split description. 
+
+Alternatively, split the text. The phrase is "an 85% good, 15% bad class split". So the class split is characterized by 85% good and 15% bad. The "good" and "bad" are Qualifiers for each percentage. 
+
+Thus:
+
+AnnotSet 1:
+- Quantity: 85% (unit: %, mods: [])
+- MeasuredEntity: class split (HasQuantity: T1)
+- Qualifier: good (Qualifies: T1)
+
+AnnotSet 2:
+- Quantity: 15% (unit: %, mods: [])
+- MeasuredEntity: class split (HasQuantity: T4)
+- Qualifier: bad (Qualifies: T4)
+
+But then the MeasuredEntity is the same for both, but in different annotSets. Alternatively, combine them into one annotSet. However, the example used separate annotSets for each quantity-entity pair. 
+
+Alternatively, maybe the entire split is one annotSet with two quantities. For example:
+
+annotSet 1:
+- Quantity: 85% (unit: %, mods: [])
+- Quantity: 15% (unit: %, mods: [])
+- MeasuredEntity: class split (HasQuantity: T1 and T2)
+- Qualifier: good (Qualifies: T1)
+- Qualifier: bad (Qualifies: T2)
+
+But according to the example, each Quantity is in its own annotSet. So perhaps the answer should be two annotSets, each with their own Quantities, MeasuredEntity, and Qualifiers.
+
+But the problem is that the MeasuredEntity is "class split" for both. So perhaps the annotSet should be the same for both. However, the example grouped each quantity with its entity and property in separate sets. 
+
+This is confusing. Let's try to proceed, considering the example's approach. 
+
+In the example, each quantity, entity, and property had their own annotSet. So three separate sets for three quantities. So here, two quantities would have two annotSets. 
+
+So for the first quantity "85%":
+- annotSet 1:
+  - Quantity: T1, text "85%", unit "%"
+  - MeasuredEntity: T2, text "class split", relates via HasQuantity: T1
+  - Qualifier: T3, text "good", Qualifies: T1
+
+Wait, but the text is "85% good", so the Qualifier "good" is part of the same phrase. So the Quantity's text would be "85%", and the Qualifier is "good".
+
+But in the input sentence, the actual text is "85% good", so should the Quantity include "good"? According to the guidelines, Quantity is the value and unit. "good" isn't part of the quantity. So "85%" is the Quantity, and "good" is a Qualifier. 
+
+Similarly, "15% bad" would be Quantity "15%", Qualifier "bad".
+
+Then the MeasuredEntity would be "class split" for both. 
+
+So:
+
+annotSet 1:
+- Quantity: T1, text "85%", other: {"unit": "%"}
+- MeasuredEntity: T2, text "class split", other: {"HasQuantity": "T1"}
+- Qualifier: T3, text "good", other: {"Qualifies": "T1"}
+
+annotSet 2:
+- Quantity: T4, text "15%", other: {"unit": "%"}
+- MeasuredEntity: T5, text "class split", other: {"HasQuantity": "T4"}
+- Qualifier: T6, text "bad", other: {"Qualifies": "T4"}
+
+However, the MeasuredEntity "class split" is mentioned once in the sentence. But in the text, "class split" comes after both percentages. So how to annotate that. 
+
+The original text is "at an 85% good, 15% bad class split". So "class split" is modified by both percentages. So perhaps the MeasuredEntity is "class split" for both, but they are part of the same entity. Therefore, the two annotSets may share the same MeasuredEntity. But according to the example, each annotSet is separate, so we need to duplicate it. 
+
+Alternatively, the MeasuredEntity for both is "class split", but since it's the same entity, maybe both annotSets reference the same T2. But according to the example's output format, each annotSet is independent. For example, in the example, three separate annotSets each with their own T2, T5, T8. 
+
+Therefore, we need to treat them as separate annotSets even if the MeasuredEntity is the same. 
+
+But that leads to redundancy. However, following the example's structure, that's how it should be.
+
+So proceeding with that:
+
+annotSet 1:
+- Quantity: T1, 85%
+- MeasuredEntity: T2, class split
+- Qualifier: T3, good
+
+annotSet 2:
+- Quantity: T4, 15%
+- MeasuredEntity: T5, class split
+- Qualifier: T6, bad
+
+But "class split" is the same text in both. However, in the example, the "soda can" was in its own set. So it's possible for different annotSets to have the same text but different annotIds. 
+
+But in the original example, the three annotSets were for "soda can", "solvent", "salt". Each different entity. 
+
+In our case, the same entity "class split" is used in both annotSets. That might be acceptable, even if it's duplicated. 
+
+Alternatively, maybe the MeasuredEntity is "class split" once, and both quantities are linked to it. But how to represent that in TSV with separate annotSets. 
+
+It's not possible because each annotSet is a separate group. Therefore, according to the example's structure, each quantity is its own annotSet with its own MeasuredEntity, even if that entity is the same text. 
+
+Therefore, the TSV would have:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	85%	{"unit": "%"}
+1	MeasuredEntity	T2	class split	{"HasQuantity": "T1"}
+1	Qualifier	T3	good	{"Qualifies": "T1"}
+2	Quantity	T4	15%	{"unit": "%"}
+2	MeasuredEntity	T5	class split	{"HasQuantity": "T4"}
+2	Qualifier	T6	bad	{"Qualifies": "T4"}
+
+But wait, the original sentence mentions "class split" once. However, in the TSV, each annotSet's MeasuredEntity is "class split", but in reality, it's the same entity. But since they are in separate annotSets, they are treated as separate instances. 
+
+But is there a better way? Perhaps not, given the example's structure. 
+
+Additionally, the sentence mentions "average rank of the classifiers" which is another potential MeasuredProperty. Let's check that.
+
+The full sentence: "The following significance diagram displays the average rank of the classifiers at an 85% good, 15% bad class split:"
+
+Here, "average rank" is a MeasuredProperty. The MeasuredEntity would be "classifiers", and the Quantity is the average rank value. However, the value isn't provided in the sentence. The sentence is saying that the diagram displays this average rank under a certain class split. 
+
+So, if the sentence doesn't provide the actual average rank value, then there's no Quantity to annotate for it. Therefore, we only have the two percentages (85% and 15%) as Quantities. 
+
+Therefore, the final TSV should include two annotSets, each for the percentages, with their respective Qualifiers and MeasuredEntity as "class split". 
+
+Let me check the example again. In the example, "The temperature of the solution was approximately 25°C", the MeasuredEntity is "solution", MeasuredProperty is "temperature", Quantity is "25°C". 
+
+So for "average rank of the classifiers", if there was a value like "3.5", then we would annotate it as a Quantity, MeasuredEntity "classifiers", MeasuredProperty "average rank". But since no value is given, it's not annotated. 
+
+So focusing on the given Quantities: 85% and 15%. 
+
+Thus, the final answer should be two annotSets for each percentage, with their Qualifiers and MeasuredEntity as class split.

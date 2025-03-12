@@ -1,0 +1,13 @@
+docId	annotSet	annotType	annotId	text	other
+S0921818113002245-882	1	Quantity	T1	873 varves	"{""unit"": ""varves"", ""mods"": [""IsCount""]}"
+S0921818113002245-882	1	MeasuredEntity	T2	varves	"{""HasQuantity"": ""T1""}"
+S0921818113002245-882	2	Quantity	T3	46–52.1.1	"{""mods"": [""IsRange"", ""IsCount""]}"
+S0921818113002245-882	2	MeasuredEntity	T4	terrestrial macrofossil ages	"{""HasQuantity"": ""T3""}"
+S0921818113002245-882	3	Quantity	T5	AD 1850	"{""unit"": ""AD""}"
+S0921818113002245-882	3	MeasuredEntity	T6	lead pollution horizon	"{""HasQuantity"": ""T5""}"
+S0921818113002245-882	4	Quantity	T7	10.5 m	"{""unit"": ""m""}"
+S0921818113002245-882	4	MeasuredEntity	T8	sediments	"{""HasQuantity"": ""T7""}"
+S0921818113002245-882	4	MeasuredProperty	T9	depth	"{""HasQuantity"": ""T7"", ""HasProperty"": ""T8""}"
+S0921818113002245-882	5	MeasuredProperty	T10	Loss-on-ignition	"{""HasProperty"": ""T8""}"
+S0921818113002245-882	5	Qualifier	T11	relatively stable	"{""Qualifies"": ""T10""}"
+S0921818113002245-882	5	Qualifier	T12	above 10.5 m depth	"{""Qualifies"": ""T10""}"

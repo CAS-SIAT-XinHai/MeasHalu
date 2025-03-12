@@ -1,0 +1,8 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S027737911400050X-2401	1	Quantity	641	691	T1	several hundred or even more than a thousand years	"{""unit"": ""years"", ""mods"": [""IsRange""]}"
+S027737911400050X-2401	1	MeasuredEntity	593	617	T2	offset from the real age	"{""HasQuantity"": ""T1""}"
+S027737911400050X-2401	1	MeasuredProperty	632	637	T3	order	"{""HasQuantity"": ""T1""}"
+S027737911400050X-2401	1	Qualifier	692	732	T4	if bulk sediment or carbonates are dated	"{""Qualifies"": ""T1""}"
+S027737911400050X-2401	2	Quantity	1392	1411	T5	3.00–3.05 ka cal BP	"{""unit"": ""ka cal BP"", ""mods"": [""IsRange""]}"
+S027737911400050X-2401	2	MeasuredEntity	1412	1442	T6	Alpehué Pumice (So-A) eruption	"{""HasQuantity"": ""T5""}"
+S027737911400050X-2401	3	Quantity	107	108	T9	1	"{""mods"": [""IsCount""]}"

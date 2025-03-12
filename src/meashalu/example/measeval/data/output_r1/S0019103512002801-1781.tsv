@@ -1,0 +1,8 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103512002801-1781	1	MeasuredEntity	67	76	T2	electrons	"{""HasQuantity"": ""T1""}"
+S0019103512002801-1781	1	MeasuredProperty	85	91	T3	energy	"{""HasQuantity"": ""T1""}"
+S0019103512002801-1781	2	MeasuredEntity	67	76	T6	electrons	"{""HasQuantity"": ""T5""}"
+S0019103512002801-1781	3	Quantity	431	441	T9	about 15 s	"{""unit"": ""s"", ""mods"": [""IsApproximate""]}"
+S0019103512002801-1781	3	MeasuredEntity	387	393	T10	bounce	"{""HasQuantity"": ""T9""}"
+S0019103512002801-1781	3	Qualifier	394	424	T12	for 170° pitch angle electrons	"{""Qualifies"": ""T10""}"
+S0019103512002801-1781	4	MeasuredEntity	67	76	T14	electrons	"{""HasQuantity"": ""T13""}"

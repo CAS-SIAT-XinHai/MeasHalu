@@ -1,0 +1,5 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S095741741101342X-2642	1	Quantity	163	171	T1	multiple	"{""mods"": [""IsCount""]}"
+S095741741101342X-2642	1	MeasuredEntity	172	182	T2	techniques	"{""HasQuantity"": ""T1""}"
+S095741741101342X-2642	5	Quantity	575	588	T13	actual number	"{""mods"": [""IsCount""]}"
+S095741741101342X-2642	5	MeasuredProperty	582	588	T15	number	"{""HasQuantity"": ""T13""}"

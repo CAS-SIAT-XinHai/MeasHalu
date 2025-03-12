@@ -1,0 +1,297 @@
+Okay, let's tackle this step by step. First, I need to extract all the quantities from the input text. Let's start reading through the paragraph carefully.
+
+The first mention I see is "4 major elements". The number 4 here is a count, so that's a Quantity. Then "up to 9 minor elements" – 9 is another count. Next, there's "600 °C", "750 °C", "1000 °C" – those are all temperatures with units. Also, "20 °C" in steps of 20 °C. And "atmospheric pressure" – but I need to check if that's a quantity. Atmospheric pressure is a property, but unless there's a specific value like "1 atm", it might not be a quantity. The text says "at atmospheric pressure", so no numerical value here, so probably not a Quantity. Then "Molar quantities" based on ICP-MS analysis. "Molar quantities" might be a MeasuredProperty, but the actual values aren't given in the text, so maybe not a Quantity here. 
+
+So the Quantities identified so far are: 4, 9, 600 °C, 750 °C, 1000 °C, and 20 °C. Let's check again to make sure I didn't miss any. The sentence about the temperature range says "from temperatures of 600 °C, up to 750 °C for carbonation and 1000 °C for calcination, in steps of 20 °C". So those are all separate quantities. 
+
+Now, for each Quantity, I need to determine their units and modifiers. For "4 major elements" and "9 minor elements", they are counts, so their mods would be "IsCount" with no units. The temperatures all have units of °C. The steps of 20 °C – 20 °C is a Quantity with unit °C. 
+
+Next, MeasuredEntities. For "4 major elements", the MeasuredEntity would be "major elements". Similarly, "minor elements" for 9. For the temperatures, the MeasuredEntities would be "carbonation", "calcination", and "steps" perhaps? Wait, looking at the text: "temperatures of 600 °C", "up to 750 °C for carbonation", and "1000 °C for calcination". So the MeasuredEntities here are "carbonation" and "calcination", which are processes, but maybe "temperature" is the MeasuredProperty. Wait, the MeasuredProperty would be "temperature", and the MeasuredEntity could be "carbonation conditions" and "calcination conditions". Alternatively, perhaps the text refers to the temperature ranges for carbonation and calcination. Let's parse this carefully.
+
+The sentence says: "predict compound/phase formation for the complete temperature range, from temperatures of 600 °C, up to 750 °C for carbonation and 1000 °C for calcination, in steps of 20 °C". So the temperatures are associated with carbonation and calcination. So the MeasuredEntity for 750 °C would be "carbonation", and for 1000 °C, "calcination". The 600 °C might be a starting temperature, so maybe the MeasuredEntity is part of the temperature range for the modelling. Alternatively, the MeasuredEntity might be "temperature range" or the process conditions. Hmm.
+
+Also, "steps of 20 °C" – here, the step size is 20 °C, so the MeasuredEntity here could be "steps" or part of the temperature increments.
+
+Then, the MeasuredProperties would likely be "temperature" for each of the temperature quantities. 
+
+Now, constructing the relationships. Each MeasuredEntity (like "major elements") would have a HasQuantity relationship to the Quantity (4). The MeasuredProperty would be "number" or "count" for the elements, but according to the definitions, MeasuredProperty is a descriptive property like "temperature" or "volume". Wait, in the example given, "number" might not be considered a MeasuredProperty. The example had "volume", "temperature", "amount". Maybe for counts, the MeasuredProperty is omitted, and the Quantity directly linked to the MeasuredEntity via HasQuantity. For the elements, "4 major elements" – the MeasuredEntity is "major elements", the Quantity is 4 (mods: IsCount), and there's no MeasuredProperty because it's a count. 
+
+For the temperatures: each temperature Quantity (600 °C, etc.) would have a MeasuredProperty of "temperature", and the MeasuredEntity might be "carbonation conditions" or "calcination conditions". However, the text mentions "carbonation" and "calcination" directly as the contexts for those temperatures. For example, "750 °C for carbonation" – so carbonation is the MeasuredEntity here, and the MeasuredProperty is temperature. So:
+
+MeasuredEntity: carbonation → HasProperty: temperature → HasQuantity: 750 °C.
+
+Similarly for calcination and 1000 °C. The 600 °C is "temperatures of 600 °C", which might be part of the temperature range, so the MeasuredEntity could be "temperature range" and the MeasuredProperty is temperature, but that seems redundant. Alternatively, the MeasuredEntity might be "modelling conditions" or similar. This part is a bit ambiguous.
+
+Alternatively, since all the temperatures are part of the temperature range used in the model, perhaps the MeasuredEntity is the "modelling temperature range" and each temperature is a point within that range. But the text specifies "for carbonation" and "for calcination", so maybe each process (carbonation and calcination) is the MeasuredEntity, with the MeasuredProperty being temperature, and the Quantity being the specific degrees.
+
+The step of 20 °C: "in steps of 20 °C" – the MeasuredEntity here could be "steps", and the MeasuredProperty is "temperature increment", but again, the example might not require that. Maybe the step is part of the Quantity's modifiers. Since "steps of 20 °C" indicates the increment is 20 °C, the Quantity is 20 °C with a modifier. Wait, the text says "in steps of 20 °C", which is a single step size. So the Quantity here is 20 °C, and the modifier could be "IsRange", but no, a step is a single value. Maybe "IsList" if there are multiple steps, but the text says "steps of 20 °C", meaning each step is 20 °C. So no modifier needed except the unit. The MeasuredEntity here might be "temperature steps" or similar. But perhaps the step is a Qualifier? Hmm. Alternatively, the step is part of the conditions under which the modelling was done, so it's a Qualifier for the temperature range.
+
+This part is a bit tricky. Let's proceed step by step.
+
+First, the Quantities:
+
+- "4 major elements" → Quantity: 4, mods: IsCount, unit: (none)
+- "9 minor elements" → Quantity: 9, mods: IsCount, unit: (none)
+- "600 °C" → Quantity: 600 °C, unit: °C
+- "750 °C" → Quantity: 750 °C, unit: °C
+- "1000 °C" → Quantity: 1000 °C, unit: °C
+- "20 °C" → Quantity: 20 °C, unit: °C
+
+Now, MeasuredEntities:
+
+For "4 major elements" → MeasuredEntity: major elements
+For "9 minor elements" → MeasuredEntity: minor elements
+For "600 °C": The text says "from temperatures of 600 °C", so the MeasuredEntity is "temperature" (as a property) or the process being modelled. But according to the example, in "The soda can's volume was 355 ml", the MeasuredEntity is "soda can" and MeasuredProperty is "volume". So here, if the sentence is "temperatures of 600 °C", then "temperatures" is the MeasuredProperty, and the MeasuredEntity would be the conditions or processes they're part of. However, in the example given in the problem, "The temperature of the solution was approximately 25°C" → MeasuredEntity: solution, MeasuredProperty: temperature, Quantity: 25°C.
+
+So applying that here: "temperatures of 600 °C" → MeasuredEntity: (something), MeasuredProperty: temperature, Quantity: 600 °C. But what's the entity here? The process or the model? The context is modelling for carbonation and calcination conditions. So perhaps the MeasuredEntity is "modelling conditions" or "carbonation conditions" and "calcination conditions".
+
+Looking at the specific mentions:
+
+- "up to 750 °C for carbonation" → here, carbonation is the MeasuredEntity, temperature is the MeasuredProperty, and 750 °C is the Quantity.
+
+Similarly, "1000 °C for calcination" → calcination is the MeasuredEntity.
+
+"from temperatures of 600 °C" → this might be the starting temperature of the range, so the MeasuredEntity could be "temperature range" and the MeasuredProperty is temperature, but that seems redundant. Alternatively, perhaps the MeasuredEntity here is "modelling" or the process itself, and MeasuredProperty is temperature.
+
+But maybe the 600 °C is part of the temperature range for the model, so the MeasuredEntity is the model's temperature range, and the MeasuredProperty is temperature. However, since the text mentions "for carbonation" and "for calcination", perhaps those are the MeasuredEntities.
+
+Wait, the exact sentences: "predict compound/phase formation for the complete temperature range, from temperatures of 600 °C, up to 750 °C for carbonation and 1000 °C for calcination, in steps of 20 °C."
+
+So the temperature range starts at 600 °C and goes up to 750 °C for carbonation and 1000 °C for calcination. So carbonation has a max temperature of 750 °C, and calcination 1000 °C. Therefore, each of those processes (carbonation, calcination) is the MeasuredEntity, with MeasuredProperty temperature, and the Quantity being their respective temperatures. The 600 °C is the starting point of the range, perhaps part of the same set. But the text says "from temperatures of 600 °C, up to 750 °C for carbonation and 1000 °C for calcination". So maybe 600 °C is the lower bound for the temperature range, and the upper bounds are 750 and 1000 depending on the process. So maybe 600 °C is part of the general temperature range, and carbonation and calcination have their own upper limits. But I'm not sure. Alternatively, maybe all three temperatures (600, 750, 1000) are part of the temperature range, and the steps of 20 °C are increments. But that might complicate things.
+
+Assuming that:
+
+- 600 °C is the starting temperature, part of the overall temperature range. But the MeasuredEntity might be "temperature range" for this, with MeasuredProperty "lower limit" and "upper limit". But according to the problem's example, the structure is more straightforward.
+
+Alternatively, each temperature is a separate Quantity linked to their respective MeasuredEntity and MeasuredProperty.
+
+For 600 °C: the text says "from temperatures of 600 °C", which might not specify a process, so the MeasuredEntity could be "temperature range" and the MeasuredProperty is "starting temperature". But that may not fit the example's structure. Alternatively, it's part of the same model setup, so the MeasuredEntity is "modelling conditions", MeasuredProperty "temperature", and Quantity 600 °C. But this is getting too vague.
+
+Alternatively, for all the temperatures (600, 750, 1000, 20), the MeasuredProperty is "temperature" and the MeasuredEntities are "carbonation conditions" (for 750), "calcination conditions" (for 1000), and "temperature steps" (for 20). But again, this is uncertain.
+
+Let me try to proceed with what's clear. The 750 °C is explicitly for carbonation, and 1000 °C for calcination. So those can be linked to their respective processes. The 600 °C is the starting point, perhaps part of the general temperature range of the model. Maybe the MeasuredEntity for 600 °C is "temperature range" and the MeasuredProperty is "minimum temperature". But since the example doesn't go into such granularity, perhaps it's better to treat each temperature as a separate Quantity with their own MeasuredEntities and properties.
+
+For example:
+
+- 600 °C: MeasuredEntity could be "temperature range", MeasuredProperty "temperature", Quantity 600 °C.
+- 750 °C: MeasuredEntity "carbonation", MeasuredProperty "temperature", Quantity 750 °C.
+- 1000 °C: MeasuredEntity "calcination", MeasuredProperty "temperature", Quantity 1000 °C.
+- 20 °C: MeasuredEntity "temperature steps", MeasuredProperty "step size", Quantity 20 °C.
+
+But this might be overcomplicating. Let's refer back to the example. In the example, "The soda can's volume was 355 ml" → MeasuredEntity: soda can, MeasuredProperty: volume, Quantity: 355 ml. So the structure is [Entity]'s [Property] is [Quantity]. 
+
+In the input text, for 750 °C for carbonation: "up to 750 °C for carbonation" → similar to "volume of the solvent was 500 milliliters". Here, the structure is "750 °C for carbonation", which could be rephrased as "carbonation's temperature was 750 °C". So MeasuredEntity: carbonation, MeasuredProperty: temperature, Quantity: 750 °C.
+
+Similarly, "1000 °C for calcination" → MeasuredEntity: calcination, MeasuredProperty: temperature, Quantity: 1000 °C.
+
+For "temperatures of 600 °C" → "temperatures of 600 °C" → similar to "temperature of the solution was 25°C". So MeasuredProperty: temperature, MeasuredEntity: (the subject here is "temperatures", but in the example, the solution is the entity). Maybe the entity here is the "temperature range" or the modelling conditions. Since the sentence is "predict compound/phase formation for the complete temperature range, from temperatures of 600 °C...", the temperature range is the entity. But in the example, the solution was the entity. So perhaps, the MeasuredEntity is the "temperature range" and the MeasuredProperty is "starting temperature", but that's getting too specific. Alternatively, since the main context is the modelling, the MeasuredEntity could be "modelling parameters" or "modelling conditions", with MeasuredProperty as "temperature range" and Quantity 600 °C as part of that. But this is getting complicated. Maybe it's better to treat each temperature as separate entities where possible.
+
+Alternatively, perhaps the 600 °C is part of the same temperature range as the 750 and 1000, but that's a range. However, the example for range would have an IsRange modifier. But here, the text says "from temperatures of 600 °C, up to 750 °C...", which is a range from 600 to 750. But the 750 and 1000 are for different processes. Hmm. This is getting a bit tangled. Let's focus on the clear ones first.
+
+So:
+
+For 750 °C for carbonation: 
+
+- Quantity: 750 °C, unit: °C
+- MeasuredEntity: carbonation
+- MeasuredProperty: temperature
+- Relationships: MeasuredEntity (carbonation) HasProperty → MeasuredProperty (temperature), which HasQuantity → Quantity (750 °C)
+
+Similarly for 1000 °C for calcination:
+
+- Quantity: 1000 °C, unit: °C
+- MeasuredEntity: calcination
+- MeasuredProperty: temperature
+
+For 600 °C: the text says "from temperatures of 600 °C". The structure is "temperatures of 600 °C", so similar to "volume of the solvent". Here, the MeasuredEntity might be "temperature range" (since it's the start of the range), and MeasuredProperty is "minimum temperature". But that's not standard. Alternatively, perhaps the MeasuredEntity is "modelling conditions" and MeasuredProperty is "temperature", with Quantity 600 °C. But I'm not sure. The example didn't deal with ranges, so maybe we can treat 600 °C similarly as a standalone Quantity. Maybe the MeasuredEntity is "temperature range" and MeasuredProperty is "starting temperature", but I'm not confident. Alternatively, since the text is about the model's temperature range starting at 600, maybe the MeasuredEntity is "modelling" and MeasuredProperty is "temperature range starting point". This might not align with the example's structure, which is more straightforward. Perhaps it's safer to treat 600 °C as a Quantity with MeasuredProperty "temperature" and MeasuredEntity "temperature range". But without an explicit entity mentioned, this could be tricky. Alternatively, if there's no clear MeasuredEntity, the Quantity can remain standalone. But according to the instructions, if no entity exists, the Quantity can be standalone. However, in this case, the 600 °C is part of the temperature range for the model, so perhaps the MeasuredEntity is "modelling conditions" and the MeasuredProperty is "temperature".
+
+But the text says "modelling was undertaken... in order to investigate partitioning behaviour under pilot scale CO2 capture conditions." So the conditions include temperature ranges. Hmm.
+
+Alternatively, perhaps the MeasuredEntity for 600 °C is not explicitly mentioned and thus is omitted, making the Quantity standalone. But according to the instructions, we should ideally relate it to a MeasuredEntity or MeasuredProperty if possible. This is a bit ambiguous. Maybe I should proceed with the clear cases first and then revisit.
+
+The other Quantities: "4 major elements" and "9 minor elements" are counts. So for "4 major elements":
+
+- Quantity: 4, mods: IsCount, no unit.
+- MeasuredEntity: major elements
+- HasQuantity relationship: major elements → 4
+
+Similarly, "9 minor elements":
+
+- Quantity: 9, mods: IsCount
+- MeasuredEntity: minor elements
+- HasQuantity: minor elements → 9
+
+Now, the steps of "20 °C":
+
+- Quantity: 20 °C, unit: °C
+- Text mentions "in steps of 20 °C" → the MeasuredEntity could be "steps" or "temperature increments", MeasuredProperty "step size", but this is getting too detailed. Maybe the MeasuredEntity is "temperature steps" and the MeasuredProperty is "size", with Quantity 20 °C. But again, this is speculative. Alternatively, the step is a Qualifier for the temperature range. For example, the step size qualifies how the temperature range is divided. So the Qualifier would be "in steps of 20 °C", which qualifies the temperature range. But according to the Qualifier definition, it's a span describing conditions affecting a Quantity, etc. So "in steps of 20 °C" could be a Qualifier that qualifies the temperature range's implementation. But then the Quantity here is 20 °C, and the Qualifier is the entire phrase "in steps of 20 °C", but the Quantity is part of that phrase. This is confusing.
+
+Alternatively, the step is part of the Quantity's modifiers. Since "steps of 20 °C" means that each step is 20 °C, the Quantity is 20 °C, with a modifier like "IsStep" but that's not one of the predefined modifiers. The available modifiers are IsApproximate, IsCount, IsRange, IsList, IsMedian, IsMean, IsMeanHasSD. So none of these fit "step", so maybe no modifier. Therefore, just a Quantity with unit °C, linked to a MeasuredEntity "steps" and MeasuredProperty "size". But this is stretching it.
+
+Given the time constraints, perhaps it's better to annotate 20 °C as a Quantity with unit °C, and if no clear MeasuredEntity or Property is present, leave it standalone. But according to the instructions, we should try to relate them. Alternatively, the MeasuredEntity is "steps" and the MeasuredProperty is "temperature increment", but that's not standard.
+
+This is getting complicated. Let's try to outline all annotations step by step.
+
+Starting with the Quantities:
+
+1. "4 major elements": Quantity 4, mods IsCount, unit None. MeasuredEntity: major elements. No MeasuredProperty because it's a count.
+2. "9 minor elements": Quantity 9, mods IsCount, unit None. MeasuredEntity: minor elements.
+3. "600 °C": Quantity 600 °C, unit °C. MeasuredEntity: temperature range. MeasuredProperty: temperature.
+4. "750 °C": Quantity 750 °C, unit °C. MeasuredEntity: carbonation. MeasuredProperty: temperature.
+5. "1000 °C": Quantity 1000 °C, unit °C. MeasuredEntity: calcination. MeasuredProperty: temperature.
+6. "20 °C": Quantity 20 °C, unit °C. MeasuredEntity: steps. MeasuredProperty: step size.
+
+But for 600 °C, the MeasuredEntity is not explicitly mentioned. The text says "from temperatures of 600 °C", so maybe the MeasuredProperty is temperature and the MeasuredEntity is the temperature range. But "temperature range" isn't explicitly mentioned in the text; the text says "complete temperature range". So maybe:
+
+For 600 °C:
+
+- MeasuredEntity: temperature range
+- MeasuredProperty: minimum temperature
+- Quantity: 600 °C
+
+But again, the example didn't have such complexity. Alternatively, the text mentions "modelling was undertaken for... elements... to investigate partitioning behaviour under pilot scale CO2 capture conditions". The conditions include temperature ranges, so maybe the MeasuredEntity is "CO2 capture conditions" and the MeasuredProperty is temperature. But the temperatures are for carbonation and calcination within those conditions. 
+
+Alternatively, for 600 °C, since it's part of the temperature range, the MeasuredEntity could be "temperature range", MeasuredProperty "temperature", and Quantity 600 °C. Then, the text mentions "up to 750 °C for carbonation", so 750 is linked to carbonation. 
+
+But let's look at the relationships:
+
+For 750 °C:
+
+- MeasuredEntity: carbonation
+- MeasuredProperty: temperature
+- Quantity: 750 °C
+
+So the relationships would be: carbonation (T2) HasProperty → temperature (T3), which HasQuantity → T1 (750 °C).
+
+Similarly for 1000 °C and calcination.
+
+For 600 °C:
+
+The text says "from temperatures of 600 °C", which is part of the temperature range. So the MeasuredEntity here is the temperature range itself, and the MeasuredProperty is "starting temperature". But since the example doesn't have such a structure, maybe it's better to treat this as a standalone Quantity or find a way to link it. However, the example did link even if the structure was clear. 
+
+Alternatively, perhaps the entire temperature range is the MeasuredEntity, with multiple Quantities (600, 750, 1000) linked via different MeasuredProperties, but that's not how the example was structured. 
+
+Given the time I've spent on this, perhaps I should proceed to create the TSV with the clear cases and handle the ambiguous ones as best as possible.
+
+Now, let's attempt to build the annotSets.
+
+annotSet 1: for "4 major elements"
+
+- Quantity: T1 → "4", mods IsCount, no unit.
+- MeasuredEntity: T2 → "major elements", HasQuantity T1.
+- No MeasuredProperty since it's a count.
+
+annotSet 2: "9 minor elements"
+
+- Quantity: T3 → "9", mods IsCount.
+- MeasuredEntity: T4 → "minor elements", HasQuantity T3.
+
+annotSet 3: 600 °C
+
+- Quantity: T5 → "600 °C", unit °C.
+- MeasuredEntity: Maybe "temperature range" (text mentions "complete temperature range"), so T6 → "temperature range", HasQuantity T5.
+- MeasuredProperty: T7 → "temperature", HasProperty T6, HasQuantity T5.
+
+But the text says "predict compound/phase formation for the complete temperature range, from temperatures of 600 °C...", so the temperature range starts at 600 °C. Therefore, the MeasuredEntity is "temperature range", MeasuredProperty is "minimum temperature" (but not explicitly mentioned), but according to the example, if the property is "temperature", then:
+
+- MeasuredEntity: temperature range → HasProperty temperature → HasQuantity 600 °C. But "temperature range" would be the entity, "temperature" the property. But "temperature" as a property of a "temperature range" seems redundant. Hmm. Maybe omit the MeasuredProperty here and just link the Quantity to the MeasuredEntity directly. But according to the instructions, if possible, relate via HasQuantity. 
+
+Alternatively, since "temperature" is the property of the range, perhaps:
+
+annotSet3:
+- Quantity T5: 600 °C
+- MeasuredEntity T6: temperature range
+- MeasuredProperty T7: temperature
+- Relationships: T6 HasProperty T7, T7 HasQuantity T5.
+
+But this might not be accurate. Alternatively, perhaps the 600 °C is part of the carbonation and calcination conditions. But in the text, 600 is the lower bound, and 750/1000 are upper bounds for different processes.
+
+Alternatively, maybe the temperature range is the MeasuredEntity, and the Quantities 600, 750, 1000, and 20 are linked to it with different properties. But this is getting too complex. Perhaps it's better to treat each temperature as a separate annotSet with their own entities and properties.
+
+Therefore:
+
+annotSet3: 600 °C
+
+- Quantity T5: 600 °C, unit °C
+- MeasuredEntity T6: temperature range (from the context)
+- MeasuredProperty T7: temperature
+- Relationships: T6 HasProperty T7, T7 HasQuantity T5.
+
+annotSet4: 750 °C for carbonation
+
+- Quantity T8: 750 °C, unit °C
+- MeasuredEntity T9: carbonation
+- MeasuredProperty T10: temperature
+- Relationships: T9 HasProperty T10, T10 HasQuantity T8.
+
+annotSet5: 1000 °C for calcination
+
+- Quantity T11: 1000 °C, unit °C
+- MeasuredEntity T12: calcination
+- MeasuredProperty T13: temperature
+- Relationships: T12 HasProperty T13, T13 HasQuantity T11.
+
+annotSet6: 20 °C steps
+
+- Quantity T14: 20 °C, unit °C
+- MeasuredEntity T15: steps
+- MeasuredProperty T16: size (this is stretching, but perhaps "step size")
+- Relationships: T15 HasProperty T16, T16 HasQuantity T14.
+
+But the text says "in steps of 20 °C", so the phrase "steps of 20 °C" is the span. Here, the Quantity is "20 °C", and the MeasuredEntity is "steps", and MeasuredProperty is "size". But "size" is not mentioned in the text. Alternatively, the step is a Qualifier for the temperature range. For example, the Qualifier is "in steps of 20 °C", which qualifies the temperature range's application. So the Qualifier would be "in steps of 20 °C", which qualifies the temperature range (annotSet3's MeasuredEntity). Then the Quantity 20 °C would be part of this Qualifier. But according to the instructions, Qualifiers are spans that affect the interpretation of a Quantity, etc. So "in steps of 20 °C" could be a Qualifier that qualifies the temperature range's implementation, and the Quantity 20 °C is part of that Qualifier. But then the structure would be:
+
+- Qualifier T17: "in steps of 20 °C", which Qualifies the temperature range (T6).
+- Quantity T14: 20 °C, unit °C, part of the Qualifier.
+
+But in the example, the Qualifier was "after I drank half the can" qualifying the Quantity of soda. So in this case, "in steps of 20 °C" qualifies how the temperature range was applied, so it would Qualify the temperature range's application. Therefore:
+
+- Qualifier T17: "in steps of 20 °C" → Qualifies T6 (temperature range)
+- Quantity T14: 20 °C within the Qualifier. But the Quantity is "20 °C", which is part of the Qualifier's text. However, according to the instructions, the Qualifier is a separate annotation that can qualify a Quantity, MeasuredEntity, or MeasuredProperty. So the steps phrase is a Qualifier that qualifies the temperature range's implementation, and within it, there's a Quantity 20 °C. But then the Quantity 20 °C would have its own annotations. 
+
+This complicates things. Let's structure it as:
+
+annotSet6:
+
+- Quantity T14: 20 °C, unit °C
+- Qualifier T15: "steps of 20 °C" → Qualifies T6 (temperature range)
+- Relationships: Qualifier T15 → Qualifies T6
+- But the Quantity T14 is part of the Qualifier's text, so the Qualifier's text is "steps of 20 °C", and T14 is a Quantity within that. However, according to the instructions, each annotation must be a span from the text. The exact text for Qualifier would be "in steps of 20 °C" but the "in" is a preposition. The actual phrase is "steps of 20 °C". But the original sentence is "in steps of 20 °C". So the Qualifier text is "steps of 20 °C" (excluding "in"? Or include "in steps..."?)
+
+But according to the example, the Qualifier was "after I drank half the can" which includes the entire phrase. So here, the Qualifier would be "in steps of 20 °C". Then within that Qualifier, the Quantity "20 °C" is extracted. So:
+
+annotSet6:
+
+- Quantity T14: 20 °C, unit °C
+- Qualifier T15: "in steps of 20 °C" → Qualifies T6 (temperature range)
+- The Quantity T14 is part of the Qualifier T15's text. However, the Qualifier's other field should link it via Qualifies relationship to the temperature range (T6). The Quantity T14 is separate, possibly linked to a MeasuredEntity "steps" and MeasuredProperty "size", but again, this is ambiguous.
+
+This is getting too complex. Perhaps the safe approach is to annotate the Quantities and their direct relationships where clear, and leave the rest as standalone or with minimal relations.
+
+Putting this all together, the TSV would look something like:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	4	{"mods": ["IsCount"]}
+1	MeasuredEntity	T2	major elements	{"HasQuantity": "T1"}
+2	Quantity	T3	9	{"mods": ["IsCount"]}
+2	MeasuredEntity	T4	minor elements	{"HasQuantity": "T3"}
+3	Quantity	T5	600 °C	{"unit": "°C"}
+3	MeasuredEntity	T6	temperature range	{"HasQuantity": "T5"}
+3	MeasuredProperty	T7	temperature	{"HasQuantity": "T5", "HasProperty": "T6"}
+4	Quantity	T8	750 °C	{"unit": "°C"}
+4	MeasuredEntity	T9	carbonation	{"HasQuantity": "T8"}
+4	MeasuredProperty	T10	temperature	{"HasQuantity": "T8", "HasProperty": "T9"}
+5	Quantity	T11	1000 °C	{"unit": "°C"}
+5	MeasuredEntity	T12	calcination	{"HasQuantity": "T11"}
+5	MeasuredProperty	T13	temperature	{"HasQuantity": "T11", "HasProperty": "T12"}
+6	Quantity	T14	20 °C	{"unit": "°C"}
+6	MeasuredEntity	T15	steps	{"HasQuantity": "T14"}
+6	MeasuredProperty	T16	size	{"HasQuantity": "T14", "HasProperty": "T15"}
+6	Qualifier	T17	in steps of 20 °C	{"Qualifies": "T6"}
+
+But I'm not entirely confident about some of these, especially the "steps" and "temperature range" entities. Also, the Qualifier "in steps of 20 °C" is linked to the temperature range (T6), which makes sense as it qualifies how the temperature range is divided. However, the original text says "in steps of 20 °C", so the full Qualifier text should be "in steps of 20 °C". Also, the Quantity "20 °C" in the steps is part of that Qualifier. However, in the TSV, each annotation is a separate row. So the Qualifier is a separate annotation (T17), and the Quantity T14 is part of the Qualifier's text but also a separate Quantity annotation. This is allowed, as per the example where "approximately 25°C" includes the Quantity and the Qualifier (approximate) is part of the Quantity's modifiers.
+
+Wait, no. In the example, "approximately 25°C" is a single Quantity with an IsApproximate modifier. The Qualifier in the example was a separate phrase ("after I drank half the can"). So in the current case, "in steps of 20 °C" is a Qualifier phrase that is separate and qualifies the temperature range. The Quantity "20 °C" is part of that Qualifier but needs to be annotated as a separate Quantity. But how should the relationships work here? The Qualifier "in steps of 20 °C" qualifies the temperature range (T6), and the Quantity "20 °C" is linked to steps, which may or may not be part of another entity.
+
+Alternatively, maybe the steps are not necessary to annotate as a MeasuredEntity, and the Qualifier is simply "in steps of 20 °C" qualifying the temperature range, with the Quantity "20 °C" existing but not linked to any entity. But according to the instructions, the Quantity should ideally be linked. But if there's no clear entity, it can be standalone.
+
+In conclusion, after considering all possibilities and time constraints, the final TSV is structured as above, with each temperature and count annotated, along with their respective entities and properties, and the Qualifier for steps linked to the temperature range.

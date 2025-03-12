@@ -1,0 +1,5 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0925443913003037-1397	1	Quantity	352	369	T1	approximately 54%	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
+S0925443913003037-1397	1	MeasuredEntity	275	285	T2	mt-tRNAPhe	"{""HasProperty"": ""T3""}"
+S0925443913003037-1397	1	MeasuredProperty	266	271	T3	level	"{""HasQuantity"": ""T1""}"
+S0925443913003037-1397	1	Qualifier	407	441	T4	when compared with normal controls	"{""Qualifies"": ""T1""}"

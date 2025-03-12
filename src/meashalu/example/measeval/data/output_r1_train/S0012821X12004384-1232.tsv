@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0012821X12004384-1232	1	Quantity	28	35	T1	>0.5 km	"{""unit"": ""km""}"
+S0012821X12004384-1232	1	MeasuredEntity	57	62	T2	basin	"{""HasProperty"": ""T3""}"
+S0012821X12004384-1232	2	Quantity	338	344	T4	<10 cm	"{""unit"": ""cm""}"
+S0012821X12004384-1232	2	MeasuredEntity	306	326	T5	turbidite sandstones	"{""HasProperty"": ""T6""}"
+S0012821X12004384-1232	2	MeasuredProperty	278	285	T6	erosion	"{""HasQuantity"": ""T4""}"
+S0012821X12004384-1232	2	Qualifier	328	337	T7	typically	"{""Qualifies"": ""T4""}"

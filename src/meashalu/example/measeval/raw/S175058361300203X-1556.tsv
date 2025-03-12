@@ -1,0 +1,12 @@
+docId	annotSet	annotType	annotId	text	other
+S175058361300203X-1556	1	Quantity	T1-1	34 °C	"{""unit"": ""°C""}"
+S175058361300203X-1556	1	MeasuredEntity	T1-2	options	"{""HasQuantity"": ""T1-1""}"
+S175058361300203X-1556	2	Quantity	T2-1	38 °C	"{""unit"": ""°C""}"
+S175058361300203X-1556	2	MeasuredEntity	T2-2	options	"{""HasQuantity"": ""T2-1""}"
+S175058361300203X-1556	3	Quantity	T3-1	less than 1%	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
+S175058361300203X-1556	3	MeasuredEntity	T3-2	seismic amplitude differences	"{""HasProperty"": ""T3-3""}"
+S175058361300203X-1556	3	MeasuredProperty	T3-3	amplitude values	"{""HasQuantity"": ""T3-1"", ""HasProperty"": ""T3-2""}"
+S175058361300203X-1556	4	Quantity	T4-1	greater than 10%	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
+S175058361300203X-1556	4	MeasuredEntity	T4-2	3D time-lapse data	"{""HasProperty"": ""T4-3""}"
+S175058361300203X-1556	4	MeasuredProperty	T4-3	NRMS differences	"{""HasQuantity"": ""T4-1"", ""HasProperty"": ""T4-2""}"
+S175058361300203X-1556	4	Qualifier	T4-4	(Kashubin et al., 2011)	"{""Qualifies"": ""T4-1""}"

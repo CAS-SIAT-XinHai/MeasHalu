@@ -1,0 +1,12 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0019103512003533-3908	1	Quantity	259	264	T1	0.125	"{""unit"": """", ""mods"": [""IsMean""]}"
+S0019103512003533-3908	1	MeasuredEntity	249	255	T2	factor	"{""HasQuantity"": ""T1""}"
+S0019103512003533-3908	1	MeasuredProperty	214	218	T3	rate	"{""HasQuantity"": ""T1""}"
+S0019103512003533-3908	2	MeasuredEntity	90	92	T5	k1	"{""HasQuantity"": ""T4""}"
+S0019103512003533-3908	3	Quantity	342	358	T7	1 × 10−9 cm3 s−1	"{""unit"": ""cm3 s\u22121"", ""mods"": [""IsMean""]}"
+S0019103512003533-3908	3	MeasuredEntity	320	322	T8	k1	"{""HasQuantity"": ""T7""}"
+S0019103512003533-3908	3	MeasuredProperty	295	313	T9	base reaction rate	"{""HasQuantity"": ""T7""}"
+S0019103512003533-3908	4	Quantity	459	460	T10	4	"{""unit"": """", ""mods"": [""IsMean""]}"
+S0019103512003533-3908	4	MeasuredEntity	467	473	T11	factor	"{""HasQuantity"": ""T10""}"
+S0019103512003533-3908	4	MeasuredProperty	431	450	T12	volume mixing ratio	"{""HasQuantity"": ""T10""}"
+S0019103512003533-3908	4	Qualifier	479	532	T13	with respect to that assumed by Moses and Bass (2000)	"{""Qualifies"": ""T12""}"

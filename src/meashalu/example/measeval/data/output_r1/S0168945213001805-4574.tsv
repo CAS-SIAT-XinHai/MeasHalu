@@ -1,0 +1,4 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0168945213001805-4574	1	Quantity	454	457	T1	50%	"{""unit"": ""%"", ""mods"": [""IsCount""]}"
+S0168945213001805-4574	1	MeasuredEntity	458	472	T2	mortality rate	"{""HasQuantity"": ""T1""}"
+S0168945213001805-4574	1	Qualifier	473	490	T3	in the greenhouse	"{""Qualifies"": ""T2""}"

@@ -1,0 +1,10 @@
+docId	annotSet	annotType	annotId	text	other
+S0006322312001096-1136	1	Quantity	T1	5318	"{""mods"": [""IsCount""]}"
+S0006322312001096-1136	1	MeasuredEntity	T2	participants	"{""HasQuantity"": ""T1""}"
+S0006322312001096-1136	2	Quantity	T3	54.8 years	"{""unit"": ""years"", ""mods"": [""IsMean""]}"
+S0006322312001096-1136	2	MeasuredEntity	T4	participants	"{""HasQuantity"": ""T3""}"
+S0006322312001096-1136	2	MeasuredProperty	T5	age	"{""HasQuantity"": ""T3"", ""HasProperty"": ""T4""}"
+S0006322312001096-1136	3	Quantity	T6	31%	"{""unit"": ""%"", ""mods"": [""IsCount""]}"
+S0006322312001096-1136	3	MeasuredEntity	T7	women	"{""HasQuantity"": ""T6""}"
+S0006322312001096-1136	4	Quantity	T8	≥16	"{""mods"": [""IsCount""]}"
+S0006322312001096-1136	4	MeasuredProperty	T9	Center for Epidemiologic Studies Depression Scale score	"{""HasQuantity"": ""T8""}"

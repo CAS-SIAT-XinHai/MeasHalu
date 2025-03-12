@@ -1,0 +1,253 @@
+Okay, let's tackle this step by step. First, I need to extract all the quantities mentioned in the text. Let's go through each paragraph.
+
+The first part talks about assumptions for calculating salt concentrations. The relevant quantities here are about soil mixing depths. The user mentions "a 1/e mixing depth of 0.51–0.85 m" — that's a range, so that's a Quantity. Then "three e-folding depths, the range would be 1.5–2.6 m depth" — another range. Then "a mean ∼2 m". Also, "soil density is 1 g cm−3". Then in Table 4, but since the text doesn't give specific numbers from the table, maybe we can ignore that.
+
+Next, check for units and modifiers. The first mixing depth is "0.51–0.85 m" — units are meters, it's a range. Then "1.5–2.6 m" — same, meters and a range. The mean is "∼2 m" — the tilde indicates approximate, so that's IsApproximate. The soil density is "1 g cm−3" — unit is grams per cubic centimeter. Wait, cm−3 is cm⁻³, so the unit here is "g cm⁻³".
+
+Now, MeasuredEntities. The first mixing depth is about soil on Mars, so MeasuredEntity would be "soil". The property here is "mixing depth". Similarly, the second range 1.5–2.6 m is also mixing depth, same entity and property. The mean of ∼2 m refers to the same. Soil density's entity is "soil", property is "density".
+
+Qualifiers? The phrase "small post-Noachian impactors have churned the soil..." — maybe "small post-Noachian impactors" is a qualifier for the mixing depth? Or is that part of the MeasuredEntity? Hmm. The text says "According to Zent (1998),..." — perhaps that's a reference but not a qualifier. The qualifiers might be the assumptions, like "taking three e-folding depths" — but the user instructions say qualifiers are spans that affect the quantity. So "taking three e-folding depths" might be a qualifier for the range 1.5–2.6 m. Also, the "nominal model" in "calculate the concentrations... for the nominal model" could be a qualifier for those concentrations.
+
+Wait, but the example given for qualifier was a phrase like "after I drank half the can". So maybe "taking three e-folding depths" is a qualifier here. Similarly, "using these assumptions" might qualify the calculated concentrations.
+
+Now, relationships. Each Quantity needs to be linked to a MeasuredEntity and MeasuredProperty. For the first mixing depth: MeasuredEntity is "soil", MeasuredProperty is "mixing depth", linked via HasProperty and HasQuantity. The same applies to the other ranges and the mean. The soil density's MeasuredEntity is "soil", MeasuredProperty is "density", Quantity is "1 g cm⁻³".
+
+The units: "m" for meters, "g cm⁻³" for grams per cubic centimeter. The modifiers: IsRange for the first two quantities, IsApproximate for the mean. The third quantity "1 g cm⁻³" doesn't have a modifier, just a unit.
+
+For qualifiers, "taking three e-folding depths" qualifies the range 1.5–2.6 m. Also, "according to Zent (1998)" could be a qualifier for the 0.51–0.85 m depth. But per the instructions, qualifiers are spans in the text. So "According to Zent (1998), small post-Noachian impactors have churned the soil..." — perhaps "According to Zent (1998)" is a qualifier for the 0.51–0.85 m depth. But how is that represented as a span? The exact text would be "According to Zent (1998), small post-Noachian impactors have churned the soil..." — but the qualifier is the reference to Zent (1998). However, the Qualifier should be the exact text span. Alternatively, maybe "small post-Noachian impactors" is part of the MeasuredEntity? Or maybe "churned the soil" is part of the Qualifier. This is a bit tricky. Let me check the example again. The example had "after I drank half the can" as the qualifier. So perhaps in this case, "small post-Noachian impactors have churned the soil on Mars to a 1/e mixing depth..." — maybe that entire clause is a qualifier? But the exact span would be "small post-Noachian impactors have churned the soil on Mars". However, the user might not want the entire sentence. Alternatively, perhaps "according to Zent (1998)" is the qualifier for the 0.51–0.85 m quantity, indicating the source. But the instructions say that qualifiers provide conditions affecting the quantity. Maybe the assumption statements are qualifiers. For instance, "We assume that..." could be qualifiers. But the text says "We first assume that...", which is part of the reasoning but not a direct qualifier. The qualifier here might be "taking three e-folding depths" which explains how the range 1.5–2.6 m was derived. So "taking three e-folding depths" is a qualifier for that quantity.
+
+So for the 0.51–0.85 m depth: qualifier is "small post-Noachian impactors have churned the soil on Mars to a 1/e mixing depth" — but that's part of the sentence introducing the quantity. Alternatively, maybe the qualifier is the entire statement from "According to Zent (1998), ... 0.51–0.85 m." But the exact text would be "According to Zent (1998), small post-Noachian impactors have churned the soil on Mars to a 1/e mixing depth of 0.51–0.85 m." — but the qualifier would be part of that. However, in the example, the qualifier was "after I drank half the can", which is a separate clause. Here, the qualifier is part of the same sentence. Maybe the qualifier is "According to Zent (1998)" but that's a citation. The instructions say qualifiers are conditions that affect the quantity. So perhaps "small post-Noachian impactors" is part of the MeasuredEntity? Or the method by which the mixing depth was determined. Hmm.
+
+Alternatively, perhaps there's no qualifier for that quantity, and the qualifiers are only for the 1.5–2.6 m and the mean. Let me think. The text says "Taking three e-folding depths, the range would be 1.5–2.6 m depth, with a mean ∼2 m." So "Taking three e-folding depths" is a qualifier for the range and the mean. So the qualifier here is "Taking three e-folding depths" which qualifies both the range and the mean. Therefore, we need to extract that as a Qualifier and link it to those quantities.
+
+So Qualifier: "Taking three e-folding depths" and it qualifies the 1.5–2.6 m and the ∼2 m quantities.
+
+Then, for the soil density: "the soil density is 1 g cm⁻³ (Moore and Jakosky, 1989)". The citation in parentheses is a qualifier indicating the source, but according to the example, citations might not be considered unless part of the qualifier. Since the example didn't include citations as qualifiers, maybe we ignore them here, unless the entire "(Moore and Jakosky, 1989)" is considered a qualifier. But in the example, the qualifier was a clause affecting the quantity's interpretation. So perhaps here the citation is part of the qualifier. But the exact text is "the soil density is 1 g cm−3 (Moore and Jakosky, 1989)". The "(Moore...)" is a parenthetical citation. Maybe that's a qualifier. So the Qualifier would be "(Moore and Jakosky, 1989)", and it qualifies the soil density quantity.
+
+So now, building the TSV.
+
+Start with annotSet 1 for the first quantity: 0.51–0.85 m.
+
+Quantity: text "0.51–0.85 m", unit "m", mods "IsRange". MeasuredEntity is "soil", MeasuredProperty "mixing depth". Relationships: HasQuantity from MeasuredEntity to Quantity, HasProperty from MeasuredEntity to MeasuredProperty.
+
+But the text for MeasuredEntity here might be "soil on Mars" as the full entity. Wait, the sentence says "small post-Noachian impactors have churned the soil on Mars to a 1/e mixing depth of 0.51–0.85 m." So the MeasuredEntity is "soil on Mars"? Or just "soil"? The example had "soda can" as the entity. Here, "soil on Mars" is more specific. So maybe the MeasuredEntity is "soil on Mars".
+
+Similarly, the MeasuredProperty is "1/e mixing depth" — but the actual property is "mixing depth", with "1/e" as a qualifier? Wait, the text says "a 1/e mixing depth of 0.51–0.85 m". Here, "1/e" is part of the MeasuredProperty. So MeasuredProperty would be "1/e mixing depth".
+
+So for annotSet 1:
+
+- Quantity: 0.51–0.85 m (T1), mods IsRange, unit m.
+- MeasuredEntity: soil on Mars (T2)
+- MeasuredProperty: 1/e mixing depth (T3)
+- Relationships: T2 HasProperty T3, T3 HasQuantity T1.
+
+Then, qualifier: "small post-Noachian impactors have churned the soil on Mars to a 1/e mixing depth of 0.51–0.85 m." But that's the entire clause. Wait, but the Qualifier should be a span in the text. Looking at the input text: "According to Zent (1998), small post-Noachian impactors have churned the soil on Mars to a 1/e mixing depth of 0.51–0.85 m." The qualifier here might be the reason or method, which is the action of churning by impactors. So the qualifier text is "small post-Noachian impactors have churned the soil on Mars", which qualifies the Quantity. So annotType Qualifier, text "small post-Noachian impactors have churned the soil on Mars", relation Qualifies to T1.
+
+But this is getting complicated. Let me check whether the Qualifier is needed here. The example had a qualifier that directly affected the quantity, like time ("after drinking..."). Here, the qualifier explains why the mixing depth is that value. So yes, it's a qualifier. So annotSet 1 would include:
+
+annotSet 1:
+- Quantity T1: 0.51–0.85 m, mods IsRange, unit m
+- MeasuredEntity T2: soil on Mars
+- MeasuredProperty T3: 1/e mixing depth
+- Qualifier T4: small post-Noachian impactors have churned the soil on Mars
+Relationships:
+T2 HasProperty T3
+T3 HasQuantity T1
+T4 Qualifies T1 (or maybe T3?)
+
+But according to the relationships definition, Qualifies can link to Quantity, MeasuredEntity, or MeasuredProperty. In this case, the qualifier explains how the mixing depth was determined (due to impactors churning the soil), so it might qualify the MeasuredEntity or the MeasuredProperty. Alternatively, it could qualify the Quantity. But the example linked the qualifier to the Quantity. So perhaps here, Qualifier T4 Qualifies T1.
+
+So annotSet 1 would have:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	0.51–0.85 m	{"unit": "m", "mods": ["IsRange"]}
+1	MeasuredEntity	T2	soil on Mars	{"HasQuantity": "T1"}
+1	MeasuredProperty	T3	1/e mixing depth	{"HasQuantity": "T1", "HasProperty": "T2"}
+1	Qualifier	T4	small post-Noachian impactors have churned the soil on Mars	{"Qualifies": "T1"}
+
+Wait, but the MeasuredEntity is "soil on Mars", and the MeasuredProperty is "1/e mixing depth". The Quantity is linked via HasQuantity from the MeasuredProperty. Because in the example, "soda can" (Entity) has "volume" (Property) which has Quantity. So in that case, MeasuredProperty (volume) links to Quantity, and the Entity links to the Property. So maybe here, the MeasuredProperty "1/e mixing depth" has the Quantity T1, and the MeasuredEntity "soil on Mars" links to the Property via HasProperty. So:
+
+MeasuredEntity T2: soil on Mars → {"HasProperty": "T3"}
+MeasuredProperty T3: 1/e mixing depth → {"HasQuantity": "T1"}
+So the relationships would be:
+
+T2 (Entity) HasProperty T3 (Property)
+T3 (Property) HasQuantity T1 (Quantity)
+Qualifier T4 Qualifies T1.
+
+But the qualifier is explaining the cause of the mixing depth, so maybe it qualifies the Quantity. Alternatively, the Qualifier could qualify the MeasuredEntity or the MeasuredProperty. The example's qualifier was linked to the Quantity. Let's proceed with Qualifier T4 Qualifies T1.
+
+Moving on to the next quantity: 1.5–2.6 m. The text says "Taking three e-folding depths, the range would be 1.5–2.6 m depth". So Quantity is "1.5–2.6 m", unit m, mods IsRange. MeasuredEntity is "soil" (since it's the same soil as before, but maybe more specific?), MeasuredProperty is "mixing depth" (but the previous was 1/e mixing depth). Wait, the text here says "the range would be 1.5–2.6 m depth". The property here is "depth", so MeasuredProperty is "depth". The MeasuredEntity is "soil column" because the text mentions "soil column" when it says "salts are distributed throughout the soil column". But in this specific sentence, it's "Taking three e-folding depths, the range would be 1.5–2.6 m depth". So the depth here refers to the mixing depth again. So perhaps the MeasuredProperty is "mixing depth", same as before. But the text just says "depth". Hmm. Alternatively, maybe the MeasuredProperty is "depth" here. Maybe the user made a mistake in the example and needs to clarify, but following the example structure, let's proceed.
+
+For annotSet 2:
+
+- Quantity T5: 1.5–2.6 m, unit m, mods IsRange.
+- MeasuredEntity T6: soil column (from "soil column")
+- MeasuredProperty T7: depth
+- Qualifier T8: Taking three e-folding depths
+
+Relationships:
+T6 HasProperty T7
+T7 HasQuantity T5
+T8 Qualifies T5
+
+But the text mentions "soil column" in "salts are distributed throughout the soil column". The current quantity is about the mixing depth after three e-folding depths. The MeasuredEntity here would be "soil column", and MeasuredProperty is "depth". The Qualifier is "Taking three e-folding depths", which qualifies the Quantity T5.
+
+So annotSet 2:
+
+annotSet	annotType	annotId	text	other
+2	Quantity	T5	1.5–2.6 m	{"unit": "m", "mods": ["IsRange"]}
+2	MeasuredEntity	T6	soil column	{"HasProperty": "T7"}
+2	MeasuredProperty	T7	depth	{"HasQuantity": "T5", "HasProperty": "T6"}
+2	Qualifier	T8	Taking three e-folding depths	{"Qualifies": "T5"}
+
+Next, the mean value: "with a mean ∼2 m". Quantity is "∼2 m", unit m, mods IsApproximate. MeasuredEntity is soil column, MeasuredProperty is depth. Qualifier same as before? Or another qualifier? The text says "the range would be 1.5–2.6 m depth, with a mean ∼2 m." So the mean is part of the same context. So this would be in annotSet 2, but wait, each logical grouping has its own annotSet. Since this is part of the same context as 1.5–2.6 m, maybe it's the same annotSet? Or separate? Let me check the example. In the example, each quantity had its own annotSet. But in the example, each was separate (temperature, volume, amount). Here, the 1.5–2.6 m and the mean ∼2 m are related. The user instructions say annotSet starts from 1 for each logical grouping of related annotations. So perhaps they are part of the same set. But in the example, each had their own. Alternatively, maybe each Quantity with its own MeasuredEntity and MeasuredProperty is a separate set. Let's see.
+
+In the example, the first annotSet was for approximately 25°C with solution and temperature. The second for 500 milliliters with solvent and volume. Third for 10 grams with salt and amount. Each is a separate set. So here, even if related, each Quantity is its own set. Wait, but the 1.5–2.6 m and the mean ∼2 m are two different quantities for the same MeasuredProperty. So perhaps they belong to the same set. For example, if there's a range and a mean, they might be part of the same grouping. However, according to the example, each Quantity is its own set. But maybe the user expects separate annotSets. Let's check the instructions: "annotSet: The annotation set ID (starting from 1 for each logical grouping of related annotations)." So if two quantities are part of the same logical group, they can be in the same set. For example, if a sentence has two quantities related to the same entity and property, they could be in the same set. However, in the example, each Quantity was a separate set, even though they were in the same paragraph. So perhaps each Quantity is a separate set. However, in the case where a single sentence has multiple quantities (like a list), they might be same set. For example, "The values were 1.5–2.6 m and a mean of 2 m." — these might be same set. So in this case, the 1.5–2.6 m and ∼2 m are part of the same logical group, so same annotSet. Thus, annotSet 2 would include both quantities. But wait, each Quantity needs its own MeasuredEntity and MeasuredProperty. The mean ∼2 m is for the same MeasuredEntity and MeasuredProperty as the range. So:
+
+annotSet 2 could have two Quantities. But according to the example, each Quantity is a separate set. However, the instructions say "logical grouping of related annotations." So maybe if they refer to the same entity and property, they are grouped. Let's try that.
+
+So annotSet 2:
+
+- Quantity T5: 1.5–2.6 m (IsRange)
+- Quantity T6: ∼2 m (IsApproximate)
+- MeasuredEntity T7: soil column
+- MeasuredProperty T8: depth
+- Qualifier T9: Taking three e-folding depths
+
+But how would the relationships work? The MeasuredProperty "depth" would have two quantities. But according to the example, each MeasuredProperty is linked to a single Quantity. Hmm. This is confusing. Let me check the example structure. In the example, each Quantity had its own MeasuredEntity and MeasuredProperty. So perhaps each Quantity must be its own annotSet. Therefore, even if the same entity and property, they are in different sets. But that seems inefficient. Alternatively, perhaps the same entity and property can be in the same set with multiple quantities. For example, if a MeasuredEntity has multiple quantities for the same property. However, the example doesn't cover that. To follow the example's structure, maybe each Quantity is its own set. So the mean ∼2 m would be annotSet 3.
+
+But that might not make sense. Alternatively, maybe the two quantities (range and mean) are part of the same logical group, so same annotSet. For example:
+
+annotSet 2:
+- Quantity T5: 1.5–2.6 m (IsRange)
+- Quantity T6: ∼2 m (IsApproximate)
+- MeasuredEntity T7: soil column
+- MeasuredProperty T8: depth
+- Qualifier T9: Taking three e-folding depths
+
+Relationships:
+T7 HasProperty T8
+T8 HasQuantity T5
+T8 HasQuantity T6
+Qualifier T9 Qualifies T5 and T6.
+
+But according to the output format, each row has to be part of the same annotSet. So MeasuredEntity and MeasuredProperty are part of the same set. Then, the two Quantities would both have relationships to the same MeasuredProperty. But the example doesn't include this scenario. The example had one Quantity per set. Given this uncertainty, perhaps each Quantity should be its own annotSet. So the 1.5–2.6 m is annotSet 2, and the mean ∼2 m is annotSet 3.
+
+Wait, but the example's annotSets are based on each Quantity having its own set. So following that pattern, both of these would be separate. But the text links them together. However, given the instructions, perhaps each Quantity is a separate annotSet.
+
+Proceeding with that:
+
+annotSet 2: 1.5–2.6 m
+- Quantity T5: 1.5–2.6 m, unit m, mods IsRange
+- MeasuredEntity T6: soil column
+- MeasuredProperty T7: depth
+- Qualifier T8: Taking three e-folding depths (Qualifies T5)
+
+annotSet 3: ∼2 m
+- Quantity T9: ∼2 m, unit m, mods IsApproximate
+- MeasuredEntity T10: soil column
+- MeasuredProperty T11: depth
+- Qualifier T12: Taking three e-folding depths (Qualifies T9)
+
+But this duplicates the MeasuredEntity and Property. Alternatively, maybe the MeasuredEntity and Property can be reused across annotSets. But according to the example, each set is independent with its own T numbers. So each set must have unique T IDs. So in this case, even if the entities and properties are the same, they are part of different sets with different T IDs. That seems redundant, but perhaps that's the structure. 
+
+Alternatively, maybe there's a way to have multiple quantities in the same set. Let's think. The example's each set corresponds to a Quantity and its related entities. If the same entity and property have two quantities, the user might need to have them in the same set. For example:
+
+annotSet 2:
+- Quantity T5: 1.5–2.6 m, unit m, mods IsRange
+- Quantity T6: ∼2 m, unit m, mods IsApproximate
+- MeasuredEntity T7: soil column
+- MeasuredProperty T8: depth
+- Qualifier T9: Taking three e-folding depths
+
+Relationships:
+T7 HasProperty T8
+T8 HasQuantity T5
+T8 HasQuantity T6
+Qualifier T9 Qualifies T5 and T6.
+
+But in the output format, each row must have annotType as one of the four. So how to represent two Quantities in the same set. The example didn't do this, but the instructions don't prohibit it. However, the example's TSV format shows each Quantity in its own set. Therefore, perhaps each Quantity must be its own set. So proceed with separate sets.
+
+Now, annotSet 3 is the mean ∼2 m.
+
+Next, the soil density: "the soil density is 1 g cm−3 (Moore and Jakosky, 1989)". Quantity is "1 g cm−3", unit g cm⁻³, no modifiers. MeasuredEntity is "soil", MeasuredProperty is "density". Qualifier is "(Moore and Jakosky, 1989)", which qualifies the Quantity. 
+
+So annotSet 4:
+
+- Quantity T10: 1 g cm−3, unit g cm⁻³
+- MeasuredEntity T11: soil
+- MeasuredProperty T12: density
+- Qualifier T13: (Moore and Jakosky, 1989)
+
+Relationships:
+T11 HasProperty T12
+T12 HasQuantity T10
+T13 Qualifies T10
+
+Now, let's check if all the quantities are covered:
+
+1. 0.51–0.85 m
+2. 1.5–2.6 m
+3. ∼2 m
+4. 1 g cm−3
+
+Are there any other quantities? The text also mentions "three e-folding depths" — "three" is a count. But the example considered "five samples" as a Quantity with IsCount. So "three e-folding depths" — "three" is a count. MeasuredEntity would be "e-folding depths", MeasuredProperty is count. So Quantity "three", mods IsCount, unit null. 
+
+The sentence is "Taking three e-folding depths, the range would be 1.5–2.6 m depth". So "three e-folding depths" — the number three is a count. So Quantity is "three", MeasuredEntity "e-folding depths", no MeasuredProperty (since it's a count). But according to annotation rules, if it's a count, it's a Quantity with IsCount. So annotSet 5:
+
+- Quantity T14: three, mods IsCount, no unit.
+- MeasuredEntity T15: e-folding depths
+- Relationship: T15 HasQuantity T14.
+
+But the example had "four samples" as Quantity "four" with IsCount, linked to MeasuredEntity "samples". So yes, this should be annotated.
+
+Another possible quantity: "very low weathering rates" — but "low" is a qualitative measure, not a numeric quantity, so not included.
+
+So adding annotSet 5:
+
+annotSet	annotType	annotId	text	other
+5	Quantity	T14	three	{"mods": ["IsCount"]}
+5	MeasuredEntity	T15	e-folding depths	{"HasQuantity": "T14"}
+
+Putting it all together.
+
+Checking for other quantities. The text mentions "calculate the concentrations of anions in the soil for the nominal model and report them in Table 4". But Table 4 is not provided, so no specific numbers here. "nominal model" might be a qualifier for the concentrations, but without specific numbers, can't annotate.
+
+So the final TSV should include all these quantities. Let's compile them:
+
+annotSet	annotType	annotId	text	other
+1	Quantity	T1	0.51–0.85 m	{"unit": "m", "mods": ["IsRange"]}
+1	MeasuredEntity	T2	soil on Mars	{"HasProperty": "T3"}
+1	MeasuredProperty	T3	1/e mixing depth	{"HasQuantity": "T1", "HasProperty": "T2"}
+1	Qualifier	T4	small post-Noachian impactors have churned the soil on Mars	{"Qualifies": "T1"}
+
+2	Quantity	T5	1.5–2.6 m	{"unit": "m", "mods": ["IsRange"]}
+2	MeasuredEntity	T6	soil column	{"HasProperty": "T7"}
+2	MeasuredProperty	T7	depth	{"HasQuantity": "T5", "HasProperty": "T6"}
+2	Qualifier	T8	Taking three e-folding depths	{"Qualifies": "T5"}
+
+3	Quantity	T9	∼2 m	{"unit": "m", "mods": ["IsApproximate"]}
+3	MeasuredEntity	T10	soil column	{"HasProperty": "T11"}
+3	MeasuredProperty	T11	depth	{"HasQuantity": "T9", "HasProperty": "T10"}
+3	Qualifier	T12	Taking three e-folding depths	{"Qualifies": "T9"}
+
+4	Quantity	T13	1 g cm−3	{"unit": "g cm⁻³"}
+4	MeasuredEntity	T14	soil	{"HasProperty": "T15"}
+4	MeasuredProperty	T15	density	{"HasQuantity": "T13", "HasProperty": "T14"}
+4	Qualifier	T16	(Moore and Jakosky, 1989)	{"Qualifies": "T13"}
+
+5	Quantity	T17	three	{"mods": ["IsCount"]}
+5	MeasuredEntity	T18	e-folding depths	{"HasQuantity": "T17"}
+
+Wait, but for annotSet 3, the Qualifier is the same as annotSet 2's Qualifier. But each annotSet is separate, so the Qualifier text "Taking three e-folding depths" is duplicated in annotSet 2 and 3. That's acceptable since each set is independent.
+
+But in reality, the Taking three e-folding depths is a single span qualifying both 1.5–2.6 m and ∼2 m. However, according to the instructions, each annotSet is a logical grouping. If they are part of the same logical group, they should be in the same annotSet. But the example didn't do that. This is a point of ambiguity. To adhere to the example's structure, separate annotSets are used.
+
+Another possible issue: in the first annotSet, the MeasuredEntity is "soil on Mars", but in later sets, it's "soil column" or "soil". Are these different entities? "soil on Mars" and "soil column" might be considered different entities. "soil column" refers to the vertical section of soil, while "soil on Mars" is more general. The text mentions "soil column" when discussing distribution of salts. So these are different entities, hence separate MeasuredEntities.
+
+But in the case of the soil density, the MeasuredEntity is just "soil", which is likely the same as "soil on Mars". However, since the text refers to "the soil density is 1 g cm−3", the MeasuredEntity is simply "soil". So perhaps "soil", "soil on Mars", and "soil column" are all different entities. Therefore, they are treated as separate.
+
+Finally, the "three e-folding depths" is a separate annotSet with its own entities.
+
+This should cover all quantities and their relationships.

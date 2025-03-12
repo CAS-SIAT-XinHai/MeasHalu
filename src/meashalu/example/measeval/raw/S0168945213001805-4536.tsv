@@ -1,0 +1,3 @@
+docId	annotSet	annotType	annotId	text	other
+S0168945213001805-4536	1	Quantity	T1	∼70%	"{""unit"": ""%"", ""mods"": [""IsApproximate""]}"
+S0168945213001805-4536	1	MeasuredEntity	T2	wood	"{""HasQuantity"": ""T1""}"

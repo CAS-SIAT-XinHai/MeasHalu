@@ -1,0 +1,10 @@
+docId	annotSet	annotType	annotId	text	other
+S016412121300188X-4207	1	Quantity	T1	14%	"{""unit"": ""%"", ""mods"": [""IsMean""]}"
+S016412121300188X-4207	1	MeasuredEntity	T2	slices	"{""HasQuantity"": ""T1""}"
+S016412121300188X-4207	1	MeasuredProperty	T3	size deviation	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S016412121300188X-4207	2	Quantity	T4	37%	"{""unit"": ""%"", ""mods"": [""IsMean""]}"
+S016412121300188X-4207	2	MeasuredEntity	T5	slices	"{""HasQuantity"": ""T4""}"
+S016412121300188X-4207	2	MeasuredProperty	T6	size deviation	"{""HasQuantity"": ""T4"", ""HasProperty"": ""T5""}"
+S016412121300188X-4207	3	Quantity	T7	30	"{""mods"": [""IsCount""]}"
+S016412121300188X-4207	3	MeasuredEntity	T8	programs	"{""HasQuantity"": ""T7""}"
+S016412121300188X-4207	3	MeasuredProperty	T9	number	"{""HasQuantity"": ""T7"", ""HasProperty"": ""T8""}"

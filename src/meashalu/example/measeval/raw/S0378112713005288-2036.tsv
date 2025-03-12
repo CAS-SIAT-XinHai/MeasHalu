@@ -1,0 +1,9 @@
+docId	annotSet	annotType	annotId	text	other
+S0378112713005288-2036	1	Quantity	T1	100 m	"{""unit"": ""m""}"
+S0378112713005288-2036	1	MeasuredEntity	T2	oak regeneration	"{""HasQuantity"": ""T1""}"
+S0378112713005288-2036	1	MeasuredProperty	T3	distance from the seed source	"{""HasQuantity"": ""T1"", ""HasProperty"": ""T2""}"
+S0378112713005288-2036	1	Qualifier	T4	the majority of	"{""Qualifies"": ""T2""}"
+S0378112713005288-2036	2	MeasuredProperty	T6	clumped	"{""HasProperty"": ""T5""}"
+S0378112713005288-2036	2	Qualifier	T7	significantly	"{""Qualifies"": ""T6""}"
+S0378112713005288-2036	2	MeasuredProperty	T8	dependent on distance from the seed source	"{""HasProperty"": ""T5""}"
+S0378112713005288-2036	2	Qualifier	T9	not significantly	"{""Qualifies"": ""T8""}"

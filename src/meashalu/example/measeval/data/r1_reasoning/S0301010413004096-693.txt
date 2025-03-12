@@ -1,0 +1,268 @@
+Okay, I need to process this input text and extract the structured annotations as per the instructions. Let me start by reading through the text carefully to identify all the quantities mentioned. 
+
+First, the text mentions "cryogenic temperatures, typically at 77 K". Here, "77 K" is a quantity. The unit is "K" (Kelvin), and the modifier here is "typically", but looking at the example, "typically" might be part of the qualifier rather than a modifier for the quantity. Wait, in the example, "after I drank half the can" is a qualifier. So "typically at 77 K" – "77 K" is the quantity. The "at 77 K" could be part of the qualifier. But according to the steps, first extract quantities. So "77 K" is a quantity. The "cryogenic temperatures" might be a MeasuredEntity or MeasuredProperty. Let's see.
+
+Next, "a record of ∼16 wt% total uptake capacity observed in NU-100". Here, "∼16 wt%" is a quantity. The tilde indicates approximate, so that's an IsApproximate modifier. The unit is "wt%".
+
+Then, "below 10 K" in "In situ neutron powder diffraction (NPD) at below 10 K" – "10 K" is another quantity. The "below" here is part of the qualifier, perhaps? Or is the quantity "below 10 K"? Wait, the quantity is "10 K", but the "below" might be a modifier. But according to the instructions, if a modifier like "approximately" is adjacent, include it. So "below 10 K" would be the quantity? Wait, the example has "approximately 25°C" as the quantity. So in that case, "below 10 K" would be the quantity, with "below" as a modifier. But according to the modifiers list, IsApproximate is for terms like "around". "Below" might be a different kind of qualifier. Hmm. The instructions say: "If a quantity involves a modifier such as 'approximately' or symbols like '>', include it if adjacent to the quantity span." So "below 10 K" would be the quantity span, with "below" as a modifier. So the quantity is "below 10 K", unit "K", modifier IsRange? Or perhaps a different modifier? Wait, "below" is a directional modifier, but in the modifiers list, the available options are IsApproximate, IsCount, IsRange, IsList, etc. Since "below 10 K" is a single value with a condition, maybe the "below" is part of the qualifier. But according to Step 1, the quantity should include adjacent modifiers. So "below 10 K" is the quantity, with "below" as part of the text. Then, in the 'other' field, we can note that it's a modifier. Wait, the Quantity definition says modifiers like tolerances. Wait, the example includes "approximately 25°C" as the quantity text and marks IsApproximate. So in this case, "below 10 K" would have the text "below 10 K", unit "K", and maybe a modifier. But "below" isn't one of the listed modifiers. The modifiers are things like IsApproximate, IsCount, etc. Maybe "below" is part of the text but doesn't correspond to any modifier. So perhaps the quantity is "10 K", and "below" is part of a qualifier. Hmm. This is a bit ambiguous. The instructions say to include adjacent modifiers. If "below" is adjacent, then "below 10 K" is the quantity span. But how to represent the modifier? Since there's no "IsBelow" modifier, maybe "below" is part of the qualifier. Alternatively, perhaps the quantity is "10 K" and the qualifier is "below". Let me check the example again. In the example, "after I drank half the can" is a qualifier. So "at below 10 K" would be part of the qualifier. But in the example, "cryogenic temperatures, typically at 77 K" – the "typically at 77 K" could be a qualifier. So maybe "at 77 K" is part of the qualifier, while "77 K" is the quantity. Wait, but in the example given, "after I drank half the can" is the qualifier. So perhaps in the text "typically at 77 K", "77 K" is the quantity, and "typically at" is part of the qualifier. So in that case, "77 K" is the quantity, and the qualifier is "typically at". Then, the qualifier would link to the quantity. Let me think. The example for Qualifier is "after I drank half the can" in the sentence "The can contained 175 ml of soda after I drank half the can." So the qualifier is the entire phrase "after I drank half the can", which qualifies the quantity "175 ml". Similarly, in the input text here, "albeit at cryogenic temperatures, typically at 77 K" – "typically at 77 K" could be the qualifier. But "77 K" is a quantity. So maybe the qualifier is "albeit at cryogenic temperatures, typically at". Then the quantity is "77 K". But that seems a bit unclear. 
+
+Let me proceed step by step. 
+
+First, extract all quantities. 
+
+Looking at the input:
+
+- "77 K" (in "typically at 77 K") – quantity, unit K.
+
+- "∼16 wt%" (note: the tilde is a symbol for approximate) – quantity, with IsApproximate modifier, unit wt%.
+
+- "10 K" (in "below 10 K") – quantity, unit K. The "below" is part of the qualifier? Or is the quantity "below 10 K"? Maybe "10 K" is the quantity, and "below" is part of the qualifier. 
+
+Another quantity: "high H2 adsorption capacities" – but that's a descriptive phrase, not a numeric quantity. The example mentions "room temperature" as a quantity, but that might be for specific cases. Wait, the instructions say that quantities can be numeric or descriptive, like "room temperature". But in the example given, "room temperature" wasn't present. Wait, the example given was "The soda can's volume was 355 ml." So maybe only numeric quantities are considered here. Or perhaps phrases like "room temperature" are considered as MeasuredProperties. Let me check the definitions. 
+
+1. Quantity: A value that can represent a Count (e.g., "5 apples") or a Measurement (e.g., "355 ml"). It may include optional Modifiers such as tolerances and must ideally relate to a MeasuredEntity or MeasuredProperty using the "HasQuantity" relationship. If no such entity exists, the Quantity can remain standalone.
+
+So "room temperature" would be a descriptive measurement. But in the input text, we have "cryogenic temperatures" – maybe that's a MeasuredProperty. So perhaps the quantities are the numeric ones: 77 K, ∼16 wt%, 10 K.
+
+Now, check for other quantities. The text mentions "microporous to mesoporous region" – "microporous" and "mesoporous" are adjectives, but not quantities. "3D extended frameworks" – not a quantity. "Several members" – "several" is a count, but not a numeric value. "high H2 adsorption capacities" – again, an adjective. "a few best-behaving MOF materials" – "a few" is a count, but again not numeric. So the main quantities are the three I listed: 77 K, ∼16 wt%, and 10 K.
+
+Now, proceeding to Step 1, extract these quantities:
+
+1. "77 K" (quantity, unit K, maybe with a qualifier "typically at")
+2. "∼16 wt%" (quantity, unit wt%, modifier IsApproximate)
+3. "10 K" (quantity, unit K, with qualifier "below")
+
+Next, Step 2: For each quantity, extract modifiers, units, and relations.
+
+Starting with "77 K":
+
+- Text: "77 K" – but in the original text, it's "typically at 77 K". The quantity is "77 K". The "typically at" is part of the qualifier. So the qualifier would be "typically at 77 K" or "typically at". Wait, the qualifier example was a full phrase. Here, "albeit at cryogenic temperatures, typically at 77 K" – the qualifier for "77 K" could be "typically at" and "albeit at cryogenic temperatures". Hmm. But according to the steps, qualifiers are spans that provide context. So the entire phrase "albeit at cryogenic temperatures, typically at 77 K" is a qualifier. But since "77 K" is a quantity, the qualifier would relate to that quantity. Let me think. The original sentence: "Several members within this MOF family have achieved impressively high H2 adsorption capacities (albeit at cryogenic temperatures, typically at 77 K) [4]...". The "(albeit...)" is a parenthetical qualifier explaining the conditions under which the high adsorption capacities are achieved. So the qualifier here is "albeit at cryogenic temperatures, typically at 77 K". But this qualifier is attached to the "high H2 adsorption capacities". However, the quantity "77 K" is part of this qualifier. So perhaps the qualifier is the entire parenthetical phrase, which qualifies the MeasuredProperty "H2 adsorption capacities". But this is getting complex. Alternatively, "albeit at cryogenic temperatures, typically at 77 K" could be a qualifier for the quantity "77 K". But the quantity is "77 K", and the qualifier would explain the conditions (cryogenic temperatures, typically at 77 K). Wait, but that seems redundant. Maybe "albeit at cryogenic temperatures" is a qualifier for the MeasuredEntity or MeasuredProperty. 
+
+This is getting a bit complicated. Let me focus on the quantities first. Each quantity should be in its own annotSet. Wait, in the example, each quantity is in a separate annotSet. For example, "approximately 25°C" is annotSet 1, "500 milliliters" is annotSet 2, etc. So each quantity and its related entities form an annotSet.
+
+So for "77 K", we'll start annotSet 1.
+
+Quantity: "77 K" (text: "77 K"), unit K. No modifiers like IsApproximate here. Then, the MeasuredEntity would be "H2 adsorption capacities" (from the sentence "high H2 adsorption capacities (albeit...77 K)"). But wait, the MeasuredEntity is the entity that the quantity measures. The quantity "77 K" is the temperature at which the adsorption capacities are achieved. So the MeasuredEntity here would be "H2 adsorption capacities", and the MeasuredProperty is "temperature". Wait, but the sentence says "high H2 adsorption capacities (albeit at cryogenic temperatures, typically at 77 K)". So the "temperature" here is the condition (cryogenic, 77 K) under which the capacities are measured. Therefore, the MeasuredEntity is "H2 adsorption capacities", and the MeasuredProperty would be "temperature", with the Quantity "77 K". But the structure here is that the H2 adsorption capacities are measured at a certain temperature. So the MeasuredProperty is "temperature", the MeasuredEntity could be "H2 adsorption capacities", but that might not be correct. Alternatively, the MeasuredEntity is "environments" or the MOF materials, and the MeasuredProperty is "temperature". Wait, perhaps the MeasuredEntity here is "H2 adsorption capacities", but that's a property itself. Hmm.
+
+Alternatively, maybe the MeasuredEntity is "MOF family members" (as in "Several members within this MOF family have achieved..."), and the MeasuredProperty is "H2 adsorption capacities", with the Quantity "high". But "high" is not a quantity here. Wait, the actual quantity related to H2 adsorption is the "∼16 wt%", which is the uptake capacity.
+
+So let's parse this part of the text:
+
+"Several members within this MOF family have achieved impressively high H2 adsorption capacities (albeit at cryogenic temperatures, typically at 77 K) [4] with a record of ∼16 wt% total uptake capacity observed in NU-100 [5] and MOF-200 [6]."
+
+So the main quantities here are "77 K" (temperature) and "∼16 wt%" (total uptake capacity). The "high H2 adsorption capacities" is a MeasuredProperty, but "high" is an adjective, not a quantity. The actual quantity for the uptake capacity is "∼16 wt%". 
+
+So the first quantity is "77 K", which is the temperature at which the high adsorption capacities are measured. The MeasuredEntity here is the "H2 adsorption capacities", and the MeasuredProperty is "temperature". The Quantity "77 K" is linked to the MeasuredProperty "temperature", which is linked to the MeasuredEntity "H2 adsorption capacities".
+
+So annotSet 1 would be:
+
+- Quantity: 77 K (unit K)
+- MeasuredEntity: H2 adsorption capacities
+- MeasuredProperty: temperature
+- Relationships: HasProperty (H2 adsorption capacities -> temperature), HasQuantity (temperature -> 77 K)
+- Qualifier: "albeit at cryogenic temperatures, typically at 77 K" would qualify the MeasuredEntity or MeasuredProperty. But since the Qualifier can link to any of them, perhaps it qualifies the Quantity. Alternatively, it qualifies the MeasuredEntity. Hmm. The Qualifier's role is to provide context. Here, the qualifier explains that the high adsorption capacities are achieved under cryogenic temperatures, specifically 77 K. So the qualifier "albeit at cryogenic temperatures, typically at 77 K" would qualify the H2 adsorption capacities (MeasuredEntity), indicating the conditions under which they are measured. But the Quantity "77 K" is part of this qualifier. Alternatively, the Qualifier is the entire parenthetical phrase, which qualifies the MeasuredEntity "H2 adsorption capacities". Then, the Qualifier's "Qualifies" relationship would link to the MeasuredEntity T2. Let's proceed step by step.
+
+AnnotSet 1:
+- Quantity T1: 77 K, unit K
+- MeasuredEntity T2: H2 adsorption capacities
+- MeasuredProperty T3: temperature
+- Qualifier T4: albeit at cryogenic temperatures, typically at 77 K
+
+Relationships:
+- T2 (H2 adsorption capacities) HasProperty -> T3 (temperature)
+- T3 (temperature) HasQuantity -> T1 (77 K)
+- T4 (Qualifier) Qualifies -> T2 (H2 adsorption capacities)
+
+But wait, the text for the qualifier is "albeit at cryogenic temperatures, typically at 77 K". However, the "77 K" is already a Quantity. So perhaps the qualifier is "albeit at cryogenic temperatures, typically at", and the "77 K" is a separate quantity. Alternatively, the entire phrase is the qualifier, but since "77 K" is a quantity, it's part of the qualifier's text. However, in the TSV output, each annotation must have its own row. So the qualifier would be the text "albeit at cryogenic temperatures, typically at 77 K", which includes the quantity "77 K". But how to handle this overlap? According to the instructions, annotations can overlap. The qualifier can include the quantity's text. But the Quantity is a separate annotation. So the Qualifier's text would be the entire parenthetical part, but in the example, the qualifier was a separate phrase. For example, in the given example, the qualifier "after I drank half the can" is separate from the Quantity "175 ml". So in this case, the qualifier includes the Quantity "77 K", but since it's a separate annotation, perhaps the Qualifier's text is "albeit at cryogenic temperatures, typically at". But that seems odd. Alternatively, perhaps the qualifier is only "albeit at cryogenic temperatures", and "typically at 77 K" is another qualifier. This is getting complicated. Maybe I should treat the entire parenthetical as a single qualifier. However, since "77 K" is a Quantity, the Qualifier's text cannot include it. Therefore, the Qualifier would be "albeit at cryogenic temperatures, typically at" and the Quantity "77 K" is separate. Alternatively, the qualifier is "albeit at cryogenic temperatures", and "typically at 77 K" is another qualifier. But the original text has "albeit at cryogenic temperatures, typically at 77 K", so maybe two qualifiers here. This is getting too detailed. For the sake of this task, perhaps the Qualifier is "albeit at cryogenic temperatures, typically at 77 K", but the Quantity "77 K" is a separate annotation. In that case, the Qualifier's text is "albeit at cryogenic temperatures, typically at 77 K" and it Qualifies the MeasuredEntity "H2 adsorption capacities". But then, the Quantity "77 K" is part of the Qualifier's text, but also a separate annotation. This is allowed in annotation schemes as overlapping annotations. So annotSet 1 would have:
+
+- T1: Quantity "77 K" (unit K)
+- T2: MeasuredEntity "H2 adsorption capacities"
+- T3: MeasuredProperty "temperature"
+- T4: Qualifier "albeit at cryogenic temperatures, typically at 77 K"
+
+Relationships:
+- T2 HasProperty T3
+- T3 HasQuantity T1
+- T4 Qualifies T2
+
+But then the Qualifier includes T1's text. However, according to the instructions, each annotation is a separate span. So perhaps the Qualifier is the entire parenthetical phrase, but the Quantity is part of that phrase. So the text for T4 is "albeit at cryogenic temperatures, typically at 77 K", which includes the Quantity T1's text "77 K". The relationships would be:
+
+- T4 Qualifies T2 (H2 adsorption capacities)
+
+Now, moving to the second quantity: "∼16 wt%". This is in the phrase "a record of ∼16 wt% total uptake capacity observed in NU-100". The quantity here is "∼16 wt%", which is approximate (due to the tilde), so it has the IsApproximate modifier. The unit is "wt%". The MeasuredEntity is "total uptake capacity", and the MeasuredProperty would be "record" or "uptake". Wait, the sentence says "total uptake capacity", which is the MeasuredProperty. The MeasuredEntity would be "NU-100" and "MOF-200", but these are specific instances. Alternatively, the MeasuredEntity is "MOF materials" (NU-100 and MOF-200), and the MeasuredProperty is "total uptake capacity". The Quantity "16 wt%" is the value of this capacity. So:
+
+AnnotSet 2:
+- Quantity T5: ∼16 wt% (unit wt%, mods: IsApproximate)
+- MeasuredEntity T6: NU-100 and MOF-200 (but the text is "NU-100 [5] and MOF-200 [6]". However, the MeasuredEntity should be the entity being measured. The total uptake capacity is of the MOFs, so perhaps the MeasuredEntity is "NU-100 and MOF-200". But the text mentions both, so it's a list. But the example TSV has separate annotSets for each quantity. However, in this case, the quantity "∼16 wt%" is a single value observed in both NU-100 and MOF-200. So the MeasuredEntity would be "NU-100 and MOF-200". Alternatively, each MOF is its own MeasuredEntity, but the text groups them. Probably, "NU-100 and MOF-200" is the MeasuredEntity. The MeasuredProperty is "total uptake capacity". Then:
+
+- T5: Quantity "∼16 wt%", unit wt%, mods: IsApproximate
+- T6: MeasuredEntity "NU-100 and MOF-200"
+- T7: MeasuredProperty "total uptake capacity"
+- Relationships: T6 HasProperty T7, T7 HasQuantity T5.
+
+But wait, the sentence says "a record of ∼16 wt% total uptake capacity observed in NU-100 [5] and MOF-200 [6]." So the total uptake capacity is a property of NU-100 and MOF-200. So T6 is the MeasuredEntity (NU-100 and MOF-200), T7 is the MeasuredProperty (total uptake capacity), and T5 is the Quantity. 
+
+AnnotSet 2:
+- Quantity T5: ∼16 wt% (mods: IsApproximate, unit wt%)
+- MeasuredEntity T6: NU-100 and MOF-200
+- MeasuredProperty T7: total uptake capacity
+- Relationships:
+  - T6 HasProperty T7
+  - T7 HasQuantity T5
+
+Now, the third quantity is "10 K" in "In situ neutron powder diffraction (NPD) at below 10 K". The phrase is "below 10 K". Following the example where "approximately 25°C" is the quantity, "below 10 K" would be the quantity text. But does "below" count as a modifier? The modifiers include IsApproximate, IsCount, etc., but "below" is a directional modifier. Since there's no specific modifier for "below", perhaps the quantity is "10 K", and the "below" is part of the Qualifier. Alternatively, the quantity is "below 10 K" and the unit is K. However, "below" is not a unit or a numeric value. So perhaps "10 K" is the quantity, and the Qualifier is "below". But in the text, it's "below 10 K", which is a prepositional phrase. So the quantity is "10 K", and the Qualifier is "below".
+
+But according to the instructions, if a quantity has an adjacent modifier like "approximately", include it. "below" is adjacent, so the quantity should be "below 10 K". However, this is not a numeric value but a condition. Alternatively, maybe the quantity is "10 K", and the "below" is a Qualifier. Let's check the example given. In the example, "after I drank half the can" is a Qualifier for the quantity "175 ml". So a qualifier can be a separate phrase. Here, "below 10 K" is part of the condition for the NPD. So the Qualifier is "below 10 K", which qualifies the MeasuredEntity or MeasuredProperty related to the NPD. But the actual quantity here is "10 K". So perhaps:
+
+AnnotSet 3:
+- Quantity T8: 10 K (unit K)
+- Qualifier T9: below 10 K (qualifies the MeasuredEntity or MeasuredProperty related to the NPD experiment)
+
+But what is the MeasuredEntity here? The sentence is "In situ neutron powder diffraction (NPD) at below 10 K has been used previously to determine the locations of D2 within a few best-behaving MOF materials..." The NPD is conducted at below 10 K. The MeasuredEntity here could be "neutron powder diffraction (NPD)", and the MeasuredProperty is "temperature". The Quantity is "10 K", and the Qualifier "below 10 K" qualifies the NPD's temperature. Or perhaps the MeasuredEntity is "D2", but that's not directly related. Alternatively, the temperature is a condition of the experiment, so the MeasuredEntity might be the experiment itself (NPD), and the MeasuredProperty is temperature. But this is getting too abstract. Let's structure it:
+
+AnnotSet 3:
+- Quantity T8: 10 K (unit K)
+- MeasuredEntity T9: neutron powder diffraction (NPD)
+- MeasuredProperty T10: temperature
+- Qualifier T11: below
+
+Relationships:
+- T9 (NPD) HasProperty T10 (temperature)
+- T10 (temperature) HasQuantity T8 (10 K)
+- T11 (below) Qualifies T8 (Quantity 10 K)
+
+But the text says "at below 10 K". The "below" is part of the Qualifier. The Quantity is "10 K". The Qualifier is "below", which qualifies the Quantity. So the other field for Qualifier T11 would be {"Qualifies": "T8"}.
+
+Wait, but the entire phrase "below 10 K" is the qualifier. Or is "below" the qualifier and "10 K" the quantity? According to the instructions, if the modifier is adjacent, include it in the quantity. So "below 10 K" would be the quantity's text. But how to represent that? The example includes "approximately 25°C" as the quantity with the modifier IsApproximate. Here, "below" isn't a standard modifier. The available modifiers are IsApproximate, IsCount, etc. Since "below" doesn't fit any of these, perhaps "below 10 K" is the quantity text, but without any modifiers, and the unit is K. But this seems incorrect. Alternatively, "below" is a qualifier, and the quantity is "10 K". Let me think. The instructions say that the Qualifier is an optional span describing conditions. So in this case, the condition is that the temperature is below 10 K. Therefore, the Qualifier is "below", which qualifies the Quantity "10 K". The Quantity is "10 K", and the Qualifier "below" is linked to it via Qualifies. So:
+
+AnnotSet 3:
+- Quantity T8: 10 K (unit K)
+- Qualifier T9: below (text: "below")
+- Relationships: T9 Qualifies T8
+
+But the original text says "below 10 K". So the Qualifier's text is "below", and the Quantity is "10 K". But how is "below" extracted as a separate span? The text is "below 10 K", so "below" is part of the prepositional phrase. Therefore, "below" is part of the qualifier that qualifies the quantity. Therefore, the Qualifier is "below", which is a separate annotation that Qualifies the Quantity T8. 
+
+However, in the original sentence, "at below 10 K" is used. So the entire phrase "at below 10 K" is a prepositional phrase acting as a qualifier. But "at" is a preposition, and "below 10 K" is the object. So perhaps the Qualifier is "at below 10 K", which Qualifies the MeasuredEntity "neutron powder diffraction (NPD)". The Quantity "10 K" is part of that Qualifier. So:
+
+AnnotSet 3:
+- Quantity T8: 10 K (unit K)
+- Qualifier T9: at below 10 K (text: "at below 10 K")
+- Relationships: T9 Qualifies T8 (Quantity)
+
+But then the Qualifier includes the Quantity's text. This is possible. However, according to the example, the Qualifier is a separate phrase. Here, it's acceptable for the Qualifier to include the Quantity text. However, the Quantity must still be annotated separately. So the Qualifier's text is "at below 10 K", which includes "10 K", the Quantity. The Qualifier T9 would have a relationship Qualifies -> T8 (Quantity). But this seems a bit circular. Alternatively, the Qualifier Qualifies the MeasuredEntity or MeasuredProperty. Let's think about the purpose of the Qualifier. The phrase "at below 10 K" describes the conditions under which the NPD was conducted. The NPD is the MeasuredEntity, and the Qualifier "at below 10 K" qualifies it. But within that Qualifier, the Quantity "10 K" is present, which relates to the temperature. So perhaps:
+
+AnnotSet 3:
+- Quantity T8: 10 K (unit K)
+- MeasuredEntity T9: neutron powder diffraction (NPD)
+- MeasuredProperty T10: temperature
+- Qualifier T11: at below 10 K
+
+Relationships:
+- T9 HasProperty T10 (temperature)
+- T10 HasQuantity T8 (10 K)
+- T11 Qualifies T9 (NPD)
+
+But the Qualifier "at below 10 K" qualifies the NPD (MeasuredEntity), indicating the temperature condition. The Quantity "10 K" is linked to the MeasuredProperty "temperature". The Qualifier is the entire phrase explaining the condition.
+
+This seems plausible.
+
+Now, putting all this together into TSV format.
+
+For AnnotSet 1:
+
+- annotSet 1
+- Quantity T1: 77 K, unit K
+- MeasuredEntity T2: H2 adsorption capacities
+- MeasuredProperty T3: temperature
+- Qualifier T4: albeit at cryogenic temperatures, typically at 77 K
+
+Relationships:
+- T2 HasProperty T3
+- T3 HasQuantity T1
+- T4 Qualifies T2
+
+For AnnotSet 2:
+
+- annotSet 2
+- Quantity T5: ∼16 wt%, unit wt%, mods IsApproximate
+- MeasuredEntity T6: NU-100 and MOF-200
+- MeasuredProperty T7: total uptake capacity
+- Relationships:
+  - T6 HasProperty T7
+  - T7 HasQuantity T5
+
+For AnnotSet 3:
+
+- annotSet 3
+- Quantity T8: 10 K, unit K
+- MeasuredEntity T9: neutron powder diffraction (NPD)
+- MeasuredProperty T10: temperature
+- Qualifier T11: at below 10 K
+- Relationships:
+  - T9 HasProperty T10
+  - T10 HasQuantity T8
+  - T11 Qualifies T9
+
+Another possible quantity: "molecular separations comparable to that to D2 in the solid state". But "molecular separations" is a MeasuredProperty, not a quantity. The text mentions "D2 molecules have molecular separations comparable to that to D2 in the solid state". No specific numeric quantity here, so not extracted.
+
+Now, let's check for other possible quantities. "exposed metal sites [7–12]". The [7–12] are references, not quantities. "1.23±0.25‰" – wait, does the input text mention this? No, that's from the example. The input mentions "It has been found that D2 can bind directly to vacant sites on metal centres, and that the adsorbed D2 molecules have molecular separations comparable to that to D2 in the solid state." No numeric quantities here. 
+
+Thus, the three main quantities are 77 K, ∼16 wt%, and 10 K.
+
+Now, formatting these into TSV:
+
+AnnotSet 1:
+
+1	Quantity	T1	77 K	{"unit": "K"}
+1	MeasuredEntity	T2	H2 adsorption capacities	{"HasProperty": "T3"}
+1	MeasuredProperty	T3	temperature	{"HasQuantity": "T1", "HasProperty": "T2"}
+1	Qualifier	T4	albeit at cryogenic temperatures, typically at 77 K	{"Qualifies": "T2"}
+
+AnnotSet 2:
+
+2	Quantity	T5	∼16 wt%	{"unit": "wt%", "mods": ["IsApproximate"]}
+2	MeasuredEntity	T6	NU-100 and MOF-200	{"HasProperty": "T7"}
+2	MeasuredProperty	T7	total uptake capacity	{"HasQuantity": "T5", "HasProperty": "T6"}
+
+AnnotSet 3:
+
+3	Quantity	T8	10 K	{"unit": "K"}
+3	MeasuredEntity	T9	neutron powder diffraction (NPD)	{"HasProperty": "T10"}
+3	MeasuredProperty	T10	temperature	{"HasQuantity": "T8", "HasProperty": "T9"}
+3	Qualifier	T11	at below 10 K	{"Qualifies": "T9"}
+
+Wait, in AnnotSet 3, the Qualifier "at below 10 K" qualifies the MeasuredEntity T9 (NPD), which is correct as the NPD was conducted at that temperature.
+
+Let me validate each entry.
+
+For AnnotSet 1:
+
+- T1: Quantity 77 K, unit K. No modifiers needed.
+- T2: MeasuredEntity "H2 adsorption capacities" links to T3 (HasProperty).
+- T3: MeasuredProperty "temperature" links to T1 (HasQuantity) and T2 (HasProperty).
+- T4: Qualifier "albeit...77 K" qualifies T2.
+
+Yes.
+
+For AnnotSet 2:
+
+- T5: Quantity ∼16 wt%, with IsApproximate modifier.
+- T6: MeasuredEntity "NU-100 and MOF-200".
+- T7: MeasuredProperty "total uptake capacity".
+
+Relationships correct.
+
+For AnnotSet 3:
+
+- T8: Quantity 10 K.
+- T9: MeasuredEntity "neutron powder diffraction (NPD)".
+- T10: MeasuredProperty "temperature".
+- T11: Qualifier "at below 10 K" qualifies T9.
+
+This makes sense, as the Qualifier explains the conditions under which the NPD was conducted.
+
+Another check: Are there any other quantities? 
+
+The text mentions "D2 within a few best-behaving MOF materials". "a few" is a count, which could be a Quantity with IsCount modifier. However, "a few" is not a numeric value. The instructions state that counts should be numeric, like "five samples". So "a few" is a descriptive count and not extracted as a Quantity. Thus, it's ignored.
+
+So the final TSV would have three annotSets as above.

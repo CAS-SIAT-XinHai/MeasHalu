@@ -1,0 +1,10 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S016412121300188X-4640	1	Quantity	60	65	T1	52.1%	"{""unit"": ""%""}"
+S016412121300188X-4640	1	MeasuredEntity	73	91	T2	program's vertices	"{""HasQuantity"": ""T1""}"
+S016412121300188X-4640	2	Quantity	132	144	T3	54 functions	"{""unit"": ""functions"", ""mods"": [""IsCount""]}"
+S016412121300188X-4640	2	MeasuredEntity	135	144	T4	functions	"{""HasQuantity"": ""T3""}"
+S016412121300188X-4640	3	Quantity	157	171	T5	7 source files	"{""unit"": ""source files"", ""mods"": [""IsCount""]}"
+S016412121300188X-4640	3	MeasuredEntity	159	171	T6	source files	"{""HasQuantity"": ""T5""}"
+S016412121300188X-4640	4	Quantity	272	274	T7	26	"{""mods"": [""IsCount""]}"
+S016412121300188X-4640	4	MeasuredEntity	261	270	T8	functions	"{""HasQuantity"": ""T7""}"
+S016412121300188X-4640	4	Qualifier	275	321	T9	begin with the common prefix of “handle_token”	"{""Qualifies"": ""T8""}"

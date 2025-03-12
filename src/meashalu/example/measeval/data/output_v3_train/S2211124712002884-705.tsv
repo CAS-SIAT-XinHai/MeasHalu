@@ -1,0 +1,7 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S2211124712002884-705	1	Quantity	163	167	T1	100%	"{""unit"": ""%"", ""mods"": [""IsMean""]}"
+S2211124712002884-705	1	MeasuredEntity	138	151	T2	control lines	"{""HasQuantity"": ""T1""}"
+S2211124712002884-705	1	MeasuredProperty	127	133	T3	values	"{""HasQuantity"": ""T1""}"
+S2211124712002884-705	2	Quantity	180	190	T4	mean ± SEM	"{""unit"": ""SEM"", ""mods"": [""IsMeanHasSD""]}"
+S2211124712002884-705	2	MeasuredEntity	169	175	T5	Values	"{""HasQuantity"": ""T4""}"
+S2211124712002884-705	2	MeasuredProperty	127	133	T6	values	"{""HasQuantity"": ""T4""}"

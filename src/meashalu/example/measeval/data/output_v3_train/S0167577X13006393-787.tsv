@@ -1,0 +1,9 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0167577X13006393-787	1	Quantity	118	122	T1	1.37	"{""unit"": ""ratio"", ""mods"": []}"
+S0167577X13006393-787	1	MeasuredEntity	40	56	T2	HA nanoparticles	"{""HasQuantity"": ""T1""}"
+S0167577X13006393-787	1	MeasuredProperty	107	117	T3	Ca/P ratio	"{""HasQuantity"": ""T1""}"
+S0167577X13006393-787	2	Quantity	183	190	T4	1200 °C	"{""unit"": ""\u00b0C"", ""mods"": []}"
+S0167577X13006393-787	2	MeasuredEntity	152	168	T5	HA decomposition	"{""HasQuantity"": ""T4""}"
+S0167577X13006393-787	3	Quantity	278	282	T6	1.67	"{""unit"": ""ratio"", ""mods"": []}"
+S0167577X13006393-787	3	MeasuredEntity	263	270	T7	pure HA	"{""HasQuantity"": ""T6""}"
+S0167577X13006393-787	3	MeasuredProperty	272	277	T8	ratio	"{""HasQuantity"": ""T6""}"

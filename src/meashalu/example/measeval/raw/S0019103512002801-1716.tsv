@@ -1,0 +1,6 @@
+docId	annotSet	annotType	annotId	text	other
+S0019103512002801-1716	1	Quantity	T1	3–4 nT	"{""unit"": ""nT"", ""mods"": [""IsRange"", ""IsMean""]}"
+S0019103512002801-1716	1	MeasuredEntity	T2	∣B∣	"{""HasQuantity"": ""T1""}"
+S0019103512002801-1716	1	Qualifier	T3	on average	"{""Qualifies"": ""T1""}"
+S0019103512002801-1716	1	Qualifier	T4	during the latter	"{""Qualifies"": ""T2""}"
+S0019103512002801-1716	1	Qualifier	T5	compared to all other flybys	"{""Qualifies"": ""T1""}"

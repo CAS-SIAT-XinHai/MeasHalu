@@ -1,0 +1,11 @@
+docId	annotSet	annotType	startOffset	endOffset	annotId	text	other
+S0038071711004354-2573	1	Quantity	166	174	T1	20–30 cm	"{""unit"": ""cm"", ""mods"": [""IsRange""]}"
+S0038071711004354-2573	1	MeasuredEntity	182	194	T2	soil profile	"{""HasQuantity"": ""T1""}"
+S0038071711004354-2573	1	Qualifier	139	165	T4	constrained within the top	"{""Qualifies"": ""T1""}"
+S0038071711004354-2573	2	Quantity	559	564	T5	20 cm	"{""unit"": ""cm""}"
+S0038071711004354-2573	2	MeasuredEntity	568	580	T6	soil profile	"{""HasQuantity"": ""T5""}"
+S0038071711004354-2573	2	Qualifier	544	558	T8	within the top	"{""Qualifies"": ""T5""}"
+S0038071711004354-2573	3	Quantity	667	676	T9	2013–2017	"{""unit"": ""years"", ""mods"": [""IsRange""]}"
+S0038071711004354-2573	3	MeasuredEntity	619	665	T10	second commitment period of the Kyoto protocol	"{""HasQuantity"": ""T9""}"
+S0038071711004354-2573	4	Quantity	406	409	T12	six	"{""unit"": ""sites"", ""mods"": [""IsCount""]}"
+S0038071711004354-2573	4	MeasuredEntity	410	436	T13	Mediterranean forest sites	"{""HasQuantity"": ""T12""}"
