@@ -4,17 +4,17 @@
 # XinHai stands for [Sea of Minds].
 #
 # Authors: Vimos Tan
-import re
-from enum import Enum
-from typing import List, Optional, Union
-from typing import NewType
 import json
+from enum import Enum
+from typing import List
+from typing import NewType
+
 from pydantic import BaseModel, model_validator
 
-MeasEvalAnnotationIdType = NewType("MeasEvalAnnotationIdType", str)
+MeasEvalAdaptedAnnotationIdType = NewType("MeasEvalAdaptedAnnotationIdType", str)
 
 
-class MeasEvalAnnotationSpanType(str, Enum):
+class MeasEvalAdaptedAnnotationSpanType(str, Enum):
     """
     The basic annotation set defined here consists of 4 types of spans, with 3 types of relationship between them.
     """
@@ -47,15 +47,8 @@ class MeasEvalAnnotationSpanType(str, Enum):
     """
     Qualifier = "Qualifier"
 
-    # """
-    # A required (if possible) span, usually contained within the Quantity span, denoting the Unit of measurement used in the Quantity.
 
-    # The soda can's volume was 355 *ml*.
-    # """
-    # Unit = "Unit"
-
-
-class MeasEvalAnnotationRelationshipType(str, Enum):
+class MeasEvalAdaptedAnnotationRelationshipType(str, Enum):
     """"""
     """
     HasQuantity, which relates a MeasuredEntity or MeasuredProperty to a Qauntity;
@@ -73,7 +66,7 @@ class MeasEvalAnnotationRelationshipType(str, Enum):
     Qualifies = "Qualifies"
 
 
-class MeasEvalAnnotationQuantityModifierType(str, Enum):
+class MeasEvalAdaptedAnnotationQuantityModifierType(str, Enum):
     """"""
 
     """
@@ -201,11 +194,12 @@ class MeasEvalAnnotationQuantityModifierType(str, Enum):
     """
     HasTolerance = "HasTolerance"
 
-class  MeasEvalTextType(BaseModel):
+
+class MeasEvalAdaptedTextType(BaseModel):
     text: str
 
 
-class MeasEvalOtherType(BaseModel):
+class MeasEvalAdaptedOtherType(BaseModel):
     other: str
 
     @model_validator(mode='after')
@@ -216,27 +210,27 @@ class MeasEvalOtherType(BaseModel):
             raise ValueError("other field is not in Json format")
 
         if not all(k in ["HasQuantity", "HasProperty", "Qualifies", "mods", "unit"]
-                        for k in list(data.keys())):
+                   for k in list(data.keys())):
             raise ValueError("Illegal key in other field")
         if "mods" in list(data.keys()):
-                    if type(data["mods"]) != list:
-                        raise ValueError(
-                            "'{}' mods field is not a list".format(data["mods"])
-                        )
-                    if not all(k in ['IsCount', 'IsApproximate', 'IsMeanHasTolerance', 'IsMedian',
-                                        'IsList', 'IsRangeHasTolerance', 'IsMean', 'IsRange',
-                                        'HasTolerance', 'IsMeanIsRange', 'IsMeanHasSD'] for k in data["mods"]):
-                        raise ValueError(
-                            "'{}' has invalid key in mods".format(data["mods"])
-                        )
+            if type(data["mods"]) != list:
+                raise ValueError(
+                    "'{}' mods field is not a list".format(data["mods"])
+                )
+            if not all(k in ['IsCount', 'IsApproximate', 'IsMeanHasTolerance', 'IsMedian',
+                             'IsList', 'IsRangeHasTolerance', 'IsMean', 'IsRange',
+                             'HasTolerance', 'IsMeanIsRange', 'IsMeanHasSD'] for k in data["mods"]):
+                raise ValueError(
+                    "'{}' has invalid key in mods".format(data["mods"])
+                )
         return self
 
 
-class MeasEvalSetType(BaseModel):
+class MeasEvalAdaptedSetType(BaseModel):
     annotSet: int
-    
 
-class MeasEvalAnnotationMeasurement(BaseModel):
+
+class MeasEvalAdaptedAnnotationMeasurement(BaseModel):
     """
     For the TSV format, the following fields are used:
 
@@ -251,57 +245,34 @@ class MeasEvalAnnotationMeasurement(BaseModel):
         For Quantities: other holds the unit: the unit in the text; si: the SI equivalant of this unit, if applicable, and mods: a set of modifiers that further describe the Quantity.
         For MeasuredEntity, MeasuredProperty, and Qualifier, other holds the relationship type and target of the related span, in the form {relationType: targetAnnotation}
     """
-    # docId: str
-    annotSet: MeasEvalSetType
-    annotType: MeasEvalAnnotationSpanType
-    # startOffset: int
-    # endOffset: int
-    annotId: MeasEvalAnnotationIdType
-    text: MeasEvalTextType
-    other: MeasEvalOtherType
-
-    # @model_validator(mode='after')
-    # def check_annotation_id(self) -> 'MeasEvalAnnotationMeasurement':
-    #     if not re.match(r"T\d+\-\d+", self.annotId):
-    #         raise ValueError(
-    #             "'annotId' does not match extpected format"
-    #         )
-    #     return self
-
-    # @model_validator(mode='after')
-    # def check_span_length(self) -> 'MeasEvalAnnotationMeasurement':
-    #     expected_len = self.endOffset - self.startOffset
-    #     text_len = len(self.text)
-    #     if expected_len != text_len:
-    #         raise ValueError(
-    #             "'{}' length {} does not match extpected length /{}/".format(self.text, text_len, expected_len)
-    #         )
-    #     return self
+    annotSet: MeasEvalAdaptedSetType
+    annotType: MeasEvalAdaptedAnnotationSpanType
+    annotId: MeasEvalAdaptedAnnotationIdType
+    text: MeasEvalAdaptedTextType
+    other: MeasEvalAdaptedOtherType
 
     @model_validator(mode='after')
-    def check_other_type(self) -> 'MeasEvalAnnotationMeasurement':
+    def check_other_type(self) -> 'MeasEvalAdaptedAnnotationMeasurement':
         data = json.loads(self.other.other)
         # print(data)
-        if self.annotType == MeasEvalAnnotationSpanType.Quantity:
+        if self.annotType == MeasEvalAdaptedAnnotationSpanType.Quantity:
             if not all(k in ["mods", "unit"] for k in list(data.keys())):
                 raise ValueError(f"Annotation type is {self.annotType}, but other type is {self.other.other}!")
-        elif self.annotType == MeasEvalAnnotationSpanType.MeasuredEntity:
+        elif self.annotType == MeasEvalAdaptedAnnotationSpanType.MeasuredEntity:
             if not all(k in ["HasProperty", "HasQuantity"] for k in list(data.keys())):
                 raise ValueError(f"Annotation type is {self.annotType}, but other type is {self.other.other}!")
-        elif self.annotType == MeasEvalAnnotationSpanType.MeasuredProperty:
+        elif self.annotType == MeasEvalAdaptedAnnotationSpanType.MeasuredProperty:
             if not all(k in ["HasQuantity"] for k in list(data.keys())):
                 raise ValueError(f"Annotation type is {self.annotType}, but other type is {self.other.other}!")
-        elif self.annotType == MeasEvalAnnotationSpanType.Qualifier:
+        elif self.annotType == MeasEvalAdaptedAnnotationSpanType.Qualifier:
             if not all(k in ["Qualifies"] for k in list(data.keys())):
                 raise ValueError(f"Annotation type is {self.annotType}, but other type is {self.other.other}!")
         return self
-        
-    
-        
+
 
 # deprecated
-class MeasEvalAnnotationInstance(BaseModel):
-    entries: List[MeasEvalAnnotationMeasurement]
+class MeasEvalAdaptedAnnotationInstance(BaseModel):
+    entries: List[MeasEvalAdaptedAnnotationMeasurement]
 
     @model_validator(mode='after')
     def check_unique_id(self):
@@ -316,5 +287,5 @@ class MeasEvalAnnotationInstance(BaseModel):
         #     raise ValueError("docId is not unique!")
 
     @classmethod
-    def from_entries(cls, entries: List[MeasEvalAnnotationMeasurement]) -> 'MeasEvalAnnotationInstance':
+    def from_entries(cls, entries: List[MeasEvalAdaptedAnnotationMeasurement]) -> 'MeasEvalAdaptedAnnotationInstance':
         return cls(entries=entries)
