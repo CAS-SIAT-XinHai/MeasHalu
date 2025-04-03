@@ -6,7 +6,8 @@ from quantulum import parser
 from quantulum.classes import Entity, Unit, Quantity
 from quantulum.load import NAMES, ENTITIES, UNITS
 
-from meashalu.schemas.quantulum import QuantulumAnnotationEntityType, QuantulumAnnotationQuantity
+from meashalu.schemas.quantulum import QuantulumAnnotationEntityType, QuantulumAnnotationQuantity, \
+    QuantulumAnnotationInstance
 
 
 def get_quantity(test, item):
@@ -171,3 +172,11 @@ class TestQuantulumAnnotationInstance(unittest.TestCase):
                     print(quantity)
                     print(quantity.unit)
                     print(quantity.unit.entity)
+
+    def test_get_quantity_3(self):
+        with open('quantulum_tests.json') as f:
+            tests = json.load(f)
+
+        for test in tests:
+            instance = QuantulumAnnotationInstance.from_quantulum(parser.parse(test['req']))
+            print(instance)

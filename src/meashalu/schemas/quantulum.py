@@ -4,6 +4,8 @@
 # XinHai stands for [Sea of Minds].
 #
 # Authors: Vimos Tan
+import logging
+import random
 from dataclasses import dataclass, field
 from enum import Enum
 from typing import List, Tuple, Self, Optional
@@ -306,6 +308,7 @@ class QuantulumAnnotationEntityType(QuantulumAnnotationEntityTypeMixin, Enum):
         QuantulumAnnotationEntityDimensionType(base=QuantulumAnnotationEntityDimensionBaseType.TIME,
                                                power=-1), ]
     UNKNOWN = "unknown", "https://en.wikipedia.org/wiki/unit_(measurement)", []
+
 
 @dataclass
 class QuantulumAnnotationUnitTypeMixin:
@@ -1118,10 +1121,19 @@ class QuantulumAnnotationUnit(QuantulumAnnotationUnitTypeMixin, Enum):
 
     @classmethod
     def from_quantulum(cls, obj: Unit) -> Self:
+        candidates = []
         for unit in cls:
-            if unit.name_ == obj.name or obj.name in unit.surfaces:
+            if unit.name_ == obj.name:
                 return unit
-        return cls.UNKNOWN
+            if unit.surfaces and obj.name in unit.surfaces:
+                candidates.append(unit)
+
+        if candidates:
+            logging.warning(f"Multiple candidates for {obj.name}: {candidates}")
+            return random.choice(candidates)
+
+        unit = cls.UNKNOWN
+        return unit
 
 
 class QuantulumAnnotationQuantity(BaseModel):
@@ -1130,13 +1142,47 @@ class QuantulumAnnotationQuantity(BaseModel):
     surface: str
     span: Tuple[int, int]
     uncertainty: Optional[float] = None
+    derived_unit: Optional[QuantulumAnnotationUnitTypeMixin] = None
+    derived_entity: Optional[QuantulumAnnotationEntityTypeMixin] = None
 
     @classmethod
     def from_quantulum(cls, obj: Quantity) -> Self:
+        unit = QuantulumAnnotationUnit.from_quantulum(obj.unit)
+        if unit == QuantulumAnnotationUnit.UNKNOWN:
+            logging.warning(f"Unknown unit {obj.unit.name}")
+            derived_unit = QuantulumAnnotationUnitTypeMixin(
+                name_=obj.unit.name,
+                uri=obj.unit.uri,
+                entity=QuantulumAnnotationEntityType.UNKNOWN,
+                surfaces=obj.unit.surfaces,
+                symbols=obj.unit.symbols,
+                dimensions=obj.unit.dimensions,
+            )
+            derived_entity = QuantulumAnnotationEntityTypeMixin(
+                name_=obj.unit.entity.name,
+                uri=obj.unit.entity.uri,
+                dimensions=obj.unit.entity.dimensions,
+            )
+        else:
+            derived_unit = None
+            derived_entity = None
+
         return cls(
             value=str(obj.value),
-            unit=QuantulumAnnotationUnit.from_quantulum(obj.unit),
+            unit=unit,
             surface=obj.surface,
             span=obj.span,
             uncertainty=obj.uncertainty,
+            derived_unit=derived_unit,
+            derived_entity=derived_entity
+        )
+
+
+class QuantulumAnnotationInstance(BaseModel):
+    entries: List[QuantulumAnnotationQuantity]
+
+    @classmethod
+    def from_quantulum(cls, obj: List[Quantity]) -> Self:
+        return cls(
+            entries=[QuantulumAnnotationQuantity.from_quantulum(quantity) for quantity in obj]
         )
