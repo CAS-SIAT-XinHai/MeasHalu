@@ -6,7 +6,7 @@ PatchFastRL("GRPO", FastLanguageModel)
 
 from unsloth import is_bfloat16_supported
 import torch
-from utils.rewards import strict_format_reward_func,quantities_reward_func,is_quantity_penalty_func
+from utils.rewards import strict_format_reward_func,quantities_reward_func,is_quantity_penalty_func,other_penalty_func
 max_seq_length = 8196 # Can increase for longer reasoning traces
 lora_rank = 32 # Larger rank = smarter, but slower
 model, tokenizer = FastLanguageModel.from_pretrained(
@@ -56,7 +56,7 @@ def get_measdata(jsonl_path) -> Dataset:
             })
     return Dataset.from_list(data)
 
-dataset = get_measdata("/home/huangruijun/grpo_unsloth/data/quantity_grpo.jsonl")
+dataset = get_measdata("/home/huangruijun/grpo_unsloth_2/data/quantity_grpo.jsonl")
 
 
 from trl import GRPOConfig, GRPOTrainer
@@ -92,6 +92,7 @@ trainer = GRPOTrainer(
         strict_format_reward_func,
         quantities_reward_func,
         is_quantity_penalty_func,
+        other_penalty_func
     ],
     args = training_args,
     train_dataset = dataset,

@@ -6,11 +6,11 @@ PatchFastRL("GRPO", FastLanguageModel)
 
 from unsloth import is_bfloat16_supported
 import torch
-from utils.rewards import strict_format_reward_func,quantities_reward_func,is_quantity_penalty_func
+from utils.rewards import strict_format_reward_func,quantities_reward_func,is_quantity_penalty_func,other_penalty_func
 max_seq_length = 8196 # Can increase for longer reasoning traces
 lora_rank = 32 # Larger rank = smarter, but slower
 model, tokenizer = FastLanguageModel.from_pretrained(
-    model_name = "/home/huangruijun/grpo_unsloth/outputs_quantity_penalty/lora_merge/2000step",
+    model_name = "/home/huangruijun/grpo_unsloth_2/outputs_quantity_penalty/lora_merge/checkpoint-5500",
     max_seq_length = max_seq_length,
     load_in_4bit = True, # False for LoRA 16bit
     fast_inference = True, # Enable vLLM fast inference
@@ -56,7 +56,7 @@ def get_measdata(jsonl_path) -> Dataset:
             })
     return Dataset.from_list(data)
 
-dataset = get_measdata("/home/huangruijun/grpo_unsloth/data/quantity_grpo.jsonl")
+dataset = get_measdata("/home/huangruijun/grpo_unsloth_augment_2/data/quantity_augment.jsonl")
 
 
 from trl import GRPOConfig, GRPOTrainer
@@ -74,10 +74,10 @@ training_args = GRPOConfig(
     fp16 = not is_bfloat16_supported(),
     per_device_train_batch_size = 1,
     gradient_accumulation_steps = 1, # Increase to 4 for smoother training
-    num_generations = 6, # Decrease if out of memory
+    num_generations = 8, # Decrease if out of memory
     max_prompt_length = 2000,
     max_completion_length = 4096,
-    num_train_epochs = 20, # Set to 1 for a full training run
+    num_train_epochs = 200, # Set to 1 for a full training run
     # max_steps = 250,
     save_steps = 250,
     max_grad_norm = 0.1,
@@ -92,10 +92,11 @@ trainer = GRPOTrainer(
         strict_format_reward_func,
         quantities_reward_func,
         is_quantity_penalty_func,
+        other_penalty_func
     ],
     args = training_args,
     train_dataset = dataset,
 )
-trainer.train()
+trainer.train(resume_from_checkpoint = True)
 
 model.save_lora("grpo_saved_lora")
