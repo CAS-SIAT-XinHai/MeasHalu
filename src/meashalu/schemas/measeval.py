@@ -6,10 +6,13 @@
 # Authors: Vimos Tan
 import re
 from enum import Enum
-from typing import List, Optional, Union
+from typing import List, Optional, Set, Union
 from typing import NewType
 
+import spacy
 from pydantic import BaseModel, model_validator
+
+nlp = spacy.load("en_core_web_sm")
 
 MeasEvalAnnotationIdType = NewType("MeasEvalAnnotationIdType", str)
 
@@ -296,16 +299,87 @@ class MeasEvalAnnotationMeasurement(BaseModel):
 
 class MeasEvalAnnotationInstance(BaseModel):
     docId: str
+    text: str
     entries: List[MeasEvalAnnotationMeasurement]
+    annotSet: Set[int]
 
     @model_validator(mode='after')
     def check_unique_id(self):
-        if len(set([e.docId for e in self.entries])) != 1:
-            raise ValueError("docId is not unique!")
-        if len(set([e.docId for e in self.entries])) != 1:
-            raise ValueError("docId is not unique!")
+        doc_ids = set([e.docId for e in self.entries])
+        if len(doc_ids) != 1:
+            raise ValueError(f"docId {doc_ids} is not unique!")
 
     @classmethod
-    def from_entries(cls, entries: List[MeasEvalAnnotationMeasurement]) -> 'MeasEvalAnnotationInstance':
+    def from_entries(cls, entries: List[MeasEvalAnnotationMeasurement], text: str) -> 'MeasEvalAnnotationInstance':
         docId = entries[0].docId
-        return cls(docId=docId, entries=entries)
+        annotSet = set([e.annotSet for e in entries])
+        return cls(docId=docId, text=text, entries=entries, annotSet=annotSet)
+
+    def to_instruction_per_set(self, entries: List[MeasEvalAnnotationMeasurement], sentences: List[str]) -> str:
+        quantities = [e for e in entries if e.annotType == MeasEvalAnnotationSpanType.Quantity]
+        entities = [e for e in entries if e.annotType == MeasEvalAnnotationSpanType.MeasuredEntity]
+
+        assert len(quantities) == 1
+        assert len(entities) == 1
+
+        print(quantities[0].other)
+        print(entities[0].other)
+
+        quantity = quantities[0]
+        if isinstance(quantity.other, MeasEvalAnnotationQuantityModifiersAndUnits):
+            quantity_instruction = "[{text}], it has unit [{unit}].".format(text=quantity.text, unit=quantity.other.unit)
+            if quantity.other.mods is not None:
+                quantity_instruction += " The modifier for the quantity are [{mods}].".format(
+                    mods=", ".join([m.value for m in quantity.other.mods]))
+        else:
+            quantity_instruction = quantity.text
+
+        qualifiers = [e for e in entries if e.annotType == MeasEvalAnnotationSpanType.Qualifier]
+        if len(qualifiers) == 1:
+            qualifier = qualifiers[0]
+            qualifier_instruction = """The quantity has a qualifier [{qualifier}].""".format(qualifier=qualifier.text)
+        else:
+            qualifier_instruction = ""
+
+        entity = entities[0]
+        entity_instruction = entity.text
+        # print(entity.other)
+
+        properties = [e.text for e in entries if e.annotType == MeasEvalAnnotationSpanType.MeasuredProperty]
+
+        property_instruction = """The entity has the following property [{property}].""".format(property="\n".join(properties)) if len(properties) == 1 else ""
+
+
+        return """From the target sentences: 
+{sentences}
+
+We can find the quantity with surface form {quantity} {qualifier} This quantity is used to describe the entity [{entity}]. {property}""".format(
+            sentences="\n".join(sentences),
+            quantity=quantity_instruction,
+            entity=entity_instruction,
+            property=property_instruction,
+            qualifier=qualifier_instruction
+        )
+
+    def to_instruction(self) -> str:
+        doc = nlp(self.text)
+        doc.set_extension("annotSet", default={}, force=True)
+        for sent in doc.sents:
+            for entry in self.entries:
+                if entry.startOffset >= sent.start_char and entry.endOffset <= sent.end_char:
+                    doc._.annotSet.setdefault(entry.annotSet, set())
+                    doc._.annotSet[entry.annotSet].add(sent)
+
+        instructions = []
+        for aset in self.annotSet:
+            entries = [e for e in self.entries if e.annotSet == aset]
+            sents = doc._.annotSet[aset]
+            instructions.append(self.to_instruction_per_set(entries, [s.text for s in sents]).strip())
+
+        return """From the given text: 
+{text}
+
+There are quantities and associated descriptions found:
+
+### {instruction}
+""".format(text=self.text, instruction="\n\n### ".join(instructions))
