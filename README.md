@@ -4,8 +4,9 @@
 
 # MeasHalu: Mitigation of Scientific Measurement Hallucinations for Large Language Models with Enhanced Reasoning
 
-[![ACL 2026 Findings](https://img.shields.io/badge/ACL%202026-Findings-blue)](https://aclanthology.org/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![ACL 2026 Findings](https://img.shields.io/badge/ACL%202026-Findings-blue?style=for-the-badge)](https://aclanthology.org/)
+[![arXiv](https://img.shields.io/badge/arXiv-2604.16929-b31b1b.svg?style=for-the-badge)]([https://arxiv.org/abs/2604.16929]) [![HuggingFace](https://img.shields.io/badge/huggingface-%23FFD21E.svg?style=for-the-badge&logo=huggingface&logoColor=white)]([[https://huggingface.co/CAS-SIAT-XinHai/MeasHalu-3B-Instruct])
+[![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 
 
 MeasHalu is a framework for mitigating scientific measurement hallucinations in large language models through fine-grained taxonomy, reasoning-aware fine-tuning, and progressive reward curriculum optimization.
