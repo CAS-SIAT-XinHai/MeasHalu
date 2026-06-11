@@ -1,0 +1,12 @@
+### Note: DO NOT use quantized model or quantization_bit when merging lora adapters
+
+### model
+model_name_or_path: /home/huangruijun/LLaMA-Factory/saves/qwen2-0.5b-instruct/full/quantity6stage_20k/checkpoint-300
+adapter_name_or_path: /home/huangruijun/LLaMA-Factory/saves/qwen2-0.5b-instruct/lora/6stage_meas_2/checkpoint-50
+finetuning_type: lora
+
+### export
+export_dir: /home/huangruijun/LLaMA-Factory/saves/qwen2-0.5b-instruct/lora_merge/sftA_B
+export_size: 2
+export_device: cpu
+export_legacy_format: false
